@@ -19,30 +19,30 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 /* loaded from: classes4.dex */
 public class RoundedImageView extends ImageView {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final ImageView.ScaleType[] oSI;
+    private static final ImageView.ScaleType[] oSK;
     private float cornerRadius;
     private float dfR;
     private Drawable mBackgroundDrawable;
     private Drawable mDrawable;
     private Paint mPaint;
     private ImageView.ScaleType mScaleType;
-    private ColorStateList oSJ;
-    private boolean oSK;
-    private boolean oSL;
-    private int oSM;
+    private ColorStateList oSL;
+    private boolean oSM;
+    private boolean oSN;
+    private int oSO;
 
     static {
         $assertionsDisabled = !RoundedImageView.class.desiredAssertionStatus();
-        oSI = new ImageView.ScaleType[]{ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
+        oSK = new ImageView.ScaleType[]{ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
     }
 
     public RoundedImageView(Context context) {
         super(context);
         this.cornerRadius = 90.0f;
         this.dfR = 0.0f;
-        this.oSJ = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
-        this.oSK = false;
-        this.oSL = false;
+        this.oSL = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+        this.oSM = false;
+        this.oSN = false;
     }
 
     public RoundedImageView(Context context, AttributeSet attributeSet) {
@@ -53,13 +53,13 @@ public class RoundedImageView extends ImageView {
         super(context, attributeSet, i);
         this.cornerRadius = 90.0f;
         this.dfR = 0.0f;
-        this.oSJ = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
-        this.oSK = false;
-        this.oSL = false;
+        this.oSL = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+        this.oSM = false;
+        this.oSN = false;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.RoundedImageView, i, 0);
         int i2 = obtainStyledAttributes.getInt(a.j.RoundedImageView_android_scaleType, -1);
         if (i2 >= 0) {
-            setScaleType(oSI[i2]);
+            setScaleType(oSK[i2]);
         } else {
             setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
@@ -74,14 +74,14 @@ public class RoundedImageView extends ImageView {
         if (this.dfR < 0.0f) {
             this.dfR = 0.0f;
         }
-        this.oSJ = obtainStyledAttributes.getColorStateList(a.j.RoundedImageView_border_color);
-        if (ThemeManager.enN() == ThemeManager.ThemeMode.NIGHT) {
-            this.oSJ = ColorStateList.valueOf(8351342);
-        } else if (this.oSJ == null) {
-            this.oSJ = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+        this.oSL = obtainStyledAttributes.getColorStateList(a.j.RoundedImageView_border_color);
+        if (ThemeManager.enO() == ThemeManager.ThemeMode.NIGHT) {
+            this.oSL = ColorStateList.valueOf(8351342);
+        } else if (this.oSL == null) {
+            this.oSL = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
         }
-        this.oSL = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_mutate_background, false);
-        this.oSK = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_oval, false);
+        this.oSN = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_mutate_background, false);
+        this.oSM = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_oval, false);
         updateDrawableAttrs();
         AE(true);
         obtainStyledAttributes.recycle();
@@ -90,7 +90,7 @@ public class RoundedImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.enN() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.enO() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawCircle(getWidth() / 2, getHeight() / 2, getWidth() / 2, this.mPaint);
         }
     }
@@ -173,7 +173,7 @@ public class RoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
-        this.oSM = 0;
+        this.oSO = 0;
         this.mDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(drawable);
         updateDrawableAttrs();
         super.setImageDrawable(this.mDrawable);
@@ -181,7 +181,7 @@ public class RoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        this.oSM = 0;
+        this.oSO = 0;
         this.mDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.Z(bitmap);
         updateDrawableAttrs();
         super.setImageDrawable(this.mDrawable);
@@ -189,9 +189,9 @@ public class RoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
-        if (this.oSM != i) {
-            this.oSM = i;
-            this.mDrawable = emP();
+        if (this.oSO != i) {
+            this.oSO = i;
+            this.mDrawable = emQ();
             updateDrawableAttrs();
             super.setImageDrawable(this.mDrawable);
         }
@@ -203,18 +203,18 @@ public class RoundedImageView extends ImageView {
         setImageDrawable(getDrawable());
     }
 
-    private Drawable emP() {
+    private Drawable emQ() {
         Drawable drawable = null;
         Resources resources = getResources();
         if (resources == null) {
             return null;
         }
-        if (this.oSM != 0) {
+        if (this.oSO != 0) {
             try {
-                drawable = resources.getDrawable(this.oSM);
+                drawable = resources.getDrawable(this.oSO);
             } catch (Exception e) {
-                Log.w("RoundedImageView", "Unable to find resource: " + this.oSM, e);
-                this.oSM = 0;
+                Log.w("RoundedImageView", "Unable to find resource: " + this.oSO, e);
+                this.oSO = 0;
             }
         }
         return com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(drawable);
@@ -225,7 +225,7 @@ public class RoundedImageView extends ImageView {
     }
 
     private void AE(boolean z) {
-        if (this.oSL) {
+        if (this.oSN) {
             if (z) {
                 this.mBackgroundDrawable = com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a.fromDrawable(this.mBackgroundDrawable);
             }
@@ -236,7 +236,7 @@ public class RoundedImageView extends ImageView {
     private void k(Drawable drawable) {
         if (drawable != null) {
             if (drawable instanceof com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) {
-                ((com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) drawable).b(this.mScaleType).bj(this.cornerRadius).bk(this.dfR).b(this.oSJ).AC(this.oSK).AD(true);
+                ((com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a) drawable).b(this.mScaleType).bj(this.cornerRadius).bk(this.dfR).b(this.oSL).AC(this.oSM).AD(true);
             } else if (drawable instanceof LayerDrawable) {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -289,15 +289,15 @@ public class RoundedImageView extends ImageView {
     }
 
     public ColorStateList getBorderColors() {
-        return this.oSJ;
+        return this.oSL;
     }
 
     public void setBorderColor(ColorStateList colorStateList) {
-        if (!this.oSJ.equals(colorStateList)) {
+        if (!this.oSL.equals(colorStateList)) {
             if (colorStateList == null) {
                 colorStateList = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
             }
-            this.oSJ = colorStateList;
+            this.oSL = colorStateList;
             updateDrawableAttrs();
             AE(false);
             if (this.dfR > 0.0f) {
@@ -307,15 +307,15 @@ public class RoundedImageView extends ImageView {
     }
 
     public void setOval(boolean z) {
-        this.oSK = z;
+        this.oSM = z;
         updateDrawableAttrs();
         AE(false);
         invalidate();
     }
 
     public void setMutateBackground(boolean z) {
-        if (this.oSL != z) {
-            this.oSL = z;
+        if (this.oSN != z) {
+            this.oSN = z;
             AE(true);
             invalidate();
         }

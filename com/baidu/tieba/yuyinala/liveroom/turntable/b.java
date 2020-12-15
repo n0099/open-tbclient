@@ -18,8 +18,8 @@ import com.baidu.webkit.internal.ETAG;
 public class b {
     private CustomMessageListener bRw;
     private Activity beD;
-    private a.InterfaceC0935a oqP;
-    private a oqR;
+    private a.InterfaceC0935a oqR;
+    private a oqT;
 
     public b(Activity activity) {
         this.beD = activity;
@@ -27,21 +27,21 @@ public class b {
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.oqR = new a(this.beD);
-        this.oqR.a(this.oqP);
-        this.oqR.getWebView().setBackgroundColor(iu(str));
+        this.oqT = new a(this.beD);
+        this.oqT.a(this.oqR);
+        this.oqT.getWebView().setBackgroundColor(iu(str));
         g gVar = new g();
-        gVar.x(this.beD).a(this.oqR).a(this.oqR.getWebView().getSchemeCallback());
+        gVar.x(this.beD).a(this.oqT).a(this.oqT.getWebView().getSchemeCallback());
         com.baidu.live.view.web.a[] YO = gVar.YO();
         for (com.baidu.live.view.web.a aVar : YO) {
-            this.oqR.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            this.oqT.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.oqR.GD(b(str, j, j2, j3));
+        this.oqT.GD(b(str, j, j2, j3));
     }
 
     public void dismiss() {
-        if (this.oqR != null) {
-            this.oqR.YQ();
+        if (this.oqT != null) {
+            this.oqT.YQ();
         }
     }
 
@@ -50,8 +50,8 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.oqR != null && b.this.oqR.isShowing()) {
-                    b.this.oqR.dismiss();
+                if (b.this.oqT != null && b.this.oqT.isShowing()) {
+                    b.this.oqT.dismiss();
                 }
             }
         };

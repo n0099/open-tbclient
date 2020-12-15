@@ -20,7 +20,7 @@ public class p extends BdBaseModel {
     long userID = -1;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private boolean loop = false;
-    private Runnable hIx = new Runnable() { // from class: com.baidu.tieba.ala.g.p.2
+    private Runnable hIz = new Runnable() { // from class: com.baidu.tieba.ala.g.p.2
         @Override // java.lang.Runnable
         public void run() {
             if (p.this.userID != -1) {
@@ -35,7 +35,7 @@ public class p extends BdBaseModel {
 
         void bl(int i, String str);
 
-        void cmk();
+        void cml();
 
         void fM(long j);
     }
@@ -60,7 +60,7 @@ public class p extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        cmh();
+        cmi();
         b(aVar);
     }
 
@@ -73,26 +73,26 @@ public class p extends BdBaseModel {
                     StartPkResponseMessage startPkResponseMessage = (StartPkResponseMessage) httpResponsedMessage;
                     if (!startPkResponseMessage.isSuccess()) {
                         aVar.bl(startPkResponseMessage.getError(), startPkResponseMessage.getErrorString());
-                        p.this.mHandler.removeCallbacks(p.this.hIx);
-                        p.this.mHandler.postDelayed(p.this.hIx, 2000L);
-                    } else if (startPkResponseMessage.clW().isEmpty()) {
-                        p.this.mHandler.removeCallbacks(p.this.hIx);
-                        p.this.mHandler.postDelayed(p.this.hIx, 2000L);
-                    } else if (startPkResponseMessage.clV() == 2) {
-                        p.this.cmj();
-                        aVar.cmk();
+                        p.this.mHandler.removeCallbacks(p.this.hIz);
+                        p.this.mHandler.postDelayed(p.this.hIz, 2000L);
+                    } else if (startPkResponseMessage.clX().isEmpty()) {
+                        p.this.mHandler.removeCallbacks(p.this.hIz);
+                        p.this.mHandler.postDelayed(p.this.hIz, 2000L);
+                    } else if (startPkResponseMessage.clW() == 2) {
+                        p.this.cmk();
+                        aVar.cml();
                         AlaStatsItem alaStatsItem = new AlaStatsItem();
                         alaStatsItem.addValue("lodId", Long.valueOf(startPkResponseMessage.getLogId()));
                         AlaStatManager.getInstance().debug("pk_competition_match_failed", alaStatsItem);
-                    } else if (startPkResponseMessage.clT() <= 0) {
+                    } else if (startPkResponseMessage.clU() <= 0) {
                         if (p.this.loop) {
-                            aVar.ak(startPkResponseMessage.clW());
-                            p.this.mHandler.removeCallbacks(p.this.hIx);
-                            p.this.mHandler.postDelayed(p.this.hIx, startPkResponseMessage.getInterval() * 1000);
+                            aVar.ak(startPkResponseMessage.clX());
+                            p.this.mHandler.removeCallbacks(p.this.hIz);
+                            p.this.mHandler.postDelayed(p.this.hIz, startPkResponseMessage.getInterval() * 1000);
                         }
                     } else {
-                        p.this.cmj();
-                        aVar.fM(startPkResponseMessage.clT());
+                        p.this.cmk();
+                        aVar.fM(startPkResponseMessage.clU());
                     }
                 }
             }
@@ -100,7 +100,7 @@ public class p extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void cmh() {
+    private void cmi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021210, TbConfig.SERVER_ADDRESS + "ala/pksolo/startPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -110,14 +110,14 @@ public class p extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cmi() {
+    public void cmj() {
         cancelLoadData();
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021210);
     }
 
-    public void cmj() {
-        this.mHandler.removeCallbacks(this.hIx);
+    public void cmk() {
+        this.mHandler.removeCallbacks(this.hIz);
         this.loop = false;
     }
 }

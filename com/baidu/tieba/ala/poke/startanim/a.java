@@ -17,9 +17,9 @@ import com.baidu.tieba.ala.poke.startanim.PokeStartAnimView;
 public class a implements com.baidu.live.v.b {
     private MediaMetadataRetriever bek;
     w bur;
-    private CustomMessageListener hTj;
-    private PokeStartAnimView hTk;
-    String hTl;
+    private CustomMessageListener hTl;
+    private PokeStartAnimView hTm;
+    String hTn;
     private boolean isShowing = false;
     String mOtherParams;
     private ViewGroup mParentView;
@@ -27,7 +27,7 @@ public class a implements com.baidu.live.v.b {
     @Override // com.baidu.live.v.b
     public void setParentView(ViewGroup viewGroup) {
         this.mParentView = viewGroup;
-        cou();
+        cov();
     }
 
     @Override // com.baidu.live.v.b
@@ -35,7 +35,7 @@ public class a implements com.baidu.live.v.b {
         this.bur = wVar;
         this.mOtherParams = str;
         reset();
-        cos();
+        cot();
     }
 
     @Override // com.baidu.live.v.b
@@ -45,7 +45,7 @@ public class a implements com.baidu.live.v.b {
 
     @Override // com.baidu.live.v.b
     public void IB() {
-        cot();
+        cou();
         reset();
     }
 
@@ -61,14 +61,14 @@ public class a implements com.baidu.live.v.b {
         return this.mParentView;
     }
 
-    private void cos() {
-        if (this.hTj == null) {
-            this.hTj = new CustomMessageListener(2913267) { // from class: com.baidu.tieba.ala.poke.startanim.a.1
+    private void cot() {
+        if (this.hTl == null) {
+            this.hTl = new CustomMessageListener(2913267) { // from class: com.baidu.tieba.ala.poke.startanim.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage.getData() instanceof String) {
-                        a.this.hTl = (String) customResponsedMessage.getData();
+                        a.this.hTn = (String) customResponsedMessage.getData();
                         if (!a.this.isShowing) {
                             a.this.startAnim();
                         }
@@ -76,12 +76,12 @@ public class a implements com.baidu.live.v.b {
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.hTj);
+        MessageManager.getInstance().registerListener(this.hTl);
     }
 
-    private void cot() {
-        if (this.hTj != null) {
-            MessageManager.getInstance().unRegisterListener(this.hTj);
+    private void cou() {
+        if (this.hTl != null) {
+            MessageManager.getInstance().unRegisterListener(this.hTl);
         }
     }
 
@@ -96,17 +96,17 @@ public class a implements com.baidu.live.v.b {
         int i2;
         int i3 = 0;
         this.isShowing = true;
-        cou();
-        this.hTk.setVisibility(0);
-        String cow = c.cov().cow();
-        if (TextUtils.isEmpty(cow)) {
+        cov();
+        this.hTm.setVisibility(0);
+        String cox = c.cow().cox();
+        if (TextUtils.isEmpty(cox)) {
             i = 0;
         } else {
             if (this.bek == null) {
                 this.bek = new MediaMetadataRetriever();
             }
             try {
-                this.bek.setDataSource(cow);
+                this.bek.setDataSource(cox);
                 i2 = Integer.valueOf(this.bek.extractMetadata(18)).intValue();
                 try {
                     i3 = Integer.valueOf(this.bek.extractMetadata(19)).intValue();
@@ -115,13 +115,13 @@ public class a implements com.baidu.live.v.b {
                     th = th;
                     th.printStackTrace();
                     i = i2;
-                    cow = null;
+                    cox = null;
                     if (i > 0) {
                     }
-                    cow = null;
+                    cox = null;
                     int realScreenWidth = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-                    this.hTk.ca(realScreenWidth, TextUtils.isEmpty(cow) ? (realScreenWidth * i3) / (i / 2) : realScreenWidth);
-                    this.hTk.Je(cow);
+                    this.hTm.ca(realScreenWidth, TextUtils.isEmpty(cox) ? (realScreenWidth * i3) / (i / 2) : realScreenWidth);
+                    this.hTm.Je(cox);
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -129,29 +129,29 @@ public class a implements com.baidu.live.v.b {
             }
         }
         if (i > 0 || i3 <= 0) {
-            cow = null;
+            cox = null;
         }
         int realScreenWidth2 = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-        this.hTk.ca(realScreenWidth2, TextUtils.isEmpty(cow) ? (realScreenWidth2 * i3) / (i / 2) : realScreenWidth2);
-        this.hTk.Je(cow);
+        this.hTm.ca(realScreenWidth2, TextUtils.isEmpty(cox) ? (realScreenWidth2 * i3) / (i / 2) : realScreenWidth2);
+        this.hTm.Je(cox);
     }
 
-    private void cou() {
-        if (this.hTk == null) {
-            this.hTk = new PokeStartAnimView(getContext());
+    private void cov() {
+        if (this.hTm == null) {
+            this.hTm = new PokeStartAnimView(getContext());
         }
-        if (bls().indexOfChild(this.hTk) < 0) {
-            bls().addView(this.hTk, new ViewGroup.LayoutParams(-1, -1));
+        if (bls().indexOfChild(this.hTm) < 0) {
+            bls().addView(this.hTm, new ViewGroup.LayoutParams(-1, -1));
         }
-        this.hTk.setVisibility(8);
-        this.hTk.setCallback(new PokeStartAnimView.a() { // from class: com.baidu.tieba.ala.poke.startanim.a.2
+        this.hTm.setVisibility(8);
+        this.hTm.setCallback(new PokeStartAnimView.a() { // from class: com.baidu.tieba.ala.poke.startanim.a.2
             @Override // com.baidu.tieba.ala.poke.startanim.PokeStartAnimView.a
             public void onAnimEnd() {
-                if (a.this.hTk != null) {
+                if (a.this.hTm != null) {
                     a.this.isShowing = false;
-                    a.this.hTk.setVisibility(8);
-                    if (!a.this.hTl.isEmpty() && !a.this.bur.isHost) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new r(a.this.getContext(), a.this.bur, a.this.mOtherParams, a.this.hTl)));
+                    a.this.hTm.setVisibility(8);
+                    if (!a.this.hTn.isEmpty() && !a.this.bur.isHost) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new r(a.this.getContext(), a.this.bur, a.this.mOtherParams, a.this.hTn)));
                     }
                 }
             }
@@ -160,9 +160,9 @@ public class a implements com.baidu.live.v.b {
 
     private void reset() {
         this.isShowing = false;
-        if (this.hTk != null) {
-            this.hTk.stopAnim();
-            this.hTk.setVisibility(8);
+        if (this.hTm != null) {
+            this.hTm.stopAnim();
+            this.hTm.setVisibility(8);
         }
     }
 
@@ -173,12 +173,12 @@ public class a implements com.baidu.live.v.b {
             this.bek.release();
             this.bek = null;
         }
-        if (this.hTk != null) {
-            this.hTk.setCallback(null);
-            this.hTk.release();
+        if (this.hTm != null) {
+            this.hTm.setCallback(null);
+            this.hTm.release();
         }
-        if (this.hTk != null && (this.hTk.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.hTk.getParent()).removeView(this.hTk);
+        if (this.hTm != null && (this.hTm.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.hTm.getParent()).removeView(this.hTm);
         }
         this.mParentView = null;
     }

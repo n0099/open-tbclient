@@ -56,7 +56,7 @@ public class c {
             return this;
         }
 
-        public c bQx() {
+        public c bQy() {
             return new c(this.mUri, this.mFolder, this.mName, this.mDescription);
         }
     }

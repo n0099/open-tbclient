@@ -31,7 +31,7 @@ public class a extends k<b, c> {
             ap.setBackgroundColor(cVar.getView(), R.color.CAM_X0201);
             ap.setViewTextColor(cVar.title, R.color.CAM_X0105, 1);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.cAv())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.cAw())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

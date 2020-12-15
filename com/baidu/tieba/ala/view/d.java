@@ -24,80 +24,80 @@ import com.baidu.tieba.ala.view.g;
 /* loaded from: classes4.dex */
 public class d {
     private View contentView;
-    private g.a gKY;
-    private String ghb;
-    private boolean ghc;
-    private TextView hPL;
-    private TextView hVL;
-    private HeadImageView hVM;
+    private g.a gLa;
+    private String ghd;
+    private boolean ghe;
+    private TextView hPN;
     private TextView hVN;
-    private TextView hVO;
+    private HeadImageView hVO;
     private TextView hVP;
     private TextView hVQ;
+    private TextView hVR;
+    private TextView hVS;
     private Context mContext;
     private View mRootView;
 
     public d(Context context, String str, boolean z) {
         this.mContext = context;
-        this.ghb = str;
-        this.ghc = z;
+        this.ghd = str;
+        this.ghe = z;
         initView();
     }
 
     private void initView() {
-        if ("hot".equals(this.ghb) || SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.ghb) || "hour".equals(this.ghb) || "charm_day".equals(this.ghb)) {
+        if ("hot".equals(this.ghd) || SdkStaticKeys.RANK_TYPE_FLOWER.equals(this.ghd) || "hour".equals(this.ghd) || "charm_day".equals(this.ghd)) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_rank_list_hot_bottom_layout, (ViewGroup) null);
             this.contentView = this.mRootView.findViewById(a.f.content_view);
             HO();
-            this.hVL = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
-            this.hVM = (HeadImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
-            this.hPL = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
-            this.hVN = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info);
-            this.hVO = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info_extra);
-            this.hVQ = (TextView) this.mRootView.findViewById(a.f.rank_list_charm_right);
-            this.hVP = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_support);
+            this.hVN = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
+            this.hVO = (HeadImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
+            this.hPN = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
+            this.hVP = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info);
+            this.hVQ = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info_extra);
+            this.hVS = (TextView) this.mRootView.findViewById(a.f.rank_list_charm_right);
+            this.hVR = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_support);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                this.hVP.setBackgroundResource(a.e.hk_ala_rank_list_support_bg);
+                this.hVR.setBackgroundResource(a.e.hk_ala_rank_list_support_bg);
             } else {
-                this.hVP.setBackgroundResource(a.e.qm_hour_rank_list_support_bg);
+                this.hVR.setBackgroundResource(a.e.qm_hour_rank_list_support_bg);
             }
-            this.hVP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.d.1
+            this.hVR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (d.this.gKY != null) {
-                        d.this.gKY.g(view, d.this.ghb);
+                    if (d.this.gLa != null) {
+                        d.this.gLa.g(view, d.this.ghd);
                     }
                 }
             });
-        } else if (ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(this.ghb) || SdkStaticKeys.RANK_TYPE_CHARM.equals(this.ghb) || "rich".equals(this.ghb)) {
+        } else if (ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(this.ghd) || SdkStaticKeys.RANK_TYPE_CHARM.equals(this.ghd) || "rich".equals(this.ghd)) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_rank_list_bottom_view, (ViewGroup) null);
-            this.hVL = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
-            this.hVM = (HeadImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
-            this.hPL = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
-            this.hVN = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info);
-            this.hVP = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_support);
+            this.hVN = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_rank);
+            this.hVO = (HeadImageView) this.mRootView.findViewById(a.f.ala_rank_list_user_header);
+            this.hPN = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_user_name);
+            this.hVP = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_info);
+            this.hVR = (TextView) this.mRootView.findViewById(a.f.ala_rank_list_support);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                this.hVP.setBackgroundResource(a.e.hk_ala_rank_list_support_bg);
+                this.hVR.setBackgroundResource(a.e.hk_ala_rank_list_support_bg);
             } else {
-                this.hVP.setBackgroundResource(a.e.qm_ala_rank_list_support_bg);
+                this.hVR.setBackgroundResource(a.e.qm_ala_rank_list_support_bg);
             }
-            if (SdkStaticKeys.RANK_TYPE_CHARM.equals(this.ghb) && this.ghc) {
-                this.hVP.setVisibility(8);
+            if (SdkStaticKeys.RANK_TYPE_CHARM.equals(this.ghd) && this.ghe) {
+                this.hVR.setVisibility(8);
             } else {
-                this.hVP.setVisibility(0);
+                this.hVR.setVisibility(0);
             }
-            this.hVP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.d.2
+            this.hVR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (d.this.gKY != null) {
-                        d.this.gKY.g(view, d.this.ghb);
+                    if (d.this.gLa != null) {
+                        d.this.gLa.g(view, d.this.ghd);
                     }
                 }
             });
         }
-        if (this.hVM != null) {
-            this.hVM.setIsRound(true);
-            this.hVM.setAutoChangeStyle(false);
+        if (this.hVO != null) {
+            this.hVO.setIsRound(true);
+            this.hVO.setAutoChangeStyle(false);
         }
     }
 
@@ -106,26 +106,26 @@ public class d {
     }
 
     public void a(g.a aVar) {
-        this.gKY = aVar;
+        this.gLa = aVar;
     }
 
     private void a(r rVar) {
         if (rVar != null) {
-            if (this.ghc) {
-                this.hVP.setVisibility(8);
-                if (rVar.gJn) {
-                    this.hVQ.setVisibility(0);
-                    this.hVQ.setText(String.format(this.mContext.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatForHourRankValue(rVar.aJb)));
+            if (this.ghe) {
+                this.hVR.setVisibility(8);
+                if (rVar.gJp) {
+                    this.hVS.setVisibility(0);
+                    this.hVS.setText(String.format(this.mContext.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatForHourRankValue(rVar.aJb)));
                     return;
                 }
-                this.hVQ.setVisibility(8);
-            } else if (rVar.gJn) {
-                this.hVP.setVisibility(8);
-                this.hVQ.setVisibility(0);
-                this.hVQ.setText(String.format(this.mContext.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatForHourRankValue(rVar.aJb)));
+                this.hVS.setVisibility(8);
+            } else if (rVar.gJp) {
+                this.hVR.setVisibility(8);
+                this.hVS.setVisibility(0);
+                this.hVS.setText(String.format(this.mContext.getString(a.h.ala_rank_list_charm_hour), StringHelper.formatForHourRankValue(rVar.aJb)));
             } else {
-                this.hVP.setVisibility(0);
-                this.hVQ.setVisibility(8);
+                this.hVR.setVisibility(0);
+                this.hVS.setVisibility(8);
             }
         }
     }
@@ -134,25 +134,25 @@ public class d {
         int i = 10;
         if (rVar != null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (TextUtils.equals(this.ghb, "hour")) {
+            if (TextUtils.equals(this.ghd, "hour")) {
                 if (rVar.aJa <= 0) {
-                    this.hVL.setText(this.mContext.getString(a.h.ala_rank_list_no_level));
-                    this.hVL.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize28));
-                    this.hVL.setTextColor(this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hVL.getLayoutParams();
+                    this.hVN.setText(this.mContext.getString(a.h.ala_rank_list_no_level));
+                    this.hVN.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize28));
+                    this.hVN.setTextColor(this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hVN.getLayoutParams();
                     layoutParams.rightMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds30);
                     layoutParams.leftMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds34);
-                    this.hVL.setLayoutParams(layoutParams);
+                    this.hVN.setLayoutParams(layoutParams);
                     spannableStringBuilder.append((CharSequence) this.mContext.getString(a.h.bottom_rank_list_no_money));
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, 5, 34);
                 } else {
-                    this.hVL.setText(String.valueOf(rVar.aJa));
-                    this.hVL.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize34));
-                    this.hVL.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_d));
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.hVL.getLayoutParams();
+                    this.hVN.setText(String.valueOf(rVar.aJa));
+                    this.hVN.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize34));
+                    this.hVN.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_d));
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.hVN.getLayoutParams();
                     layoutParams2.rightMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds28);
                     layoutParams2.leftMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds34);
-                    this.hVL.setLayoutParams(layoutParams2);
+                    this.hVN.setLayoutParams(layoutParams2);
                     if (rVar.aJa == 1) {
                         String format = String.format(this.mContext.getString(a.h.bottom_rank_list_1), StringHelper.formatForHourRankValue(rVar.aJb - rVar.aJd) + "");
                         spannableStringBuilder.append((CharSequence) format);
@@ -167,15 +167,15 @@ public class d {
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), "10".length() + 4, format2.length(), 34);
                     }
                 }
-            } else if (TextUtils.equals(this.ghb, "charm_day")) {
+            } else if (TextUtils.equals(this.ghd, "charm_day")) {
                 if (rVar.aJa <= 0 || rVar.aJa > 100) {
-                    this.hVL.setText(this.mContext.getString(a.h.ala_rank_list_no_level));
-                    this.hVL.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize28));
-                    this.hVL.setTextColor(this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
-                    RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.hVL.getLayoutParams();
+                    this.hVN.setText(this.mContext.getString(a.h.ala_rank_list_no_level));
+                    this.hVN.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize28));
+                    this.hVN.setTextColor(this.mContext.getResources().getColor(a.c.sdk_color_ff1e66));
+                    RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.hVN.getLayoutParams();
                     layoutParams3.rightMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds30);
                     layoutParams3.leftMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds34);
-                    this.hVL.setLayoutParams(layoutParams3);
+                    this.hVN.setLayoutParams(layoutParams3);
                     if (rVar.aJb <= 0) {
                         spannableStringBuilder.append((CharSequence) this.mContext.getString(a.h.bottom_rank_list_no_money));
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), 2, 5, 34);
@@ -185,13 +185,13 @@ public class d {
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(Color.parseColor("#FD1E65")), "100".length() + 4, format3.length(), 34);
                     }
                 } else {
-                    this.hVL.setText(String.valueOf(rVar.aJa));
-                    this.hVL.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize34));
-                    this.hVL.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_d));
-                    RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.hVL.getLayoutParams();
+                    this.hVN.setText(String.valueOf(rVar.aJa));
+                    this.hVN.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize34));
+                    this.hVN.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_d));
+                    RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) this.hVN.getLayoutParams();
                     layoutParams4.rightMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds28);
                     layoutParams4.leftMargin = (int) this.mContext.getResources().getDimension(a.d.sdk_ds34);
-                    this.hVL.setLayoutParams(layoutParams4);
+                    this.hVN.setLayoutParams(layoutParams4);
                     if (rVar.aJa == 1) {
                         String format4 = String.format(this.mContext.getString(a.h.bottom_rank_list_1), StringHelper.formatForHourRankValue(rVar.aJb - rVar.aJd) + "");
                         spannableStringBuilder.append((CharSequence) format4);
@@ -203,25 +203,25 @@ public class d {
                     }
                 }
             }
-            if (this.hVO != null) {
-                if ((rVar.aJa == 1 && rVar.bVh()) || rVar.gJn) {
-                    this.hVO.setVisibility(8);
+            if (this.hVQ != null) {
+                if ((rVar.aJa == 1 && rVar.bVi()) || rVar.gJp) {
+                    this.hVQ.setVisibility(8);
                 } else {
-                    this.hVO.setVisibility(0);
-                    this.hVO.setText(spannableStringBuilder);
+                    this.hVQ.setVisibility(0);
+                    this.hVQ.setText(spannableStringBuilder);
                 }
             }
             if (!StringUtils.isNull(rVar.bdPortrait)) {
-                this.hVM.startLoad(rVar.bdPortrait, 12, false);
+                this.hVO.startLoad(rVar.bdPortrait, 12, false);
             }
             if (!StringUtils.isNull(rVar.getNameShow())) {
                 String nameShow = rVar.getNameShow();
                 int textLengthWithEmoji = TextHelper.getTextLengthWithEmoji(rVar.getNameShow());
-                i = (this.hVN == null || StringUtils.isNull(this.hVN.getText().toString().trim())) ? 16 : 16;
+                i = (this.hVP == null || StringUtils.isNull(this.hVP.getText().toString().trim())) ? 16 : 16;
                 if (textLengthWithEmoji > i) {
                     nameShow = String.format(this.mContext.getString(a.h.ala_rank_list_user_name_limit), TextHelper.subStringWithEmoji(rVar.getNameShow(), i));
                 }
-                this.hPL.setText(nameShow);
+                this.hPN.setText(nameShow);
             }
             a(rVar);
         }

@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
     private TbPageContext eNx;
-    private com.baidu.tieba.ala.personcenter.b.a hME;
-    private String hMF;
+    private com.baidu.tieba.ala.personcenter.b.a hMG;
+    private String hMH;
     private String mForumId;
     private String mForumName;
 
@@ -25,35 +25,35 @@ public class AlaPersonCenterFragment extends BaseFragment {
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         this.eNx = getPageContext();
-        this.hME = new com.baidu.tieba.ala.personcenter.b.a(this.eNx, true);
-        this.hME.setForumName(this.mForumName);
-        this.hME.setForumId(this.mForumId);
-        this.hME.IW(this.hMF);
+        this.hMG = new com.baidu.tieba.ala.personcenter.b.a(this.eNx, true);
+        this.hMG.setForumName(this.mForumName);
+        this.hMG.setForumId(this.mForumId);
+        this.hMG.IW(this.hMH);
         if (getArguments() != null) {
-            this.hME.f(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
+            this.hMG.f(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
         }
-        return this.hME.getView();
+        return this.hMG.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.hME.loadData();
+            this.hMG.loadData();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.hME != null) {
-            this.hME.onChangeSkinType(i);
+        if (this.hMG != null) {
+            this.hMG.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        this.hME.onDestory();
+        this.hMG.onDestory();
         super.onDestroy();
     }
 
@@ -70,8 +70,8 @@ public class AlaPersonCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        if (this.hME != null) {
-            this.hME.onChangeSkinType(i);
+        if (this.hMG != null) {
+            this.hMG.onChangeSkinType(i);
         }
     }
 
@@ -87,6 +87,6 @@ public class AlaPersonCenterFragment extends BaseFragment {
     }
 
     public void IW(String str) {
-        this.hMF = str;
+        this.hMH = str;
     }
 }

@@ -30,7 +30,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class d implements s {
     private static int eST = 2097152;
     private final com.baidu.tbadk.core.util.a.a eSO;
-    private com.baidu.tieba.recapp.download.http.c mIt = new com.baidu.tieba.recapp.download.http.c();
+    private com.baidu.tieba.recapp.download.http.c mIv = new com.baidu.tieba.recapp.download.http.c();
     private Context mContext = TbadkCoreApplication.getInst().getApp();
 
     public d(com.baidu.tbadk.core.util.a.a aVar) {
@@ -125,13 +125,13 @@ public class d implements s {
 
     @Override // com.baidu.tbadk.core.util.s
     public void cancelNetConnect() {
-        this.mIt.cancel();
+        this.mIv.cancel();
     }
 
     @Override // com.baidu.tbadk.core.util.s
     public void setCancel() {
-        if (this.mIt != null) {
-            this.mIt.setCancel();
+        if (this.mIv != null) {
+            this.mIv.setCancel();
         }
     }
 
@@ -215,21 +215,21 @@ public class d implements s {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.mIt.isCanceled()) {
+            if (this.mIv.isCanceled()) {
                 return null;
             }
-            if (this.mIt.b(this.eSO.bue().bui().mUrl, this.eSO.bue().bui().mPostData, this.eSO.bue().bui().mRequestGzip, 5, -1, bty()) == null) {
+            if (this.mIv.b(this.eSO.bue().bui().mUrl, this.eSO.bue().bui().mPostData, this.eSO.bue().bui().mRequestGzip, 5, -1, bty()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g dFt = this.mIt.dFt();
-            if (dFt == null) {
+            com.baidu.tieba.recapp.download.http.g dFu = this.mIv.dFu();
+            if (dFu == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i dFv = dFt.dFv();
-            if (dFt == null || dFt.mz() == null || dFt.mz().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i dFw = dFu.dFw();
+            if (dFu == null || dFu.mz() == null || dFu.mz().size() > 0) {
             }
-            this.eSO.buf().mNetErrorCode = dFv.responseCode;
-            this.eSO.buf().mHeader = dFv.Nk;
+            this.eSO.buf().mNetErrorCode = dFw.responseCode;
+            this.eSO.buf().mHeader = dFw.Nk;
             if (this.eSO.buf().mNetErrorCode != 200) {
                 if (this.eSO.bug().eUJ != null && !TextUtils.isEmpty(this.eSO.bug().eUJ.exception)) {
                     this.eSO.buf().mException = this.eSO.bug().eUJ.exception;
@@ -238,10 +238,10 @@ public class d implements s {
                 }
                 TiebaStatic.net(this.eSO);
                 return null;
-            } else if (this.mIt.isCanceled()) {
+            } else if (this.mIv.isCanceled()) {
                 return null;
             } else {
-                str = new String(dFv.retBytes, "utf-8");
+                str = new String(dFw.retBytes, "utf-8");
                 try {
                     if (this.eSO.bue().bui().mIsBaiduServer && this.eSO.bue().bui().mIsJson) {
                         BW(str);
@@ -379,19 +379,19 @@ public class d implements s {
             e = e5;
             iVar = null;
         }
-        if (this.mIt.isCanceled()) {
+        if (this.mIv.isCanceled()) {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.mIt.b(str, z, 5, 100, -1, -1, bty());
-        com.baidu.tieba.recapp.download.http.g dFt = this.mIt.dFt();
-        if (dFt == null) {
+        this.mIv.b(str, z, 5, 100, -1, -1, bty());
+        com.baidu.tieba.recapp.download.http.g dFu = this.mIv.dFu();
+        if (dFu == null) {
             return null;
         }
-        iVar = dFt.dFv();
-        if (dFt != null) {
+        iVar = dFu.dFw();
+        if (dFu != null) {
             try {
-                if (dFt.mz() == null || dFt.mz().size() > 0) {
+                if (dFu.mz() == null || dFu.mz().size() > 0) {
                 }
             } catch (BdHttpCancelException e6) {
                 iVar2 = iVar;
@@ -561,21 +561,21 @@ public class d implements s {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.mIt.isCanceled()) {
+            if (this.mIv.isCanceled()) {
                 return null;
             }
-            if (this.mIt.b(this.eSO.bue().bui().mUrl, this.eSO.bue().bui().mPostData, this.eSO.bue().bui().mRequestGzip, 5, -1, bty()) == null) {
+            if (this.mIv.b(this.eSO.bue().bui().mUrl, this.eSO.bue().bui().mPostData, this.eSO.bue().bui().mRequestGzip, 5, -1, bty()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g dFt = this.mIt.dFt();
-            if (dFt == null) {
+            com.baidu.tieba.recapp.download.http.g dFu = this.mIv.dFu();
+            if (dFu == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i dFv = dFt.dFv();
-            if (dFt == null || dFt.mz() == null || dFt.mz().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i dFw = dFu.dFw();
+            if (dFu == null || dFu.mz() == null || dFu.mz().size() > 0) {
             }
-            this.eSO.buf().mNetErrorCode = dFv.responseCode;
-            this.eSO.buf().mHeader = dFv.Nk;
+            this.eSO.buf().mNetErrorCode = dFw.responseCode;
+            this.eSO.buf().mHeader = dFw.Nk;
             if (this.eSO.buf().mNetErrorCode != 200) {
                 if (this.eSO.bug().eUJ != null && !TextUtils.isEmpty(this.eSO.bug().eUJ.exception)) {
                     this.eSO.buf().mException = this.eSO.bug().eUJ.exception;
@@ -584,10 +584,10 @@ public class d implements s {
                 }
                 TiebaStatic.net(this.eSO);
                 return null;
-            } else if (this.mIt.isCanceled()) {
+            } else if (this.mIv.isCanceled()) {
                 return null;
             } else {
-                str = new String(dFv.retBytes, "utf-8");
+                str = new String(dFw.retBytes, "utf-8");
                 try {
                     if (this.eSO.bue().bui().mIsBaiduServer && this.eSO.bue().bui().mIsJson) {
                         BW(str);
@@ -671,10 +671,10 @@ public class d implements s {
     @Override // com.baidu.tbadk.core.util.s
     public boolean downloadFile(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
         try {
-            if (this.mIt.isCanceled()) {
+            if (this.mIv.isCanceled()) {
                 return false;
             }
-            return this.mIt.a(this.eSO.bue().bui().mUrl, (z ? new File(str) : n.CreateFileIfNotFound(str)).getAbsolutePath(), false, i2, i3, -1, -1, bty(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
+            return this.mIv.a(this.eSO.bue().bui().mUrl, (z ? new File(str) : n.CreateFileIfNotFound(str)).getAbsolutePath(), false, i2, i3, -1, -1, bty(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.d.1
                 int eSV = 0;
                 int eSW = 0;
                 int eSX = 0;

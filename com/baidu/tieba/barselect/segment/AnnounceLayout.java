@@ -20,7 +20,7 @@ import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes21.dex */
 public class AnnounceLayout extends CardBasicLayout {
     private float fdO;
-    private TextView ifq;
+    private TextView ifs;
     private Context mContext;
 
     public AnnounceLayout(Context context) {
@@ -45,38 +45,38 @@ public class AnnounceLayout extends CardBasicLayout {
     }
 
     private void uo() {
-        this.ifq = (TextView) findViewById(R.id.announce_content);
+        this.ifs = (TextView) findViewById(R.id.announce_content);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.ibG == null || this.ify == null || this.status < 0) {
+        if (this.ibI == null || this.ifA == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        if (this.status == a.ifM) {
+        if (this.status == a.ifO) {
             this.fdO = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds120) * 2);
         }
-        if (this.status == a.ifN || this.status == a.ifO) {
+        if (this.status == a.ifP || this.status == a.ifQ) {
             this.fdO = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
         }
-        c(new SpannableStringBuilder(this.ify.cqQ()));
+        c(new SpannableStringBuilder(this.ifA.cqR()));
     }
 
     private void c(SpannableStringBuilder spannableStringBuilder) {
         float f;
         if (spannableStringBuilder == null || TextUtils.isEmpty(spannableStringBuilder.toString())) {
-            this.ifq.setText(TbadkCoreApplication.getInst().getString(R.string.empty_announce));
-        } else if (!v.a(this.fdO, this.ifq.getPaint(), spannableStringBuilder.toString(), 2)) {
-            this.ifq.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+            this.ifs.setText(TbadkCoreApplication.getInst().getString(R.string.empty_announce));
+        } else if (!v.a(this.fdO, this.ifs.getPaint(), spannableStringBuilder.toString(), 2)) {
+            this.ifs.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
         } else {
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(StringHelper.STRING_MORE);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.detail));
             spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tieba.barselect.segment.AnnounceLayout.1
             }, 0, spannableStringBuilder3.length(), 17);
             spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
-            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.ifq.getPaint(), (int) this.fdO, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.ifs.getPaint(), (int) this.fdO, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
             float f2 = this.fdO;
             if (staticLayout.getLineCount() >= 2) {
                 spannableStringBuilder.delete(staticLayout.getLineEnd(1), spannableStringBuilder.length());
@@ -85,9 +85,9 @@ public class AnnounceLayout extends CardBasicLayout {
                 f = f2;
             }
             CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
-            float measureText = this.ifq.getPaint().measureText(spannableStringBuilder3.toString());
+            float measureText = this.ifs.getPaint().measureText(spannableStringBuilder3.toString());
             int i = 2;
-            while (measureText > this.ifq.getPaint().measureText(subSequence.toString()) + f) {
+            while (measureText > this.ifs.getPaint().measureText(subSequence.toString()) + f) {
                 i++;
                 if (spannableStringBuilder.length() - i < 0) {
                     break;
@@ -97,7 +97,7 @@ public class AnnounceLayout extends CardBasicLayout {
             if (spannableStringBuilder.length() - i > 0) {
                 spannableStringBuilder.replace(spannableStringBuilder.length() - i, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder2);
             }
-            this.ifq.setText(spannableStringBuilder);
+            this.ifs.setText(spannableStringBuilder);
         }
     }
 }

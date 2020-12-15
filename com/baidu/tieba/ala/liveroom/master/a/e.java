@@ -14,7 +14,7 @@ public class e extends a {
         super.a(s, obj);
         switch (s) {
             case 1:
-                this.hja.hqm.a((short) 2, null);
+                this.hjc.hqo.a((short) 2, null);
                 return;
             default:
                 return;
@@ -22,24 +22,24 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
-    public void ciN() {
-        if (this.hja != null && this.hja.hqi != null) {
-            if (this.hxw != null) {
-                this.hxw.wX(2);
+    public void ciO() {
+        if (this.hjc != null && this.hjc.hqk != null) {
+            if (this.hxy != null) {
+                this.hxy.wX(2);
             }
-            this.hja.hqi.startRecord();
+            this.hjc.hqk.startRecord();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.master.a.a
     public void bi(int i, String str) {
-        if (this.hja != null && this.hja.hqi.getVideoRecorderType() == VideoRecorderType.SCREEN) {
+        if (this.hjc != null && this.hjc.hqk.getVideoRecorderType() == VideoRecorderType.SCREEN) {
             if (i == 0) {
-                if (this.hja != null && this.hja.hqm != null && this.cnU != 4) {
-                    this.hja.hqm.a((short) 4, this.hvZ);
+                if (this.hjc != null && this.hjc.hqo != null && this.cnU != 4) {
+                    this.hjc.hqo.a((short) 4, this.hwb);
                 }
-            } else if (this.hxv != null) {
-                this.hxv.onError(i, str);
+            } else if (this.hxx != null) {
+                this.hxx.onError(i, str);
             }
         }
     }

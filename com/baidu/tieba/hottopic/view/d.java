@@ -24,12 +24,12 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class d extends com.baidu.adp.base.c<RelateTopicForumActivity> {
     private BdListView WX;
-    private NoNetworkView gpu;
-    private PbListView gre;
-    private RelateTopicForumActivity khb;
-    private l khc;
-    private List<RelateForumItemData> khd;
-    private AdapterView.OnItemClickListener khe;
+    private NoNetworkView gpw;
+    private PbListView grg;
+    private RelateTopicForumActivity khd;
+    private l khe;
+    private List<RelateForumItemData> khf;
+    private AdapterView.OnItemClickListener khg;
     private NavigationBar mNavigationBar;
     private View mRootView;
 
@@ -38,74 +38,74 @@ public class d extends com.baidu.adp.base.c<RelateTopicForumActivity> {
         this.mNavigationBar = null;
         this.mRootView = null;
         this.WX = null;
-        this.khd = null;
-        this.khe = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopic.view.d.1
+        this.khf = null;
+        this.khg = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.hottopic.view.d.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 RelateForumItemData relateForumItemData;
-                if (i >= 0 && (relateForumItemData = (RelateForumItemData) d.this.khd.get(i)) != null && au.isForumName(relateForumItemData.forumName)) {
+                if (i >= 0 && (relateForumItemData = (RelateForumItemData) d.this.khf.get(i)) != null && au.isForumName(relateForumItemData.forumName)) {
                     if (relateForumItemData.forumId != 0) {
-                        TiebaStatic.log(new ar("c10371").dY("fid", String.valueOf(relateForumItemData.forumId)).al("obj_type", k.kei).dY("topic_id", d.this.khb.getTopicId()));
+                        TiebaStatic.log(new ar("c10371").dY("fid", String.valueOf(relateForumItemData.forumId)).al("obj_type", k.kek).dY("topic_id", d.this.khd.getTopicId()));
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(d.this.khb.getActivity()).createNormalCfg(relateForumItemData.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(d.this.khd.getActivity()).createNormalCfg(relateForumItemData.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
                 }
             }
         };
-        this.khb = relateTopicForumActivity;
+        this.khd = relateTopicForumActivity;
         if (list != null) {
             if (list.size() > 20) {
-                this.khd = list.subList(0, 20);
+                this.khf = list.subList(0, 20);
             } else {
-                this.khd = list;
+                this.khf = list;
             }
         }
         initView();
     }
 
     public void onChangeSkinType(int i) {
-        this.khb.getLayoutMode().setNightMode(i == 1);
-        this.khb.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.khb.getPageContext(), i);
-        this.gpu.onChangeSkinType(this.khb.getPageContext(), i);
-        this.gre.changeSkin(i);
+        this.khd.getLayoutMode().setNightMode(i == 1);
+        this.khd.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.khd.getPageContext(), i);
+        this.gpw.onChangeSkinType(this.khd.getPageContext(), i);
+        this.grg.changeSkin(i);
     }
 
     private void initView() {
-        if (this.khb != null) {
-            this.khb.setContentView(R.layout.hot_topic_more_activity);
-            this.mRootView = this.khb.findViewById(R.id.topic_list_root_view);
+        if (this.khd != null) {
+            this.khd.setContentView(R.layout.hot_topic_more_activity);
+            this.mRootView = this.khd.findViewById(R.id.topic_list_root_view);
             this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(R.string.hot_topic_list_navigationbar_title);
-            this.gpu = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
+            this.gpw = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
             this.WX = (BdListView) this.mRootView.findViewById(R.id.hot_topic_more_list);
-            BdListViewHelper.a(this.khb.getActivity(), this.WX, BdListViewHelper.HeadType.DEFAULT);
-            this.khc = new l(this.khb);
-            this.gre = new PbListView(this.khb.getPageContext().getPageActivity());
-            this.gre.createView();
-            this.gre.setContainerBackgroundColorResId(R.color.CAM_X0201);
-            this.WX.setAdapter((ListAdapter) this.khc);
-            this.khc.c(this.khd, this.khb.getTopicId());
-            this.WX.setOnItemClickListener(this.khe);
+            BdListViewHelper.a(this.khd.getActivity(), this.WX, BdListViewHelper.HeadType.DEFAULT);
+            this.khe = new l(this.khd);
+            this.grg = new PbListView(this.khd.getPageContext().getPageActivity());
+            this.grg.createView();
+            this.grg.setContainerBackgroundColorResId(R.color.CAM_X0201);
+            this.WX.setAdapter((ListAdapter) this.khe);
+            this.khe.c(this.khf, this.khd.getTopicId());
+            this.WX.setOnItemClickListener(this.khg);
         }
     }
 
     public void Ya() {
-        if (this.WX != null && this.gre != null) {
-            this.WX.setNextPage(this.gre);
-            this.gre.endLoadData();
-            this.gre.setText(this.khb.getResources().getString(R.string.list_no_more));
+        if (this.WX != null && this.grg != null) {
+            this.WX.setNextPage(this.grg);
+            this.grg.endLoadData();
+            this.grg.setText(this.khd.getResources().getString(R.string.list_no_more));
         }
     }
 
-    public void bTa() {
-        if (this.WX != null && this.gre != null) {
+    public void bTb() {
+        if (this.WX != null && this.grg != null) {
             this.WX.setNextPage(null);
-            this.gre.hideEmptyView();
+            this.grg.hideEmptyView();
         }
     }
 
-    public l cSy() {
-        return this.khc;
+    public l cSz() {
+        return this.khe;
     }
 }

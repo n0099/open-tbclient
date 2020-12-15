@@ -43,7 +43,7 @@ public class a {
                         i = -1;
                     }
                     if (i == -1 || userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.msf.getContext())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(a.this.msi.getContext())));
                         return;
                     }
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -53,10 +53,10 @@ public class a {
                         } else if (bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i2 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.msf.getContext(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.msi.getContext(), i, i2)));
                     }
                     i2 = 0;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.msf.getContext(), i, i2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(a.this.msi.getContext(), i, i2)));
                 }
             }
         }
@@ -64,14 +64,14 @@ public class a {
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private UserData mUserData;
-    private TbImageView msf;
-    private int msh;
+    private TbImageView msi;
+    private int msj;
 
     public a(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
         this.mPageContext = tbPageContext;
-        this.msf = tbImageView;
+        this.msi = tbImageView;
         this.mIsHost = z;
-        this.msf.setDefaultBgResource(R.drawable.bg_pic_mine);
+        this.msi.setDefaultBgResource(R.drawable.bg_pic_mine);
         this.elr = view;
         this.elr.setOnClickListener(this.mClickListener);
     }
@@ -88,7 +88,7 @@ public class a {
                     public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                         super.onLoaded((AnonymousClass1) aVar, str, i);
                         if (aVar != null) {
-                            aVar.drawImageTo(a.this.msf);
+                            aVar.drawImageTo(a.this.msi);
                         }
                     }
 
@@ -109,33 +109,33 @@ public class a {
     }
 
     public void Iv(int i) {
-        this.msh = i;
-        ViewGroup.LayoutParams layoutParams = this.msf.getLayoutParams();
+        this.msj = i;
+        ViewGroup.LayoutParams layoutParams = this.msi.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.msh;
-            this.msf.setLayoutParams(layoutParams);
+            layoutParams.height = this.msj;
+            this.msi.setLayoutParams(layoutParams);
         }
     }
 
     public void E(double d) {
-        int i = (int) (this.msh + (PullRefreshFrameLayout.fbu * d));
-        ViewGroup.LayoutParams layoutParams = this.msf.getLayoutParams();
+        int i = (int) (this.msj + (PullRefreshFrameLayout.fbu * d));
+        ViewGroup.LayoutParams layoutParams = this.msi.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.msf.setLayoutParams(layoutParams);
+            this.msi.setLayoutParams(layoutParams);
         }
     }
 
     public void Iw(int i) {
-        ViewGroup.LayoutParams layoutParams = this.msf.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.msi.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.height = i;
-            this.msf.setLayoutParams(layoutParams);
+            this.msi.setLayoutParams(layoutParams);
         }
     }
 
-    public int cCW() {
-        ViewGroup.LayoutParams layoutParams = this.msf.getLayoutParams();
+    public int cCX() {
+        ViewGroup.LayoutParams layoutParams = this.msi.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }

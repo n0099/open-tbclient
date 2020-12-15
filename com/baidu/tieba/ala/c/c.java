@@ -31,11 +31,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c extends d {
-    private RelativeLayout gGa;
-    private TextView gGb;
-    private a gGu;
-    private j gGv;
-    private ArrayList<j> gGw;
+    private RelativeLayout gGc;
+    private TextView gGd;
+    private a gGw;
+    private j gGx;
+    private ArrayList<j> gGy;
     private BdListView mListView;
 
     public c(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
@@ -43,30 +43,30 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    protected int bUy() {
+    protected int bUz() {
         return a.g.ala_choose_num_and_date;
     }
 
     @Override // com.baidu.tieba.ala.c.d
     protected void initView() {
-        this.gGa = (RelativeLayout) this.mRootView.findViewById(a.f.choose_bottom_layout);
-        this.gGa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.c.1
+        this.gGc = (RelativeLayout) this.mRootView.findViewById(a.f.choose_bottom_layout);
+        this.gGc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.bOU();
+                c.this.bOV();
             }
         });
-        this.gGb = (TextView) this.mRootView.findViewById(a.f.choose_bottom_tip);
-        this.gGb.setText(a.h.sdk_choose_custom_number_tip);
+        this.gGd = (TextView) this.mRootView.findViewById(a.f.choose_bottom_tip);
+        this.gGd.setText(a.h.sdk_choose_custom_number_tip);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.choose_gift_listview);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.c.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (i >= 0 && i < c.this.gGw.size()) {
-                    c.this.gGv = (j) c.this.gGw.get(i);
-                    if (c.this.gGv != null) {
-                        c.this.gGA = c.this.gGv.getNumber();
-                        c.this.gGu.vF(c.this.gGA);
+                if (i >= 0 && i < c.this.gGy.size()) {
+                    c.this.gGx = (j) c.this.gGy.get(i);
+                    if (c.this.gGx != null) {
+                        c.this.gGC = c.this.gGx.getNumber();
+                        c.this.gGw.vF(c.this.gGC);
                     }
                 }
             }
@@ -96,32 +96,32 @@ public class c extends d {
 
     private void e(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
         if (alaSdkGetGiftListHttpResponseMessage != null) {
-            this.gGw = alaSdkGetGiftListHttpResponseMessage.KH();
+            this.gGy = alaSdkGetGiftListHttpResponseMessage.KH();
         }
-        if (ListUtils.isEmpty(this.gGw)) {
-            bUz();
+        if (ListUtils.isEmpty(this.gGy)) {
+            bUA();
         }
-        if (this.gGA > 0) {
-            Iterator<j> it = this.gGw.iterator();
+        if (this.gGC > 0) {
+            Iterator<j> it = this.gGy.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 j next = it.next();
-                if (next != null && this.gGA == next.getNumber()) {
-                    this.gGv = next;
+                if (next != null && this.gGC == next.getNumber()) {
+                    this.gGx = next;
                     break;
                 }
             }
         }
-        this.gGu = new a(this.gGy.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.gGu);
-        this.gGu.setGiftNum(this.gGA);
-        this.gGu.setData(this.gGw);
+        this.gGw = new a(this.gGA.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.gGw);
+        this.gGw.setGiftNum(this.gGC);
+        this.gGw.setData(this.gGy);
     }
 
-    private void bUz() {
-        this.gGw = new ArrayList<>();
+    private void bUA() {
+        this.gGy = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             j jVar = new j();
             switch (i) {
@@ -150,16 +150,16 @@ public class c extends d {
                     jVar.name = "一生一世";
                     break;
             }
-            this.gGw.add(jVar);
+            this.gGy.add(jVar);
         }
     }
 
     @Override // com.baidu.tieba.ala.c.d
     public void confirm() {
-        if (this.gGv != null) {
-            i(this.gGv.number, this.gGv.name, false);
+        if (this.gGx != null) {
+            i(this.gGx.number, this.gGx.name, false);
         } else {
-            this.gGy.finish();
+            this.gGA.finish();
         }
     }
 
@@ -173,10 +173,10 @@ public class c extends d {
     public void a(CharSequence charSequence, int i, int i2, int i3) {
         super.a(charSequence, i, i2, i3);
         if (JavaTypesHelper.toInt(charSequence.toString(), 0) > 9999) {
-            this.gfR.getEditView().setText("9999");
-            this.gfR.getEditView().setSelection(this.gfR.getEditView().getText().length());
+            this.gfT.getEditView().setText("9999");
+            this.gfT.getEditView().setSelection(this.gfT.getEditView().getText().length());
         }
-        this.gfR.setSendEnabled(true);
+        this.gfT.setSendEnabled(true);
     }
 
     private void i(int i, String str, boolean z) {
@@ -190,8 +190,8 @@ public class c extends d {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.gGy.setResult(-1, intent);
-        this.gGy.finish();
+        this.gGA.setResult(-1, intent);
+        this.gGA.finish();
     }
 
     @Override // com.baidu.tieba.ala.c.d
@@ -255,9 +255,9 @@ public class c extends d {
             if (view == null) {
                 b bVar2 = new b();
                 view = LayoutInflater.from(this.mContext).inflate(a.g.ala_choose_num_and_date_item, viewGroup, false);
-                bVar2.gGi = (RelativeLayout) view.findViewById(a.f.item_root);
-                bVar2.gGj = (TextView) view.findViewById(a.f.item_num_title);
-                bVar2.gGk = (ImageView) view.findViewById(a.f.item_num_arrow);
+                bVar2.gGk = (RelativeLayout) view.findViewById(a.f.item_root);
+                bVar2.gGl = (TextView) view.findViewById(a.f.item_num_title);
+                bVar2.gGm = (ImageView) view.findViewById(a.f.item_num_arrow);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
@@ -265,11 +265,11 @@ public class c extends d {
             }
             j item = getItem(i);
             if (item != null) {
-                bVar.gGj.setText(item.getNumber() + " " + item.getName());
+                bVar.gGl.setText(item.getNumber() + " " + item.getName());
                 if (item.getNumber() == this.mGiftNum) {
-                    bVar.gGk.setVisibility(0);
+                    bVar.gGm.setVisibility(0);
                 } else {
-                    bVar.gGk.setVisibility(8);
+                    bVar.gGm.setVisibility(8);
                 }
             }
             return view;
@@ -278,9 +278,9 @@ public class c extends d {
 
     /* loaded from: classes4.dex */
     private class b {
-        public RelativeLayout gGi;
-        public TextView gGj;
-        public ImageView gGk;
+        public RelativeLayout gGk;
+        public TextView gGl;
+        public ImageView gGm;
 
         private b() {
         }

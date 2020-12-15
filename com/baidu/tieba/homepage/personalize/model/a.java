@@ -38,19 +38,19 @@ import tbclient.Personalized.UserFollowLive;
 import tbclient.ThreadInfo;
 /* loaded from: classes22.dex */
 public class a {
-    private int jUM;
-    private int jUN;
-    private int jUJ = 0;
-    private com.baidu.tieba.homepage.personalize.b.d jUK = new com.baidu.tieba.homepage.personalize.b.d();
+    private int jUO;
+    private int jUP;
     private int jUL = 0;
-    private Long jUQ = 0L;
-    private final c jLF = new c();
-    private final int jUI = com.baidu.tbadk.core.sharedPref.b.bsO().getInt("home_page_max_thread_count", 300);
-    private ArrayList<ThreadInfo> jUO = new ArrayList<>();
-    private ArrayList<App> jUP = new ArrayList<>();
+    private com.baidu.tieba.homepage.personalize.b.d jUM = new com.baidu.tieba.homepage.personalize.b.d();
+    private int jUN = 0;
+    private Long jUS = 0L;
+    private final c jLH = new c();
+    private final int jUK = com.baidu.tbadk.core.sharedPref.b.bsO().getInt("home_page_max_thread_count", 300);
+    private ArrayList<ThreadInfo> jUQ = new ArrayList<>();
+    private ArrayList<App> jUR = new ArrayList<>();
 
-    public int cQs() {
-        return this.jUI;
+    public int cQt() {
+        return this.jUK;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -64,23 +64,23 @@ public class a {
         d.e(builder);
         d.e(builder3);
         b(z, builder, builder3, i);
-        List<ThreadInfo> a2 = a(builder, i, this.jUI);
+        List<ThreadInfo> a2 = a(builder, i, this.jUK);
         d.g(builder);
         List<p> d = d.d(builder);
         dY(d);
         List<q> a3 = a(builder.thread_list, d, builder3.user_follow_live, i, 0, builder3);
         List<q> a4 = a(a2, new ArrayList(), builder3.user_follow_live, i, 1, null);
-        this.jUK.eb(a3);
+        this.jUM.eb(a3);
         b.a(builder, a3);
-        this.jLF.fVe = a3;
-        this.jLF.jUU = a4 == null ? 0 : a4.size();
-        return this.jLF;
+        this.jLH.fVe = a3;
+        this.jLH.jUW = a4 == null ? 0 : a4.size();
+        return this.jLH;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (builder != null && builder2 != null) {
-            this.jUL = (builder2.fresh_ctrl_num == null || builder2.fresh_ctrl_num.intValue() <= 0) ? 0 : builder2.fresh_ctrl_num.intValue();
-            this.jUL = this.jUL > this.jUI ? this.jUI : this.jUL;
+            this.jUN = (builder2.fresh_ctrl_num == null || builder2.fresh_ctrl_num.intValue() <= 0) ? 0 : builder2.fresh_ctrl_num.intValue();
+            this.jUN = this.jUN > this.jUK ? this.jUK : this.jUN;
             d(z, builder, builder2, i);
             c(z, builder, builder2, i);
             v(builder.thread_personalized, builder2.thread_personalized);
@@ -94,20 +94,20 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.jUJ, this.jUM, this.jUN);
+        d.a(z, builder, builder2, i, this.jUL, this.jUO, this.jUP);
     }
 
     private void d(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (builder != null && builder2 != null && builder.thread_list != null && builder2.thread_list != null) {
             List<ThreadInfo> list = builder.thread_list;
             List<ThreadInfo> list2 = builder2.thread_list;
-            this.jUM = y.getCount(list);
+            this.jUO = y.getCount(list);
             if (builder.banner_list != null) {
-                this.jUN = y.getCount(builder.banner_list.app);
+                this.jUP = y.getCount(builder.banner_list.app);
             } else {
-                this.jUN = 0;
+                this.jUP = 0;
             }
-            int count = y.getCount(list) + y.getCount(this.jUO);
+            int count = y.getCount(list) + y.getCount(this.jUQ);
             HashSet hashSet = new HashSet();
             HashSet hashSet2 = new HashSet();
             ArrayList arrayList = new ArrayList();
@@ -120,7 +120,7 @@ public class a {
             }
             HashSet hashSet3 = new HashSet();
             HashSet hashSet4 = new HashSet();
-            Iterator<ThreadInfo> it = this.jUO.iterator();
+            Iterator<ThreadInfo> it = this.jUQ.iterator();
             while (it.hasNext()) {
                 ThreadInfo next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.lego_card)) {
@@ -131,7 +131,7 @@ public class a {
             }
             if (i == 1) {
                 if (!y.isEmpty(list2)) {
-                    this.jUK.b((ThreadInfo) y.getItem(list2, 0));
+                    this.jUM.b((ThreadInfo) y.getItem(list2, 0));
                 }
                 for (ThreadInfo threadInfo2 : list2) {
                     if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
@@ -147,31 +147,31 @@ public class a {
                     }
                 }
             } else {
-                this.jUK.f(z, list);
-                if (cQv()) {
+                this.jUM.f(z, list);
+                if (cQw()) {
                     if (builder.banner_list != null && !y.isEmpty(builder.banner_list.app)) {
-                        this.jUP.addAll(0, builder.banner_list.app);
+                        this.jUR.addAll(0, builder.banner_list.app);
                         BannerList.Builder builder3 = new BannerList.Builder(builder.banner_list);
                         builder3.app = new LinkedList();
                         builder.banner_list = builder3.build(false);
                     }
-                    this.jUO.addAll(0, list);
+                    this.jUQ.addAll(0, list);
                     list.clear();
                     hashSet.clear();
                     hashSet2.clear();
-                    if (y.getCount(this.jUO) > this.jUI) {
-                        int size = this.jUO.size();
+                    if (y.getCount(this.jUQ) > this.jUK) {
+                        int size = this.jUQ.size();
                         while (true) {
                             size--;
-                            if (size < this.jUI) {
+                            if (size < this.jUK) {
                                 break;
                             }
-                            this.jUO.remove(size);
+                            this.jUQ.remove(size);
                         }
                     }
                     hashSet3.clear();
                     hashSet4.clear();
-                    Iterator<ThreadInfo> it2 = this.jUO.iterator();
+                    Iterator<ThreadInfo> it2 = this.jUQ.iterator();
                     while (it2.hasNext()) {
                         ThreadInfo next2 = it2.next();
                         if (next2 != null && !TextUtils.isEmpty(next2.lego_card)) {
@@ -196,42 +196,42 @@ public class a {
                     }
                 }
             }
-            if (cQv()) {
-                if (!y.isEmpty(this.jUP) && builder2.banner_list != null) {
+            if (cQw()) {
+                if (!y.isEmpty(this.jUR) && builder2.banner_list != null) {
                     int count3 = y.getCount(list2) + y.getCount(builder2.banner_list.app);
                     int i2 = 0;
                     while (true) {
                         int i3 = i2;
-                        if (i3 >= this.jUP.size()) {
+                        if (i3 >= this.jUR.size()) {
                             break;
                         }
-                        App app = this.jUP.get(i3);
+                        App app = this.jUR.get(i3);
                         if (app != null) {
                             App.Builder builder4 = new App.Builder(app);
                             builder4.pos_name = String.valueOf(com.baidu.adp.lib.f.b.toInt(app.pos_name, 0) + count3);
                             App build = builder4.build(false);
-                            this.jUP.remove(i3);
-                            this.jUP.add(i3, build);
+                            this.jUR.remove(i3);
+                            this.jUR.add(i3, build);
                         }
                         i2 = i3 + 1;
                     }
                 }
-                if (y.getCount(list) >= this.jUL) {
-                    list.addAll(this.jUO);
-                    this.jUO.clear();
+                if (y.getCount(list) >= this.jUN) {
+                    list.addAll(this.jUQ);
+                    this.jUQ.clear();
                     BannerList.Builder builder5 = new BannerList.Builder(builder.banner_list);
                     if (builder5.app == null) {
                         builder5.app = new LinkedList();
                     }
-                    builder5.app.addAll(this.jUP);
+                    builder5.app.addAll(this.jUR);
                     builder.banner_list = builder5.build(false);
-                    this.jUP.clear();
+                    this.jUR.clear();
                 }
             }
-            int count4 = y.getCount(list) + y.getCount(this.jUO);
-            this.jLF.jUT = count4 - count;
-            this.jUJ = count4 - count;
-            com.baidu.tieba.recapp.report.b.dGe().q("tag_home_recommend_tab", arrayList);
+            int count4 = y.getCount(list) + y.getCount(this.jUQ);
+            this.jLH.jUV = count4 - count;
+            this.jUL = count4 - count;
+            com.baidu.tieba.recapp.report.b.dGf().q("tag_home_recommend_tab", arrayList);
         }
     }
 
@@ -255,7 +255,7 @@ public class a {
     }
 
     private List<q> a(List<ThreadInfo> list, List<p> list2, UserFollowLive userFollowLive, int i, int i2, DataRes.Builder builder) {
-        f cQt;
+        f cQu;
         int i3;
         int i4;
         int i5;
@@ -269,7 +269,7 @@ public class a {
         if (builder != null && !y.isEmpty(builder.thread_list) && builder.active_center != null) {
             ThreadInfo threadInfo = builder.thread_list.get(builder.thread_list.size() - 1);
             if (threadInfo.id.longValue() > 0 && com.baidu.tbadk.BdToken.q.bjk().bjm()) {
-                this.jUQ = threadInfo.id;
+                this.jUS = threadInfo.id;
             }
         }
         List<q> arrayList = new ArrayList<>(y.getCount(list));
@@ -369,7 +369,7 @@ public class a {
                                     ar aj;
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(view.getContext(), getLink(), null)));
                                     if (aC instanceof k) {
-                                        aj = ((k) aC).csH();
+                                        aj = ((k) aC).csI();
                                     } else {
                                         aj = aC instanceof l ? ((l) aC).aj(null) : null;
                                     }
@@ -451,14 +451,14 @@ public class a {
                     }
                 }
                 long j = com.baidu.adp.lib.f.b.toLong(byVar2.getId(), 0L);
-                if (j != 0 && j == this.jUQ.longValue()) {
+                if (j != 0 && j == this.jUS.longValue()) {
                     g gVar = null;
                     if (builder.active_center != null) {
                         gVar = new g();
                         gVar.a(builder.active_center);
                     }
                     if (gVar == null) {
-                        gVar = cQu();
+                        gVar = cQv();
                     }
                     if (gVar != null) {
                         i6++;
@@ -526,9 +526,9 @@ public class a {
                 linkedList.add(0, fVar);
                 fVar.position = -1;
                 int i14 = i6 + 1;
-            } else if (i == 1 && (cQt = cQt()) != null) {
-                linkedList.add(0, cQt);
-                cQt.position = -1;
+            } else if (i == 1 && (cQu = cQu()) != null) {
+                linkedList.add(0, cQu);
+                cQu.position = -1;
                 int i15 = i6 + 1;
             }
         }
@@ -581,11 +581,11 @@ public class a {
         return arrayList;
     }
 
-    private f cQt() {
-        if (this.jLF == null || y.isEmpty(this.jLF.fVe)) {
+    private f cQu() {
+        if (this.jLH == null || y.isEmpty(this.jLH.fVe)) {
             return null;
         }
-        for (q qVar : this.jLF.fVe) {
+        for (q qVar : this.jLH.fVe) {
             if (qVar instanceof f) {
                 return (f) qVar;
             }
@@ -593,11 +593,11 @@ public class a {
         return null;
     }
 
-    private g cQu() {
-        if (this.jLF == null || y.isEmpty(this.jLF.fVe)) {
+    private g cQv() {
+        if (this.jLH == null || y.isEmpty(this.jLH.fVe)) {
             return null;
         }
-        for (q qVar : this.jLF.fVe) {
+        for (q qVar : this.jLH.fVe) {
             if (qVar instanceof g) {
                 return (g) qVar;
             }
@@ -605,15 +605,15 @@ public class a {
         return null;
     }
 
-    private boolean cQv() {
-        return this.jUL > 0;
+    private boolean cQw() {
+        return this.jUN > 0;
     }
 
-    public boolean cQw() {
-        return (this.jUO == null || y.isEmpty(this.jUO)) ? false : true;
+    public boolean cQx() {
+        return (this.jUQ == null || y.isEmpty(this.jUQ)) ? false : true;
     }
 
-    public List<ThreadInfo> cQx() {
-        return this.jUO;
+    public List<ThreadInfo> cQy() {
+        return this.jUQ;
     }
 }

@@ -12,12 +12,12 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String pDm = "";
-    private String from = "";
-    private String pDn = "";
     private String pDo = "";
+    private String from = "";
     private String pDp = "";
     private String pDq = "";
+    private String pDr = "";
+    private String pDs = "";
     private HashMap<String, String> extra = new HashMap<>();
 
     private String ZY(String str) {
@@ -47,19 +47,19 @@ public class b implements Cloneable {
     }
 
     public String Bk(boolean z) {
-        return z ? ZY(this.pDp) : this.pDp;
+        return z ? ZY(this.pDr) : this.pDr;
     }
 
     public String Bl(boolean z) {
-        return z ? ZY(this.pDn) : this.pDn;
+        return z ? ZY(this.pDp) : this.pDp;
     }
 
     public void ZZ(String str) {
-        this.pDn = str;
+        this.pDp = str;
     }
 
     public String Bm(boolean z) {
-        return z ? ZY(this.pDo) : this.pDo;
+        return z ? ZY(this.pDq) : this.pDq;
     }
 
     public String Bn(boolean z) {
@@ -87,11 +87,11 @@ public class b implements Cloneable {
     }
 
     public String Bp(boolean z) {
-        return z ? ZY(this.pDm) : this.pDm;
+        return z ? ZY(this.pDo) : this.pDo;
     }
 
-    public boolean eCo() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.pDn)) ? false : true;
+    public boolean eCp() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.pDp)) ? false : true;
     }
 
     public Object clone() {

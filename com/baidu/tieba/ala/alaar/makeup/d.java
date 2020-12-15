@@ -8,24 +8,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d extends c {
-    public List<c> gjr;
-    public int gjs;
-    public boolean gjt;
+    public List<c> gjt;
+    public int gju;
+    public boolean gjv;
     private int mPosition = 0;
 
-    public List<c> bPU() {
-        return this.gjr;
+    public List<c> bPV() {
+        return this.gjt;
     }
 
     public void bY(List<c> list) {
-        this.gjr = list;
+        this.gjt = list;
     }
 
-    public c bPV() {
-        if (this.gjr == null || this.mPosition < 0 || this.mPosition >= this.gjr.size()) {
+    public c bPW() {
+        if (this.gjt == null || this.mPosition < 0 || this.mPosition >= this.gjt.size()) {
             return null;
         }
-        return this.gjr.get(this.mPosition);
+        return this.gjt.get(this.mPosition);
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.c
@@ -39,15 +39,15 @@ public class d extends c {
             json.put("category_id", getId());
             json.put("position", this.mPosition);
             JSONArray jSONArray = new JSONArray();
-            if (this.gjr != null) {
-                for (c cVar : this.gjr) {
+            if (this.gjt != null) {
+                for (c cVar : this.gjt) {
                     if (cVar != null) {
                         jSONArray.put(cVar.toJson());
                     }
                 }
             }
             json.put("data", jSONArray);
-            json.put("independent", this.gjt ? 1 : 0);
+            json.put("independent", this.gjv ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
             if (h.isDebug()) {
@@ -65,12 +65,12 @@ public class d extends c {
         super.du(jSONObject);
         setId(jSONObject.optString("category_id"));
         this.mPosition = jSONObject.optInt("position", 0);
-        this.gjr = new ArrayList();
+        this.gjt = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("data");
         if (optJSONArray == null) {
             optJSONArray = jSONObject.optJSONArray("value");
         }
-        this.gjt = jSONObject.optInt("independent", 0) == 1;
+        this.gjv = jSONObject.optInt("independent", 0) == 1;
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -78,13 +78,13 @@ public class d extends c {
                 if (optJSONObject != null) {
                     c cVar = new c();
                     cVar.setTypeName(getTypeName());
-                    cVar.W(bPR());
+                    cVar.W(bPS());
                     if (cVar.du(optJSONObject)) {
-                        this.gjr.add(cVar);
+                        this.gjt.add(cVar);
                     }
                 }
             }
-            if (this.gjt) {
+            if (this.gjv) {
                 super.du(optJSONArray.optJSONObject(0));
             }
         }
@@ -112,6 +112,6 @@ public class d extends c {
     }
 
     public boolean aBy() {
-        return this.gjt;
+        return this.gjv;
     }
 }

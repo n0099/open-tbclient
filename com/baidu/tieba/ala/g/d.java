@@ -21,19 +21,19 @@ public class d extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaFeedBackReasonListResponse) && d.this.hHQ != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaFeedBackReasonListResponse) && d.this.hHS != null) {
                 List<com.baidu.tieba.ala.data.b> ai = d.this.ai(((AlaFeedBackReasonListResponse) httpResponsedMessage).Wm());
                 if (!ListUtils.isEmpty(ai)) {
-                    d.this.hHQ.ah(ai);
+                    d.this.hHS.ah(ai);
                 } else {
-                    d.this.hHQ.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    d.this.hHS.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private long brr;
-    private long ggj;
-    private a hHQ;
+    private long ggl;
+    private a hHS;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private long mUserId;
@@ -47,7 +47,7 @@ public class d extends BdBaseModel {
 
     public d(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.hHQ = aVar;
+        this.hHS = aVar;
         Wn();
         MessageManager.getInstance().registerListener(this.bJI);
     }
@@ -102,7 +102,7 @@ public class d extends BdBaseModel {
 
     public void b(long j, long j2, long j3, boolean z, boolean z2) {
         this.brr = j;
-        this.ggj = j2;
+        this.ggl = j2;
         this.mUserId = j3;
         this.mIsHost = z;
         this.bJG = z2;

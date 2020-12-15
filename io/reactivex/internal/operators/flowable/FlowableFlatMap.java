@@ -23,8 +23,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!c.a(this.pFg, cVar, this.mapper)) {
-            this.pFg.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!c.a(this.pFi, cVar, this.mapper)) {
+            this.pFi.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 

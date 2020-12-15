@@ -14,15 +14,15 @@ import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes22.dex */
 public class a implements View.OnClickListener {
-    private b fZm;
-    private AccountSafeModel fZn;
+    private b fZo;
+    private AccountSafeModel fZp;
     private final BaseActivity mActivity;
     private com.baidu.adp.framework.listener.a mNetMessagelistener = new com.baidu.adp.framework.listener.a(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.fZn != null) {
-                a.this.fZn.setLoading(false);
+            if (a.this.fZp != null) {
+                a.this.fZp.setLoading(false);
             }
             a.this.mActivity.closeLoadingDialog();
             if (responsedMessage != null) {
@@ -42,11 +42,11 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.fZn != null) {
-                    a.this.fZn.a(aVar);
+                if (a.this.fZp != null) {
+                    a.this.fZp.a(aVar);
                 }
-                if (a.this.fZm != null && a.this.fZn != null && a.this.fZn.bMg() != null) {
-                    a.this.fZm.a(a.this.fZn.bMg().bMk());
+                if (a.this.fZo != null && a.this.fZp != null && a.this.fZp.bMh() != null) {
+                    a.this.fZo.a(a.this.fZp.bMh().bMl());
                 }
             }
         }
@@ -55,38 +55,38 @@ public class a implements View.OnClickListener {
     public a(BaseActivity baseActivity) {
         this.mActivity = baseActivity;
         this.mActivity.registerListener(this.mNetMessagelistener);
-        this.fZm = new b(this.mActivity, this);
-        this.fZn = new AccountSafeModel(this.mActivity);
+        this.fZo = new b(this.mActivity, this);
+        this.fZp = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            bMl();
+            bMm();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.fZm.getView();
+        return this.fZo.getView();
     }
 
-    private void bMl() {
-        if (this.fZn != null && !this.fZn.isLoading()) {
-            this.fZn.bMi();
+    private void bMm() {
+        if (this.fZp != null && !this.fZp.isLoading()) {
+            this.fZp.bMj();
         }
     }
 
     public void onDestroy() {
         this.mActivity.closeLoadingDialog();
-        if (this.fZn != null) {
-            this.fZn.cancelLoadData();
+        if (this.fZp != null) {
+            this.fZp.cancelLoadData();
         }
-        if (this.fZm != null) {
-            this.fZm.release();
+        if (this.fZo != null) {
+            this.fZo.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fZm != null) {
-            this.fZm.rY(i);
+        if (this.fZo != null) {
+            this.fZo.rY(i);
         }
     }
 
@@ -100,7 +100,7 @@ public class a implements View.OnClickListener {
                 bf.bua().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.bo(this.mActivity, this.fZn != null ? this.fZn.Fk() : "");
+            AntiHelper.bo(this.mActivity, this.fZp != null ? this.fZp.Fk() : "");
         }
     }
 }

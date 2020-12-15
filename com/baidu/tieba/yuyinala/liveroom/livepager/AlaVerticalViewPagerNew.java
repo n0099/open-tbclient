@@ -52,7 +52,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     private EdgeEffectCompat fTG;
     private EdgeEffectCompat fTH;
     private Method fTJ;
-    private boolean hul;
+    private boolean hun;
     private int mActivePointerId;
     private PagerAdapter mAdapter;
     private boolean mCalledSuper;
@@ -99,10 +99,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     private final Rect mTempRect;
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
-    private final b onK;
-    private e onL;
-    private d onM;
-    private com.baidu.tieba.yuyinala.liveroom.livepager.a onO;
+    private final b onM;
+    private e onN;
+    private d onO;
+    private com.baidu.tieba.yuyinala.liveroom.livepager.a onQ;
     private static final int[] LAYOUT_ATTRS = {16842931};
     private static final Comparator<b> COMPARATOR = new Comparator<b>() { // from class: com.baidu.tieba.yuyinala.liveroom.livepager.AlaVerticalViewPagerNew.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -119,7 +119,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             return (f3 * f3 * f3 * f3 * f3) + 1.0f;
         }
     };
-    private static final f onN = new f();
+    private static final f onP = new f();
 
     /* loaded from: classes4.dex */
     interface a {
@@ -132,9 +132,9 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     public void setIsScrollable(boolean z) {
         if (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isLiveSwitchUnabled()) {
-            this.hul = false;
+            this.hun = false;
         } else {
-            this.hul = z;
+            this.hun = z;
         }
     }
 
@@ -153,9 +153,9 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     public AlaVerticalViewPagerNew(Context context) {
         super(context);
-        this.hul = true;
+        this.hun = true;
         this.mItems = new ArrayList<>();
-        this.onK = new b();
+        this.onM = new b();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
         this.mRestoredAdapterState = null;
@@ -179,9 +179,9 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     public AlaVerticalViewPagerNew(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hul = true;
+        this.hun = true;
         this.mItems = new ArrayList<>();
-        this.onK = new b();
+        this.onM = new b();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
         this.mRestoredAdapterState = null;
@@ -223,7 +223,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         if (ViewCompat.getImportantForAccessibility(this) == 0) {
             ViewCompat.setImportantForAccessibility(this, 1);
         }
-        this.onO = new com.baidu.tieba.yuyinala.liveroom.livepager.a(this);
+        this.onQ = new com.baidu.tieba.yuyinala.liveroom.livepager.a(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -247,7 +247,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
 
     public void setAdapter(PagerAdapter pagerAdapter) {
         if (this.mAdapter != null) {
-            this.mAdapter.unregisterDataSetObserver(this.onL);
+            this.mAdapter.unregisterDataSetObserver(this.onN);
             this.mAdapter.startUpdate((ViewGroup) this);
             for (int i = 0; i < this.mItems.size(); i++) {
                 b bVar = this.mItems.get(i);
@@ -263,10 +263,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         this.mAdapter = pagerAdapter;
         this.mExpectedAdapterCount = 0;
         if (this.mAdapter != null) {
-            if (this.onL == null) {
-                this.onL = new e();
+            if (this.onN == null) {
+                this.onN = new e();
             }
-            this.mAdapter.registerDataSetObserver(this.onL);
+            this.mAdapter.registerDataSetObserver(this.onN);
             this.mPopulatePending = false;
             boolean z = this.mFirstLayout;
             this.mFirstLayout = true;
@@ -283,8 +283,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 requestLayout();
             }
         }
-        if (this.onM != null && pagerAdapter2 != pagerAdapter) {
-            this.onM.a(pagerAdapter2, pagerAdapter);
+        if (this.onO != null && pagerAdapter2 != pagerAdapter) {
+            this.onO.a(pagerAdapter2, pagerAdapter);
         }
     }
 
@@ -309,7 +309,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     void setOnAdapterChangeListener(d dVar) {
-        this.onM = dVar;
+        this.onO = dVar;
     }
 
     private int getClientHeight() {
@@ -784,7 +784,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             for (int i = 0; i < childCount; i++) {
                 this.mDrawingOrderedChildren.add(getChildAt(i));
             }
-            Collections.sort(this.mDrawingOrderedChildren, onN);
+            Collections.sort(this.mDrawingOrderedChildren, onP);
         }
     }
 
@@ -1274,12 +1274,12 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             }
             throw new IllegalStateException("onPageScrolled did not call superclass implementation");
         }
-        b edK = edK();
+        b edL = edL();
         int clientHeight = getClientHeight();
         int i2 = this.mPageMargin + clientHeight;
         float f2 = this.mPageMargin / clientHeight;
-        int i3 = edK.position;
-        float f3 = ((i / clientHeight) - edK.offset) / (edK.fTN + f2);
+        int i3 = edL.position;
+        float f3 = ((i / clientHeight) - edL.offset) / (edL.fTN + f2);
         this.mCalledSuper = false;
         onPageScrolled(i3, f3, (int) (i2 * f3));
         if (!this.mCalledSuper) {
@@ -1410,7 +1410,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         try {
             if (a(this, motionEvent)) {
-                if (!this.hul) {
+                if (!this.hun) {
                     return super.onInterceptTouchEvent(motionEvent);
                 }
                 int action = motionEvent.getAction() & 255;
@@ -1515,13 +1515,13 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         boolean z;
         try {
             if (a(this, motionEvent)) {
-                if (!this.hul) {
+                if (!this.hun) {
                     return super.onTouchEvent(motionEvent);
                 }
                 if (this.mFakeDragging) {
                     return true;
                 }
-                this.onO.onTouchEvent(motionEvent);
+                this.onQ.onTouchEvent(motionEvent);
                 if ((motionEvent.getAction() == 0 && motionEvent.getEdgeFlags() != 0) || this.mAdapter == null || this.mAdapter.getCount() == 0) {
                     return false;
                 }
@@ -1551,8 +1551,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                             this.mPopulatePending = true;
                             int clientHeight = getClientHeight();
                             int scrollY = getScrollY();
-                            b edK = edK();
-                            int determineTargetPage = determineTargetPage(edK.position, ((scrollY / clientHeight) - edK.offset) / edK.fTN, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY));
+                            b edL = edL();
+                            int determineTargetPage = determineTargetPage(edL.position, ((scrollY / clientHeight) - edL.offset) / edL.fTN, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY));
                             if (Nw(determineTargetPage)) {
                                 setCurrentItemInternal(determineTargetPage, true, true, yVelocity);
                             } else {
@@ -1683,7 +1683,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         return r2;
     }
 
-    private b edK() {
+    private b edL() {
         int i;
         b bVar;
         int clientHeight = getClientHeight();
@@ -1701,7 +1701,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 i = i3;
                 bVar = bVar3;
             } else {
-                b bVar4 = this.onK;
+                b bVar4 = this.onM;
                 bVar4.offset = f3 + f4 + f2;
                 bVar4.position = i2 + 1;
                 bVar4.fTN = this.mAdapter.getPageWidth(bVar4.position);
@@ -2100,8 +2100,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     public void setEventListener(a.InterfaceC0930a interfaceC0930a) {
-        if (this.onO != null) {
-            this.onO.setEventListener(interfaceC0930a);
+        if (this.onQ != null) {
+            this.onQ.setEventListener(interfaceC0930a);
         }
     }
 

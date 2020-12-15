@@ -7,5 +7,5 @@ import kotlin.reflect.j;
 /* loaded from: classes17.dex */
 public final class b {
     static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference0Impl(s.j(b.class, "kotlin-stdlib"), "stdin", "getStdin()Ljava/io/BufferedReader;"))};
-    private static final kotlin.c pKs = kotlin.d.b(ConsoleKt$stdin$2.INSTANCE);
+    private static final kotlin.c pKu = kotlin.d.b(ConsoleKt$stdin$2.INSTANCE);
 }

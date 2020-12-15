@@ -118,7 +118,7 @@ public class p {
     }
 
     public void bgg() {
-        if (g.eiL().zq(this.mId)) {
+        if (g.eiM().zq(this.mId)) {
             this.erD = UBC.getUBCContext().aFA();
         }
     }

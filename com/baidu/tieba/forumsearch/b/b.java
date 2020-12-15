@@ -7,25 +7,25 @@ import tbclient.FrsTabInfo;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes24.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId iRi = BdUniqueId.gen();
+    public static final BdUniqueId iRk = BdUniqueId.gen();
     private String eHR;
-    private String iQJ;
-    private String iRd;
-    private String iRe;
+    private String iQL;
     private String iRf;
-    private boolean iRg;
-    private List<FrsTabInfo> iRh;
+    private String iRg;
+    private String iRh;
+    private boolean iRi;
+    private List<FrsTabInfo> iRj;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.iQJ = str;
+        this.iQL = str;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iRi;
+        return iRk;
     }
 
     public void a(SearchForum searchForum) {
@@ -33,12 +33,12 @@ public class b extends BaseCardInfo {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
             this.eHR = searchForum.avatar;
-            this.iRd = searchForum.post_num;
-            this.iRe = searchForum.concern_num;
-            this.iRf = searchForum.slogan;
+            this.iRf = searchForum.post_num;
+            this.iRg = searchForum.concern_num;
+            this.iRh = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.iRg = searchForum.has_concerned.intValue() != 0;
-            this.iRh = searchForum.tab_info;
+            this.iRi = searchForum.has_concerned.intValue() != 0;
+            this.iRj = searchForum.tab_info;
         }
     }
 
@@ -46,12 +46,12 @@ public class b extends BaseCardInfo {
         return this.eHR;
     }
 
-    public String cAQ() {
-        return this.iRe;
+    public String cAR() {
+        return this.iRg;
     }
 
-    public String cAR() {
-        return this.iRd;
+    public String cAS() {
+        return this.iRf;
     }
 
     public String getForumName() {
@@ -62,11 +62,11 @@ public class b extends BaseCardInfo {
         return this.mForumId;
     }
 
-    public String cAS() {
-        return this.iQJ;
+    public String cAT() {
+        return this.iQL;
     }
 
-    public List<FrsTabInfo> cAT() {
-        return this.iRh;
+    public List<FrsTabInfo> cAU() {
+        return this.iRj;
     }
 }

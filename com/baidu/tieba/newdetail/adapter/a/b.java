@@ -23,7 +23,7 @@ import com.baidu.tieba.card.t;
 public class b extends a<by, am<by>> {
     private ab<by> agG;
     private v amH;
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     public BdUniqueId fzO;
     private TbPageContext<?> mPageContext;
 
@@ -39,8 +39,8 @@ public class b extends a<by, am<by>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, by byVar) {
-                t.csg().mj(true);
-                com.baidu.tieba.a.d.bLT().dS("page_recommend", "show_");
+                t.csh().mj(true);
+                com.baidu.tieba.a.d.bLU().dS("page_recommend", "show_");
                 if (view != null && byVar != null && byVar.bmn() != null && !StringUtils.isNull(byVar.bmn().getTid())) {
                     b.this.g(view, byVar);
                 }
@@ -93,7 +93,7 @@ public class b extends a<by, am<by>> {
         }
         byVar.eHa = getPositionByType(i) + 1;
         amVar.tZ().setPosition(i);
-        amVar.aN(true).a(this.fWA);
+        amVar.aN(true).a(this.fWC);
         amVar.a(true, Align.ALIGN_RIGHT_BOTTOM);
         amVar.b((am<by>) byVar);
         amVar.tZ().a(this.agG);

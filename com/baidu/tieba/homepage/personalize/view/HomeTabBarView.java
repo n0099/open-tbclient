@@ -32,13 +32,13 @@ import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
     private float bcD;
     private int fPr;
-    private ImageView fXA;
-    private NestedScrollHeader.a jMY;
-    private TbImageView jVH;
-    private PagerSlidingTabStrip jVI;
-    private LinearLayout jVJ;
-    private View jVK;
-    private int jVL;
+    private ImageView fXC;
+    private NestedScrollHeader.a jNa;
+    private TbImageView jVJ;
+    private PagerSlidingTabStrip jVK;
+    private LinearLayout jVL;
+    private View jVM;
+    private int jVN;
     private int mSkinType;
     private int tbds150;
     private int tbds264;
@@ -47,7 +47,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         super(context);
         this.mSkinType = 3;
         this.fPr = 0;
-        this.jVL = R.color.CAM_X0105;
+        this.jVN = R.color.CAM_X0105;
         init(context);
     }
 
@@ -55,7 +55,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         super(context, attributeSet);
         this.mSkinType = 3;
         this.fPr = 0;
-        this.jVL = R.color.CAM_X0105;
+        this.jVN = R.color.CAM_X0105;
         init(context);
     }
 
@@ -63,7 +63,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         super(context, attributeSet, i);
         this.mSkinType = 3;
         this.fPr = 0;
-        this.jVL = R.color.CAM_X0105;
+        this.jVN = R.color.CAM_X0105;
         init(context);
     }
 
@@ -72,20 +72,20 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         this.tbds264 = getContext().getResources().getDimensionPixelSize(R.dimen.tbds264);
         this.fPr = this.tbds150;
         LayoutInflater.from(context).inflate(R.layout.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.fXA = (ImageView) findViewById(R.id.home_page_search_icon);
-        this.fXA.setClickable(false);
-        this.jVI = (PagerSlidingTabStrip) findViewById(R.id.home_page_tabstrip);
-        this.jVI.b(l.getDimens(context, R.dimen.T_X06), l.getDimens(context, R.dimen.T_X04), l.getDimens(context, R.dimen.tbds10), true);
+        this.fXC = (ImageView) findViewById(R.id.home_page_search_icon);
+        this.fXC.setClickable(false);
+        this.jVK = (PagerSlidingTabStrip) findViewById(R.id.home_page_tabstrip);
+        this.jVK.b(l.getDimens(context, R.dimen.T_X06), l.getDimens(context, R.dimen.T_X04), l.getDimens(context, R.dimen.tbds10), true);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
         layoutParams.gravity = 1;
         layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X001);
-        this.jVI.setExpandedTabLayoutParams(layoutParams);
-        this.jVJ = (LinearLayout) findViewById(R.id.home_page_search_icon_layout);
-        this.jVK = findViewById(R.id.home_page_shadow);
-        this.jVH = (TbImageView) findViewById(R.id.home_page_get_money);
-        this.jVH.setClickable(false);
-        this.fXA.setOnClickListener(this);
-        this.jVH.setOnClickListener(this);
+        this.jVK.setExpandedTabLayoutParams(layoutParams);
+        this.jVL = (LinearLayout) findViewById(R.id.home_page_search_icon_layout);
+        this.jVM = findViewById(R.id.home_page_shadow);
+        this.jVJ = (TbImageView) findViewById(R.id.home_page_get_money);
+        this.jVJ.setClickable(false);
+        this.fXC.setOnClickListener(this);
+        this.jVJ.setOnClickListener(this);
         setOnClickListener(this);
         aI(0.0f);
         onChangeSkinType();
@@ -96,31 +96,31 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     public void setMissionEntranceVisibility(boolean z) {
         if (z) {
-            this.jVH.setVisibility(0);
+            this.jVJ.setVisibility(0);
             this.fPr = this.tbds264;
             rL(true);
             rK(true);
-            cOh();
+            cOi();
             return;
         }
         this.fPr = this.tbds150;
-        this.jVH.setVisibility(8);
+        this.jVJ.setVisibility(8);
     }
 
     public ImageView getTaskView() {
-        return this.jVH;
+        return this.jVJ;
     }
 
     public void setEntranceJumpListener(NestedScrollHeader.a aVar) {
-        this.jMY = aVar;
+        this.jNa = aVar;
     }
 
-    private void cOh() {
+    private void cOi() {
         final String missionEntranceUrl = TbSingleton.getInstance().getMissionEntranceUrl();
         String missionEntranceIcon = TbSingleton.getInstance().getMissionEntranceIcon();
         if (TextUtils.isEmpty(missionEntranceUrl) || TextUtils.isEmpty(missionEntranceIcon)) {
-            this.jVH.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
-            this.jVH.setImageResource(R.drawable.icon_use_gold_n);
+            this.jVJ.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+            this.jVJ.setImageResource(R.drawable.icon_use_gold_n);
             return;
         }
         com.baidu.adp.lib.e.c.mS().a(missionEntranceIcon, 10, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.1
@@ -130,12 +130,12 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass1) aVar, str, i);
                 if (aVar == null || aVar.getRawBitmap() == null || aVar.getRawBitmap().isRecycled()) {
-                    HomeTabBarView.this.jVH.setImageResource(R.drawable.icon_use_gold_n);
-                    HomeTabBarView.this.jVH.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+                    HomeTabBarView.this.jVJ.setImageResource(R.drawable.icon_use_gold_n);
+                    HomeTabBarView.this.jVJ.setTag(R.id.homepage_mission_entrance_url, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
                     return;
                 }
-                HomeTabBarView.this.jVH.setImageBitmap(aVar.getRawBitmap());
-                HomeTabBarView.this.jVH.setTag(R.id.homepage_mission_entrance_url, missionEntranceUrl);
+                HomeTabBarView.this.jVJ.setImageBitmap(aVar.getRawBitmap());
+                HomeTabBarView.this.jVJ.setTag(R.id.homepage_mission_entrance_url, missionEntranceUrl);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -154,17 +154,17 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fXA) {
+        if (view == this.fXC) {
             TiebaStatic.log(new ar(CommonStatisticKey.SEARCH_BAR_CLICK).al("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new SquareSearchActivityConfig(getContext(), "", false)));
-        } else if (view == this.jVH) {
-            Object tag = this.jVH.getTag(R.id.homepage_mission_entrance_url);
+        } else if (view == this.jVJ) {
+            Object tag = this.jVJ.getTag(R.id.homepage_mission_entrance_url);
             if (tag instanceof String) {
                 String str = (String) tag;
                 if (!TextUtils.isEmpty(str)) {
-                    cOi();
-                    if (this.jMY != null) {
-                        this.jMY.Mr(str);
+                    cOj();
+                    if (this.jNa != null) {
+                        this.jNa.Mr(str);
                     }
                 }
             }
@@ -172,49 +172,49 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.jVI.setOnPageChangeListener(onPageChangeListener);
+        this.jVK.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.jVI != null) {
-            this.jVI.setShowConcernRedTip(z);
+        if (this.jVK != null) {
+            this.jVK.setShowConcernRedTip(z);
         }
     }
 
-    public boolean cOt() {
-        if (this.jVI != null) {
-            return this.jVI.cOt();
+    public boolean cOu() {
+        if (this.jVK != null) {
+            return this.jVK.cOu();
         }
         return false;
     }
 
     public void setShowHotTopicRedTip(boolean z) {
-        if (this.jVI != null) {
-            this.jVI.setShowHotTopicRedTip(z);
+        if (this.jVK != null) {
+            this.jVK.setShowHotTopicRedTip(z);
         }
     }
 
-    public boolean cOu() {
-        if (this.jVI != null) {
-            return this.jVI.cOu();
+    public boolean cOv() {
+        if (this.jVK != null) {
+            return this.jVK.cOv();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.jVI.setViewPager(viewPager);
+        this.jVK.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.jVI.setTabItemClicked(z);
+        this.jVK.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.jVI.notifyDataSetChanged();
+        this.jVK.notifyDataSetChanged();
     }
 
-    public void cQC() {
-        this.jVI.bjF();
+    public void cQD() {
+        this.jVK.bjF();
     }
 
     public void onChangeSkinType() {
@@ -222,51 +222,51 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             ap.a(this, R.color.CAM_X0208, this.bcD, this.mSkinType);
-            this.fXA.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(this.jVL), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.jVI.onChangeSkinType();
-            ap.setBackgroundResource(this.jVK, R.drawable.home_page_tab_shadow);
+            this.fXC.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(this.jVN), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.jVK.onChangeSkinType();
+            ap.setBackgroundResource(this.jVM, R.drawable.home_page_tab_shadow);
         }
     }
 
     public View CM(int i) {
-        return this.jVI.CM(i);
+        return this.jVK.CM(i);
     }
 
     public void onResume() {
-        this.fXA.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(this.jVL), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.fXC.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_search40, ap.getColor(this.jVN), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public void setConcernTabIndex(int i) {
-        this.jVI.setConcernTabIndex(i);
+        this.jVK.setConcernTabIndex(i);
     }
 
     public void setHotTopicTabIndex(int i) {
-        this.jVI.setHotTopicIndex(i);
+        this.jVK.setHotTopicIndex(i);
     }
 
     public void setOnTabItemClickListener(PagerSlidingTabStrip.a aVar) {
-        this.jVI.setOnTabItemClickListener(aVar);
+        this.jVK.setOnTabItemClickListener(aVar);
     }
 
     public void aI(float f) {
         if (f <= 1.0f && f >= 0.0f) {
             this.bcD = f;
             ap.a(this, R.color.CAM_X0208, f, this.mSkinType);
-            if (this.fXA != null && this.jVJ != null && this.jVI != null && this.jVK != null && this.jVJ.getAlpha() != f) {
-                this.jVJ.setAlpha(f);
-                this.jVK.setAlpha(f);
+            if (this.fXC != null && this.jVL != null && this.jVK != null && this.jVM != null && this.jVL.getAlpha() != f) {
+                this.jVL.setAlpha(f);
+                this.jVM.setAlpha(f);
                 if (f == 1.0f) {
-                    this.fXA.setClickable(true);
-                    if (this.jVH != null) {
-                        this.jVH.setClickable(true);
+                    this.fXC.setClickable(true);
+                    if (this.jVJ != null) {
+                        this.jVJ.setClickable(true);
                     }
                     rL(true);
                     rK(true);
                     return;
                 }
-                this.fXA.setClickable(false);
-                if (this.jVH != null) {
-                    this.jVH.setClickable(false);
+                this.fXC.setClickable(false);
+                if (this.jVJ != null) {
+                    this.jVJ.setClickable(false);
                 }
                 rL(false);
                 rK(false);
@@ -279,12 +279,36 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     private void rK(boolean z) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jVM.getLayoutParams();
+        if (layoutParams != null) {
+            if (z) {
+                if (layoutParams.rightMargin != this.fPr) {
+                    layoutParams.rightMargin = this.fPr;
+                    this.jVM.setLayoutParams(layoutParams);
+                }
+            } else if (layoutParams.rightMargin != 0) {
+                layoutParams.rightMargin = 0;
+                this.jVM.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    private void rL(boolean z) {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jVK.getLayoutParams();
         if (layoutParams != null) {
             if (z) {
                 if (layoutParams.rightMargin != this.fPr) {
                     layoutParams.rightMargin = this.fPr;
                     this.jVK.setLayoutParams(layoutParams);
+                    this.jVK.post(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.2
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            View CM = HomeTabBarView.this.jVK.CM(HomeTabBarView.this.jVK.getCurrentTabIndex());
+                            if (CM != null && CM.getRight() > HomeTabBarView.this.jVK.getRight()) {
+                                HomeTabBarView.this.jVK.scrollTo(CM.getWidth() + HomeTabBarView.this.jVK.getScrollX(), 0);
+                            }
+                        }
+                    });
                 }
             } else if (layoutParams.rightMargin != 0) {
                 layoutParams.rightMargin = 0;
@@ -293,31 +317,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    private void rL(boolean z) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jVI.getLayoutParams();
-        if (layoutParams != null) {
-            if (z) {
-                if (layoutParams.rightMargin != this.fPr) {
-                    layoutParams.rightMargin = this.fPr;
-                    this.jVI.setLayoutParams(layoutParams);
-                    this.jVI.post(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.HomeTabBarView.2
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            View CM = HomeTabBarView.this.jVI.CM(HomeTabBarView.this.jVI.getCurrentTabIndex());
-                            if (CM != null && CM.getRight() > HomeTabBarView.this.jVI.getRight()) {
-                                HomeTabBarView.this.jVI.scrollTo(CM.getWidth() + HomeTabBarView.this.jVI.getScrollX(), 0);
-                            }
-                        }
-                    });
-                }
-            } else if (layoutParams.rightMargin != 0) {
-                layoutParams.rightMargin = 0;
-                this.jVI.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    private void cOi() {
+    private void cOj() {
         ar arVar = new ar("c13422");
         arVar.al("obj_type", 2);
         arVar.al("obj_locate", 1);
@@ -326,7 +326,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         TiebaStatic.log(arVar);
     }
 
-    public void cOK() {
+    public void cOL() {
         ar arVar = new ar("c13422");
         arVar.al("obj_type", 1);
         arVar.al("obj_locate", 1);

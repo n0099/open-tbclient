@@ -15,21 +15,21 @@ public class PersonExpandImageView extends ImageView {
     private final Rect cHw;
     private final Rect mDstRect;
     private final Paint mPaint;
-    private final DisplayMetrics mvB;
-    private int mvC;
+    private final DisplayMetrics mvD;
+    private int mvE;
 
     public PersonExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.cHw = new Rect();
         this.mDstRect = new Rect();
-        this.mvC = 0;
+        this.mvE = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
         this.mPaint = new Paint();
-        this.mvB = getResources().getDisplayMetrics();
+        this.mvD = getResources().getDisplayMetrics();
     }
 
     public void setInitHeight(int i) {
-        this.mvC = i;
+        this.mvE = i;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -40,12 +40,12 @@ public class PersonExpandImageView extends ImageView {
         float f2;
         float f3;
         float f4 = 0.0f;
-        if (this.mvC != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
-            int scaledWidth = bitmap.getScaledWidth(this.mvB);
-            int scaledHeight = bitmap.getScaledHeight(this.mvB);
+        if (this.mvE != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+            int scaledWidth = bitmap.getScaledWidth(this.mvD);
+            int scaledHeight = bitmap.getScaledHeight(this.mvD);
             if (scaledWidth != 0 && scaledHeight != 0) {
-                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.mvC) {
-                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.mvC) - getWidth()) * 0.2f) + getWidth();
+                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.mvE) {
+                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.mvE) - getWidth()) * 0.2f) + getWidth();
                     float f5 = ((scaledHeight * 1.0f) / scaledWidth) * width;
                     if (width != 0.0f && f5 != 0.0f) {
                         float width2 = (getWidth() * scaledWidth) / width;

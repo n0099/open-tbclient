@@ -14,14 +14,14 @@ public class h {
     private static long d = 0;
 
     public static void a(boolean z, boolean z2) {
-        k.a eoI = k.eoI();
-        eoI.a("phonescripstarttime");
-        eoI.a("phonescripcache");
-        eoI.a("pre_sim_key");
+        k.a eoJ = k.eoJ();
+        eoJ.a("phonescripstarttime");
+        eoJ.a("phonescripcache");
+        eoJ.a("pre_sim_key");
         if (z2) {
-            eoI.a();
+            eoJ.a();
         } else {
-            eoI.b();
+            eoJ.b();
         }
         if (z) {
             b = null;
@@ -55,11 +55,11 @@ public class h {
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
         if (!TextUtils.isEmpty(a2)) {
-            k.a eoI = k.eoI();
-            eoI.a("phonescripcache", a2);
-            eoI.a("phonescripstarttime", j);
-            eoI.a("pre_sim_key", str2);
-            eoI.b();
+            k.a eoJ = k.eoJ();
+            eoJ.a("phonescripcache", a2);
+            eoJ.a("phonescripstarttime", j);
+            eoJ.a("pre_sim_key", str2);
+            eoJ.b();
         }
     }
 

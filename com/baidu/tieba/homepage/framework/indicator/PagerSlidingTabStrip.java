@@ -73,11 +73,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private float fRz;
     private boolean isLoading;
     private int jNA;
-    private a jNB;
-    private final b jNu;
-    private boolean jNv;
-    private int jNw;
-    private int jNx;
+    private int jNB;
+    private int jNC;
+    private a jND;
+    private final b jNw;
+    private boolean jNx;
     private int jNy;
     private int jNz;
     private Locale locale;
@@ -100,18 +100,18 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public PagerSlidingTabStrip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jNu = new b();
+        this.jNw = new b();
         this.mSkinType = 3;
         this.mCurrentTabIndex = 0;
         this.fRf = 0.0f;
         this.fRg = 0;
         this.fRh = 0;
         this.eYh = false;
-        this.jNx = R.color.CAM_X0105;
-        this.jNy = R.color.CAM_X0105;
-        this.jNz = R.color.CAM_X0302;
-        this.eYi = ap.getColor(this.jNx);
-        this.eYj = ap.getColor(this.jNy);
+        this.jNz = R.color.CAM_X0105;
+        this.jNA = R.color.CAM_X0105;
+        this.jNB = R.color.CAM_X0302;
+        this.eYi = ap.getColor(this.jNz);
+        this.eYj = ap.getColor(this.jNA);
         this.fRp = 52;
         this.mIndicatorHeight = 4;
         this.dividerPadding = 12;
@@ -140,7 +140,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this.fRx = l.getDimens(getContext(), R.dimen.tbds46);
         this.fRy = (this.fRw * 1.0f) / this.fRv;
         this.fRz = (this.fRx * 1.0f) / this.fRv;
-        this.jNA = -l.getDimens(getContext(), R.dimen.tbds11);
+        this.jNC = -l.getDimens(getContext(), R.dimen.tbds11);
         this.mIndicatorHeight = i3;
         this.eYh = z;
         this.eYg = new Paint();
@@ -175,17 +175,17 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         invalidate();
     }
 
-    public boolean cOt() {
+    public boolean cOu() {
         return this.fRK;
     }
 
     public void setShowHotTopicRedTip(boolean z) {
-        this.jNv = z;
+        this.jNx = z;
         invalidate();
     }
 
-    public boolean cOu() {
-        return this.jNv;
+    public boolean cOv() {
+        return this.jNx;
     }
 
     public void setTabItemClicked(boolean z) {
@@ -195,7 +195,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         this.eYd = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.jNu);
+            viewPager.setOnPageChangeListener(this.jNw);
             notifyDataSetChanged();
         }
     }
@@ -257,7 +257,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             imageView.setImageDrawable(WebPManager.a(R.drawable.icon_pure_home_unfold16, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
             linearLayout.addView(textView);
             linearLayout.addView(imageView);
-            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.jNA;
+            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.jNC;
             linearLayout.setGravity(16);
             d(i, linearLayout);
             return;
@@ -284,8 +284,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (!PagerSlidingTabStrip.this.isLoading) {
-                    if (PagerSlidingTabStrip.this.jNB != null) {
-                        PagerSlidingTabStrip.this.jNB.q(view2, i);
+                    if (PagerSlidingTabStrip.this.jND != null) {
+                        PagerSlidingTabStrip.this.jND.q(view2, i);
                     }
                     if (PagerSlidingTabStrip.this.eYd.getCurrentItem() != i || i != 0 || !TbadkCoreApplication.isLogin() || !d.bkz()) {
                         if (PagerSlidingTabStrip.this.eYd.getCurrentItem() == i) {
@@ -366,8 +366,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 this.Hx.set(left, (height - this.mIndicatorHeight) - this.fRq, right2, height - this.fRq);
             }
             canvas.drawRoundRect(this.Hx, this.mIndicatorHeight * 0.5f, this.mIndicatorHeight * 0.5f, this.eYg);
-            if (this.jNv) {
-                View childAt3 = this.eYc.getChildAt(this.jNw);
+            if (this.jNx) {
+                View childAt3 = this.eYc.getChildAt(this.jNy);
                 this.fRj.set((childAt3.getRight() - this.fRE) - this.fRC, childAt3.getTop() + this.fRD, right + this.fRC, top + this.fRC);
                 canvas.drawOval(this.fRj, this.fRi);
             }
@@ -414,9 +414,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            this.eYi = ap.getColor(this.jNx);
-            this.eYj = ap.getColor(this.jNy);
-            this.eYg.setColor(ap.getColor(this.jNz));
+            this.eYi = ap.getColor(this.jNz);
+            this.eYj = ap.getColor(this.jNA);
+            this.eYg.setColor(ap.getColor(this.jNB));
             this.fRi.setColor(ap.getColor(R.color.CAM_X0301));
             updateTabStyles();
             invalidate();
@@ -548,7 +548,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 if (PagerSlidingTabStrip.this.eYb != null) {
                     PagerSlidingTabStrip.this.eYb.onPageScrollStateChanged(i);
                 }
-                HomePageStatic.jIH = false;
+                HomePageStatic.jIJ = false;
             }
         }
 
@@ -632,10 +632,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     public void setHotTopicIndex(int i) {
-        this.jNw = i;
+        this.jNy = i;
     }
 
     public void setOnTabItemClickListener(a aVar) {
-        this.jNB = aVar;
+        this.jND = aVar;
     }
 }

@@ -27,25 +27,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private TextView hAE;
-    private TextView hAF;
-    private Runnable hAG = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.a.1
+    private TextView hAG;
+    private TextView hAH;
+    private Runnable hAI = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.a.1
         @Override // java.lang.Runnable
         public void run() {
             a.this.hide();
         }
     };
-    HttpMessageListener hAH = new HttpMessageListener(1021221) { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.a.2
+    HttpMessageListener hAJ = new HttpMessageListener(1021221) { // from class: com.baidu.tieba.ala.liveroom.performancewatchtask.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021221 && (httpResponsedMessage instanceof WatchFinishHttpResponseMessage) && !httpResponsedMessage.hasError()) {
-                c cjY = ((WatchFinishHttpResponseMessage) httpResponsedMessage).cjY();
-                if (cjY.isSuccess() && !TextUtils.isEmpty(cjY.taskId)) {
-                    if (a.this.hAH != null) {
-                        MessageManager.getInstance().unRegisterListener(a.this.hAH);
+                c cjZ = ((WatchFinishHttpResponseMessage) httpResponsedMessage).cjZ();
+                if (cjZ.isSuccess() && !TextUtils.isEmpty(cjZ.taskId)) {
+                    if (a.this.hAJ != null) {
+                        MessageManager.getInstance().unRegisterListener(a.this.hAJ);
                     }
-                    a.this.a(UbcStatisticLiveKey.KEY_ID_1396, "click", "task_succ", cjY.taskId, cjY.hBa);
+                    a.this.a(UbcStatisticLiveKey.KEY_ID_1396, "click", "task_succ", cjZ.taskId, cjZ.hBc);
                 }
             }
         }
@@ -60,15 +60,15 @@ public class a {
     public a(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_watch_time_task, (ViewGroup) null);
-        this.hAE = (TextView) this.mRootView.findViewById(a.f.ala_content);
-        this.hAF = (TextView) this.mRootView.findViewById(a.f.jump);
-        if (this.hAH != null) {
-            MessageManager.getInstance().registerListener(this.hAH);
+        this.hAG = (TextView) this.mRootView.findViewById(a.f.ala_content);
+        this.hAH = (TextView) this.mRootView.findViewById(a.f.jump);
+        if (this.hAJ != null) {
+            MessageManager.getInstance().registerListener(this.hAJ);
         }
     }
 
     static {
-        bZx();
+        bZy();
     }
 
     public void showToast() {
@@ -99,14 +99,14 @@ public class a {
     public void xl(int i) {
         showToast();
         try {
-            this.hAE.postDelayed(this.hAG, i * 1000);
+            this.hAG.postDelayed(this.hAI, i * 1000);
         } catch (Exception e) {
         }
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        if (this.hAF != null) {
-            this.hAF.setOnClickListener(onClickListener);
+        if (this.hAH != null) {
+            this.hAH.setOnClickListener(onClickListener);
         }
     }
 
@@ -114,11 +114,11 @@ public class a {
         this.mType = i;
         this.mUserId = j;
         this.mLiveInfo = alaLiveInfoData;
-        if (this.hAE != null) {
-            this.hAE.setText(str);
+        if (this.hAG != null) {
+            this.hAG.setText(str);
         }
-        if (this.hAF != null) {
-            this.hAF.setText(str2);
+        if (this.hAH != null) {
+            this.hAH.setText(str2);
         }
     }
 
@@ -140,7 +140,7 @@ public class a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private static void bZx() {
+    private static void bZy() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021221, TbConfig.SERVER_QUANMIN_ADDRESS + "pubshow/task/Jumplivequizticket");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

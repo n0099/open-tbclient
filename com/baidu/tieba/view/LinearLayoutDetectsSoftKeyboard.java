@@ -11,7 +11,7 @@ import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     Rect bHi;
-    private a nQc;
+    private a nQe;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,7 +24,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     }
 
     public void setOnSoftKeyBoardShownListener(a aVar) {
-        this.nQc = aVar;
+        this.nQe = aVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -34,21 +34,21 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         Activity activity = (Activity) getContext();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.bHi);
         int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.bHi.top) - size;
-        if (this.nQc != null) {
+        if (this.nQe != null) {
             if (MenuKeyUtils.hasSmartBar()) {
                 if (height > l.dip2px(activity, 48.0f) + 128) {
                     z = true;
-                    this.nQc.db(z);
+                    this.nQe.db(z);
                 }
                 z = false;
-                this.nQc.db(z);
+                this.nQe.db(z);
             } else {
                 if (height > 128) {
                     z = true;
-                    this.nQc.db(z);
+                    this.nQe.db(z);
                 }
                 z = false;
-                this.nQc.db(z);
+                this.nQe.db(z);
             }
         }
         super.onMeasure(i, i2);

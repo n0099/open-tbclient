@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes15.dex */
 public class p {
-    private final com.facebook.common.memory.c plK;
-    private final r pnT;
-    private final s pnU;
+    private final com.facebook.common.memory.c plM;
     private final r pnV;
-    private final r pnW;
-    private final s pnX;
+    private final s pnW;
+    private final r pnX;
     private final r pnY;
     private final s pnZ;
+    private final r poa;
+    private final s pob;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.pnT == null) {
-            rVar = e.evU();
-        } else {
-            rVar = aVar.pnT;
-        }
-        this.pnT = rVar;
-        if (aVar.pnU == null) {
-            sVar = n.evZ();
-        } else {
-            sVar = aVar.pnU;
-        }
-        this.pnU = sVar;
         if (aVar.pnV == null) {
-            rVar2 = g.evU();
+            rVar = e.evV();
         } else {
-            rVar2 = aVar.pnV;
+            rVar = aVar.pnV;
         }
-        this.pnV = rVar2;
-        if (aVar.plK == null) {
-            cVar = com.facebook.common.memory.d.epU();
-        } else {
-            cVar = aVar.plK;
-        }
-        this.plK = cVar;
+        this.pnV = rVar;
         if (aVar.pnW == null) {
-            rVar3 = h.evU();
+            sVar = n.ewa();
         } else {
-            rVar3 = aVar.pnW;
+            sVar = aVar.pnW;
         }
-        this.pnW = rVar3;
+        this.pnW = sVar;
         if (aVar.pnX == null) {
-            sVar2 = n.evZ();
+            rVar2 = g.evV();
         } else {
-            sVar2 = aVar.pnX;
+            rVar2 = aVar.pnX;
         }
-        this.pnX = sVar2;
+        this.pnX = rVar2;
+        if (aVar.plM == null) {
+            cVar = com.facebook.common.memory.d.epV();
+        } else {
+            cVar = aVar.plM;
+        }
+        this.plM = cVar;
         if (aVar.pnY == null) {
-            rVar4 = f.evU();
+            rVar3 = h.evV();
         } else {
-            rVar4 = aVar.pnY;
+            rVar3 = aVar.pnY;
         }
-        this.pnY = rVar4;
+        this.pnY = rVar3;
         if (aVar.pnZ == null) {
-            sVar3 = n.evZ();
+            sVar2 = n.ewa();
         } else {
-            sVar3 = aVar.pnZ;
+            sVar2 = aVar.pnZ;
         }
-        this.pnZ = sVar3;
+        this.pnZ = sVar2;
+        if (aVar.poa == null) {
+            rVar4 = f.evV();
+        } else {
+            rVar4 = aVar.poa;
+        }
+        this.poa = rVar4;
+        if (aVar.pob == null) {
+            sVar3 = n.ewa();
+        } else {
+            sVar3 = aVar.pob;
+        }
+        this.pob = sVar3;
     }
 
-    public r ewc() {
-        return this.pnT;
-    }
-
-    public s ewd() {
-        return this.pnU;
-    }
-
-    public com.facebook.common.memory.c eua() {
-        return this.plK;
-    }
-
-    public r ewe() {
-        return this.pnW;
-    }
-
-    public s ewf() {
-        return this.pnX;
-    }
-
-    public r ewg() {
+    public r ewd() {
         return this.pnV;
     }
 
-    public r ewh() {
+    public s ewe() {
+        return this.pnW;
+    }
+
+    public com.facebook.common.memory.c eub() {
+        return this.plM;
+    }
+
+    public r ewf() {
         return this.pnY;
     }
 
-    public s ewi() {
+    public s ewg() {
         return this.pnZ;
     }
 
-    public static a ewj() {
+    public r ewh() {
+        return this.pnX;
+    }
+
+    public r ewi() {
+        return this.poa;
+    }
+
+    public s ewj() {
+        return this.pob;
+    }
+
+    public static a ewk() {
         return new a();
     }
 
     /* loaded from: classes15.dex */
     public static class a {
-        private com.facebook.common.memory.c plK;
-        private r pnT;
-        private s pnU;
+        private com.facebook.common.memory.c plM;
         private r pnV;
-        private r pnW;
-        private s pnX;
+        private s pnW;
+        private r pnX;
         private r pnY;
         private s pnZ;
+        private r poa;
+        private s pob;
 
         private a() {
         }
 
-        public p ewk() {
+        public p ewl() {
             return new p(this);
         }
     }

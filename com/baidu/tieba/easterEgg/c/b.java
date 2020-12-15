@@ -16,30 +16,30 @@ import java.util.HashMap;
 /* loaded from: classes24.dex */
 public class b extends k {
     private Gson eBJ;
-    private c isc;
-    private HashMap<String, String> isd;
-    private SparseArray<String> ise;
+    private c ise;
+    private HashMap<String, String> isf;
+    private SparseArray<String> isg;
 
     public b(int i) {
         super(i);
         this.eBJ = new Gson();
-        cuk();
+        cul();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.ise.get(socketMessage.getCmd());
-        if (str != null && this.isd != null && this.isd.get(str) != null && this.isc != null) {
-            this.isc.aB(str, this.eBJ.toJson(this.isd.get(str)), this.eBJ.toJson(this.eBJ.toJson(socketMessage.getData())));
+        String str = this.isg.get(socketMessage.getCmd());
+        if (str != null && this.isf != null && this.isf.get(str) != null && this.ise != null) {
+            this.ise.aB(str, this.eBJ.toJson(this.isf.get(str)), this.eBJ.toJson(this.eBJ.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void cuk() {
+    private void cul() {
         int i;
-        this.ise = new SparseArray<>();
+        this.isg = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!y.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -49,7 +49,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!au.isEmpty(str) && str.contains("=") && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.ise.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.isg.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -57,10 +57,10 @@ public class b extends k {
     }
 
     public void F(HashMap<String, String> hashMap) {
-        this.isd = hashMap;
+        this.isf = hashMap;
     }
 
     public void a(c cVar) {
-        this.isc = cVar;
+        this.ise = cVar;
     }
 }

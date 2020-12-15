@@ -17,23 +17,23 @@ import java.util.List;
 /* loaded from: classes24.dex */
 public class PersonCenterAttentionBarListView extends LinearLayout {
     private Context bJK;
-    private View fYd;
-    public ListViewPager kXc;
+    private View fYf;
+    public ListViewPager kXe;
     private int mSkinType;
     public TextView mTitle;
-    private com.baidu.tieba.personPolymeric.c.c mut;
-    private com.baidu.adp.lib.d.b<PersonCommonForumItemView> muv;
-    private a mvh;
+    private com.baidu.tieba.personPolymeric.c.c muv;
+    private com.baidu.adp.lib.d.b<PersonCommonForumItemView> mux;
+    private a mvj;
     private View rootView;
 
     public PersonCenterAttentionBarListView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.mvh = new a();
-        this.muv = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
+        this.mvj = new a();
+        this.mux = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: dzY */
+            /* renamed from: dzZ */
             public PersonCommonForumItemView makeObject() {
                 return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.bJK);
             }
@@ -67,11 +67,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public PersonCenterAttentionBarListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.mvh = new a();
-        this.muv = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
+        this.mvj = new a();
+        this.mux = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: dzY */
+            /* renamed from: dzZ */
             public PersonCommonForumItemView makeObject() {
                 return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.bJK);
             }
@@ -105,11 +105,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public PersonCenterAttentionBarListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.mvh = new a();
-        this.muv = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
+        this.mvj = new a();
+        this.mux = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<PersonCommonForumItemView>() { // from class: com.baidu.tieba.personPolymeric.view.PersonCenterAttentionBarListView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: dzY */
+            /* renamed from: dzZ */
             public PersonCommonForumItemView makeObject() {
                 return new PersonCommonForumItemView(PersonCenterAttentionBarListView.this.bJK);
             }
@@ -144,9 +144,9 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         this.bJK = context;
         this.rootView = LayoutInflater.from(this.bJK).inflate(R.layout.person_info_common_forum_layout, this);
         this.mTitle = (TextView) this.rootView.findViewById(R.id.common_forum_title);
-        this.kXc = (ListViewPager) this.rootView.findViewById(R.id.common_forum_viewpager);
-        this.fYd = this.rootView.findViewById(R.id.divider_line);
-        this.kXc.setOffscreenPageLimit(1);
+        this.kXe = (ListViewPager) this.rootView.findViewById(R.id.common_forum_viewpager);
+        this.fYf = this.rootView.findViewById(R.id.divider_line);
+        this.kXe.setOffscreenPageLimit(1);
     }
 
     public int getLayout() {
@@ -160,10 +160,10 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (PersonCenterAttentionBarListView.this.mut == null || y.isEmpty(PersonCenterAttentionBarListView.this.mut.mrM)) {
+            if (PersonCenterAttentionBarListView.this.muv == null || y.isEmpty(PersonCenterAttentionBarListView.this.muv.mrO)) {
                 return 0;
             }
-            return PersonCenterAttentionBarListView.this.mut.mrM.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.mut.mrM.size() / 4 : (PersonCenterAttentionBarListView.this.mut.mrM.size() / 4) + 1;
+            return PersonCenterAttentionBarListView.this.muv.mrO.size() % 4 == 0 ? PersonCenterAttentionBarListView.this.muv.mrO.size() / 4 : (PersonCenterAttentionBarListView.this.muv.mrO.size() / 4) + 1;
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -187,7 +187,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
                 return null;
             }
             PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(PersonCenterAttentionBarListView.this.bJK);
-            personCommonForumCardView.setForumItemViewBdObjectPool(PersonCenterAttentionBarListView.this.muv);
+            personCommonForumCardView.setForumItemViewBdObjectPool(PersonCenterAttentionBarListView.this.mux);
             personCommonForumCardView.setData(Iz);
             personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
             personCommonForumCardView.setHorizontalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds48));
@@ -198,7 +198,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public List<com.baidu.tieba.personPolymeric.c.f> Iz(int i) {
-        if (this.mut == null || y.isEmpty(this.mut.mrM)) {
+        if (this.muv == null || y.isEmpty(this.muv.mrO)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -208,7 +208,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             if (i3 >= (i * 4) + 4) {
                 return arrayList;
             }
-            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) y.getItem(this.mut.mrM, i3);
+            com.baidu.tieba.personPolymeric.c.f fVar = (com.baidu.tieba.personPolymeric.c.f) y.getItem(this.muv.mrO, i3);
             if (fVar != null) {
                 arrayList.add(fVar);
             }

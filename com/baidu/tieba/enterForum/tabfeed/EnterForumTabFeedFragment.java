@@ -16,9 +16,9 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel;
 /* loaded from: classes22.dex */
 public class EnterForumTabFeedFragment extends BaseFragment implements b {
-    private EnterForumTabFeedNetModel iAU;
-    private com.baidu.tieba.enterForum.tabfeed.view.a iAV;
-    private int iAW;
+    private EnterForumTabFeedNetModel iAW;
+    private com.baidu.tieba.enterForum.tabfeed.view.a iAX;
+    private int iAY;
     private ViewGroup rootView;
     private String tabCode;
     private String tabName;
@@ -38,18 +38,18 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (this.iAU == null) {
-            this.iAU = new EnterForumTabFeedNetModel(getPageContext(), this, getUniqueId());
-            this.iAU.eR(this.tabCode, this.tabName);
-            this.iAU.cwS();
+        if (this.iAW == null) {
+            this.iAW = new EnterForumTabFeedNetModel(getPageContext(), this, getUniqueId());
+            this.iAW.eR(this.tabCode, this.tabName);
+            this.iAW.cwT();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.rootView = (ViewGroup) layoutInflater.inflate(getLayoutR(), (ViewGroup) null);
-        this.iAV = new com.baidu.tieba.enterForum.tabfeed.view.a(this, this, this.rootView, this.tabName);
-        this.iAW = (l.getEquipmentHeight(getContext()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2;
+        this.iAX = new com.baidu.tieba.enterForum.tabfeed.view.a(this, this, this.rootView, this.tabName);
+        this.iAY = (l.getEquipmentHeight(getContext()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2;
         return this.rootView;
     }
 
@@ -61,26 +61,26 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.iAV != null) {
-                this.iAV.resume();
+            if (this.iAX != null) {
+                this.iAX.resume();
             }
-        } else if (this.iAV != null) {
-            this.iAV.pause();
+        } else if (this.iAX != null) {
+            this.iAX.pause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        t.csg().oX(false);
+        t.csh().oX(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        t.csg().oX(false);
-        if (this.iAU != null) {
-            this.iAU.destory();
+        t.csh().oX(false);
+        if (this.iAW != null) {
+            this.iAW.destory();
         }
     }
 
@@ -89,8 +89,8 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         super.onLazyLoad();
         if (j.isNetWorkAvailable()) {
             showLoadingView(this.rootView);
-            if (this.iAU != null) {
-                this.iAU.refresh();
+            if (this.iAW != null) {
+                this.iAW.refresh();
                 return;
             }
             return;
@@ -101,8 +101,8 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iAV != null) {
-            this.iAV.onChangeSkinType(i);
+        if (this.iAX != null) {
+            this.iAX.onChangeSkinType(i);
         }
     }
 
@@ -116,56 +116,56 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
                 showToast(R.string.im_error_default);
             }
         }
-        if (!this.iAU.hasData()) {
+        if (!this.iAW.hasData()) {
             String str = null;
             if (errorData != null) {
                 str = getPageContext().getResources().getString(R.string.net_error_text, errorData.error_msg, Integer.valueOf(errorData.error_code));
             }
             showNetRefreshView(this.rootView, str, true);
         }
-        if (this.iAV != null) {
-            this.iAV.lx(false);
+        if (this.iAX != null) {
+            this.iAX.lx(false);
         }
     }
 
     @Override // com.baidu.tieba.enterForum.tabfeed.b
     public void a(com.baidu.tieba.enterForum.tabfeed.b.b bVar) {
         hideLoadingView(this.rootView);
-        if (!this.iAU.hasData()) {
+        if (!this.iAW.hasData()) {
             showNoDataRefreshView(this.rootView, false);
-        } else if (this.iAV != null) {
-            this.iAV.b(bVar);
+        } else if (this.iAX != null) {
+            this.iAX.b(bVar);
         }
     }
 
     @Override // com.baidu.tieba.enterForum.tabfeed.b
-    public void cwJ() {
-        if (this.iAU != null) {
-            this.iAU.bRM();
+    public void cwK() {
+        if (this.iAW != null) {
+            this.iAW.bRN();
         }
     }
 
     public void py(boolean z) {
-        if (this.iAU != null) {
-            if (this.iAV != null && z) {
-                if (this.iAU.hasData()) {
-                    this.iAV.cwW();
-                    this.iAV.lx(true);
+        if (this.iAW != null) {
+            if (this.iAX != null && z) {
+                if (this.iAW.hasData()) {
+                    this.iAX.cwX();
+                    this.iAX.lx(true);
                 } else {
                     hideNetRefreshView(this.rootView);
                     showLoadingView(this.rootView);
                 }
             }
-            this.iAU.refresh();
+            this.iAW.refresh();
         }
     }
 
     @Override // com.baidu.tieba.enterForum.tabfeed.b
     public void cm(int i, int i2) {
-        if (!this.iAU.hasData()) {
+        if (!this.iAW.hasData()) {
             showNoDataRefreshView(this.rootView, false);
-        } else if (this.iAV != null) {
-            this.iAV.cm(i, i2);
+        } else if (this.iAX != null) {
+            this.iAX.cm(i, i2);
         }
     }
 
@@ -186,8 +186,8 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.iAV != null) {
-            this.iAV.pz(false);
+        if (this.iAX != null) {
+            this.iAX.pz(false);
         }
         super.showNetRefreshView(view, getString(R.string.refresh_view_title_text), str, null, z, getNetRefreshListener());
         setNetRefreshViewTopMargin(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds364));
@@ -195,8 +195,8 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNoDataRefreshView(View view, boolean z) {
-        if (this.iAV != null) {
-            this.iAV.pz(false);
+        if (this.iAX != null) {
+            this.iAX.pz(false);
         }
         super.showNoDataRefreshView(view, z);
         setNetRefreshViewTopMargin(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds364));
@@ -205,32 +205,32 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
         super.hideNetRefreshView(view);
-        if (this.iAV != null) {
-            this.iAV.pz(true);
+        if (this.iAX != null) {
+            this.iAX.pz(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view) {
-        if (this.iAV != null) {
-            this.iAV.pz(false);
+        if (this.iAX != null) {
+            this.iAX.pz(false);
         }
-        super.showLoadingView(view, false, this.iAW);
+        super.showLoadingView(view, false, this.iAY);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideLoadingView(View view) {
         super.hideLoadingView(view);
-        if (this.iAV != null) {
-            this.iAV.pz(true);
+        if (this.iAX != null) {
+            this.iAX.pz(true);
         }
     }
 
-    public boolean cvO() {
-        if (this.iAV != null) {
-            return this.iAV.cwX();
+    public boolean cvP() {
+        if (this.iAX != null) {
+            return this.iAX.cwY();
         }
         return true;
     }

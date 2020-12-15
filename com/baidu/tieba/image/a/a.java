@@ -15,9 +15,9 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.y;
 /* loaded from: classes21.dex */
 public class a extends e {
-    public boolean kMX;
-    public String kMY;
-    public String kMm;
+    public boolean kMZ;
+    public String kMo;
+    public String kNa;
     public String postId;
 
     public a(EditorTools editorTools) {
@@ -27,47 +27,47 @@ public class a extends e {
     @Override // com.baidu.tbadk.editortools.pb.e
     public void a(String str, WriteData writeData) {
         boolean z = true;
-        if (this.fwu.dcD() == null) {
-            this.fwu.e(dcD());
+        if (this.fwu.dcE() == null) {
+            this.fwu.e(dcE());
         }
-        if (this.fwu.dcD() != null) {
+        if (this.fwu.dcE() != null) {
             this.fwu.setSpanGroupManager(this.mSpanGroupManager);
-            this.fwu.dcD().setIsBJHPost(this.isBJH);
-            this.fwu.dcD().setWriteImagesInfo(this.writeImagesInfo);
+            this.fwu.dcE().setIsBJHPost(this.isBJH);
+            this.fwu.dcE().setWriteImagesInfo(this.writeImagesInfo);
             this.fwu.yk(this.writeImagesInfo.size() > 0);
-            WriteData dcD = this.fwu.dcD();
-            if (this.fwt == null || !this.fwt.clB()) {
+            WriteData dcE = this.fwu.dcE();
+            if (this.fwt == null || !this.fwt.clC()) {
                 z = false;
             }
-            dcD.setHasLocationData(z);
+            dcE.setHasLocationData(z);
             if (str == null) {
-                this.fwu.dcD().setContent(this.mPostContent);
+                this.fwu.dcE().setContent(this.mPostContent);
             }
             if (this.mVoiceModel != null) {
                 if (this.mVoiceModel.getId() != null) {
-                    this.fwu.dcD().setVoice(this.mVoiceModel.getId());
-                    this.fwu.dcD().setVoiceDuringTime(this.mVoiceModel.duration);
+                    this.fwu.dcE().setVoice(this.mVoiceModel.getId());
+                    this.fwu.dcE().setVoiceDuringTime(this.mVoiceModel.duration);
                 } else {
-                    this.fwu.dcD().setVoice(null);
-                    this.fwu.dcD().setVoiceDuringTime(-1);
+                    this.fwu.dcE().setVoice(null);
+                    this.fwu.dcE().setVoiceDuringTime(-1);
                 }
             } else {
-                this.fwu.dcD().setVoice(null);
-                this.fwu.dcD().setVoiceDuringTime(-1);
+                this.fwu.dcE().setVoice(null);
+                this.fwu.dcE().setVoiceDuringTime(-1);
             }
-            if (!this.fwu.dQG()) {
+            if (!this.fwu.dQH()) {
                 this.eNx.showToast(R.string.write_img_limit);
                 return;
             }
-            if ((this.fwC == null || !this.fwC.bCR()) && !this.fwu.dQD()) {
+            if ((this.fwC == null || !this.fwC.bCR()) && !this.fwu.dQE()) {
             }
         }
     }
 
-    public WriteData dcD() {
+    public WriteData dcE() {
         WriteData writeData = new WriteData();
         if (this.fwx != null) {
-            if (this.fwD && !this.kMX) {
+            if (this.fwD && !this.kMZ) {
                 writeData.setCanNoForum(true);
                 writeData.setVForumId(this.fwx.getId());
                 writeData.setVForumName(this.fwx.getName());
@@ -82,13 +82,13 @@ public class a extends e {
             }
         }
         writeData.setThreadId(this.mThreadId);
-        if (!this.kMX) {
+        if (!this.kMZ) {
             writeData.setType(1);
         } else {
             writeData.setType(2);
             writeData.setFloor(this.postId);
             writeData.setFloorNum(0);
-            writeData.setReplyId(this.kMY);
+            writeData.setReplyId(this.kNa);
             writeData.setRepostId(this.postId);
         }
         return writeData;
@@ -97,7 +97,7 @@ public class a extends e {
     @Override // com.baidu.tbadk.editortools.pb.e
     public void a(boolean z, PostWriteCallBackData postWriteCallBackData) {
         PbEditorData pbEditorData = new PbEditorData();
-        pbEditorData.setEditorType(this.kMX ? 1 : 0);
+        pbEditorData.setEditorType(this.kMZ ? 1 : 0);
         pbEditorData.setContent(this.mPostContent);
         pbEditorData.setWriteImagesInfo(this.writeImagesInfo);
         pbEditorData.setVoiceModel(this.mVoiceModel);
@@ -122,7 +122,7 @@ public class a extends e {
 
     @Override // com.baidu.tbadk.editortools.pb.e
     public void DV(String str) {
-        if (this.kMX) {
+        if (this.kMZ) {
             y.b(this.postId, this);
         } else {
             y.a(str, this);
@@ -131,24 +131,24 @@ public class a extends e {
 
     @Override // com.baidu.tbadk.editortools.pb.e
     public void DU(String str) {
-        WriteData dcD = this.fwu.dcD();
-        if (dcD == null) {
-            WriteData writeData = new WriteData(this.kMX ? 2 : 1);
+        WriteData dcE = this.fwu.dcE();
+        if (dcE == null) {
+            WriteData writeData = new WriteData(this.kMZ ? 2 : 1);
             writeData.setThreadId(str);
             writeData.setWriteImagesInfo(this.writeImagesInfo);
-            dcD = writeData;
+            dcE = writeData;
         }
-        if (!au.isEmpty(this.kMm)) {
-            dcD.setFromForumId(this.kMm);
+        if (!au.isEmpty(this.kMo)) {
+            dcE.setFromForumId(this.kMo);
         }
-        dcD.setContent(this.mPostContent);
-        dcD.setVoiceModel(this.mVoiceModel);
-        if (this.kMX) {
-            dcD.setReplyId(this.kMY);
-            dcD.setThreadId(this.postId);
-            y.g(this.postId, dcD);
+        dcE.setContent(this.mPostContent);
+        dcE.setVoiceModel(this.mVoiceModel);
+        if (this.kMZ) {
+            dcE.setReplyId(this.kNa);
+            dcE.setThreadId(this.postId);
+            y.g(this.postId, dcE);
             return;
         }
-        y.f(str, dcD);
+        y.f(str, dcE);
     }
 }

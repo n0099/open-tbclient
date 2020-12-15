@@ -13,11 +13,11 @@ import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class c {
-    private BdTypeListView gpX;
-    private ab<h> jlD;
+    private BdTypeListView gpZ;
+    private ab<h> jlF;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
-    private a mjs;
+    private a mju;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -25,8 +25,8 @@ public class c {
 
     public void an(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.gpX = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.mjs = new a(this.mPageContext, this.gpX, this.jlD);
+        this.gpZ = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.mju = new a(this.mPageContext, this.gpZ, this.jlF);
         bFP();
     }
 
@@ -43,16 +43,16 @@ public class c {
     }
 
     public void setData(List<q> list) {
-        this.gpX.setData(list);
+        this.gpZ.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.mjs.notifyDataSetChanged();
-        ap.setBackgroundColor(this.gpX, R.color.CAM_X0201);
+        this.mju.notifyDataSetChanged();
+        ap.setBackgroundColor(this.gpZ, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(ab<h> abVar) {
-        this.jlD = abVar;
+        this.jlF = abVar;
     }
 }

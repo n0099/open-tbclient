@@ -14,18 +14,18 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes9.dex */
 public final class ObservableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.observable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final Iterable<? extends t<?>> pGe;
-    final t<?>[] pHc;
+    final Iterable<? extends t<?>> pGg;
+    final t<?>[] pHe;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
         int length;
-        t<?>[] tVarArr = this.pHc;
+        t<?>[] tVarArr = this.pHe;
         int i = 0;
         if (tVarArr == null) {
             tVarArr = new t[8];
             try {
-                for (t<?> tVar : this.pGe) {
+                for (t<?> tVar : this.pGg) {
                     if (i == tVarArr.length) {
                         tVarArr = (t[]) Arrays.copyOf(tVarArr, (i >> 1) + i);
                     }

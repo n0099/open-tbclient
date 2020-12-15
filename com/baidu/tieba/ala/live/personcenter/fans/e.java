@@ -13,7 +13,7 @@ public class e {
     public int type;
     private ArrayList<a> bCz = new ArrayList<>();
     private ArrayList<a> eHy = new ArrayList<>();
-    private d gZC = new d();
+    private d gZE = new d();
     private int eHA = 0;
     private int eHB = 0;
 
@@ -42,11 +42,11 @@ public class e {
                             this.eHy.add(aVar2);
                         }
                     }
-                    this.gZC.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.gZC != null) {
-                        this.pageNum = this.gZC.bnD();
-                        this.eHC = this.gZC.bnB();
-                        this.hasMore = this.gZC.bnF() == 1;
+                    this.gZE.parserJson(jSONObject.optJSONObject("page"));
+                    if (this.gZE != null) {
+                        this.pageNum = this.gZE.bnD();
+                        this.eHC = this.gZE.bnB();
+                        this.hasMore = this.gZE.bnF() == 1;
                     }
                     this.eHA = jSONObject.optInt("tafriendnum", 0);
                     this.eHB = jSONObject.optInt("commonfriendnum", 0);

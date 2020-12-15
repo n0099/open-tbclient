@@ -8,10 +8,10 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
 public class AlaAirDropInitialize {
     static {
-        bON();
+        bOO();
     }
 
-    private static void bON() {
+    private static void bOO() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913271, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.AlaAirDropInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<TbPageContext> customMessage) {

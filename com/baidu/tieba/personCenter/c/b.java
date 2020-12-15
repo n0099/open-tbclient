@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class b {
     private int errorCode = -1;
     private String errorMsg = "";
-    private int mjS = 0;
+    private int mjU = 0;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
     public int bEL() {
-        return this.mjS;
+        return this.mjU;
     }
 
     public void QW(String str) {
@@ -26,7 +26,7 @@ public class b {
                 this.errorMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.mjS = optJSONObject.optInt("msg_count");
+                    this.mjU = optJSONObject.optInt("msg_count");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

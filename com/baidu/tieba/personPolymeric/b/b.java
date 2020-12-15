@@ -7,7 +7,7 @@ public interface b {
 
     void Ri(String str);
 
-    p dAa();
+    void dAa();
 
-    void dzZ();
+    p dAb();
 }

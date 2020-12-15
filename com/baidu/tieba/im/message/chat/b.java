@@ -4,17 +4,17 @@ import com.baidu.tieba.im.message.chat.a;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.mvc.b.a {
     private long createTime;
-    private a.C0782a kAA;
-    private com.baidu.tieba.im.db.pojo.a kAB;
-    private int kAC;
-    private boolean kAz;
+    private boolean kAB;
+    private a.C0782a kAC;
+    private com.baidu.tieba.im.db.pojo.a kAD;
+    private int kAE;
 
     public static b a(ChatMessage chatMessage, a.C0782a c0782a) {
         b bVar = new b();
         if (chatMessage == null) {
             return bVar;
         }
-        c0782a.kAw /= 100;
+        c0782a.kAy /= 100;
         bVar.Ez(chatMessage.getReadCountPv());
         bVar.a(c0782a);
         bVar.setCreateTime(chatMessage.getTime());
@@ -24,28 +24,28 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         return bVar;
     }
 
-    public boolean cYZ() {
-        return this.kAz;
-    }
-
-    public void sQ(boolean z) {
-        this.kAz = z;
-    }
-
-    public a.C0782a cZa() {
-        return this.kAA;
-    }
-
-    public void a(a.C0782a c0782a) {
-        this.kAA = c0782a;
-    }
-
-    public com.baidu.tieba.im.db.pojo.a cZb() {
+    public boolean cZa() {
         return this.kAB;
     }
 
+    public void sQ(boolean z) {
+        this.kAB = z;
+    }
+
+    public a.C0782a cZb() {
+        return this.kAC;
+    }
+
+    public void a(a.C0782a c0782a) {
+        this.kAC = c0782a;
+    }
+
+    public com.baidu.tieba.im.db.pojo.a cZc() {
+        return this.kAD;
+    }
+
     public void a(com.baidu.tieba.im.db.pojo.a aVar) {
-        this.kAB = aVar;
+        this.kAD = aVar;
     }
 
     public long getCreateTime() {
@@ -56,11 +56,11 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         this.createTime = j;
     }
 
-    public int cZc() {
-        return this.kAC;
+    public int cZd() {
+        return this.kAE;
     }
 
     public void Ez(int i) {
-        this.kAC = i;
+        this.kAE = i;
     }
 }

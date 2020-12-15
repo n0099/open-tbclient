@@ -2,9 +2,9 @@ package com.github.a.a;
 /* loaded from: classes7.dex */
 public class h extends a {
     private int mPid;
-    private StringBuffer psx;
-    private long psy;
-    private long psz;
+    private long psA;
+    private long psB;
+    private StringBuffer psz;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void stop() {
@@ -13,10 +13,10 @@ public class h extends a {
 
     public h(long j) {
         super(j);
-        this.psx = new StringBuffer();
+        this.psz = new StringBuffer();
         this.mPid = 0;
-        this.psy = 0L;
-        this.psz = 0L;
+        this.psA = 0L;
+        this.psB = 0L;
     }
 
     @Override // com.github.a.a.a
@@ -26,7 +26,7 @@ public class h extends a {
     }
 
     public String getCpuRateInfo() {
-        return this.psx.toString();
+        return this.psz.toString();
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -38,11 +38,11 @@ public class h extends a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     @Override // com.github.a.a.a
-    protected void exE() {
+    protected void exF() {
         /*
             r8 = this;
             r1 = 0
-            java.lang.StringBuffer r0 = r8.psx
+            java.lang.StringBuffer r0 = r8.psz
             r2 = 0
             r0.setLength(r2)
             java.io.BufferedReader r3 = new java.io.BufferedReader     // Catch: java.lang.Throwable -> L7f
@@ -157,12 +157,12 @@ public class h extends a {
             r4 = r0
             goto L25
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.github.a.a.h.exE():void");
+        throw new UnsupportedOperationException("Method not decompiled: com.github.a.a.h.exF():void");
     }
 
     private void reset() {
-        this.psy = 0L;
-        this.psz = 0L;
+        this.psA = 0L;
+        this.psB = 0L;
     }
 
     private void hj(String str, String str2) {
@@ -176,11 +176,11 @@ public class h extends a {
             long parseLong6 = parseLong5 + parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]);
             if (str2.split(" ").length >= 17) {
                 if (parseLong6 != 0) {
-                    long j = parseLong6 - this.psz;
-                    this.psx.append(((j - (parseLong4 - this.psy)) * 100) / j);
+                    long j = parseLong6 - this.psB;
+                    this.psz.append(((j - (parseLong4 - this.psA)) * 100) / j);
                 }
-                this.psy = parseLong4;
-                this.psz = parseLong6;
+                this.psA = parseLong4;
+                this.psB = parseLong6;
             }
         }
     }

@@ -12,14 +12,14 @@ import com.baidu.tieba.R;
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
     private View eOv;
     private View egT;
-    private TextView gtG;
-    private ImageView gtH;
+    private TextView gtI;
+    private ImageView gtJ;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         this.egT = getView();
-        this.gtG = (TextView) getView().findViewById(R.id.tv_empty);
-        this.gtH = (ImageView) getView().findViewById(R.id.iv_empty);
+        this.gtI = (TextView) getView().findViewById(R.id.tv_empty);
+        this.gtJ = (ImageView) getView().findViewById(R.id.iv_empty);
         this.eOv = getView().findViewById(R.id.id_tab_live_sub_empty_divider);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -27,8 +27,8 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(this.egT, R.color.CAM_X0201);
-        ap.setViewTextColor(this.gtG, (int) R.color.CAM_X0109);
-        ap.setImageResource(this.gtH, R.drawable.new_pic_emotion_08);
+        ap.setViewTextColor(this.gtI, (int) R.color.CAM_X0109);
+        ap.setImageResource(this.gtJ, R.drawable.new_pic_emotion_08);
         ap.setBackgroundResource(this.eOv, R.color.CAM_X0204);
     }
 
@@ -41,12 +41,12 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.e eVar) {
         if (eVar.followStatus == 1) {
-            this.gtG.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
-            ap.setImageResource(this.gtH, R.drawable.new_pic_emotion_07);
+            this.gtI.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_no_attention_txt));
+            ap.setImageResource(this.gtJ, R.drawable.new_pic_emotion_07);
             return;
         }
-        this.gtG.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
-        ap.setImageResource(this.gtH, R.drawable.new_pic_emotion_06);
+        this.gtI.setText(this.mTbPageContext.getResources().getString(R.string.live_sub_tab_empty_txt));
+        ap.setImageResource(this.gtJ, R.drawable.new_pic_emotion_06);
     }
 
     @Override // android.view.View.OnClickListener

@@ -15,8 +15,8 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private final TbPageContext mPageContext;
-    private List<com.baidu.yuyinala.more.b.a> oKX;
-    private b oKY;
+    private List<com.baidu.yuyinala.more.b.a> oKZ;
+    private b oLa;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.oKX);
+        return ListUtils.getCount(this.oKZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: OV */
     public com.baidu.yuyinala.more.b.a getItem(int i) {
-        return (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oKX, i);
+        return (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oKZ, i);
     }
 
     @Override // android.widget.Adapter
@@ -51,9 +51,9 @@ public class a extends BaseAdapter {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.item_audio_more_function, viewGroup, false);
             c0960a = new C0960a();
             c0960a.mRootView = view.findViewById(a.f.func_item_layout);
-            c0960a.gDa = (TextView) view.findViewById(a.f.func_name_tv);
+            c0960a.gDc = (TextView) view.findViewById(a.f.func_name_tv);
             c0960a.mIconIv = (TbImageView) view.findViewById(a.f.func_icon_iv);
-            c0960a.oLb = view.findViewById(a.f.func_red_dot_iv);
+            c0960a.oLd = view.findViewById(a.f.func_red_dot_iv);
             c0960a.mRootView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.yuyinala.more.a.a.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
@@ -63,7 +63,7 @@ public class a extends BaseAdapter {
                             return true;
                         case 1:
                             c0960a.mRootView.setAlpha(1.0f);
-                            a.this.a((com.baidu.yuyinala.more.b.a) ListUtils.getItem(a.this.oKX, i));
+                            a.this.a((com.baidu.yuyinala.more.b.a) ListUtils.getItem(a.this.oKZ, i));
                             return true;
                         case 2:
                         default:
@@ -82,12 +82,12 @@ public class a extends BaseAdapter {
         } else {
             c0960a = (C0960a) view.getTag();
         }
-        com.baidu.yuyinala.more.b.a aVar = (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oKX, i);
+        com.baidu.yuyinala.more.b.a aVar = (com.baidu.yuyinala.more.b.a) ListUtils.getItem(this.oKZ, i);
         if (aVar != null) {
             c0960a.mRootView.setVisibility(0);
-            c0960a.gDa.setText(aVar.getName());
+            c0960a.gDc.setText(aVar.getName());
             c0960a.mIconIv.startLoad(aVar.getIconUrl(), 10, false);
-            c0960a.oLb.setVisibility(aVar.ekM() ? 0 : 8);
+            c0960a.oLd.setVisibility(aVar.ekN() ? 0 : 8);
         } else {
             c0960a.mRootView.setVisibility(8);
         }
@@ -95,22 +95,22 @@ public class a extends BaseAdapter {
     }
 
     public void gF(List<com.baidu.yuyinala.more.b.a> list) {
-        this.oKX = list;
+        this.oKZ = list;
         notifyDataSetChanged();
     }
 
     public void a(b bVar) {
-        this.oKY = bVar;
+        this.oLa = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.yuyinala.more.b.a aVar) {
         if (aVar != null) {
-            boolean ekM = aVar.ekM();
+            boolean ekN = aVar.ekN();
             aVar.At(false);
             notifyDataSetChanged();
-            if (this.oKY != null) {
-                this.oKY.a(aVar, ekM);
+            if (this.oLa != null) {
+                this.oLa.a(aVar, ekN);
             }
         }
     }
@@ -118,10 +118,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.yuyinala.more.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private class C0960a {
-        private TextView gDa;
+        private TextView gDc;
         private TbImageView mIconIv;
         private View mRootView;
-        private View oLb;
+        private View oLd;
 
         private C0960a() {
         }

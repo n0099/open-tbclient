@@ -34,7 +34,7 @@ public class a extends BaseAdapter {
     private View.OnClickListener mClickListener;
     private List<ForumSpaceForumInfo> mListData;
     private int mPageType;
-    private final Map<Long, Integer> ngP = new HashMap();
+    private final Map<Long, Integer> ngR = new HashMap();
 
     public a(TbPageContext<SquareForumListActivity> tbPageContext, int i) {
         this.eNx = tbPageContext;
@@ -91,16 +91,16 @@ public class a extends BaseAdapter {
 
     public void a(Long l, boolean z) {
         Integer valueOf;
-        if (this.ngP.containsKey(l)) {
-            Integer num = this.ngP.get(l);
+        if (this.ngR.containsKey(l)) {
+            Integer num = this.ngR.get(l);
             if (z) {
                 valueOf = Integer.valueOf(num.intValue() + 1);
             } else {
                 valueOf = Integer.valueOf(num.intValue() - 1);
             }
-            this.ngP.put(l, valueOf);
-        } else if (!this.ngP.containsKey(l)) {
-            this.ngP.put(l, z ? 1 : -1);
+            this.ngR.put(l, valueOf);
+        } else if (!this.ngR.containsKey(l)) {
+            this.ngR.put(l, z ? 1 : -1);
         }
         notifyDataSetChanged();
     }
@@ -141,55 +141,55 @@ public class a extends BaseAdapter {
             if (view == null || !(view.getTag(R.id.forum_rank) instanceof C0866a)) {
                 view = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.square_forum_list_item, (ViewGroup) null);
                 C0866a c0866a = new C0866a();
-                c0866a.ngR = (TextView) view.findViewById(R.id.forum_rank);
-                c0866a.ngS = (BarImageView) view.findViewById(R.id.forum_image);
-                c0866a.ngU = (TextView) view.findViewById(R.id.forum_like);
+                c0866a.ngT = (TextView) view.findViewById(R.id.forum_rank);
+                c0866a.ngU = (BarImageView) view.findViewById(R.id.forum_image);
+                c0866a.ngW = (TextView) view.findViewById(R.id.forum_like);
                 c0866a.mTitle = (TextView) view.findViewById(R.id.forum_title);
-                c0866a.guh = (TextView) view.findViewById(R.id.forum_desc);
-                c0866a.ngT = (TextView) view.findViewById(R.id.forum_value);
-                l.addToParentArea(this.eNx.getPageActivity(), c0866a.ngU, 20, 20, 20, 20);
-                c0866a.ngU.setOnClickListener(this.mClickListener);
+                c0866a.guj = (TextView) view.findViewById(R.id.forum_desc);
+                c0866a.ngV = (TextView) view.findViewById(R.id.forum_value);
+                l.addToParentArea(this.eNx.getPageActivity(), c0866a.ngW, 20, 20, 20, 20);
+                c0866a.ngW.setOnClickListener(this.mClickListener);
                 view.setOnClickListener(this.mClickListener);
                 view.setTag(R.id.forum_rank, c0866a);
             }
             ap.setBackgroundResource(view, R.drawable.square_list_item_bg_selector);
             C0866a c0866a2 = (C0866a) view.getTag(R.id.forum_rank);
             if (i == 1) {
-                c0866a2.ngR.setText("");
-                ap.setBackgroundResource(c0866a2.ngR, R.drawable.icon_grade_shaitu1);
+                c0866a2.ngT.setText("");
+                ap.setBackgroundResource(c0866a2.ngT, R.drawable.icon_grade_shaitu1);
             } else if (i == 2) {
-                c0866a2.ngR.setText("");
-                ap.setBackgroundResource(c0866a2.ngR, R.drawable.icon_grade_shaitu2);
+                c0866a2.ngT.setText("");
+                ap.setBackgroundResource(c0866a2.ngT, R.drawable.icon_grade_shaitu2);
             } else if (i == 3) {
-                c0866a2.ngR.setText("");
-                ap.setBackgroundResource(c0866a2.ngR, R.drawable.icon_grade_shaitu3);
+                c0866a2.ngT.setText("");
+                ap.setBackgroundResource(c0866a2.ngT, R.drawable.icon_grade_shaitu3);
             } else if (i < 10) {
-                c0866a2.ngR.setText("0" + i);
-                c0866a2.ngR.setBackgroundResource(0);
+                c0866a2.ngT.setText("0" + i);
+                c0866a2.ngT.setBackgroundResource(0);
             } else {
-                c0866a2.ngR.setText("" + i);
-                c0866a2.ngR.setBackgroundResource(0);
+                c0866a2.ngT.setText("" + i);
+                c0866a2.ngT.setBackgroundResource(0);
             }
-            ap.setViewTextColor(c0866a2.ngR, R.color.CAM_X0108);
-            c0866a2.ngS.startLoad(item.avatar, 10, false);
+            ap.setViewTextColor(c0866a2.ngT, R.color.CAM_X0108);
+            c0866a2.ngU.startLoad(item.avatar, 10, false);
             c0866a2.mTitle.setText(item.forum_name + this.eNx.getString(R.string.forum));
             ap.setViewTextColor(c0866a2.mTitle, R.color.CAM_X0105);
-            Integer num = this.ngP.get(item.forum_id);
-            c0866a2.guh.setText(this.eNx.getString(R.string.attention) + ":" + au.numberUniformFormat((num == null ? 0 : num.intValue()) + item.like_num.intValue()) + "  " + this.eNx.getString(R.string.text_post) + ":" + au.numberUniformFormat(item.post_num.intValue()));
-            ap.setViewTextColor(c0866a2.guh, R.color.CAM_X0109);
-            c0866a2.ngT.setText(item._abstract);
-            ap.setViewTextColor(c0866a2.ngT, R.color.CAM_X0109);
-            c0866a2.ngU.setTag(R.id.forum_title, item.forum_name);
-            c0866a2.ngU.setTag(R.id.forum_desc, item.forum_id);
-            int intValue = this.ngP.get(item.forum_id) == null ? 0 : this.ngP.get(item.forum_id).intValue();
+            Integer num = this.ngR.get(item.forum_id);
+            c0866a2.guj.setText(this.eNx.getString(R.string.attention) + ":" + au.numberUniformFormat((num == null ? 0 : num.intValue()) + item.like_num.intValue()) + "  " + this.eNx.getString(R.string.text_post) + ":" + au.numberUniformFormat(item.post_num.intValue()));
+            ap.setViewTextColor(c0866a2.guj, R.color.CAM_X0109);
+            c0866a2.ngV.setText(item._abstract);
+            ap.setViewTextColor(c0866a2.ngV, R.color.CAM_X0109);
+            c0866a2.ngW.setTag(R.id.forum_title, item.forum_name);
+            c0866a2.ngW.setTag(R.id.forum_desc, item.forum_id);
+            int intValue = this.ngR.get(item.forum_id) == null ? 0 : this.ngR.get(item.forum_id).intValue();
             if ((item.is_like.intValue() == 0 && intValue > 0) || (item.is_like.intValue() == 1 && intValue >= 0)) {
-                c0866a2.ngU.setText(R.string.relate_forum_is_followed);
-                c0866a2.ngU.setBackgroundResource(0);
-                ap.setViewTextColor(c0866a2.ngU, R.color.CAM_X0109);
+                c0866a2.ngW.setText(R.string.relate_forum_is_followed);
+                c0866a2.ngW.setBackgroundResource(0);
+                ap.setViewTextColor(c0866a2.ngW, R.color.CAM_X0109);
             } else {
-                c0866a2.ngU.setText(R.string.attention);
-                c0866a2.ngU.setBackgroundResource(R.drawable.btn_blue_bg);
-                ap.setViewTextColor(c0866a2.ngU, R.color.CAM_X0101);
+                c0866a2.ngW.setText(R.string.attention);
+                c0866a2.ngW.setBackgroundResource(R.drawable.btn_blue_bg);
+                ap.setViewTextColor(c0866a2.ngW, R.color.CAM_X0101);
             }
             view.setTag(R.id.forum_title, item.forum_name);
             return view;
@@ -200,12 +200,12 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.square.forumlist.a$a  reason: collision with other inner class name */
     /* loaded from: classes23.dex */
     private class C0866a {
-        public TextView guh;
+        public TextView guj;
         public TextView mTitle;
-        public TextView ngR;
-        public BarImageView ngS;
         public TextView ngT;
-        public TextView ngU;
+        public BarImageView ngU;
+        public TextView ngV;
+        public TextView ngW;
 
         private C0866a() {
         }

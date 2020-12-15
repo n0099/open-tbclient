@@ -11,9 +11,9 @@ import android.view.View;
 /* loaded from: classes6.dex */
 public class g extends h {
     @Nullable
-    private f gAN;
+    private f gAP;
     @Nullable
-    private f gAO;
+    private f gAQ;
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.h
     @Nullable
@@ -173,17 +173,17 @@ public class g extends h {
 
     @NonNull
     private f c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gAN == null || this.gAN.mLayoutManager != layoutManager) {
-            this.gAN = f.b(layoutManager);
+        if (this.gAP == null || this.gAP.mLayoutManager != layoutManager) {
+            this.gAP = f.b(layoutManager);
         }
-        return this.gAN;
+        return this.gAP;
     }
 
     @NonNull
     private f d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gAO == null || this.gAO.mLayoutManager != layoutManager) {
-            this.gAO = f.a(layoutManager);
+        if (this.gAQ == null || this.gAQ.mLayoutManager != layoutManager) {
+            this.gAQ = f.a(layoutManager);
         }
-        return this.gAO;
+        return this.gAQ;
     }
 }

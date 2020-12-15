@@ -9,7 +9,7 @@ import rx.k;
 /* loaded from: classes12.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object pUo;
+    public volatile Object pUq;
     private Queue<Object> queue;
     private final int size;
 
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g eGe() {
-        return ae.eGn() ? new g(false, SIZE) : new g();
+    public static g eGf() {
+        return ae.eGo() ? new g(false, SIZE) : new g();
     }
 
-    public static g eGf() {
-        return ae.eGn() ? new g(true, SIZE) : new g();
+    public static g eGg() {
+        return ae.eGo() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -80,8 +80,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.pUo == null) {
-            this.pUo = NotificationLite.eFF();
+        if (this.pUq == null) {
+            this.pUq = NotificationLite.eFG();
         }
     }
 
@@ -96,9 +96,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.pUo;
+                obj = this.pUq;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.pUo = null;
+                    this.pUq = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.pUo;
+                obj = this.pUq;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }

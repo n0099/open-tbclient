@@ -27,10 +27,10 @@ public class ai extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.q, aj> {
     public aj c(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         aj ajVar = new aj(inflate);
-        ap.setViewTextColor(ajVar.gfP, R.color.CAM_X0105);
-        ap.setViewTextColor(ajVar.jev, R.color.CAM_X0301);
-        ap.setImageResource(ajVar.jeu, R.drawable.icon_news_list_prompt);
-        ap.setImageResource(ajVar.jew, R.drawable.icon_index_category_arrow_r);
+        ap.setViewTextColor(ajVar.gfR, R.color.CAM_X0105);
+        ap.setViewTextColor(ajVar.jex, R.color.CAM_X0301);
+        ap.setImageResource(ajVar.jew, R.drawable.icon_news_list_prompt);
+        ap.setImageResource(ajVar.jey, R.drawable.icon_index_category_arrow_r);
         ap.setBackgroundColor(ajVar.bNe, R.color.CAM_X0204);
         ap.setBackgroundColor(ajVar.bNf, R.color.CAM_X0204);
         ap.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
@@ -54,11 +54,11 @@ public class ai extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.q, aj> {
                 }
             }
         });
-        ajVar.gfP.setText(qVar != null ? qVar.text : "");
+        ajVar.gfR.setText(qVar != null ? qVar.text : "");
         if (go(com.baidu.tbadk.core.sharedPref.b.bsO().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_TIP + this.mForumId, 0L))) {
-            ajVar.jeu.setVisibility(0);
+            ajVar.jew.setVisibility(0);
         } else {
-            ajVar.jeu.setVisibility(8);
+            ajVar.jew.setVisibility(8);
         }
         return ajVar.getView();
     }

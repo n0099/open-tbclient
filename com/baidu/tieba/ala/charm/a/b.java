@@ -30,14 +30,14 @@ import java.util.ArrayList;
 public class b {
     private String aGk;
     private boolean bns;
-    private TextView gED;
-    private ImageView gEE;
-    private TbListViewPullView gEF;
-    private RelativeLayout gEG;
-    private TextView gEH;
-    private AlaCharmDetailEmptyView gEI;
-    private com.baidu.tieba.ala.charm.view.a gEJ;
-    private LoadingView gEK;
+    private TextView gEF;
+    private ImageView gEG;
+    private TbListViewPullView gEH;
+    private RelativeLayout gEI;
+    private TextView gEJ;
+    private AlaCharmDetailEmptyView gEK;
+    private com.baidu.tieba.ala.charm.view.a gEL;
+    private LoadingView gEM;
     private String mGroupId;
     private BdListView mListView;
     private String mLiveId;
@@ -46,43 +46,43 @@ public class b {
     private View mRootView;
     private boolean mIsLoading = false;
     private int mSkinType = 0;
-    private View.OnClickListener gEL = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.1
+    private View.OnClickListener gEN = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == b.this.gEH || view == b.this.gEG) {
-                if (b.this.gEH.getVisibility() == 0) {
-                    b.this.gEH.setVisibility(8);
+            if (view == b.this.gEJ || view == b.this.gEI) {
+                if (b.this.gEJ.getVisibility() == 0) {
+                    b.this.gEJ.setVisibility(8);
                 }
-            } else if (view == b.this.gEE) {
-                if (b.this.gEH.getVisibility() == 8) {
-                    b.this.gEH.setVisibility(0);
+            } else if (view == b.this.gEG) {
+                if (b.this.gEJ.getVisibility() == 8) {
+                    b.this.gEJ.setVisibility(0);
                 } else {
-                    b.this.gEH.setVisibility(8);
+                    b.this.gEJ.setVisibility(8);
                 }
             }
         }
     };
-    private View.OnClickListener gEM = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.2
+    private View.OnClickListener gEO = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (b.this.gEJ != null) {
-                    b.this.b(b.this.gEJ.getItem(intValue));
+                if (b.this.gEL != null) {
+                    b.this.b(b.this.gEL.getItem(intValue));
                 }
             }
         }
     };
-    private View.OnClickListener gEN = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.3
+    private View.OnClickListener gEP = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ALaCharmData item;
             if (view != null && (view.getTag() instanceof Integer)) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (b.this.gEJ != null && ViewHelper.checkUpIsLogin(b.this.mPageContext.getPageActivity()) && (item = b.this.gEJ.getItem(intValue)) != null && item.pay_userid != null) {
+                if (b.this.gEL != null && ViewHelper.checkUpIsLogin(b.this.mPageContext.getPageActivity()) && (item = b.this.gEL.getItem(intValue)) != null && item.pay_userid != null) {
                     boolean z = item.follow_status != 0;
                     item.follow_status = z ? 0 : 1;
-                    b.this.gEJ.notifyDataSetChanged();
+                    b.this.gEL.notifyDataSetChanged();
                     f fVar = new f();
                     fVar.setUserId(item.pay_userid);
                     fVar.setPortrait(item.portrait);
@@ -107,57 +107,57 @@ public class b {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_game_live_layout, (ViewGroup) null);
-        this.gEG = (RelativeLayout) this.mRootView.findViewById(a.f.ala_charm_game_live_header_layout);
-        this.gEG.setOnClickListener(this.gEL);
-        this.gED = (TextView) this.mRootView.findViewById(a.f.ala_charm_game_live_charm_value);
-        this.gEH = (TextView) this.mRootView.findViewById(a.f.ala_charm_game_live_help_tips);
-        this.gEH.setOnClickListener(this.gEL);
-        this.gEE = (ImageView) this.mRootView.findViewById(a.f.ala_charm_game_live_help_img);
-        this.gEE.setOnClickListener(this.gEL);
+        this.gEI = (RelativeLayout) this.mRootView.findViewById(a.f.ala_charm_game_live_header_layout);
+        this.gEI.setOnClickListener(this.gEN);
+        this.gEF = (TextView) this.mRootView.findViewById(a.f.ala_charm_game_live_charm_value);
+        this.gEJ = (TextView) this.mRootView.findViewById(a.f.ala_charm_game_live_help_tips);
+        this.gEJ.setOnClickListener(this.gEN);
+        this.gEG = (ImageView) this.mRootView.findViewById(a.f.ala_charm_game_live_help_img);
+        this.gEG.setOnClickListener(this.gEN);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.ala_charm_game_live_detail_list);
-        this.gEJ = new com.baidu.tieba.ala.charm.view.a(this.mPageContext, 2);
-        this.gEJ.n(this.gEN);
-        this.gEJ.o(this.gEM);
-        this.mListView.setAdapter((ListAdapter) this.gEJ);
-        this.gEI = (AlaCharmDetailEmptyView) this.mRootView.findViewById(a.f.emptyView);
-        this.gEI.setParams(a.e.sdk_emotion07, -1, a.h.ala_charm_empty_msg);
-        this.mListView.setEmptyView(this.gEI);
-        this.gEF = new TbListViewPullView(this.mPageContext);
-        this.gEF.setTag(this.mPageContext.getUniqueId());
-        this.gEF.setSkinType(this.mSkinType);
-        this.mListView.setPullRefresh(this.gEF);
+        this.gEL = new com.baidu.tieba.ala.charm.view.a(this.mPageContext, 2);
+        this.gEL.n(this.gEP);
+        this.gEL.o(this.gEO);
+        this.mListView.setAdapter((ListAdapter) this.gEL);
+        this.gEK = (AlaCharmDetailEmptyView) this.mRootView.findViewById(a.f.emptyView);
+        this.gEK.setParams(a.e.sdk_emotion07, -1, a.h.ala_charm_empty_msg);
+        this.mListView.setEmptyView(this.gEK);
+        this.gEH = new TbListViewPullView(this.mPageContext);
+        this.gEH.setTag(this.mPageContext.getUniqueId());
+        this.gEH.setSkinType(this.mSkinType);
+        this.mListView.setPullRefresh(this.gEH);
     }
 
     public void setCharmValue(String str) {
         String format = String.format(this.mPageContext.getString(a.h.ala_charm_game_live_name), StringHelper.formatTosepara(JavaTypesHelper.toLong(str, 0L)));
-        if (this.gED != null) {
-            this.gED.setText(format);
+        if (this.gEF != null) {
+            this.gEF.setText(format);
         }
     }
 
     public void showLoadingView() {
-        if (this.mRootView != null && !this.mIsLoading && this.gEK == null) {
-            this.gEK = new LoadingView(this.mPageContext.getPageActivity(), this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds248));
-            this.gEK.setSkinType(this.mSkinType);
-            this.gEK.onChangeSkinType();
-            this.gEK.attachView(this.mRootView, false);
+        if (this.mRootView != null && !this.mIsLoading && this.gEM == null) {
+            this.gEM = new LoadingView(this.mPageContext.getPageActivity(), this.mPageContext.getResources().getDimensionPixelSize(a.d.sdk_ds248));
+            this.gEM.setSkinType(this.mSkinType);
+            this.gEM.onChangeSkinType();
+            this.gEM.attachView(this.mRootView, false);
             this.mIsLoading = true;
         }
     }
 
     public void hideLoadingView() {
         if (this.mIsLoading) {
-            if (this.gEK != null) {
-                this.gEK.dettachView(this.mRootView);
-                this.gEK = null;
+            if (this.gEM != null) {
+                this.gEM.dettachView(this.mRootView);
+                this.gEM = null;
             }
             this.mIsLoading = false;
         }
     }
 
     public void a(TbListCommonPullView.ListPullRefreshListener listPullRefreshListener) {
-        if (this.gEF != null) {
-            this.gEF.setListPullRefreshListener(listPullRefreshListener);
+        if (this.gEH != null) {
+            this.gEH.setListPullRefreshListener(listPullRefreshListener);
         }
     }
 
@@ -166,15 +166,15 @@ public class b {
     }
 
     public void ab(ArrayList<ALaCharmData> arrayList) {
-        this.gEJ.setData(arrayList);
+        this.gEL.setData(arrayList);
     }
 
     public void completePullRefresh() {
         this.mListView.completePullRefresh();
     }
 
-    public void bUr() {
-        this.gEJ.notifyDataSetChanged();
+    public void bUs() {
+        this.gEL.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -185,27 +185,27 @@ public class b {
     }
 
     public void aA(String str, boolean z) {
-        if (this.gEJ != null) {
-            this.gEJ.aA(str, z);
+        if (this.gEL != null) {
+            this.gEL.aA(str, z);
         }
     }
 
     public void onSkinTypeChanged(int i) {
         this.mSkinType = i;
-        SkinManager.setBackgroundResource(this.gEG, a.e.ala_charm_game_live_header_bg, i);
-        SkinManager.setViewTextColor(this.gED, a.c.sdk_cp_cont_f, i);
-        SkinManager.setImageResource(this.gEE, a.e.sdk_icon_follow_explain_n, i);
-        SkinManager.setViewTextColor(this.gEH, a.c.sdk_cp_cont_d, i);
-        if (this.gEJ != null) {
-            this.gEJ.setSkinType(i);
-            this.gEJ.notifyDataSetChanged();
+        SkinManager.setBackgroundResource(this.gEI, a.e.ala_charm_game_live_header_bg, i);
+        SkinManager.setViewTextColor(this.gEF, a.c.sdk_cp_cont_f, i);
+        SkinManager.setImageResource(this.gEG, a.e.sdk_icon_follow_explain_n, i);
+        SkinManager.setViewTextColor(this.gEJ, a.c.sdk_cp_cont_d, i);
+        if (this.gEL != null) {
+            this.gEL.setSkinType(i);
+            this.gEL.notifyDataSetChanged();
         }
-        if (this.gEK != null) {
-            this.gEK.setSkinType(i);
-            this.gEK.onChangeSkinType();
+        if (this.gEM != null) {
+            this.gEM.setSkinType(i);
+            this.gEM.onChangeSkinType();
         }
-        if (this.gEF != null) {
-            this.gEF.setSkinType(i);
+        if (this.gEH != null) {
+            this.gEH.setSkinType(i);
         }
     }
 }

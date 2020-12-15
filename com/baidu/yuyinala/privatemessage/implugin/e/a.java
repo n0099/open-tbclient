@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static a oOj;
+    private static a oOl;
     private Context mContext;
 
     private a(Context context) {
@@ -26,43 +26,43 @@ public class a {
     public static synchronized a hl(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (oOj == null) {
-                oOj = new a(context.getApplicationContext());
+            if (oOl == null) {
+                oOl = new a(context.getApplicationContext());
             }
-            aVar = oOj;
+            aVar = oOl;
         }
         return aVar;
     }
 
     public void add(String str, String str2) {
-        if ((ChatInfo.oNx == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oNx == ChatInfo.ChatCategory.SMART || ChatInfo.oNx == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+        if ((ChatInfo.oNz == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oNz == ChatInfo.ChatCategory.SMART || ChatInfo.oNz == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String hb = hb(str, str2);
             if (!TextUtils.isEmpty(hb)) {
-                b.elg().onEvent(str, hb);
+                b.elh().onEvent(str, hb);
             }
         }
     }
 
     public void e(String str, String str2, int i, String str3) {
-        if ((ChatInfo.oNx == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oNx == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+        if ((ChatInfo.oNz == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oNz == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String f = f(str, str2, i, str3);
             if (!TextUtils.isEmpty(f)) {
-                b.elg().onEvent(str, f);
+                b.elh().onEvent(str, f);
             }
         }
     }
 
     public String hb(String str, String str2) {
-        if ((ChatInfo.oNx != ChatInfo.ChatCategory.DUZHAN && ChatInfo.oNx != ChatInfo.ChatCategory.SMART && ChatInfo.oNx != ChatInfo.ChatCategory.C2C) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if ((ChatInfo.oNz != ChatInfo.ChatCategory.DUZHAN && ChatInfo.oNz != ChatInfo.ChatCategory.SMART && ChatInfo.oNz != ChatInfo.ChatCategory.C2C) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return "";
         }
         try {
             JSONObject hc = hc(str, str2);
             JSONObject jSONObject = new JSONObject();
-            if (ChatInfo.oNx == ChatInfo.ChatCategory.DUZHAN) {
+            if (ChatInfo.oNz == ChatInfo.ChatCategory.DUZHAN) {
                 jSONObject.put("paid", ChatInfo.mPaid);
             }
-            if (b.elg().isCuidLogin(this.mContext)) {
+            if (b.elh().isCuidLogin(this.mContext)) {
                 jSONObject.put("account_type", "cuid");
             } else {
                 jSONObject.put("account_type", "uid");
@@ -84,7 +84,7 @@ public class a {
             JSONObject hc = hc(str, str2);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("paid", ChatInfo.mPaid);
-            if (b.elg().isCuidLogin(this.mContext)) {
+            if (b.elh().isCuidLogin(this.mContext)) {
                 jSONObject.put("account_type", "cuid");
             } else {
                 jSONObject.put("account_type", "uid");
@@ -109,16 +109,16 @@ public class a {
         jSONObject.put("network", getNetType());
         jSONObject.put("from", "IM");
         jSONObject.put("type", "");
-        if (ChatInfo.oNx == ChatInfo.ChatCategory.DUZHAN) {
+        if (ChatInfo.oNz == ChatInfo.ChatCategory.DUZHAN) {
             if (ChatInfo.mPainfo != null && ChatInfo.mPainfo.getSubsetType() == 16) {
                 jSONObject.put("page", "xianst");
             } else {
                 jSONObject.put("page", "guanfanghao");
             }
-        } else if (ChatInfo.oNx == ChatInfo.ChatCategory.SMART) {
+        } else if (ChatInfo.oNz == ChatInfo.ChatCategory.SMART) {
             jSONObject.put("page", "swan");
-        } else if (ChatInfo.oNx == ChatInfo.ChatCategory.C2C) {
-            if (ChatInfo.oNH) {
+        } else if (ChatInfo.oNz == ChatInfo.ChatCategory.C2C) {
+            if (ChatInfo.oNJ) {
                 jSONObject.put("page", "minigame");
             } else {
                 jSONObject.put("page", Constants.PAGE_C2C_NAME);
@@ -127,7 +127,7 @@ public class a {
         if (str.equals("417")) {
             jSONObject.put("source", "");
         } else {
-            jSONObject.put("source", ChatInfo.oNG);
+            jSONObject.put("source", ChatInfo.oNI);
         }
         jSONObject.put("value", str2);
         return jSONObject;

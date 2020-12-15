@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live.b.b, com.baidu.tieba.ala.alasquare.b.a> {
-    private IAlaSquareTabController gpQ;
+    private IAlaSquareTabController gpS;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -55,10 +55,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.gpQ != null) {
-                    int tabIndex = a.this.gpQ.getTabIndex(bVar.tabId);
+                if (a.this.gpS != null) {
+                    int tabIndex = a.this.gpS.getTabIndex(bVar.tabId);
                     if (tabIndex >= 0) {
-                        a.this.gpQ.goToTab(tabIndex);
+                        a.this.gpS.goToTab(tabIndex);
                         return;
                     } else {
                         a.this.a(bVar);
@@ -73,10 +73,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.alasquare.live.b.b bVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.gqd == null || !(bVar.gqd instanceof ArrayList)) ? null : (ArrayList) bVar.gqd)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaNewSquareSubListActivityConfig(this.mContext, bVar.bitmapRatio, bVar.entryName, bVar.labelName, (bVar.gqf == null || !(bVar.gqf instanceof ArrayList)) ? null : (ArrayList) bVar.gqf)));
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.gpQ = iAlaSquareTabController;
+        this.gpS = iAlaSquareTabController;
     }
 }

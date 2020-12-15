@@ -19,18 +19,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c kqo;
+    private static c kqq;
 
     private c() {
     }
 
-    public static synchronized c cVO() {
+    public static synchronized c cVP() {
         c cVar;
         synchronized (c.class) {
-            if (kqo == null) {
-                kqo = new c();
+            if (kqq == null) {
+                kqq = new c();
             }
-            cVar = kqo;
+            cVar = kqq;
         }
         return cVar;
     }
@@ -40,7 +40,7 @@ public class c {
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = h.cVV().rawQuery("select count(*) from " + ("tb_group_msg_" + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                cursor = h.cVW().rawQuery("select count(*) from " + ("tb_group_msg_" + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.n.close(cursor);
                 } else {
@@ -77,12 +77,12 @@ public class c {
         String str2 = "tb_group_msg_" + str;
         try {
             try {
-                Cursor rawQuery = h.cVV().rawQuery("select max(mid) from " + str2, null);
+                Cursor rawQuery = h.cVW().rawQuery("select max(mid) from " + str2, null);
                 if (rawQuery != null) {
                     try {
                         if (rawQuery.moveToNext()) {
                             j = rawQuery.getLong(0);
-                            cursor = h.cVV().rawQuery("select count(*) from " + str2, null);
+                            cursor = h.cVW().rawQuery("select count(*) from " + str2, null);
                             if (cursor != null && cursor.moveToNext()) {
                                 i = cursor.getInt(0);
                             }
@@ -118,7 +118,7 @@ public class c {
                     }
                 }
                 j = 0;
-                cursor = h.cVV().rawQuery("select count(*) from " + str2, null);
+                cursor = h.cVW().rawQuery("select count(*) from " + str2, null);
                 if (cursor != null) {
                     i = cursor.getInt(0);
                 }
@@ -166,7 +166,7 @@ public class c {
             ?? r2 = "tb_group_msg_";
             try {
                 try {
-                    cursor = h.cVV().rawQuery("select * from " + ("tb_group_msg_" + str) + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
+                    cursor = h.cVW().rawQuery("select * from " + ("tb_group_msg_" + str) + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -247,9 +247,9 @@ public class c {
         try {
             try {
                 if (TextUtils.isEmpty(str2)) {
-                    cursor = h.cVV().rawQuery("select * from " + ((String) r2) + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{String.valueOf(i), String.valueOf(0)});
+                    cursor = h.cVW().rawQuery("select * from " + ((String) r2) + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{String.valueOf(i), String.valueOf(0)});
                 } else {
-                    cursor = h.cVV().rawQuery("select * from " + ((String) r2) + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{str2, String.valueOf(i), String.valueOf(0)});
+                    cursor = h.cVW().rawQuery("select * from " + ((String) r2) + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{str2, String.valueOf(i), String.valueOf(0)});
                 }
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
@@ -313,12 +313,12 @@ public class c {
             try {
                 if (TextUtils.isEmpty(str3) || "0".equals(str3)) {
                     if (TextUtils.isEmpty(str2)) {
-                        cursor = h.cVV().rawQuery("select * from " + ((String) r2) + " WHERE is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i, new String[]{String.valueOf(0)});
+                        cursor = h.cVW().rawQuery("select * from " + ((String) r2) + " WHERE is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i, new String[]{String.valueOf(0)});
                     } else {
-                        cursor = h.cVV().rawQuery("select * from " + ((String) r2) + " WHERE mid<? AND is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i, new String[]{str2, String.valueOf(0)});
+                        cursor = h.cVW().rawQuery("select * from " + ((String) r2) + " WHERE mid<? AND is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i, new String[]{str2, String.valueOf(0)});
                     }
                 } else {
-                    cursor = h.cVV().rawQuery("select * from " + ((String) r2) + " WHERE rid<? AND is_delete=? ORDER BY rid DESC LIMIT " + i, new String[]{str3, String.valueOf(0)});
+                    cursor = h.cVW().rawQuery("select * from " + ((String) r2) + " WHERE rid<? AND is_delete=? ORDER BY rid DESC LIMIT " + i, new String[]{str3, String.valueOf(0)});
                 }
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
@@ -385,7 +385,7 @@ public class c {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mid", str3);
             contentValues.put(IMConstants.MSG_STATUS, Integer.valueOf(i));
-            if (h.cVV().a(str4, contentValues, "mid=?", new String[]{str2}) > 0) {
+            if (h.cVW().a(str4, contentValues, "mid=?", new String[]{str2}) > 0) {
                 bool = true;
             } else {
                 bool = false;
@@ -408,7 +408,7 @@ public class c {
         SQLiteStatement sQLiteStatement2 = null;
         try {
             try {
-                Nr = h.cVV().Nr(" INSERT INTO " + str2 + "(content,create_time,ext,mid," + IMConstants.MSG_STATUS + ",msg_type,uid,user_info,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
+                Nr = h.cVW().Nr(" INSERT INTO " + str2 + "(content,create_time,ext,mid," + IMConstants.MSG_STATUS + ",msg_type,uid,user_info,rid,read_flag,is_delete) VALUES(?,?,?,?,?,?,?,?,?,?,?);");
             } catch (Exception e) {
                 e = e;
                 sQLiteStatement = null;
@@ -416,7 +416,7 @@ public class c {
             try {
                 for (CommonMsgPojo commonMsgPojo : list) {
                     if (z && commonMsgPojo.isSelf() && commonMsgPojo.getRid() != 0) {
-                        h.cVV().a(str2, "mid=?", new String[]{String.valueOf(commonMsgPojo.getRid())});
+                        h.cVW().a(str2, "mid=?", new String[]{String.valueOf(commonMsgPojo.getRid())});
                     }
                     if (commonMsgPojo.getContent() == null) {
                         commonMsgPojo.setContent("");
@@ -433,7 +433,7 @@ public class c {
                     contentValues.put("rid", Long.valueOf(commonMsgPojo.getRid()));
                     contentValues.put("read_flag", Integer.valueOf(commonMsgPojo.getRead_flag()));
                     contentValues.put("is_delete", Integer.valueOf(commonMsgPojo.getIs_delete()));
-                    if (h.cVV().a(str2, contentValues, "mid=?", new String[]{String.valueOf(commonMsgPojo.getMid())}) == 0) {
+                    if (h.cVW().a(str2, contentValues, "mid=?", new String[]{String.valueOf(commonMsgPojo.getMid())}) == 0) {
                         Nr.clearBindings();
                         Nr.bindString(1, TextUtils.isEmpty(commonMsgPojo.getContent()) ? "" : commonMsgPojo.getContent());
                         Nr.bindLong(2, commonMsgPojo.getCreate_time());
@@ -446,7 +446,7 @@ public class c {
                         Nr.bindLong(9, commonMsgPojo.getRid());
                         Nr.bindLong(10, commonMsgPojo.getRead_flag());
                         Nr.bindLong(11, commonMsgPojo.getIs_delete());
-                        h.cVV().a(Nr);
+                        h.cVW().a(Nr);
                     }
                 }
                 com.baidu.adp.lib.util.n.close((Cursor) null);
@@ -482,7 +482,7 @@ public class c {
         if (list != null && list.size() != 0) {
             LinkedList linkedList = new LinkedList();
             try {
-                cursor = h.cVV().rawQuery("select * from sqlite_master where type='table'", null);
+                cursor = h.cVW().rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor != null) {
                     cursor.moveToFirst();
                     while (cursor.moveToNext()) {
@@ -510,7 +510,7 @@ public class c {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", (Integer) 1);
-            h.cVV().a("tb_group_msg_" + str, contentValues, "mid=?", new String[]{str2});
+            h.cVW().a("tb_group_msg_" + str, contentValues, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.markDeleteMsgByMid", new Object[0]);
@@ -523,7 +523,7 @@ public class c {
             return false;
         }
         try {
-            h.cVV().a("tb_group_msg_" + str, "mid=?", new String[]{str2});
+            h.cVW().a("tb_group_msg_" + str, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.deleteMsgByMid", new Object[0]);
@@ -534,7 +534,7 @@ public class c {
     public boolean Ne(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                h.cVV().Nq("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
+                h.cVW().Nq("DROP TABLE IF EXISTS " + ("tb_group_msg_" + str));
             } catch (Exception e) {
                 e.printStackTrace();
                 TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.dropMsgTableById", new Object[0]);
@@ -548,7 +548,7 @@ public class c {
             return false;
         }
         try {
-            h.cVV().Nq("delete from " + ("tb_group_msg_" + str));
+            h.cVW().Nq("delete from " + ("tb_group_msg_" + str));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -559,7 +559,7 @@ public class c {
 
     public void Nh(String str) {
         if (!TextUtils.isEmpty(str)) {
-            h.cVV().Nq("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
+            h.cVW().Nq("CREATE TABLE IF NOT EXISTS " + ("tb_group_msg_" + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT);");
         }
     }
 
@@ -571,13 +571,13 @@ public class c {
             if (i < 1000) {
                 i = 1000;
             }
-            cursor = h.cVV().rawQuery("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT " + i + ", 1", null);
+            cursor = h.cVW().rawQuery("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT " + i + ", 1", null);
             try {
                 try {
                     String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("mid")) : null;
                     com.baidu.adp.lib.util.n.close(cursor);
                     if (string != null) {
-                        h.cVV().a(str2, "mid<?", new String[]{string});
+                        h.cVW().a(str2, "mid<?", new String[]{string});
                     }
                     com.baidu.adp.lib.util.n.close(cursor);
                     return true;

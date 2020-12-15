@@ -13,9 +13,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
 /* loaded from: classes26.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
-    private GradientDrawable fVZ;
-    private GradientDrawable fWa;
-    private StateListDrawable fWc;
+    private GradientDrawable fWb;
+    private GradientDrawable fWc;
+    private StateListDrawable fWe;
     private Context mContext;
 
     public AdCloseReasonCheckBox(Context context) {
@@ -50,17 +50,17 @@ public class AdCloseReasonCheckBox extends CheckBox {
 
     private void f(int i, int i2, int i3, int i4) {
         int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
-        this.fVZ = new GradientDrawable();
-        this.fVZ.setShape(0);
-        this.fVZ.setCornerRadius(parseInt);
-        this.fVZ.setStroke(i2, ap.getColor(i3));
-        this.fWa = new GradientDrawable();
-        this.fWa.setShape(0);
-        this.fWa.setCornerRadius(parseInt);
-        this.fWa.setStroke(i2, c.m(ap.getColor(i4), 0.5f));
-        this.fWc = new StateListDrawable();
-        this.fWc.addState(new int[]{-16842912}, this.fVZ);
-        this.fWc.addState(new int[]{16842912}, this.fWa);
-        setBackgroundDrawable(this.fWc);
+        this.fWb = new GradientDrawable();
+        this.fWb.setShape(0);
+        this.fWb.setCornerRadius(parseInt);
+        this.fWb.setStroke(i2, ap.getColor(i3));
+        this.fWc = new GradientDrawable();
+        this.fWc.setShape(0);
+        this.fWc.setCornerRadius(parseInt);
+        this.fWc.setStroke(i2, c.m(ap.getColor(i4), 0.5f));
+        this.fWe = new StateListDrawable();
+        this.fWe.addState(new int[]{-16842912}, this.fWb);
+        this.fWe.addState(new int[]{16842912}, this.fWc);
+        setBackgroundDrawable(this.fWe);
     }
 }

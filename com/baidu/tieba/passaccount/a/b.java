@@ -29,25 +29,25 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes21.dex */
 public class b {
-    private static volatile b lxB;
-    private a lxC;
-    private AtomicBoolean lxD = new AtomicBoolean(false);
-    private AtomicBoolean lxE = new AtomicBoolean(false);
+    private static volatile b lxD;
+    private a lxE;
+    private AtomicBoolean lxF = new AtomicBoolean(false);
+    private AtomicBoolean lxG = new AtomicBoolean(false);
 
     /* loaded from: classes21.dex */
     public interface a {
         void b(j.c cVar);
     }
 
-    public static b dlY() {
-        if (lxB == null) {
+    public static b dlZ() {
+        if (lxD == null) {
             synchronized (b.class) {
-                if (lxB == null) {
-                    lxB = new b();
+                if (lxD == null) {
+                    lxD = new b();
                 }
             }
         }
-        return lxB;
+        return lxD;
     }
 
     private b() {
@@ -65,7 +65,7 @@ public class b {
         } else if (jVar.getType() == 2) {
             PL(session.bduss);
         } else if (jVar.getType() == 3) {
-            dlZ();
+            dma();
         }
     }
 
@@ -96,7 +96,7 @@ public class b {
         context.startActivity(intent);
     }
 
-    private void dlZ() {
+    private void dma() {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, RemindActivity.class);
         intent.addFlags(268435456);
@@ -104,34 +104,34 @@ public class b {
     }
 
     public void b(j jVar, a aVar) {
-        if (this.lxE.compareAndSet(false, true)) {
-            if (this.lxD.compareAndSet(false, true)) {
+        if (this.lxG.compareAndSet(false, true)) {
+            if (this.lxF.compareAndSet(false, true)) {
                 try {
                     a(jVar, aVar);
                 } catch (Exception e) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
-                    this.lxD.set(false);
+                    this.lxF.set(false);
                 }
-            } else if (!dmb()) {
+            } else if (!dmc()) {
                 try {
                     a(jVar, aVar);
                 } catch (Exception e2) {
-                    this.lxD.set(false);
+                    this.lxF.set(false);
                 }
             }
-            this.lxE.set(false);
+            this.lxG.set(false);
         }
     }
 
     public void a(j.c cVar) {
-        if (this.lxC != null) {
+        if (this.lxE != null) {
             if (cVar == null) {
                 cVar = new j.c(false);
             }
-            this.lxC.b(cVar);
+            this.lxE.b(cVar);
         }
-        this.lxC = null;
-        this.lxD.set(false);
+        this.lxE = null;
+        this.lxF.set(false);
     }
 
     public void z(boolean z, String str) {
@@ -141,7 +141,7 @@ public class b {
     public void um(boolean z) {
         a(new j.c(false));
         if (z) {
-            dma();
+            dmb();
         }
     }
 
@@ -150,11 +150,11 @@ public class b {
     }
 
     public void A(boolean z, String str) {
-        c.dme().a((c.a) null);
+        c.dmf().a((c.a) null);
         a(new j.b(z, str));
     }
 
-    private void dma() {
+    private void dmb() {
         com.baidu.tbadk.coreExtra.a.c bwW;
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj == null) {
@@ -172,15 +172,15 @@ public class b {
         ReloginManager.bsG().e(null);
     }
 
-    private boolean dmb() {
-        ComponentName dmc = dmc();
-        if (dmc != null) {
-            return AuthActivity.class.getName().equals(dmc.getClassName()) || LivenessRecogActivity.class.getName().equals(dmc.getClassName());
+    private boolean dmc() {
+        ComponentName dmd = dmd();
+        if (dmd != null) {
+            return AuthActivity.class.getName().equals(dmd.getClassName()) || LivenessRecogActivity.class.getName().equals(dmd.getClassName());
         }
         return false;
     }
 
-    private ComponentName dmc() {
+    private ComponentName dmd() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         try {
@@ -197,14 +197,14 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.lxC = aVar;
+        this.lxE = aVar;
     }
 
     public static void registerTask() {
-        dmd();
+        dme();
     }
 
-    private static void dmd() {
+    private static void dme() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921372, new CustomMessageTask.CustomRunnable<j>() { // from class: com.baidu.tieba.passaccount.a.b.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<j> customMessage) {
@@ -222,7 +222,7 @@ public class b {
                         }
                     } else {
                         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_INIT_RIM_SDK, (Class) null);
-                        b.dlY().b(data, new C0822b(data));
+                        b.dlZ().b(data, new C0822b(data));
                     }
                 }
                 return null;
@@ -235,16 +235,16 @@ public class b {
     /* renamed from: com.baidu.tieba.passaccount.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
     static class C0822b implements a {
-        private j lxF;
+        private j lxH;
 
         public C0822b(j jVar) {
-            this.lxF = jVar;
+            this.lxH = jVar;
         }
 
         @Override // com.baidu.tieba.passaccount.a.b.a
         public void b(j.c cVar) {
-            if (this.lxF != null && this.lxF.bxr() != null) {
-                this.lxF.bxr().b(cVar);
+            if (this.lxH != null && this.lxH.bxr() != null) {
+                this.lxH.bxr().b(cVar);
             }
         }
     }

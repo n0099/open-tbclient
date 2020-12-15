@@ -4,12 +4,12 @@ import android.text.TextUtils;
 /* loaded from: classes4.dex */
 public abstract class b<T> {
     private T dej;
-    private String gjM;
-    private Long gjN;
+    private String gjO;
+    private Long gjP;
     private String mKey;
     private T zJ;
 
-    protected abstract T bQk();
+    protected abstract T bQl();
 
     protected abstract long x(String str, long j);
 
@@ -17,7 +17,7 @@ public abstract class b<T> {
     }
 
     public b(String str, T t, String str2) {
-        this.gjM = str2;
+        this.gjO = str2;
         aC(t);
         setKey(str);
     }
@@ -32,9 +32,9 @@ public abstract class b<T> {
 
     public T getValue() {
         if (this.zJ == null && !TextUtils.isEmpty(this.mKey)) {
-            this.zJ = bQk();
-            if (!TextUtils.isEmpty(this.gjM)) {
-                this.gjN = Long.valueOf(x(this.gjM, 0L));
+            this.zJ = bQl();
+            if (!TextUtils.isEmpty(this.gjO)) {
+                this.gjP = Long.valueOf(x(this.gjO, 0L));
             }
         }
         return this.zJ;
@@ -44,7 +44,7 @@ public abstract class b<T> {
         this.dej = t;
     }
 
-    public T bQl() {
+    public T bQm() {
         return this.dej;
     }
 }

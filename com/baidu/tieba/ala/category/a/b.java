@@ -14,30 +14,30 @@ import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class b extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    private com.baidu.tieba.ala.category.b.c gCQ;
-    private CheckedTextView gCR;
+    private com.baidu.tieba.ala.category.b.c gCS;
+    private CheckedTextView gCT;
 
     public b(Context context, BdUniqueId bdUniqueId) {
         super(LayoutInflater.from(context).inflate(a.g.item_live_category_one, (ViewGroup) null));
-        this.gCR = (CheckedTextView) getView().findViewById(a.f.category_one_name_tv);
-        this.gCR.setOnClickListener(this);
+        this.gCT = (CheckedTextView) getView().findViewById(a.f.category_one_name_tv);
+        this.gCT.setOnClickListener(this);
     }
 
     public void a(com.baidu.tieba.ala.category.b.c cVar, String str) {
         if (cVar != null) {
-            this.gCQ = cVar;
-            boolean z = !StringUtils.isNull(this.gCQ.getId()) && TextUtils.equals(this.gCQ.getId(), str);
-            this.gCR.setText(this.gCQ.getName());
-            this.gCR.setBackgroundColor(this.gCR.getContext().getResources().getColor(z ? a.c.bg_category_one_selected : a.c.bg_category_one_normal));
-            this.gCR.setTextColor(this.gCR.getContext().getResources().getColor(z ? a.c.sdk_color_ff1e66 : a.c.sdk_white_alpha60));
-            this.gCR.setChecked(z);
+            this.gCS = cVar;
+            boolean z = !StringUtils.isNull(this.gCS.getId()) && TextUtils.equals(this.gCS.getId(), str);
+            this.gCT.setText(this.gCS.getName());
+            this.gCT.setBackgroundColor(this.gCT.getContext().getResources().getColor(z ? a.c.bg_category_one_selected : a.c.bg_category_one_normal));
+            this.gCT.setTextColor(this.gCT.getContext().getResources().getColor(z ? a.c.sdk_color_ff1e66 : a.c.sdk_white_alpha60));
+            this.gCT.setChecked(z);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.gCR.isChecked()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913200, this.gCQ));
+        if (!this.gCT.isChecked()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913200, this.gCS));
         }
     }
 }

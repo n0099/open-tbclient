@@ -14,15 +14,15 @@ public interface a {
     /* loaded from: classes.dex */
     public static class C0795a {
         public Rect bHi;
-        public String kSl;
-        public Rect kSm;
+        public String kSn;
+        public Rect kSo;
         public String picUrl;
 
         public C0795a() {
             this.picUrl = "";
             this.bHi = new Rect(0, 0, 0, 0);
-            this.kSl = "";
-            this.kSm = new Rect(0, 0, 0, 0);
+            this.kSn = "";
+            this.kSo = new Rect(0, 0, 0, 0);
         }
 
         private C0795a(JSONObject jSONObject) {
@@ -34,8 +34,8 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.bHi.isEmpty()) ? false : true;
         }
 
-        public boolean ddE() {
-            return (TextUtils.isEmpty(this.kSl) || this.kSm.isEmpty()) ? false : true;
+        public boolean ddF() {
+            return (TextUtils.isEmpty(this.kSn) || this.kSo.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -75,8 +75,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.kSl = jSONObject.optString("pic_url");
-                                this.kSm = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.kSn = jSONObject.optString("pic_url");
+                                this.kSo = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

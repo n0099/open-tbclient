@@ -12,7 +12,7 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
     private com.baidu.tbadk.core.flow.a.d<h> akc;
     private com.baidu.tbadk.core.flow.a.d<h> akd;
-    private CoverFlowLocalView<h> iXG;
+    private CoverFlowLocalView<h> iXI;
     private List<h> mData;
 
     public LocalBannerLayout(Context context) {
@@ -45,7 +45,7 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     private void init() {
-        this.iXG = new CoverFlowLocalView<>(getContext());
+        this.iXI = new CoverFlowLocalView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.frs.LocalBannerLayout.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e ui() {
@@ -75,19 +75,19 @@ public class LocalBannerLayout extends RelativeLayout {
                 return cVar;
             }
         };
-        this.iXG.setIndicatorNoOffet(false);
-        this.iXG.setDisableParentEvent(false);
-        this.iXG.setCoverFlowFactory(bVar);
-        this.iXG.setIndicatorVisible(0);
-        this.iXG.setIsAutoPlayDragging(false);
-        this.iXG.setAutoPlay(false);
-        this.iXG.setCallback(this.akd);
-        addView(this.iXG);
+        this.iXI.setIndicatorNoOffet(false);
+        this.iXI.setDisableParentEvent(false);
+        this.iXI.setCoverFlowFactory(bVar);
+        this.iXI.setIndicatorVisible(0);
+        this.iXI.setIsAutoPlayDragging(false);
+        this.iXI.setAutoPlay(false);
+        this.iXI.setCallback(this.akd);
+        addView(this.iXI);
     }
 
     public void setData(List<h> list) {
         this.mData = list;
-        this.iXG.setData(list);
+        this.iXI.setData(list);
     }
 
     public void setOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<h> dVar) {

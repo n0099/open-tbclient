@@ -48,12 +48,12 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_mode, viewGroup, false);
             C0958a c0958a2 = new C0958a();
-            c0958a2.oJL = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0958a2.oJM = (ImageView) view.findViewById(a.f.chosen_iv);
-            c0958a2.gDa = (TextView) view.findViewById(a.f.mode_name_tv);
-            c0958a2.oJL.setDefaultResource(a.e.loading_ala_audio_mode);
-            c0958a2.oJL.setDefaultErrorResource(a.e.loading_ala_audio_mode);
-            c0958a2.oJL.setDefaultBgResource(a.e.loading_ala_audio_mode);
+            c0958a2.oJN = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0958a2.oJO = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0958a2.gDc = (TextView) view.findViewById(a.f.mode_name_tv);
+            c0958a2.oJN.setDefaultResource(a.e.loading_ala_audio_mode);
+            c0958a2.oJN.setDefaultErrorResource(a.e.loading_ala_audio_mode);
+            c0958a2.oJN.setDefaultBgResource(a.e.loading_ala_audio_mode);
             view.setTag(c0958a2);
             c0958a = c0958a2;
         } else {
@@ -62,10 +62,10 @@ public class a extends BaseAdapter {
         com.baidu.yuyinala.mode.b.a item = getItem(i);
         if (item != null) {
             view.setVisibility(0);
-            c0958a.gDa.setText(item.getTitle());
-            c0958a.oJL.startLoad(item.getIconUrl(), 10, false);
-            c0958a.oJL.setVisibility(0);
-            c0958a.oJM.setVisibility(item.ekl() ? 0 : 8);
+            c0958a.gDc.setText(item.getTitle());
+            c0958a.oJN.startLoad(item.getIconUrl(), 10, false);
+            c0958a.oJN.setVisibility(0);
+            c0958a.oJO.setVisibility(item.ekm() ? 0 : 8);
         } else {
             view.setVisibility(8);
         }
@@ -75,9 +75,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.yuyinala.mode.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private class C0958a {
-        private TextView gDa;
-        private TbImageView oJL;
-        private ImageView oJM;
+        private TextView gDc;
+        private TbImageView oJN;
+        private ImageView oJO;
 
         private C0958a() {
         }

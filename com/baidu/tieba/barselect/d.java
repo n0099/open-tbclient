@@ -8,8 +8,8 @@ import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<com.baidu.tieba.barselect.data.d> icE;
-    private int icF = -1;
+    private List<com.baidu.tieba.barselect.data.d> icG;
+    private int icH = -1;
     private TbPageContext mPageContext;
     private f mVoteData;
 
@@ -20,9 +20,9 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(f fVar) {
         this.mVoteData = fVar;
         if (fVar != null) {
-            this.icE = fVar.cra();
+            this.icG = fVar.crb();
         }
-        this.icF = -1;
+        this.icH = -1;
         notifyDataSetChanged();
     }
 
@@ -44,25 +44,25 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.icE != null) {
-            return this.icE.size();
+        if (this.icG != null) {
+            return this.icG.size();
         }
         return 0;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.icE == null || this.icE.size() <= i || this.icE.get(i).getRank() != 1 || i != 0) {
+        if (this.icG == null || this.icG.size() <= i || this.icG.get(i).getRank() != 1 || i != 0) {
             return 0;
         }
-        return com.baidu.tieba.barselect.a.a.ifN;
+        return com.baidu.tieba.barselect.a.a.ifP;
     }
 
-    public int cqL() {
-        return this.icF;
+    public int cqM() {
+        return this.icH;
     }
 
     public void xS(int i) {
-        this.icF = i;
+        this.icH = i;
     }
 }

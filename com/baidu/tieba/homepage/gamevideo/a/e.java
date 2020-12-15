@@ -24,7 +24,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     private ab<k> agG;
     private v amH;
     private int eXm;
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     private BdUniqueId fzO;
     private TbPageContext mPageContext;
 
@@ -111,7 +111,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
                 }
             });
         }
-        amVar.aN(false).a(this.fWA);
+        amVar.aN(false).a(this.fWC);
         amVar.b((am) kVar);
         amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tZ().a(this.agG);
@@ -127,6 +127,6 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.fWA = aVar;
+        this.fWC = aVar;
     }
 }

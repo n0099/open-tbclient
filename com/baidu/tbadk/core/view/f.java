@@ -343,7 +343,7 @@ public class f extends com.baidu.adp.widget.ListView.d {
                 this.fco.setExtrusionRemind(true);
             }
             this.fco.fcw = this.fcr.getTipText();
-            this.fco.iXT = this.fcr.bvD();
+            this.fco.iXV = this.fcr.bvD();
             if (this.fco.getParent() != null) {
                 this.mPullRoot.removeView(this.fco);
             }
@@ -359,7 +359,7 @@ public class f extends com.baidu.adp.widget.ListView.d {
             if (this.fcq != null) {
                 this.fcq.qW(this.fco.getTipViewHeight());
             }
-            this.fco.cEx();
+            this.fco.cEy();
             return true;
         }
         return false;

@@ -33,20 +33,20 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.b, 
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendlist.data.b bVar, a aVar) {
-        List<IAdapterData> list = bVar.mQy;
-        if (a(aVar.mQo, list)) {
-            aVar.mQp = new com.baidu.tieba.recommendlist.adapter.a(this.mContext, com.baidu.tieba.recommendlist.data.a.mQv);
-            aVar.mQo.addAdapter(aVar.mQp);
+        List<IAdapterData> list = bVar.mQA;
+        if (a(aVar.mQq, list)) {
+            aVar.mQr = new com.baidu.tieba.recommendlist.adapter.a(this.mContext, com.baidu.tieba.recommendlist.data.a.mQx);
+            aVar.mQq.addAdapter(aVar.mQr);
         }
         if (list.size() > 3) {
-            aVar.mQp.JH(102);
-            aVar.mQo.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16));
+            aVar.mQr.JH(102);
+            aVar.mQq.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16));
         } else {
-            aVar.mQp.JH(101);
-            aVar.mQo.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds30));
+            aVar.mQr.JH(101);
+            aVar.mQq.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds30));
         }
-        aVar.mQp.setAlaLiveShowData(this.bur);
-        aVar.mQo.setData(bVar.mQy);
+        aVar.mQr.setAlaLiveShowData(this.bur);
+        aVar.mQq.setData(bVar.mQA);
         return view;
     }
 
@@ -60,14 +60,14 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.b, 
 
     /* loaded from: classes4.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private HTypeListView mQo;
-        private com.baidu.tieba.recommendlist.adapter.a mQp;
+        private HTypeListView mQq;
+        private com.baidu.tieba.recommendlist.adapter.a mQr;
 
         private a(View view) {
             super(view);
-            this.mQo = (HTypeListView) view.findViewById(a.f.followListView);
-            this.mQp = new com.baidu.tieba.recommendlist.adapter.a(view.getContext(), com.baidu.tieba.recommendlist.data.a.mQv);
-            this.mQo.addAdapter(this.mQp);
+            this.mQq = (HTypeListView) view.findViewById(a.f.followListView);
+            this.mQr = new com.baidu.tieba.recommendlist.adapter.a(view.getContext(), com.baidu.tieba.recommendlist.data.a.mQx);
+            this.mQq.addAdapter(this.mQr);
         }
     }
 }

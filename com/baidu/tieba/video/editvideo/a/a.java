@@ -17,7 +17,7 @@ import java.util.List;
 public class a extends BaseAdapter {
     private e eNZ;
     private List<PendantData> mList;
-    private InterfaceC0878a nCN;
+    private InterfaceC0878a nCP;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes23.dex */
@@ -60,21 +60,21 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.eNZ.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.nCP = (TextView) view.findViewById(R.id.cover_text);
-            bVar.nCQ = (TbImageView) view.findViewById(R.id.pendant_image);
-            bVar.nCR = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-            bVar.nCQ.setDefaultBgResource(R.color.transparent);
-            bVar.nCQ.setDefaultErrorResource(R.color.CAM_X0101);
-            bVar.nCQ.setDefaultResource(R.color.CAM_X0101);
+            bVar.nCR = (TextView) view.findViewById(R.id.cover_text);
+            bVar.nCS = (TbImageView) view.findViewById(R.id.pendant_image);
+            bVar.nCT = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+            bVar.nCS.setDefaultBgResource(R.color.transparent);
+            bVar.nCS.setDefaultErrorResource(R.color.CAM_X0101);
+            bVar.nCS.setDefaultResource(R.color.CAM_X0101);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.nCN != null) {
+                    if (a.this.nCP != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.nCQ.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.nCQ.getTag();
+                        if (bVar2.nCS.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.nCS.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.nCN.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.nCP.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -87,45 +87,45 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.nCQ.setTag(Integer.valueOf(i));
+            bVar.nCS.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.nCP.setVisibility(0);
-                    bVar.nCQ.setVisibility(8);
-                    bVar.nCR.setVisibility(8);
-                    bVar.nCP.setTextColor(ap.getColor(R.color.CAM_X0110));
-                    bVar.nCP.setText("No");
-                    bVar.nCP.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.nCR.setVisibility(0);
+                    bVar.nCS.setVisibility(8);
+                    bVar.nCT.setVisibility(8);
+                    bVar.nCR.setTextColor(ap.getColor(R.color.CAM_X0110));
+                    bVar.nCR.setText("No");
+                    bVar.nCR.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.nCP.setVisibility(0);
-                    bVar.nCQ.setVisibility(8);
-                    bVar.nCR.setVisibility(8);
-                    bVar.nCP.setTextColor(ap.getColor(R.color.CAM_X0111));
-                    bVar.nCP.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.nCP.setBackgroundColor(ap.getColor(R.color.CAM_X0302));
+                    bVar.nCR.setVisibility(0);
+                    bVar.nCS.setVisibility(8);
+                    bVar.nCT.setVisibility(8);
+                    bVar.nCR.setTextColor(ap.getColor(R.color.CAM_X0111));
+                    bVar.nCR.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                    bVar.nCR.setBackgroundColor(ap.getColor(R.color.CAM_X0302));
                     break;
                 case 2:
-                    bVar.nCP.setVisibility(0);
-                    bVar.nCQ.setVisibility(8);
-                    bVar.nCR.setVisibility(8);
-                    bVar.nCP.setTextColor(ap.getColor(R.color.CAM_X0111));
-                    bVar.nCP.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.nCP.setBackgroundColor(ap.getColor(R.color.CAM_X0109));
+                    bVar.nCR.setVisibility(0);
+                    bVar.nCS.setVisibility(8);
+                    bVar.nCT.setVisibility(8);
+                    bVar.nCR.setTextColor(ap.getColor(R.color.CAM_X0111));
+                    bVar.nCR.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                    bVar.nCR.setBackgroundColor(ap.getColor(R.color.CAM_X0109));
                     break;
                 case 3:
-                    bVar.nCP.setVisibility(0);
-                    bVar.nCQ.setVisibility(8);
-                    bVar.nCR.setVisibility(8);
-                    bVar.nCP.setTextColor(ap.getColor(R.color.CAM_X0109));
-                    bVar.nCP.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                    bVar.nCP.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.nCR.setVisibility(0);
+                    bVar.nCS.setVisibility(8);
+                    bVar.nCT.setVisibility(8);
+                    bVar.nCR.setTextColor(ap.getColor(R.color.CAM_X0109));
+                    bVar.nCR.setText(ExifInterface.GPS_DIRECTION_TRUE);
+                    bVar.nCR.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 default:
-                    bVar.nCP.setVisibility(8);
-                    bVar.nCQ.setVisibility(0);
                     bVar.nCR.setVisibility(8);
-                    bVar.nCQ.startLoad(pendantData.img, 10, false);
+                    bVar.nCS.setVisibility(0);
+                    bVar.nCT.setVisibility(8);
+                    bVar.nCS.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
@@ -133,14 +133,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0878a interfaceC0878a) {
-        this.nCN = interfaceC0878a;
+        this.nCP = interfaceC0878a;
     }
 
     /* loaded from: classes23.dex */
     public class b {
-        public TextView nCP;
-        public TbImageView nCQ;
-        public ProgressBar nCR;
+        public TextView nCR;
+        public TbImageView nCS;
+        public ProgressBar nCT;
 
         public b() {
         }

@@ -10,16 +10,16 @@ import com.baidu.tieba.ext.bdplayer.floating.d;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.liveroom.e.b {
     private static final String TAG = com.baidu.tieba.ext.bdplayer.a.d.class.getSimpleName();
-    private com.baidu.live.liveroom.e.a iEA;
-    private com.baidu.tieba.ext.bdplayer.a.a iEB;
-    private String iEC;
-    private f iED;
-    private d iEz;
+    private d iEB;
+    private com.baidu.live.liveroom.e.a iEC;
+    private com.baidu.tieba.ext.bdplayer.a.a iED;
+    private String iEE;
+    private f iEF;
     private Context mContext;
 
     public b(Context context, @NonNull f fVar) {
         this.mContext = context;
-        this.iED = fVar;
+        this.iEF = fVar;
     }
 
     @Override // com.baidu.live.liveroom.e.b
@@ -28,25 +28,25 @@ public class b implements com.baidu.live.liveroom.e.b {
             Log.d(TAG, "showFloatingPlayer " + dVar);
         }
         if (dVar != null && (dVar instanceof com.baidu.tieba.ext.bdplayer.a.d)) {
-            this.iEB = ((com.baidu.tieba.ext.bdplayer.a.d) dVar).cxQ();
-            this.iEC = str;
-            this.iEA = aVar;
-            if (this.iEB != null) {
-                if (this.iED != null) {
-                    this.iED.cxO();
+            this.iED = ((com.baidu.tieba.ext.bdplayer.a.d) dVar).cxR();
+            this.iEE = str;
+            this.iEC = aVar;
+            if (this.iED != null) {
+                if (this.iEF != null) {
+                    this.iEF.cxP();
                 }
-                if (this.iEz == null) {
-                    this.iEz = new d(this.mContext);
+                if (this.iEB == null) {
+                    this.iEB = new d(this.mContext);
                 }
-                this.iEz.setContentView(view);
-                this.iEz.setPlayer(this.iEB);
-                this.iEz.setContext(this.mContext);
-                this.iEz.cxL();
-                this.iEz.a(new d.b() { // from class: com.baidu.tieba.ext.bdplayer.floating.b.1
+                this.iEB.setContentView(view);
+                this.iEB.setPlayer(this.iED);
+                this.iEB.setContext(this.mContext);
+                this.iEB.cxM();
+                this.iEB.a(new d.b() { // from class: com.baidu.tieba.ext.bdplayer.floating.b.1
                     @Override // com.baidu.tieba.ext.bdplayer.floating.d.b
-                    public boolean cxI() {
-                        if (b.this.iEA != null) {
-                            return b.this.iEA.Pw();
+                    public boolean cxJ() {
+                        if (b.this.iEC != null) {
+                            return b.this.iEC.Pw();
                         }
                         return false;
                     }
@@ -60,20 +60,20 @@ public class b implements com.baidu.live.liveroom.e.b {
         if (isDebug()) {
             Log.d(TAG, "hideFloatingPlayer");
         }
-        if (this.iEz != null) {
+        if (this.iEB != null) {
             if (!z) {
-                this.iEB.setPlayerMode(PlayerConstant.HALF_MODE);
+                this.iED.setPlayerMode(PlayerConstant.HALF_MODE);
             }
-            this.iEz.dismiss(true);
+            this.iEB.dismiss(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.b
     public void Px() {
-        if (this.iEz != null) {
-            this.iEz.Xt();
+        if (this.iEB != null) {
+            this.iEB.Xt();
         }
-        this.iED.JT(this.iEC);
+        this.iEF.JT(this.iEE);
     }
 
     @Override // com.baidu.live.liveroom.e.b
@@ -83,7 +83,7 @@ public class b implements com.baidu.live.liveroom.e.b {
 
     @Override // com.baidu.live.liveroom.e.b
     public boolean Pz() {
-        return (this.iEz != null && this.iEz.cxN()) || (this.iEB != null && this.iEB.isFloatingMode());
+        return (this.iEB != null && this.iEB.cxO()) || (this.iED != null && this.iED.isFloatingMode());
     }
 
     private boolean isDebug() {

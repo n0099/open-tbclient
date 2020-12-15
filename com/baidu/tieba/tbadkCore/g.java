@@ -6,12 +6,12 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends BaseCardInfo implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId njw = BdUniqueId.gen();
-    public List<by> njx;
-    public int njy = -1;
+    public static final BdUniqueId njy = BdUniqueId.gen();
+    public int njA = -1;
+    public List<by> njz;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return njw;
+        return njy;
     }
 }

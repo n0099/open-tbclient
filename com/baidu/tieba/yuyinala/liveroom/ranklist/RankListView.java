@@ -11,7 +11,7 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class RankListView extends LinearLayout {
     private TextView akV;
-    private ImageView oai;
+    private ImageView oak;
 
     public RankListView(Context context) {
         super(context);
@@ -25,7 +25,7 @@ public class RankListView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_ala_liveroom_ranklist_layout, this);
-        this.oai = (ImageView) findViewById(a.f.iv_icon);
+        this.oak = (ImageView) findViewById(a.f.iv_icon);
         this.akV = (TextView) findViewById(a.f.tv_text);
     }
 

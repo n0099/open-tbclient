@@ -16,15 +16,15 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
     public static final String DEFAULT_CLIPPATH = "";
     private static final long serialVersionUID = 0;
-    @WireField(eAP = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(eAQ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float alpha;
-    @WireField(eAP = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
+    @WireField(eAQ = "com.squareup.wire.ProtoAdapter#STRING", tag = 4)
     public final String clipPath;
-    @WireField(eAP = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
+    @WireField(eAQ = "com.opensource.svgaplayer.proto.Layout#ADAPTER", tag = 2)
     public final Layout layout;
-    @WireField(eAP = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", eAQ = WireField.Label.REPEATED, tag = 5)
+    @WireField(eAQ = "com.opensource.svgaplayer.proto.ShapeEntity#ADAPTER", eAR = WireField.Label.REPEATED, tag = 5)
     public final List<ShapeEntity> shapes;
-    @WireField(eAP = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
+    @WireField(eAQ = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
     public FrameEntity(Float f, Layout layout, Transform transform, String str, List<ShapeEntity> list) {
@@ -102,7 +102,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
         public Layout layout;
-        public List<ShapeEntity> shapes = a.eAS();
+        public List<ShapeEntity> shapes = a.eAT();
         public Transform transform;
 
         public Builder alpha(Float f) {
@@ -175,11 +175,11 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public FrameEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eAH = cVar.eAH();
+            long eAI = cVar.eAI();
             while (true) {
-                int eAI = cVar.eAI();
-                if (eAI != -1) {
-                    switch (eAI) {
+                int eAJ = cVar.eAJ();
+                if (eAJ != -1) {
+                    switch (eAJ) {
                         case 1:
                             builder.alpha(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -196,12 +196,12 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                             builder.shapes.add(ShapeEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eAJ = cVar.eAJ();
-                            builder.addUnknownField(eAI, eAJ, eAJ.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eAK = cVar.eAK();
+                            builder.addUnknownField(eAJ, eAK, eAK.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.iE(eAH);
+                    cVar.iE(eAI);
                     return builder.build();
                 }
             }

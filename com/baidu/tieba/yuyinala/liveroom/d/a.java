@@ -12,40 +12,40 @@ import com.baidu.live.tbadk.TbPageContext;
 public class a {
     private w aFN;
     private ViewGroup bNk;
-    private boolean gEn = true;
-    private ViewGroup.LayoutParams hin = new ViewGroup.LayoutParams(-2, -1);
+    private boolean gEp = true;
+    private ViewGroup.LayoutParams hip = new ViewGroup.LayoutParams(-2, -1);
     private ViewGroup mParentView;
     private TbPageContext mTbPageContext;
-    protected c olA;
+    protected c olC;
 
     public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mTbPageContext = tbPageContext;
         this.bNk = viewGroup;
-        bUj();
+        bUk();
     }
 
-    private void bUj() {
+    private void bUk() {
         this.mParentView = new FrameLayout(this.bNk.getContext());
         this.mParentView.setId(a.f.ala_live_room_back_to_target);
         this.mParentView.setBackgroundColor(0);
-        this.bNk.addView(this.mParentView, this.hin);
+        this.bNk.addView(this.mParentView, this.hip);
     }
 
     public void a(w wVar, b bVar) {
         if (wVar != null && wVar.mLiveInfo != null && !TextUtils.isEmpty(TbConfig.getLiveEnterFrom()) && bVar != null) {
             this.aFN = wVar;
             if (this.mParentView == null || this.bNk.indexOfChild(this.mParentView) < 0) {
-                bUj();
-                this.mParentView.setVisibility(this.gEn ? 0 : 8);
+                bUk();
+                this.mParentView.setVisibility(this.gEp ? 0 : 8);
             }
-            if (this.olA == null || (this.mParentView != null && this.mParentView.indexOfChild(this.olA.getView()) < 0)) {
-                this.olA = new c(this.mTbPageContext);
-                this.mParentView.addView(this.olA.getView(), new FrameLayout.LayoutParams(-2, -1));
-                this.olA.ccy().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.d.a.1
+            if (this.olC == null || (this.mParentView != null && this.mParentView.indexOfChild(this.olC.getView()) < 0)) {
+                this.olC = new c(this.mTbPageContext);
+                this.mParentView.addView(this.olC.getView(), new FrameLayout.LayoutParams(-2, -1));
+                this.olC.ccz().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.d.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.olA.ccx();
-                        a.this.olA.hide();
+                        a.this.olC.ccy();
+                        a.this.olC.hide();
                     }
                 });
             }
@@ -55,8 +55,8 @@ public class a {
             bVar2.setScheme(bVar.getScheme());
             bVar2.setImageId(a.e.back_to_come_logo);
             bVar2.wB(a.h.ala_back_to_come_title);
-            this.olA.a(bVar2);
-            this.olA.show();
+            this.olC.a(bVar2);
+            this.olC.show();
         }
     }
 
@@ -65,13 +65,13 @@ public class a {
     }
 
     private void reset(boolean z) {
-        this.gEn = true;
+        this.gEp = true;
         lY(z);
     }
 
     private void lY(boolean z) {
-        if (this.olA != null && this.olA.getView() != null && (this.olA.getView().getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.olA.getView().getParent()).removeView(this.olA.getView());
+        if (this.olC != null && this.olC.getView() != null && (this.olC.getView().getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.olC.getView().getParent()).removeView(this.olC.getView());
         }
         if (z && this.mParentView != null && (this.mParentView.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.mParentView.getParent()).removeView(this.mParentView);

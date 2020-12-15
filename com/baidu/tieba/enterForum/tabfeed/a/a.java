@@ -22,7 +22,7 @@ import com.baidu.tieba.card.t;
 public class a extends com.baidu.adp.widget.ListView.a<by, am<by>> {
     private ab<by> agG;
     private v amH;
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     public BdUniqueId fzO;
     private TbPageContext<?> mPageContext;
     private String mTabName;
@@ -34,7 +34,7 @@ public class a extends com.baidu.adp.widget.ListView.a<by, am<by>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, by byVar) {
-                t.csg().mj(true);
+                t.csh().mj(true);
                 com.baidu.tieba.enterForum.a.a(view, byVar, a.this.mTabName);
             }
         };
@@ -86,7 +86,7 @@ public class a extends com.baidu.adp.widget.ListView.a<by, am<by>> {
         }
         byVar.eHa = getPositionByType(i) + 1;
         amVar.tZ().setPosition(i);
-        amVar.aN(true).a(this.fWA);
+        amVar.aN(true).a(this.fWC);
         amVar.a(true, Align.ALIGN_RIGHT_BOTTOM);
         amVar.b((am<by>) byVar);
         amVar.tZ().a(this.agG);

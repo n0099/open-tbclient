@@ -10,7 +10,7 @@ public final class FlowableSkipLast<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pFg.a((j) new SkipLastSubscriber(cVar, this.skip));
+        this.pFi.a((j) new SkipLastSubscriber(cVar, this.skip));
     }
 
     /* loaded from: classes9.dex */

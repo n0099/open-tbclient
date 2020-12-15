@@ -18,41 +18,41 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes22.dex */
 public class ForumRuleEditModel extends BdBaseModel {
-    HttpMessageListener gzE;
-    private final b jhV;
-    private int jhW;
-    HttpMessageListener jhX;
+    HttpMessageListener gzG;
+    private final b jhX;
+    private int jhY;
+    HttpMessageListener jhZ;
 
     public ForumRuleEditModel(TbPageContext tbPageContext, b bVar, String str) {
         super(tbPageContext);
-        this.jhW = -1;
-        this.gzE = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_RULES_DRAFT) { // from class: com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel.1
+        this.jhY = -1;
+        this.gzG = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_RULES_DRAFT) { // from class: com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleDraftMessage)) {
-                    ForumRuleEditModel.this.jhV.a(0, null, "");
+                    ForumRuleEditModel.this.jhX.a(0, null, "");
                     return;
                 }
                 ResponseHttpRorumRuleDraftMessage responseHttpRorumRuleDraftMessage = (ResponseHttpRorumRuleDraftMessage) httpResponsedMessage;
                 if (responseHttpRorumRuleDraftMessage != null) {
-                    ForumRuleEditModel.this.jhV.a(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
+                    ForumRuleEditModel.this.jhX.a(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
                 }
             }
         };
-        this.jhX = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_RULES_COMMIT) { // from class: com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel.2
+        this.jhZ = new HttpMessageListener(CmdConfigHttp.CMD_FORUM_RULES_COMMIT) { // from class: com.baidu.tieba.frs.forumRule.model.ForumRuleEditModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 ResponseHttpRorumRuleCommitMessage responseHttpRorumRuleCommitMessage;
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) && (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) != null && ForumRuleEditModel.this.jhW != -1) {
-                    ForumRuleEditModel.this.jhV.m(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), ForumRuleEditModel.this.jhW == 1);
-                    ForumRuleEditModel.this.jhW = -1;
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) && (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) != null && ForumRuleEditModel.this.jhY != -1) {
+                    ForumRuleEditModel.this.jhX.m(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), ForumRuleEditModel.this.jhY == 1);
+                    ForumRuleEditModel.this.jhY = -1;
                 }
             }
         };
-        this.jhV = bVar;
-        cGN();
+        this.jhX = bVar;
+        cGO();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -78,15 +78,15 @@ public class ForumRuleEditModel extends BdBaseModel {
         httpMessage.addParam("preface", forumRuleBaseData.getPreface());
         httpMessage.addParam("rules", m38do(forumRuleBaseData.getList()));
         httpMessage.addParam("is_draft", z ? 1 : 0);
-        this.jhW = z ? 1 : 0;
+        this.jhY = z ? 1 : 0;
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private void cGN() {
+    private void cGO() {
         a.c(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
         a.c(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
-        registerListener(this.gzE);
-        registerListener(this.jhX);
+        registerListener(this.gzG);
+        registerListener(this.jhZ);
     }
 
     /* renamed from: do  reason: not valid java name */

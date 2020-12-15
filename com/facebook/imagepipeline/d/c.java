@@ -18,7 +18,7 @@ public class c<T> extends a<com.facebook.common.references.a<T>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
     @Nullable
-    /* renamed from: evk */
+    /* renamed from: evl */
     public com.facebook.common.references.a<T> getResult() {
         return com.facebook.common.references.a.b((com.facebook.common.references.a) super.getResult());
     }

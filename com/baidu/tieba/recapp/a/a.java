@@ -41,16 +41,16 @@ public class a extends com.baidu.tbadk.b.a {
     /* loaded from: classes26.dex */
     private class C0852a extends BdAsyncTask<Object, Integer, h> {
         private String ezA;
-        private HashMap<String, String> kRf;
-        private d kRg;
+        private HashMap<String, String> kRh;
+        private d kRi;
         private volatile aa mNetwork = null;
         private String postUrl;
 
         public C0852a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
             this.ezA = str;
             this.postUrl = str2;
-            this.kRf = hashMap;
-            this.kRg = dVar;
+            this.kRh = hashMap;
+            this.kRi = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,11 +61,11 @@ public class a extends com.baidu.tbadk.b.a {
             h hVar = new h();
             try {
                 this.mNetwork = new aa(this.postUrl);
-                Set<String> keySet = this.kRf.keySet();
+                Set<String> keySet = this.kRh.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.addPostData(str, this.kRf.get(str));
+                            this.mNetwork.addPostData(str, this.kRh.get(str));
                         }
                     }
                 }
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.kRg != null) {
-                this.kRg.callback(hVar);
+            if (this.kRi != null) {
+                this.kRi.callback(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.kRg != null) {
-                this.kRg.callback(null);
+            if (this.kRi != null) {
+                this.kRi.callback(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.b.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.kRg != null) {
-                this.kRg.callback(null);
+            if (this.kRi != null) {
+                this.kRi.callback(null);
             }
         }
     }

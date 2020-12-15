@@ -10,8 +10,6 @@ import com.baidu.tbadk.core.util.y;
 import tbclient.SmartApp;
 /* loaded from: classes21.dex */
 public class k extends b {
-    public static String imU = "";
-    public static String imV = "";
     public static String imW = "";
     public static String imX = "";
     public static String imY = "";
@@ -27,8 +25,10 @@ public class k extends b {
     public static String ini = "";
     public static String inj = "";
     public static String ink = "";
+    public static String inl = "";
+    public static String inm = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId inl = BdUniqueId.gen();
+    public static final BdUniqueId inn = BdUniqueId.gen();
     public static final BdUniqueId eJo = BdUniqueId.gen();
     public static final BdUniqueId eJv = BdUniqueId.gen();
     public static final BdUniqueId eJw = BdUniqueId.gen();
@@ -36,11 +36,9 @@ public class k extends b {
     public static final BdUniqueId eJy = BdUniqueId.gen();
     public static final BdUniqueId eJC = BdUniqueId.gen();
     public static final BdUniqueId eJD = BdUniqueId.gen();
-    public static final BdUniqueId inm = BdUniqueId.gen();
-    public static final BdUniqueId inn = BdUniqueId.gen();
-    public static final BdUniqueId eIX = BdUniqueId.gen();
     public static final BdUniqueId ino = BdUniqueId.gen();
     public static final BdUniqueId inp = BdUniqueId.gen();
+    public static final BdUniqueId eIX = BdUniqueId.gen();
     public static final BdUniqueId inq = BdUniqueId.gen();
     public static final BdUniqueId inr = BdUniqueId.gen();
 
@@ -48,14 +46,16 @@ public class k extends b {
     public static final BdUniqueId f4int = BdUniqueId.gen();
     public static final BdUniqueId inu = BdUniqueId.gen();
     public static final BdUniqueId inv = BdUniqueId.gen();
+    public static final BdUniqueId inw = BdUniqueId.gen();
+    public static final BdUniqueId inx = BdUniqueId.gen();
     public static final BdUniqueId eJj = BdUniqueId.gen();
     public static final BdUniqueId eJl = BdUniqueId.gen();
     public static final BdUniqueId eJm = BdUniqueId.gen();
-    public boolean inw = false;
+    public boolean iny = false;
     public boolean isLinkThread = false;
     public boolean eII = false;
-    public boolean inx = false;
-    public boolean iny = false;
+    public boolean inz = false;
+    public boolean inA = false;
     public boolean fvC = true;
 
     public static boolean ad(by byVar) {
@@ -79,25 +79,25 @@ public class k extends b {
         if (this.eCR == null) {
             return TYPE;
         }
-        if (this.imM && b.imC.length > 1) {
+        if (this.imO && b.imE.length > 1) {
             BdUniqueId type = this.eCR.getType();
             if (type == by.eIS || type == by.eJo || type == by.eJA || type == by.eJp) {
                 if (this.eIO) {
-                    indexOf = b.imA.indexOf(b.ims);
+                    indexOf = b.imC.indexOf(b.imu);
                 } else {
-                    indexOf = b.imA.indexOf(b.imr);
+                    indexOf = b.imC.indexOf(b.imt);
                 }
                 if (this.eID) {
-                    indexOf2 = b.imB.indexOf(b.imt);
+                    indexOf2 = b.imD.indexOf(b.imv);
                 } else if (this.eIC) {
-                    indexOf2 = b.imB.indexOf(b.imv);
-                } else if (this.imJ) {
-                    indexOf2 = b.imB.indexOf(b.imu);
+                    indexOf2 = b.imD.indexOf(b.imx);
+                } else if (this.imL) {
+                    indexOf2 = b.imD.indexOf(b.imw);
                 } else {
-                    indexOf2 = b.imB.indexOf(b.imw);
+                    indexOf2 = b.imD.indexOf(b.imy);
                 }
-                if (indexOf >= 0 && indexOf < b.imC.length && indexOf2 >= 0 && indexOf2 < b.imC[0].length) {
-                    return b.imC[indexOf][indexOf2];
+                if (indexOf >= 0 && indexOf < b.imE.length && indexOf2 >= 0 && indexOf2 < b.imE[0].length) {
+                    return b.imE[indexOf][indexOf2];
                 }
             }
             return type;
@@ -120,28 +120,28 @@ public class k extends b {
                 }
                 return eJv;
             } else if (this.eIy) {
-                return inn;
+                return inp;
             } else {
                 if (this.eIz) {
-                    return ino;
-                }
-                if (this.imJ) {
-                    return inp;
-                }
-                if (this.eIC) {
                     return inq;
                 }
-                if (this.eID) {
+                if (this.imL) {
                     return inr;
                 }
-                if (this.eIE) {
+                if (this.eIC) {
                     return f4int;
                 }
-                if (this.eIF) {
+                if (this.eID) {
+                    return inu;
+                }
+                if (this.eIE) {
                     return inv;
                 }
-                if (this.imL) {
-                    return inu;
+                if (this.eIF) {
+                    return inx;
+                }
+                if (this.imN) {
+                    return inw;
                 }
                 if (this.eIO) {
                     return eIX;
@@ -172,11 +172,11 @@ public class k extends b {
         return this.eCR;
     }
 
-    public boolean csF() {
+    public boolean csG() {
         return (this.eCR == null || y.getCount(this.eCR.bpc()) == 0) ? false : true;
     }
 
-    public boolean csG() {
+    public boolean csH() {
         return this.eCR == null || this.eCR.bpU();
     }
 
@@ -186,15 +186,15 @@ public class k extends b {
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csB() {
+    public ar csC() {
         SmartApp bpE;
-        if (csF()) {
-            ar Ju = Ju(imZ);
+        if (csG()) {
+            ar Ju = Ju(inb);
             if (Ju != null) {
                 Ju.setPosition(this.position);
                 if (bmn() != null) {
                     by bmn = bmn();
-                    Ju.al("obj_name", bmn.bqu() != null && (bmn.bqu().dPi() != null || bmn.bqu().bIK() != null) ? 1 : 0);
+                    Ju.al("obj_name", bmn.bqu() != null && (bmn.bqu().dPj() != null || bmn.bqu().bIK() != null) ? 1 : 0);
                     if (bmn.boP() != null) {
                         Ju.al(TiebaInitialize.Params.AB_TYPE, bmn.boP().hadConcerned() ? 1 : 0);
                     }
@@ -202,8 +202,8 @@ public class k extends b {
                 }
             }
             return Ju;
-        } else if (csG()) {
-            ar Ju2 = Ju(inf);
+        } else if (csH()) {
+            ar Ju2 = Ju(inh);
             if (Ju2 != null) {
                 Ju2.setPosition(this.position);
                 if (bmn() != null && (bpE = bmn().bpE()) != null) {
@@ -218,16 +218,16 @@ public class k extends b {
         } else if (bnv()) {
             return null;
         } else {
-            ar Ju3 = Ju(imU);
+            ar Ju3 = Ju(imW);
             if (Ju3 != null) {
                 Ju3.setPosition(this.position);
                 Ju3.dY(TiebaInitialize.Params.AB_ACTION, "show");
                 if (bmn() != null) {
                     by bmn2 = bmn();
-                    boolean z = (bmn2.bqu() == null || (bmn2.bqu().dPi() == null && bmn2.bqu().bIK() == null)) ? false : true;
+                    boolean z = (bmn2.bqu() == null || (bmn2.bqu().dPj() == null && bmn2.bqu().bIK() == null)) ? false : true;
                     Ju3.al("obj_name", z ? 1 : 0);
-                    if (z && bmn2.bqu().dPi() != null && bmn2.bqu().dPi().bIC() != null && bmn2.bqu().dPi().bIC().size() > 0) {
-                        Ju3.al(TiebaInitialize.Params.OBJ_TO, bmn2.bqu().nmn ? 2 : 1);
+                    if (z && bmn2.bqu().dPj() != null && bmn2.bqu().dPj().bIC() != null && bmn2.bqu().dPj().bIC().size() > 0) {
+                        Ju3.al(TiebaInitialize.Params.OBJ_TO, bmn2.bqu().nmp ? 2 : 1);
                     }
                     if (bmn2.boP() != null) {
                         Ju3.al(TiebaInitialize.Params.AB_TYPE, bmn2.boP().hadConcerned() ? 1 : 0);
@@ -283,7 +283,7 @@ public class k extends b {
             }
             arVar.al("obj_type", i);
             arVar.dY("obj_id", this.eCR.boP().getUserId());
-            arVar.al("obj_param1", csx() ? 2 : 1);
+            arVar.al("obj_param1", csy() ? 2 : 1);
         }
         return arVar;
     }
@@ -291,13 +291,13 @@ public class k extends b {
     public ar Jx(String str) {
         ar Ju = Ju(str);
         if (Ju != null) {
-            Ju.dY("ab_tag", cst()).dY(TiebaInitialize.Params.AB_ACTION, "show");
+            Ju.dY("ab_tag", csu()).dY(TiebaInitialize.Params.AB_ACTION, "show");
             if (bmn() != null) {
                 by bmn = bmn();
-                boolean z = (bmn.bqu() == null || (bmn.bqu().dPi() == null && bmn.bqu().bIK() == null)) ? false : true;
+                boolean z = (bmn.bqu() == null || (bmn.bqu().dPj() == null && bmn.bqu().bIK() == null)) ? false : true;
                 Ju.al("obj_name", z ? 1 : 0);
-                if (z && bmn.bqu().dPi() != null && bmn.bqu().dPi().bIC() != null && bmn.bqu().dPi().bIC().size() > 0) {
-                    Ju.al(TiebaInitialize.Params.OBJ_TO, bmn.bqu().nmn ? 2 : 1);
+                if (z && bmn.bqu().dPj() != null && bmn.bqu().dPj().bIC() != null && bmn.bqu().dPj().bIC().size() > 0) {
+                    Ju.al(TiebaInitialize.Params.OBJ_TO, bmn.bqu().nmp ? 2 : 1);
                 }
             }
         }
@@ -305,13 +305,13 @@ public class k extends b {
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csz() {
+    public ar csA() {
         ar Ju;
         SmartApp bpE;
-        if (csF()) {
-            Ju = Ju(ina);
-        } else if (csG()) {
-            ar Ju2 = Ju(ing);
+        if (csG()) {
+            Ju = Ju(inc);
+        } else if (csH()) {
+            ar Ju2 = Ju(ini);
             if (Ju2 != null && bmn() != null && (bpE = bmn().bpE()) != null) {
                 TiebaStatic.deleteParamByKey(Ju2, "obj_type");
                 Ju2.dY("obj_type", bpE.id);
@@ -320,7 +320,7 @@ public class k extends b {
             }
             return Ju2;
         } else {
-            Ju = Ju(imV);
+            Ju = Ju(imX);
             if (Ju != null) {
                 Ju.dY(TiebaInitialize.Params.AB_ACTION, "click");
                 if (bmn() != null) {
@@ -339,12 +339,12 @@ public class k extends b {
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csy() {
-        if (csF()) {
-            return Ju(inb);
+    public ar csz() {
+        if (csG()) {
+            return Ju(ind);
         }
         if (l.ad(this.eCR)) {
-            ar aJ = aJ(inj, true);
+            ar aJ = aJ(inl, true);
             if (aJ != null && bmn() != null) {
                 by bmn = bmn();
                 if (bmn.getBaijiahaoData() != null) {
@@ -356,9 +356,9 @@ public class k extends b {
             }
             return aJ;
         }
-        ar aN = aN(imW, 0);
+        ar aN = aN(imY, 0);
         if (aN != null) {
-            aN.dY("ab_tag", cst()).dY(TiebaInitialize.Params.AB_ACTION, "click");
+            aN.dY("ab_tag", csu()).dY(TiebaInitialize.Params.AB_ACTION, "click");
             if (bmn() != null) {
                 by bmn2 = bmn();
                 if (bmn2.getBaijiahaoData() != null) {
@@ -373,9 +373,9 @@ public class k extends b {
         return aN;
     }
 
-    public ar csH() {
+    public ar csI() {
         if (l.ad(this.eCR)) {
-            ar aJ = aJ(ini, true);
+            ar aJ = aJ(ink, true);
             if (aJ != null && bmn() != null) {
                 by bmn = bmn();
                 if (bmn.getBaijiahaoData() != null) {
@@ -391,12 +391,12 @@ public class k extends b {
                 return aJ;
             }
             return aJ;
-        } else if (csF()) {
-            return Ju(inc);
+        } else if (csG()) {
+            return Ju(ine);
         } else {
-            ar Ju = Ju(imX);
+            ar Ju = Ju(imZ);
             if (Ju != null) {
-                Ju.dY("ab_tag", cst()).dY(TiebaInitialize.Params.AB_ACTION, "click");
+                Ju.dY("ab_tag", csu()).dY(TiebaInitialize.Params.AB_ACTION, "click");
                 if (bmn() != null) {
                     by bmn2 = bmn();
                     if (bmn2.getBaijiahaoData() != null) {
@@ -417,11 +417,11 @@ public class k extends b {
         }
     }
 
-    public ar csI() {
-        if (csF()) {
-            return Ju(ind);
+    public ar csJ() {
+        if (csG()) {
+            return Ju(inf);
         }
-        ar Ju = Ju(imY);
+        ar Ju = Ju(ina);
         if (Ju != null) {
             Ju.dY(TiebaInitialize.Params.AB_ACTION, "click");
             if (bmn() != null) {
@@ -437,13 +437,13 @@ public class k extends b {
         return Ju;
     }
 
-    public ar csJ() {
-        return Ju(ine);
+    public ar csK() {
+        return Ju(ing);
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csA() {
-        ar aJ = aJ(inh, true);
+    public ar csB() {
+        ar aJ = aJ(inj, true);
         if (bmn() != null) {
             by bmn = bmn();
             if (bmn.getBaijiahaoData() != null) {

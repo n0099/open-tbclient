@@ -24,59 +24,59 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class a {
-    private Runnable fVN;
+    private Runnable fVP;
     private Handler handler;
-    private PopupWindow irR;
-    private com.baidu.tieba.tbadkCore.e.a irS;
-    private ActivityLifeCycleListener irT;
-    private com.baidu.tieba.tbadkCore.e.c irU;
+    private PopupWindow irT;
+    private com.baidu.tieba.tbadkCore.e.a irU;
+    private ActivityLifeCycleListener irV;
+    private com.baidu.tieba.tbadkCore.e.c irW;
     private BaseWebView mWebView;
 
     private a() {
         this.handler = new Handler();
-        this.irU = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.easterEgg.a.1
+        this.irW = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.easterEgg.a.1
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                return a.this.irS != null && a.this.irS.a(a.this.mWebView, str, jsPromptResult);
+                return a.this.irU != null && a.this.irU.a(a.this.mWebView, str, jsPromptResult);
             }
         };
-        this.fVN = new Runnable() { // from class: com.baidu.tieba.easterEgg.a.2
+        this.fVP = new Runnable() { // from class: com.baidu.tieba.easterEgg.a.2
             @Override // java.lang.Runnable
             public void run() {
                 a.this.handler.removeCallbacksAndMessages(null);
-                a.this.cue();
+                a.this.cuf();
             }
         };
-        this.irS = new com.baidu.tieba.tbadkCore.e.a();
-        this.irS.a(new EasterEggBridge());
-        this.irT = new ActivityLifeCycleListener();
+        this.irU = new com.baidu.tieba.tbadkCore.e.a();
+        this.irU.a(new EasterEggBridge());
+        this.irV = new ActivityLifeCycleListener();
     }
 
-    public static a cud() {
-        return C0727a.irW;
+    public static a cue() {
+        return C0727a.irY;
     }
 
     private void d(Activity activity, View view) {
-        this.irR = new PopupWindow(activity);
-        this.irR.setBackgroundDrawable(new ColorDrawable(0));
-        this.irR.setWidth(l.getEquipmentWidth(activity));
-        this.irR.setHeight(l.getEquipmentHeight(activity));
+        this.irT = new PopupWindow(activity);
+        this.irT.setBackgroundDrawable(new ColorDrawable(0));
+        this.irT.setWidth(l.getEquipmentWidth(activity));
+        this.irT.setHeight(l.getEquipmentHeight(activity));
         view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.irR.setContentView(view);
+        this.irT.setContentView(view);
         this.handler.removeCallbacksAndMessages(null);
-        this.handler.postDelayed(this.fVN, 5000L);
+        this.handler.postDelayed(this.fVP, 5000L);
         FragmentManager fragmentManager = activity.getFragmentManager();
-        if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null && !this.irT.isAdded()) {
-            fragmentManager.beginTransaction().add(this.irT, "LIFE_CYCLE").commitAllowingStateLoss();
+        if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null && !this.irV.isAdded()) {
+            fragmentManager.beginTransaction().add(this.irV, "LIFE_CYCLE").commitAllowingStateLoss();
         }
-        this.irR.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.easterEgg.a.3
+        this.irT.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.easterEgg.a.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                a.this.irR = null;
+                a.this.irT = null;
             }
         });
         try {
-            this.irR.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
+            this.irT.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
             TiebaStatic.log(new ar("c13126"));
         } catch (Throwable th) {
         }
@@ -92,15 +92,15 @@ public class a {
                         try {
                             a.this.JE(str);
                         } catch (Throwable th) {
-                            a.this.cue();
+                            a.this.cuf();
                         }
                     }
                 }, 1000L);
                 return;
             }
-            if (this.irR != null && this.irR.isShowing()) {
-                if (this.irR.getContentView() == null || this.irR.getContentView().getContext() != currentActivity) {
-                    cue();
+            if (this.irT != null && this.irT.isShowing()) {
+                if (this.irT.getContentView() == null || this.irT.getContentView().getContext() != currentActivity) {
+                    cuf();
                 } else {
                     return;
                 }
@@ -119,11 +119,11 @@ public class a {
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str2, String str3) {
                     a.this.handler.removeCallbacksAndMessages(null);
-                    a.this.cue();
+                    a.this.cuf();
                 }
             });
             this.mWebView.setBackgroundColor(0);
-            this.mWebView.setOnJsPromptCallback(this.irU);
+            this.mWebView.setOnJsPromptCallback(this.irW);
             d(currentActivity, inflate);
         }
     }
@@ -131,7 +131,7 @@ public class a {
     public void eO(final String str, final String str2) {
         Activity currentActivity;
         if (!au.isEmpty(str)) {
-            if ((this.irR == null || !this.irR.isShowing()) && (currentActivity = com.baidu.adp.base.a.lg().currentActivity()) != null && ae.checkWriteExternalStorage(currentActivity)) {
+            if ((this.irT == null || !this.irT.isShowing()) && (currentActivity = com.baidu.adp.base.a.lg().currentActivity()) != null && ae.checkWriteExternalStorage(currentActivity)) {
                 if (ap(currentActivity)) {
                     this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.easterEgg.a.7
                         @Override // java.lang.Runnable
@@ -139,7 +139,7 @@ public class a {
                             try {
                                 a.this.eO(str, str2);
                             } catch (Throwable th) {
-                                a.this.cue();
+                                a.this.cuf();
                             }
                         }
                     }, 1000L);
@@ -161,7 +161,7 @@ public class a {
                             return;
                         }
                         TiebaStatic.log(new ar("c13451").al("obj_type", 2));
-                        a.this.cue();
+                        a.this.cuf();
                     }
                 });
                 tBLottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.easterEgg.a.9
@@ -172,7 +172,7 @@ public class a {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        a.this.cue();
+                        a.this.cuf();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -189,10 +189,10 @@ public class a {
         }
     }
 
-    public void cue() {
-        if (this.irR != null && this.irR.isShowing()) {
+    public void cuf() {
+        if (this.irT != null && this.irT.isShowing()) {
             try {
-                this.irR.dismiss();
+                this.irT.dismiss();
             } catch (Throwable th) {
             }
         }
@@ -201,7 +201,7 @@ public class a {
     /* renamed from: com.baidu.tieba.easterEgg.a$a  reason: collision with other inner class name */
     /* loaded from: classes24.dex */
     private static class C0727a {
-        private static a irW = new a();
+        private static a irY = new a();
     }
 
     private boolean ap(Activity activity) {

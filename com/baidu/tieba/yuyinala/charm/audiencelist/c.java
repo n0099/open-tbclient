@@ -17,32 +17,32 @@ public class c {
     private boolean aLj;
     private View contentView;
     private View mRootView;
-    private YuyinALaAudiencesActivity oic;
-    private NobilityAlaLiveRoomPanelTabHost oid;
-    private f oie;
+    private YuyinALaAudiencesActivity oie;
+    private NobilityAlaLiveRoomPanelTabHost oif;
+    private f oig;
 
     public c(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.oic = yuyinALaAudiencesActivity;
+        this.oie = yuyinALaAudiencesActivity;
         initView();
-        bUx();
+        bUy();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.oic).inflate(a.g.yuyin_ala_charm_activity_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.oie).inflate(a.g.yuyin_ala_charm_activity_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.ala_charm_root_view);
         this.contentView.setBackgroundResource(a.e.yuyin_ala_audiencelist_white_corner);
-        this.oid = (NobilityAlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
-        this.oid.setIndicatorWidthAuto(false);
-        this.oid.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds8));
-        this.oid.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds40));
+        this.oif = (NobilityAlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
+        this.oif.setIndicatorWidthAuto(false);
+        this.oif.setmIndicatorHeight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds8));
+        this.oif.setmIndicatorWidth(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds40));
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    private void bUx() {
-        Intent intent = this.oic.getIntent();
+    private void bUy() {
+        Intent intent = this.oie.getIntent();
         intent.getStringExtra("user_name");
         intent.getStringExtra("group_id");
         String stringExtra = intent.getStringExtra("live_id");
@@ -50,18 +50,18 @@ public class c {
         String stringExtra2 = intent.getStringExtra("live_owner_uid");
         String stringExtra3 = intent.getStringExtra("login_user_id");
         boolean booleanExtra = intent.getBooleanExtra(YuyinAlaCharmCardActivityConfig.IS_SHOW_BUY_ENTRY, false);
-        this.oie = new f(this.oic);
-        this.oie.Wi(stringExtra).createView();
-        this.aGX.add(this.oie);
-        final g gVar = new g(this.oic);
+        this.oig = new f(this.oie);
+        this.oig.Wi(stringExtra).createView();
+        this.aGX.add(this.oig);
+        final g gVar = new g(this.oie);
         gVar.zB(this.aLj).Wj(stringExtra).Wk(stringExtra2).Wl(stringExtra3).zA(booleanExtra).createView();
         this.aGX.add(gVar);
-        this.oid.setData(this.aGX);
-        this.oid.setPageSelectedListener(new NobilityAlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.1
+        this.oif.setData(this.aGX);
+        this.oif.setPageSelectedListener(new NobilityAlaLiveRoomPanelTabHost.b() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.c.1
             @Override // com.baidu.live.bottompanel.NobilityAlaLiveRoomPanelTabHost.b
             public void onPageSelected(int i) {
                 if (i == 0) {
-                    c.this.oie.loadData();
+                    c.this.oig.loadData();
                 } else if (i == 1) {
                     gVar.loadData();
                 }

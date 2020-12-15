@@ -12,15 +12,15 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.b.a;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.live.liveroom.d.d {
-    private BdUniqueId gEP;
-    private int hKL;
-    private b hKP;
-    private CustomMessageListener hdn = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private BdUniqueId gER;
+    private int hKN;
+    private b hKR;
+    private CustomMessageListener hdp = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.hKP != null && d.this.hKP.isEmpty() && !d.this.hKP.isLoading()) {
-                d.this.hKP.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.hKR != null && d.this.hKR.isEmpty() && !d.this.hKR.isLoading()) {
+                d.this.hKR.refreshData();
             }
         }
     };
@@ -28,39 +28,39 @@ public class d implements com.baidu.live.liveroom.d.d {
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.gEP = null;
+        this.gER = null;
         this.mPageContext = tbPageContext;
-        this.hKL = i;
+        this.hKN = i;
         this.mUserId = str;
-        this.gEP = bdUniqueId;
-        this.hKP = new b(this.mPageContext, this.hKL, this.mUserId, this.gEP);
-        if (this.hKP != null && this.hKP.isEmpty() && !this.hKP.isLoading()) {
-            this.hKP.refreshData();
+        this.gER = bdUniqueId;
+        this.hKR = new b(this.mPageContext, this.hKN, this.mUserId, this.gER);
+        if (this.hKR != null && this.hKR.isEmpty() && !this.hKR.isLoading()) {
+            this.hKR.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.hdn);
+        MessageManager.getInstance().registerListener(this.hdp);
     }
 
     public void aD(String str, boolean z) {
-        if (this.hKP != null) {
-            this.hKP.aD(str, z);
+        if (this.hKR != null) {
+            this.hKR.aD(str, z);
         }
     }
 
     public int getTabType() {
-        return this.hKL;
+        return this.hKN;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.hKP == null) {
+        if (this.hKR == null) {
             return null;
         }
-        return this.hKP.bvQ();
+        return this.hKR.bvQ();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.hKL == 0 ? this.mPageContext.getString(a.h.ala_person_fans) : this.mPageContext.getString(a.h.ala_person_attentions);
+        return this.hKN == 0 ? this.mPageContext.getString(a.h.ala_person_fans) : this.mPageContext.getString(a.h.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -69,8 +69,8 @@ public class d implements com.baidu.live.liveroom.d.d {
     }
 
     public void a(a.InterfaceC0707a interfaceC0707a) {
-        if (this.hKP != null) {
-            this.hKP.a(interfaceC0707a);
+        if (this.hKR != null) {
+            this.hKR.a(interfaceC0707a);
         }
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hdn);
-        if (this.hKP != null) {
-            this.hKP.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.hdp);
+        if (this.hKR != null) {
+            this.hKR.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.hKP != null) {
-            this.hKP.onChangeSkinType(i);
+        if (this.hKR != null) {
+            this.hKR.onChangeSkinType(i);
         }
     }
 }

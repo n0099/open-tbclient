@@ -16,17 +16,17 @@ import tbclient.BawuRoleInfoPub;
 public class n extends af.a {
     public HeadImageView iPA;
     public HeadImageView iPB;
-    public TextView iPC;
-    public TextView iPD;
+    public HeadImageView iPC;
+    public HeadImageView iPD;
     public TextView iPE;
     public TextView iPF;
-    public NoPressedLinearLayout iPG;
-    public LinearLayout iPu;
-    public LinearLayout iPv;
+    public TextView iPG;
+    public TextView iPH;
+    public NoPressedLinearLayout iPI;
     public LinearLayout iPw;
     public LinearLayout iPx;
-    public HeadImageView iPy;
-    public HeadImageView iPz;
+    public LinearLayout iPy;
+    public LinearLayout iPz;
     public TextView mTitleView;
 
     public n(View view, View.OnClickListener onClickListener) {
@@ -35,35 +35,35 @@ public class n extends af.a {
         int color = ap.getColor(R.color.black_alpha10);
         this.mTitleView = (TextView) view.findViewById(R.id.title_text_view);
         this.mTitleView.setOnClickListener(onClickListener);
-        this.iPu = (LinearLayout) view.findViewById(R.id.member1);
-        this.iPy = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
-        this.iPC = (TextView) view.findViewById(R.id.textview_user_name1);
-        this.iPy.setIsRound(true);
-        this.iPy.setBorderColor(color);
-        this.iPy.setBorderWidth(dimens);
-        this.iPy.setOnClickListener(onClickListener);
-        this.iPv = (LinearLayout) view.findViewById(R.id.member2);
-        this.iPz = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
-        this.iPD = (TextView) view.findViewById(R.id.textview_user_name2);
-        this.iPz.setIsRound(true);
-        this.iPz.setBorderColor(color);
-        this.iPz.setBorderWidth(dimens);
-        this.iPz.setOnClickListener(onClickListener);
-        this.iPw = (LinearLayout) view.findViewById(R.id.member3);
-        this.iPA = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
-        this.iPE = (TextView) view.findViewById(R.id.textview_user_name3);
+        this.iPw = (LinearLayout) view.findViewById(R.id.member1);
+        this.iPA = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
+        this.iPE = (TextView) view.findViewById(R.id.textview_user_name1);
         this.iPA.setIsRound(true);
         this.iPA.setBorderColor(color);
         this.iPA.setBorderWidth(dimens);
         this.iPA.setOnClickListener(onClickListener);
-        this.iPx = (LinearLayout) view.findViewById(R.id.member4);
-        this.iPB = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
-        this.iPF = (TextView) view.findViewById(R.id.textview_user_name4);
+        this.iPx = (LinearLayout) view.findViewById(R.id.member2);
+        this.iPB = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
+        this.iPF = (TextView) view.findViewById(R.id.textview_user_name2);
         this.iPB.setIsRound(true);
         this.iPB.setBorderColor(color);
         this.iPB.setBorderWidth(dimens);
         this.iPB.setOnClickListener(onClickListener);
-        this.iPG = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
+        this.iPy = (LinearLayout) view.findViewById(R.id.member3);
+        this.iPC = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
+        this.iPG = (TextView) view.findViewById(R.id.textview_user_name3);
+        this.iPC.setIsRound(true);
+        this.iPC.setBorderColor(color);
+        this.iPC.setBorderWidth(dimens);
+        this.iPC.setOnClickListener(onClickListener);
+        this.iPz = (LinearLayout) view.findViewById(R.id.member4);
+        this.iPD = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
+        this.iPH = (TextView) view.findViewById(R.id.textview_user_name4);
+        this.iPD.setIsRound(true);
+        this.iPD.setBorderColor(color);
+        this.iPD.setBorderWidth(dimens);
+        this.iPD.setOnClickListener(onClickListener);
+        this.iPI = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
@@ -76,32 +76,32 @@ public class n extends af.a {
             }
             switch (i) {
                 case 0:
-                    this.iPy.startLoad(str, 12, false);
-                    this.iPy.setTag(bawuRoleInfoPub);
-                    this.iPy.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.iPC.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.iPu.setVisibility(0);
-                    return;
-                case 1:
-                    this.iPz.startLoad(str, 12, false);
-                    this.iPz.setTag(bawuRoleInfoPub);
-                    this.iPz.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.iPD.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.iPv.setVisibility(0);
-                    return;
-                case 2:
                     this.iPA.startLoad(str, 12, false);
                     this.iPA.setTag(bawuRoleInfoPub);
                     this.iPA.setContentDescription(bawuRoleInfoPub.user_name);
                     this.iPE.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
                     this.iPw.setVisibility(0);
                     return;
-                case 3:
+                case 1:
                     this.iPB.startLoad(str, 12, false);
                     this.iPB.setTag(bawuRoleInfoPub);
                     this.iPB.setContentDescription(bawuRoleInfoPub.user_name);
                     this.iPF.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
                     this.iPx.setVisibility(0);
+                    return;
+                case 2:
+                    this.iPC.startLoad(str, 12, false);
+                    this.iPC.setTag(bawuRoleInfoPub);
+                    this.iPC.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.iPG.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.iPy.setVisibility(0);
+                    return;
+                case 3:
+                    this.iPD.startLoad(str, 12, false);
+                    this.iPD.setTag(bawuRoleInfoPub);
+                    this.iPD.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.iPH.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.iPz.setVisibility(0);
                     return;
                 default:
                     return;
@@ -110,14 +110,6 @@ public class n extends af.a {
     }
 
     public void pK(boolean z) {
-        if (this.iPy.getVisibility() == 0) {
-            this.iPy.setIsNight(z);
-            this.iPy.refresh();
-        }
-        if (this.iPz.getVisibility() == 0) {
-            this.iPz.setIsNight(z);
-            this.iPz.refresh();
-        }
         if (this.iPA.getVisibility() == 0) {
             this.iPA.setIsNight(z);
             this.iPA.refresh();
@@ -125,6 +117,14 @@ public class n extends af.a {
         if (this.iPB.getVisibility() == 0) {
             this.iPB.setIsNight(z);
             this.iPB.refresh();
+        }
+        if (this.iPC.getVisibility() == 0) {
+            this.iPC.setIsNight(z);
+            this.iPC.refresh();
+        }
+        if (this.iPD.getVisibility() == 0) {
+            this.iPD.setIsNight(z);
+            this.iPD.refresh();
         }
     }
 }

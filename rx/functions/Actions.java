@@ -3,10 +3,10 @@ package rx.functions;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes12.dex */
 public final class Actions {
-    private static final b pPv = new b();
+    private static final b pPx = new b();
 
-    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eFC() {
-        return pPv;
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eFD() {
+        return pPx;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -59,7 +59,7 @@ public final class Actions {
         }
     }
 
-    public static rx.functions.b<Throwable> eFD() {
+    public static rx.functions.b<Throwable> eFE() {
         return NotImplemented.INSTANCE;
     }
 }

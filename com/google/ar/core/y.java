@@ -8,23 +8,23 @@ public class y {
 
     /* renamed from: a  reason: collision with root package name */
     boolean f4053a = false;
-    final /* synthetic */ InstallActivity ptz;
+    final /* synthetic */ InstallActivity ptB;
 
     public void a(p pVar) {
-        synchronized (this.ptz) {
+        synchronized (this.ptB) {
             if (!this.f4053a) {
-                InstallActivity.a(this.ptz, pVar);
+                InstallActivity.a(this.ptB, pVar);
                 switch (pVar.ordinal()) {
                     case 0:
                         return;
                     case 1:
-                        InstallActivity.a(this.ptz, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.a(this.ptB, new UnavailableUserDeclinedInstallationException());
                         break;
                     case 2:
-                        if (!InstallActivity.d(this.ptz)) {
-                            InstallActivity.e(this.ptz);
+                        if (!InstallActivity.d(this.ptB)) {
+                            InstallActivity.e(this.ptB);
                         }
-                        InstallActivity.a(this.ptz, (Exception) null);
+                        InstallActivity.a(this.ptB, (Exception) null);
                         break;
                 }
                 this.f4053a = true;
@@ -33,19 +33,19 @@ public class y {
     }
 
     public void a(Exception exc) {
-        synchronized (this.ptz) {
+        synchronized (this.ptB) {
             if (!this.f4053a) {
                 this.f4053a = true;
-                InstallActivity.a(this.ptz, p.CANCELLED);
+                InstallActivity.a(this.ptB, p.CANCELLED);
                 if (!(exc instanceof UnavailableException)) {
                 }
-                InstallActivity.a(this.ptz, exc);
+                InstallActivity.a(this.ptB, exc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(InstallActivity installActivity) {
-        this.ptz = installActivity;
+        this.ptB = installActivity;
     }
 }

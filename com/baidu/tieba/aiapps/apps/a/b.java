@@ -6,9 +6,9 @@ public class b {
     public String bduss;
     public String bjs;
     public String displayName;
-    public String geh;
-    public Map<String, String> gei;
     public String gej;
+    public Map<String, String> gek;
+    public String gel;
     public String openBduss;
     public String uid;
 }

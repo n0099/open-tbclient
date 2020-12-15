@@ -13,12 +13,12 @@ public abstract class b {
     public String filterName;
     public boolean isMute;
     public String musicPath;
-    public String nAU;
+    public String nAW;
     public String originPath;
 
-    public abstract void dTD();
-
     public abstract void dTE();
+
+    public abstract void dTF();
 
     public b(BaseActivity baseActivity, String str, String str2) {
         this.originPath = str;
@@ -55,25 +55,25 @@ public abstract class b {
         return this.Nj;
     }
 
-    private void dTC() {
-        if (!au.isEmpty(this.nAU)) {
-            n.deleteFile(new File(this.nAU));
+    private void dTD() {
+        if (!au.isEmpty(this.nAW)) {
+            n.deleteFile(new File(this.nAW));
         }
     }
 
     public void onCancel() {
-        dTC();
+        dTD();
     }
 
     public void bT(int i, String str) {
-        dTC();
+        dTD();
     }
 
     public void bU(int i, String str) {
-        dTC();
+        dTD();
     }
 
     public void a(VideoInfo videoInfo) {
-        dTC();
+        dTD();
     }
 }

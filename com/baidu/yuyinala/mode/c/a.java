@@ -17,20 +17,20 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
     private w aFN;
-    private InterfaceC0959a oKG;
-    private int oKH = -1;
+    private InterfaceC0959a oKI;
+    private int oKJ = -1;
 
     /* renamed from: com.baidu.yuyinala.mode.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public interface InterfaceC0959a {
-        void eku();
-
         void ekv();
+
+        void ekw();
     }
 
     public a(w wVar, InterfaceC0959a interfaceC0959a) {
         this.aFN = wVar;
-        this.oKG = interfaceC0959a;
+        this.oKI = interfaceC0959a;
         registerListener();
     }
 
@@ -45,16 +45,16 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage.getCmd() == 1031079) {
                     if (httpResponsedMessage.getError() != 0) {
-                        if (a.this.oKG != null) {
-                            a.this.oKG.eku();
+                        if (a.this.oKI != null) {
+                            a.this.oKI.ekv();
                             return;
                         }
                         return;
                     }
-                    if (a.this.oKG != null) {
-                        a.this.oKG.ekv();
+                    if (a.this.oKI != null) {
+                        a.this.oKI.ekw();
                     }
-                    a.this.ekz();
+                    a.this.ekA();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501073));
                 }
             }
@@ -62,12 +62,12 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ekz() {
-        if (this.oKH >= 0) {
+    public void ekA() {
+        if (this.oKJ >= 0) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, this.oKH == 0 ? "normal" : "dating");
-                if (this.oKG != null) {
+                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, this.oKJ == 0 ? "normal" : "dating");
+                if (this.oKI != null) {
                     jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, b.YX().Zd().aKL.croom_id);
                 }
             } catch (Exception e) {
@@ -88,7 +88,7 @@ public class a extends BdBaseModel {
     }
 
     public void OT(int i) {
-        this.oKH = i;
+        this.oKJ = i;
         String str = null;
         if (this.aFN != null && this.aFN.aKL != null) {
             str = this.aFN.aKL.aUg;

@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes24.dex */
 public class PersonBarModel extends BdBaseModel {
-    private static final String gcz = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, gcz);
+    private static final String gcB = TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(1002002, gcB);
     private b mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
-    private int mmT;
+    private int mmV;
 
     static {
         task.setResponsedClass(PersonBarResponseMessage.class);
@@ -47,14 +47,14 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void Il(int i) {
-        this.mmT = i;
+        this.mmV = i;
     }
 
-    public b dzo() {
+    public b dzp() {
         return this.mData;
     }
 
-    public void dzm() {
+    public void dzn() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
@@ -82,7 +82,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void Rc(String str) {
-        if (this.mmT == 1 && this.mIsHost) {
+        if (this.mmV == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();

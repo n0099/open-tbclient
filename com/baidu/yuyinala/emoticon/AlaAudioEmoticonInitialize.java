@@ -15,13 +15,13 @@ import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AlaAudioEmoticonInitialize {
     static {
-        ekp();
         ekq();
         ekr();
-        ekk();
+        eks();
+        ekl();
     }
 
-    private static void ekp() {
+    private static void ekq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031004, TbConfig.SERVER_ADDRESS + "ala/audio/img/showList");
         tbHttpMessageTask.setResponsedClass(AlaEmoticonListResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -33,7 +33,7 @@ public class AlaAudioEmoticonInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ekq() {
+    private static void ekr() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031025, TbConfig.SERVER_ADDRESS + "ala/audio/img/send");
         tbHttpMessageTask.setResponsedClass(AlaSendEmoticonResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -45,7 +45,7 @@ public class AlaAudioEmoticonInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ekr() {
+    private static void eks() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501006) { // from class: com.baidu.yuyinala.emoticon.AlaAudioEmoticonInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -55,20 +55,20 @@ public class AlaAudioEmoticonInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof w)) {
-                        a.eko().b((TbPageContext) obj, (w) obj2);
+                        a.ekp().b((TbPageContext) obj, (w) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void ekk() {
+    private static void ekl() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.emoticon.AlaAudioEmoticonInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.eko().ID();
+                    a.ekp().ID();
                 }
             }
         });

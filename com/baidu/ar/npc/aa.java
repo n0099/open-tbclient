@@ -2,8 +2,9 @@ package com.baidu.ar.npc;
 
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes26.dex */
-class aa implements GestureDetector.OnGestureListener {
+public class aa implements GestureDetector.OnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ BaiduArView f1211a;

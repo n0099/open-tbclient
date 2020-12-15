@@ -13,52 +13,52 @@ import java.util.List;
 public class b {
     private final List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
     private e eNZ;
-    private BdTypeListView gpX;
-    private a gpY;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a gpZ;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b gqa;
+    private BdTypeListView gpZ;
+    private a gqa;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a gqb;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b gqc;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.eNZ = tbPageContext;
-        this.gpX = bdTypeListView;
+        this.gpZ = bdTypeListView;
         Nt();
     }
 
     private void Nt() {
-        this.gqa = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.eNZ);
-        this.gqa.setFrom(1);
-        this.gpZ = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.eNZ);
-        this.gpZ.setFrom(1);
-        this.gpY = new a((TbPageContext) this.eNZ, com.baidu.tieba.ala.alasquare.live.b.b.gqe);
+        this.gqc = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.eNZ);
+        this.gqc.setFrom(1);
+        this.gqb = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.eNZ);
+        this.gqb.setFrom(1);
+        this.gqa = new a((TbPageContext) this.eNZ, com.baidu.tieba.ala.alasquare.live.b.b.gqg);
+        this.bnf.add(this.gqc);
+        this.bnf.add(this.gqb);
         this.bnf.add(this.gqa);
-        this.bnf.add(this.gpZ);
-        this.bnf.add(this.gpY);
-        this.gpX.addAdapters(this.bnf);
+        this.gpZ.addAdapters(this.bnf);
     }
 
     public void setDatas(List<q> list) {
-        if (this.gpX != null) {
-            this.gpX.setData(list);
+        if (this.gpZ != null) {
+            this.gpZ.setData(list);
         }
     }
 
     public void uU(int i) {
-        this.gqa.uU(i);
-        this.gpZ.uU(i);
+        this.gqc.uU(i);
+        this.gqb.uU(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gpX != null && (this.gpX.getAdapter() instanceof BaseAdapter)) {
-            this.gpX.getAdapter().notifyDataSetChanged();
+        if (this.gpZ != null && (this.gpZ.getAdapter() instanceof BaseAdapter)) {
+            this.gpZ.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.gpY.a(iAlaSquareTabController);
+        this.gqa.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
-        this.gqa.b(iVar);
-        this.gpZ.b(iVar);
+        this.gqc.b(iVar);
+        this.gqb.b(iVar);
     }
 }

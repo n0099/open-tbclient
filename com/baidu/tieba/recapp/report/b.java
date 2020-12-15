@@ -12,44 +12,44 @@ import tbclient.Abstract;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static b mNa;
-    private ConcurrentHashMap<String, List<JSONObject>> mNb = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<String, Integer> mNc = new ConcurrentHashMap<>();
+    private static b mNc;
+    private ConcurrentHashMap<String, List<JSONObject>> mNd = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Integer> mNe = new ConcurrentHashMap<>();
 
     private b() {
     }
 
-    public static b dGe() {
-        if (mNa == null) {
+    public static b dGf() {
+        if (mNc == null) {
             synchronized (b.class) {
-                if (mNa == null) {
-                    mNa = new b();
+                if (mNc == null) {
+                    mNc = new b();
                 }
             }
         }
-        return mNa;
+        return mNc;
     }
 
     public void q(String str, List<JSONObject> list) {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list);
-        this.mNb.put(str, arrayList);
+        this.mNd.put(str, arrayList);
     }
 
     public String Sm(String str) {
-        return fO(this.mNb.get(str));
+        return fO(this.mNd.get(str));
     }
 
     public void Sn(String str) {
-        this.mNb.put(str, new ArrayList());
+        this.mNd.put(str, new ArrayList());
     }
 
     public void bG(String str, int i) {
-        this.mNc.put(str, Integer.valueOf(i));
+        this.mNe.put(str, Integer.valueOf(i));
     }
 
     public int So(String str) {
-        Integer num = this.mNc.get(str);
+        Integer num = this.mNe.get(str);
         if (num == null) {
             return 0;
         }

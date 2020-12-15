@@ -130,12 +130,12 @@ public class b {
             }
         }
     };
-    private com.baidu.tieba.ala.liveroom.data.e hpC;
+    private com.baidu.tieba.ala.liveroom.data.e hpE;
     private Context mContext;
     private ViewGroup mParent;
 
     public b(ViewGroup viewGroup, com.baidu.tieba.ala.liveroom.data.e eVar, AlaLiveRecorder alaLiveRecorder) {
-        this.hpC = eVar;
+        this.hpE = eVar;
         this.mContext = eVar.pageContext.getPageActivity();
         this.mParent = viewGroup;
         this.bAP = alaLiveRecorder;
@@ -145,16 +145,16 @@ public class b {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913176, ILiveMultiBeautyView.class, aVar);
             if (runTask != null && runTask.getData() != null) {
                 this.bAO = (ILiveMultiBeautyView) runTask.getData();
-                this.bAO.setArModel(eVar.hqn);
+                this.bAO.setArModel(eVar.hqp);
             }
         } else if (bm.a(com.baidu.live.ae.a.RB().bxq)) {
             this.bAO = new AlaLiveMultiBeautyView(eVar.pageContext.getPageActivity());
         }
-        this.bAO.setBdPageContext(this.hpC.pageContext);
+        this.bAO.setBdPageContext(this.hpE.pageContext);
         this.bAO.setOnEffectSelectedListener(this.bAV);
         w wVar = null;
-        if (eVar != null && eVar.hpR != null) {
-            wVar = eVar.hpR.Iq();
+        if (eVar != null && eVar.hpT != null) {
+            wVar = eVar.hpT.Iq();
         }
         this.bAO.setAlaLiveShowData(wVar);
     }
@@ -162,8 +162,8 @@ public class b {
     public void a(AlaLiveVideoConfig alaLiveVideoConfig, boolean z) {
         if (this.bAO != null) {
             w wVar = null;
-            if (this.hpC != null && this.hpC.hpR != null) {
-                wVar = this.hpC.hpR.Iq();
+            if (this.hpE != null && this.hpE.hpT != null) {
+                wVar = this.hpE.hpT.Iq();
             }
             this.bAO.setAlaLiveShowData(wVar);
             if (z) {
@@ -182,7 +182,7 @@ public class b {
         }
     }
 
-    public void cet() {
+    public void ceu() {
         if (this.bAO != null) {
             this.bAO.DB();
         }
@@ -192,8 +192,8 @@ public class b {
         if (this.bAO != null) {
             if (i == 0) {
                 w wVar = null;
-                if (this.hpC != null && this.hpC.hpR != null) {
-                    wVar = this.hpC.hpR.Iq();
+                if (this.hpE != null && this.hpE.hpT != null) {
+                    wVar = this.hpE.hpT.Iq();
                 }
                 this.bAO.setAlaLiveShowData(wVar);
             }
@@ -204,8 +204,8 @@ public class b {
     public void c(AlaLiveVideoConfig alaLiveVideoConfig) {
         if (this.bAO != null) {
             w wVar = null;
-            if (this.hpC != null && this.hpC.hpR != null) {
-                wVar = this.hpC.hpR.Iq();
+            if (this.hpE != null && this.hpE.hpT != null) {
+                wVar = this.hpE.hpT.Iq();
             }
             this.bAO.setAlaLiveShowData(wVar);
             if (this.bAO.getParent() != null) {

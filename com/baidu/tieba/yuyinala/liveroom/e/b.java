@@ -31,14 +31,14 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
     private TextView cRf;
-    private HeadImageView hiv;
-    private AlaLastLiveroomInfo hiw;
-    private int hix;
-    private int hiy;
+    private int hiA;
+    private HeadImageView hix;
+    private AlaLastLiveroomInfo hiy;
+    private int hiz;
     private TbPageContext mContext;
     private ValueAnimator mValueAnimator;
     private View mView;
-    private boolean hiB = false;
+    private boolean hiD = false;
     private final Handler mHandler = new Handler() { // from class: com.baidu.tieba.yuyinala.liveroom.e.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -47,7 +47,7 @@ public class b {
                     b.this.startAnim();
                     return;
                 case 2:
-                    b.this.hiB = true;
+                    b.this.hiD = true;
                     b.this.hide();
                     return;
                 default:
@@ -55,29 +55,29 @@ public class b {
             }
         }
     };
-    private int hiz = com.baidu.live.ae.a.RB().brA.aOC;
-    private int hiA = com.baidu.live.ae.a.RB().brA.aOD;
+    private int hiB = com.baidu.live.ae.a.RB().brA.aOC;
+    private int hiC = com.baidu.live.ae.a.RB().brA.aOD;
 
     public b(@NonNull TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.hix = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds8);
-        this.hiy = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds94);
+        this.hiz = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds8);
+        this.hiA = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds94);
         init();
     }
 
     private void init() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.g.yuyin_ala_back_to_last_live_button, (ViewGroup) null);
-        this.hiv = (HeadImageView) this.mView.findViewById(a.f.back_to_last_live_portrait);
-        this.hiv.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.hiv.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.hiv.setIsRound(true);
-        this.hiv.setAutoChangeStyle(false);
-        this.hiv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hix = (HeadImageView) this.mView.findViewById(a.f.back_to_last_live_portrait);
+        this.hix.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.hix.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.hix.setIsRound(true);
+        this.hix.setAutoChangeStyle(false);
+        this.hix.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.cRf = (TextView) this.mView.findViewById(a.f.back_to_last_live_content);
     }
 
     public void show() {
-        if (this.mView != null && this.mView.getParent() != null && !this.hiB) {
+        if (this.mView != null && this.mView.getParent() != null && !this.hiD) {
             this.mView.setVisibility(0);
         }
     }
@@ -90,9 +90,9 @@ public class b {
 
     public void d(AlaLastLiveroomInfo alaLastLiveroomInfo) {
         if (alaLastLiveroomInfo != null) {
-            ccz();
-            this.hiv.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
-            this.hiw = alaLastLiveroomInfo;
+            ccA();
+            this.hix.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
+            this.hiy = alaLastLiveroomInfo;
         }
     }
 
@@ -101,7 +101,7 @@ public class b {
         int i;
         int width = this.cRf.getWidth();
         int width2 = this.mView.getWidth();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hiv.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hix.getLayoutParams();
         if (Build.VERSION.SDK_INT >= 17) {
             layoutParams.addRule(11);
             layoutParams.removeRule(1);
@@ -110,11 +110,11 @@ public class b {
             layoutParams.addRule(1, a.f.back_to_last_live_icon);
             i = 0;
         }
-        this.hiv.setLayoutParams(layoutParams);
+        this.hix.setLayoutParams(layoutParams);
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }
-        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.hix).setDuration(i);
+        this.mValueAnimator = ValueAnimator.ofInt(width2, (width2 - width) - this.hiz).setDuration(i);
         this.mValueAnimator.setInterpolator(new AccelerateInterpolator());
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.e.b.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -127,41 +127,41 @@ public class b {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.mView.getLayoutParams().width = b.this.hiy;
+                b.this.mView.getLayoutParams().width = b.this.hiA;
                 b.this.mView.requestLayout();
                 Message message = new Message();
                 message.what = 2;
-                b.this.mHandler.sendMessageDelayed(message, b.this.hiA);
+                b.this.mHandler.sendMessageDelayed(message, b.this.hiC);
             }
         });
         this.mValueAnimator.start();
     }
 
-    private void ccz() {
-        if (this.hiv != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hiv.getLayoutParams();
+    private void ccA() {
+        if (this.hix != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hix.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
                 layoutParams.removeRule(11);
             }
             layoutParams.addRule(1, a.f.back_to_last_live_content);
-            this.hiv.setLayoutParams(layoutParams);
+            this.hix.setLayoutParams(layoutParams);
         }
     }
 
-    public void ccA() {
-        if (this.hiw != null && this.hiw.getLastLiveId() > 0 && this.mContext != null) {
-            if (this.hiw.getIsAudio() == 1) {
+    public void ccB() {
+        if (this.hiy != null && this.hiy.getLastLiveId() > 0 && this.mContext != null) {
+            if (this.hiy.getIsAudio() == 1) {
                 YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.mContext.getPageActivity());
-                yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(this.hiw.getLastLiveId(), "", "live_sdk");
+                yuyinAlaLiveRoomActivityConfig.addExtraByLiveId(this.hiy.getLastLiveId(), "", "live_sdk");
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    if (!TextUtils.isEmpty(this.hiw.getLastCover())) {
-                        jSONObject.put("cover", this.hiw.getLastCover());
+                    if (!TextUtils.isEmpty(this.hiy.getLastCover())) {
+                        jSONObject.put("cover", this.hiy.getLastCover());
                     }
-                    if (!TextUtils.isEmpty(this.hiw.getLastVideoUrl())) {
-                        jSONObject.put("live_url", this.hiw.getLastVideoUrl());
+                    if (!TextUtils.isEmpty(this.hiy.getLastVideoUrl())) {
+                        jSONObject.put("live_url", this.hiy.getLastVideoUrl());
                     }
-                    jSONObject.put("enterLiveId", this.hiw.getLastLiveId());
+                    jSONObject.put("enterLiveId", this.hiy.getLastLiveId());
                     yuyinAlaLiveRoomActivityConfig.addExtraByParams(jSONObject.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -170,16 +170,16 @@ public class b {
                 return;
             }
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(this.mContext.getPageActivity());
-            alaLiveRoomActivityConfig.addExtraByLiveId(this.hiw.getLastLiveId(), "", "live_sdk");
+            alaLiveRoomActivityConfig.addExtraByLiveId(this.hiy.getLastLiveId(), "", "live_sdk");
             JSONObject jSONObject2 = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(this.hiw.getLastCover())) {
-                    jSONObject2.put("cover", this.hiw.getLastCover());
+                if (!TextUtils.isEmpty(this.hiy.getLastCover())) {
+                    jSONObject2.put("cover", this.hiy.getLastCover());
                 }
-                if (!TextUtils.isEmpty(this.hiw.getLastVideoUrl())) {
-                    jSONObject2.put("live_url", this.hiw.getLastVideoUrl());
+                if (!TextUtils.isEmpty(this.hiy.getLastVideoUrl())) {
+                    jSONObject2.put("live_url", this.hiy.getLastVideoUrl());
                 }
-                jSONObject2.put("enterLiveId", this.hiw.getLastLiveId());
+                jSONObject2.put("enterLiveId", this.hiy.getLastLiveId());
                 alaLiveRoomActivityConfig.addExtraByParams(jSONObject2.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -197,7 +197,7 @@ public class b {
         release();
     }
 
-    private RelativeLayout.LayoutParams ccB() {
+    private RelativeLayout.LayoutParams ccC() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds120);
@@ -206,7 +206,7 @@ public class b {
 
     public void av(ViewGroup viewGroup) {
         if (this.mView != null && viewGroup != null && this.mView.getParent() == null) {
-            viewGroup.addView(this.mView, ccB());
+            viewGroup.addView(this.mView, ccC());
             if (UtilHelper.getRealScreenOrientation(this.mContext.getPageActivity()) == 2) {
                 hide();
             } else {
@@ -215,16 +215,16 @@ public class b {
             this.mHandler.removeCallbacksAndMessages(null);
             Message message = new Message();
             message.what = 1;
-            this.mHandler.sendMessageDelayed(message, this.hiz);
+            this.mHandler.sendMessageDelayed(message, this.hiB);
         }
     }
 
-    public void ccC() {
+    public void ccD() {
         release();
     }
 
     private void release() {
-        this.hiB = false;
+        this.hiD = false;
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mValueAnimator != null) {
             this.mValueAnimator.cancel();

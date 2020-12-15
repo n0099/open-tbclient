@@ -12,7 +12,7 @@ public class r {
     public boolean aJe;
     public long aJf;
     public String bdPortrait;
-    public boolean gJn;
+    public boolean gJp;
     public long userId;
     public String userName;
     public String userNickname;
@@ -33,7 +33,7 @@ public class r {
     public void a(h hVar) {
         if (hVar != null) {
             this.aJa = hVar.rank;
-            this.aJb = JavaTypesHelper.toLong(hVar.gIM, 0L);
+            this.aJb = JavaTypesHelper.toLong(hVar.gIO, 0L);
             this.userId = hVar.user_id;
             this.userName = hVar.user_name;
             this.userNickname = hVar.user_nickname;
@@ -53,12 +53,12 @@ public class r {
         this.aJe = z;
     }
 
-    public boolean bVh() {
+    public boolean bVi() {
         return this.aJe;
     }
 
     public void mz(boolean z) {
-        this.gJn = z;
+        this.gJp = z;
     }
 
     public void aL(long j) {

@@ -5,18 +5,18 @@ import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes6.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId gpB = BdUniqueId.gen();
+    public static final BdUniqueId gpD = BdUniqueId.gen();
     public String fid;
     public String fname;
-    public SdkLiveInfoData gpC;
+    public SdkLiveInfoData gpE;
     public int position;
     public boolean eMh = false;
     public boolean isLeft = false;
     public boolean isRight = false;
-    public boolean gpD = false;
+    public boolean gpF = false;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return gpB;
+        return gpD;
     }
 }

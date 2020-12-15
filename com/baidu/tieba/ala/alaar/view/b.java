@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 /* loaded from: classes4.dex */
 public abstract class b<T> {
-    protected a gnR;
+    protected a gnT;
     public T item;
     @NonNull
     public final View itemView;
@@ -19,7 +19,7 @@ public abstract class b<T> {
     public b(View view, a aVar) {
         this.itemView = view;
         view.setTag(this);
-        this.gnR = aVar;
+        this.gnT = aVar;
     }
 
     public void h(int i, T t) {

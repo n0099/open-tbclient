@@ -25,8 +25,8 @@ public class AlaPkPanelWebView extends FrameLayout {
     private List<String> bRa;
     private SchemeCallback bRc;
     private String eFu;
-    private a hbc;
-    private boolean hbd;
+    private a hbe;
+    private boolean hbf;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -54,7 +54,7 @@ public class AlaPkPanelWebView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hbc = aVar;
+        this.hbe = aVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
@@ -75,8 +75,8 @@ public class AlaPkPanelWebView extends FrameLayout {
         return this.bQZ != null ? this.bQZ.getOriginalUrl() : "";
     }
 
-    public boolean bYV() {
-        return this.hbd;
+    public boolean bYW() {
+        return this.hbf;
     }
 
     @RequiresApi(19)
@@ -87,7 +87,7 @@ public class AlaPkPanelWebView extends FrameLayout {
     }
 
     private void init() {
-        this.hbd = false;
+        this.hbf = false;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);
@@ -104,9 +104,9 @@ public class AlaPkPanelWebView extends FrameLayout {
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
-                            AlaPkPanelWebView.this.hbd = Boolean.valueOf(str2).booleanValue();
-                            if (AlaPkPanelWebView.this.hbc != null) {
-                                AlaPkPanelWebView.this.hbc.na(Boolean.valueOf(str2).booleanValue());
+                            AlaPkPanelWebView.this.hbf = Boolean.valueOf(str2).booleanValue();
+                            if (AlaPkPanelWebView.this.hbe != null) {
+                                AlaPkPanelWebView.this.hbe.na(Boolean.valueOf(str2).booleanValue());
                             }
                         }
                     });

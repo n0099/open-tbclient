@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class h extends r {
     public String avatar;
     public int eKc;
-    public String gIM;
-    public String gIN;
     public String gIO;
-    public ArrayList<a> gIP;
+    public String gIP;
+    public String gIQ;
+    public ArrayList<a> gIR;
     public String is_follow;
     public long live_id;
     public int rank;
@@ -30,8 +30,8 @@ public class h extends r {
         this.rank = JavaTypesHelper.toInt(jSONObject.optString("rank"), 0);
         this.eKc = JavaTypesHelper.toInt(jSONObject.optString("is_live"), 0);
         this.live_id = JavaTypesHelper.toLong(jSONObject.optString("live_id"), 0L);
-        this.gIM = jSONObject.optString(Config.EVENT_HEAT_POINT);
-        this.gIN = jSONObject.optString("point_behind");
+        this.gIO = jSONObject.optString(Config.EVENT_HEAT_POINT);
+        this.gIP = jSONObject.optString("point_behind");
         this.user_nickname = jSONObject.optString("user_nickname");
         if (!TextUtils.isEmpty(jSONObject.optString("bd_portrait"))) {
             this.avatar = jSONObject.optString("bd_portrait");
@@ -40,16 +40,16 @@ public class h extends r {
         }
         this.is_follow = jSONObject.optString("is_follow");
         this.user_name = jSONObject.optString("user_name");
-        this.gIO = jSONObject.optString("rule_url");
+        this.gIQ = jSONObject.optString("rule_url");
         this.room_id = jSONObject.optInt("room_id");
         JSONArray optJSONArray = jSONObject.optJSONArray("bro_list");
         if (optJSONArray != null) {
-            this.gIP = new ArrayList<>();
+            this.gIR = new ArrayList<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.gIP.add(aVar);
+                this.gIR.add(aVar);
             }
         }
     }

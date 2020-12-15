@@ -34,10 +34,10 @@ import com.baidu.tieba.ala.adapter.AlaRankListPKStatusFragmentAdapter;
 /* loaded from: classes4.dex */
 public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements View.OnTouchListener {
     private int aLE;
-    private String ghb;
-    private boolean ghc;
-    private FragmentTabHost ghj;
-    private AlaRankListPKStatusFragmentAdapter ghk;
+    private String ghd;
+    private boolean ghe;
+    private FragmentTabHost ghl;
+    private AlaRankListPKStatusFragmentAdapter ghm;
     private String mPortrait;
     private View mRootView;
     private int mScreenWidth;
@@ -80,14 +80,14 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             if (bundle != null) {
                 this.aLE = bundle.getInt(UbcStatConstant.KEY_LIVE_TYPE, 1);
                 this.mUserId = bundle.getLong(TbEnum.SystemMessage.KEY_USER_ID, 0L);
-                this.ghb = bundle.getString("rank_list_type", "");
-                this.ghc = bundle.getBoolean("rank_list_from");
+                this.ghd = bundle.getString("rank_list_type", "");
+                this.ghe = bundle.getBoolean("rank_list_from");
                 this.mPortrait = bundle.getString("portrait");
             } else {
                 this.aLE = getIntent().getIntExtra(UbcStatConstant.KEY_LIVE_TYPE, 1);
                 this.mUserId = getIntent().getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
-                this.ghb = getIntent().getStringExtra("rank_list_type");
-                this.ghc = getIntent().getBooleanExtra("rank_list_from", false);
+                this.ghd = getIntent().getStringExtra("rank_list_type");
+                this.ghe = getIntent().getBooleanExtra("rank_list_from", false);
                 this.mPortrait = getIntent().getStringExtra("portrait");
             }
             registerListener(this.aWM);
@@ -107,42 +107,42 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             }
         });
         ((TextView) this.mRootView.findViewById(a.f.ala_rank_list_title)).setText(a.h.ala_rank_list_pk_status_panel_title);
-        bPe();
+        bPf();
         initTabSpec();
         if (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
             i.ae(this.mRootView);
         }
     }
 
-    private void bPe() {
-        this.ghj = (FragmentTabHost) findViewById(a.f.ala_rank_list_tabhost);
-        this.ghj.setup(getSupportFragmentManager());
-        this.ghj.setTabWidgetViewHeight((int) getResources().getDimension(a.d.sdk_ds80));
-        this.ghj.getFragmentTabWidget().setAbsoluteWeight(true);
-        this.ghj.getFragmentTabWidget().setDiverColor(getResources().getColor(a.c.sdk_cp_cont_b));
-        this.ghj.getFragmentTabWidget().setDviderRectWidth(-2);
-        this.ghj.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds4));
+    private void bPf() {
+        this.ghl = (FragmentTabHost) findViewById(a.f.ala_rank_list_tabhost);
+        this.ghl.setup(getSupportFragmentManager());
+        this.ghl.setTabWidgetViewHeight((int) getResources().getDimension(a.d.sdk_ds80));
+        this.ghl.getFragmentTabWidget().setAbsoluteWeight(true);
+        this.ghl.getFragmentTabWidget().setDiverColor(getResources().getColor(a.c.sdk_cp_cont_b));
+        this.ghl.getFragmentTabWidget().setDviderRectWidth(-2);
+        this.ghl.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds4));
     }
 
     private void initTabSpec() {
-        this.ghk = new AlaRankListPKStatusFragmentAdapter(this, this.aLE, this.mUserId, this.ghc, this.mPortrait);
-        int Gg = this.ghk.Gg(this.ghb);
-        int count = this.ghk.getCount();
+        this.ghm = new AlaRankListPKStatusFragmentAdapter(this, this.aLE, this.mUserId, this.ghe, this.mPortrait);
+        int Gg = this.ghm.Gg(this.ghd);
+        int count = this.ghm.getCount();
         for (int i = 0; i < count; i++) {
-            Fragment item = this.ghk.getItem(i);
+            Fragment item = this.ghm.getItem(i);
             if (item != null) {
-                a(item, this.ghk.uD(i));
+                a(item, this.ghm.uD(i));
             }
         }
-        FragmentTabWidget fragmentTabWidget = this.ghj.getFragmentTabWidget();
+        FragmentTabWidget fragmentTabWidget = this.ghl.getFragmentTabWidget();
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) fragmentTabWidget.getLayoutParams();
         layoutParams.gravity = 1;
         layoutParams.width = -1;
         layoutParams.leftMargin = (int) getResources().getDimension(a.d.sdk_ds34);
         layoutParams.rightMargin = (int) getResources().getDimension(a.d.sdk_ds34);
         fragmentTabWidget.setLayoutParams(layoutParams);
-        this.ghj.initViewPagerWithNoType();
-        this.ghj.setCurrentTab(Gg);
+        this.ghl.initViewPagerWithNoType();
+        this.ghl.setCurrentTab(Gg);
     }
 
     private void a(Fragment fragment, String str) {
@@ -154,7 +154,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             fragmentTabIndicator.setTextColorResId(a.c.ala_rank_list_tab_text_color);
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(a.d.sdk_fontsize32));
             tabSpec.mIndicatorView = fragmentTabIndicator;
-            this.ghj.addTabSpec(tabSpec);
+            this.ghl.addTabSpec(tabSpec);
         }
     }
 
@@ -164,8 +164,8 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         super.onSaveInstanceState(bundle);
         bundle.putLong(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
         bundle.putInt(UbcStatConstant.KEY_LIVE_TYPE, this.aLE);
-        bundle.putString("rank_list_type", this.ghb);
-        bundle.putBoolean("rank_list_from", this.ghc);
+        bundle.putString("rank_list_type", this.ghd);
+        bundle.putBoolean("rank_list_from", this.ghe);
         bundle.putString("portrait", this.mPortrait);
     }
 
@@ -220,7 +220,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         return false;
     }
 
-    private void bPf() {
+    private void bPg() {
         if (this instanceof Activity) {
             overridePendingTransition(a.C0205a.sdk_activity_open_translate_from_right, a.C0205a.sdk_activity_close_translate_to_right);
         } else {
@@ -230,12 +230,12 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
-        bPf();
+        bPg();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
-        bPf();
+        bPg();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity

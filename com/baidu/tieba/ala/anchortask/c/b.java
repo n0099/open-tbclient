@@ -9,9 +9,9 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class b {
     private Context context;
-    private boolean gBW = true;
-    public TextView gBX;
-    public TextView gBY;
+    private boolean gBY = true;
+    public TextView gBZ;
+    public TextView gCa;
     private View mView;
 
     public b(Context context) {
@@ -21,8 +21,8 @@ public class b {
 
     private void init() {
         this.mView = LayoutInflater.from(this.context).inflate(a.g.layout_new_anchor_aid_view, (ViewGroup) null);
-        this.gBX = (TextView) this.mView.findViewById(a.f.currcompletion_textView);
-        this.gBY = (TextView) this.mView.findViewById(a.f.total_task_textView);
+        this.gBZ = (TextView) this.mView.findViewById(a.f.currcompletion_textView);
+        this.gCa = (TextView) this.mView.findViewById(a.f.total_task_textView);
         this.mView.setVisibility(0);
     }
 
@@ -31,7 +31,7 @@ public class b {
     }
 
     public void setCanVisible(boolean z) {
-        this.gBW = z;
+        this.gBY = z;
         if (z) {
             this.mView.setVisibility(0);
         } else {

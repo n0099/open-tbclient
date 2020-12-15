@@ -20,14 +20,14 @@ import com.baidu.tieba.homepage.tabfeed.data.c;
 /* loaded from: classes22.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
     private d<k> akd;
-    private AutoBannerLayout jXb;
-    private GridIconLayout jXc;
-    private f jXd;
+    private AutoBannerLayout jXd;
+    private GridIconLayout jXe;
+    private f jXf;
     private TbPageContext<?> mPageContext;
 
     public HomePageTabFeedHeaderView(Context context) {
         super(context);
-        this.jXd = new f<k>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.jXf = new f<k>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, k kVar, int i, long j) {
@@ -58,7 +58,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jXd = new f<k>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.jXf = new f<k>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, k kVar, int i, long j) {
@@ -89,7 +89,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
 
     public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jXd = new f<k>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
+        this.jXf = new f<k>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, k kVar, int i2, long j) {
@@ -129,11 +129,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jXb != null) {
-            this.jXb.onChangeSkinType(this.mPageContext, i);
+        if (this.jXd != null) {
+            this.jXd.onChangeSkinType(this.mPageContext, i);
         }
-        if (this.jXc != null) {
-            this.jXc.onChangeSkinType(this.mPageContext, i);
+        if (this.jXe != null) {
+            this.jXe.onChangeSkinType(this.mPageContext, i);
         }
         ap.setBackgroundColor(this, R.color.CAM_X0205);
     }
@@ -141,29 +141,29 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
     public void setData(c cVar) {
         if (cVar != null) {
             setPadding(0, l.getDimens(getContext(), R.dimen.tbds44), 0, l.getDimens(getContext(), R.dimen.tbds60));
-            if (this.jXb == null) {
-                this.jXb = new AutoBannerLayout(getContext());
-                this.jXb.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
-                this.jXb.setOnCoverViewCallback(this.akd);
-                this.jXb.setBannerHeight(l.getDimens(getContext(), R.dimen.tbds328));
+            if (this.jXd == null) {
+                this.jXd = new AutoBannerLayout(getContext());
+                this.jXd.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
+                this.jXd.setOnCoverViewCallback(this.akd);
+                this.jXd.setBannerHeight(l.getDimens(getContext(), R.dimen.tbds328));
                 int dimens = l.getDimens(getContext(), R.dimen.tbds44);
-                this.jXb.setPadding(dimens, 0, dimens, 0);
-                addView(this.jXb);
-                this.jXb.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.1
+                this.jXd.setPadding(dimens, 0, dimens, 0);
+                addView(this.jXd);
+                this.jXd.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.1
                     @Override // com.baidu.tbadk.h.c
                     public void a(View view, boolean z, Object obj) {
-                        if (z && HomePageTabFeedHeaderView.this.jXb != null) {
-                            HomePageTabFeedHeaderView.this.jXb.uh();
+                        if (z && HomePageTabFeedHeaderView.this.jXd != null) {
+                            HomePageTabFeedHeaderView.this.jXd.uh();
                         }
                     }
                 });
             }
-            this.jXb.H(cVar.jWV);
-            if (this.jXc == null) {
-                this.jXc = new GridIconLayout(getContext());
-                this.jXc.setOnItemCoverListener(this.jXd);
-                addView(this.jXc);
-                this.jXc.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.2
+            this.jXd.H(cVar.jWX);
+            if (this.jXe == null) {
+                this.jXe = new GridIconLayout(getContext());
+                this.jXe.setOnItemCoverListener(this.jXf);
+                addView(this.jXe);
+                this.jXe.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.2
                     @Override // com.baidu.tbadk.h.c
                     public void a(View view, boolean z, Object obj) {
                         if (z) {
@@ -171,11 +171,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                         }
                     }
                 });
-                this.jXc.setPadding(0, l.getDimens(getContext(), R.dimen.tbds61), 0, 0);
-                this.jXc.setVerticalSpace(l.getDimens(getContext(), R.dimen.tbds61));
-                this.jXc.setMaxItem(10);
+                this.jXe.setPadding(0, l.getDimens(getContext(), R.dimen.tbds61), 0, 0);
+                this.jXe.setVerticalSpace(l.getDimens(getContext(), R.dimen.tbds61));
+                this.jXe.setMaxItem(10);
             }
-            this.jXc.H(cVar.jWW);
+            this.jXe.H(cVar.jWY);
         }
     }
 

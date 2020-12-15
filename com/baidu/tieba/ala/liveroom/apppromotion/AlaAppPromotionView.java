@@ -11,8 +11,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
 public class AlaAppPromotionView extends RelativeLayout {
-    private TbImageView hev;
-    private TextView hew;
+    private TbImageView hex;
+    private TextView hey;
 
     public AlaAppPromotionView(Context context) {
         this(context, null);
@@ -29,17 +29,17 @@ public class AlaAppPromotionView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_app_promotion_view, (ViewGroup) this, true);
-        this.hev = (TbImageView) findViewById(a.f.iv_app_icon);
-        this.hew = (TextView) findViewById(a.f.tv_app_des);
-        this.hev.setDefaultBgResource(a.c.sdk_transparent);
+        this.hex = (TbImageView) findViewById(a.f.iv_app_icon);
+        this.hey = (TextView) findViewById(a.f.tv_app_des);
+        this.hex.setDefaultBgResource(a.c.sdk_transparent);
     }
 
     public void setImage(String str) {
-        this.hev.startLoad(str, 10, false);
+        this.hex.startLoad(str, 10, false);
     }
 
     public void setStatus(String str) {
-        this.hew.setText(str);
+        this.hey.setText(str);
     }
 
     public void setProgress(long j, long j2) {
@@ -47,6 +47,6 @@ public class AlaAppPromotionView extends RelativeLayout {
         if (i < 0) {
             i = 0;
         }
-        this.hew.setText(getResources().getString(a.h.ala_app_promotion_downloading, Integer.valueOf(i <= 100 ? i : 100)));
+        this.hey.setText(getResources().getString(a.h.ala_app_promotion_downloading, Integer.valueOf(i <= 100 ? i : 100)));
     }
 }

@@ -42,7 +42,7 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0657a interfaceC0657a) {
-        clX();
+        clY();
         b(interfaceC0657a);
     }
 
@@ -57,9 +57,9 @@ public class a extends BdBaseModel {
                         interfaceC0657a.bm(acceptPkResponseMessage.getError(), acceptPkResponseMessage.getErrorString());
                         return;
                     }
-                    interfaceC0657a.fI(acceptPkResponseMessage.clT());
+                    interfaceC0657a.fI(acceptPkResponseMessage.clU());
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
-                    alaStatsItem.addValue("pkId", Long.valueOf(acceptPkResponseMessage.clT()));
+                    alaStatsItem.addValue("pkId", Long.valueOf(acceptPkResponseMessage.clU()));
                     alaStatsItem.addValue("lodId", Long.valueOf(acceptPkResponseMessage.getLogId()));
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(acceptPkResponseMessage.getError()));
                     AlaStatManager.getInstance().debug("pk_competition_accept_pk", alaStatsItem);
@@ -69,7 +69,7 @@ public class a extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void clX() {
+    private void clY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021211, TbConfig.SERVER_ADDRESS + "ala/pksolo/acceptPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -79,7 +79,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void clY() {
+    public void clZ() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021211);
     }

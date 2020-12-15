@@ -26,9 +26,9 @@ import tbclient.FrsPage.RecmForumInfo;
 public class a extends com.baidu.tbadk.l.a {
     private com.baidu.adp.base.e eNZ;
     protected TbImageView fzA;
-    private BdListView jAq;
-    private C0755a jAr;
-    private TextView jAs;
+    private BdListView jAs;
+    private C0755a jAt;
+    private TextView jAu;
     private View mDivider;
     private TextView mTitleView;
     protected TextView subTextView;
@@ -36,14 +36,14 @@ public class a extends com.baidu.tbadk.l.a {
     /* loaded from: classes22.dex */
     public static class b {
         public View eOv;
-        public TbImageView jAA;
-        public TextView jAB;
-        public TextView jAC;
-        public ImageView jAD;
-        public TextView jAw;
-        public TextView jAx;
+        public TextView jAA;
+        public ImageView jAB;
+        public TbImageView jAC;
+        public TextView jAD;
+        public TextView jAE;
+        public ImageView jAF;
         public TextView jAy;
-        public ImageView jAz;
+        public TextView jAz;
         public View rootView;
     }
 
@@ -53,10 +53,10 @@ public class a extends com.baidu.tbadk.l.a {
         this.fzA = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
         this.mDivider = this.attachedView.findViewById(R.id.divider);
-        this.jAq = (BdListView) this.attachedView.findViewById(R.id.recommend_bar_listview);
+        this.jAs = (BdListView) this.attachedView.findViewById(R.id.recommend_bar_listview);
         this.attachedView.setOnClickListener(null);
         this.mTitleView = (TextView) this.attachedView.findViewById(R.id.content_title);
-        this.jAs = (TextView) this.attachedView.findViewById(R.id.local_tip_tv);
+        this.jAu = (TextView) this.attachedView.findViewById(R.id.local_tip_tv);
     }
 
     public void setSubText(String str) {
@@ -70,8 +70,8 @@ public class a extends com.baidu.tbadk.l.a {
 
     public void setListData(List<RecmForumInfo> list) {
         if (list != null) {
-            this.jAr = new C0755a(list);
-            this.jAq.setAdapter((ListAdapter) this.jAr);
+            this.jAt = new C0755a(list);
+            this.jAs.setAdapter((ListAdapter) this.jAt);
         }
     }
 
@@ -97,9 +97,9 @@ public class a extends com.baidu.tbadk.l.a {
             ap.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
             ap.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
             ap.setViewTextColor(this.mTitleView, R.color.CAM_X0109, 1, skinType);
-            ap.setViewTextColor(this.jAs, R.color.CAM_X0106, 1, skinType);
-            if (this.jAr != null) {
-                this.jAr.notifyDataSetChanged();
+            ap.setViewTextColor(this.jAu, R.color.CAM_X0106, 1, skinType);
+            if (this.jAt != null) {
+                this.jAt.notifyDataSetChanged();
             }
         }
     }
@@ -107,22 +107,22 @@ public class a extends com.baidu.tbadk.l.a {
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
     public class C0755a extends BaseAdapter {
-        private List<RecmForumInfo> jAt;
+        private List<RecmForumInfo> jAv;
 
         public C0755a(List<RecmForumInfo> list) {
-            this.jAt = list;
+            this.jAv = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.jAt.size();
+            return this.jAv.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: Cg */
         public RecmForumInfo getItem(int i) {
-            return this.jAt.get(i);
+            return this.jAv.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -137,25 +137,25 @@ public class a extends com.baidu.tbadk.l.a {
                 view = LayoutInflater.from(a.this.eNZ.getPageActivity()).inflate(R.layout.recommend_view, (ViewGroup) null);
                 b bVar2 = new b();
                 bVar2.rootView = view.findViewById(R.id.root_view);
-                bVar2.jAw = (TextView) view.findViewById(R.id.forum_name);
-                bVar2.jAy = (TextView) view.findViewById(R.id.follow_tv);
-                bVar2.jAx = (TextView) view.findViewById(R.id.thread_tv);
-                bVar2.jAz = (ImageView) view.findViewById(R.id.arrow_item_img);
-                bVar2.jAA = (TbImageView) view.findViewById(R.id.headview);
-                bVar2.jAB = (TextView) view.findViewById(R.id.follow_title);
-                bVar2.jAC = (TextView) view.findViewById(R.id.thread_title);
+                bVar2.jAy = (TextView) view.findViewById(R.id.forum_name);
+                bVar2.jAA = (TextView) view.findViewById(R.id.follow_tv);
+                bVar2.jAz = (TextView) view.findViewById(R.id.thread_tv);
+                bVar2.jAB = (ImageView) view.findViewById(R.id.arrow_item_img);
+                bVar2.jAC = (TbImageView) view.findViewById(R.id.headview);
+                bVar2.jAD = (TextView) view.findViewById(R.id.follow_title);
+                bVar2.jAE = (TextView) view.findViewById(R.id.thread_title);
                 bVar2.eOv = view.findViewById(R.id.divider_line);
-                bVar2.jAD = (ImageView) view.findViewById(R.id.content_img);
+                bVar2.jAF = (ImageView) view.findViewById(R.id.content_img);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             if (getItem(i) != null) {
-                bVar.jAw.setText(au.cutChineseAndEnglishWithSuffix(getItem(i).forum_name, 14, StringHelper.STRING_MORE));
-                bVar.jAA.startLoad(getItem(i).avatar, 10, false);
-                bVar.jAy.setText(au.numberUniformFormat(getItem(i).member_count.intValue()));
-                bVar.jAx.setText(au.numberUniformFormat(getItem(i).post_num.intValue()));
+                bVar.jAy.setText(au.cutChineseAndEnglishWithSuffix(getItem(i).forum_name, 14, StringHelper.STRING_MORE));
+                bVar.jAC.startLoad(getItem(i).avatar, 10, false);
+                bVar.jAA.setText(au.numberUniformFormat(getItem(i).member_count.intValue()));
+                bVar.jAz.setText(au.numberUniformFormat(getItem(i).post_num.intValue()));
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -164,15 +164,15 @@ public class a extends com.baidu.tbadk.l.a {
                         }
                     }
                 });
-                ap.setViewTextColor(bVar.jAw, R.color.CAM_X0105);
-                ap.setViewTextColor(bVar.jAy, R.color.CAM_X0109);
-                ap.setViewTextColor(bVar.jAx, R.color.CAM_X0109);
-                ap.setViewTextColor(bVar.jAC, R.color.CAM_X0109);
-                ap.setViewTextColor(bVar.jAB, R.color.CAM_X0109);
+                ap.setViewTextColor(bVar.jAy, R.color.CAM_X0105);
+                ap.setViewTextColor(bVar.jAA, R.color.CAM_X0109);
+                ap.setViewTextColor(bVar.jAz, R.color.CAM_X0109);
+                ap.setViewTextColor(bVar.jAE, R.color.CAM_X0109);
+                ap.setViewTextColor(bVar.jAD, R.color.CAM_X0109);
                 ap.setBackgroundResource(bVar.eOv, R.color.CAM_X0204);
-                SvgManager.btW().a(bVar.jAz, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.btW().a(bVar.jAB, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
                 ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-                ap.setBackgroundResource(bVar.jAD, R.drawable.picture_content_frame);
+                ap.setBackgroundResource(bVar.jAF, R.drawable.picture_content_frame);
             }
             return view;
         }

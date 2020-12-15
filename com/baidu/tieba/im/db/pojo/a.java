@@ -24,7 +24,7 @@ public class a {
         this.unReadCount = i;
     }
 
-    public String cWn() {
+    public String cWo() {
         return this.groupHead;
     }
 
@@ -48,7 +48,7 @@ public class a {
         this.userType = i;
     }
 
-    public long cTY() {
+    public long cTZ() {
         return this.cWM;
     }
 

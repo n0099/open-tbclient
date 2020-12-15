@@ -30,7 +30,7 @@ public class BdBlobCacheAllInOneTableDBManager extends BdCacheBaseDBManager<byte
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v17, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r2v17, types: [byte[], T] */
     @Override // com.baidu.live.adp.lib.cache.BdCacheBaseDBManager
     protected BdCacheItem<byte[]> getFromDB(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;

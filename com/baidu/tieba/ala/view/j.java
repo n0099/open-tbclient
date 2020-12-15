@@ -36,14 +36,14 @@ import java.util.Map;
 public class j implements com.baidu.live.y.c {
     private int aLE;
     private String bdh;
-    private long ggZ;
-    private long hWq;
-    private BdUniqueId hXF;
-    private m hXG;
-    private p hXH;
-    private long hXK;
-    private boolean hXL;
-    private int hzi;
+    private long ghb;
+    private long hWs;
+    private BdUniqueId hXH;
+    private m hXI;
+    private p hXJ;
+    private long hXM;
+    private boolean hXN;
+    private int hzk;
     private Context mContext;
     private boolean mHasInited;
     private boolean mIsHost;
@@ -54,35 +54,35 @@ public class j implements com.baidu.live.y.c {
     private long mUserId;
     private String mUserName;
     private String otherParams;
-    private long hXE = 5000;
+    private long hXG = 5000;
     private Handler mHandler = new Handler();
-    private boolean gBW = true;
-    private boolean hXI = false;
-    private long hXJ = 17;
-    private String hXM = "default";
-    private ArrayList<String> hXN = new ArrayList<>();
-    private Map<String, Long> hXO = new HashMap();
-    private final Runnable gTH = new Runnable() { // from class: com.baidu.tieba.ala.view.j.1
+    private boolean gBY = true;
+    private boolean hXK = false;
+    private long hXL = 17;
+    private String hXO = "default";
+    private ArrayList<String> hXP = new ArrayList<>();
+    private Map<String, Long> hXQ = new HashMap();
+    private final Runnable gTJ = new Runnable() { // from class: com.baidu.tieba.ala.view.j.1
         @Override // java.lang.Runnable
         public void run() {
-            if (j.this.hWq <= 0) {
-                j.this.hWq = 0L;
+            if (j.this.hWs <= 0) {
+                j.this.hWs = 0L;
             } else {
-                if (j.this.hWq == 300 && j.this.hXH != null && !j.this.hXN.contains(j.this.hXH.Wu())) {
-                    j.this.hXN.add(j.this.hXH.Wu());
+                if (j.this.hWs == 300 && j.this.hXJ != null && !j.this.hXP.contains(j.this.hXJ.Wu())) {
+                    j.this.hXP.add(j.this.hXJ.Wu());
                     AlaBroadcastGiftToastData alaBroadcastGiftToastData = new AlaBroadcastGiftToastData();
                     alaBroadcastGiftToastData.localBroadcastType = 1;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913103, alaBroadcastGiftToastData));
                 }
                 j.d(j.this);
             }
-            if (j.this.hWq <= 1) {
+            if (j.this.hWs <= 1) {
                 j.this.resetData();
             }
-            for (Map.Entry entry : j.this.hXO.entrySet()) {
+            for (Map.Entry entry : j.this.hXQ.entrySet()) {
                 if (System.currentTimeMillis() / 1000 == ((Long) entry.getValue()).longValue()) {
-                    j.this.hXF = BdUniqueId.gen();
-                    j.this.hXG.a(j.this.mUserId, (String) entry.getKey(), 1, 1, j.this.hXF);
+                    j.this.hXH = BdUniqueId.gen();
+                    j.this.hXI.a(j.this.mUserId, (String) entry.getKey(), 1, 1, j.this.hXH);
                 }
             }
             j.this.startCountDown();
@@ -92,42 +92,42 @@ public class j implements com.baidu.live.y.c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             j.this.Ji("hour");
-            LogManager.getCommonLogger().doClickHourRankEntryLog(j.this.bdh, j.this.hXM, j.this.otherParams);
+            LogManager.getCommonLogger().doClickHourRankEntryLog(j.this.bdh, j.this.hXO, j.this.otherParams);
         }
     };
-    private n gKX = new n() { // from class: com.baidu.tieba.ala.view.j.3
+    private n gKZ = new n() { // from class: com.baidu.tieba.ala.view.j.3
         @Override // com.baidu.tieba.ala.g.n
         public void a(int i, String str, Object obj) {
             if (i == 0 && obj != null && (obj instanceof AlaGetHourRankListResponseMessage)) {
                 AlaGetHourRankListResponseMessage alaGetHourRankListResponseMessage = (AlaGetHourRankListResponseMessage) obj;
-                p clO = alaGetHourRankListResponseMessage.clO();
-                if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == j.this.hXF) {
-                    j.this.d(clO);
+                p clP = alaGetHourRankListResponseMessage.clP();
+                if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == j.this.hXH) {
+                    j.this.d(clP);
                 } else if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == j.this.brR) {
-                    j.this.e(clO);
+                    j.this.e(clP);
                 }
-                j.this.hXE = clO.bVc();
-                j.this.hXJ = clO.bVd();
+                j.this.hXG = clP.bVd();
+                j.this.hXL = clP.bVe();
             }
-            if (!j.this.hXI && j.this.hXP != null) {
-                j.this.mHandler.removeCallbacks(j.this.hXP);
-                j.this.mHandler.postDelayed(j.this.hXP, j.this.hXE);
+            if (!j.this.hXK && j.this.hXR != null) {
+                j.this.mHandler.removeCallbacks(j.this.hXR);
+                j.this.mHandler.postDelayed(j.this.hXR, j.this.hXG);
             }
         }
     };
-    private Runnable hXP = new Runnable() { // from class: com.baidu.tieba.ala.view.j.4
+    private Runnable hXR = new Runnable() { // from class: com.baidu.tieba.ala.view.j.4
         @Override // java.lang.Runnable
         public void run() {
-            if (j.this.hXG != null) {
-                j.this.hXG.l(j.this.mUserId, "");
+            if (j.this.hXI != null) {
+                j.this.hXI.l(j.this.mUserId, "");
             }
         }
     };
     private BdUniqueId brR = BdUniqueId.gen();
 
     static /* synthetic */ long d(j jVar) {
-        long j = jVar.hWq;
-        jVar.hWq = j - 1;
+        long j = jVar.hWs;
+        jVar.hWs = j - 1;
         return j;
     }
 
@@ -140,23 +140,23 @@ public class j implements com.baidu.live.y.c {
         this.mIsHost = z;
         this.mPortrait = str2;
         this.bdh = str4;
-        this.ggZ = j2;
+        this.ghb = j2;
         this.otherParams = str3;
         initView();
-        this.hXG = new m(this.brR, this.gKX);
-        this.hXG.l(this.mUserId, "");
+        this.hXI = new m(this.brR, this.gKZ);
+        this.hXI.l(this.mUserId, "");
     }
 
     public void startCountDown() {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
-            this.mHandler.removeCallbacks(this.gTH);
-            this.mHandler.postDelayed(this.gTH, 1000L);
+            this.mHandler.removeCallbacks(this.gTJ);
+            this.mHandler.postDelayed(this.gTJ, 1000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(p pVar) {
-        if (pVar != null && pVar.getList() != null && pVar.getList().size() > 0 && pVar.getList().get(0).gIP != null && pVar.getList().get(0).gIP.size() > 0) {
+        if (pVar != null && pVar.getList() != null && pVar.getList().size() > 0 && pVar.getList().get(0).gIR != null && pVar.getList().get(0).gIR.size() > 0) {
             AlaBroadcastGiftToastData alaBroadcastGiftToastData = new AlaBroadcastGiftToastData();
             alaBroadcastGiftToastData.localBroadcastType = 2;
             alaBroadcastGiftToastData.receiver = pVar.getList().get(0).getName_show();
@@ -165,7 +165,7 @@ public class j implements com.baidu.live.y.c {
             } else {
                 alaBroadcastGiftToastData.live_id = -1L;
             }
-            alaBroadcastGiftToastData.sender = pVar.getList().get(0).gIP.get(0).getName_show();
+            alaBroadcastGiftToastData.sender = pVar.getList().get(0).gIR.get(0).getName_show();
             alaBroadcastGiftToastData.feed_id = this.bdh;
             alaBroadcastGiftToastData.otherParams = this.otherParams;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913103, alaBroadcastGiftToastData));
@@ -175,73 +175,73 @@ public class j implements com.baidu.live.y.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(p pVar) {
         if (pVar != null) {
-            this.hXO.put(pVar.Wu(), Long.valueOf(pVar.bVf()));
-            if (a(this.hXH, pVar)) {
-                this.hXK = System.currentTimeMillis();
-                eG(f(pVar), b(this.hXH, pVar));
-                this.hXH = pVar;
+            this.hXQ.put(pVar.Wu(), Long.valueOf(pVar.bVg()));
+            if (a(this.hXJ, pVar)) {
+                this.hXM = System.currentTimeMillis();
+                eG(f(pVar), b(this.hXJ, pVar));
+                this.hXJ = pVar;
             } else {
-                this.hXH = pVar;
+                this.hXJ = pVar;
                 if (!this.mHasInited) {
                     this.mHasInited = true;
                     this.mTextView.setText(f(pVar));
                     this.mRootView.setVisibility(0);
-                    this.hzi = BdUtilHelper.getTextWidth(this.mPaint, f(pVar));
+                    this.hzk = BdUtilHelper.getTextWidth(this.mPaint, f(pVar));
                     ViewGroup.LayoutParams layoutParams = this.mTextView.getLayoutParams();
-                    layoutParams.width = this.hzi;
+                    layoutParams.width = this.hzk;
                     this.mTextView.setLayoutParams(layoutParams);
-                } else if (pVar.bVg() != null && !this.hXL) {
+                } else if (pVar.bVh() != null && !this.hXN) {
                     this.mTextView.setText(f(pVar));
-                    this.hzi = BdUtilHelper.getTextWidth(this.mPaint, f(pVar));
+                    this.hzk = BdUtilHelper.getTextWidth(this.mPaint, f(pVar));
                     ViewGroup.LayoutParams layoutParams2 = this.mTextView.getLayoutParams();
-                    layoutParams2.width = this.hzi;
+                    layoutParams2.width = this.hzk;
                     this.mTextView.setLayoutParams(layoutParams2);
                 }
             }
-            this.hWq = pVar.bVe();
+            this.hWs = pVar.bVf();
             startCountDown();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetData() {
-        this.hXK = System.currentTimeMillis();
-        this.hXH = null;
+        this.hXM = System.currentTimeMillis();
+        this.hXJ = null;
     }
 
     private boolean a(p pVar, p pVar2) {
-        if (pVar2 == null || System.currentTimeMillis() - this.hXK < this.hXJ * 1000 || pVar == null || pVar.bVg() == null) {
+        if (pVar2 == null || System.currentTimeMillis() - this.hXM < this.hXL * 1000 || pVar == null || pVar.bVh() == null) {
             return false;
         }
-        if (pVar.bVg().aJa > 0 || pVar2.bVg().aJa <= 0) {
-            return (pVar.bVg().aJa > 0 || pVar2.bVg().aJa > 0) ? true : true;
+        if (pVar.bVh().aJa > 0 || pVar2.bVh().aJa <= 0) {
+            return (pVar.bVh().aJa > 0 || pVar2.bVh().aJa > 0) ? true : true;
         }
         return false;
     }
 
     private String f(p pVar) {
-        if (pVar.bVg().aJa < 1) {
+        if (pVar.bVh().aJa < 1) {
             return this.mContext.getString(a.h.hour_rank_list_entry_no);
         }
-        return String.format(this.mContext.getString(a.h.hour_rank_list_entry_text_def), StringHelper.formatForHourRankValue(pVar.bVg().aJa) + "");
+        return String.format(this.mContext.getString(a.h.hour_rank_list_entry_text_def), StringHelper.formatForHourRankValue(pVar.bVh().aJa) + "");
     }
 
     private String b(p pVar, p pVar2) {
-        if (pVar.bVg().aJa == pVar2.bVg().aJa) {
-            this.hXM = "change";
-            if (pVar2.bVg().aJa <= 0) {
+        if (pVar.bVh().aJa == pVar2.bVh().aJa) {
+            this.hXO = "change";
+            if (pVar2.bVh().aJa <= 0) {
                 return this.mContext.getString(a.h.hour_rank_list_entry_diff_no);
             }
-            if (pVar2.bVg().aJa == 1) {
-                return String.format(this.mContext.getString(a.h.hour_rank_list_entry_diff_down), StringHelper.formatForHourRankValue(pVar2.bVg().aJb - pVar2.bVg().aJd) + "");
-            } else if (pVar2.bVg().aJa <= 1) {
+            if (pVar2.bVh().aJa == 1) {
+                return String.format(this.mContext.getString(a.h.hour_rank_list_entry_diff_down), StringHelper.formatForHourRankValue(pVar2.bVh().aJb - pVar2.bVh().aJd) + "");
+            } else if (pVar2.bVh().aJa <= 1) {
                 return "";
             } else {
-                return String.format(this.mContext.getString(a.h.hour_rank_list_entry_diff_up), StringHelper.formatForHourRankValue((pVar2.bVg().aJc - pVar2.bVg().aJb) + 1) + "");
+                return String.format(this.mContext.getString(a.h.hour_rank_list_entry_diff_up), StringHelper.formatForHourRankValue((pVar2.bVh().aJc - pVar2.bVh().aJb) + 1) + "");
             }
         }
-        this.hXM = "up_down";
-        int i = pVar2.bVg().aJa - pVar.bVg().aJa;
+        this.hXO = "up_down";
+        int i = pVar2.bVh().aJa - pVar.bVh().aJa;
         return i < 0 ? String.format(this.mContext.getString(a.h.hour_rank_list_entry_updown_up), (-i) + "") : i > 0 ? String.format(this.mContext.getString(a.h.hour_rank_list_entry_updown_down), i + "") : "";
     }
 
@@ -270,26 +270,26 @@ public class j implements com.baidu.live.y.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ji(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new s(this.mContext, this.aLE, this.mUserId, this.mUserName, str, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, this.mIsHost, this.mPortrait, this.otherParams, this.bdh, this.ggZ, this.hXH == null ? com.baidu.live.utils.j.gD(0) : this.hXH.Wu())));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new s(this.mContext, this.aLE, this.mUserId, this.mUserName, str, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, this.mIsHost, this.mPortrait, this.otherParams, this.bdh, this.ghb, this.hXJ == null ? com.baidu.live.utils.j.gD(0) : this.hXJ.Wu())));
     }
 
     @Override // com.baidu.live.y.c
     public void setCanVisible(boolean z) {
-        this.gBW = z;
+        this.gBY = z;
     }
 
     @Override // com.baidu.live.y.c
     public void QT() {
-        this.hXI = false;
-        if (this.hXG != null) {
-            this.hXG.l(this.mUserId, "");
+        this.hXK = false;
+        if (this.hXI != null) {
+            this.hXI.l(this.mUserId, "");
         }
     }
 
     @Override // com.baidu.live.y.c
     public void QU() {
-        this.hXI = true;
-        this.mHandler.removeCallbacks(this.hXP);
+        this.hXK = true;
+        this.mHandler.removeCallbacks(this.hXR);
     }
 
     private void eG(final String str, String str2) {
@@ -300,7 +300,7 @@ public class j implements com.baidu.live.y.c {
             layoutParams.width = textWidth;
             this.mTextView.setLayoutParams(layoutParams);
         }
-        if (textWidth > this.hzi) {
+        if (textWidth > this.hzk) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mTextView, "translationX", 0.0f, -this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds190));
             ofFloat.setDuration(2800L);
             ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.j.5
@@ -323,7 +323,7 @@ public class j implements com.baidu.live.y.c {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mTextView.getLayoutParams();
             layoutParams.width = textWidth;
             textView.setLayoutParams(layoutParams);
-            this.hzi = textWidth;
+            this.hzk = textWidth;
         }
     }
 
@@ -332,8 +332,8 @@ public class j implements com.baidu.live.y.c {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hXG != null) {
-            this.hXG.destory();
+        if (this.hXI != null) {
+            this.hXI.destory();
         }
     }
 }

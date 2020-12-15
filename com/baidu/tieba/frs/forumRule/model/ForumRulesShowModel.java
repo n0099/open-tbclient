@@ -32,53 +32,53 @@ import tbclient.PbContent;
 /* loaded from: classes22.dex */
 public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     private int aZE;
-    private String jhZ;
-    private a.InterfaceC0742a jha;
-    private ForumRulesShowActivity jhs;
-    private b jia;
-    private ForumRuleBaseData jib;
-    private com.baidu.adp.framework.listener.a jic;
+    private a.InterfaceC0742a jhc;
+    private ForumRulesShowActivity jhu;
+    private String jib;
+    private b jic;
+    private ForumRuleBaseData jie;
+    private com.baidu.adp.framework.listener.a jif;
     private String mForumId;
     private String mForumName;
     private String mFrom;
 
     public ForumRulesShowModel(ForumRulesShowActivity forumRulesShowActivity) {
         super(forumRulesShowActivity.getPageContext());
-        this.jia = null;
-        this.jib = null;
-        this.jic = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_RULES_SHOW, 309690) { // from class: com.baidu.tieba.frs.forumRule.model.ForumRulesShowModel.1
+        this.jic = null;
+        this.jie = null;
+        this.jif = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_RULES_SHOW, 309690) { // from class: com.baidu.tieba.frs.forumRule.model.ForumRulesShowModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
-                    if (ForumRulesShowModel.this.jha != null) {
-                        ForumRulesShowModel.this.jha.bDm();
+                    if (ForumRulesShowModel.this.jhc != null) {
+                        ForumRulesShowModel.this.jhc.bDm();
                     }
                 } else if (ForumRulesShowModel.this.getUniqueId() != responsedMessage.getOrginalMessage().getTag()) {
-                    if (ForumRulesShowModel.this.jha != null) {
-                        ForumRulesShowModel.this.jha.bDm();
+                    if (ForumRulesShowModel.this.jhc != null) {
+                        ForumRulesShowModel.this.jhc.bDm();
                     }
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    if (ForumRulesShowModel.this.jha != null) {
-                        ForumRulesShowModel.this.jha.bDm();
+                    if (ForumRulesShowModel.this.jhc != null) {
+                        ForumRulesShowModel.this.jhc.bDm();
                     }
                 } else {
                     if (responsedMessage instanceof ForumRuleDetailHttpResMsg) {
-                        ForumRulesShowModel.this.jia = ((ForumRuleDetailHttpResMsg) responsedMessage).getmForumRuleDetailData();
+                        ForumRulesShowModel.this.jic = ((ForumRuleDetailHttpResMsg) responsedMessage).getmForumRuleDetailData();
                     } else if (responsedMessage instanceof ForumRuleDetailScoketResMsg) {
-                        ForumRulesShowModel.this.jia = ((ForumRuleDetailScoketResMsg) responsedMessage).getmForumRuleDetailData();
+                        ForumRulesShowModel.this.jic = ((ForumRuleDetailScoketResMsg) responsedMessage).getmForumRuleDetailData();
                     }
-                    if (ForumRulesShowModel.this.jia != null && ForumRulesShowModel.this.jha != null) {
-                        ForumRulesShowModel.this.jha.t(ForumRulesShowModel.this.jia.cGE() == 2, ForumRulesShowModel.this.jia.cGF());
-                        ForumRulesShowModel.this.jha.KT(ForumRulesShowModel.this.jia.getTitle());
-                        ForumRulesShowModel.this.jha.a(ForumRulesShowModel.this.jia);
-                        ForumRulesShowModel.this.cGP();
-                        ForumRulesShowModel.this.jha.a(ForumRulesShowModel.this.jia.cGJ());
-                        ForumRulesShowModel.this.jha.finish();
+                    if (ForumRulesShowModel.this.jic != null && ForumRulesShowModel.this.jhc != null) {
+                        ForumRulesShowModel.this.jhc.t(ForumRulesShowModel.this.jic.cGF() == 2, ForumRulesShowModel.this.jic.cGG());
+                        ForumRulesShowModel.this.jhc.KT(ForumRulesShowModel.this.jic.getTitle());
+                        ForumRulesShowModel.this.jhc.a(ForumRulesShowModel.this.jic);
+                        ForumRulesShowModel.this.cGQ();
+                        ForumRulesShowModel.this.jhc.a(ForumRulesShowModel.this.jic.cGK());
+                        ForumRulesShowModel.this.jhc.finish();
                     }
                 }
             }
         };
-        this.jhs = forumRulesShowActivity;
+        this.jhu = forumRulesShowActivity;
         bjQ();
         initListener();
     }
@@ -95,8 +95,8 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
 
     public void ao(Bundle bundle) {
         setUniqueId(getUniqueId());
-        if (bundle == null && this.jhs != null) {
-            initWithIntent(this.jhs.getIntent());
+        if (bundle == null && this.jhu != null) {
+            initWithIntent(this.jhu.getIntent());
         } else {
             initWithBundle(bundle);
         }
@@ -107,22 +107,22 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
             this.mForumId = intent.getStringExtra("forum_id");
             this.mFrom = intent.getStringExtra("from");
             this.mForumName = intent.getStringExtra("forum_name");
-            this.jhZ = intent.getStringExtra("url");
+            this.jib = intent.getStringExtra("url");
             this.aZE = intent.getIntExtra(IntentConfig.USER_LEVEL, 1);
-            this.jhs.setFrom(this.mFrom);
+            this.jhu.setFrom(this.mFrom);
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom)) {
-                this.jib = (ForumRuleBaseData) intent.getSerializableExtra("datas");
-                cGO();
+                this.jie = (ForumRuleBaseData) intent.getSerializableExtra("datas");
+                cGP();
                 return;
             }
             sendMessage();
         }
     }
 
-    private void cGO() {
-        if (this.jib != null) {
-            this.jha.t(false, "");
-            this.jha.KT(this.jib.getTitle());
+    private void cGP() {
+        if (this.jie != null) {
+            this.jhc.t(false, "");
+            this.jhc.KT(this.jie.getTitle());
             b bVar = new b();
             BawuRoleInfoPub.Builder builder = new BawuRoleInfoPub.Builder();
             builder.portrait = TbadkCoreApplication.getCurrentPortrait();
@@ -133,16 +133,16 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
             builder2.forum_name = this.mForumName;
             bVar.a(builder2.build(true));
             bVar.qE(false);
-            bVar.setPreface(this.jib.getPreface());
-            this.jha.a(bVar);
-            cGP();
+            bVar.setPreface(this.jie.getPreface());
+            this.jhc.a(bVar);
+            cGQ();
             com.baidu.tieba.frs.forumRule.c.a aVar = new com.baidu.tieba.frs.forumRule.c.a();
             aVar.Be(this.mForumName);
-            aVar.setAvatar(this.jhZ);
+            aVar.setAvatar(this.jib);
             aVar.setName_show(TbadkApplication.getCurrentAccountNameShow());
             aVar.setPortrait(TbadkApplication.getCurrentPortrait());
-            this.jha.a(aVar);
-            this.jha.finish();
+            this.jhc.a(aVar);
+            this.jhc.finish();
         }
     }
 
@@ -163,7 +163,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     }
 
     private void initListener() {
-        registerListener(this.jic);
+        registerListener(this.jif);
     }
 
     private void bjQ() {
@@ -175,27 +175,27 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGP() {
+    public void cGQ() {
         ArrayList arrayList = new ArrayList();
         dp(arrayList);
-        if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom) && this.jib != null) {
-            List<ForumRuleBaseData.ForumRuleItemData> list = this.jib.getList();
+        if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom) && this.jie != null) {
+            List<ForumRuleBaseData.ForumRuleItemData> list = this.jie.getList();
             if (list != null && list.size() > 0) {
                 for (ForumRuleBaseData.ForumRuleItemData forumRuleItemData : list) {
                     arrayList.add(a(forumRuleItemData));
                 }
             }
         } else {
-            List<ForumRule> cGD = this.jia.cGD();
-            if (cGD != null && cGD.size() > 0) {
-                for (ForumRule forumRule : cGD) {
+            List<ForumRule> cGE = this.jic.cGE();
+            if (cGE != null && cGE.size() > 0) {
+                for (ForumRule forumRule : cGE) {
                     c cVar = new c();
                     cVar.a(forumRule);
                     arrayList.add(cVar);
                 }
             }
         }
-        this.jha.dm(arrayList);
+        this.jhc.dm(arrayList);
     }
 
     private c a(ForumRuleBaseData.ForumRuleItemData forumRuleItemData) {
@@ -286,11 +286,11 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     }
 
     public void a(a.InterfaceC0742a interfaceC0742a) {
-        this.jha = interfaceC0742a;
+        this.jhc = interfaceC0742a;
     }
 
     public void destory() {
-        this.jhs = null;
-        MessageManager.getInstance().unRegisterListener(this.jic);
+        this.jhu = null;
+        MessageManager.getInstance().unRegisterListener(this.jif);
     }
 }

@@ -15,11 +15,11 @@ import java.util.List;
 public class c {
     private long brr;
     private CommonEmptyView btg;
-    private PbListView gDK;
-    private long ggj;
-    private long hiF;
-    private com.baidu.tieba.ala.liveroom.challenge.adapter.a hoC;
-    private a hoD;
+    private PbListView gDM;
+    private long ggl;
+    private long hiH;
+    private com.baidu.tieba.ala.liveroom.challenge.adapter.a hoE;
+    private a hoF;
     private boolean mIsHost;
     private BdListView mListView;
     private View mRootView;
@@ -28,7 +28,7 @@ public class c {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void cei();
+        void cej();
 
         void onScrollToBottom();
     }
@@ -41,11 +41,11 @@ public class c {
     }
 
     public void c(long j, long j2, long j3) {
-        this.hiF = j;
+        this.hiH = j;
         this.brr = j2;
-        this.ggj = j3;
-        if (this.hoC != null) {
-            this.hoC.a(this.mType, this.brr, this.ggj, this.mIsHost);
+        this.ggl = j3;
+        if (this.hoE != null) {
+            this.hoE.a(this.mType, this.brr, this.ggl, this.mIsHost);
         }
     }
 
@@ -56,23 +56,23 @@ public class c {
         this.mListView.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.c.1
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
-                if (c.this.hoD != null) {
-                    c.this.hoD.onScrollToBottom();
+                if (c.this.hoF != null) {
+                    c.this.hoF.onScrollToBottom();
                 }
             }
         });
-        this.hoC = new com.baidu.tieba.ala.liveroom.challenge.adapter.a(this.mTbPageContext);
-        this.mListView.setAdapter((ListAdapter) this.hoC);
-        this.gDK = new PbListView(this.mTbPageContext.getPageActivity());
-        this.gDK.setTextColor(this.mTbPageContext.getResources().getColor(a.c.sdk_white_alpha50));
-        this.gDK.setSkinType(0);
-        this.gDK.setContainerBackgroundColorResId(a.c.sdk_transparent);
-        this.gDK.createView();
+        this.hoE = new com.baidu.tieba.ala.liveroom.challenge.adapter.a(this.mTbPageContext);
+        this.mListView.setAdapter((ListAdapter) this.hoE);
+        this.gDM = new PbListView(this.mTbPageContext.getPageActivity());
+        this.gDM.setTextColor(this.mTbPageContext.getResources().getColor(a.c.sdk_white_alpha50));
+        this.gDM.setSkinType(0);
+        this.gDM.setContainerBackgroundColorResId(a.c.sdk_transparent);
+        this.gDM.createView();
     }
 
     public void setData(List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
-        if (this.hoC != null) {
-            this.hoC.setData(list);
+        if (this.hoE != null) {
+            this.hoE.setData(list);
         }
         if (this.mListView != null) {
             this.mListView.setVisibility(0);
@@ -86,30 +86,30 @@ public class c {
         return this.mRootView;
     }
 
-    public void bSa() {
-        if (this.gDK != null) {
-            if (this.gDK.getView().getParent() == null) {
-                this.mListView.setNextPage(this.gDK);
-            }
-            this.gDK.setHeight(BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds64));
-            this.gDK.setText(this.mTbPageContext.getResources().getString(a.h.ala_challenge_jinzhu_list_no_more));
-            this.gDK.endLoadData();
-        }
-    }
-
     public void bSb() {
-        if (this.gDK != null) {
-            if (this.gDK.getView().getParent() == null) {
-                this.mListView.setNextPage(this.gDK);
+        if (this.gDM != null) {
+            if (this.gDM.getView().getParent() == null) {
+                this.mListView.setNextPage(this.gDM);
             }
-            this.gDK.setHeight(BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds64));
-            this.gDK.startLoadData();
-            this.gDK.setNoMoreTextColorId(this.mTbPageContext.getResources().getColor(a.c.sdk_white_alpha50));
-            this.gDK.setText(this.mTbPageContext.getResources().getString(a.h.ala_challenge_jinzhu_list_is_loading));
+            this.gDM.setHeight(BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds64));
+            this.gDM.setText(this.mTbPageContext.getResources().getString(a.h.ala_challenge_jinzhu_list_no_more));
+            this.gDM.endLoadData();
         }
     }
 
-    public void bSm() {
+    public void bSc() {
+        if (this.gDM != null) {
+            if (this.gDM.getView().getParent() == null) {
+                this.mListView.setNextPage(this.gDM);
+            }
+            this.gDM.setHeight(BdUtilHelper.getDimens(this.mTbPageContext.getPageActivity(), a.d.sdk_ds64));
+            this.gDM.startLoadData();
+            this.gDM.setNoMoreTextColorId(this.mTbPageContext.getResources().getColor(a.c.sdk_white_alpha50));
+            this.gDM.setText(this.mTbPageContext.getResources().getString(a.h.ala_challenge_jinzhu_list_is_loading));
+        }
+    }
+
+    public void bSn() {
         if (this.mListView != null) {
             this.mListView.setNextPage(null);
         }
@@ -119,7 +119,7 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.hoD = aVar;
+        this.hoF = aVar;
     }
 
     public void cC(boolean z) {
@@ -129,8 +129,8 @@ public class c {
                 this.btg.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (c.this.hoD != null) {
-                            c.this.hoD.cei();
+                        if (c.this.hoF != null) {
+                            c.this.hoF.cej();
                         }
                     }
                 });

@@ -15,8 +15,8 @@ import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
 /* loaded from: classes23.dex */
 public class e {
-    private a iOt = null;
-    private com.baidu.adp.framework.listener.a iOu = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
+    private a iOv = null;
+    private com.baidu.adp.framework.listener.a iOw = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -39,14 +39,14 @@ public class e {
                         pVar.zw(e.this.mManagerApplyInfo.assist_left_num.intValue());
                         pVar.KB(e.this.mManagerApplyInfo.assist_apply_url);
                     }
-                    if (e.this.iOt != null) {
-                        e.this.iOt.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (e.this.iOv != null) {
+                        e.this.iOv.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private CustomMessageListener iOv = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
+    private CustomMessageListener iOx = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -62,8 +62,8 @@ public class e {
                     pVar.zw(e.this.mManagerApplyInfo.assist_left_num.intValue());
                     pVar.KB(e.this.mManagerApplyInfo.assist_apply_url);
                 }
-                if (e.this.iOt != null) {
-                    e.this.iOt.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                if (e.this.iOv != null) {
+                    e.this.iOv.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
             }
         }
@@ -78,8 +78,8 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.iOv);
-        MessageManager.getInstance().registerListener(this.iOu);
+        MessageManager.getInstance().registerListener(this.iOx);
+        MessageManager.getInstance().registerListener(this.iOw);
     }
 
     public void gj(long j) {
@@ -95,12 +95,12 @@ public class e {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.iOu);
-        MessageManager.getInstance().unRegisterListener(this.iOv);
+        MessageManager.getInstance().unRegisterListener(this.iOw);
+        MessageManager.getInstance().unRegisterListener(this.iOx);
     }
 
     public void a(a aVar) {
-        this.iOt = aVar;
+        this.iOv = aVar;
     }
 
     public ArrayList<i> a(BawuTeam bawuTeam) {

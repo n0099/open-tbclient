@@ -9,8 +9,8 @@ import com.baidu.tieba.card.ab;
 public abstract class a {
     protected b.a agH;
     protected TbPageContext eNx;
-    protected ab lUD;
-    protected OriginalThreadInfo lUE;
+    protected ab lUF;
+    protected OriginalThreadInfo lUG;
     protected int mSkinType = 3;
 
     public abstract void g(OriginalThreadInfo originalThreadInfo);
@@ -24,7 +24,7 @@ public abstract class a {
     }
 
     public void a(ab abVar) {
-        this.lUD = abVar;
+        this.lUF = abVar;
     }
 
     public void a(b.a aVar) {

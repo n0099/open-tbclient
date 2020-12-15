@@ -19,31 +19,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static a owL;
+    private static a owN;
     private cc aRX;
-    private HttpMessageListener hTr;
-    private List<at> owM;
-    private List<at> owN;
-    private boolean owO = false;
+    private HttpMessageListener hTt;
+    private List<at> owO;
+    private List<at> owP;
+    private boolean owQ = false;
 
     private a() {
     }
 
-    public static a efI() {
-        if (owL == null) {
+    public static a efJ() {
+        if (owN == null) {
             synchronized (a.class) {
-                if (owL == null) {
-                    owL = new a();
+                if (owN == null) {
+                    owN = new a();
                 }
             }
         }
-        return owL;
+        return owN;
     }
 
     public void bes() {
         final al alVar = com.baidu.live.ae.a.RB().brA;
         if (alVar == null || alVar.aOJ == null || alVar.aOJ.aRX == null) {
-            bXm();
+            bXn();
         } else {
             new BdAsyncTask<cc, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class a {
                 public Boolean doInBackground(cc... ccVarArr) {
                     boolean z = false;
                     if (ccVarArr != null && ccVarArr.length != 0) {
-                        if (!a.this.owO) {
-                            a.this.owO = true;
+                        if (!a.this.owQ) {
+                            a.this.owQ = true;
                             cc ccVar = ccVarArr[0];
                             cc gI = cc.gI(d.BM().getString("audio_live_dating_anim", ""));
                             if (gI != null) {
@@ -91,7 +91,7 @@ public class a {
                     if (bool != null && bool.booleanValue()) {
                         d.BM().putString("audio_live_dating_anim", cc.a(a.this.aRX));
                     }
-                    a.this.efJ();
+                    a.this.efK();
                     a.this.zW(false);
                 }
             }.execute(alVar.aOJ.aRX);
@@ -99,24 +99,24 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void efJ() {
+    public void efK() {
         if (this.aRX != null) {
-            if (this.owM == null) {
-                this.owM = new ArrayList();
+            if (this.owO == null) {
+                this.owO = new ArrayList();
             } else {
-                this.owM.clear();
+                this.owO.clear();
             }
-            ListUtils.add(this.owM, this.aRX.FX());
-            ListUtils.add(this.owM, this.aRX.FU());
-            ListUtils.add(this.owM, this.aRX.FV());
-            ListUtils.add(this.owM, this.aRX.FW());
+            ListUtils.add(this.owO, this.aRX.FX());
+            ListUtils.add(this.owO, this.aRX.FU());
+            ListUtils.add(this.owO, this.aRX.FV());
+            ListUtils.add(this.owO, this.aRX.FW());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void zW(final boolean z) {
-        if (!ListUtils.isEmpty(z ? this.owN : this.owM)) {
-            final at gz = gz(z ? this.owN : this.owM);
+        if (!ListUtils.isEmpty(z ? this.owP : this.owO)) {
+            final at gz = gz(z ? this.owP : this.owO);
             if (gz == null) {
                 zW(z);
             } else {
@@ -124,21 +124,21 @@ public class a {
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.a
                     public void zX(boolean z2) {
                         if (!z && !z2) {
-                            if (a.this.owN == null) {
-                                a.this.owN = new ArrayList();
+                            if (a.this.owP == null) {
+                                a.this.owP = new ArrayList();
                             }
-                            a.this.owN.add(gz);
+                            a.this.owP.add(gz);
                         }
-                        a.this.zW(z || ListUtils.isEmpty(a.this.owM));
+                        a.this.zW(z || ListUtils.isEmpty(a.this.owO));
                     }
                 });
             }
         }
     }
 
-    private void bXm() {
-        if (this.hTr == null) {
-            this.hTr = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.3
+    private void bXn() {
+        if (this.hTt == null) {
+            this.hTt = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -147,7 +147,7 @@ public class a {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hTr);
+            MessageManager.getInstance().registerListener(this.hTt);
         }
     }
 

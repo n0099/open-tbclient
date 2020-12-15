@@ -22,10 +22,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class a {
-    private static a mIk = new a();
+    private static a mIm = new a();
     private static DownloadData ftI = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private C0854a mIl = null;
+    private C0854a mIn = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
     private Handler ftK = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
@@ -46,8 +46,8 @@ public class a {
     private a() {
     }
 
-    public static a dFk() {
-        return mIk;
+    public static a dFl() {
+        return mIm;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -112,8 +112,8 @@ public class a {
         if (ftI == null && !com.baidu.tieba.lego.card.d.a.isEmpty(mTaskList)) {
             ftI = (DownloadData) com.baidu.tieba.lego.card.d.a.l(mTaskList, 0);
             if (ftI != null) {
-                this.mIl = new C0854a();
-                this.mIl.execute(ftI);
+                this.mIn = new C0854a();
+                this.mIn.execute(ftI);
             }
         }
     }
@@ -125,10 +125,10 @@ public class a {
     public void cancelDownLoadByUrl(String str, boolean z) {
         if (ftI != null && ftI.getUrl().equals(str)) {
             if (z) {
-                this.mIl.cancelImmediately();
+                this.mIn.cancelImmediately();
                 return;
             } else {
-                this.mIl.cancel(true);
+                this.mIn.cancel(true);
                 return;
             }
         }
@@ -171,14 +171,14 @@ public class a {
     /* renamed from: com.baidu.tieba.recapp.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes26.dex */
     public class C0854a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private c mIn = new c();
+        private c mIq = new c();
 
         C0854a() {
         }
 
         public void cancelImmediately() {
-            if (this.mIn != null) {
-                this.mIn.setCancel();
+            if (this.mIq != null) {
+                this.mIq.setCancel();
             }
             cancel(true);
         }
@@ -187,7 +187,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.mIn.setCancel();
+            this.mIq.setCancel();
             a.ftI.setStatus(4);
             a.ftI.setStatusMsg(null);
             if (a.ftI.getCallback() != null) {
@@ -222,8 +222,8 @@ public class a {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.mIn.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.mIn.a(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp", a.this.ftK, 900002, 1, 3000)).booleanValue()) {
+                    this.mIq.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.mIq.a(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp", a.this.ftK, 900002, 1, 3000)).booleanValue()) {
                         return 3;
                     }
                     File GetFile = n.GetFile(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp");

@@ -7,18 +7,18 @@ import com.facebook.imagepipeline.b.p;
 import com.facebook.imagepipeline.c.h;
 /* loaded from: classes15.dex */
 public class i {
-    private final boolean plZ;
-    private final com.facebook.common.internal.j<Boolean> plz;
-    private final b.a pma;
+    private final com.facebook.common.internal.j<Boolean> plB;
     private final boolean pmb;
-    private final com.facebook.common.g.b pmc;
+    private final b.a pmc;
     private final boolean pmd;
-    private final boolean pme;
-    private final int pmf;
-    private final int pmg;
-    private boolean pmh;
-    private final boolean pmi;
-    private final c pmj;
+    private final com.facebook.common.g.b pme;
+    private final boolean pmf;
+    private final boolean pmg;
+    private final int pmh;
+    private final int pmi;
+    private boolean pmj;
+    private final boolean pmk;
+    private final c pml;
 
     /* loaded from: classes15.dex */
     public interface c {
@@ -26,8 +26,6 @@ public class i {
     }
 
     private i(a aVar) {
-        this.plZ = aVar.plZ;
-        this.pma = aVar.pma;
         this.pmb = aVar.pmb;
         this.pmc = aVar.pmc;
         this.pmd = aVar.pmd;
@@ -36,83 +34,85 @@ public class i {
         this.pmg = aVar.pmg;
         this.pmh = aVar.pmh;
         this.pmi = aVar.pmi;
-        if (aVar.pmj == null) {
-            this.pmj = new b();
+        this.pmj = aVar.pmj;
+        this.pmk = aVar.pmk;
+        if (aVar.pml == null) {
+            this.pml = new b();
         } else {
-            this.pmj = aVar.pmj;
+            this.pml = aVar.pml;
         }
-        this.plz = aVar.plz;
-    }
-
-    public boolean eul() {
-        return this.pmd;
+        this.plB = aVar.plB;
     }
 
     public boolean eum() {
-        return this.plZ;
+        return this.pmf;
     }
 
     public boolean eun() {
         return this.pmb;
     }
 
-    public b.a euo() {
-        return this.pma;
+    public boolean euo() {
+        return this.pmd;
     }
 
-    public com.facebook.common.g.b eup() {
+    public b.a eup() {
         return this.pmc;
     }
 
-    public boolean euq() {
+    public com.facebook.common.g.b euq() {
         return this.pme;
     }
 
-    public int eur() {
-        return this.pmf;
-    }
-
-    public int eus() {
+    public boolean eur() {
         return this.pmg;
     }
 
-    public boolean eut() {
-        return this.pmi;
-    }
-
-    public c euu() {
-        return this.pmj;
-    }
-
-    public boolean euv() {
+    public int eus() {
         return this.pmh;
     }
 
-    public com.facebook.common.internal.j<Boolean> euw() {
-        return this.plz;
+    public int eut() {
+        return this.pmi;
+    }
+
+    public boolean euu() {
+        return this.pmk;
+    }
+
+    public c euv() {
+        return this.pml;
+    }
+
+    public boolean euw() {
+        return this.pmj;
+    }
+
+    public com.facebook.common.internal.j<Boolean> eux() {
+        return this.plB;
     }
 
     /* loaded from: classes15.dex */
     public static class a {
-        public com.facebook.common.internal.j<Boolean> plz;
-        private b.a pma;
-        private com.facebook.common.g.b pmc;
-        private c pmj;
-        private final h.a pmk;
-        private boolean plZ = false;
+        public com.facebook.common.internal.j<Boolean> plB;
+        private b.a pmc;
+        private com.facebook.common.g.b pme;
+        private c pml;
+        private final h.a pmm;
         private boolean pmb = false;
         private boolean pmd = false;
-        private boolean pme = false;
-        private int pmf = 0;
-        private int pmg = 0;
-        public boolean pmh = false;
-        private boolean pmi = false;
+        private boolean pmf = false;
+        private boolean pmg = false;
+        private int pmh = 0;
+        private int pmi = 0;
+        public boolean pmj = false;
+        private boolean pmk = false;
 
         public a(h.a aVar) {
-            this.pmk = aVar;
+            this.pmm = aVar;
         }
 
-        public i eux() {
+        public i euy() {
             return new i(this);
         }
     }

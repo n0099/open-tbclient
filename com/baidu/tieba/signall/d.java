@@ -12,15 +12,15 @@ public class d implements ah {
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gxK;
+    private int gxM;
     private boolean isSigned;
-    private int ncD;
-    private int ncE;
     private int ncF;
-    private boolean ncG;
-    private boolean ncH;
+    private int ncG;
+    private int ncH;
     private boolean ncI;
-    private int ncJ;
+    private boolean ncJ;
+    private boolean ncK;
+    private int ncL;
     private int userLevel;
 
     public int getForumId() {
@@ -35,82 +35,82 @@ public class d implements ah {
         return this.avatar;
     }
 
-    public int dMu() {
-        return this.ncD;
-    }
-
     public int dMv() {
-        return this.gxK;
-    }
-
-    public int bLB() {
-        return this.userLevel;
-    }
-
-    public int dMw() {
-        return this.ncE;
-    }
-
-    public int dMx() {
         return this.ncF;
     }
 
+    public int dMw() {
+        return this.gxM;
+    }
+
+    public int bLC() {
+        return this.userLevel;
+    }
+
+    public int dMx() {
+        return this.ncG;
+    }
+
+    public int dMy() {
+        return this.ncH;
+    }
+
     public void KB(int i) {
-        this.ncD = i;
+        this.ncF = i;
     }
 
     public void KC(int i) {
-        this.gxK = i;
+        this.gxM = i;
     }
 
     public void setUserLevel(int i) {
         this.userLevel = i;
     }
 
-    public boolean bSP() {
+    public boolean bSQ() {
         return this.isSigned;
     }
 
     public void xL(boolean z) {
         this.isSigned = z;
-        this.ncD = 1;
-    }
-
-    public boolean dMy() {
-        return this.ncH;
-    }
-
-    public void xM(boolean z) {
-        this.ncH = z;
-        this.ncD = 0;
+        this.ncF = 1;
     }
 
     public boolean dMz() {
-        return this.ncI;
-    }
-
-    public void xN(boolean z) {
-        this.ncI = z;
-    }
-
-    public int dMA() {
         return this.ncJ;
     }
 
+    public void xM(boolean z) {
+        this.ncJ = z;
+        this.ncF = 0;
+    }
+
+    public boolean dMA() {
+        return this.ncK;
+    }
+
+    public void xN(boolean z) {
+        this.ncK = z;
+    }
+
+    public int dMB() {
+        return this.ncL;
+    }
+
     public void KD(int i) {
-        this.ncJ = i;
+        this.ncL = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean dMB() {
-        return this.ncG;
+    public boolean dMC() {
+        return this.ncI;
     }
 
     public void xO(boolean z) {
-        this.ncG = z;
+        this.ncI = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -118,14 +118,14 @@ public class d implements ah {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.ncD = jSONObject.optInt("is_sign_in");
-            this.gxK = jSONObject.optInt("cont_sign_num");
+            this.ncF = jSONObject.optInt("is_sign_in");
+            this.gxM = jSONObject.optInt("cont_sign_num");
             this.userLevel = jSONObject.optInt(IntentConfig.USER_LEVEL);
-            this.ncE = jSONObject.optInt("user_exp");
-            this.ncF = jSONObject.optInt("need_exp");
-            if (this.ncD != 0) {
+            this.ncG = jSONObject.optInt("user_exp");
+            this.ncH = jSONObject.optInt("need_exp");
+            if (this.ncF != 0) {
                 this.isSigned = true;
-                this.ncH = false;
+                this.ncJ = false;
             }
         }
     }

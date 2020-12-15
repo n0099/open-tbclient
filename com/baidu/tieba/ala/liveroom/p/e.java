@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel {
-    private a hzc;
-    private HttpMessageListener hzd;
+    private a hze;
+    private HttpMessageListener hzf;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -23,25 +23,25 @@ public class e extends BdBaseModel {
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hzd = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.p.e.1
+        this.hzf = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.p.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (e.this.hzc != null) {
+                    if (e.this.hze != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            e.this.hzc.bh(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            e.this.hze.bh(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            e.this.hzc.a(alaDiversionInfoResponseMessage.ciU());
+                            e.this.hze.a(alaDiversionInfoResponseMessage.ciV());
                         }
                     }
                 }
             }
         };
-        this.hzc = aVar;
+        this.hze = aVar;
         initTasks();
-        registerListener(this.hzd);
+        registerListener(this.hzf);
     }
 
     private void initTasks() {

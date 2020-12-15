@@ -12,7 +12,7 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
     private TextView aGc;
-    private String hCV;
+    private String hCX;
     private String mName;
 
     public TurnTableLuckyBubbleView(Context context) {
@@ -25,10 +25,10 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str, String str2) {
-        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.hCV) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.hCV.equals(str2)) {
+        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.hCX) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.hCX.equals(str2)) {
             this.mName = str;
-            this.hCV = str2;
-            this.aGc.setText(!TextUtils.isEmpty(this.hCV) ? this.mName + "x" + this.hCV : this.mName);
+            this.hCX = str2;
+            this.aGc.setText(!TextUtils.isEmpty(this.hCX) ? this.mName + "x" + this.hCX : this.mName);
         }
     }
 

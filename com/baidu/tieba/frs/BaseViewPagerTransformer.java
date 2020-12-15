@@ -13,11 +13,11 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         r(view, f);
     }
 
-    protected boolean cBk() {
+    protected boolean cBl() {
         return true;
     }
 
-    protected boolean cBl() {
+    protected boolean cBm() {
         return false;
     }
 
@@ -32,8 +32,8 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         view.setPivotX(0.0f);
         view.setPivotY(0.0f);
         view.setTranslationY(0.0f);
-        view.setTranslationX(cBl() ? 0.0f : (-width) * f);
-        if (cBk()) {
+        view.setTranslationX(cBm() ? 0.0f : (-width) * f);
+        if (cBl()) {
             if (f > -1.0f && f < 1.0f) {
                 f2 = 1.0f;
             }

@@ -10,10 +10,10 @@ public class d {
     public String groupName;
     public boolean isAcceptNotify;
     public long lastTime;
-    public int mRY;
-    public String mRZ = "";
-    public long mSa;
-    public boolean mrk;
+    public int mSa;
+    public String mSb = "";
+    public long mSc;
+    public boolean mrm;
     public long msgId;
     public int msgType;
     public String nameShow;
@@ -37,7 +37,7 @@ public class d {
     }
 
     private static void e(d dVar) {
-        dVar.mRY = 0;
+        dVar.mSa = 0;
         dVar.msgType = 4;
         dVar.customGroupType = 4;
         dVar.lastTime = System.currentTimeMillis();

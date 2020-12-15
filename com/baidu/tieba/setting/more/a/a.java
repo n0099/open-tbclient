@@ -11,14 +11,14 @@ import java.io.File;
 /* loaded from: classes26.dex */
 public class a {
     private Context context;
-    private b mXZ;
-    private String mYa = null;
-    private boolean mYb = false;
-    private b.a mYc = new b.a() { // from class: com.baidu.tieba.setting.more.a.a.1
+    private b mYb;
+    private String mYc = null;
+    private boolean mYd = false;
+    private b.a mYe = new b.a() { // from class: com.baidu.tieba.setting.more.a.a.1
         @Override // com.baidu.tieba.setting.more.a.b.a
-        public void dKy() {
-            if (a.this.mYb) {
-                a.this.mYb = false;
+        public void dKz() {
+            if (a.this.mYd) {
+                a.this.mYd = false;
                 e.mY().post(new Runnable() { // from class: com.baidu.tieba.setting.more.a.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -33,23 +33,23 @@ public class a {
         this.context = context;
     }
 
-    public void dKu() {
-        String dKx = dKx();
-        if (!TextUtils.isEmpty(dKx)) {
+    public void dKv() {
+        String dKy = dKy();
+        if (!TextUtils.isEmpty(dKy)) {
             stop();
-            if (c.SN(dKx) && E(dKx, "instant", true)) {
-                this.mYb = true;
+            if (c.SN(dKy) && E(dKy, "instant", true)) {
+                this.mYd = true;
                 BdToast.a(this.context, this.context.getString(R.string.logcat_collect_start), 0).brB();
             }
         }
     }
 
-    public void dKv() {
+    public void dKw() {
         stop();
     }
 
-    public boolean dKw() {
-        return this.mYb;
+    public boolean dKx() {
+        return this.mYd;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.setting.more.a.b */
@@ -61,27 +61,27 @@ public class a {
         } catch (Exception e) {
             BdLog.e(e);
         } finally {
-            this.mXZ.a(null);
-            this.mXZ = null;
+            this.mYb.a(null);
+            this.mYb = null;
         }
-        if (this.mXZ != null) {
-            this.mXZ.dKz();
+        if (this.mYb != null) {
+            this.mYb.dKA();
         }
-        this.mYb = false;
+        this.mYd = false;
     }
 
     private boolean E(String str, String str2, boolean z) {
-        if (this.mXZ == null) {
+        if (this.mYb == null) {
             SM(str);
-            this.mXZ = new b(str, str2, z);
-            this.mXZ.a(this.mYc);
+            this.mYb = new b(str, str2, z);
+            this.mYb.a(this.mYe);
             try {
-                this.mXZ.start();
+                this.mYb.start();
                 return true;
             } catch (IllegalThreadStateException e) {
                 return true;
             } catch (Exception e2) {
-                this.mXZ = null;
+                this.mYb = null;
                 BdLog.e(e2);
                 return false;
             }
@@ -103,16 +103,16 @@ public class a {
         }
     }
 
-    private String dKx() {
-        if (!TextUtils.isEmpty(this.mYa)) {
-            return this.mYa;
+    private String dKy() {
+        if (!TextUtils.isEmpty(this.mYc)) {
+            return this.mYc;
         }
-        this.mYa = c.dKB();
-        if (TextUtils.isEmpty(this.mYa)) {
-            this.mYa = c.dKC();
-        } else if (!this.mYa.endsWith(File.separator)) {
-            this.mYa += File.separator;
+        this.mYc = c.dKC();
+        if (TextUtils.isEmpty(this.mYc)) {
+            this.mYc = c.dKD();
+        } else if (!this.mYc.endsWith(File.separator)) {
+            this.mYc += File.separator;
         }
-        return this.mYa;
+        return this.mYc;
     }
 }

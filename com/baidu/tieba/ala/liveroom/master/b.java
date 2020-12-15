@@ -16,16 +16,16 @@ import com.baidu.live.tbadk.TbPageContext;
 public class b extends com.baidu.tieba.ala.liveroom.a {
     private int ajr;
     private TextView fzP;
-    private boolean gBW;
-    private ObjectAnimator hwW;
-    private int hwX;
+    private boolean gBY;
+    private ObjectAnimator hwY;
+    private int hwZ;
     private Context mContext;
     private View mRootView;
 
     public b(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext);
-        this.hwX = 4000;
-        this.gBW = true;
+        this.hwZ = 4000;
+        this.gBY = true;
         this.mContext = tbPageContext.getPageActivity();
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_liveroom_translate_view, (ViewGroup) null);
         this.fzP = (TextView) this.mRootView.findViewById(a.f.translate_content);
@@ -43,33 +43,33 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     public void aJ(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             if (i > 0) {
-                this.hwX = i;
+                this.hwZ = i;
             }
-            if (this.gBW) {
+            if (this.gBY) {
                 this.mRootView.setVisibility(0);
             }
             this.fzP.setText(str);
-            ciD();
+            ciE();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.hwW != null) {
-            this.hwW.cancel();
-            this.hwW = null;
+        if (this.hwY != null) {
+            this.hwY.cancel();
+            this.hwY = null;
         }
     }
 
-    private void ciD() {
+    private void ciE() {
         this.ajr = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
-        this.hwW = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.ajr, -this.ajr);
-        this.hwW.setDuration(this.hwX);
-        this.hwW.start();
+        this.hwY = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.ajr, -this.ajr);
+        this.hwY.setDuration(this.hwZ);
+        this.hwY.start();
     }
 
     public void setCanVisible(boolean z) {
-        this.gBW = z;
+        this.gBY = z;
     }
 
     public void setVisible(int i) {

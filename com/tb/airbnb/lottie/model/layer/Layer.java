@@ -25,15 +25,15 @@ public class Layer {
     private final int Hq;
     private final List<com.tb.airbnb.lottie.e.a<Float>> Hu;
     private final com.tb.airbnb.lottie.e composition;
-    private final LayerType pCI;
+    private final LayerType pCK;
     @Nullable
-    private final j pCJ;
+    private final j pCL;
     @Nullable
-    private final k pCK;
+    private final k pCM;
     @Nullable
-    private final com.tb.airbnb.lottie.model.a.b pCL;
-    private final MatteType pCM;
-    private final l pCx;
+    private final com.tb.airbnb.lottie.model.a.b pCN;
+    private final MatteType pCO;
+    private final l pCz;
     private final List<com.tb.airbnb.lottie.model.content.b> shapes;
 
     /* loaded from: classes20.dex */
@@ -60,11 +60,11 @@ public class Layer {
         this.composition = eVar;
         this.Hg = str;
         this.Hh = j;
-        this.pCI = layerType;
+        this.pCK = layerType;
         this.Hj = j2;
         this.Hk = str2;
         this.EL = list2;
-        this.pCx = lVar;
+        this.pCz = lVar;
         this.Hl = i;
         this.Hm = i2;
         this.Hn = i3;
@@ -72,11 +72,11 @@ public class Layer {
         this.Ce = f2;
         this.Hp = i4;
         this.Hq = i5;
-        this.pCJ = jVar;
-        this.pCK = kVar;
+        this.pCL = jVar;
+        this.pCM = kVar;
         this.Hu = list3;
-        this.pCM = matteType;
-        this.pCL = bVar;
+        this.pCO = matteType;
+        this.pCN = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -129,13 +129,13 @@ public class Layer {
         return this.EL;
     }
 
-    public LayerType eBT() {
-        return this.pCI;
+    public LayerType eBU() {
+        return this.pCK;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType eBU() {
-        return this.pCM;
+    public MatteType eBV() {
+        return this.pCO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -149,8 +149,8 @@ public class Layer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l eBN() {
-        return this.pCx;
+    public l eBO() {
+        return this.pCz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -170,20 +170,20 @@ public class Layer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public j eBV() {
-        return this.pCJ;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public k eBW() {
-        return this.pCK;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public com.tb.airbnb.lottie.model.a.b eBX() {
+    public j eBW() {
         return this.pCL;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public k eBX() {
+        return this.pCM;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public com.tb.airbnb.lottie.model.a.b eBY() {
+        return this.pCN;
     }
 
     public String toString() {

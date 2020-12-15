@@ -13,9 +13,9 @@ public interface a {
 
     void bAB();
 
-    void dUk();
+    void dUl();
 
-    void dxz();
+    void dxA();
 
     void finishPage();
 

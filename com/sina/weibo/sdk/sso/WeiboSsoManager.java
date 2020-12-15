@@ -43,9 +43,9 @@ public final class WeiboSsoManager {
 
     private void initAid() {
         try {
-            this.aid = WeiboSsoSdk.eCl().zi();
+            this.aid = WeiboSsoSdk.eCm().zi();
             if (TextUtils.isEmpty(this.aid)) {
-                this.aid = WeiboSsoSdk.eCl().eCm().zi();
+                this.aid = WeiboSsoSdk.eCm().eCn().zi();
             }
         } catch (Exception e) {
             e.printStackTrace();

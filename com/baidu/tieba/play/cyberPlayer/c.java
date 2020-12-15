@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 /* loaded from: classes.dex */
 public class c {
-    private static OkHttpClient mzi;
-    private static TurbonetContext mzj;
-    private static long mzk = 0;
+    private static OkHttpClient mzk;
+    private static TurbonetContext mzl;
+    private static long mzm = 0;
     private static boolean sInited = false;
 
     public static void init() {
@@ -29,27 +29,27 @@ public class c {
     }
 
     public static OkHttpClient getOkHttpClient() {
-        if (mzi == null) {
-            mzi = build();
+        if (mzk == null) {
+            mzk = build();
         }
-        return mzi;
+        return mzk;
     }
 
     private static OkHttpClient build() {
-        mzj = dCq();
-        OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(mzj);
+        mzl = dCr();
+        OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(mzl);
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
         return builder.build();
     }
 
-    private static TurbonetContext dCq() {
-        TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), dCr());
-        mzj = turbonetContext;
+    private static TurbonetContext dCr() {
+        TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), dCs());
+        mzl = turbonetContext;
         return turbonetContext;
     }
 
-    private static TurbonetConfig dCr() {
+    private static TurbonetConfig dCs() {
         TurbonetConfig turbonetConfig = new TurbonetConfig();
         turbonetConfig.setRequestTimeout(15);
         turbonetConfig.Af(true);
@@ -93,11 +93,11 @@ public class c {
         return turbonetConfig;
     }
 
-    public static long dCs() {
-        if (mzj != null && mzk == 0) {
-            mzk = mzj.ehP();
+    public static long dCt() {
+        if (mzl != null && mzm == 0) {
+            mzm = mzl.ehQ();
         }
-        return mzk;
+        return mzm;
     }
 
     public static String getCachePath() {

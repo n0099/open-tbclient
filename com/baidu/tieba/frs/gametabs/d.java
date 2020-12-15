@@ -26,21 +26,21 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class d {
     private com.baidu.adp.base.e eNZ;
-    private ImageView gMV;
-    private ImageView hlz;
-    private com.baidu.tieba.d.d iVv;
-    private SpecialFrsWebFragment jpG;
-    private ImageView jpH;
+    private ImageView gMX;
+    private ImageView hlB;
+    private com.baidu.tieba.d.d iVx;
+    private SpecialFrsWebFragment jpI;
+    private ImageView jpJ;
     private NavigationBar mNavigationBar;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gametabs.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == d.this.hlz) {
-                d.this.cIs();
-            } else if (d.this.iVv == null || view != d.this.iVv.getView()) {
-                if (view != d.this.gMV) {
-                    if (view == d.this.jpH) {
-                        d.this.showShareDialog(d.this.jpG.E(null, null, null, null));
+            if (view == d.this.hlB) {
+                d.this.cIt();
+            } else if (d.this.iVx == null || view != d.this.iVx.getView()) {
+                if (view != d.this.gMX) {
+                    if (view == d.this.jpJ) {
+                        d.this.showShareDialog(d.this.jpI.E(null, null, null, null));
                     }
                 } else if (!StringUtils.isNull(d.this.getForumId())) {
                     d.this.eNZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(d.this.eNZ.getPageActivity(), d.this.getForumId(), ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
@@ -51,7 +51,7 @@ public class d {
             }
         }
     };
-    private CustomMessageListener iUu = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_REMIND) { // from class: com.baidu.tieba.frs.gametabs.d.2
+    private CustomMessageListener iUw = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_REMIND) { // from class: com.baidu.tieba.frs.gametabs.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -59,8 +59,8 @@ public class d {
             if (customResponsedMessage != null && (customResponsedMessage instanceof NewsRemindMessage) && customResponsedMessage.getCmd() == 2001626 && (newsRemindMessage = (NewsRemindMessage) customResponsedMessage) != null) {
                 int notificationCount = newsRemindMessage.getNotificationCount() + newsRemindMessage.getMsgCount() + newsRemindMessage.getChatCount();
                 boolean z = newsRemindMessage.hasMsgRemind() || newsRemindMessage.hasChatRemind() || newsRemindMessage.hasNotificationRemind();
-                if (d.this.iVv != null) {
-                    d.this.iVv.A(z, notificationCount);
+                if (d.this.iVx != null) {
+                    d.this.iVx.A(z, notificationCount);
                 }
             }
         }
@@ -68,54 +68,54 @@ public class d {
 
     public d(com.baidu.adp.base.e eVar) {
         this.eNZ = eVar;
-        this.iVv = new com.baidu.tieba.d.d(this.eNZ.getPageActivity());
-        this.iVv.getView().setOnClickListener(this.mOnClickListener);
-        this.eNZ.registerListener(this.iUu);
+        this.iVx = new com.baidu.tieba.d.d(this.eNZ.getPageActivity());
+        this.iVx.getView().setOnClickListener(this.mOnClickListener);
+        this.eNZ.registerListener(this.iUw);
     }
 
     public String getForumId() {
-        return this.jpG != null ? this.jpG.getForumId() : "";
+        return this.jpI != null ? this.jpI.getForumId() : "";
     }
 
     public String getForumName() {
-        return this.jpG != null ? this.jpG.getForumName() : "";
+        return this.jpI != null ? this.jpI.getForumName() : "";
     }
 
-    public NavigationBar bVK() {
+    public NavigationBar bVL() {
         return this.mNavigationBar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jpG != null && this.mNavigationBar != null) {
+        if (this.jpI != null && this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.eNZ, i);
             ap.setViewTextColor(this.mNavigationBar.mTextTitle, R.color.CAM_X0105, 1);
             ap.setViewTextColor(this.mNavigationBar.mCenterText, R.color.CAM_X0105, 1);
             ap.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.CAM_X0204);
-            SvgManager.btW().a(this.hlz, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            if (this.iVv != null) {
-                this.iVv.onChangeSkinType(i);
+            SvgManager.btW().a(this.hlB, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            if (this.iVx != null) {
+                this.iVx.onChangeSkinType(i);
             }
-            ap.setNavbarIconSrc(this.gMV, R.drawable.selector_web_topbar_other_black, R.drawable.selector_web_topbar_other_white);
-            SvgManager.btW().a(this.jpH, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            ap.setNavbarIconSrc(this.gMX, R.drawable.selector_web_topbar_other_black, R.drawable.selector_web_topbar_other_white);
+            SvgManager.btW().a(this.jpJ, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
     public void a(NavigationBar navigationBar, SpecialFrsWebFragment specialFrsWebFragment) {
         this.mNavigationBar = navigationBar;
-        this.jpG = specialFrsWebFragment;
+        this.jpI = specialFrsWebFragment;
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.getBarBgView().setAlpha(1.0f);
         this.mNavigationBar.setCenterTextTitle(getForumName());
-        this.hlz = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(R.id.widget_navi_back_button);
-        this.hlz.setOnClickListener(this.mOnClickListener);
+        this.hlB = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(R.id.widget_navi_back_button);
+        this.hlB.setOnClickListener(this.mOnClickListener);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds24), 0);
-        this.jpH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.special_frs_web_navigation_share, (View.OnClickListener) null);
-        this.jpH.setLayoutParams(layoutParams);
-        this.jpH.setOnClickListener(this.mOnClickListener);
-        this.gMV = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
-        this.gMV.setLayoutParams(layoutParams);
-        this.gMV.setOnClickListener(this.mOnClickListener);
+        this.jpJ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.special_frs_web_navigation_share, (View.OnClickListener) null);
+        this.jpJ.setLayoutParams(layoutParams);
+        this.jpJ.setOnClickListener(this.mOnClickListener);
+        this.gMX = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_forum_info_item, (View.OnClickListener) null);
+        this.gMX.setLayoutParams(layoutParams);
+        this.gMX.setOnClickListener(this.mOnClickListener);
         setNavBarVisibility(specialFrsWebFragment.isNeedShowNavigationBar());
         iJ(specialFrsWebFragment.isNeedShowShareItem());
         qL(specialFrsWebFragment.isNeedShowMenuItem());
@@ -123,15 +123,15 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIs() {
+    public void cIt() {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
         customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, this.eNZ.getUniqueId()));
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
 
     public void showShareDialog(ShareItem shareItem) {
-        if (this.jpG != null) {
-            this.jpG.showShareDialog(shareItem);
+        if (this.jpI != null) {
+            this.jpI.showShareDialog(shareItem);
         }
     }
 
@@ -142,14 +142,14 @@ public class d {
     }
 
     public void iJ(boolean z) {
-        if (this.jpH != null) {
-            this.jpH.setVisibility(z ? 0 : 8);
+        if (this.jpJ != null) {
+            this.jpJ.setVisibility(z ? 0 : 8);
         }
     }
 
     public void qL(boolean z) {
-        if (this.gMV != null) {
-            this.gMV.setVisibility(z ? 0 : 8);
+        if (this.gMX != null) {
+            this.gMX.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -157,6 +157,6 @@ public class d {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.release();
         }
-        MessageManager.getInstance().unRegisterListener(this.iUu);
+        MessageManager.getInstance().unRegisterListener(this.iUw);
     }
 }

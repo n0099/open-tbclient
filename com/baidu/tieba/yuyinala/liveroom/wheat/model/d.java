@@ -12,17 +12,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaCancelApplyOrCancelInv
 /* loaded from: classes4.dex */
 public class d extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oxH;
+    private a oxJ;
     private HttpMessageListener messageListener = new HttpMessageListener(1031010) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.brR && d.this.oxH != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.brR && d.this.oxJ != null) {
                 AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage = (AlaCancelApplyOrCancelInviteHttpResponseMessage) httpResponsedMessage;
                 if (alaCancelApplyOrCancelInviteHttpResponseMessage.getError() != 0 || !alaCancelApplyOrCancelInviteHttpResponseMessage.isSuccess()) {
-                    d.this.oxH.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
+                    d.this.oxJ.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
                 } else {
-                    d.this.oxH.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
+                    d.this.oxJ.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
                 }
             }
         }
@@ -39,7 +39,7 @@ public class d extends BdBaseModel {
     public d(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.brR);
         this.mPageContext = tbPageContext;
-        this.oxH = aVar;
+        this.oxJ = aVar;
         bjQ();
         registerListener(this.messageListener);
     }

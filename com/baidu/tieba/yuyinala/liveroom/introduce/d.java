@@ -49,14 +49,14 @@ public class d implements View.OnClickListener {
     private View mRootView;
     private TextView mTitleTextView;
     private View mView;
-    private h onk;
-    private TextView ont;
-    private i onu;
+    private h onm;
+    private TextView onv;
+    private i onw;
 
     public d(Context context) {
         this.mContext = context;
         initDialog();
-        this.onu = new i(this.mContext);
+        this.onw = new i(this.mContext);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,13 +71,13 @@ public class d implements View.OnClickListener {
         }
         if (z) {
             this.bPe.setVisibility(8);
-            this.ont.setVisibility(0);
+            this.onv.setVisibility(0);
             this.eCd.setVisibility(0);
             this.mView.setVisibility(0);
             return;
         }
         this.bPe.setVisibility(0);
-        this.ont.setVisibility(8);
+        this.onv.setVisibility(8);
         this.eCd.setVisibility(8);
         this.mView.setVisibility(8);
     }
@@ -88,16 +88,16 @@ public class d implements View.OnClickListener {
             this.mDialog.show();
             this.mRootView.setVisibility(8);
             if (this.aFN != null && this.aFN.aKL != null) {
-                this.onu.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.d.1
+                this.onw.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.d.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.introduce.i.a
                     public void a(AlaGetRoomPlayIntroduceHttpResponseMessage alaGetRoomPlayIntroduceHttpResponseMessage) {
                         boolean z = true;
-                        d.this.onk = alaGetRoomPlayIntroduceHttpResponseMessage.edH();
-                        boolean jv = o.efd().jv(o.efd().Zc());
+                        d.this.onm = alaGetRoomPlayIntroduceHttpResponseMessage.edI();
+                        boolean jv = o.efe().jv(o.efe().Zc());
                         if (d.this.aFN == null || d.this.aFN.aKr == null || (d.this.aFN.aKr.userType != 1 && (d.this.aFN.aKr.userType != 2 || !jv))) {
                             z = false;
                         }
-                        d.this.H(d.this.onk.onB, d.this.onk.onC, z);
+                        d.this.H(d.this.onm.onD, d.this.onm.onE, z);
                         d.this.mRootView.setVisibility(0);
                     }
 
@@ -107,7 +107,7 @@ public class d implements View.OnClickListener {
                         d.this.dismiss();
                     }
                 });
-                this.onu.request(this.aFN.aKL.aUg);
+                this.onw.request(this.aFN.aKL.aUg);
             }
         }
     }
@@ -124,8 +124,8 @@ public class d implements View.OnClickListener {
         if (view == this.mRootView || view == this.eCd || view == this.bPe) {
             dismiss();
         }
-        if (view == this.ont && this.onk != null) {
-            new c(this.mContext).b(this.aFN, this.mTitleTextView.getText().toString().trim(), this.onk.onC);
+        if (view == this.onv && this.onm != null) {
+            new c(this.mContext).b(this.aFN, this.mTitleTextView.getText().toString().trim(), this.onm.onE);
             dismiss();
         }
     }
@@ -162,7 +162,7 @@ public class d implements View.OnClickListener {
         this.mDialog.setContentView(this.mRootView);
         this.mTitleTextView = (TextView) this.mRootView.findViewById(a.f.tv_title);
         this.bPe = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
-        this.ont = (TextView) this.mRootView.findViewById(a.f.tv_modify);
+        this.onv = (TextView) this.mRootView.findViewById(a.f.tv_modify);
         this.eCd = (ImageView) this.mRootView.findViewById(a.f.iv_close);
         this.fzP = (TextView) this.mRootView.findViewById(a.f.tv_content);
         this.mView = this.mRootView.findViewById(a.f.view_line);
@@ -172,7 +172,7 @@ public class d implements View.OnClickListener {
         this.bPe.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
         this.bPe.setOnClickListener(this);
         this.eCd.setOnClickListener(this);
-        this.ont.setOnClickListener(this);
+        this.onv.setOnClickListener(this);
         MessageManager.getInstance().registerListener(this.bgy);
     }
 }

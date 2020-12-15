@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class l extends af.a {
-    private ViewGroup lFi;
+    private ViewGroup lFk;
     private View mRootView;
     private TextView mTitle;
     private View mTopLine;
@@ -16,7 +16,7 @@ public class l extends af.a {
         super(view);
         this.mRootView = view;
         this.mTopLine = view.findViewById(R.id.pb_child_title_top_line);
-        this.lFi = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
+        this.lFk = (ViewGroup) view.findViewById(R.id.rl_pb_child_title_area);
         this.mTitle = (TextView) view.findViewById(R.id.tv_pb_child_title);
         com.baidu.tbadk.core.elementsMaven.c.bm(this.mTitle).pu(R.string.F_X02);
     }
@@ -27,7 +27,7 @@ public class l extends af.a {
 
     public void onChangeSkinType() {
         com.baidu.tbadk.core.util.ap.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lFi, R.color.CAM_X0205);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lFk, R.color.CAM_X0205);
         com.baidu.tbadk.core.util.ap.setViewTextColor(this.mTitle, R.color.CAM_X0105);
     }
 

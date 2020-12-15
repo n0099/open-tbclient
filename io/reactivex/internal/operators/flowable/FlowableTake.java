@@ -11,7 +11,7 @@ public final class FlowableTake<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pFg.a((j) new TakeSubscriber(cVar, this.limit));
+        this.pFi.a((j) new TakeSubscriber(cVar, this.limit));
     }
 
     /* loaded from: classes9.dex */

@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
-    private EMTextView nZL;
-    private TBSpecificationBtn nZM;
-    private TBSpecificationBtn nZN;
+    private EMTextView nZN;
+    private TBSpecificationBtn nZO;
+    private TBSpecificationBtn nZP;
 
     public CustomPrivacyDialogView(Context context) {
         this(context, null);
@@ -40,52 +40,52 @@ public class CustomPrivacyDialogView extends LinearLayout {
         gradientDrawable.setColor(ap.getColor(R.color.CAM_X0211));
         setBackgroundDrawable(gradientDrawable);
         inflate(context, R.layout.custom_privacy_dialog_view, this);
-        this.nZL = (EMTextView) findViewById(R.id.privacy_message);
-        this.nZM = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
-        this.nZN = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
-        this.nZM.setTextSize(R.dimen.tbds34);
+        this.nZN = (EMTextView) findViewById(R.id.privacy_message);
+        this.nZO = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
+        this.nZP = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
+        this.nZO.setTextSize(R.dimen.tbds34);
         c cVar = new c();
         cVar.rj(R.color.CAM_X0105);
-        this.nZM.setConfig(cVar);
-        this.nZN.setTextSize(R.dimen.tbds34);
+        this.nZO.setConfig(cVar);
+        this.nZP.setTextSize(R.dimen.tbds34);
         c cVar2 = new c();
         cVar2.rh(R.color.CAM_X0302);
-        this.nZN.setConfig(cVar2);
+        this.nZP.setConfig(cVar2);
     }
 
     public void setMessageTextViewColor(int i) {
-        if (this.nZL != null) {
-            this.nZL.setTextColor(i);
+        if (this.nZN != null) {
+            this.nZN.setTextColor(i);
         }
     }
 
     public void setMessageTextViewMessage(String str) {
-        if (this.nZL != null) {
-            this.nZL.setText(str);
+        if (this.nZN != null) {
+            this.nZN.setText(str);
         }
     }
 
     public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
-        if (this.nZM != null) {
-            this.nZM.setOnClickListener(onClickListener);
+        if (this.nZO != null) {
+            this.nZO.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
-        if (this.nZN != null) {
-            this.nZN.setOnClickListener(onClickListener);
+        if (this.nZP != null) {
+            this.nZP.setOnClickListener(onClickListener);
         }
     }
 
     public void setPrivacyDialogCancelButtonText(String str) {
-        if (this.nZM != null) {
-            this.nZM.setText(str);
+        if (this.nZO != null) {
+            this.nZO.setText(str);
         }
     }
 
     public void setPrivacyDialogConfirmButtonText(String str) {
-        if (this.nZN != null) {
-            this.nZN.setText(str);
+        if (this.nZP != null) {
+            this.nZP.setText(str);
         }
     }
 }

@@ -12,8 +12,8 @@ public class j {
     private SensorManager bGk;
     private Sensor bGm;
     private Activity mActivity;
-    private g mxF;
-    private k mxG;
+    private g mxH;
+    private k mxI;
     private boolean bGn = false;
     private boolean bGo = false;
     private boolean bGq = false;
@@ -66,7 +66,7 @@ public class j {
             }
         }
     };
-    private k.a mxH = new k.a() { // from class: com.baidu.tieba.play.j.2
+    private k.a mxJ = new k.a() { // from class: com.baidu.tieba.play.j.2
         @Override // com.baidu.tieba.play.k.a
         public void onChange(boolean z) {
             j.this.bGq = z;
@@ -90,29 +90,29 @@ public class j {
             this.mActivity = activity;
             this.bGk = (SensorManager) activity.getSystemService("sensor");
             this.bGm = this.bGk.getDefaultSensor(1);
-            this.mxF = new g(this.mHandler);
+            this.mxH = new g(this.mHandler);
             if (!this.mActivity.getClass().getName().contains("SwanAppActivity")) {
                 this.mActivity.setRequestedOrientation(1);
             }
-            this.mxG = new k(this.mActivity, this.mHandler);
-            this.mxG.a(this.mxH);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.mxG);
+            this.mxI = new k(this.mActivity, this.mHandler);
+            this.mxI.a(this.mxJ);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.mxI);
         }
     }
 
     public void start() {
         if (this.bGk != null) {
-            this.bGk.registerListener(this.mxF, this.bGm, 2);
+            this.bGk.registerListener(this.mxH, this.bGm, 2);
         }
     }
 
     public void stop() {
         if (this.bGk != null) {
-            this.bGk.unregisterListener(this.mxF);
+            this.bGk.unregisterListener(this.mxH);
         }
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.mxG);
+            this.mActivity.getContentResolver().unregisterContentObserver(this.mxI);
         }
     }
 

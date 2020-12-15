@@ -21,7 +21,7 @@ public class b {
     private final Map<String, h> Fl;
     private final Context context;
     @Nullable
-    private c pBL;
+    private c pBN;
 
     public b(Drawable.Callback callback, String str, c cVar, Map<String, h> map) {
         this.Fj = str;
@@ -40,7 +40,7 @@ public class b {
     }
 
     public void a(@Nullable c cVar) {
-        this.pBL = cVar;
+        this.pBN = cVar;
     }
 
     @Nullable
@@ -64,8 +64,8 @@ public class b {
         if (bitmap != null) {
             return bitmap;
         }
-        if (this.pBL != null) {
-            Bitmap fetchBitmap = this.pBL.fetchBitmap(hVar);
+        if (this.pBN != null) {
+            Bitmap fetchBitmap = this.pBN.fetchBitmap(hVar);
             if (fetchBitmap != null) {
                 b(str, fetchBitmap);
                 return fetchBitmap;

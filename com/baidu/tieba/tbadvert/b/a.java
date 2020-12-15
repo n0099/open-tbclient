@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.core.util.y;
 /* loaded from: classes26.dex */
 public class a {
-    private com.baidu.tieba.tbadvert.a.a nqo;
-    private InterfaceC0872a nqp;
-    private InterfaceC0872a nqq = new InterfaceC0872a() { // from class: com.baidu.tieba.tbadvert.b.a.1
+    private com.baidu.tieba.tbadvert.a.a nqq;
+    private InterfaceC0872a nqr;
+    private InterfaceC0872a nqs = new InterfaceC0872a() { // from class: com.baidu.tieba.tbadvert.b.a.1
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0872a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
-            a.this.nqo = aVar;
-            if (a.this.nqp != null) {
-                a.this.nqp.a(aVar);
+            a.this.nqq = aVar;
+            if (a.this.nqr != null) {
+                a.this.nqr.a(aVar);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0872a
         public void aR(Object obj) {
-            if (a.this.nqp != null) {
-                a.this.nqp.aR(obj);
+            if (a.this.nqr != null) {
+                a.this.nqr.aR(obj);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0872a
-        public void dQN() {
-            a.this.nqo = null;
-            if (a.this.nqp != null) {
-                a.this.nqp.dQN();
+        public void dQO() {
+            a.this.nqq = null;
+            if (a.this.nqr != null) {
+                a.this.nqr.dQO();
             }
         }
     };
-    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> nqr = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
+    private com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> nqt = new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.e.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar == null || aVar.getRawBitmap() == null) {
-                if (a.this.nqp != null) {
-                    a.this.nqp.dQN();
+                if (a.this.nqr != null) {
+                    a.this.nqr.dQO();
                 }
-            } else if (a.this.nqp != null) {
-                a.this.nqp.aR(aVar);
+            } else if (a.this.nqr != null) {
+                a.this.nqr.aR(aVar);
             }
         }
 
@@ -55,8 +55,8 @@ public class a {
         @Override // com.baidu.adp.lib.e.b
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (a.this.nqp != null) {
-                a.this.nqp.dQN();
+            if (a.this.nqr != null) {
+                a.this.nqr.dQO();
             }
         }
     };
@@ -68,42 +68,42 @@ public class a {
 
         void aR(Object obj);
 
-        void dQN();
+        void dQO();
     }
 
-    public void dQR() {
-        b bVar = new b(this.nqq);
+    public void dQS() {
+        b bVar = new b(this.nqs);
         bVar.setSelfExecute(true);
         bVar.execute(new String[0]);
     }
 
-    public com.baidu.tieba.tbadvert.a.b dQS() {
-        if (this.nqo == null || y.isEmpty(this.nqo.nql)) {
+    public com.baidu.tieba.tbadvert.a.b dQT() {
+        if (this.nqq == null || y.isEmpty(this.nqq.nqn)) {
             return null;
         }
-        for (com.baidu.tieba.tbadvert.a.b bVar : this.nqo.nql) {
-            if (bVar != null && bVar.dQQ() && bVar.eKB == 3) {
+        for (com.baidu.tieba.tbadvert.a.b bVar : this.nqq.nqn) {
+            if (bVar != null && bVar.dQR() && bVar.eKB == 3) {
                 return bVar;
             }
         }
         return null;
     }
 
-    public void dQT() {
-        com.baidu.tieba.tbadvert.a.b dQS = dQS();
-        if (dQS != null && !TextUtils.isEmpty(dQS.nqn)) {
-            p(dQS.showType, dQS.nqn, true);
-        } else if (this.nqp != null) {
-            this.nqp.dQN();
+    public void dQU() {
+        com.baidu.tieba.tbadvert.a.b dQT = dQT();
+        if (dQT != null && !TextUtils.isEmpty(dQT.nqp)) {
+            p(dQT.showType, dQT.nqp, true);
+        } else if (this.nqr != null) {
+            this.nqr.dQO();
         }
     }
 
-    public void dQU() {
-        if (this.nqo != null && !y.isEmpty(this.nqo.nql)) {
-            com.baidu.tieba.tbadvert.a.b dQS = dQS();
-            for (com.baidu.tieba.tbadvert.a.b bVar : this.nqo.nql) {
-                if (bVar != null && bVar != dQS && bVar.dQQ() && bVar.eKB != 4) {
-                    p(bVar.showType, bVar.nqn, false);
+    public void dQV() {
+        if (this.nqq != null && !y.isEmpty(this.nqq.nqn)) {
+            com.baidu.tieba.tbadvert.a.b dQT = dQT();
+            for (com.baidu.tieba.tbadvert.a.b bVar : this.nqq.nqn) {
+                if (bVar != null && bVar != dQT && bVar.dQR() && bVar.eKB != 4) {
+                    p(bVar.showType, bVar.nqp, false);
                 }
             }
         }
@@ -112,7 +112,7 @@ public class a {
     private void p(int i, String str, boolean z) {
         if (i == 1 || i == 2) {
             if (z) {
-                c.mS().a(str, 10, this.nqr, null);
+                c.mS().a(str, 10, this.nqt, null);
             } else {
                 c.mS().a(str, 10, null, null);
             }
@@ -120,15 +120,15 @@ public class a {
     }
 
     public void a(InterfaceC0872a interfaceC0872a) {
-        this.nqp = interfaceC0872a;
+        this.nqr = interfaceC0872a;
     }
 
     /* loaded from: classes26.dex */
     private class b extends BdAsyncTask<String, Void, Object> {
-        private InterfaceC0872a nqp;
+        private InterfaceC0872a nqr;
 
         public b(InterfaceC0872a interfaceC0872a) {
-            this.nqp = interfaceC0872a;
+            this.nqr = interfaceC0872a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,11 +148,11 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (this.nqp != null) {
+            if (this.nqr != null) {
                 if (obj instanceof com.baidu.tieba.tbadvert.a.a) {
-                    this.nqp.a((com.baidu.tieba.tbadvert.a.a) obj);
+                    this.nqr.a((com.baidu.tieba.tbadvert.a.a) obj);
                 } else {
-                    this.nqp.dQN();
+                    this.nqr.dQO();
                 }
             }
         }

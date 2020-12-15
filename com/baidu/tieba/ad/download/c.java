@@ -6,7 +6,7 @@ import com.baidu.tieba.recapp.report.DownloadStaticsData;
 /* loaded from: classes21.dex */
 public class c {
     private final String DEFAULT_PAGE = "DOWNLOAD_PAGE";
-    private final String gaq = "DOWNLOAD_BUTTON";
+    private final String gas = "DOWNLOAD_BUTTON";
 
     public void j(int i, @Nullable String str, String str2) {
         c("DOWNLOAD_PAGE", i, str, str2);
@@ -28,6 +28,6 @@ public class c {
         if (!TextUtils.isEmpty(str3)) {
             cVar.setExtInfo(str3);
         }
-        com.baidu.tieba.recapp.report.d.dGf().a(cVar);
+        com.baidu.tieba.recapp.report.d.dGg().a(cVar);
     }
 }

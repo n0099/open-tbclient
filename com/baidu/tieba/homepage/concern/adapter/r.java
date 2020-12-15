@@ -4,22 +4,22 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes22.dex */
 public class r extends c {
-    private BdUniqueId jKK;
-    private BdUniqueId jKL;
+    private BdUniqueId jKM;
+    private BdUniqueId jKN;
 
     public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, BdUniqueId bdUniqueId3) {
         super(tbPageContext, bdUniqueId);
-        this.jKK = bdUniqueId2;
-        this.jKL = bdUniqueId3;
+        this.jKM = bdUniqueId2;
+        this.jKN = bdUniqueId3;
     }
 
     @Override // com.baidu.tieba.homepage.concern.adapter.c, com.baidu.adp.widget.ListView.a
     public BdUniqueId qL() {
-        return this.jKK == null ? super.qL() : this.jKK;
+        return this.jKM == null ? super.qL() : this.jKM;
     }
 
     @Override // com.baidu.tieba.homepage.concern.adapter.c, com.baidu.adp.widget.ListView.a
     public BdUniqueId qM() {
-        return this.jKL == null ? super.qM() : this.jKL;
+        return this.jKN == null ? super.qM() : this.jKN;
     }
 }

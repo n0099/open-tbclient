@@ -8,10 +8,10 @@ public interface b<T> {
 
     boolean arP();
 
-    boolean eqo();
+    boolean eqp();
 
     @Nullable
-    Throwable eqq();
+    Throwable eqr();
 
     float getProgress();
 

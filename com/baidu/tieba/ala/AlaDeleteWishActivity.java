@@ -28,11 +28,11 @@ import com.baidu.tieba.ala.data.m;
 import com.baidu.tieba.ala.g.i;
 /* loaded from: classes4.dex */
 public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
-    private Button ggb;
-    private Button ggc;
-    private i ggd;
-    private String gge;
-    private long ggf;
+    private Button ggd;
+    private Button gge;
+    private i ggf;
+    private String ggg;
+    private long ggh;
     private Context mContext;
     private View mRootView;
     private int mScreenWidth;
@@ -89,9 +89,9 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             this.baH = false;
             this.mRootView.setVisibility(4);
-            this.ggd = new i(getPageContext(), null, this, null);
-            this.gge = getIntent().getStringExtra("wish_id");
-            this.ggf = getIntent().getLongExtra("index_id", 0L);
+            this.ggf = new i(getPageContext(), null, this, null);
+            this.ggg = getIntent().getStringExtra("wish_id");
+            this.ggh = getIntent().getLongExtra("index_id", 0L);
         }
     }
 
@@ -167,15 +167,15 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
     private void initView() {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_wish_list_delete_item_layout, (ViewGroup) null);
         setContentView(this.mRootView);
-        this.ggb = (Button) this.mRootView.findViewById(a.f.ala_wish_list_delete_item_ok);
-        this.ggc = (Button) this.mRootView.findViewById(a.f.ala_wish_list_delete_item_cancle);
-        this.ggb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.3
+        this.ggd = (Button) this.mRootView.findViewById(a.f.ala_wish_list_delete_item_ok);
+        this.gge = (Button) this.mRootView.findViewById(a.f.ala_wish_list_delete_item_cancle);
+        this.ggd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaDeleteWishActivity.this.ggd.IR(AlaDeleteWishActivity.this.gge);
+                AlaDeleteWishActivity.this.ggf.IR(AlaDeleteWishActivity.this.ggg);
             }
         });
-        this.ggc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.4
+        this.gge.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaDeleteWishActivity.this.finish();
@@ -236,8 +236,8 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.ggd != null) {
-            this.ggd.clZ();
+        if (this.ggf != null) {
+            this.ggf.cma();
         }
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
@@ -248,7 +248,7 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements i.a {
     @Override // com.baidu.tieba.ala.g.i.a
     public void a(m mVar) {
         Intent intent = new Intent();
-        intent.putExtra("index_id", this.ggf);
+        intent.putExtra("index_id", this.ggh);
         setResult(-1, intent);
         finish();
     }

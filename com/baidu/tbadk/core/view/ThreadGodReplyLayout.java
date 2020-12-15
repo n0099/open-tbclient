@@ -230,7 +230,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.fdL = postData;
         setVisibility(0);
         a(postData);
-        c(a(postData.dPi()));
+        c(a(postData.dPj()));
         b(postData);
         c(postData);
         if ((this.mImageList != null && this.mImageList.size() > 0) || (this.fdM != null && this.fdM.bJD() != null)) {
@@ -259,7 +259,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.1
                     @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        t.csg().e(new ar("c13348"));
+                        t.csh().e(new ar("c13348"));
                         ThreadGodReplyLayout.this.fdG.setMaxLines(15);
                         ThreadGodReplyLayout.this.fdG.setEllipsize(TextUtils.TruncateAt.END);
                         ThreadGodReplyLayout.this.fdG.setText(spannableStringBuilder2.toString());
@@ -296,7 +296,7 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 }
                 this.fdG.setText(spannableStringBuilder);
                 this.fdG.setOnTouchListener(new com.baidu.tieba.view.i(spannableStringBuilder));
-                t.csg().e(new ar("c13347"));
+                t.csh().e(new ar("c13347"));
             } else {
                 return;
             }
@@ -363,13 +363,13 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             this.fdJ.setVisibility(8);
             return;
         }
-        TbRichText dPi = postData.dPi();
-        if (dPi == null || dPi.bIC() == null) {
+        TbRichText dPj = postData.dPj();
+        if (dPj == null || dPj.bIC() == null) {
             this.fdI.setVisibility(8);
             this.fdJ.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = dPi.bIC().iterator();
+        Iterator<TbRichTextData> it = dPj.bIC().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {

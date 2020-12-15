@@ -6,8 +6,8 @@ public class d {
     private String eIa;
     private String eIc;
     private String eId;
-    private Long kix;
-    private Long kiy;
+    private Long kiA;
+    private Long kiz;
     private Integer tag;
 
     public String getTopicName() {
@@ -18,17 +18,17 @@ public class d {
         this.eIa = str;
     }
 
-    public Integer cSJ() {
+    public Integer cSK() {
         return this.tag;
     }
 
     public void a(TopicList topicList) {
         if (topicList != null) {
-            this.kix = topicList.topic_id;
+            this.kiz = topicList.topic_id;
             this.eIa = topicList.topic_name;
             this.eId = topicList.topic_pic;
             this.eIc = topicList.topic_desc;
-            this.kiy = topicList.discuss_num;
+            this.kiA = topicList.discuss_num;
             this.tag = topicList.tag;
         }
     }

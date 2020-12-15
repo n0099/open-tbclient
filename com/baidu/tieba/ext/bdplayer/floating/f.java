@@ -3,5 +3,5 @@ package com.baidu.tieba.ext.bdplayer.floating;
 public interface f {
     void JT(String str);
 
-    void cxO();
+    void cxP();
 }

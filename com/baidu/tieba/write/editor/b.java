@@ -21,7 +21,7 @@ public class b extends m {
         this.fuX = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
-    public void dys() {
+    public void dyt() {
         BaseActivity baseActivity = (BaseActivity) this.context;
         e eVar = new e(baseActivity.getPageContext(), (View) this.fub);
         eVar.fO(R.drawable.bg_tip_blue_left_less_than_right_down);
@@ -63,19 +63,19 @@ public class b extends m {
         }
     }
 
-    public void cwd() {
+    public void cwe() {
         if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).cwd();
+            ((EditorInfoContainer) this.fub).cwe();
         }
     }
 
-    public void dZa() {
+    public void dZb() {
         if (this.fub instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.fub).dZa();
+            ((EditorInfoContainer) this.fub).dZb();
         }
     }
 
-    public void dZc() {
+    public void dZd() {
         if (this.fub instanceof EditorInfoContainer) {
             ((EditorInfoContainer) this.fub).hide();
         }

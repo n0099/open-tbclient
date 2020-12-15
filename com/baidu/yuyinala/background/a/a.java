@@ -49,13 +49,13 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_ala_audio_background, viewGroup, false);
             c0954a = new C0954a();
-            c0954a.oJL = (TbImageView) view.findViewById(a.f.thumbnail_iv);
-            c0954a.oJM = (ImageView) view.findViewById(a.f.chosen_iv);
-            c0954a.gDa = (TextView) view.findViewById(a.f.bg_name_tv);
-            c0954a.oJN = (ProgressBar) view.findViewById(a.f.loading_pb);
-            c0954a.oJL.setDefaultResource(a.e.loading_ala_audio_bg);
-            c0954a.oJL.setDefaultErrorResource(a.e.loading_ala_audio_bg);
-            c0954a.oJL.setDefaultBgResource(a.e.loading_ala_audio_bg);
+            c0954a.oJN = (TbImageView) view.findViewById(a.f.thumbnail_iv);
+            c0954a.oJO = (ImageView) view.findViewById(a.f.chosen_iv);
+            c0954a.gDc = (TextView) view.findViewById(a.f.bg_name_tv);
+            c0954a.oJP = (ProgressBar) view.findViewById(a.f.loading_pb);
+            c0954a.oJN.setDefaultResource(a.e.loading_ala_audio_bg);
+            c0954a.oJN.setDefaultErrorResource(a.e.loading_ala_audio_bg);
+            c0954a.oJN.setDefaultBgResource(a.e.loading_ala_audio_bg);
             view.setTag(c0954a);
         } else {
             c0954a = (C0954a) view.getTag();
@@ -63,11 +63,11 @@ public class a extends BaseAdapter {
         com.baidu.yuyinala.background.b.a aVar = (com.baidu.yuyinala.background.b.a) ListUtils.getItem(this.mBgList, i);
         if (aVar != null) {
             view.setVisibility(0);
-            c0954a.gDa.setText(aVar.getName());
-            c0954a.oJL.startLoad(aVar.getThumbnailUrl(), 10, false);
-            c0954a.oJL.setVisibility(0);
-            c0954a.oJM.setVisibility(aVar.ekl() ? 0 : 8);
-            c0954a.oJN.setVisibility(aVar.isLoading() ? 0 : 8);
+            c0954a.gDc.setText(aVar.getName());
+            c0954a.oJN.startLoad(aVar.getThumbnailUrl(), 10, false);
+            c0954a.oJN.setVisibility(0);
+            c0954a.oJO.setVisibility(aVar.ekm() ? 0 : 8);
+            c0954a.oJP.setVisibility(aVar.isLoading() ? 0 : 8);
         } else {
             view.setVisibility(8);
         }
@@ -77,10 +77,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.yuyinala.background.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private class C0954a {
-        private TextView gDa;
-        private TbImageView oJL;
-        private ImageView oJM;
-        private ProgressBar oJN;
+        private TextView gDc;
+        private TbImageView oJN;
+        private ImageView oJO;
+        private ProgressBar oJP;
 
         private C0954a() {
         }

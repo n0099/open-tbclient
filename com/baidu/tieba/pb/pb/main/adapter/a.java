@@ -24,31 +24,31 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.o;
 /* loaded from: classes22.dex */
 public class a extends o<com.baidu.tieba.pb.data.a, C0831a> {
-    private f lEt;
-    private b lRB;
-    private com.baidu.tieba.pb.data.a lRC;
-    private View.OnClickListener lRD;
+    private f lEv;
+    private b lRD;
+    private com.baidu.tieba.pb.data.a lRE;
+    private View.OnClickListener lRF;
 
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.lRD = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.a.1
+        this.lRF = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.lRC != null && a.this.lRC.lAx != null && !l.isFastDoubleClick()) {
+                if (a.this.lRE != null && a.this.lRE.lAz != null && !l.isFastDoubleClick()) {
                     if (!TbadkCoreApplication.isLogin()) {
-                        bh.checkUpIsLogin(a.this.lDG.getPageContext().getPageActivity());
+                        bh.checkUpIsLogin(a.this.lDI.getPageContext().getPageActivity());
                         return;
                     }
-                    a.this.b(a.this.lRC);
-                    if (a.this.lRC.lAx.dmR()) {
-                        bf.bua().a((TbPageContext<?>) a.this.lDG.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    } else if (a.this.lRC.lAx.dmQ()) {
-                        a.this.lRB.c(a.this.lRC);
+                    a.this.b(a.this.lRE);
+                    if (a.this.lRE.lAz.dmS()) {
+                        bf.bua().a((TbPageContext<?>) a.this.lDI.getPageContext(), new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+                    } else if (a.this.lRE.lAz.dmR()) {
+                        a.this.lRD.c(a.this.lRE);
                     }
                 }
             }
         };
-        this.lRB = new b(pbFragment);
+        this.lRD = new b(pbFragment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,7 +57,7 @@ public class a extends o<com.baidu.tieba.pb.data.a, C0831a> {
     /* renamed from: cq */
     public C0831a c(ViewGroup viewGroup) {
         C0831a c0831a = new C0831a(LayoutInflater.from(this.mContext).inflate(R.layout.pb_ad_card_gift_item, viewGroup, false));
-        c0831a.setOnClickListener(this.lRD);
+        c0831a.setOnClickListener(this.lRF);
         return c0831a;
     }
 
@@ -68,33 +68,33 @@ public class a extends o<com.baidu.tieba.pb.data.a, C0831a> {
         super.a(i, view, viewGroup, (ViewGroup) aVar, (com.baidu.tieba.pb.data.a) c0831a);
         if (aVar != null && c0831a != null) {
             aVar.locate = i + 1;
-            this.lRC = aVar;
+            this.lRE = aVar;
             a(aVar);
-            c0831a.a(this.mContext, aVar.lAx);
+            c0831a.a(this.mContext, aVar.lAz);
         }
         return view;
     }
 
     private void a(com.baidu.tieba.pb.data.a aVar) {
-        String str = aVar.lAx.lAy + "";
-        com.baidu.tieba.t.c.dOe().a(this.lDG.getUniqueId(), com.baidu.tieba.t.a.a(this.lEt.dmT().getTid(), str, "", (BaijiahaoData) null), com.baidu.tieba.t.a.a(this.lEt.dmT(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, str, "", 18));
+        String str = aVar.lAz.lAA + "";
+        com.baidu.tieba.t.c.dOf().a(this.lDI.getUniqueId(), com.baidu.tieba.t.a.a(this.lEv.dmU().getTid(), str, "", (BaijiahaoData) null), com.baidu.tieba.t.a.a(this.lEv.dmU(), PageStayDurationConstants.PageName.PB, "common_exp", aVar.locate, true, str, "", 18));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.pb.data.a aVar) {
-        com.baidu.tieba.t.c.dOe().b(this.lDG.getUniqueId(), com.baidu.tieba.t.a.a(this.lEt.dmT(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.lAx.lAy + "", (String) null, 18));
+        com.baidu.tieba.t.c.dOf().b(this.lDI.getUniqueId(), com.baidu.tieba.t.a.a(this.lEv.dmU(), PageStayDurationConstants.PageName.PB, "common_click", 1, aVar.locate, true, aVar.lAz.lAA + "", (String) null, 18));
     }
 
     public void onDestroy() {
-        if (this.lRB != null) {
-            this.lRB.onDestroy();
+        if (this.lRD != null) {
+            this.lRD.onDestroy();
         }
     }
 
     public void setData(f fVar) {
-        this.lEt = fVar;
-        if (this.lRB != null) {
-            this.lRB.setData(fVar);
+        this.lEv = fVar;
+        if (this.lRD != null) {
+            this.lRD.setData(fVar);
         }
     }
 
@@ -102,27 +102,27 @@ public class a extends o<com.baidu.tieba.pb.data.a, C0831a> {
     /* renamed from: com.baidu.tieba.pb.pb.main.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
     public static class C0831a extends af.a {
-        private TextView lRF;
-        private TbImageView lRG;
         private TextView lRH;
-        private ProgressBar lRI;
+        private TbImageView lRI;
         private TextView lRJ;
-        private View lRK;
+        private ProgressBar lRK;
+        private TextView lRL;
+        private View lRM;
         private View.OnClickListener mOnItemClickListener;
 
         private C0831a(View view) {
             super(view);
-            this.lRK = view.findViewById(R.id.bg_ad_card_gift);
-            this.lRG = (TbImageView) view.findViewById(R.id.img_ad_card_gift_logo);
-            this.lRF = (TextView) view.findViewById(R.id.txt_ad_card_gift_rate);
-            this.lRH = (TextView) view.findViewById(R.id.btn_ad_card_gift_get);
-            this.lRI = (ProgressBar) view.findViewById(R.id.progress_ad_card_gift);
-            this.lRJ = (TextView) view.findViewById(R.id.txt_ad_card_gift_title);
-            this.lRG.setRadius(com.baidu.adp.lib.util.l.getDimens(getView().getContext(), R.dimen.tbds20));
-            this.lRG.setConrers(5);
-            this.lRG.setDefaultBgResource(R.color.cp_atp_a);
-            this.lRG.setDrawCorner(true);
-            this.lRH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.a.a.1
+            this.lRM = view.findViewById(R.id.bg_ad_card_gift);
+            this.lRI = (TbImageView) view.findViewById(R.id.img_ad_card_gift_logo);
+            this.lRH = (TextView) view.findViewById(R.id.txt_ad_card_gift_rate);
+            this.lRJ = (TextView) view.findViewById(R.id.btn_ad_card_gift_get);
+            this.lRK = (ProgressBar) view.findViewById(R.id.progress_ad_card_gift);
+            this.lRL = (TextView) view.findViewById(R.id.txt_ad_card_gift_title);
+            this.lRI.setRadius(com.baidu.adp.lib.util.l.getDimens(getView().getContext(), R.dimen.tbds20));
+            this.lRI.setConrers(5);
+            this.lRI.setDefaultBgResource(R.color.cp_atp_a);
+            this.lRI.setDrawCorner(true);
+            this.lRJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.adapter.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (C0831a.this.mOnItemClickListener != null) {
@@ -130,7 +130,7 @@ public class a extends o<com.baidu.tieba.pb.data.a, C0831a> {
                     }
                 }
             });
-            this.lRI.setMax(100);
+            this.lRK.setMax(100);
         }
 
         public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -141,39 +141,39 @@ public class a extends o<com.baidu.tieba.pb.data.a, C0831a> {
         public void a(Context context, com.baidu.tieba.pb.data.b bVar) {
             int i = 100;
             if (bVar != null) {
-                this.lRJ.setText(bVar.card_name);
-                this.lRG.startLoad(bVar.card_logo, 38, false);
-                this.lRF.setText(context.getResources().getString(R.string.pb_ad_card_gift_rate, bVar.card_pro) + "%");
+                this.lRL.setText(bVar.card_name);
+                this.lRI.startLoad(bVar.card_logo, 38, false);
+                this.lRH.setText(context.getResources().getString(R.string.pb_ad_card_gift_rate, bVar.card_pro) + "%");
                 int i2 = com.baidu.adp.lib.f.b.toInt(bVar.card_pro, 0);
                 if (i2 <= 100) {
                     i = i2 < 0 ? 0 : i2;
                 }
-                this.lRI.setProgress(i);
-                if (bVar.dmQ()) {
-                    this.lRH.setText(R.string.pb_ad_card_gift_get);
-                    ap.setViewTextColor(this.lRH, R.color.CAM_X0101);
-                    ap.setBackgroundResource(this.lRH, R.drawable.btn_pb_ad_card_gift_get);
-                    this.lRH.setClickable(true);
-                } else if (bVar.dmR()) {
-                    this.lRH.setText(R.string.pb_ad_card_gift_watch_btn);
-                    ap.setViewTextColor(this.lRH, R.color.CAM_X0101);
-                    ap.setBackgroundResource(this.lRH, R.drawable.btn_pb_ad_card_gift_watch);
-                    this.lRH.setClickable(true);
+                this.lRK.setProgress(i);
+                if (bVar.dmR()) {
+                    this.lRJ.setText(R.string.pb_ad_card_gift_get);
+                    ap.setViewTextColor(this.lRJ, R.color.CAM_X0101);
+                    ap.setBackgroundResource(this.lRJ, R.drawable.btn_pb_ad_card_gift_get);
+                    this.lRJ.setClickable(true);
+                } else if (bVar.dmS()) {
+                    this.lRJ.setText(R.string.pb_ad_card_gift_watch_btn);
+                    ap.setViewTextColor(this.lRJ, R.color.CAM_X0101);
+                    ap.setBackgroundResource(this.lRJ, R.drawable.btn_pb_ad_card_gift_watch);
+                    this.lRJ.setClickable(true);
                 } else {
-                    this.lRH.setText(R.string.pb_ad_card_gift_over_btn);
-                    ap.setViewTextColor(this.lRH, R.color.CAM_X0109);
-                    this.lRH.setBackgroundResource(R.drawable.transparent_bg);
-                    this.lRH.setClickable(false);
+                    this.lRJ.setText(R.string.pb_ad_card_gift_over_btn);
+                    ap.setViewTextColor(this.lRJ, R.color.CAM_X0109);
+                    this.lRJ.setBackgroundResource(R.drawable.transparent_bg);
+                    this.lRJ.setClickable(false);
                 }
                 onChangeSkinType();
             }
         }
 
         private void onChangeSkinType() {
-            ap.setBackgroundResource(this.lRK, R.drawable.bg_pb_ad_card_gift);
-            ap.setViewTextColor(this.lRJ, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lRF, R.color.CAM_X0107);
-            this.lRI.setProgressDrawable(ap.getDrawable(R.drawable.bg_pb_ad_card_gift_progress));
+            ap.setBackgroundResource(this.lRM, R.drawable.bg_pb_ad_card_gift);
+            ap.setViewTextColor(this.lRL, R.color.CAM_X0105);
+            ap.setViewTextColor(this.lRH, R.color.CAM_X0107);
+            this.lRK.setProgressDrawable(ap.getDrawable(R.drawable.bg_pb_ad_card_gift_progress));
         }
     }
 }

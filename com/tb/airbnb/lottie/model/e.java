@@ -10,7 +10,7 @@ import java.util.List;
 public class e {
     private final List<String> FA;
     @Nullable
-    private f pBM;
+    private f pBO;
 
     public e(String... strArr) {
         this.FA = Arrays.asList(strArr);
@@ -18,7 +18,7 @@ public class e {
 
     private e(e eVar) {
         this.FA = new ArrayList(eVar.FA);
-        this.pBM = eVar.pBM;
+        this.pBO = eVar.pBO;
     }
 
     @CheckResult
@@ -32,14 +32,14 @@ public class e {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.pBM = fVar;
+        eVar.pBO = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f eBg() {
-        return this.pBM;
+    public f eBh() {
+        return this.pBO;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -103,6 +103,6 @@ public class e {
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.FA + ",resolved=" + (this.pBM != null) + '}';
+        return "KeyPath{keys=" + this.FA + ",resolved=" + (this.pBO != null) + '}';
     }
 }

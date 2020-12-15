@@ -28,7 +28,7 @@ public class k {
         return this.giftId;
     }
 
-    public String bUU() {
+    public String bUV() {
         return this.aXL;
     }
 
@@ -36,7 +36,7 @@ public class k {
         return this.aXM;
     }
 
-    public long bUV() {
+    public long bUW() {
         return this.aXF;
     }
 

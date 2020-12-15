@@ -4,67 +4,67 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public class d {
-    private static d oRx;
-    private a oRA;
-    private b oRy;
-    private b oRz;
-    private String oRB = "";
-    private ConcurrentHashMap<String, c> oRC = new ConcurrentHashMap<>(4);
+    private static d oRz;
+    private b oRA;
+    private b oRB;
+    private a oRC;
+    private String oRD = "";
+    private ConcurrentHashMap<String, c> oRE = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d emz() {
-        if (oRx == null) {
+    public static d emA() {
+        if (oRz == null) {
             synchronized (d.class) {
-                if (oRx == null) {
-                    oRx = new d();
+                if (oRz == null) {
+                    oRz = new d();
                 }
             }
         }
-        return oRx;
+        return oRz;
     }
 
     public c YK(String str) {
-        return this.oRC.get(str);
+        return this.oRE.get(str);
     }
 
-    public String emA() {
-        return this.oRB;
+    public String emB() {
+        return this.oRD;
     }
 
     public void a(String str, c cVar) {
-        this.oRB = str;
+        this.oRD = str;
         if (cVar != null) {
-            this.oRC.put(str, cVar);
+            this.oRE.put(str, cVar);
         }
     }
 
     public void YL(String str) {
-        if (this.oRC.containsKey(str)) {
-            this.oRC.remove(str);
+        if (this.oRE.containsKey(str)) {
+            this.oRE.remove(str);
         }
     }
 
-    public b emB() {
-        return this.oRy;
+    public b emC() {
+        return this.oRA;
     }
 
     public void a(b bVar) {
-        this.oRy = bVar;
+        this.oRA = bVar;
     }
 
-    public b emC() {
-        return this.oRz;
+    public b emD() {
+        return this.oRB;
     }
 
     public void b(b bVar) {
-        this.oRz = bVar;
+        this.oRB = bVar;
     }
 
-    public static void emD() {
-        oRx = null;
+    public static void emE() {
+        oRz = null;
     }
 
-    public a emE() {
-        return this.oRA;
+    public a emF() {
+        return this.oRC;
     }
 }

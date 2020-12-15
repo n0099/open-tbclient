@@ -11,11 +11,11 @@ import java.net.SocketTimeoutException;
 public class d {
     private int MC = 0;
     private long Mn = 0;
-    private g mIN;
-    private b mIR;
+    private g mIP;
+    private b mIT;
 
     public d(g gVar) {
-        this.mIN = gVar;
+        this.mIP = gVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET]}, finally: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF] complete} */
@@ -26,49 +26,49 @@ public class d {
             i = com.baidu.adp.framework.d.b.lD().getRetryCount();
         }
         int timeOutAuto2 = i4 <= 0 ? com.baidu.adp.framework.d.b.lD().lE().getTimeOutAuto() : i4;
-        this.mIR = new b(this.mIN);
+        this.mIT = new b(this.mIP);
         for (int i5 = 0; i5 < i; i5++) {
             e eVar = new e();
             try {
                 eVar.retry = i5 + 1;
                 this.MC = i5;
-                boolean a2 = this.mIR.a(str, jVar, timeOutAuto, timeOutAuto2, z, eVar, z2);
-                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                this.mIN.a(eVar);
-                a dFs = a.dFs();
-                if (dFs != null) {
-                    dFs.a(this.mIN);
+                boolean a2 = this.mIT.a(str, jVar, timeOutAuto, timeOutAuto2, z, eVar, z2);
+                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                this.mIP.a(eVar);
+                a dFt = a.dFt();
+                if (dFt != null) {
+                    dFt.a(this.mIP);
                 }
                 return a2;
             } catch (FileNotFoundException e) {
                 try {
-                    this.mIN.dFv().responseCode = -100;
-                    eVar.exception = String.valueOf(this.mIN.dFv().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
-                    this.mIN.a(eVar);
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.a(eVar);
-                    a dFs2 = a.dFs();
-                    if (dFs2 != null) {
-                        dFs2.a(this.mIN);
+                    this.mIP.dFw().responseCode = -100;
+                    eVar.exception = String.valueOf(this.mIP.dFw().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
+                    this.mIP.a(eVar);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.a(eVar);
+                    a dFt2 = a.dFt();
+                    if (dFt2 != null) {
+                        dFt2.a(this.mIP);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.a(eVar);
-                    a dFs3 = a.dFs();
-                    if (dFs3 != null) {
-                        dFs3.a(this.mIN);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.a(eVar);
+                    a dFt3 = a.dFt();
+                    if (dFt3 != null) {
+                        dFt3.a(this.mIP);
                     }
                     throw th;
                 }
             } catch (Exception e2) {
-                this.mIN.dFv().responseCode = -10;
-                eVar.exception = String.valueOf(this.mIN.dFv().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
-                this.mIN.a(eVar);
-                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                this.mIN.a(eVar);
-                a dFs4 = a.dFs();
-                if (dFs4 != null) {
-                    dFs4.a(this.mIN);
+                this.mIP.dFw().responseCode = -10;
+                eVar.exception = String.valueOf(this.mIP.dFw().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
+                this.mIP.a(eVar);
+                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                this.mIP.a(eVar);
+                a dFt4 = a.dFt();
+                if (dFt4 != null) {
+                    dFt4.a(this.mIP);
                 }
             }
         }
@@ -89,9 +89,9 @@ public class d {
         }
         boolean z = true;
         long currentTimeMillis = System.currentTimeMillis();
-        for (int i4 = 0; !this.mIN.dFv().Nj && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.mIP.dFw().Nj && z && i4 < i; i4++) {
             e eVar = new e();
-            this.mIN.a(eVar);
+            this.mIP.a(eVar);
             try {
                 try {
                     try {
@@ -100,107 +100,107 @@ public class d {
                                 this.MC = i4;
                                 eVar.retry = i4 + 1;
                                 eVar.MT = 1;
-                                this.mIR = new b(this.mIN);
-                                this.mIR.a(i2, i3, eVar);
+                                this.mIT = new b(this.mIP);
+                                this.mIT.a(i2, i3, eVar);
                             } catch (IllegalStateException e) {
-                                this.mIN.dFv().mNetErrorCode = -19;
+                                this.mIP.dFw().mNetErrorCode = -19;
                                 eVar.exception = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                                if (this.Mn <= 0 && this.mIR != null) {
-                                    this.Mn = this.mIR.mo();
+                                if (this.Mn <= 0 && this.mIT != null) {
+                                    this.Mn = this.mIT.mo();
                                 }
                                 eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                                this.mIN.b(eVar);
-                                a dFs = a.dFs();
-                                if (dFs != null) {
-                                    dFs.a(this.mIN);
+                                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                                this.mIP.b(eVar);
+                                a dFt = a.dFt();
+                                if (dFt != null) {
+                                    dFt.a(this.mIP);
                                 }
                             }
                         } catch (Exception e2) {
-                            eVar.exception = String.valueOf(this.mIN.dFv().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
-                            this.mIN.dFv().mNetErrorCode = -10;
+                            eVar.exception = String.valueOf(this.mIP.dFw().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
+                            this.mIP.dFw().mNetErrorCode = -10;
                             BdLog.e(e2.getMessage());
-                            if (this.Mn <= 0 && this.mIR != null) {
-                                this.Mn = this.mIR.mo();
+                            if (this.Mn <= 0 && this.mIT != null) {
+                                this.Mn = this.mIT.mo();
                             }
                             eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                            com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                            this.mIN.b(eVar);
-                            a dFs2 = a.dFs();
-                            if (dFs2 != null) {
-                                dFs2.a(this.mIN);
+                            com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                            this.mIP.b(eVar);
+                            a dFt2 = a.dFt();
+                            if (dFt2 != null) {
+                                dFt2.a(this.mIP);
                                 return;
                             }
                             return;
                         }
                     } catch (SocketTimeoutException e3) {
-                        eVar.exception = String.valueOf(this.mIN.dFv().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
-                        this.mIN.dFv().mNetErrorCode = -13;
-                        if (this.Mn <= 0 && this.mIR != null) {
-                            this.Mn = this.mIR.mo();
+                        eVar.exception = String.valueOf(this.mIP.dFw().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
+                        this.mIP.dFw().mNetErrorCode = -13;
+                        if (this.Mn <= 0 && this.mIT != null) {
+                            this.Mn = this.mIT.mo();
                         }
                         eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                        this.mIN.b(eVar);
-                        a dFs3 = a.dFs();
-                        if (dFs3 != null) {
-                            dFs3.a(this.mIN);
+                        com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                        this.mIP.b(eVar);
+                        a dFt3 = a.dFt();
+                        if (dFt3 != null) {
+                            dFt3.a(this.mIP);
                         }
                         z = true;
                     }
                 } catch (SocketException e4) {
-                    eVar.exception = String.valueOf(this.mIN.dFv().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
-                    this.mIN.dFv().mNetErrorCode = -12;
-                    if (this.Mn <= 0 && this.mIR != null) {
-                        this.Mn = this.mIR.mo();
+                    eVar.exception = String.valueOf(this.mIP.dFw().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
+                    this.mIP.dFw().mNetErrorCode = -12;
+                    if (this.Mn <= 0 && this.mIT != null) {
+                        this.Mn = this.mIT.mo();
                     }
                     eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.b(eVar);
-                    a dFs4 = a.dFs();
-                    if (dFs4 != null) {
-                        dFs4.a(this.mIN);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.b(eVar);
+                    a dFt4 = a.dFt();
+                    if (dFt4 != null) {
+                        dFt4.a(this.mIP);
                     }
                     z = true;
                 }
-                if (this.mIN.dFv().responseCode == 200) {
-                    this.mIN.b(eVar);
-                    if (this.Mn <= 0 && this.mIR != null) {
-                        this.Mn = this.mIR.mo();
+                if (this.mIP.dFw().responseCode == 200) {
+                    this.mIP.b(eVar);
+                    if (this.Mn <= 0 && this.mIT != null) {
+                        this.Mn = this.mIT.mo();
                     }
                     eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.b(eVar);
-                    a dFs5 = a.dFs();
-                    if (dFs5 != null) {
-                        dFs5.a(this.mIN);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.b(eVar);
+                    a dFt5 = a.dFt();
+                    if (dFt5 != null) {
+                        dFt5.a(this.mIP);
                         return;
                     }
                     return;
                 }
-                eVar.exception = String.valueOf(this.mIN.dFv().responseCode) + "|retryCount:" + i4;
-                boolean as = as(this.mIN.dFv().responseCode);
-                if (this.Mn <= 0 && this.mIR != null) {
-                    this.Mn = this.mIR.mo();
+                eVar.exception = String.valueOf(this.mIP.dFw().responseCode) + "|retryCount:" + i4;
+                boolean as = as(this.mIP.dFw().responseCode);
+                if (this.Mn <= 0 && this.mIT != null) {
+                    this.Mn = this.mIT.mo();
                 }
                 eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                this.mIN.b(eVar);
-                a dFs6 = a.dFs();
-                if (dFs6 != null) {
-                    dFs6.a(this.mIN);
+                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                this.mIP.b(eVar);
+                a dFt6 = a.dFt();
+                if (dFt6 != null) {
+                    dFt6.a(this.mIP);
                 }
                 z = as;
             } catch (Throwable th) {
-                if (this.Mn <= 0 && this.mIR != null) {
-                    this.Mn = this.mIR.mo();
+                if (this.Mn <= 0 && this.mIT != null) {
+                    this.Mn = this.mIT.mo();
                 }
                 eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                this.mIN.b(eVar);
-                a dFs7 = a.dFs();
-                if (dFs7 != null) {
-                    dFs7.a(this.mIN);
+                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                this.mIP.b(eVar);
+                a dFt7 = a.dFt();
+                if (dFt7 != null) {
+                    dFt7.a(this.mIP);
                 }
                 throw th;
             }
@@ -222,118 +222,118 @@ public class d {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.mIN.dFv().Nj && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.mIP.dFw().Nj && z2 && i4 < i; i4++) {
             e eVar = new e();
             eVar.retry = i4 + 1;
             this.MC = i4;
             try {
                 try {
                     try {
-                        this.mIR = new b(this.mIN);
-                        this.mIR.b(i2, i3, eVar);
+                        this.mIT = new b(this.mIP);
+                        this.mIT.b(i2, i3, eVar);
                     } catch (UnsupportedOperationException e) {
                         z = false;
-                        this.mIN.dFv().mNetErrorCode = -14;
+                        this.mIP.dFw().mNetErrorCode = -14;
                         eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                        this.mIN.a(eVar);
-                        if (this.Mn <= 0 && this.mIR != null) {
-                            this.Mn = this.mIR.mo();
+                        this.mIP.a(eVar);
+                        if (this.Mn <= 0 && this.mIT != null) {
+                            this.Mn = this.mIT.mo();
                         }
                         eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                        this.mIN.a(eVar);
-                        a dFs = a.dFs();
-                        if (dFs != null && this.mIR != null && this.mIR.mr()) {
-                            dFs.a(this.mIN);
+                        com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                        this.mIP.a(eVar);
+                        a dFt = a.dFt();
+                        if (dFt != null && this.mIT != null && this.mIT.mr()) {
+                            dFt.a(this.mIP);
                         }
                     } catch (SocketTimeoutException e2) {
-                        this.mIN.dFv().mNetErrorCode = -13;
+                        this.mIP.dFw().mNetErrorCode = -13;
                         z = true;
                         eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e2.getMessage());
-                        this.mIN.a(eVar);
-                        if (this.Mn <= 0 && this.mIR != null) {
-                            this.Mn = this.mIR.mo();
+                        this.mIP.a(eVar);
+                        if (this.Mn <= 0 && this.mIT != null) {
+                            this.Mn = this.mIT.mo();
                         }
                         eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                        this.mIN.a(eVar);
-                        a dFs2 = a.dFs();
-                        if (dFs2 != null && this.mIR != null && this.mIR.mr()) {
-                            dFs2.a(this.mIN);
+                        com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                        this.mIP.a(eVar);
+                        a dFt2 = a.dFt();
+                        if (dFt2 != null && this.mIT != null && this.mIT.mr()) {
+                            dFt2.a(this.mIP);
                         }
                     }
                 } catch (SocketException e3) {
-                    this.mIN.dFv().mNetErrorCode = -12;
+                    this.mIP.dFw().mNetErrorCode = -12;
                     z = true;
                     eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.mIN.a(eVar);
-                    if (this.Mn <= 0 && this.mIR != null) {
-                        this.Mn = this.mIR.mo();
+                    this.mIP.a(eVar);
+                    if (this.Mn <= 0 && this.mIT != null) {
+                        this.Mn = this.mIT.mo();
                     }
                     eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.a(eVar);
-                    a dFs3 = a.dFs();
-                    if (dFs3 != null && this.mIR != null && this.mIR.mr()) {
-                        dFs3.a(this.mIN);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.a(eVar);
+                    a dFt3 = a.dFt();
+                    if (dFt3 != null && this.mIT != null && this.mIT.mr()) {
+                        dFt3.a(this.mIP);
                     }
                 } catch (Throwable th) {
-                    this.mIN.dFv().mNetErrorCode = -10;
+                    this.mIP.dFw().mNetErrorCode = -10;
                     z = false;
                     eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(th.getMessage());
-                    this.mIN.a(eVar);
-                    if (this.Mn <= 0 && this.mIR != null) {
-                        this.Mn = this.mIR.mo();
+                    this.mIP.a(eVar);
+                    if (this.Mn <= 0 && this.mIT != null) {
+                        this.Mn = this.mIT.mo();
                     }
                     eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.a(eVar);
-                    a dFs4 = a.dFs();
-                    if (dFs4 != null && this.mIR != null && this.mIR.mr()) {
-                        dFs4.a(this.mIN);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.a(eVar);
+                    a dFt4 = a.dFt();
+                    if (dFt4 != null && this.mIT != null && this.mIT.mr()) {
+                        dFt4.a(this.mIP);
                     }
                 }
-                if (this.mIN.dFv().responseCode == 200) {
-                    if (this.Mn <= 0 && this.mIR != null) {
-                        this.Mn = this.mIR.mo();
+                if (this.mIP.dFw().responseCode == 200) {
+                    if (this.Mn <= 0 && this.mIT != null) {
+                        this.Mn = this.mIT.mo();
                     }
                     eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.a(eVar);
-                    a dFs5 = a.dFs();
-                    if (dFs5 == null || this.mIR == null || !this.mIR.mr()) {
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.a(eVar);
+                    a dFt5 = a.dFt();
+                    if (dFt5 == null || this.mIT == null || !this.mIT.mr()) {
                         return;
                     }
-                    dFs5.a(this.mIN);
+                    dFt5.a(this.mIP);
                     return;
                 }
-                eVar.exception = String.valueOf(this.mIN.dFv().responseCode) + "|retryCount:" + i4;
-                z = as(this.mIN.dFv().responseCode);
-                this.mIN.a(eVar);
-                if (this.Mn <= 0 && this.mIR != null) {
-                    this.Mn = this.mIR.mo();
+                eVar.exception = String.valueOf(this.mIP.dFw().responseCode) + "|retryCount:" + i4;
+                z = as(this.mIP.dFw().responseCode);
+                this.mIP.a(eVar);
+                if (this.Mn <= 0 && this.mIT != null) {
+                    this.Mn = this.mIT.mo();
                 }
                 eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                this.mIN.a(eVar);
-                a dFs6 = a.dFs();
-                if (dFs6 != null && this.mIR != null && this.mIR.mr()) {
-                    dFs6.a(this.mIN);
+                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                this.mIP.a(eVar);
+                a dFt6 = a.dFt();
+                if (dFt6 != null && this.mIT != null && this.mIT.mr()) {
+                    dFt6.a(this.mIP);
                 }
                 z2 = z;
             } catch (Throwable th2) {
-                if (this.Mn <= 0 && this.mIR != null) {
-                    this.Mn = this.mIR.mo();
+                if (this.Mn <= 0 && this.mIT != null) {
+                    this.Mn = this.mIT.mo();
                 }
                 eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                this.mIN.a(eVar);
-                a dFs7 = a.dFs();
-                if (dFs7 != null && this.mIR != null && this.mIR.mr()) {
-                    dFs7.a(this.mIN);
+                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                this.mIP.a(eVar);
+                a dFt7 = a.dFt();
+                if (dFt7 != null && this.mIT != null && this.mIT.mr()) {
+                    dFt7.a(this.mIP);
                 }
                 throw th2;
             }
@@ -348,7 +348,7 @@ public class d {
     }
 
     public void f(int i, int i2, int i3) {
-        if (this.mIN.dFu().mB()) {
+        if (this.mIP.dFv().mB()) {
             e(i, i2, i3);
         } else {
             g(i, i2, i3);
@@ -370,118 +370,118 @@ public class d {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.mIN.dFv().Nj && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.mIP.dFw().Nj && z2 && i4 < i; i4++) {
             e eVar = new e();
             this.MC = i4;
             eVar.retry = i4 + 1;
             try {
                 try {
                     try {
-                        this.mIR = new b(this.mIN);
-                        this.mIR.c(i2, i3, eVar);
+                        this.mIT = new b(this.mIP);
+                        this.mIT.c(i2, i3, eVar);
                     } catch (SocketTimeoutException e) {
-                        this.mIN.dFv().mNetErrorCode = -13;
+                        this.mIP.dFw().mNetErrorCode = -13;
                         z = true;
                         eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
-                        this.mIN.a(eVar);
-                        if (this.Mn <= 0 && this.mIR != null) {
-                            this.Mn = this.mIR.mo();
+                        this.mIP.a(eVar);
+                        if (this.Mn <= 0 && this.mIT != null) {
+                            this.Mn = this.mIT.mo();
                         }
                         eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                        this.mIN.a(eVar);
-                        a dFs = a.dFs();
-                        if (dFs != null) {
-                            dFs.a(this.mIN);
+                        com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                        this.mIP.a(eVar);
+                        a dFt = a.dFt();
+                        if (dFt != null) {
+                            dFt.a(this.mIP);
                         }
                     } catch (Throwable th) {
-                        this.mIN.dFv().mNetErrorCode = -10;
+                        this.mIP.dFw().mNetErrorCode = -10;
                         z = false;
                         eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(th.getMessage());
-                        this.mIN.a(eVar);
-                        if (this.Mn <= 0 && this.mIR != null) {
-                            this.Mn = this.mIR.mo();
+                        this.mIP.a(eVar);
+                        if (this.Mn <= 0 && this.mIT != null) {
+                            this.Mn = this.mIT.mo();
                         }
                         eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                        this.mIN.a(eVar);
-                        a dFs2 = a.dFs();
-                        if (dFs2 != null) {
-                            dFs2.a(this.mIN);
+                        com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                        this.mIP.a(eVar);
+                        a dFt2 = a.dFt();
+                        if (dFt2 != null) {
+                            dFt2.a(this.mIP);
                         }
                     }
                 } catch (UnsupportedOperationException e2) {
                     z = false;
-                    this.mIN.dFv().mNetErrorCode = -14;
+                    this.mIP.dFw().mNetErrorCode = -14;
                     eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                    this.mIN.a(eVar);
-                    if (this.Mn <= 0 && this.mIR != null) {
-                        this.Mn = this.mIR.mo();
+                    this.mIP.a(eVar);
+                    if (this.Mn <= 0 && this.mIT != null) {
+                        this.Mn = this.mIT.mo();
                     }
                     eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.a(eVar);
-                    a dFs3 = a.dFs();
-                    if (dFs3 != null) {
-                        dFs3.a(this.mIN);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.a(eVar);
+                    a dFt3 = a.dFt();
+                    if (dFt3 != null) {
+                        dFt3.a(this.mIP);
                     }
                 } catch (SocketException e3) {
-                    this.mIN.dFv().mNetErrorCode = -12;
+                    this.mIP.dFw().mNetErrorCode = -12;
                     z = true;
                     eVar.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.mIN.a(eVar);
-                    if (this.Mn <= 0 && this.mIR != null) {
-                        this.Mn = this.mIR.mo();
+                    this.mIP.a(eVar);
+                    if (this.Mn <= 0 && this.mIT != null) {
+                        this.Mn = this.mIT.mo();
                     }
                     eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.a(eVar);
-                    a dFs4 = a.dFs();
-                    if (dFs4 != null) {
-                        dFs4.a(this.mIN);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.a(eVar);
+                    a dFt4 = a.dFt();
+                    if (dFt4 != null) {
+                        dFt4.a(this.mIP);
                     }
                 }
-                if (this.mIN.dFv().responseCode == 200) {
-                    if (this.Mn <= 0 && this.mIR != null) {
-                        this.Mn = this.mIR.mo();
+                if (this.mIP.dFw().responseCode == 200) {
+                    if (this.Mn <= 0 && this.mIT != null) {
+                        this.Mn = this.mIT.mo();
                     }
                     eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                    this.mIN.a(eVar);
-                    a dFs5 = a.dFs();
-                    if (dFs5 != null) {
-                        dFs5.a(this.mIN);
+                    com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                    this.mIP.a(eVar);
+                    a dFt5 = a.dFt();
+                    if (dFt5 != null) {
+                        dFt5.a(this.mIP);
                         return;
                     }
                     return;
                 }
-                eVar.exception = String.valueOf(this.mIN.dFv().responseCode) + "|retryCount:" + i4;
-                z = as(this.mIN.dFv().responseCode);
-                this.mIN.a(eVar);
-                if (this.Mn <= 0 && this.mIR != null) {
-                    this.Mn = this.mIR.mo();
+                eVar.exception = String.valueOf(this.mIP.dFw().responseCode) + "|retryCount:" + i4;
+                z = as(this.mIP.dFw().responseCode);
+                this.mIP.a(eVar);
+                if (this.Mn <= 0 && this.mIT != null) {
+                    this.Mn = this.mIT.mo();
                 }
                 eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                this.mIN.a(eVar);
-                a dFs6 = a.dFs();
-                if (dFs6 != null) {
-                    dFs6.a(this.mIN);
+                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                this.mIP.a(eVar);
+                a dFt6 = a.dFt();
+                if (dFt6 != null) {
+                    dFt6.a(this.mIP);
                 }
                 z2 = z;
             } catch (Throwable th2) {
-                if (this.Mn <= 0 && this.mIR != null) {
-                    this.Mn = this.mIR.mo();
+                if (this.Mn <= 0 && this.mIT != null) {
+                    this.Mn = this.mIT.mo();
                 }
                 eVar.MG = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.mc().a(this.mIN.dFu().getUrl(), this.mIN.dFu().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
-                this.mIN.a(eVar);
-                a dFs7 = a.dFs();
-                if (dFs7 != null) {
-                    dFs7.a(this.mIN);
+                com.baidu.adp.lib.a.a.mc().a(this.mIP.dFv().getUrl(), this.mIP.dFv().bM("Host"), TextUtils.isEmpty(eVar.exception), eVar.MK != null);
+                this.mIP.a(eVar);
+                a dFt7 = a.dFt();
+                if (dFt7 != null) {
+                    dFt7.a(this.mIP);
                 }
                 throw th2;
             }
@@ -489,21 +489,21 @@ public class d {
     }
 
     public void cancel() {
-        if (this.mIR != null) {
-            this.mIR.cancelNetConnect();
+        if (this.mIT != null) {
+            this.mIT.cancelNetConnect();
         }
     }
 
     public boolean isCancel() {
-        if (this.mIN == null) {
+        if (this.mIP == null) {
             return false;
         }
-        return this.mIN.dFv().Nj;
+        return this.mIP.dFw().Nj;
     }
 
     public void setCancel() {
-        if (this.mIN != null) {
-            this.mIN.dFv().Nj = true;
+        if (this.mIP != null) {
+            this.mIP.dFw().Nj = true;
         }
     }
 }

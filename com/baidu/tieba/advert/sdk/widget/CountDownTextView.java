@@ -8,9 +8,9 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes23.dex */
 public class CountDownTextView extends TextView {
     private int cPz;
-    private b gdM;
-    private final Runnable gdN;
-    private boolean gdO;
+    private b gdO;
+    private final Runnable gdP;
+    private boolean gdQ;
     private Handler mHandler;
     private String mText;
 
@@ -21,15 +21,15 @@ public class CountDownTextView extends TextView {
 
     /* loaded from: classes23.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> gdf;
+        private final WeakReference<CountDownTextView> gdh;
 
         private a(CountDownTextView countDownTextView) {
-            this.gdf = new WeakReference<>(countDownTextView);
+            this.gdh = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.gdf.get();
+            CountDownTextView countDownTextView = this.gdh.get();
             if (countDownTextView != null) {
                 countDownTextView.uw(1);
             }
@@ -40,18 +40,18 @@ public class CountDownTextView extends TextView {
         super(context);
         this.cPz = 0;
         this.mText = "";
-        this.gdM = null;
+        this.gdO = null;
         this.mHandler = new Handler();
-        this.gdO = false;
-        this.gdN = new a();
+        this.gdQ = false;
+        this.gdP = new a();
     }
 
     public void setNumTypeFromBes(boolean z) {
-        this.gdO = z;
+        this.gdQ = z;
     }
 
     public void setTimeoutListener(b bVar) {
-        this.gdM = bVar;
+        this.gdO = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -63,7 +63,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bND();
+        bNE();
     }
 
     @Override // android.view.View
@@ -72,7 +72,7 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             uw(0);
         } else {
-            bND();
+            bNE();
         }
     }
 
@@ -83,7 +83,7 @@ public class CountDownTextView extends TextView {
         }
     }
 
-    private void bND() {
+    private void bNE() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
@@ -91,20 +91,20 @@ public class CountDownTextView extends TextView {
     public void uw(int i) {
         this.cPz -= i;
         if (this.cPz == 0) {
-            if (this.gdM != null) {
-                this.gdM.ca(this);
+            if (this.gdO != null) {
+                this.gdO.ca(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
         if (this.cPz > 0) {
-            if (this.gdO) {
+            if (this.gdQ) {
                 setText(String.format("%s 0%s", this.mText, Integer.valueOf(this.cPz)));
             } else {
                 setText(String.format("%s %s", this.mText, Integer.valueOf(this.cPz)));
             }
         }
-        this.mHandler.removeCallbacks(this.gdN);
-        this.mHandler.postDelayed(this.gdN, 1000L);
+        this.mHandler.removeCallbacks(this.gdP);
+        this.mHandler.postDelayed(this.gdP, 1000L);
     }
 }

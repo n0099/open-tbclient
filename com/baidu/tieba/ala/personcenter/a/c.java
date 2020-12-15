@@ -12,7 +12,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.hNu);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.hNw);
         this.mPageContext = tbPageContext;
     }
 
@@ -28,25 +28,25 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.f fVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.b> aVar) {
-        if (aVar.csM() == null) {
+        if (aVar.csN() == null) {
             return null;
         }
-        aVar.csM().a(fVar);
-        aVar.csM().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.csM().c(new ab<com.baidu.tieba.ala.personcenter.c.f>() { // from class: com.baidu.tieba.ala.personcenter.a.c.1
+        aVar.csN().a(fVar);
+        aVar.csN().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.csN().c(new ab<com.baidu.tieba.ala.personcenter.c.f>() { // from class: com.baidu.tieba.ala.personcenter.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.ala.personcenter.c.f fVar2) {
                 c.this.a(fVar2);
             }
         });
-        return aVar.csM().getView();
+        return aVar.csN().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.f fVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData;
-        if (fVar != null && (personCenterData = fVar.getPersonCenterData()) != null && personCenterData.cmP() != null) {
+        if (fVar != null && (personCenterData = fVar.getPersonCenterData()) != null && personCenterData.cmQ() != null) {
             if (!personCenterData.isHost()) {
                 TiebaStatic.log("c11864");
             } else {

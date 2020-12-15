@@ -87,7 +87,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         return null;
     }
 
-    public List<SpecialColumnItemData> cQM() {
+    public List<SpecialColumnItemData> cQN() {
         return this.mListData;
     }
 
@@ -95,7 +95,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bSr() {
+    public List<SpecialColumnItemData> bSs() {
         return this.mResultListData;
     }
 

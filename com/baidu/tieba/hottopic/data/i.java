@@ -5,51 +5,51 @@ import com.baidu.adp.widget.ListView.q;
 import tbclient.Hottopic.PkModule;
 /* loaded from: classes21.dex */
 public class i implements q {
-    public static final BdUniqueId kdS = BdUniqueId.gen();
-    public String kdT;
-    public long kdU;
-    public int kdV;
-    public String kdW;
-    public long kdX;
-    public int kdY;
-    public int kdZ;
-    public String kdc;
-    public String kdd;
-    public int kde;
+    public static final BdUniqueId kdU = BdUniqueId.gen();
+    public String kdV;
+    public long kdW;
+    public int kdX;
+    public String kdY;
+    public long kdZ;
+    public String kde;
+    public String kdf;
+    public int kdg;
     public int kea;
-    public long keb;
-    public long kec;
+    public int keb;
+    public int kec;
+    public long ked;
+    public long kee;
     public long pkId;
     public long userPkId;
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kdS;
+        return kdU;
     }
 
     public void a(PkModule pkModule) {
         int i;
         if (pkModule != null) {
-            this.kdc = pkModule.module_name;
-            this.kdd = pkModule.ques_desc;
-            this.kdT = pkModule.pk_1.pk_desc;
-            this.kdU = pkModule.pk_1.pk_num.longValue();
-            this.kdV = pkModule.pk_1.pk_index.intValue();
-            this.kdW = pkModule.pk_2.pk_desc;
-            this.kdX = pkModule.pk_2.pk_num.longValue();
-            this.kdY = pkModule.pk_2.pk_index.intValue();
+            this.kde = pkModule.module_name;
+            this.kdf = pkModule.ques_desc;
+            this.kdV = pkModule.pk_1.pk_desc;
+            this.kdW = pkModule.pk_1.pk_num.longValue();
+            this.kdX = pkModule.pk_1.pk_index.intValue();
+            this.kdY = pkModule.pk_2.pk_desc;
+            this.kdZ = pkModule.pk_2.pk_num.longValue();
+            this.kea = pkModule.pk_2.pk_index.intValue();
             if (pkModule.pk_1.has_clicked.intValue() == 1) {
                 i = 1;
             } else {
                 i = pkModule.pk_2.has_clicked.intValue() == 1 ? 2 : 0;
             }
-            this.kde = i;
-            this.kdZ = pkModule.pk_type.intValue();
-            this.kea = pkModule.user_pk_index.intValue();
+            this.kdg = i;
+            this.keb = pkModule.pk_type.intValue();
+            this.kec = pkModule.user_pk_index.intValue();
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.keb = this.kde == 1 ? this.kdU - 1 : this.kdU;
-            this.kec = this.kde == 2 ? this.kdX - 1 : this.kdX;
+            this.ked = this.kdg == 1 ? this.kdW - 1 : this.kdW;
+            this.kee = this.kdg == 2 ? this.kdZ - 1 : this.kdZ;
         }
     }
 }

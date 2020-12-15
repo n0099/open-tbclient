@@ -14,17 +14,17 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class c extends BdBaseModel {
-    private a hHN;
-    private HttpMessageListener hHO = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.g.c.1
+    private a hHP;
+    private HttpMessageListener hHQ = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.g.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId() && c.this.hHN != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId() && c.this.hHP != null) {
                 AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage = (AlaSdkGetGiftListHttpResponseMessage) httpResponsedMessage;
                 if (alaSdkGetGiftListHttpResponseMessage.getError() != 0 || !alaSdkGetGiftListHttpResponseMessage.isSuccess()) {
-                    c.this.hHN.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
+                    c.this.hHP.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
                 } else {
-                    c.this.hHN.c(alaSdkGetGiftListHttpResponseMessage);
+                    c.this.hHP.c(alaSdkGetGiftListHttpResponseMessage);
                 }
             }
         }
@@ -48,9 +48,9 @@ public class c extends BdBaseModel {
 
     public c(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.hHN = aVar;
+        this.hHP = aVar;
         GL();
-        registerListener(this.hHO);
+        registerListener(this.hHQ);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0041  */
@@ -101,7 +101,7 @@ public class c extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.hHO);
+        MessageManager.getInstance().unRegisterListener(this.hHQ);
         MessageManager.getInstance().unRegisterTask(1021120);
     }
 }

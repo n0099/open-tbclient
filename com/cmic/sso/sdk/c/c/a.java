@@ -18,20 +18,20 @@ import com.cmic.sso.sdk.e.s;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a {
-    private static a oZv = null;
+    private static a oZx = null;
 
     private a() {
     }
 
-    public static a eoC() {
-        if (oZv == null) {
+    public static a eoD() {
+        if (oZx == null) {
             synchronized (a.class) {
-                if (oZv == null) {
-                    oZv = new a();
+                if (oZx == null) {
+                    oZx = new a();
                 }
             }
         }
-        return oZv;
+        return oZx;
     }
 
     public void a(boolean z, com.cmic.sso.sdk.a aVar, d dVar) {
@@ -59,8 +59,8 @@ public class a {
         aVar2.i(aVar.b("smskey", ""));
         aVar2.j(aVar.b("imsi"));
         aVar2.k(aVar.b("imei"));
-        aVar2.c(j.eoH().c());
-        aVar2.d(j.eoH().d());
+        aVar2.c(j.eoI().c());
+        aVar2.d(j.eoI().d());
         aVar2.l(aVar.b("operatortype"));
         aVar2.m(c + "");
         aVar2.n(n.a());
@@ -76,9 +76,9 @@ public class a {
         if (aVar.b("use2048PublicKey", false)) {
             com.cmic.sso.sdk.e.c.a("BaseRequest", "使用2对应的编码");
             eVar.a("2");
-            a2 = i.eoG().b(aVar.a(b.a.f4008a));
+            a2 = i.eoH().b(aVar.a(b.a.f4008a));
         } else {
-            a2 = i.eoG().a(aVar.a(b.a.f4008a));
+            a2 = i.eoH().a(aVar.a(b.a.f4008a));
         }
         eVar.b(a2);
         eVar.a(aVar2);

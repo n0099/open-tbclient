@@ -58,7 +58,7 @@ public class r extends q {
                     if (!it.hasNext()) {
                         z = true;
                         break;
-                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).eyH()))) {
+                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).eyI()))) {
                         z = false;
                         break;
                     }

@@ -9,12 +9,12 @@ import com.baidu.tieba.ala.alaar.view.b;
 /* loaded from: classes4.dex */
 public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements View.OnClickListener {
     protected Context context;
-    protected a goo;
-    private VH gop;
+    protected a goq;
+    private VH gor;
     protected LIST mData;
     protected LayoutInflater mInflater;
     protected int aaR = -1;
-    protected int gon = -1;
+    protected int gop = -1;
 
     /* loaded from: classes4.dex */
     public interface a<VH extends b> {
@@ -31,16 +31,16 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.mData = list;
-        bPF();
+        bPG();
     }
 
     public void setData(LIST list) {
         this.mData = list;
-        bPF();
+        bPG();
         notifyDataSetChanged();
     }
 
-    protected void bPF() {
+    protected void bPG() {
         this.aaR = -1;
     }
 
@@ -61,7 +61,7 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
 
     public void a(int i, final VH vh) {
         vh.h(i, uP(i));
-        if (this.gon >= 0 && i == this.gon) {
+        if (this.gop >= 0 && i == this.gop) {
             vh.itemView.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.h.1
                 /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.ala.alaar.view.h */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -76,18 +76,18 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
     }
 
     private void b(int i, VH vh) {
-        if (vh != this.gop) {
-            if (this.gop != null) {
-                this.gop.uL(i);
+        if (vh != this.gor) {
+            if (this.gor != null) {
+                this.gor.uL(i);
             }
-            this.gop = vh;
+            this.gor = vh;
         }
         vh.uL(i);
     }
 
     public void uQ(int i) {
         if (i != this.aaR) {
-            this.gon = i;
+            this.gop = i;
             notifyDataSetChanged();
         }
     }
@@ -110,16 +110,16 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
             com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "onClick with viewHolder null");
             return;
         }
-        boolean z2 = this.goo != null && this.goo.a(vh, vh.position, this.aaR, z);
+        boolean z2 = this.goq != null && this.goq.a(vh, vh.position, this.aaR, z);
         if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
             com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "onClick pos= " + vh.position + ", processed= " + z2);
         }
         if (!z2) {
             b(vh.position, (int) vh);
             this.aaR = vh.position;
-            this.gon = -1;
-            if (this.goo != null) {
-                this.goo.a(vh, vh.position, z);
+            this.gop = -1;
+            if (this.goq != null) {
+                this.goq.a(vh, vh.position, z);
             }
         }
     }
@@ -129,6 +129,6 @@ public abstract class h<LIST, D, VH extends b> extends BaseAdapter implements Vi
     }
 
     public void a(a aVar) {
-        this.goo = aVar;
+        this.goq = aVar;
     }
 }

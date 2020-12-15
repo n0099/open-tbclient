@@ -20,17 +20,17 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public class ConcernSelectView extends FrameLayout {
-    private View fYd;
-    private boolean lmA;
-    private a lmB;
-    private LinearLayout lms;
-    private ImageView lmt;
-    private TextView lmu;
-    private TextView lmv;
+    private View fYf;
+    private Animation lmA;
+    private Animation lmB;
+    private boolean lmC;
+    private a lmD;
+    private LinearLayout lmu;
+    private ImageView lmv;
     private TextView lmw;
-    public LinearLayout lmx;
-    private Animation lmy;
-    private Animation lmz;
+    private TextView lmx;
+    private TextView lmy;
+    public LinearLayout lmz;
     private Context mContext;
     private int mSkinType;
 
@@ -64,77 +64,77 @@ public class ConcernSelectView extends FrameLayout {
 
     private void initUI() {
         LayoutInflater.from(this.mContext).inflate(R.layout.concern_select_layout, this);
-        this.lms = (LinearLayout) findViewById(R.id.expandable_area);
-        this.lmt = (ImageView) findViewById(R.id.expandable_btn);
-        this.lmx = (LinearLayout) findViewById(R.id.menu_list);
-        this.lmu = (TextView) findViewById(R.id.menu_title);
-        this.lmv = (TextView) findViewById(R.id.all_concerned_item);
-        this.lmw = (TextView) findViewById(R.id.each_concerned_item);
-        this.fYd = findViewById(R.id.item_divider_line);
-        this.lms.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.1
+        this.lmu = (LinearLayout) findViewById(R.id.expandable_area);
+        this.lmv = (ImageView) findViewById(R.id.expandable_btn);
+        this.lmz = (LinearLayout) findViewById(R.id.menu_list);
+        this.lmw = (TextView) findViewById(R.id.menu_title);
+        this.lmx = (TextView) findViewById(R.id.all_concerned_item);
+        this.lmy = (TextView) findViewById(R.id.each_concerned_item);
+        this.fYf = findViewById(R.id.item_divider_line);
+        this.lmu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new ar("c12774").dY("obj_locate", "1"));
-                ConcernSelectView.this.y(ConcernSelectView.this.lmx, ConcernSelectView.this.lmx.getVisibility() == 0 ? 1 : 0);
+                ConcernSelectView.this.y(ConcernSelectView.this.lmz, ConcernSelectView.this.lmz.getVisibility() == 0 ? 1 : 0);
             }
         });
-        this.lmv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.2
+        this.lmx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new ar("c12774").dY("obj_locate", "2"));
-                ap.setViewTextColor(ConcernSelectView.this.lmv, R.color.CAM_X0105);
-                ap.setViewTextColor(ConcernSelectView.this.lmw, R.color.CAM_X0107);
-                ConcernSelectView.this.lmu.setText(R.string.all_concerned);
-                if (ConcernSelectView.this.lmB != null) {
-                    ConcernSelectView.this.lmB.Bv(0);
+                ap.setViewTextColor(ConcernSelectView.this.lmx, R.color.CAM_X0105);
+                ap.setViewTextColor(ConcernSelectView.this.lmy, R.color.CAM_X0107);
+                ConcernSelectView.this.lmw.setText(R.string.all_concerned);
+                if (ConcernSelectView.this.lmD != null) {
+                    ConcernSelectView.this.lmD.Bv(0);
                 }
-                ConcernSelectView.this.y(ConcernSelectView.this.lmx, 1);
+                ConcernSelectView.this.y(ConcernSelectView.this.lmz, 1);
             }
         });
-        this.lmw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.3
+        this.lmy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log(new ar("c12774").dY("obj_locate", "3"));
-                ap.setViewTextColor(ConcernSelectView.this.lmv, R.color.CAM_X0107);
-                ap.setViewTextColor(ConcernSelectView.this.lmw, R.color.CAM_X0105);
-                ConcernSelectView.this.lmu.setText(R.string.each_concerned);
-                if (ConcernSelectView.this.lmB != null) {
-                    ConcernSelectView.this.lmB.Bv(1);
+                ap.setViewTextColor(ConcernSelectView.this.lmx, R.color.CAM_X0107);
+                ap.setViewTextColor(ConcernSelectView.this.lmy, R.color.CAM_X0105);
+                ConcernSelectView.this.lmw.setText(R.string.each_concerned);
+                if (ConcernSelectView.this.lmD != null) {
+                    ConcernSelectView.this.lmD.Bv(1);
                 }
-                ConcernSelectView.this.y(ConcernSelectView.this.lmx, 1);
+                ConcernSelectView.this.y(ConcernSelectView.this.lmz, 1);
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void dje() {
-        if (this.lmx.getVisibility() == 0) {
-            y(this.lmx, 1);
+    public void djf() {
+        if (this.lmz.getVisibility() == 0) {
+            y(this.lmz, 1);
         }
     }
 
-    public boolean djf() {
-        return this.lmx.getVisibility() == 0;
+    public boolean djg() {
+        return this.lmz.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            SvgManager.btW().a(this.lmt, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
-            ap.setViewTextColor(this.lmu, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lmv, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lmw, R.color.CAM_X0107);
-            ap.setBackgroundResource(this.lmx, R.drawable.concern_item_bg);
-            ap.setBackgroundResource(this.lmu, R.color.CAM_X0201);
-            ap.setBackgroundResource(this.lmv, R.drawable.concern_item_menu_select_bg);
-            ap.setBackgroundResource(this.lmw, R.drawable.concern_item_menu_select_bg);
-            ap.setBackgroundResource(this.fYd, R.color.CAM_X0204);
+            SvgManager.btW().a(this.lmv, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            ap.setViewTextColor(this.lmw, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lmx, R.color.CAM_X0105);
+            ap.setViewTextColor(this.lmy, R.color.CAM_X0107);
+            ap.setBackgroundResource(this.lmz, R.drawable.concern_item_bg);
+            ap.setBackgroundResource(this.lmw, R.color.CAM_X0201);
+            ap.setBackgroundResource(this.lmx, R.drawable.concern_item_menu_select_bg);
+            ap.setBackgroundResource(this.lmy, R.drawable.concern_item_menu_select_bg);
+            ap.setBackgroundResource(this.fYf, R.color.CAM_X0204);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void y(final View view, final int i) {
-        if (view != null && view.getAnimation() == null && this.lmx != null) {
-            int childCount = this.lmx.getChildCount();
+        if (view != null && view.getAnimation() == null && this.lmz != null) {
+            int childCount = this.lmz.getChildCount();
             if (childCount < 0) {
                 childCount = 0;
             }
@@ -168,39 +168,39 @@ public class ConcernSelectView extends FrameLayout {
                             listView.smoothScrollBy(bottom, 260);
                         }
                     }
-                    if (ConcernSelectView.this.lmB != null) {
-                        ConcernSelectView.this.lmB.tR(z);
+                    if (ConcernSelectView.this.lmD != null) {
+                        ConcernSelectView.this.lmD.tR(z);
                     }
                 }
             });
             view.startAnimation(aVar);
-            if (this.lmt != null) {
-                if (this.lmt.getAnimation() == null || this.lmt.getAnimation().hasEnded()) {
+            if (this.lmv != null) {
+                if (this.lmv.getAnimation() == null || this.lmv.getAnimation().hasEnded()) {
                     if (i == 0) {
-                        if (this.lmy == null) {
-                            djh();
+                        if (this.lmA == null) {
+                            dji();
                         }
-                        if (this.lmz != null) {
-                            this.lmz.cancel();
+                        if (this.lmB != null) {
+                            this.lmB.cancel();
                         }
-                        this.lmt.startAnimation(this.lmy);
+                        this.lmv.startAnimation(this.lmA);
                         return;
                     }
-                    if (this.lmz == null) {
-                        djg();
+                    if (this.lmB == null) {
+                        djh();
                     }
-                    if (this.lmy != null) {
-                        this.lmy.cancel();
+                    if (this.lmA != null) {
+                        this.lmA.cancel();
                     }
-                    this.lmt.startAnimation(this.lmz);
+                    this.lmv.startAnimation(this.lmB);
                 }
             }
         }
     }
 
-    private void djg() {
-        this.lmz = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_collapse);
-        this.lmz.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
+    private void djh() {
+        this.lmB = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_collapse);
+        this.lmB.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -211,21 +211,21 @@ public class ConcernSelectView extends FrameLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
-                ConcernSelectView.this.lmA = false;
+                ConcernSelectView.this.lmC = false;
             }
         });
     }
 
-    private void djh() {
-        this.lmy = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_expand);
-        this.lmy.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
+    private void dji() {
+        this.lmA = AnimationUtils.loadAnimation(this.mContext, R.anim.rotate_expand);
+        this.lmA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                ConcernSelectView.this.lmA = true;
+                ConcernSelectView.this.lmC = true;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -235,6 +235,6 @@ public class ConcernSelectView extends FrameLayout {
     }
 
     public void setOnExpandListener(a aVar) {
-        this.lmB = aVar;
+        this.lmD = aVar;
     }
 }

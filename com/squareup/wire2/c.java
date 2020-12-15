@@ -7,20 +7,20 @@ import okio.BufferedSource;
 import okio.ByteString;
 /* loaded from: classes17.dex */
 public final class c {
-    private FieldEncoding pAs;
+    private FieldEncoding pAu;
     private int recursionDepth;
     private final BufferedSource source;
     private long pos = 0;
     private long limit = Long.MAX_VALUE;
     private int state = 2;
     private int tag = -1;
-    private long pAr = -1;
+    private long pAt = -1;
 
     public c(BufferedSource bufferedSource) {
         this.source = bufferedSource;
     }
 
-    public long eAH() throws IOException {
+    public long eAI() throws IOException {
         if (this.state != 2) {
             throw new IllegalStateException("Unexpected call to beginMessage()");
         }
@@ -29,8 +29,8 @@ public final class c {
         if (i > 65) {
             throw new IOException("Wire recursion limit exceeded");
         }
-        long j = this.pAr;
-        this.pAr = -1L;
+        long j = this.pAt;
+        this.pAt = -1L;
         this.state = 6;
         return j;
     }
@@ -41,7 +41,7 @@ public final class c {
         }
         int i = this.recursionDepth - 1;
         this.recursionDepth = i;
-        if (i < 0 || this.pAr != -1) {
+        if (i < 0 || this.pAt != -1) {
             throw new IllegalStateException("No corresponding call to beginMessage()");
         }
         if (this.pos != this.limit && this.recursionDepth != 0) {
@@ -50,7 +50,7 @@ public final class c {
         this.limit = j;
     }
 
-    public int eAI() throws IOException {
+    public int eAJ() throws IOException {
         if (this.state == 7) {
             this.state = 2;
             return this.tag;
@@ -58,34 +58,34 @@ public final class c {
             throw new IllegalStateException("Unexpected call to nextTag()");
         } else {
             while (this.pos < this.limit && !this.source.exhausted()) {
-                int eAL = eAL();
-                if (eAL == 0) {
+                int eAM = eAM();
+                if (eAM == 0) {
                     throw new ProtocolException("Unexpected tag 0");
                 }
-                this.tag = eAL >> 3;
-                int i = eAL & 7;
+                this.tag = eAM >> 3;
+                int i = eAM & 7;
                 switch (i) {
                     case 0:
-                        this.pAs = FieldEncoding.VARINT;
+                        this.pAu = FieldEncoding.VARINT;
                         this.state = 0;
                         return this.tag;
                     case 1:
-                        this.pAs = FieldEncoding.FIXED64;
+                        this.pAu = FieldEncoding.FIXED64;
                         this.state = 1;
                         return this.tag;
                     case 2:
-                        this.pAs = FieldEncoding.LENGTH_DELIMITED;
+                        this.pAu = FieldEncoding.LENGTH_DELIMITED;
                         this.state = 2;
-                        int eAL2 = eAL();
-                        if (eAL2 < 0) {
-                            throw new ProtocolException("Negative length: " + eAL2);
+                        int eAM2 = eAM();
+                        if (eAM2 < 0) {
+                            throw new ProtocolException("Negative length: " + eAM2);
                         }
-                        if (this.pAr != -1) {
+                        if (this.pAt != -1) {
                             throw new IllegalStateException();
                         }
-                        this.pAr = this.limit;
-                        this.limit = eAL2 + this.pos;
-                        if (this.limit > this.pAr) {
+                        this.pAt = this.limit;
+                        this.limit = eAM2 + this.pos;
+                        if (this.limit > this.pAt) {
                             throw new EOFException();
                         }
                         return this.tag;
@@ -94,7 +94,7 @@ public final class c {
                     case 4:
                         throw new ProtocolException("Unexpected end group");
                     case 5:
-                        this.pAs = FieldEncoding.FIXED32;
+                        this.pAu = FieldEncoding.FIXED32;
                         this.state = 5;
                         return this.tag;
                     default:
@@ -105,18 +105,18 @@ public final class c {
         }
     }
 
-    public FieldEncoding eAJ() {
-        return this.pAs;
+    public FieldEncoding eAK() {
+        return this.pAu;
     }
 
     private void RH(int i) throws IOException {
         while (this.pos < this.limit && !this.source.exhausted()) {
-            int eAL = eAL();
-            if (eAL == 0) {
+            int eAM = eAM();
+            if (eAM == 0) {
                 throw new ProtocolException("Unexpected tag 0");
             }
-            int i2 = eAL >> 3;
-            int i3 = eAL & 7;
+            int i2 = eAM >> 3;
+            int i3 = eAM & 7;
             switch (i3) {
                 case 0:
                     this.state = 0;
@@ -127,9 +127,9 @@ public final class c {
                     readFixed64();
                     break;
                 case 2:
-                    int eAL2 = eAL();
-                    this.pos += eAL2;
-                    this.source.skip(eAL2);
+                    int eAM2 = eAM();
+                    this.pos += eAM2;
+                    this.source.skip(eAM2);
                     break;
                 case 3:
                     RH(i2);
@@ -150,24 +150,24 @@ public final class c {
         throw new EOFException();
     }
 
-    public ByteString eAK() throws IOException {
-        return this.source.readByteString(eAM());
+    public ByteString eAL() throws IOException {
+        return this.source.readByteString(eAN());
     }
 
     public String readString() throws IOException {
-        return this.source.readUtf8(eAM());
+        return this.source.readUtf8(eAN());
     }
 
     public int readVarint32() throws IOException {
         if (this.state != 0 && this.state != 2) {
             throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.state);
         }
-        int eAL = eAL();
+        int eAM = eAM();
         RI(0);
-        return eAL;
+        return eAM;
     }
 
-    private int eAL() throws IOException {
+    private int eAM() throws IOException {
         this.pos++;
         byte readByte = this.source.readByte();
         if (readByte < 0) {
@@ -253,8 +253,8 @@ public final class c {
             throw new IOException("Expected to end at " + this.limit + " but was " + this.pos);
         } else {
             if (this.pos == this.limit) {
-                this.limit = this.pAr;
-                this.pAr = -1L;
+                this.limit = this.pAt;
+                this.pAt = -1L;
                 this.state = 6;
                 return;
             }
@@ -262,7 +262,7 @@ public final class c {
         }
     }
 
-    private long eAM() throws IOException {
+    private long eAN() throws IOException {
         if (this.state != 2) {
             throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.state);
         }
@@ -270,8 +270,8 @@ public final class c {
         this.source.require(j);
         this.state = 6;
         this.pos = this.limit;
-        this.limit = this.pAr;
-        this.pAr = -1L;
+        this.limit = this.pAt;
+        this.pAt = -1L;
         return j;
     }
 }

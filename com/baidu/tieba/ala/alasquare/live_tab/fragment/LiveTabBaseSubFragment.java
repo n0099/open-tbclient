@@ -12,71 +12,71 @@ import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
     protected String fFV;
-    protected LinearLayout grY;
-    private h grZ;
-    protected String gsb;
+    protected LinearLayout gsa;
+    private h gsb;
+    protected String gsd;
     protected Context mContext;
-    public final String grX = "c13008";
-    protected boolean gru = false;
-    protected boolean gsa = false;
-    protected CustomMessageListener gsc = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
+    public final String grZ = "c13008";
+    protected boolean grw = false;
+    protected boolean gsc = false;
+    protected CustomMessageListener gse = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean bool = (Boolean) customResponsedMessage.getData();
             if (bool != null && bool.booleanValue()) {
-                LiveTabBaseSubFragment.this.gsa = false;
+                LiveTabBaseSubFragment.this.gsc = false;
             }
         }
     };
 
     public abstract void VC();
 
-    public abstract void bSk();
+    public abstract void bSl();
 
     public abstract void loadData();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bSi() {
-        this.grY.setVisibility(0);
-        if (this.grZ == null) {
-            this.grZ = new h(this.mContext, null);
+    public void bSj() {
+        this.gsa.setVisibility(0);
+        if (this.gsb == null) {
+            this.gsb = new h(this.mContext, null);
         }
-        this.grZ.hideRefreshButton();
-        this.grZ.sC(R.drawable.new_pic_emotion_03);
-        this.grZ.Ek(this.mContext.getResources().getString(R.string.no_data_common_txt));
-        this.grZ.onChangeSkinType();
+        this.gsb.hideRefreshButton();
+        this.gsb.sC(R.drawable.new_pic_emotion_03);
+        this.gsb.Ek(this.mContext.getResources().getString(R.string.no_data_common_txt));
+        this.gsb.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.grZ.getAttachedView() != null && this.grZ.getAttachedView().getParent() == null) {
-            this.grY.addView(this.grZ.getAttachedView(), layoutParams);
+        if (this.gsb.getAttachedView() != null && this.gsb.getAttachedView().getParent() == null) {
+            this.gsa.addView(this.gsb.getAttachedView(), layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hideEmptyView() {
-        this.grY.setVisibility(8);
+        this.gsa.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bSj() {
+    public void bSk() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
-        this.gsa = true;
+        this.gsc = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.grZ != null) {
-            this.grZ.onChangeSkinType();
+        if (this.gsb != null) {
+            this.gsb.onChangeSkinType();
         }
     }
 
     public void ek(String str, String str2) {
         this.fFV = str;
-        this.gsb = str2;
+        this.gsd = str2;
     }
 
     public boolean bmu() {
-        return (au.isEmpty(this.fFV) || au.isEmpty(this.gsb)) ? false : true;
+        return (au.isEmpty(this.fFV) || au.isEmpty(this.gsd)) ? false : true;
     }
 }

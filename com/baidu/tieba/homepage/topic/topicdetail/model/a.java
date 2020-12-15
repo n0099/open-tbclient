@@ -21,7 +21,7 @@ import tbclient.User;
 /* loaded from: classes22.dex */
 public class a {
     private BdUniqueId fzO;
-    private final com.baidu.adp.framework.listener.a iqk = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private final com.baidu.adp.framework.listener.a iqm = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,18 +33,18 @@ public class a {
             }
         }
     };
-    private TopicDetailView jXW;
+    private TopicDetailView jXY;
 
     public a(TopicDetailView topicDetailView) {
-        this.jXW = topicDetailView;
+        this.jXY = topicDetailView;
     }
 
     public void l(BdUniqueId bdUniqueId) {
         this.fzO = bdUniqueId;
-        this.iqk.setTag(bdUniqueId);
-        this.iqk.getHttpMessageListener().setSelfListener(true);
-        this.iqk.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.iqk);
+        this.iqm.setTag(bdUniqueId);
+        this.iqm.getHttpMessageListener().setSelfListener(true);
+        this.iqm.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.iqm);
     }
 
     public RunnableC0765a z(long j, long j2) {
@@ -91,7 +91,7 @@ public class a {
             byVar.a(build);
             byVar.dF(new Date().getTime());
             if (k.ad(byVar)) {
-                this.jXW.aF(byVar);
+                this.jXY.aF(byVar);
             }
         }
     }

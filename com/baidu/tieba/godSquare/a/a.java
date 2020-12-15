@@ -9,28 +9,28 @@ import java.util.List;
 /* loaded from: classes24.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private BdTypeListView gpX;
-    private d jHe;
-    private c jHf;
-    private b jHg;
+    private BdTypeListView gpZ;
+    private d jHg;
+    private c jHh;
+    private b jHi;
 
-    public List<com.baidu.adp.widget.ListView.a> bSn() {
+    public List<com.baidu.adp.widget.ListView.a> bSo() {
         return this.bnf;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.gpX = bdTypeListView;
-        this.jHe = new d(tbPageContext);
-        this.jHf = new c(tbPageContext);
-        this.jHg = new b(tbPageContext);
-        this.bnf.add(this.jHe);
-        this.bnf.add(this.jHf);
+        this.gpZ = bdTypeListView;
+        this.jHg = new d(tbPageContext);
+        this.jHh = new c(tbPageContext);
+        this.jHi = new b(tbPageContext);
         this.bnf.add(this.jHg);
+        this.bnf.add(this.jHh);
+        this.bnf.add(this.jHi);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gpX != null && (this.gpX.getAdapter() instanceof f)) {
-            this.gpX.getAdapter().notifyDataSetChanged();
+        if (this.gpZ != null && (this.gpZ.getAdapter() instanceof f)) {
+            this.gpZ.getAdapter().notifyDataSetChanged();
         }
     }
 }

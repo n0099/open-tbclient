@@ -11,26 +11,26 @@ import java.util.List;
 public class c {
     private List<com.baidu.live.liveroom.d.d> aGX = new LinkedList();
     private AlaLiveRoomPanelTabHost aHa;
-    private BdUniqueId gEP;
+    private BdUniqueId gER;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public c(TbPageContext tbPageContext, String str, BdUniqueId bdUniqueId) {
-        this.gEP = null;
+        this.gER = null;
         this.mPageContext = tbPageContext;
         this.mUserId = str;
-        this.gEP = bdUniqueId;
+        this.gER = bdUniqueId;
         initView();
     }
 
     private void initView() {
         this.aHa = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
-        bUx();
+        bUy();
     }
 
-    private void bUx() {
-        this.aGX.add(new d(this.mPageContext, 0, this.mUserId, this.gEP));
-        this.aGX.add(new d(this.mPageContext, 1, this.mUserId, this.gEP));
+    private void bUy() {
+        this.aGX.add(new d(this.mPageContext, 0, this.mUserId, this.gER));
+        this.aGX.add(new d(this.mPageContext, 1, this.mUserId, this.gER));
         this.aHa.setData(this.aGX);
     }
 

@@ -20,91 +20,91 @@ import tbclient.FrsTabInfo;
 /* loaded from: classes22.dex */
 public class b {
     private String fFV;
-    private FrsFragment iVq;
-    private TextView jeA;
-    private FrsTabSortSwitchButton jeB;
-    private int jeC;
-    private FrsTabSortSwitchButton.a jeD = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b.1
+    private FrsFragment iVs;
+    private View jeB;
+    private TextView jeC;
+    private FrsTabSortSwitchButton jeD;
+    private int jeE;
+    private FrsTabSortSwitchButton.a jeF = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
         public boolean Az(int i) {
-            if (com.baidu.tieba.frs.b.cBd().cAX() || com.baidu.tieba.frs.a.cAW().cAX()) {
+            if (com.baidu.tieba.frs.b.cBe().cAY() || com.baidu.tieba.frs.a.cAX().cAY()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
-                b.this.iVq.showToast(R.string.neterror);
+                b.this.iVs.showToast(R.string.neterror);
                 return false;
-            } else if (b.this.iVq.cBZ() == null || b.this.iVq.cCe() == null) {
+            } else if (b.this.iVs.cCa() == null || b.this.iVs.cCf() == null) {
                 return false;
             } else {
-                if (b.this.jeC == i) {
+                if (b.this.jeE == i) {
                     return true;
                 }
-                b.this.iVq.cBZ().Bn(b.this.jeB.AC(b.this.jeC));
-                b.this.jeC = i;
-                if (b.this.jeC != 7) {
+                b.this.iVs.cCa().Bn(b.this.jeD.AC(b.this.jeE));
+                b.this.jeE = i;
+                if (b.this.jeE != 7) {
                     aa.bGN();
-                    e.dQv();
+                    e.dQw();
                 } else {
-                    e.dQu();
+                    e.dQv();
                 }
-                b.this.iVq.cBZ().Bm(b.this.jeB.AC(b.this.jeC));
-                b.this.iVq.cBZ().qQ(true);
-                b.this.iVq.cCe().startPullRefresh();
-                b.this.iVq.cBZ().qP(true);
-                b.this.cGh();
+                b.this.iVs.cCa().Bm(b.this.jeD.AC(b.this.jeE));
+                b.this.iVs.cCa().qQ(true);
+                b.this.iVs.cCf().startPullRefresh();
+                b.this.iVs.cCa().qP(true);
+                b.this.cGi();
                 return true;
             }
         }
     };
-    private View jez;
 
     public void setFid(String str) {
         this.fFV = str;
     }
 
-    public FrsTabSortSwitchButton cGi() {
-        return this.jeB;
+    public FrsTabSortSwitchButton cGj() {
+        return this.jeD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGh() {
+    public void cGi() {
         ar arVar = new ar("c11437");
-        arVar.al("obj_type", this.jeB.AC(this.jeC));
+        arVar.al("obj_type", this.jeD.AC(this.jeE));
         arVar.dY("fid", this.fFV);
         TiebaStatic.log(arVar);
     }
 
     public b(FrsFragment frsFragment, RelativeLayout relativeLayout) {
-        this.jeC = -1;
+        this.jeE = -1;
         if (frsFragment != null && relativeLayout != null) {
-            this.iVq = frsFragment;
-            this.jez = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.iVs = frsFragment;
+            this.jeB = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
             if (d.bkA()) {
-                this.jez.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0);
+                this.jeB.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0);
             } else {
-                this.jez.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
+                this.jeB.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
             }
-            this.jeA = (TextView) this.jez.findViewById(R.id.sort_tab_sort_name);
-            this.jeB = (FrsTabSortSwitchButton) this.jez.findViewById(R.id.sort_tab_switch_btn);
-            this.jeB.setOnSwitchChangeListener(this.jeD);
-            this.jeC = this.jeB.getState();
+            this.jeC = (TextView) this.jeB.findViewById(R.id.sort_tab_sort_name);
+            this.jeD = (FrsTabSortSwitchButton) this.jeB.findViewById(R.id.sort_tab_switch_btn);
+            this.jeD.setOnSwitchChangeListener(this.jeF);
+            this.jeE = this.jeD.getState();
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.jeB != null) {
-            this.jeB.onChangeSkinType();
+        if (this.jeD != null) {
+            this.jeD.onChangeSkinType();
         }
-        ap.setViewTextColor(this.jeA, R.color.CAM_X0108);
+        ap.setViewTextColor(this.jeC, R.color.CAM_X0108);
         if (d.bkA()) {
-            ap.setBackgroundColor(this.jez, R.color.CAM_X0205);
+            ap.setBackgroundColor(this.jeB, R.color.CAM_X0205);
         }
     }
 
     public void setData(List<FrsTabInfo> list) {
-        if (this.jeB != null) {
-            this.jeB.setData(list);
+        if (this.jeD != null) {
+            this.jeD.setData(list);
         }
     }
 }

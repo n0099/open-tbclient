@@ -41,38 +41,38 @@ public class FrsTabViewPager extends BdBaseViewPager {
 
     public void qk(boolean z) {
         a aVar = new a();
-        aVar.ql(cEk());
+        aVar.ql(cEl());
         aVar.qm(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void cEj() {
+    public void cEk() {
         qk(false);
     }
 
-    private boolean cEk() {
+    private boolean cEl() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes22.dex */
     public static class a {
-        private boolean iXy;
-        private boolean iXz;
+        private boolean iXA;
+        private boolean iXB;
 
-        public boolean cEl() {
-            return this.iXy;
+        public boolean cEm() {
+            return this.iXA;
         }
 
         public void ql(boolean z) {
-            this.iXy = z;
+            this.iXA = z;
         }
 
-        public boolean cEm() {
-            return this.iXz;
+        public boolean cEn() {
+            return this.iXB;
         }
 
         public void qm(boolean z) {
-            this.iXz = z;
+            this.iXB = z;
         }
     }
 }

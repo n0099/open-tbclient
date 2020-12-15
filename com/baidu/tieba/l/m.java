@@ -12,7 +12,7 @@ public class m implements l {
     }
 
     @Override // com.baidu.tieba.l.l
-    public h djb() {
-        return com.baidu.tieba.post.j.dCZ();
+    public h djc() {
+        return com.baidu.tieba.post.j.dDa();
     }
 }

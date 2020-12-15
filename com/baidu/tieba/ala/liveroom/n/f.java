@@ -16,7 +16,7 @@ public class f extends a {
     private HeadImageView aGa;
     private TextView aYs;
     private View czb;
-    private TextView hte;
+    private TextView htg;
 
     public f(@NonNull Context context) {
         super(context);
@@ -40,7 +40,7 @@ public class f extends a {
         });
         this.aYs = (TextView) findViewById(a.f.tv_guide_folllow_tip);
         this.aGa = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.hte = (TextView) findViewById(a.f.ala_live_name);
+        this.htg = (TextView) findViewById(a.f.ala_live_name);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             this.aGa.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def_hk);
             this.aGa.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def_hk);
@@ -63,25 +63,25 @@ public class f extends a {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.hsO != null) {
-                    f.this.hsO.onConfirm();
+                if (f.this.hsQ != null) {
+                    f.this.hsQ.onConfirm();
                 }
             }
         });
-        this.hsP = textView.getText().toString();
-        cgd();
+        this.hsR = textView.getText().toString();
+        cge();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void eA(String str, String str2) {
-        cgc();
+        cgd();
         this.aGa.startLoad(str, 25, false, false);
-        this.hte.setText(str2);
+        this.htg.setText(str2);
         OD();
         show();
     }
 
-    private void cgd() {
+    private void cge() {
         if (com.baidu.live.ae.a.RB().brA != null && com.baidu.live.ae.a.RB().brA.aOf == null) {
         }
     }
@@ -90,7 +90,7 @@ public class f extends a {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.n.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.cgc();
+                f.this.cgd();
             }
         });
     }
@@ -103,7 +103,7 @@ public class f extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgc() {
+    public void cgd() {
         if (this.aGa != null) {
             this.aGa.stopLoad();
         }

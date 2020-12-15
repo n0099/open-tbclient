@@ -13,8 +13,8 @@ import com.baidu.tieba.setting.more.youngster.view.YoungsterIntroduceView;
 public class YoungsterIntroduceActivity extends BaseActivity {
     private int mFrom;
     private NavigationBar mNavigationBar;
-    private View mWn;
-    private YoungsterIntroduceView mYj;
+    private View mWp;
+    private YoungsterIntroduceView mYl;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -22,16 +22,16 @@ public class YoungsterIntroduceActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_youngster);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.mWn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mWn.setOnClickListener(this);
+        this.mWp = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mWp.setOnClickListener(this);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_settings_open_title));
         Intent intent = getIntent();
         if (intent != null) {
             this.mFrom = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, 0);
         }
-        this.mYj = new YoungsterIntroduceView(getPageContext().getPageActivity());
-        this.mYj.setFrom(this.mFrom);
-        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.mYj);
+        this.mYl = new YoungsterIntroduceView(getPageContext().getPageActivity());
+        this.mYl.setFrom(this.mFrom);
+        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.mYl);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,13 +39,13 @@ public class YoungsterIntroduceActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mYj.onChangeSkinType();
+        this.mYl.onChangeSkinType();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.mWn) {
+        if (view == this.mWp) {
             finish();
         }
     }

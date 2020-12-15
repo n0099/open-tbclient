@@ -15,8 +15,8 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 public class c implements a {
     private CustomMessageListener bRw;
     private Activity beD;
-    private PopupWindow.OnDismissListener gBl;
-    private d hzr;
+    private PopupWindow.OnDismissListener gBn;
+    private d hzt;
 
     public c(Activity activity) {
         this.beD = activity;
@@ -25,41 +25,41 @@ public class c implements a {
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
     public void ir(String str) {
-        this.hzr = new d(this.beD);
-        this.hzr.setOnDismissListener(this.gBl);
-        this.hzr.getWebView().setBackgroundColor(iu(str));
+        this.hzt = new d(this.beD);
+        this.hzt.setOnDismissListener(this.gBn);
+        this.hzt.getWebView().setBackgroundColor(iu(str));
         g gVar = new g();
-        gVar.x(this.beD).a(this.hzr).a(this.hzr.getWebView().getSchemeCallback());
+        gVar.x(this.beD).a(this.hzt).a(this.hzt.getWebView().getSchemeCallback());
         com.baidu.live.view.web.a[] YO = gVar.YO();
         for (com.baidu.live.view.web.a aVar : YO) {
-            this.hzr.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            this.hzt.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hzr.GD(str);
+        this.hzt.GD(str);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
     public void resume() {
-        if (this.hzr != null && this.hzr.isShowing() && this.hzr.getWebView() != null) {
-            this.hzr.getWebView().onResume();
+        if (this.hzt != null && this.hzt.isShowing() && this.hzt.getWebView() != null) {
+            this.hzt.getWebView().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.q.a
     public void pause() {
-        if (this.hzr != null && this.hzr.isShowing() && this.hzr.getWebView() != null) {
-            this.hzr.getWebView().onPause();
+        if (this.hzt != null && this.hzt.isShowing() && this.hzt.getWebView() != null) {
+            this.hzt.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.hzr != null) {
-            this.hzr.YQ();
+        if (this.hzt != null) {
+            this.hzt.YQ();
         }
     }
 
     public void dX(int i) {
-        if (this.hzr != null && this.hzr.isShowing()) {
-            this.hzr.dX(i);
+        if (this.hzt != null && this.hzt.isShowing()) {
+            this.hzt.dX(i);
         }
     }
 
@@ -80,8 +80,8 @@ public class c implements a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (c.this.hzr != null && c.this.hzr.isShowing()) {
-                        c.this.hzr.dismiss();
+                    if (c.this.hzt != null && c.this.hzt.isShowing()) {
+                        c.this.hzt.dismiss();
                     }
                 }
             };

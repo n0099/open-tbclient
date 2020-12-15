@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.e
 /* loaded from: classes17.dex */
 public abstract class w implements Iterator<Float> {
-    public abstract float eDO();
+    public abstract float eDP();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class w implements Iterator<Float> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eDN */
+    /* renamed from: eDO */
     public final Float next() {
-        return Float.valueOf(eDO());
+        return Float.valueOf(eDP());
     }
 }

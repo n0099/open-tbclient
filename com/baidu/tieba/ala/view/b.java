@@ -19,8 +19,8 @@ public class b implements View.OnClickListener {
     private TextView bJO;
     private BdGridView bJR;
     private long brr;
-    private long ggj;
-    private com.baidu.tieba.ala.adapter.b hVp;
+    private long ggl;
+    private com.baidu.tieba.ala.adapter.b hVr;
     private boolean mIsHost;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -39,14 +39,14 @@ public class b implements View.OnClickListener {
         this.bJO = (TextView) this.mView.findViewById(a.f.id_feenback_confirm_btn);
         this.bJO.setEnabled(false);
         this.bJO.setOnClickListener(this);
-        this.hVp = new com.baidu.tieba.ala.adapter.b(this.mPageContext);
-        this.bJR.setAdapter((ListAdapter) this.hVp);
+        this.hVr = new com.baidu.tieba.ala.adapter.b(this.mPageContext);
+        this.bJR.setAdapter((ListAdapter) this.hVr);
         this.bJR.setOnItemClickListener(new a());
     }
 
     public void b(long j, long j2, long j3, boolean z, boolean z2) {
         this.brr = j;
-        this.ggj = j2;
+        this.ggl = j2;
         this.mUserId = j3;
         this.mIsHost = z;
         this.bJG = z2;
@@ -70,19 +70,19 @@ public class b implements View.OnClickListener {
             com.baidu.tieba.ala.data.b item = ((com.baidu.tieba.ala.adapter.b) adapterView.getAdapter()).getItem(i);
             if (item != null) {
                 if (item.Wl() != 0) {
-                    if (b.this.hVp.Wj() == i) {
-                        b.this.hVp.gz(-1);
-                        b.this.hVp.notifyDataSetChanged();
+                    if (b.this.hVr.Wj() == i) {
+                        b.this.hVr.gz(-1);
+                        b.this.hVr.notifyDataSetChanged();
                         b.this.bJO.setEnabled(false);
                         return;
                     }
-                    b.this.hVp.gz(i);
-                    b.this.hVp.notifyDataSetChanged();
+                    b.this.hVr.gz(i);
+                    b.this.hVr.notifyDataSetChanged();
                     b.this.bJO.setEnabled(true);
                     return;
                 }
                 com.baidu.live.d.h hVar = new com.baidu.live.d.h(b.this.mPageContext.getPageActivity());
-                hVar.a(b.this.brr, b.this.ggj, b.this.mUserId, b.this.mIsHost);
+                hVar.a(b.this.brr, b.this.ggl, b.this.mUserId, b.this.mIsHost);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hVar));
                 b.this.mPageContext.getPageActivity().finish();
             }
@@ -97,13 +97,13 @@ public class b implements View.OnClickListener {
     }
 
     public void setData(List<com.baidu.tieba.ala.data.b> list) {
-        this.hVp.setData(list);
+        this.hVr.setData(list);
     }
 
-    public com.baidu.tieba.ala.data.b cpd() {
-        if (this.hVp == null || this.hVp.Wj() < 0) {
+    public com.baidu.tieba.ala.data.b cpe() {
+        if (this.hVr == null || this.hVr.Wj() < 0) {
             return null;
         }
-        return this.hVp.getItem(this.hVp.Wj());
+        return this.hVr.getItem(this.hVr.Wj());
     }
 }

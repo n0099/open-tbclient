@@ -18,10 +18,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private static a oKt;
+    private static a oKv;
     private w aFN;
-    private AlaEmoticonListDialogData oKr = new AlaEmoticonListDialogData();
-    private InterfaceC0957a oKs;
+    private AlaEmoticonListDialogData oKt = new AlaEmoticonListDialogData();
+    private InterfaceC0957a oKu;
 
     /* renamed from: com.baidu.yuyinala.emoticon.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -32,10 +32,10 @@ public class a extends BdBaseModel {
     }
 
     public static a aA(w wVar) {
-        if (oKt == null) {
-            oKt = new a(wVar);
+        if (oKv == null) {
+            oKv = new a(wVar);
         }
-        return oKt;
+        return oKv;
     }
 
     public void z(w wVar) {
@@ -50,11 +50,11 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaEmoticonListResponseMessage) {
                     AlaEmoticonListResponseMessage alaEmoticonListResponseMessage = (AlaEmoticonListResponseMessage) httpResponsedMessage;
-                    a.this.oKr.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
-                    a.this.oKr.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
-                    a.this.oKr.setNetError(!alaEmoticonListResponseMessage.isSuccess());
-                    if (a.this.oKs != null) {
-                        a.this.oKs.a(a.this.oKr);
+                    a.this.oKt.setEmoticonList(alaEmoticonListResponseMessage.getEmoticonList());
+                    a.this.oKt.setSendIntervalTime(alaEmoticonListResponseMessage.getSendIntervalTime());
+                    a.this.oKt.setNetError(!alaEmoticonListResponseMessage.isSuccess());
+                    if (a.this.oKu != null) {
+                        a.this.oKu.a(a.this.oKt);
                     }
                 }
             }
@@ -67,11 +67,11 @@ public class a extends BdBaseModel {
                     AlaSendEmoticonResponseMessage alaSendEmoticonResponseMessage = (AlaSendEmoticonResponseMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
                         a.this.a(alaSendEmoticonResponseMessage);
-                    } else if (a.this.oKs != null) {
+                    } else if (a.this.oKu != null) {
                         if (httpResponsedMessage.getError() == 149010) {
-                            a.this.oKs.Yr(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
+                            a.this.oKu.Yr(((AlaSendEmoticonResponseMessage) httpResponsedMessage).getUserMsg());
                         } else {
-                            a.this.oKs.Yr(null);
+                            a.this.oKu.Yr(null);
                         }
                     }
                 }
@@ -86,9 +86,9 @@ public class a extends BdBaseModel {
         try {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.oKp);
-            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.oKo);
-            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.oKq);
+            jSONObject2.put("compression_img", alaSendEmoticonResponseMessage.oKr);
+            jSONObject2.put("prototype_img", alaSendEmoticonResponseMessage.oKq);
+            jSONObject2.put("result_img", alaSendEmoticonResponseMessage.oKs);
             jSONObject.put("user_uk", this.aFN.aKr.userUk);
             jSONObject.put("content_type", "audio_emoticon");
             jSONObject.put("emoticon_info", jSONObject2);
@@ -133,10 +133,10 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0957a interfaceC0957a) {
-        this.oKs = interfaceC0957a;
+        this.oKu = interfaceC0957a;
     }
 
-    public void eks() {
+    public void ekt() {
         sendMessage(new HttpMessage(1031004));
     }
 

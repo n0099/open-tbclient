@@ -6,10 +6,10 @@ import tbclient.Myrecord;
 public class d {
     private int agree_num;
     private String apply_declaration;
-    private int icP;
-    private int icQ;
-    private boolean icR = false;
+    private int icR;
     private int icS;
+    private boolean icT = false;
+    private int icU;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -19,16 +19,16 @@ public class d {
     private long uid;
     private int vote_num;
 
-    public int cqM() {
+    public int cqN() {
         return this.agree_num;
     }
 
-    public int cqN() {
-        return this.icP;
+    public int cqO() {
+        return this.icR;
     }
 
-    public int cqO() {
-        return this.icQ;
+    public int cqP() {
+        return this.icS;
     }
 
     public int getPost_num() {
@@ -47,11 +47,11 @@ public class d {
         return this.uid;
     }
 
-    public int cqP() {
+    public int cqQ() {
         return this.vote_num;
     }
 
-    public String cqQ() {
+    public String cqR() {
         return this.apply_declaration;
     }
 
@@ -67,16 +67,16 @@ public class d {
         return this.tid;
     }
 
-    public boolean cqR() {
-        return this.icR;
+    public boolean cqS() {
+        return this.icT;
     }
 
-    public int cqS() {
-        return this.icS;
+    public int cqT() {
+        return this.icU;
     }
 
     public void xT(int i) {
-        this.icS = i;
+        this.icU = i;
     }
 
     public static d a(ElectionList electionList) {
@@ -126,7 +126,7 @@ public class d {
     }
 
     public void xU(int i) {
-        this.icP = i;
+        this.icR = i;
     }
 
     public void Jl(String str) {
@@ -134,7 +134,7 @@ public class d {
     }
 
     public void xV(int i) {
-        this.icQ = i;
+        this.icS = i;
     }
 
     public void setNickname(String str) {
@@ -166,7 +166,7 @@ public class d {
     }
 
     public void oK(boolean z) {
-        this.icR = z;
+        this.icT = z;
     }
 
     public void setTid(long j) {

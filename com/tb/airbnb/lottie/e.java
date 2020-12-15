@@ -23,7 +23,7 @@ public class e {
     private float Cg;
     private Rect bounds;
     private Map<String, h> images;
-    private final o pAx = new o();
+    private final o pAz = new o();
     private final HashSet<String> BY = new HashSet<>();
 
     public void a(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, h> map2, SparseArrayCompat<com.tb.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.tb.airbnb.lottie.model.c> map3) {
@@ -46,11 +46,11 @@ public class e {
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.pAx.setEnabled(z);
+        this.pAz.setEnabled(z);
     }
 
     public o getPerformanceTracker() {
-        return this.pAx;
+        return this.pAz;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -128,18 +128,18 @@ public class e {
         /* loaded from: classes20.dex */
         private static final class C1020a implements com.tb.airbnb.lottie.a, i<e> {
             private boolean cancelled;
-            private final n pAy;
+            private final n pAA;
 
             private C1020a(n nVar) {
                 this.cancelled = false;
-                this.pAy = nVar;
+                this.pAA = nVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.tb.airbnb.lottie.i
             public void onResult(e eVar) {
                 if (!this.cancelled) {
-                    this.pAy.a(eVar);
+                    this.pAA.a(eVar);
                 }
             }
         }

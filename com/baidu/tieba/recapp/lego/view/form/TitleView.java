@@ -11,56 +11,56 @@ import com.baidu.tieba.recapp.lego.model.FormCard;
 /* loaded from: classes26.dex */
 public class TitleView extends FormItemBaseView {
     private TextView eAz;
-    private ImageView mMh;
-    private ImageView mMi;
     private ImageView mMj;
     private ImageView mMk;
+    private ImageView mMl;
+    private ImageView mMm;
 
     public TitleView(Context context) {
         super(context);
         this.eAz = null;
-        this.mMh = null;
-        this.mMi = null;
         this.mMj = null;
         this.mMk = null;
+        this.mMl = null;
+        this.mMm = null;
         init();
     }
 
     public TitleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.eAz = null;
-        this.mMh = null;
-        this.mMi = null;
         this.mMj = null;
         this.mMk = null;
+        this.mMl = null;
+        this.mMm = null;
         init();
     }
 
     public TitleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.eAz = null;
-        this.mMh = null;
-        this.mMi = null;
         this.mMj = null;
         this.mMk = null;
+        this.mMl = null;
+        this.mMm = null;
         init();
     }
 
     private void init() {
         this.eAz = new TextView(this.mContext);
-        this.mMh = new ImageView(this.mContext);
-        this.mMi = new ImageView(this.mContext);
         this.mMj = new ImageView(this.mContext);
         this.mMk = new ImageView(this.mContext);
-        dFN();
-        a(this.mMj, true, 2);
-        a(this.mMk, false, 3);
-        c(this.mMh, true);
-        c(this.mMi, false);
+        this.mMl = new ImageView(this.mContext);
+        this.mMm = new ImageView(this.mContext);
+        dFO();
+        a(this.mMl, true, 2);
+        a(this.mMm, false, 3);
+        c(this.mMj, true);
+        c(this.mMk, false);
     }
 
-    private void dFN() {
-        this.eAz.setTextSize(0, this.mLW);
+    private void dFO() {
+        this.eAz.setTextSize(0, this.mLY);
         this.eAz.setTextColor(-1);
         this.eAz.setId(1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -72,12 +72,12 @@ public class TitleView extends FormItemBaseView {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.mResources.getDimension(R.dimen.ds1));
         layoutParams.addRule(15);
         if (z) {
-            layoutParams.addRule(0, this.mMj.getId());
+            layoutParams.addRule(0, this.mMl.getId());
         } else {
-            layoutParams.addRule(1, this.mMk.getId());
+            layoutParams.addRule(1, this.mMm.getId());
         }
         addView(imageView, layoutParams);
-        imageView.setBackgroundColor(this.mMa);
+        imageView.setBackgroundColor(this.mMc);
     }
 
     private void a(ImageView imageView, boolean z, int i) {
@@ -91,29 +91,29 @@ public class TitleView extends FormItemBaseView {
             imageView.setImageResource(R.drawable.form_title_icon_right);
             layoutParams.addRule(1, this.eAz.getId());
         }
-        layoutParams.leftMargin = this.mLN;
-        layoutParams.rightMargin = this.mLN;
+        layoutParams.leftMargin = this.mLP;
+        layoutParams.rightMargin = this.mLP;
         addView(imageView, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public boolean a(FormCard.b bVar) {
         if (super.a(bVar)) {
-            this.eAz.setTextSize(0, this.mLW);
+            this.eAz.setTextSize(0, this.mLY);
             this.eAz.setText(bVar.content);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mMj.getLayoutParams();
-            marginLayoutParams.leftMargin = this.mLN;
-            marginLayoutParams.rightMargin = this.mLN;
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.mMk.getLayoutParams();
-            marginLayoutParams2.leftMargin = this.mLN;
-            marginLayoutParams2.rightMargin = this.mLN;
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mMl.getLayoutParams();
+            marginLayoutParams.leftMargin = this.mLP;
+            marginLayoutParams.rightMargin = this.mLP;
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.mMm.getLayoutParams();
+            marginLayoutParams2.leftMargin = this.mLP;
+            marginLayoutParams2.rightMargin = this.mLP;
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.a
-    public boolean dFC() {
+    public boolean dFD() {
         return true;
     }
 

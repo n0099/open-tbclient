@@ -30,11 +30,11 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     private ab<l> agG;
     private String aiw;
     public BdUniqueId fzO;
-    private int hKL;
+    private int hKN;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
-    private int mpX;
-    private int mpY;
+    private int mpZ;
+    private int mqa;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.af$a] */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,9 +45,9 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mpX = 0;
-        this.mpY = 0;
-        this.hKL = 0;
+        this.mpZ = 0;
+        this.mqa = 0;
+        this.hKN = 0;
         this.agG = new ab<l>() { // from class: com.baidu.tieba.personPolymeric.a.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
@@ -66,7 +66,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
             }
         };
         this.mPageContext = tbPageContext;
-        cNP();
+        cNQ();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,8 +79,8 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         eVar.setPageUniqueId(this.fzO);
         eVar.bt(1024);
         eVar.bt(32768);
-        if (this.mpX > 0) {
-            eVar.bs(this.mpX);
+        if (this.mpZ > 0) {
+            eVar.bs(this.mpZ);
         }
         eVar.aD(false);
         eVar.aE(false);
@@ -121,7 +121,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
         aVar2.setPageId(this.fzO);
         tX.a(this.agG);
         tX.setSourceForPb(4);
-        aVar2.bE(this.mpY);
+        aVar2.bE(this.mqa);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.personPolymeric.a.a.i.3
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -178,15 +178,15 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     }
 
     public void Is(int i) {
-        this.mpX = i;
+        this.mpZ = i;
     }
 
-    private void cNP() {
-        com.baidu.tieba.card.data.k.ink = "c13542";
+    private void cNQ() {
+        com.baidu.tieba.card.data.k.inm = "c13542";
     }
 
     public void setTabType(int i) {
-        this.hKL = i;
+        this.hKN = i;
     }
 
     public void setIsHost(boolean z) {
@@ -194,6 +194,6 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> i
     }
 
     public void Ir(int i) {
-        this.mpY = i;
+        this.mqa = i;
     }
 }

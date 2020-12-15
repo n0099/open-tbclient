@@ -5,12 +5,12 @@ import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public abstract class b extends BaseAdapter {
     protected ArrayList<a> eOt = null;
-    boolean gZp = false;
+    boolean gZr = false;
 
-    public void bYC() {
-        this.gZp = false;
+    public void bYD() {
+        this.gZr = false;
         if (this.eOt != null && this.eOt.size() == 0) {
-            this.gZp = true;
+            this.gZr = true;
         }
     }
 }

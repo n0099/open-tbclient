@@ -6,18 +6,18 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 /* loaded from: classes21.dex */
 public class e extends RecyclerView.ViewHolder {
-    private VoteCandidateCard icG;
+    private VoteCandidateCard icI;
 
     public e(View view) {
         super(view);
         if (view instanceof VoteCandidateCard) {
-            this.icG = (VoteCandidateCard) view;
+            this.icI = (VoteCandidateCard) view;
         }
     }
 
     public void setData(int i, f fVar) {
-        if (this.icG != null) {
-            this.icG.setData(i, fVar);
+        if (this.icI != null) {
+            this.icI.setData(i, fVar);
         }
     }
 }

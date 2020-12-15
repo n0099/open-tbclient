@@ -9,20 +9,20 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private final List<AlaTopTipView> hCK;
-    private final AlaTopTipView.a hCL;
-    private com.baidu.live.liveroom.a.a hCM;
+    private final List<AlaTopTipView> hCM;
+    private final AlaTopTipView.a hCN;
+    private com.baidu.live.liveroom.a.a hCO;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         super(tbPageContext);
-        this.hCK = new LinkedList();
-        this.hCL = new AlaTopTipView.a() { // from class: com.baidu.tieba.ala.liveroom.tippop.a.1
+        this.hCM = new LinkedList();
+        this.hCN = new AlaTopTipView.a() { // from class: com.baidu.tieba.ala.liveroom.tippop.a.1
             @Override // com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.a
             public void ct(View view) {
-                a.this.hCK.remove(view);
+                a.this.hCM.remove(view);
             }
         };
-        this.hCM = aVar;
+        this.hCO = aVar;
     }
 
     public void a(ViewGroup viewGroup, String str, int i, boolean z) {
@@ -33,40 +33,40 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             }
             alaTopTipView.setType(i);
             alaTopTipView.setText(str);
-            alaTopTipView.setOnTipCompletedCallback(this.hCL);
+            alaTopTipView.setOnTipCompletedCallback(this.hCN);
             alaTopTipView.r(viewGroup, 0);
-            this.hCK.add(alaTopTipView);
+            this.hCM.add(alaTopTipView);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, int i) {
         if (viewGroup != null && !StringUtils.isNull(str)) {
-            if (i != 1 || this.hCM == null || this.hCM.fh(9)) {
+            if (i != 1 || this.hCO == null || this.hCO.fh(9)) {
                 AlaTopTipView alaTopTipView = new AlaTopTipView(viewGroup.getContext());
                 alaTopTipView.setType(i);
                 alaTopTipView.setText(str);
-                alaTopTipView.setOnTipCompletedCallback(this.hCL);
+                alaTopTipView.setOnTipCompletedCallback(this.hCN);
                 alaTopTipView.r(viewGroup, 0);
-                this.hCK.add(alaTopTipView);
+                this.hCM.add(alaTopTipView);
             }
         }
     }
 
-    public void ckF() {
-        if (!this.hCK.isEmpty()) {
-            for (AlaTopTipView alaTopTipView : this.hCK) {
+    public void ckG() {
+        if (!this.hCM.isEmpty()) {
+            for (AlaTopTipView alaTopTipView : this.hCM) {
                 if (alaTopTipView != null) {
-                    alaTopTipView.ckF();
+                    alaTopTipView.ckG();
                 }
             }
         }
     }
 
     public boolean xo(int i) {
-        if (this.hCK.isEmpty()) {
+        if (this.hCM.isEmpty()) {
             return false;
         }
-        for (AlaTopTipView alaTopTipView : this.hCK) {
+        for (AlaTopTipView alaTopTipView : this.hCM) {
             if (alaTopTipView.getType() == i) {
                 return true;
             }
@@ -75,7 +75,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     public void xp(int i) {
-        for (AlaTopTipView alaTopTipView : this.hCK) {
+        for (AlaTopTipView alaTopTipView : this.hCM) {
             if (alaTopTipView.getType() == i) {
                 alaTopTipView.gz(true);
             }
@@ -85,17 +85,17 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     @Override // com.baidu.tieba.ala.liveroom.a
     public void En() {
         super.En();
-        for (AlaTopTipView alaTopTipView : this.hCK) {
+        for (AlaTopTipView alaTopTipView : this.hCM) {
             alaTopTipView.gz(false);
         }
-        this.hCK.clear();
+        this.hCM.clear();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        for (AlaTopTipView alaTopTipView : this.hCK) {
+        for (AlaTopTipView alaTopTipView : this.hCM) {
             alaTopTipView.gz(false);
         }
-        this.hCK.clear();
+        this.hCM.clear();
     }
 }

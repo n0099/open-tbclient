@@ -19,9 +19,9 @@ import com.tb.airbnb.lottie.LottieAnimationView;
 public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
     private HeadImageView aGa;
     private TbImageView bOr;
-    private LottieAnimationView gRW;
-    private AnimatorSet gRX;
-    private boolean gRY;
+    private LottieAnimationView gRY;
+    private AnimatorSet gRZ;
+    private boolean gSa;
 
     public GuardClubRankHeaderAvatarItemView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -35,30 +35,30 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
         if (this.bOr != null) {
             this.bOr.startLoad(str2, 10, false);
         }
-        this.gRY = z;
+        this.gSa = z;
         if (z) {
-            this.gRW.setVisibility(0);
-            bWL();
+            this.gRY.setVisibility(0);
+            bWM();
             return;
         }
-        bWM();
-        this.gRW.setVisibility(8);
-    }
-
-    public void bWL() {
-        if (this.gRY) {
-            bWN();
-            this.gRW.playAnimation();
-            this.gRX.start();
-        }
+        bWN();
+        this.gRY.setVisibility(8);
     }
 
     public void bWM() {
-        if (this.gRW != null) {
-            this.gRW.cancelAnimation();
+        if (this.gSa) {
+            bWO();
+            this.gRY.playAnimation();
+            this.gRZ.start();
         }
-        if (this.gRX != null) {
-            this.gRX.cancel();
+    }
+
+    public void bWN() {
+        if (this.gRY != null) {
+            this.gRY.cancelAnimation();
+        }
+        if (this.gRZ != null) {
+            this.gRZ.cancel();
         }
     }
 
@@ -69,14 +69,14 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
         if (this.bOr != null) {
             this.bOr.stopLoad();
         }
-        bWM();
+        bWN();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.live_guard_club_widget_avatar_item, (ViewGroup) this, true);
         this.aGa = (HeadImageView) findViewById(a.f.iv_avatar);
         this.bOr = (TbImageView) findViewById(a.f.iv_level);
-        this.gRW = (LottieAnimationView) findViewById(a.f.lottie_live);
+        this.gRY = (LottieAnimationView) findViewById(a.f.lottie_live);
         this.aGa.setIsRound(true);
         this.aGa.setAutoChangeStyle(false);
         this.aGa.setDrawBorder(false);
@@ -86,18 +86,18 @@ public class GuardClubRankHeaderAvatarItemView extends FrameLayout {
         this.bOr.setDefaultErrorResource(a.e.sdk_shape_transparent);
     }
 
-    private void bWN() {
-        this.gRW.setAnimation("live_anim_guard_join.json");
-        this.gRW.loop(true);
+    private void bWO() {
+        this.gRY.setAnimation("live_anim_guard_join.json");
+        this.gRY.loop(true);
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.aGa, "scaleX", 0.92f, 1.0f, 0.92f);
         ofFloat.setRepeatCount(-1);
         ofFloat.setRepeatMode(2);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.aGa, "scaleY", 0.92f, 1.0f, 0.92f);
         ofFloat2.setRepeatCount(-1);
         ofFloat2.setRepeatMode(2);
-        this.gRX = new AnimatorSet();
-        this.gRX.setDuration(1000L);
-        this.gRX.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.gRX.play(ofFloat).with(ofFloat2);
+        this.gRZ = new AnimatorSet();
+        this.gRZ.setDuration(1000L);
+        this.gRZ.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.gRZ.play(ofFloat).with(ofFloat2);
     }
 }

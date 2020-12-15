@@ -74,11 +74,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dGN().dGJ()) {
+                if (a.dGO().dGK()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dGN().dGK()) {
+                } else if (a.dGO().dGL()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);

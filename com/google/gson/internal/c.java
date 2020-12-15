@@ -1,9 +1,9 @@
 package com.google.gson.internal;
 /* loaded from: classes5.dex */
 public final class c {
-    private static final int ptX = eyk();
+    private static final int ptZ = eyl();
 
-    private static int eyk() {
+    private static int eyl() {
         return ZC(System.getProperty("java.version"));
     }
 
@@ -47,11 +47,11 @@ public final class c {
         }
     }
 
-    public static int eyl() {
-        return ptX;
+    public static int eym() {
+        return ptZ;
     }
 
-    public static boolean eym() {
-        return ptX >= 9;
+    public static boolean eyn() {
+        return ptZ >= 9;
     }
 }

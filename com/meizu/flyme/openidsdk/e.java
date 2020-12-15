@@ -10,13 +10,13 @@ import android.util.Log;
 /* loaded from: classes18.dex */
 public class e {
     public static boolean b;
-    public static volatile e pyc;
+    public static volatile e pye;
     public Boolean g;
-    public BroadcastReceiver pyh;
-    public a pyd = new a("udid");
-    public a pye = new a("oaid");
-    public a pyg = new a("vaid");
-    public a pyf = new a("aaid");
+    public BroadcastReceiver pyj;
+    public a pyf = new a("udid");
+    public a pyg = new a("oaid");
+    public a pyi = new a("vaid");
+    public a pyh = new a("aaid");
 
     public static c A(Cursor cursor) {
         c cVar = new c(null, 0);
@@ -54,27 +54,27 @@ public class e {
         }
     }
 
-    public static final e ezx() {
-        if (pyc == null) {
+    public static final e ezy() {
+        if (pye == null) {
             synchronized (e.class) {
-                pyc = new e();
+                pye = new e();
             }
         }
-        return pyc;
+        return pye;
     }
 
     public a ZM(String str) {
         if ("oaid".equals(str)) {
-            return this.pye;
-        }
-        if ("vaid".equals(str)) {
             return this.pyg;
         }
+        if ("vaid".equals(str)) {
+            return this.pyi;
+        }
         if ("aaid".equals(str)) {
-            return this.pyf;
+            return this.pyh;
         }
         if ("udid".equals(str)) {
-            return this.pyd;
+            return this.pyf;
         }
         return null;
     }
@@ -186,11 +186,11 @@ public class e {
     }
 
     public final synchronized void a(Context context) {
-        if (this.pyh == null) {
+        if (this.pyj == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
-            this.pyh = new d();
-            context.registerReceiver(this.pyh, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
+            this.pyj = new d();
+            context.registerReceiver(this.pyj, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
         }
     }
 

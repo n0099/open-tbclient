@@ -12,63 +12,63 @@ public class a implements ImagePagerAdapter.a {
     private TbPageContext<?> eNx;
     private boolean fpu;
     private DragImageView.d frg;
-    private int kKX = 0;
-    private AdvertAppInfo kKY;
-    private boolean kKZ;
-    private com.baidu.tieba.recapp.h kLa;
+    private int kKZ = 0;
+    private AdvertAppInfo kLa;
+    private boolean kLb;
+    private com.baidu.tieba.recapp.h kLc;
     private String mForumId;
     private String mPostId;
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
         this.fpu = false;
-        this.kKZ = false;
+        this.kLb = false;
         this.fpu = z;
-        this.kKZ = z2;
+        this.kLb = z2;
         this.eNx = tbPageContext;
         this.mForumId = str;
         this.mPostId = str2;
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.kKY = advertAppInfo;
-        this.kKY.page = "PIC_PAGE";
-        this.kKX = i;
+        this.kLa = advertAppInfo;
+        this.kLa.page = "PIC_PAGE";
+        this.kKZ = i;
     }
 
-    public boolean dbS() {
-        if (!this.kKZ || this.kKY == null) {
+    public boolean dbT() {
+        if (!this.kLb || this.kLa == null) {
             return false;
         }
-        return this.kKY.bmF() || this.kKY.bmE();
+        return this.kLa.bmF() || this.kLa.bmE();
     }
 
     public String getAdId() {
-        if (this.kKY != null) {
-            return this.kKY.eEd;
+        if (this.kLa != null) {
+            return this.kLa.eEd;
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View l(ViewGroup viewGroup, int i) {
-        if (this.eNx == null || this.kKY == null) {
+        if (this.eNx == null || this.kLa == null) {
             return null;
         }
         if (EZ(i)) {
-            this.kLa = r.dFf().a(this.eNx, this.kKY.legoCard, 99, this.fpu, this.mForumId, this.mPostId);
-            if (this.kLa == null) {
+            this.kLc = r.dFg().a(this.eNx, this.kLa.legoCard, 99, this.fpu, this.mForumId, this.mPostId);
+            if (this.kLc == null) {
                 return null;
             }
-            this.kLa.setDragToExitListener(this.frg);
-            View deE = this.kLa.deE();
-            viewGroup.addView(deE);
-            return deE;
+            this.kLc.setDragToExitListener(this.frg);
+            View deF = this.kLc.deF();
+            viewGroup.addView(deF);
+            return deF;
         }
         return null;
     }
 
     private boolean EZ(int i) {
-        return dbS() && this.kKX != 0 && i == this.kKX;
+        return dbT() && this.kKZ != 0 && i == this.kKZ;
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
@@ -76,14 +76,14 @@ public class a implements ImagePagerAdapter.a {
     }
 
     public void onDestroy() {
-        if (this.kLa != null) {
-            this.kLa.onDestroy();
+        if (this.kLc != null) {
+            this.kLc.onDestroy();
         }
     }
 
     public void onAdShow() {
-        if (this.kLa != null) {
-            this.kLa.onAdShow();
+        if (this.kLc != null) {
+            this.kLc.onAdShow();
         }
     }
 }

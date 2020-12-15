@@ -5,7 +5,7 @@ import com.baidu.adp.widget.ListView.q;
 import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes22.dex */
 public class a implements q {
-    public static BdUniqueId jhG = BdUniqueId.gen();
+    public static BdUniqueId jhI = BdUniqueId.gen();
     private String avatar;
     private String forum_name;
     private String name_show;
@@ -40,7 +40,7 @@ public class a implements q {
         this.avatar = str;
     }
 
-    public String cGB() {
+    public String cGC() {
         return this.publish_time;
     }
 
@@ -62,6 +62,6 @@ public class a implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jhG;
+        return jhI;
     }
 }

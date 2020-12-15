@@ -18,7 +18,7 @@ import java.util.List;
 import tbclient.VideoInfo;
 /* loaded from: classes26.dex */
 public class t implements q {
-    private List<AppData> mHD;
+    private List<AppData> mHF;
 
     @Override // com.baidu.tieba.recapp.q
     public com.baidu.adp.widget.ListView.a<?, ?> a(p pVar, BdUniqueId bdUniqueId) {
@@ -64,36 +64,36 @@ public class t implements q {
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public l dEZ() {
-        return b.dEQ();
+    public l dFa() {
+        return b.dER();
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public n dFa() {
-        return b.dEQ();
+    public n dFb() {
+        return b.dER();
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public com.baidu.tieba.s.a dFb() {
-        return com.baidu.tieba.ad.statis.a.bMJ();
+    public com.baidu.tieba.s.a dFc() {
+        return com.baidu.tieba.ad.statis.a.bMK();
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public i dFc() {
-        return com.baidu.tieba.ad.a.bMm();
+    public i dFd() {
+        return com.baidu.tieba.ad.a.bMn();
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public List<AppData> dFd() {
-        if (this.mHD == null) {
-            this.mHD = new ArrayList();
+    public List<AppData> dFe() {
+        if (this.mHF == null) {
+            this.mHF = new ArrayList();
         }
-        return this.mHD;
+        return this.mHF;
     }
 
     @Override // com.baidu.tieba.recapp.q
-    public void dFe() {
-        AdDebugService.updateFloatView(this.mHD != null ? StringUtils.string(Integer.valueOf(this.mHD.size())) : "0");
+    public void dFf() {
+        AdDebugService.updateFloatView(this.mHF != null ? StringUtils.string(Integer.valueOf(this.mHF.size())) : "0");
     }
 
     @Override // com.baidu.tieba.recapp.q

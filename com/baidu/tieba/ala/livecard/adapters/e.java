@@ -8,7 +8,7 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes6.dex */
 public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.livecard.a.c> implements z {
-    private com.baidu.tieba.ala.livecard.b.d hbA;
+    private com.baidu.tieba.ala.livecard.b.d hbC;
     private String mForumName;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -32,9 +32,9 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
         if (this.mPageContext == null) {
             return null;
         }
-        this.hbA = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
-        this.hbA.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.c(this.hbA);
+        this.hbC = new com.baidu.tieba.ala.livecard.b.d(this.mPageContext);
+        this.hbC.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.c(this.hbC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,12 +44,12 @@ public class e extends k<com.baidu.tieba.tbadkCore.h, com.baidu.tieba.ala.liveca
         super.a(i, view, viewGroup, (ViewGroup) hVar, (com.baidu.tieba.tbadkCore.h) cVar);
         if (hVar != null) {
             int i2 = 0;
-            if (this.iSt != null) {
-                i2 = this.iSt.getTopThreadSize();
+            if (this.iSv != null) {
+                i2 = this.iSv.getTopThreadSize();
             }
-            cVar.hbI.eHa = (i + 1) - i2;
-            cVar.hbI.setForumName(this.mForumName);
-            cVar.hbI.a(hVar);
+            cVar.hbK.eHa = (i + 1) - i2;
+            cVar.hbK.setForumName(this.mForumName);
+            cVar.hbK.a(hVar);
         }
         return view;
     }

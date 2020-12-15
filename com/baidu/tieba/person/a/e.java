@@ -12,41 +12,41 @@ import java.util.List;
 public class e {
     private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
     private TbPageContext mTbPageContext;
-    private HTypeListView miB;
-    private c miC;
-    private b miD;
-    private a miE;
+    private HTypeListView miD;
+    private c miE;
+    private b miF;
+    private a miG;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.miB = hTypeListView;
+        this.miD = hTypeListView;
         Nt();
     }
 
     private void Nt() {
-        this.miC = new c(this.mTbPageContext, o.ajD);
-        this.miD = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.miM);
-        this.miE = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.mip);
-        this.bnf.add(this.miC);
-        this.bnf.add(this.miD);
+        this.miE = new c(this.mTbPageContext, o.ajD);
+        this.miF = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.miO);
+        this.miG = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.mir);
         this.bnf.add(this.miE);
-        this.miB.addAdapters(this.bnf);
+        this.bnf.add(this.miF);
+        this.bnf.add(this.miG);
+        this.miD.addAdapters(this.bnf);
     }
 
     public void setDatas(List<q> list) {
-        if (this.miB != null) {
-            this.miB.setData(list);
+        if (this.miD != null) {
+            this.miD.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.miB != null && (this.miB.getAdapter() instanceof af)) {
-            ((af) this.miB.getAdapter()).notifyDataSetChanged();
+        if (this.miD != null && (this.miD.getAdapter() instanceof af)) {
+            ((af) this.miD.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.miC.F(onClickListener);
-        this.miD.F(onClickListener);
+        this.miE.F(onClickListener);
+        this.miF.F(onClickListener);
     }
 }

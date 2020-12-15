@@ -19,7 +19,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes22.dex */
 public class a {
-    private final c jLF = new c();
+    private final c jLH = new c();
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v13, types: [com.baidu.tieba.card.data.l] */
@@ -77,10 +77,10 @@ public class a {
                             kVar2.isLinkThread = byVar.isLinkThread();
                             kVar2.eII = byVar.bpU();
                             if (!byVar.isLinkThread() && !byVar.bpU()) {
-                                kVar2.inw = byVar.boS();
+                                kVar2.iny = byVar.boS();
                             }
                             kVar2.eCR = byVar;
-                            kVar2.inx = true;
+                            kVar2.inz = true;
                             kVar = kVar2;
                         }
                         kVar.tid = byVar.getTid();
@@ -89,7 +89,7 @@ public class a {
                         } else if (l.ad(byVar)) {
                             kVar.Jt("2");
                         }
-                        kVar.imM = true;
+                        kVar.imO = true;
                         if (d.bkz() && kVar.bmn() != null && kVar.bmn().boP() != null) {
                             if (kVar.bmn().boP().hadConcerned() || az.x(byVar)) {
                                 com.baidu.tieba.homepage.personalize.model.d.a(kVar);
@@ -179,9 +179,9 @@ public class a {
             }
         }
         com.baidu.tbadk.a.a.a.bh(linkedList);
-        com.baidu.tieba.recapp.report.b.dGe().q("tag_home_concern_tab", arrayList);
-        this.jLF.fVe = linkedList;
-        return this.jLF;
+        com.baidu.tieba.recapp.report.b.dGf().q("tag_home_concern_tab", arrayList);
+        this.jLH.fVe = linkedList;
+        return this.jLH;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -203,7 +203,7 @@ public class a {
                     }
                 }
             } else {
-                if (!com.baidu.tieba.homepage.concern.d.cNJ()) {
+                if (!com.baidu.tieba.homepage.concern.d.cNK()) {
                     list.clear();
                 }
                 for (int count2 = y.getCount(list2) - 1; count2 >= 0; count2--) {
@@ -215,7 +215,7 @@ public class a {
                     }
                 }
             }
-            this.jLF.jUT = y.getCount(list) - count;
+            this.jLH.jUV = y.getCount(list) - count;
         }
     }
 

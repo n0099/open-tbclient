@@ -8,10 +8,10 @@ import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
 /* loaded from: classes22.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
-    private ForumWriteData jfR;
-    private SerializableItemInfo jfT;
-    private a jge;
-    private boolean jgf;
+    private ForumWriteData jfT;
+    private SerializableItemInfo jfV;
+    private a jgg;
+    private boolean jgh;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -19,44 +19,44 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.jfR = (ForumWriteData) getIntent().getSerializableExtra("forum_write_data");
-            this.jfT = (SerializableItemInfo) getIntent().getSerializableExtra("item_info");
-            this.jgf = getIntent().getBooleanExtra("item_is_school", false);
+            this.jfT = (ForumWriteData) getIntent().getSerializableExtra("forum_write_data");
+            this.jfV = (SerializableItemInfo) getIntent().getSerializableExtra("item_info");
+            this.jgh = getIntent().getBooleanExtra("item_is_school", false);
         }
-        if (this.jgf) {
-            this.jge = new d(this, this.jfR, this.jfT);
+        if (this.jgh) {
+            this.jgg = new d(this, this.jfT, this.jfV);
         } else {
-            this.jge = new b(this, this.jfR, this.jfT);
+            this.jgg = new b(this, this.jfT, this.jfV);
         }
-        this.jge.cGr();
-        setContentView(this.jge.getView());
+        this.jgg.cGs();
+        setContentView(this.jgg.getView());
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.jge.onChangeSkinType();
+        this.jgg.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.jge.onActivityResult(i, i2, intent);
+        this.jgg.onActivityResult(i, i2, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        this.jge.onDestroy();
+        this.jgg.onDestroy();
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.jge.cGq();
+            this.jgg.cGr();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

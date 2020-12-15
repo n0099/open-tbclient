@@ -7,11 +7,11 @@ public interface b {
 
     void bhU();
 
-    void ceG();
-
     void ceH();
 
     void ceI();
+
+    void ceJ();
 
     void g(short s);
 

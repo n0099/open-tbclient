@@ -7,8 +7,8 @@ public class e {
     private String OV;
     private String mAction;
     private JSONObject mParams;
-    private String nok;
-    private String nol;
+    private String nom;
+    private String non;
 
     public String getAction() {
         return this.mAction;
@@ -26,7 +26,7 @@ public class e {
         this.OV = str;
     }
 
-    public JSONObject dPQ() {
+    public JSONObject dPR() {
         return this.mParams;
     }
 
@@ -34,19 +34,19 @@ public class e {
         this.mParams = jSONObject;
     }
 
-    public String dPR() {
-        return this.nok;
+    public String dPS() {
+        return this.nom;
     }
 
     public void TL(String str) {
-        this.nok = str;
+        this.nom = str;
     }
 
     public void TM(String str) {
-        this.nol = str;
+        this.non = str;
     }
 
-    public String dPS() {
+    public String dPT() {
         return au.isEmpty(this.OV) ? this.mAction : this.OV + "/" + this.mAction;
     }
 }

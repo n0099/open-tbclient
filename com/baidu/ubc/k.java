@@ -15,12 +15,12 @@ public class k {
     private int mRate;
     private String mType;
     private String mVersion;
-    private String oHm;
-    private String oHn;
     private String oHo;
     private String oHp;
     private String oHq;
-    private int oHr = 2;
+    private String oHr;
+    private String oHs;
+    private int oHt = 2;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
@@ -48,7 +48,7 @@ public class k {
     }
 
     public void XK(String str) {
-        this.oHm = str;
+        this.oHo = str;
     }
 
     public String getId() {
@@ -75,8 +75,8 @@ public class k {
         return this.eru;
     }
 
-    public String eiP() {
-        return this.oHm;
+    public String eiQ() {
+        return this.oHo;
     }
 
     public int bfV() {
@@ -103,12 +103,12 @@ public class k {
         return this.erx;
     }
 
-    public String eiQ() {
-        return this.oHn;
+    public String eiR() {
+        return this.oHp;
     }
 
     public void XL(String str) {
-        this.oHn = str;
+        this.oHp = str;
     }
 
     public void setVersion(String str) {
@@ -120,34 +120,34 @@ public class k {
     }
 
     public void XM(String str) {
-        this.oHo = str;
-    }
-
-    public String eiR() {
-        return this.oHo;
-    }
-
-    public void XN(String str) {
-        this.oHp = str;
-    }
-
-    public String eiS() {
-        return this.oHp;
-    }
-
-    public String eiT() {
-        return this.oHq;
-    }
-
-    public void XO(String str) {
         this.oHq = str;
     }
 
-    public int eiU() {
+    public String eiS() {
+        return this.oHq;
+    }
+
+    public void XN(String str) {
+        this.oHr = str;
+    }
+
+    public String eiT() {
         return this.oHr;
     }
 
+    public String eiU() {
+        return this.oHs;
+    }
+
+    public void XO(String str) {
+        this.oHs = str;
+    }
+
+    public int eiV() {
+        return this.oHt;
+    }
+
     public void OE(int i) {
-        this.oHr = i;
+        this.oHt = i;
     }
 }

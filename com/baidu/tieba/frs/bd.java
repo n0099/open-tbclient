@@ -6,5 +6,5 @@ public class bd extends ba {
     public boolean isLocal = true;
     public boolean hasMore = true;
     public boolean atV = true;
-    public boolean iXS = true;
+    public boolean iXU = true;
 }

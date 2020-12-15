@@ -8,34 +8,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static a oKv;
+    private static a oKx;
     private TbPageContext mPageContext;
-    private b oKw;
+    private b oKy;
 
-    public static a ekt() {
-        if (oKv == null) {
+    public static a eku() {
+        if (oKx == null) {
             synchronized (a.class) {
-                if (oKv == null) {
-                    oKv = new a();
+                if (oKx == null) {
+                    oKx = new a();
                 }
             }
         }
-        return oKv;
+        return oKx;
     }
 
     public void b(TbPageContext tbPageContext, w wVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oKw = null;
+            this.oKy = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
         alaAudioModeDialogData.setModeList(Yt(wVar == null ? "" : wVar.aKK));
-        if (this.oKw == null) {
-            this.oKw = new b(tbPageContext, wVar, alaAudioModeDialogData);
+        if (this.oKy == null) {
+            this.oKy = new b(tbPageContext, wVar, alaAudioModeDialogData);
         } else {
-            this.oKw.a(wVar, alaAudioModeDialogData);
+            this.oKy.a(wVar, alaAudioModeDialogData);
         }
-        this.oKw.show();
+        this.oKy.show();
     }
 
     private List<com.baidu.yuyinala.mode.b.a> Yt(String str) {
@@ -57,8 +57,8 @@ public class a {
     }
 
     public void ID() {
-        if (this.oKw != null && this.oKw.isShowing()) {
-            this.oKw.dismiss();
+        if (this.oKy != null && this.oKy.isShowing()) {
+            this.oKy.dismiss();
         }
     }
 }

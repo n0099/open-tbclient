@@ -21,14 +21,14 @@ import com.baidu.tieba.card.data.h;
 /* loaded from: classes24.dex */
 public class a extends com.baidu.tieba.card.b<h> {
     private c akZ;
-    public ClickableHeaderImageView jDC;
-    public CommonUserLikeButton jHs;
-    private TextView jHt;
-    private TextView jHu;
+    public ClickableHeaderImageView jDE;
+    private h jHA;
+    public CommonUserLikeButton jHu;
     private TextView jHv;
-    private Drawable jHw;
-    private MetaData jHx;
-    private h jHy;
+    private TextView jHw;
+    private TextView jHx;
+    private Drawable jHy;
+    private MetaData jHz;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -36,17 +36,17 @@ public class a extends com.baidu.tieba.card.b<h> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.jDC = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
-        this.jDC.setGodIconMargin(R.dimen.ds4);
-        this.jDC.setAfterClickListener(this);
-        this.jHu = (TextView) getView().findViewById(R.id.god_name);
-        this.jHv = (TextView) getView().findViewById(R.id.god_describe);
-        this.jHs = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
-        this.akZ = new c(tbPageContext, this.jHs);
-        this.jHs.setAfterOnClickListener(this);
+        this.jDE = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
+        this.jDE.setGodIconMargin(R.dimen.ds4);
+        this.jDE.setAfterClickListener(this);
+        this.jHw = (TextView) getView().findViewById(R.id.god_name);
+        this.jHx = (TextView) getView().findViewById(R.id.god_describe);
+        this.jHu = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
+        this.akZ = new c(tbPageContext, this.jHu);
+        this.jHu.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(R.id.bottom_line);
-        this.jHt = (TextView) getView().findViewById(R.id.god_rank);
-        this.jHw = this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg);
+        this.jHv = (TextView) getView().findViewById(R.id.god_rank);
+        this.jHy = this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg);
     }
 
     public void l(BdUniqueId bdUniqueId) {
@@ -58,10 +58,10 @@ public class a extends com.baidu.tieba.card.b<h> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
-            ap.setViewTextColor(this.jHu, R.color.CAM_X0105);
-            ap.setViewTextColor(this.jHv, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jHw, R.color.CAM_X0105);
+            ap.setViewTextColor(this.jHx, R.color.CAM_X0109);
             ap.setBackgroundColor(this.mBottomLine, R.color.CAM_X0204);
-            ap.setViewTextColor(this.jHt, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jHv, R.color.CAM_X0109);
         }
         this.mSkinType = i;
     }
@@ -75,12 +75,12 @@ public class a extends com.baidu.tieba.card.b<h> {
     @Override // com.baidu.tieba.card.b
     public void a(h hVar) {
         if (hVar != null && hVar.eKe != null && hVar.eKe.getGodUserData() != null) {
-            this.jHy = hVar;
-            this.jHx = hVar.eKe;
+            this.jHA = hVar;
+            this.jHz = hVar.eKe;
             Cw(hVar.rank);
-            this.jDC.setData(hVar.eKe);
-            this.jHu.setText(hVar.eKe.getName_show());
-            this.jHv.setText(hVar.eKe.getGodUserData().getIntro());
+            this.jDE.setData(hVar.eKe);
+            this.jHw.setText(hVar.eKe.getName_show());
+            this.jHx.setText(hVar.eKe.getGodUserData().getIntro());
             this.akZ.a(hVar.eKe);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -90,36 +90,36 @@ public class a extends com.baidu.tieba.card.b<h> {
         String str;
         switch (i) {
             case 1:
-                this.jHt.setText("");
-                ap.setBackgroundResource(this.jHt, R.drawable.icon_grade_round_no1);
+                this.jHv.setText("");
+                ap.setBackgroundResource(this.jHv, R.drawable.icon_grade_round_no1);
                 return;
             case 2:
-                this.jHt.setText("");
-                ap.setBackgroundResource(this.jHt, R.drawable.icon_grade_round_no2);
+                this.jHv.setText("");
+                ap.setBackgroundResource(this.jHv, R.drawable.icon_grade_round_no2);
                 return;
             case 3:
-                this.jHt.setText("");
-                ap.setBackgroundResource(this.jHt, R.drawable.icon_grade_round_no3);
+                this.jHv.setText("");
+                ap.setBackgroundResource(this.jHv, R.drawable.icon_grade_round_no3);
                 return;
             default:
-                this.jHt.setBackgroundDrawable(this.jHw);
+                this.jHv.setBackgroundDrawable(this.jHy);
                 if (i < 100) {
                     str = String.format("%02d", Integer.valueOf(i));
                 } else {
                     str = i + "";
                 }
-                this.jHt.setText(str);
+                this.jHv.setText(str);
                 return;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (crI() != null) {
-            crI().a(view, this.jHy);
+        if (crJ() != null) {
+            crJ().a(view, this.jHA);
         }
-        if (view == getView() && this.jHx != null && !StringUtils.isNull(this.jHx.getName_show()) && !StringUtils.isNull(this.jHx.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(this.jHx.getUserId(), 0L), false, this.jHx.isBigV())));
+        if (view == getView() && this.jHz != null && !StringUtils.isNull(this.jHz.getName_show()) && !StringUtils.isNull(this.jHz.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(this.jHz.getUserId(), 0L), false, this.jHz.isBigV())));
         }
     }
 }

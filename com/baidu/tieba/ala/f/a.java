@@ -20,9 +20,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    public TextView gVB;
-    public TextView gVC;
     public TextView gVD;
+    public TextView gVE;
+    public TextView gVF;
     private Context mContext;
     private AlertDialog mDialog;
     Handler handler = new Handler();
@@ -35,32 +35,32 @@ public class a implements View.OnClickListener {
             }
         }
     };
-    private Runnable gVE = new Runnable() { // from class: com.baidu.tieba.ala.f.a.3
+    private Runnable gVG = new Runnable() { // from class: com.baidu.tieba.ala.f.a.3
         @Override // java.lang.Runnable
         public void run() {
             a.this.dismiss();
         }
     };
     private View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(a.g.ala_level_up_dialog, (ViewGroup) null);
-    public ImageView gVA = (ImageView) this.mRootView.findViewById(a.f.close_img);
+    public ImageView gVC = (ImageView) this.mRootView.findViewById(a.f.close_img);
 
     public a(Context context) {
         this.mContext = context;
-        this.gVA.setOnClickListener(this);
+        this.gVC.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.gVB = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLevel);
-        this.gVC = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipNum);
-        this.gVD = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLebel);
+        this.gVD = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLevel);
+        this.gVE = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipNum);
+        this.gVF = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLebel);
     }
 
-    private void bXz() {
+    private void bXA() {
         MessageManager.getInstance().registerListener(this.aWM);
     }
 
     public void z(String str, String str2, boolean z) {
-        this.gVD.setVisibility(z ? 0 : 8);
-        this.gVB.setText(this.mContext.getResources().getString(a.h.ala_task_level_up_tip_level, str2));
-        this.gVC.setText(this.mContext.getResources().getString(a.h.ala_task_level_up_tip_flower_num, str));
+        this.gVF.setVisibility(z ? 0 : 8);
+        this.gVD.setText(this.mContext.getResources().getString(a.h.ala_task_level_up_tip_level, str2));
+        this.gVE.setText(this.mContext.getResources().getString(a.h.ala_task_level_up_tip_flower_num, str));
     }
 
     public void show() {
@@ -74,7 +74,7 @@ public class a implements View.OnClickListener {
         });
         if (this.mContext instanceof Activity) {
             ShowUtil.showDialog(this.mDialog, (Activity) this.mContext);
-            this.handler.postDelayed(this.gVE, 5000L);
+            this.handler.postDelayed(this.gVG, 5000L);
         }
         Window window = this.mDialog.getWindow();
         if (window != null) {
@@ -82,12 +82,12 @@ public class a implements View.OnClickListener {
             window.setBackgroundDrawableResource(17170445);
             window.setContentView(this.mRootView);
         }
-        bXz();
+        bXA();
     }
 
     public void dismiss() {
         if (this.handler != null) {
-            this.handler.removeCallbacks(this.gVE);
+            this.handler.removeCallbacks(this.gVG);
         }
         if (this.mDialog != null && (this.mContext instanceof Activity)) {
             ShowUtil.dismissDialog(this.mDialog, (Activity) this.mContext);

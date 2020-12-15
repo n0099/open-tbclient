@@ -3,13 +3,13 @@ package com.baidu.tieba.videoEasterEgg.b;
 public interface a {
     void bAC();
 
-    void dBJ();
-
-    void dXb();
+    void dBK();
 
     void dXc();
 
     void dXd();
+
+    void dXe();
 
     void onClose();
 

@@ -27,32 +27,32 @@ import com.baidu.live.view.AlphaGradientHListView;
 public class c {
     private w aFN;
     private ViewGroup bNk;
-    private com.baidu.live.liveroom.a.a hie;
-    private a hif;
-    public FrameLayout hig;
-    public FrameLayout hih;
-    private AlphaGradientHListView hii;
-    private String hij;
-    private boolean hik;
+    private com.baidu.live.liveroom.a.a hig;
+    private a hih;
+    public FrameLayout hii;
+    public FrameLayout hij;
+    private AlphaGradientHListView hik;
+    private String hil;
+    private boolean him;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private int hgP = a.C0205a.anim_fade_in_and_out;
-    private AdapterView.c hil = new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.1
+    private int hgR = a.C0205a.anim_fade_in_and_out;
+    private AdapterView.c hin = new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.1
         @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            p pVar = (p) c.this.hif.getItem(i);
+            p pVar = (p) c.this.hih.getItem(i);
             if (pVar != null && pVar.aJV.disableClick == 0) {
-                if (c.this.hie != null) {
-                    c.this.hie.fh(5);
+                if (c.this.hig != null) {
+                    c.this.hig.fh(5);
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), String.valueOf(pVar.aJV.userId), pVar.aJV.userName, pVar.aJV.portrait, pVar.aJV.sex, pVar.aJV.levelId, null, null, 0L, pVar.aJV.fansCount, pVar.aJV.followCount, pVar.aJV.userStatus, c.this.mGroupId, c.this.mLiveId, c.this.hik, c.this.hij, pVar.aJV.appId, pVar.aJV.userName, c.this.otherParams)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), String.valueOf(pVar.aJV.userId), pVar.aJV.userName, pVar.aJV.portrait, pVar.aJV.sex, pVar.aJV.levelId, null, null, 0L, pVar.aJV.fansCount, pVar.aJV.followCount, pVar.aJV.userStatus, c.this.mGroupId, c.this.mLiveId, c.this.him, c.this.hil, pVar.aJV.appId, pVar.aJV.userName, c.this.otherParams)));
                 LogManager.getCommonLogger().doClickTopRightAuthorLog(c.this.aFN.mLiveInfo.feed_id, i, c.this.Oj());
             }
         }
     };
-    CustomMessageListener gDE = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.2
+    CustomMessageListener gDG = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -68,9 +68,9 @@ public class c {
 
     public c(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.hie = aVar;
-        this.hik = z;
-        MessageManager.getInstance().registerListener(this.gDE);
+        this.hig = aVar;
+        this.him = z;
+        MessageManager.getInstance().registerListener(this.gDG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,37 +81,37 @@ public class c {
     public void a(String str, String str2, String str3, w wVar) {
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.hij = str3;
+        this.hil = str3;
         this.aFN = wVar;
     }
 
     public void c(ViewGroup viewGroup, int i, int i2) {
         if (viewGroup != null) {
-            if (this.hig == null) {
-                this.hig = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_live_audience_list_layout, (ViewGroup) null);
+            if (this.hii == null) {
+                this.hii = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_live_audience_list_layout, (ViewGroup) null);
             }
-            if (this.bNk != null && this.bNk.indexOfChild(this.hig) > 0) {
-                this.bNk.removeView(this.hig);
+            if (this.bNk != null && this.bNk.indexOfChild(this.hii) > 0) {
+                this.bNk.removeView(this.hii);
             }
             this.bNk = viewGroup;
-            this.hig.setId(a.f.ala_liveroom_audience);
-            this.hih = (FrameLayout) this.hig.findViewById(a.f.content_layout);
-            this.hii = (AlphaGradientHListView) this.hig.findViewById(a.f.ala_live_guest_listview);
-            this.hii.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
-            this.hif = new a(getPageContext().getPageActivity());
-            this.hii.setAdapter((ListAdapter) this.hif);
-            this.hii.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
-            this.hii.setOnItemClickListener(this.hil);
-            this.hii.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
-            this.hii.setNeedAlphaShade(true);
+            this.hii.setId(a.f.ala_liveroom_audience);
+            this.hij = (FrameLayout) this.hii.findViewById(a.f.content_layout);
+            this.hik = (AlphaGradientHListView) this.hii.findViewById(a.f.ala_live_guest_listview);
+            this.hik.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
+            this.hih = new a(getPageContext().getPageActivity());
+            this.hik.setAdapter((ListAdapter) this.hih);
+            this.hik.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
+            this.hik.setOnItemClickListener(this.hin);
+            this.hik.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
+            this.hik.setNeedAlphaShade(true);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds82));
             layoutParams.addRule(1, i);
             layoutParams.addRule(8, i);
             layoutParams.addRule(0, i2);
             layoutParams.leftMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds10);
             layoutParams.rightMargin = BdUtilHelper.dip2px(getPageContext().getPageActivity(), -6.0f);
-            ccv();
-            this.bNk.addView(this.hig, layoutParams);
+            ccw();
+            this.bNk.addView(this.hii, layoutParams);
         }
     }
 
@@ -119,22 +119,22 @@ public class c {
     }
 
     public void e(q qVar) {
-        if (this.hif != null) {
-            this.hif.d(qVar);
-            this.hif.notifyDataSetChanged();
+        if (this.hih != null) {
+            this.hih.d(qVar);
+            this.hih.notifyDataSetChanged();
         }
     }
 
     public boolean c(p pVar) {
-        if (this.hif == null || !this.hif.b(pVar)) {
+        if (this.hih == null || !this.hih.b(pVar)) {
             return false;
         }
-        this.hif.notifyDataSetChanged();
+        this.hih.notifyDataSetChanged();
         return true;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gDE);
+        MessageManager.getInstance().unRegisterListener(this.gDG);
     }
 
     public String Oj() {
@@ -145,12 +145,12 @@ public class c {
         this.otherParams = str;
     }
 
-    public void ccv() {
-        if (this.hii != null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), this.hgP);
+    public void ccw() {
+        if (this.hik != null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), this.hgR);
             loadAnimation.setFillEnabled(true);
             loadAnimation.setFillAfter(true);
-            this.hii.setAnimation(loadAnimation);
+            this.hik.setAnimation(loadAnimation);
         }
     }
 }

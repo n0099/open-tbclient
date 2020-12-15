@@ -12,21 +12,21 @@ import kotlin.jvm.internal.p;
 @e
 /* loaded from: classes18.dex */
 public class a {
-    private final f pys;
-    private final d pzq;
+    private final f pyu;
+    private final d pzs;
 
     public a(f fVar) {
         p.o(fVar, "videoItem");
-        this.pys = fVar;
-        this.pzq = new d();
+        this.pyu = fVar;
+        this.pzs = new d();
     }
 
-    public final f ezA() {
-        return this.pys;
+    public final f ezB() {
+        return this.pyu;
     }
 
-    public final d ezW() {
-        return this.pzq;
+    public final d ezX() {
+        return this.pzs;
     }
 
     @e
@@ -34,18 +34,18 @@ public class a {
     /* loaded from: classes18.dex */
     public final class C1013a {
         private final String imageKey;
-        private final g pzr;
-        final /* synthetic */ a pzs;
+        private final g pzt;
+        final /* synthetic */ a pzu;
 
         public C1013a(a aVar, String str, g gVar) {
             p.o(gVar, "frameEntity");
-            this.pzs = aVar;
+            this.pzu = aVar;
             this.imageKey = str;
-            this.pzr = gVar;
+            this.pzt = gVar;
         }
 
-        public final g ezX() {
-            return this.pzr;
+        public final g ezY() {
+            return this.pzt;
         }
 
         public final String getImageKey() {
@@ -56,11 +56,11 @@ public class a {
     public final List<C1013a> RC(int i) {
         C1013a c1013a;
         ArrayList arrayList = new ArrayList();
-        for (com.opensource.svgaplayer.entities.f fVar : this.pys.ezR()) {
-            if (i < 0 || i >= fVar.eAu().size()) {
+        for (com.opensource.svgaplayer.entities.f fVar : this.pyu.ezS()) {
+            if (i < 0 || i >= fVar.eAv().size()) {
                 c1013a = null;
             } else {
-                c1013a = fVar.eAu().get(i).eAv() <= 0.0d ? null : new C1013a(this, fVar.getImageKey(), fVar.eAu().get(i));
+                c1013a = fVar.eAv().get(i).eAw() <= 0.0d ? null : new C1013a(this, fVar.getImageKey(), fVar.eAv().get(i));
             }
             if (c1013a != null) {
                 arrayList.add(c1013a);
@@ -72,6 +72,6 @@ public class a {
     public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         p.o(canvas, "canvas");
         p.o(scaleType, "scaleType");
-        this.pzq.a(canvas.getWidth(), canvas.getHeight(), (float) this.pys.ezP().getWidth(), (float) this.pys.ezP().getHeight(), scaleType);
+        this.pzs.a(canvas.getWidth(), canvas.getHeight(), (float) this.pyu.ezQ().getWidth(), (float) this.pyu.ezQ().getHeight(), scaleType);
     }
 }

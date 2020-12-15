@@ -29,88 +29,88 @@ import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.video.EditVideoData;
 /* loaded from: classes3.dex */
 public class PreviewVideoView extends FrameLayout {
-    private static int ogA;
-    private static int ogz;
+    private static int ogB;
+    private static int ogC;
     private String coverPath;
     private b fvq;
-    private float gXE;
-    private TbImageView jQC;
-    private int nGt;
-    private Path nRl;
-    private CustomVideoView ogB;
-    protected ImageView ogC;
-    private TBSpecificationBtn ogD;
-    private Paint ogE;
-    private Paint ogF;
+    private float gXG;
+    private TbImageView jQE;
+    private int nGv;
+    private Path nRn;
+    private CustomVideoView ogD;
+    protected ImageView ogE;
+    private TBSpecificationBtn ogF;
+    private Paint ogG;
+    private Paint ogH;
     private RectF rect;
 
     public PreviewVideoView(@NonNull Context context) {
         super(context);
-        this.nRl = new Path();
+        this.nRn = new Path();
         this.rect = new RectF();
         init(context);
     }
 
     public PreviewVideoView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nRl = new Path();
+        this.nRn = new Path();
         this.rect = new RectF();
         init(context);
     }
 
     public PreviewVideoView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nRl = new Path();
+        this.nRn = new Path();
         this.rect = new RectF();
         init(context);
     }
 
     private void init(Context context) {
-        ogz = l.getDimens(getContext(), R.dimen.tbds429);
-        ogA = l.getDimens(getContext(), R.dimen.tbds572);
+        ogB = l.getDimens(getContext(), R.dimen.tbds429);
+        ogC = l.getDimens(getContext(), R.dimen.tbds572);
         eu(context);
         this.fvq = new b();
-        this.jQC = new TbImageView(context);
-        this.jQC.setScaleType(ImageView.ScaleType.FIT_XY);
-        addView(this.jQC, new FrameLayout.LayoutParams(-2, -2));
-        this.ogC = new ImageView(context);
+        this.jQE = new TbImageView(context);
+        this.jQE.setScaleType(ImageView.ScaleType.FIT_XY);
+        addView(this.jQE, new FrameLayout.LayoutParams(-2, -2));
+        this.ogE = new ImageView(context);
         int dimens = l.getDimens(context, R.dimen.M_H_X001);
         int dimens2 = l.getDimens(context, R.dimen.M_W_X003);
-        this.ogC.setPadding(dimens2, dimens, dimens2, dimens);
+        this.ogE.setPadding(dimens2, dimens, dimens2, dimens);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds94), l.getDimens(context, R.dimen.tbds94));
         layoutParams.gravity = 53;
-        addView(this.ogC, layoutParams);
+        addView(this.ogE, layoutParams);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds96), l.getDimens(context, R.dimen.tbds48));
         layoutParams2.gravity = 85;
         layoutParams2.bottomMargin = l.getDimens(context, R.dimen.M_H_X002);
         layoutParams2.rightMargin = l.getDimens(context, R.dimen.M_W_X003);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
         bVar.bwc();
-        this.ogD = new TBSpecificationBtn(context);
-        this.ogD.setConfig(bVar);
-        this.ogD.setText(context.getString(R.string.edit));
-        this.ogD.setTextSize(R.dimen.T_X10);
-        addView(this.ogD, layoutParams2);
-        this.ogE = new Paint();
-        this.ogF = new Paint();
+        this.ogF = new TBSpecificationBtn(context);
+        this.ogF.setConfig(bVar);
+        this.ogF.setText(context.getString(R.string.edit));
+        this.ogF.setTextSize(R.dimen.T_X10);
+        addView(this.ogF, layoutParams2);
+        this.ogG = new Paint();
+        this.ogH = new Paint();
         bvs();
     }
 
     private void eu(Context context) {
-        this.ogB = new CustomVideoView(context);
-        addView(this.ogB, new FrameLayout.LayoutParams(-2, -2));
-        this.ogB.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.1
+        this.ogD = new CustomVideoView(context);
+        addView(this.ogD, new FrameLayout.LayoutParams(-2, -2));
+        this.ogD.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.1
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
-                PreviewVideoView.this.ogB.start();
+                PreviewVideoView.this.ogD.start();
             }
         });
-        this.ogB.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.2
+        this.ogD.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.2
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 mediaPlayer.setVolume(0.0f, 0.0f);
                 PreviewVideoView.this.dL(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
-                PreviewVideoView.this.jQC.setVisibility(8);
+                PreviewVideoView.this.jQE.setVisibility(8);
             }
         });
     }
@@ -121,19 +121,19 @@ public class PreviewVideoView extends FrameLayout {
         if (i2 <= 0) {
             i3 = 0;
         } else if (i > i2) {
-            i3 = ogA;
+            i3 = ogC;
             i4 = l.getDimens(getContext(), R.dimen.tbds322);
         } else {
             i3 = l.getDimens(getContext(), R.dimen.tbds322);
-            i4 = ogz;
+            i4 = ogB;
         }
-        if (this.ogB.getWidth() != i3 || this.ogB.getHeight() != i4) {
-            this.ogB.setVideoHeight(i4);
-            this.ogB.setVideoWidth(i3);
-            ViewGroup.LayoutParams layoutParams = this.jQC.getLayoutParams();
+        if (this.ogD.getWidth() != i3 || this.ogD.getHeight() != i4) {
+            this.ogD.setVideoHeight(i4);
+            this.ogD.setVideoWidth(i3);
+            ViewGroup.LayoutParams layoutParams = this.jQE.getLayoutParams();
             layoutParams.width = i3;
             layoutParams.height = i4;
-            this.jQC.setLayoutParams(layoutParams);
+            this.jQE.setLayoutParams(layoutParams);
             getLayoutParams().height = i4;
             getLayoutParams().width = i3;
             invalidate();
@@ -143,102 +143,102 @@ public class PreviewVideoView extends FrameLayout {
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.ogC.setOnClickListener(onClickListener);
+        this.ogE.setOnClickListener(onClickListener);
     }
 
     public void reset() {
-        this.nGt = 0;
-        this.gXE = 0.0f;
+        this.nGv = 0;
+        this.gXG = 0.0f;
         this.coverPath = null;
-        cEV();
+        cEW();
     }
 
     public void Wd(String str) {
         if (!StringUtils.isNull(str)) {
-            this.ogB.setVideoPath(str);
-            this.ogB.start();
-            this.ogB.seekTo(this.nGt);
+            this.ogD.setVideoPath(str);
+            this.ogD.start();
+            this.ogD.seekTo(this.nGv);
         }
     }
 
-    public void cEV() {
-        this.nGt = this.ogB.getCurrentPosition();
-        if (this.ogB != null) {
-            this.ogB.stopPlayback();
-            this.ogB.setVideoURI(null);
+    public void cEW() {
+        this.nGv = this.ogD.getCurrentPosition();
+        if (this.ogD != null) {
+            this.ogD.stopPlayback();
+            this.ogD.setVideoURI(null);
         }
-        this.jQC.setVisibility(0);
+        this.jQE.setVisibility(0);
     }
 
     public void setVideoInfo(EditVideoData editVideoData) {
-        cEV();
+        cEW();
         if (editVideoData != null && editVideoData.isLegal()) {
             setVisibility(0);
             this.coverPath = editVideoData.coverPath;
-            ecx();
+            ecy();
             Wd(editVideoData.finalPath);
             return;
         }
         setVisibility(8);
     }
 
-    public void ecx() {
+    public void ecy() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(this.coverPath);
-        ImageOperation bi = d.bi(ogA, ogz);
+        ImageOperation bi = d.bi(ogC, ogB);
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(bi);
-        this.jQC.setTag(imageFileInfo.toCachedKey(false));
+        this.jQE.setTag(imageFileInfo.toCachedKey(false));
         com.baidu.adp.widget.ImageView.a a2 = this.fvq.a(imageFileInfo, false);
         if (a2 != null) {
             dL(a2.getWidth(), a2.getHeight());
-            this.jQC.invalidate();
+            this.jQE.invalidate();
             return;
         }
         this.fvq.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.video.PreviewVideoView.3
             @Override // com.baidu.tbadk.imageManager.b
             public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
-                if (PreviewVideoView.this.jQC != null && aVar != null) {
+                if (PreviewVideoView.this.jQE != null && aVar != null) {
                     PreviewVideoView.this.dL(aVar.getWidth(), aVar.getHeight());
-                    PreviewVideoView.this.jQC.invalidate();
+                    PreviewVideoView.this.jQE.invalidate();
                 }
             }
         }, false);
     }
 
-    public void ecy() {
-        if (this.jQC != null && this.jQC.getTag() != null) {
-            c.bDV().deletePic(this.jQC.getTag().toString());
-            c.bDV().deletePhoto(this.jQC.getTag().toString());
+    public void ecz() {
+        if (this.jQE != null && this.jQE.getTag() != null) {
+            c.bDV().deletePic(this.jQE.getTag().toString());
+            c.bDV().deletePhoto(this.jQE.getTag().toString());
         }
     }
 
     public void bvs() {
-        this.ogC.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
-        this.ogE.setColor(ap.getColor(R.color.CAM_X0618));
-        this.ogF.setColor(ap.getColor(R.color.CAM_X0302));
+        this.ogE.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+        this.ogG.setColor(ap.getColor(R.color.CAM_X0618));
+        this.ogH.setColor(ap.getColor(R.color.CAM_X0302));
     }
 
     public void ba(float f) {
-        this.gXE = f;
+        this.gXG = f;
         invalidate();
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.nRl.reset();
+        this.nRn.reset();
         this.rect.set(0.0f, 0.0f, i, i2);
-        this.nRl.addRoundRect(this.rect, l.getDimens(getContext(), R.dimen.tbds10), l.getDimens(getContext(), R.dimen.tbds10), Path.Direction.CW);
+        this.nRn.addRoundRect(this.rect, l.getDimens(getContext(), R.dimen.tbds10), l.getDimens(getContext(), R.dimen.tbds10), Path.Direction.CW);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(this.nRl);
+        canvas.clipPath(this.nRn);
         super.dispatchDraw(canvas);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), l.getDimens(getContext(), R.dimen.tbds5), this.ogE);
-        canvas.drawRect(0.0f, 0.0f, getWidth() * this.gXE, l.getDimens(getContext(), R.dimen.tbds5), this.ogF);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), l.getDimens(getContext(), R.dimen.tbds5), this.ogG);
+        canvas.drawRect(0.0f, 0.0f, getWidth() * this.gXG, l.getDimens(getContext(), R.dimen.tbds5), this.ogH);
         canvas.restore();
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.tieba.play.o;
 /* loaded from: classes22.dex */
 public class f extends a<bx, com.baidu.card.a<by>> {
     private ab<by> agG;
-    private at iBk;
+    private at iBm;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity(), by.eJq);
@@ -57,11 +57,11 @@ public class f extends a<bx, com.baidu.card.a<by>> {
                 }
             }
         });
-        this.iBk = hVar;
-        this.iBk.setPageUniqueId(this.mPageId);
-        this.iBk.setFrom("14");
-        this.iBk.setStageType("2001");
-        aVar.c(this.iBk);
+        this.iBm = hVar;
+        this.iBm.setPageUniqueId(this.mPageId);
+        this.iBm.setFrom("14");
+        this.iBm.setStageType("2001");
+        aVar.c(this.iBm);
         ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amH);
         com.baidu.card.a<by> aVar2 = new com.baidu.card.a<>(a2);
         aVar2.setPageId(this.mPageId);
@@ -112,19 +112,19 @@ public class f extends a<bx, com.baidu.card.a<by>> {
             oVar.mLocate = "20";
             oVar.amY = byVar.tid;
             oVar.mSource = byVar.mRecomSource;
-            oVar.myo = byVar.mRecomAbTag;
-            oVar.myp = byVar.mRecomWeight;
-            oVar.myq = "14";
+            oVar.myq = byVar.mRecomAbTag;
+            oVar.myr = byVar.mRecomWeight;
+            oVar.mys = "14";
             oVar.mFloor = String.valueOf(byVar.eHa);
             if (byVar.bqh() != null) {
                 oVar.eGn = String.valueOf(byVar.bqh().eMW);
             }
             if (byVar.bmn() != null) {
                 oVar.fFV = String.valueOf(byVar.bmn().getFid());
-                oVar.myx = byVar.bmn().getNid();
+                oVar.myz = byVar.bmn().getNid();
                 if (byVar.bmn().bph() != null) {
-                    oVar.myt = byVar.bmn().bph().video_md5;
-                    oVar.myv = String.valueOf(byVar.bmn().bph().is_vertical);
+                    oVar.myv = byVar.bmn().bph().video_md5;
+                    oVar.myx = String.valueOf(byVar.bmn().bph().is_vertical);
                 }
             }
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();

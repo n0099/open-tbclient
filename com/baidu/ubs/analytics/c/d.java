@@ -6,36 +6,36 @@ import java.lang.ref.WeakReference;
 import java.util.Stack;
 /* loaded from: classes17.dex */
 public final class d {
-    private Stack<WeakReference<Activity>> oIe;
+    private Stack<WeakReference<Activity>> oIg;
 
     /* synthetic */ d(byte b) {
         this();
     }
 
     private d() {
-        this.oIe = new Stack<>();
+        this.oIg = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> ejs() {
-        return this.oIe;
+    public final Stack<WeakReference<Activity>> ejt() {
+        return this.oIg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(WeakReference<Activity> weakReference) {
-        this.oIe.add(weakReference);
+        this.oIg.add(weakReference);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(Activity activity) {
-        if (this.oIe != null) {
+        if (this.oIg != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.oIe.size()) {
+                if (i2 >= this.oIg.size()) {
                     break;
                 }
-                if (this.oIe.get(i2).get() == activity) {
-                    this.oIe.remove(this.oIe.get(i2));
+                if (this.oIg.get(i2).get() == activity) {
+                    this.oIg.remove(this.oIg.get(i2));
                 }
                 i = i2 + 1;
             }
@@ -46,8 +46,8 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final String adS() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.oIe.size(); i++) {
-            Activity activity = this.oIe.get(i).get();
+        for (int i = 0; i < this.oIg.size(); i++) {
+            Activity activity = this.oIg.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
                 sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR);
@@ -59,6 +59,6 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes17.dex */
     public static class a {
-        private static final d oIf = new d((byte) 0);
+        private static final d oIh = new d((byte) 0);
     }
 }

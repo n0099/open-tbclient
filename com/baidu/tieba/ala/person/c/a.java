@@ -11,10 +11,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.person.c.c;
 /* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0708a hKS;
-    private com.baidu.live.r.a hKT;
-    private c hKU;
-    private c hKV;
+    private InterfaceC0708a hKU;
+    private com.baidu.live.r.a hKV;
+    private c hKW;
+    private c hKX;
     private TbPageContext mTbPageContext;
 
     /* renamed from: com.baidu.tieba.ala.person.c.a$a  reason: collision with other inner class name */
@@ -31,13 +31,13 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.hKU = new c(tbPageContext);
-        this.hKV = new c(tbPageContext);
-        this.hKU.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
+        this.hKW = new c(tbPageContext);
+        this.hKX = new c(tbPageContext);
+        this.hKW.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.1
             @Override // com.baidu.tieba.ala.person.c.c.a
             public void c(com.baidu.tieba.ala.person.a.c cVar) {
-                if (cVar != null && a.this.hKS != null) {
-                    a.this.hKS.a(cVar);
+                if (cVar != null && a.this.hKU != null) {
+                    a.this.hKU.a(cVar);
                 }
             }
 
@@ -45,11 +45,11 @@ public class a {
             public void onFail(String str) {
             }
         });
-        this.hKV.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
+        this.hKX.a(new c.a() { // from class: com.baidu.tieba.ala.person.c.a.2
             @Override // com.baidu.tieba.ala.person.c.c.a
             public void c(com.baidu.tieba.ala.person.a.c cVar) {
-                if (cVar != null && a.this.hKS != null) {
-                    a.this.hKS.b(cVar);
+                if (cVar != null && a.this.hKU != null) {
+                    a.this.hKU.b(cVar);
                 }
             }
 
@@ -61,51 +61,51 @@ public class a {
 
     public void k(String str, String str2, String str3, String str4, String str5) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.hKS != null) {
-                this.hKS.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_no_network));
+            if (this.hKU != null) {
+                this.hKU.onFail(this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
         }
-        this.hKT = new com.baidu.live.r.a(new com.baidu.live.r.c() { // from class: com.baidu.tieba.ala.person.c.a.3
+        this.hKV = new com.baidu.live.r.a(new com.baidu.live.r.c() { // from class: com.baidu.tieba.ala.person.c.a.3
             @Override // com.baidu.live.r.c
             public void a(PersonUserData personUserData) {
-                if (a.this.hKS != null) {
-                    a.this.hKS.b(personUserData);
+                if (a.this.hKU != null) {
+                    a.this.hKU.b(personUserData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913214, personUserData));
             }
 
             @Override // com.baidu.live.r.c
             public void s(int i, String str6) {
-                if (a.this.hKS != null) {
-                    a.this.hKS.onFail(str6);
+                if (a.this.hKU != null) {
+                    a.this.hKU.onFail(str6);
                 }
             }
         });
-        this.hKT.execute(str, str2, str3, str4, str5);
+        this.hKV.execute(str, str2, str3, str4, str5);
         aH(str, str4);
     }
 
     public void aH(String str, String str2) {
         if (TbadkCoreApplication.isLogin()) {
-            this.hKU.setPn(-1);
-            this.hKU.e(0, str, str2);
-            this.hKV.setPn(-1);
-            this.hKV.e(1, str, str2);
+            this.hKW.setPn(-1);
+            this.hKW.e(0, str, str2);
+            this.hKX.setPn(-1);
+            this.hKX.e(1, str, str2);
         }
     }
 
     public void onDestroy() {
-        if (this.hKT != null && !this.hKT.isCancelled()) {
-            this.hKT.cancel();
+        if (this.hKV != null && !this.hKV.isCancelled()) {
+            this.hKV.cancel();
         }
-        if (this.hKS != null) {
-            this.hKS.onFail(null);
+        if (this.hKU != null) {
+            this.hKU.onFail(null);
         }
     }
 
     public void a(InterfaceC0708a interfaceC0708a) {
-        this.hKS = interfaceC0708a;
+        this.hKU = interfaceC0708a;
     }
 }

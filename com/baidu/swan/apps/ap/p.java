@@ -54,15 +54,15 @@ public final class p {
         if (dIV == null) {
             synchronized (p.class) {
                 if (dIV == null) {
-                    dIV = new b(PublishSubject.eGP());
-                    dIV.eFq().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.4
+                    dIV = new b(PublishSubject.eGQ());
+                    dIV.eFr().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bV(pair).e(Schedulers.io()).e(p.dIY).eFt();
+                            return rx.h.bV(pair).e(Schedulers.io()).e(p.dIY).eFu();
                         }
-                    }).eFs().eFh();
+                    }).eFt().eFi();
                 }
             }
         }
@@ -73,15 +73,15 @@ public final class p {
         if (dIW == null) {
             synchronized (p.class) {
                 if (dIW == null) {
-                    dIW = new b(PublishSubject.eGP());
-                    dIW.eFq().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.5
+                    dIW = new b(PublishSubject.eGQ());
+                    dIW.eFr().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.ap.p.5
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bV(pair).e(Schedulers.computation()).e(p.dIY).eFt();
+                            return rx.h.bV(pair).e(Schedulers.computation()).e(p.dIY).eFu();
                         }
-                    }).eFs().eFh();
+                    }).eFt().eFi();
                 }
             }
         }
@@ -92,8 +92,8 @@ public final class p {
         if (dIX == null) {
             synchronized (p.class) {
                 if (dIX == null) {
-                    dIX = new b(PublishSubject.eGP());
-                    dIX.eFq().c(Schedulers.io()).b(dIY).eFs().eFh();
+                    dIX = new b(PublishSubject.eGQ());
+                    dIX.eFr().c(Schedulers.io()).b(dIY).eFt().eFi();
                 }
             }
         }
@@ -128,7 +128,7 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task [" + str + "] fail!", th);
                 }
             }
-        }).eFh();
+        }).eFi();
     }
 
     public static rx.k b(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
@@ -147,7 +147,7 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task [" + str + "] fail!", th);
                 }
             }
-        }).eFh();
+        }).eFi();
     }
 
     public static String getStandardThreadName(String str) {
@@ -198,6 +198,6 @@ public final class p {
                     Log.wtf("SwanAppExecutorUtils", "delay task fail", th);
                 }
             }
-        }).eFh();
+        }).eFi();
     }
 }

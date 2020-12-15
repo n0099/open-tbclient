@@ -41,117 +41,117 @@ public class b extends af.a {
     public TBLottieAnimationView akx;
     public TextView eBQ;
     public TextView fMQ;
-    private final int jhF;
-    public TextView jhx;
-    public ImageView jhy;
+    public ImageView jhA;
+    public TextView jhB;
+    private final int jhH;
     public TextView jhz;
-    public LinearLayout lGQ;
-    public VoteView lUT;
+    public LinearLayout lGS;
+    public VoteView lUV;
     public View mRoot;
     private int mSkinType;
-    public UserIconBox mdA;
-    public UserIconBox mdB;
-    public TextView mdC;
-    public PbFirstFloorUserLikeButton mdD;
-    public RelativeLayout mdE;
-    public TbRichTextView mdF;
-    private final TextView mdG;
-    public ImageView mdH;
-    public RelativeLayout mdI;
-    public View mdJ;
-    public final View mdK;
-    public TextView mdL;
-    public TextView mdM;
-    public View mdN;
-    public TbRichTextView mdO;
-    public TextView mdP;
-    public TextView mdQ;
+    public ImageView mdA;
+    public HeadPendantClickableView mdB;
+    public UserIconBox mdC;
+    public UserIconBox mdD;
+    public TextView mdE;
+    public PbFirstFloorUserLikeButton mdF;
+    public RelativeLayout mdG;
+    public TbRichTextView mdH;
+    private final TextView mdI;
+    public ImageView mdJ;
+    public RelativeLayout mdK;
+    public View mdL;
+    public final View mdM;
+    public TextView mdN;
+    public TextView mdO;
+    public View mdP;
+    public TbRichTextView mdQ;
     public TextView mdR;
     public TextView mdS;
     public TextView mdT;
-    private int mdU;
-    private int mdV;
-    private boolean mdW;
-    private VideoPbFragment mdX;
-    private final int mdx;
-    public ImageView mdy;
-    public HeadPendantClickableView mdz;
+    public TextView mdU;
+    public TextView mdV;
+    private int mdW;
+    private int mdX;
+    private boolean mdY;
+    private VideoPbFragment mdZ;
+    private final int mdz;
 
     public b(Context context, View view, VideoPbFragment videoPbFragment) {
         super(view);
-        this.mdx = 2;
-        this.jhF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.mdz = 2;
+        this.jhH = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds6);
         this.mSkinType = 3;
         this.mRoot = view;
-        this.mdX = videoPbFragment;
-        this.mdy = (ImageView) view.findViewById(R.id.thread_stamp_video_info_item);
-        this.mdz = (HeadPendantClickableView) view.findViewById(R.id.head_view_video_info_item);
-        this.mdz.setHasPendantStyle();
-        this.mdz.getHeadView().setIsRound(true);
-        this.mdz.getHeadView().setDrawBorder(true);
-        this.mdz.getHeadView().setBorderWidth(l.getDimens(context, R.dimen.L_X01));
-        this.mdz.getHeadView().setBorderColor(ap.getColor(R.color.CAM_X0401));
-        this.mdz.getHeadView().setPlaceHolder(1);
-        this.mdz.setBigVDimenSize(R.dimen.tbds27);
+        this.mdZ = videoPbFragment;
+        this.mdA = (ImageView) view.findViewById(R.id.thread_stamp_video_info_item);
+        this.mdB = (HeadPendantClickableView) view.findViewById(R.id.head_view_video_info_item);
+        this.mdB.setHasPendantStyle();
+        this.mdB.getHeadView().setIsRound(true);
+        this.mdB.getHeadView().setDrawBorder(true);
+        this.mdB.getHeadView().setBorderWidth(l.getDimens(context, R.dimen.L_X01));
+        this.mdB.getHeadView().setBorderColor(ap.getColor(R.color.CAM_X0401));
+        this.mdB.getHeadView().setPlaceHolder(1);
+        this.mdB.setBigVDimenSize(R.dimen.tbds27);
         this.akx = (TBLottieAnimationView) view.findViewById(R.id.user_living_lottie);
-        this.mdA = (UserIconBox) view.findViewById(R.id.vip_icon_video_info_item);
+        this.mdC = (UserIconBox) view.findViewById(R.id.vip_icon_video_info_item);
         this.eBQ = (TextView) view.findViewById(R.id.user_name_video_info_item);
-        this.jhx = (TextView) view.findViewById(R.id.user_identity_video_info_item);
-        this.jhy = (ImageView) view.findViewById(R.id.user_forum_level_video_info_item);
-        this.mdB = (UserIconBox) view.findViewById(R.id.user_yinji_video_info_item);
-        this.jhz = (TextView) view.findViewById(R.id.bjh_author_auth_video_info_item);
-        this.mdC = (TextView) view.findViewById(R.id.fans_count_video_info_item);
-        this.mdD = (PbFirstFloorUserLikeButton) view.findViewById(R.id.concern_video_info_item);
-        this.mdE = (RelativeLayout) view.findViewById(R.id.video_info_area_video_info_item);
-        this.mdF = (TbRichTextView) view.findViewById(R.id.title_video_info_item);
-        this.mdG = (TextView) view.findViewById(R.id.title_measure_text);
-        this.mdN = view.findViewById(R.id.video_info_item_layout);
-        this.mdJ = view.findViewById(R.id.video_title_area_video_info_item);
-        this.mdK = view.findViewById(R.id.video_info_item_collapsible_layout);
-        this.mdF.setLayoutStrategy(new d(this.mdF.getLayoutStrategy()));
-        this.mdF.setTextSize(TbConfig.getContentSize());
-        this.mdF.setTextBold();
-        this.mdG.setTextSize(0, TbConfig.getContentSize());
-        this.mdG.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-        this.mdH = (ImageView) view.findViewById(R.id.btn_title_expand_video_info_item);
-        this.mdI = (RelativeLayout) view.findViewById(R.id.btn_wrapper_title_expand_video_info_item);
-        this.mdU = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - this.mdE.getPaddingLeft()) - this.mdE.getPaddingRight();
+        this.jhz = (TextView) view.findViewById(R.id.user_identity_video_info_item);
+        this.jhA = (ImageView) view.findViewById(R.id.user_forum_level_video_info_item);
+        this.mdD = (UserIconBox) view.findViewById(R.id.user_yinji_video_info_item);
+        this.jhB = (TextView) view.findViewById(R.id.bjh_author_auth_video_info_item);
+        this.mdE = (TextView) view.findViewById(R.id.fans_count_video_info_item);
+        this.mdF = (PbFirstFloorUserLikeButton) view.findViewById(R.id.concern_video_info_item);
+        this.mdG = (RelativeLayout) view.findViewById(R.id.video_info_area_video_info_item);
+        this.mdH = (TbRichTextView) view.findViewById(R.id.title_video_info_item);
+        this.mdI = (TextView) view.findViewById(R.id.title_measure_text);
+        this.mdP = view.findViewById(R.id.video_info_item_layout);
+        this.mdL = view.findViewById(R.id.video_title_area_video_info_item);
+        this.mdM = view.findViewById(R.id.video_info_item_collapsible_layout);
+        this.mdH.setLayoutStrategy(new d(this.mdH.getLayoutStrategy()));
+        this.mdH.setTextSize(TbConfig.getContentSize());
+        this.mdH.setTextBold();
+        this.mdI.setTextSize(0, TbConfig.getContentSize());
+        this.mdI.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+        this.mdJ = (ImageView) view.findViewById(R.id.btn_title_expand_video_info_item);
+        this.mdK = (RelativeLayout) view.findViewById(R.id.btn_wrapper_title_expand_video_info_item);
+        this.mdW = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - this.mdG.getPaddingLeft()) - this.mdG.getPaddingRight();
         HU(0);
         this.fMQ = (TextView) view.findViewById(R.id.play_count_video_info_item);
-        this.mdL = (TextView) view.findViewById(R.id.publish_time_video_info_item);
-        this.mdM = (TextView) view.findViewById(R.id.publish_location_video_info_item);
-        this.mdP = (TextView) view.findViewById(R.id.publish_distance_video_info_item);
-        this.mdQ = (TextView) view.findViewById(R.id.play_count_video_info_item_collapsible);
-        this.mdR = (TextView) view.findViewById(R.id.publish_time_video_info_item_collapsible);
-        this.mdS = (TextView) view.findViewById(R.id.publish_location_video_info_item_collapsible);
-        this.mdT = (TextView) view.findViewById(R.id.publish_distance_video_info_item_collapsible);
-        this.lUT = (VoteView) view.findViewById(R.id.pb_video_vote_view);
-        this.mdO = (TbRichTextView) view.findViewById(R.id.video_abstract_item);
-        this.lGQ = (LinearLayout) view.findViewById(R.id.pb_link_container_layout);
-        d dVar = new d(this.mdO.getLayoutStrategy());
+        this.mdN = (TextView) view.findViewById(R.id.publish_time_video_info_item);
+        this.mdO = (TextView) view.findViewById(R.id.publish_location_video_info_item);
+        this.mdR = (TextView) view.findViewById(R.id.publish_distance_video_info_item);
+        this.mdS = (TextView) view.findViewById(R.id.play_count_video_info_item_collapsible);
+        this.mdT = (TextView) view.findViewById(R.id.publish_time_video_info_item_collapsible);
+        this.mdU = (TextView) view.findViewById(R.id.publish_location_video_info_item_collapsible);
+        this.mdV = (TextView) view.findViewById(R.id.publish_distance_video_info_item_collapsible);
+        this.lUV = (VoteView) view.findViewById(R.id.pb_video_vote_view);
+        this.mdQ = (TbRichTextView) view.findViewById(R.id.video_abstract_item);
+        this.lGS = (LinearLayout) view.findViewById(R.id.pb_link_container_layout);
+        d dVar = new d(this.mdQ.getLayoutStrategy());
         dVar.setTextSize(l.getDimens(context, R.dimen.T_X06));
         dVar.ap(0.9f);
-        this.mdO.setLayoutStrategy(dVar);
+        this.mdQ.setLayoutStrategy(dVar);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         ap.setBackgroundColor(this.mRoot, R.color.CAM_X0205);
-        this.jhz.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.mdC.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.mdD.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.mdF.setTextColor(ap.getColor(R.color.CAM_X0105));
-        HU(this.mdV);
+        this.jhB.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.mdE.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.mdF.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.mdH.setTextColor(ap.getColor(R.color.CAM_X0105));
+        HU(this.mdX);
         this.fMQ.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.mdL.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.mdM.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.mdP.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.mdQ.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.mdN.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.mdO.setTextColor(ap.getColor(R.color.CAM_X0109));
         this.mdR.setTextColor(ap.getColor(R.color.CAM_X0109));
         this.mdS.setTextColor(ap.getColor(R.color.CAM_X0109));
         this.mdT.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.lUT.onChangeSkinType(skinType);
-        this.mdO.setTextColor(ap.getColor(R.color.CAM_X0107));
+        this.mdU.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.mdV.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.lUV.onChangeSkinType(skinType);
+        this.mdQ.setTextColor(ap.getColor(R.color.CAM_X0107));
         if (this.mSkinType != skinType) {
             Fc(skinType);
         }
@@ -168,35 +168,35 @@ public class b extends af.a {
 
     public void AE(int i) {
         if (i > 0) {
-            ap.setImageResource(this.jhy, BitmapHelper.getGradeResourceIdInEnterForum(i));
+            ap.setImageResource(this.jhA, BitmapHelper.getGradeResourceIdInEnterForum(i));
         }
     }
 
     public void k(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.mdy.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.mdy.setVisibility(0);
+            this.mdA.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.mdA.setVisibility(0);
         } else if (z2 && z3) {
-            this.mdy.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.mdy.setVisibility(0);
+            this.mdA.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.mdA.setVisibility(0);
         } else if (z2) {
-            this.mdy.setImageResource(R.drawable.pic_pb_refined_n);
-            this.mdy.setVisibility(0);
+            this.mdA.setImageResource(R.drawable.pic_pb_refined_n);
+            this.mdA.setVisibility(0);
         } else if (z3) {
-            this.mdy.setImageResource(R.drawable.pic_pb_stick_n);
-            this.mdy.setVisibility(0);
+            this.mdA.setImageResource(R.drawable.pic_pb_stick_n);
+            this.mdA.setVisibility(0);
         } else {
-            this.mdy.setVisibility(8);
+            this.mdA.setVisibility(8);
         }
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.mdz.setOnClickListener(onClickListener);
-        this.mdI.setOnClickListener(onClickListener);
-        this.mdJ.setOnClickListener(onClickListener);
-        this.mdA.setOnClickListener(onClickListener);
-        this.eBQ.setOnClickListener(onClickListener);
         this.mdB.setOnClickListener(onClickListener);
+        this.mdK.setOnClickListener(onClickListener);
+        this.mdL.setOnClickListener(onClickListener);
+        this.mdC.setOnClickListener(onClickListener);
+        this.eBQ.setOnClickListener(onClickListener);
+        this.mdD.setOnClickListener(onClickListener);
     }
 
     public void a(Context context, List<PbContent> list, String str, by byVar, boolean z) {
@@ -204,8 +204,8 @@ public class b extends af.a {
         TbRichText tbRichText;
         if (!y.isEmpty(list) || !StringUtils.isNull(str)) {
             String spannableStringBuilder = !y.isEmpty(list) ? e.bI(list).toString() : str;
-            if (this.mdG.getPaint().measureText(spannableStringBuilder, 0, spannableStringBuilder.length()) + (this.mdG.getTextSize() * 2.0f) > this.mdU * 2 || z) {
-                i = (this.mdV == 1 || this.mdV == 2) ? this.mdV : 1;
+            if (this.mdI.getPaint().measureText(spannableStringBuilder, 0, spannableStringBuilder.length()) + (this.mdI.getTextSize() * 2.0f) > this.mdW * 2 || z) {
+                i = (this.mdX == 1 || this.mdX == 2) ? this.mdX : 1;
             } else {
                 i = 0;
             }
@@ -216,7 +216,7 @@ public class b extends af.a {
                 tbRichText = new TbRichText(context, com.baidu.tieba.im.chat.a.e(context, str, 1));
             }
             a(tbRichText, byVar.bqW());
-            this.mdF.setText(tbRichText, false, this.mdX, false, true);
+            this.mdH.setText(tbRichText, false, this.mdZ, false, true);
         }
     }
 
@@ -236,55 +236,55 @@ public class b extends af.a {
         y.add(list, 0, tbRichTextData);
     }
 
-    public int dxj() {
-        return this.mdV;
+    public int dxk() {
+        return this.mdX;
     }
 
     public void HU(int i) {
-        this.mdV = i;
+        this.mdX = i;
         if (i == 0) {
-            dxk();
-        } else if (i == 1) {
             dxl();
-        } else if (i == 2) {
+        } else if (i == 1) {
             dxm();
+        } else if (i == 2) {
+            dxn();
         }
-    }
-
-    private void dxk() {
-        this.mdI.setVisibility(8);
-        this.mdF.setTextEllipsize(null);
-        this.mdF.setMaxLines(2);
     }
 
     private void dxl() {
-        this.mdI.setVisibility(0);
-        SvgManager.btW().a(this.mdH, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
-        this.mdF.setTextEllipsize(TextUtils.TruncateAt.END);
-        this.mdF.setMaxLines(2);
         this.mdK.setVisibility(8);
-        this.mdO.setVisibility(8);
-        this.fMQ.setVisibility(0);
-        this.mdL.setVisibility(0);
-        this.mdM.setVisibility(0);
-        this.mdP.setVisibility(0);
-        this.mdN.setVisibility(0);
+        this.mdH.setTextEllipsize(null);
+        this.mdH.setMaxLines(2);
     }
 
     private void dxm() {
-        this.mdI.setVisibility(0);
-        SvgManager.btW().a(this.mdH, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
-        this.mdF.setTextEllipsize(null);
-        this.mdF.setMaxLines(3);
-        if (this.mdW) {
-            this.mdO.setVisibility(0);
-        }
         this.mdK.setVisibility(0);
-        this.fMQ.setVisibility(8);
-        this.mdL.setVisibility(8);
+        SvgManager.btW().a(this.mdJ, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
+        this.mdH.setTextEllipsize(TextUtils.TruncateAt.END);
+        this.mdH.setMaxLines(2);
         this.mdM.setVisibility(8);
-        this.mdP.setVisibility(8);
+        this.mdQ.setVisibility(8);
+        this.fMQ.setVisibility(0);
+        this.mdN.setVisibility(0);
+        this.mdO.setVisibility(0);
+        this.mdR.setVisibility(0);
+        this.mdP.setVisibility(0);
+    }
+
+    private void dxn() {
+        this.mdK.setVisibility(0);
+        SvgManager.btW().a(this.mdJ, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
+        this.mdH.setTextEllipsize(null);
+        this.mdH.setMaxLines(3);
+        if (this.mdY) {
+            this.mdQ.setVisibility(0);
+        }
+        this.mdM.setVisibility(0);
+        this.fMQ.setVisibility(8);
         this.mdN.setVisibility(8);
+        this.mdO.setVisibility(8);
+        this.mdR.setVisibility(8);
+        this.mdP.setVisibility(8);
     }
 
     public void tp(boolean z) {
@@ -320,15 +320,15 @@ public class b extends af.a {
     }
 
     public void a(Context context, PostData postData) {
-        if (postData == null || y.getCount(postData.nmF) < 2) {
-            this.mdW = false;
+        if (postData == null || y.getCount(postData.nmH) < 2) {
+            this.mdY = false;
             return;
         }
-        List<PbContent> list = postData.nmF;
+        List<PbContent> list = postData.nmH;
         TbRichText a2 = TbRichTextView.a(context, (List<PbContent>) y.subList(list, 1, list.size()), true);
         a(a2, postData.bqW());
-        this.mdO.setText(a2);
-        this.mdW = true;
+        this.mdQ.setText(a2);
+        this.mdY = true;
     }
 
     public void a(TbRichText tbRichText, List<HeadItem> list) {

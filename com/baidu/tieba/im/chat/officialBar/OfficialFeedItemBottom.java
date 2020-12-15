@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
 /* loaded from: classes26.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
-    private TextView knD;
-    private TextView knE;
+    private TextView knF;
+    private TextView knG;
     private Context mContext;
 
     public OfficialFeedItemBottom(Context context) {
@@ -29,31 +29,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.knD = (TextView) findViewById(R.id.message_no_image_title);
-        this.knE = (TextView) findViewById(R.id.message_info);
-        cUl();
+        this.knF = (TextView) findViewById(R.id.message_no_image_title);
+        this.knG = (TextView) findViewById(R.id.message_info);
+        cUm();
     }
 
-    public void cUl() {
-        ap.setViewTextColor(this.knE, R.color.CAM_X0107);
-        ap.setViewTextColor(this.knD, R.color.CAM_X0105);
+    public void cUm() {
+        ap.setViewTextColor(this.knG, R.color.CAM_X0107);
+        ap.setViewTextColor(this.knF, R.color.CAM_X0105);
     }
 
     public void setData(a.C0782a c0782a, boolean z) {
         int i = TextUtils.isEmpty(c0782a.text) ? 8 : 0;
-        this.knD.setText(c0782a.title);
-        this.knE.setText(c0782a.text);
-        this.knE.setVisibility(i);
+        this.knF.setText(c0782a.title);
+        this.knG.setText(c0782a.text);
+        this.knG.setVisibility(i);
         if (z) {
-            this.knD.setVisibility(8);
+            this.knF.setVisibility(8);
         } else {
-            this.knD.setVisibility(0);
+            this.knF.setVisibility(0);
         }
     }
 
     public void DP(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.knE.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.knG.getLayoutParams();
         layoutParams.topMargin = i;
-        this.knE.setLayoutParams(layoutParams);
+        this.knG.setLayoutParams(layoutParams);
     }
 }

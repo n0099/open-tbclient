@@ -6,14 +6,14 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes23.dex */
 public class SquareModel extends BdBaseModel<Object> {
-    private long iyk;
-    private long iyl;
     private long iym;
     private long iyn;
+    private long iyo;
+    private long iyp;
     private long mTimeStamp;
-    private b nik;
-    private h nil;
-    private a nim;
+    private b nim;
+    private h nin;
+    private a nio;
 
     /* loaded from: classes23.dex */
     public interface a {
@@ -22,38 +22,38 @@ public class SquareModel extends BdBaseModel<Object> {
 
     public SquareModel(TbPageContext<Object> tbPageContext) {
         super(tbPageContext);
-        this.nik = null;
-        this.nil = null;
         this.nim = null;
-        this.iyk = 0L;
-        this.iyl = 0L;
+        this.nin = null;
+        this.nio = null;
         this.iym = 0L;
         this.iyn = 0L;
-        this.nil = new h();
-    }
-
-    public long cwl() {
-        return this.iyn;
+        this.iyo = 0L;
+        this.iyp = 0L;
+        this.nin = new h();
     }
 
     public long cwm() {
-        return this.iyl;
+        return this.iyp;
     }
 
     public long cwn() {
-        return this.iym;
+        return this.iyn;
     }
 
     public long cwo() {
-        return this.iyk;
+        return this.iyo;
     }
 
-    public h dNW() {
-        return this.nil;
+    public long cwp() {
+        return this.iym;
+    }
+
+    public h dNX() {
+        return this.nin;
     }
 
     public void a(a aVar) {
-        this.nim = aVar;
+        this.nio = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -63,40 +63,40 @@ public class SquareModel extends BdBaseModel<Object> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.nik != null) {
-            this.nik.cancel();
+        if (this.nim != null) {
+            this.nim.cancel();
             return false;
         }
         return false;
     }
 
-    public boolean dNX() {
+    public boolean dNY() {
         return KI(1);
     }
 
-    public boolean dNY() {
+    public boolean dNZ() {
         return KI(0);
     }
 
     public boolean KI(int i) {
-        if (this.nik != null) {
+        if (this.nim != null) {
             return false;
         }
-        this.nik = new b(i);
-        this.nik.execute(new Object[0]);
+        this.nim = new b(i);
+        this.nim.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes23.dex */
     public class b extends BdAsyncTask<Object, h, h> {
-        private int nio;
-        private com.baidu.tieba.square.b.a nin = null;
-        private l<String> nip = null;
+        private int niq;
+        private com.baidu.tieba.square.b.a nip = null;
+        private l<String> nir = null;
 
         public b(int i) {
-            this.nio = 1;
-            this.nio = i;
+            this.niq = 1;
+            this.niq = i;
             setPriority(3);
         }
 
@@ -107,10 +107,10 @@ public class SquareModel extends BdBaseModel<Object> {
         public h doInBackground(Object... objArr) {
             h hVar;
             String str = null;
-            this.nin = new com.baidu.tieba.square.b.a();
-            this.nip = com.baidu.tbadk.core.c.a.brq().Bo("tb.square");
-            if (this.nio == 0) {
-                String str2 = this.nip.get("square_cache_key");
+            this.nip = new com.baidu.tieba.square.b.a();
+            this.nir = com.baidu.tbadk.core.c.a.brq().Bo("tb.square");
+            if (this.niq == 0) {
+                String str2 = this.nir.get("square_cache_key");
                 if (str2 == null) {
                     return null;
                 }
@@ -120,8 +120,8 @@ public class SquareModel extends BdBaseModel<Object> {
                 if (hVar2.isEmpty()) {
                     SquareModel.this.mTimeStamp = 0L;
                 }
-                if (!hVar2.dNQ()) {
-                    this.nio = 1;
+                if (!hVar2.dNR()) {
+                    this.niq = 1;
                     str = str2;
                     hVar = hVar2;
                 } else {
@@ -130,32 +130,32 @@ public class SquareModel extends BdBaseModel<Object> {
             } else {
                 hVar = null;
             }
-            if (this.nio == 1) {
-                SquareModel.this.iyk = System.currentTimeMillis();
-                this.nin.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
-                str = this.nin.dNt();
-                SquareModel.this.iyl = this.nin.dNu();
-                SquareModel.this.iym = this.nin.dNv();
-                SquareModel.this.iyn = System.currentTimeMillis();
+            if (this.niq == 1) {
+                SquareModel.this.iym = System.currentTimeMillis();
+                this.nip.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
+                str = this.nip.dNu();
+                SquareModel.this.iyn = this.nip.dNv();
+                SquareModel.this.iyo = this.nip.dNw();
+                SquareModel.this.iyp = System.currentTimeMillis();
             }
-            if (this.nin.isRequestSuccess()) {
+            if (this.nip.isRequestSuccess()) {
                 h hVar3 = new h();
                 hVar3.parserJson(str);
                 Long valueOf = Long.valueOf(hVar3.getTimeStamp());
                 if (valueOf.longValue() > SquareModel.this.mTimeStamp) {
-                    this.nip.set("square_cache_key", str, 86400000L);
+                    this.nir.set("square_cache_key", str, 86400000L);
                     hVar = hVar3;
                 } else {
-                    String str3 = this.nip.get("square_cache_key");
+                    String str3 = this.nir.get("square_cache_key");
                     if (str3 != null) {
                         h hVar4 = new h();
                         hVar4.parserJson(str3);
-                        hVar4.bk(hVar3.dNT());
+                        hVar4.bk(hVar3.dNU());
                         hVar4.setTimeStamp(valueOf.longValue());
-                        this.nip.set("square_cache_key", hVar4.dNU(), 86400000L);
+                        this.nir.set("square_cache_key", hVar4.dNV(), 86400000L);
                         hVar = hVar4;
                     } else {
-                        this.nip.set("square_cache_key", str, 86400000L);
+                        this.nir.set("square_cache_key", str, 86400000L);
                         hVar = hVar3;
                     }
                 }
@@ -167,10 +167,10 @@ public class SquareModel extends BdBaseModel<Object> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.nin != null) {
-                this.nin.cancel();
+            if (this.nip != null) {
+                this.nip.cancel();
             }
-            SquareModel.this.nik = null;
+            SquareModel.this.nim = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,14 +178,14 @@ public class SquareModel extends BdBaseModel<Object> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(h hVar) {
-            SquareModel.this.nik = null;
-            SquareModel.this.nil = hVar;
-            if (SquareModel.this.nim != null) {
-                if (this.nio == 0 || this.nin.isRequestSuccess()) {
-                    SquareModel.this.nim.a(true, null, hVar);
+            SquareModel.this.nim = null;
+            SquareModel.this.nin = hVar;
+            if (SquareModel.this.nio != null) {
+                if (this.niq == 0 || this.nip.isRequestSuccess()) {
+                    SquareModel.this.nio.a(true, null, hVar);
                     return;
                 }
-                SquareModel.this.nim.a(false, this.nin.blT(), hVar);
+                SquareModel.this.nio.a(false, this.nip.blT(), hVar);
             }
         }
     }

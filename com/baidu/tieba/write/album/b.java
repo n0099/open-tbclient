@@ -22,14 +22,14 @@ import java.util.List;
 public class b extends BaseAdapter {
     private String bHR;
     private int bHS;
-    private BaseFragmentActivity ixc;
+    private BaseFragmentActivity ixe;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.ixc = baseFragmentActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.ixc.getPageContext().getPageActivity());
-        this.bHS = l.getEquipmentWidth(this.ixc.getPageContext().getPageActivity()) / 2;
+        this.ixe = baseFragmentActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.ixe.getPageContext().getPageActivity());
+        this.bHS = l.getEquipmentWidth(this.ixe.getPageContext().getPageActivity()) / 2;
     }
 
     public void c(List<com.baidu.tbadk.album.a> list, String str) {
@@ -62,11 +62,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.nUW = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.nUY = (TbImageView) view.findViewById(R.id.item_head);
             aVar.bHU = (TextView) view.findViewById(R.id.item_name);
             aVar.bHV = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.nUW.setGifIconSupport(false);
-            aVar.nUW.setLongIconSupport(false);
+            aVar.nUY.setGifIconSupport(false);
+            aVar.nUY.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -88,9 +88,9 @@ public class b extends BaseAdapter {
             }
             MediaFileInfo bkR = item.bkR();
             if (bkR instanceof VideoFileInfo) {
-                aVar.nUW.startLoad(((VideoFileInfo) bkR).videoPath, 37, false);
+                aVar.nUY.startLoad(((VideoFileInfo) bkR).videoPath, 37, false);
             } else if (bkR instanceof ImageFileInfo) {
-                aVar.nUW.startLoad(((ImageFileInfo) bkR).getFilePath(), 35, false);
+                aVar.nUY.startLoad(((ImageFileInfo) bkR).getFilePath(), 35, false);
             }
             ap.setViewTextColor(aVar.bHU, R.color.CAM_X0105);
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
@@ -102,7 +102,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView bHU;
         ImageView bHV;
-        TbImageView nUW;
+        TbImageView nUY;
 
         private a() {
         }

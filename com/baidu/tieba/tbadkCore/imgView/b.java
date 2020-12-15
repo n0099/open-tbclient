@@ -12,9 +12,9 @@ public class b {
     public Rect bHi;
     public Bitmap bm;
     private Context mContext;
-    public Bundle noa;
-    public boolean nob;
-    public boolean noc;
+    public Bundle noc;
+    public boolean nod;
+    public boolean noe;
     private Rect src = new Rect();
 
     public b(Context context) {

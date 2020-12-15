@@ -7,8 +7,6 @@ public interface n {
 
     void bU(int i, int i2);
 
-    void cdB();
-
     void cdC();
 
     void cdD();
@@ -18,6 +16,8 @@ public interface n {
     void cdF();
 
     void cdG();
+
+    void cdH();
 
     void ec(int i);
 

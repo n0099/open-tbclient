@@ -10,42 +10,42 @@ import com.baidu.tieba.R;
 public class e extends af.a {
     public int aku;
     public TextView eAz;
-    public View keU;
-    public TextView keV;
-    public RelativeLayout kfb;
-    public View kfc;
-    public TbImageView kfd;
-    public TextView kfe;
-    public TextView kff;
+    public View keW;
+    public TextView keX;
+    public RelativeLayout kfd;
+    public View kfe;
+    public TbImageView kff;
     public TextView kfg;
     public TextView kfh;
+    public TextView kfi;
+    public TextView kfj;
     public View rootView;
 
     public e(View view) {
         super(view);
         this.aku = 3;
         this.rootView = null;
-        this.keU = null;
-        this.keV = null;
-        this.kfb = null;
-        this.kfc = null;
+        this.keW = null;
+        this.keX = null;
         this.kfd = null;
+        this.kfe = null;
+        this.kff = null;
         this.rootView = view;
         db(this.rootView);
     }
 
     private void db(View view) {
         if (view != null) {
-            this.keU = view.findViewById(R.id.top_divider_line);
-            this.keV = (TextView) view.findViewById(R.id.quality_item_theme_title);
-            this.kfc = view.findViewById(R.id.divider_line);
-            this.kfb = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
-            this.kfd = (TbImageView) view.findViewById(R.id.img);
+            this.keW = view.findViewById(R.id.top_divider_line);
+            this.keX = (TextView) view.findViewById(R.id.quality_item_theme_title);
+            this.kfe = view.findViewById(R.id.divider_line);
+            this.kfd = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
+            this.kff = (TbImageView) view.findViewById(R.id.img);
             this.eAz = (TextView) view.findViewById(R.id.title);
-            this.kfe = (TextView) view.findViewById(R.id.desc);
-            this.kff = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
-            this.kfg = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
-            this.kfh = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
+            this.kfg = (TextView) view.findViewById(R.id.desc);
+            this.kfh = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
+            this.kfi = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
+            this.kfj = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
         }
     }
 }

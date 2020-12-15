@@ -29,78 +29,78 @@ public class a {
     private TextView ajT;
     private TbPageContext eNx;
     private TbImageView fdy;
-    private FrsViewData iSt;
-    private final View.OnClickListener iVH = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.a.1
+    private FrsViewData iSv;
+    private final View.OnClickListener iVJ = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == a.this.fdy) {
-                if (!au.isEmpty(a.this.jtt) && a.this.iSt != null && a.this.iSt.getForum() != null) {
-                    bf.bua().a(a.this.eNx, new String[]{a.this.jtt}, true);
-                    TiebaStatic.log(new ar("c13415").dY("fid", a.this.iSt.getForum().getId()).al("obj_type", a.this.jcn ? 2 : 1));
+                if (!au.isEmpty(a.this.jtv) && a.this.iSv != null && a.this.iSv.getForum() != null) {
+                    bf.bua().a(a.this.eNx, new String[]{a.this.jtv}, true);
+                    TiebaStatic.log(new ar("c13415").dY("fid", a.this.iSv.getForum().getId()).al("obj_type", a.this.jcp ? 2 : 1));
                 }
-            } else if ((view == a.this.jts || view == a.this.ajT) && a.this.iSt != null && a.this.iSt.getForum() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(a.this.eNx.getPageActivity(), a.this.iSt.getForum().getId(), ForumDetailActivityConfig.FromType.FRS)));
-                TiebaStatic.log(new ar("c13416").dY("fid", a.this.iSt.getForum().getId()));
+            } else if ((view == a.this.jtu || view == a.this.ajT) && a.this.iSv != null && a.this.iSv.getForum() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(a.this.eNx.getPageActivity(), a.this.iSv.getForum().getId(), ForumDetailActivityConfig.FromType.FRS)));
+                TiebaStatic.log(new ar("c13416").dY("fid", a.this.iSv.getForum().getId()));
             }
         }
     };
-    private boolean jcn;
-    private boolean jcu;
-    private LinearGradientView jtr;
-    private BarImageView jts;
-    private String jtt;
+    private boolean jcp;
+    private boolean jcw;
+    private LinearGradientView jtt;
+    private BarImageView jtu;
+    private String jtv;
 
     public a(FrsSportsRecommendFragment frsSportsRecommendFragment, View view) {
         if (frsSportsRecommendFragment != null && view != null) {
             this.eNx = frsSportsRecommendFragment.getPageContext();
             this.fdy = (TbImageView) view.findViewById(R.id.head_top_bg_mask);
-            this.jtr = (LinearGradientView) view.findViewById(R.id.head_top_gradient_bg);
-            this.jts = (BarImageView) view.findViewById(R.id.frs_image);
+            this.jtt = (LinearGradientView) view.findViewById(R.id.head_top_gradient_bg);
+            this.jtu = (BarImageView) view.findViewById(R.id.frs_image);
             this.ajT = (TextView) view.findViewById(R.id.forum_name);
             this.fdy.setPageId(frsSportsRecommendFragment.getUniqueId());
-            this.jts.setPageId(frsSportsRecommendFragment.getUniqueId());
-            this.jts.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.jts.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.bar_header));
-            this.jts.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-            this.jts.setShowOval(true);
+            this.jtu.setPageId(frsSportsRecommendFragment.getUniqueId());
+            this.jtu.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.jtu.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.bar_header));
+            this.jtu.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+            this.jtu.setShowOval(true);
         }
     }
 
     public void h(FrsViewData frsViewData) {
         if (frsViewData != null && frsViewData.getForum() != null) {
-            this.iSt = frsViewData;
-            this.jcu = false;
-            String name = this.iSt.getForum().getName();
+            this.iSv = frsViewData;
+            this.jcw = false;
+            String name = this.iSv.getForum().getName();
             if (au.getChineseAndEnglishLength(name) > 20) {
                 name = au.cutForumNameWithSuffix(name, 20, StringHelper.STRING_MORE);
             }
             this.ajT.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.frs_sports_recommend_bar_name), name));
-            this.jts.startLoad(this.iSt.getForum().getImage_url(), 10, false);
-            cJE();
-            this.jts.setOnClickListener(this.iVH);
-            this.ajT.setOnClickListener(this.iVH);
+            this.jtu.startLoad(this.iSv.getForum().getImage_url(), 10, false);
+            cJF();
+            this.jtu.setOnClickListener(this.iVJ);
+            this.ajT.setOnClickListener(this.iVJ);
         }
     }
 
     public void setData(String str, String str2, boolean z) {
-        this.jts.refresh();
+        this.jtu.refresh();
         if (au.isEmpty(str)) {
-            this.jcu = false;
-            cJE();
+            this.jcw = false;
+            cJF();
             return;
         }
-        this.jcu = true;
-        this.jtt = str2;
-        this.jcn = z;
+        this.jcw = true;
+        this.jtv = str2;
+        this.jcp = z;
         this.fdy.startLoad(str, 10, false);
-        this.fdy.setOnClickListener(this.iVH);
+        this.fdy.setOnClickListener(this.iVJ);
     }
 
-    private void cJE() {
+    private void cJF() {
         ForumData forum;
         ThemeColorInfo themeColorInfo;
         ThemeElement themeElement;
-        if (this.iSt != null && (forum = this.iSt.getForum()) != null && (themeColorInfo = forum.getThemeColorInfo()) != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
+        if (this.iSv != null && (forum = this.iSv.getForum()) != null && (themeColorInfo = forum.getThemeColorInfo()) != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType == 4) {
                 themeElement = themeColorInfo.dark;
@@ -109,10 +109,10 @@ public class a {
             } else {
                 themeElement = themeColorInfo.day;
             }
-            if (!this.jcu) {
-                if (this.jtr != null) {
-                    this.jtr.setGradientColor(themeColorInfo.day.light_color, themeColorInfo.day.dark_color, themeColorInfo.night.light_color, themeColorInfo.night.dark_color, themeColorInfo.dark.light_color, themeColorInfo.dark.dark_color);
-                    this.jtr.changeSkinType(skinType);
+            if (!this.jcw) {
+                if (this.jtt != null) {
+                    this.jtt.setGradientColor(themeColorInfo.day.light_color, themeColorInfo.day.dark_color, themeColorInfo.night.light_color, themeColorInfo.night.dark_color, themeColorInfo.dark.light_color, themeColorInfo.dark.dark_color);
+                    this.jtt.changeSkinType(skinType);
                 }
                 if (this.fdy != null) {
                     this.fdy.startLoad(themeElement.pattern_image, 10, false);
@@ -122,13 +122,13 @@ public class a {
     }
 
     public void onChangeSkinType() {
-        cJE();
+        cJF();
         ap.setViewTextColor(this.ajT, R.color.CAM_X0101);
-        if (this.jts != null) {
-            this.jts.setBorderWidth(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1));
-            this.jts.setBorderColor(ap.getColor(R.color.black_alpha15));
-            this.jts.setStrokeColorResId(R.color.CAM_X0201);
-            this.jts.invalidate();
+        if (this.jtu != null) {
+            this.jtu.setBorderWidth(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1));
+            this.jtu.setBorderColor(ap.getColor(R.color.black_alpha15));
+            this.jtu.setStrokeColorResId(R.color.CAM_X0201);
+            this.jtu.invalidate();
         }
     }
 }

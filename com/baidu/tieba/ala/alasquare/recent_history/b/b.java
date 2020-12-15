@@ -9,14 +9,14 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
     public by eCR;
-    public long gwA;
+    public long gwC;
     public boolean isFollow;
     public List<a> tagList;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.isFollow = jSONObject.optInt("is_follow") == 1;
-            this.gwA = jSONObject.optLong("last_watch_time");
+            this.gwC = jSONObject.optLong("last_watch_time");
             JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
             if (optJSONObject != null) {
                 this.eCR = new by();
@@ -41,12 +41,12 @@ public class b {
     /* loaded from: classes6.dex */
     public static class a {
         public int aIC;
-        public String gwB;
+        public String gwD;
 
         public void parse(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.aIC = jSONObject.optInt("tag_type");
-                this.gwB = jSONObject.optString("tag_word");
+                this.gwD = jSONObject.optString("tag_word");
             }
         }
     }

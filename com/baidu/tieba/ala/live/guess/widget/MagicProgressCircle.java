@@ -22,10 +22,10 @@ public class MagicProgressCircle extends View {
     private int dPZ;
     private float dQd;
     private float dQe;
-    private int gXK;
-    private float gXL;
-    private float gXM;
+    private int gXM;
     private float gXN;
+    private float gXO;
+    private float gXP;
     private int mDuration;
     private float mHeight;
     private float mProgress;
@@ -50,12 +50,12 @@ public class MagicProgressCircle extends View {
         this.mRadius = 0.0f;
         this.mRect = new RectF();
         this.mProgress = 100.0f;
-        this.gXL = 100.0f;
+        this.gXN = 100.0f;
         this.mReverse = true;
         this.bPi = 0.0f;
         this.mHeight = 0.0f;
-        this.gXM = 10.0f;
-        this.gXN = 10.0f;
+        this.gXO = 10.0f;
+        this.gXP = 10.0f;
         this.mValueAnimator = null;
         init(context, attributeSet);
     }
@@ -63,14 +63,14 @@ public class MagicProgressCircle extends View {
     private void init(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.GuessCircleView);
         this.mProgress = obtainStyledAttributes.getInteger(a.j.GuessCircleView_progress_value, 100);
-        this.gXL = obtainStyledAttributes.getInteger(a.j.GuessCircleView_progress_value_max, 100);
+        this.gXN = obtainStyledAttributes.getInteger(a.j.GuessCircleView_progress_value_max, 100);
         this.mProgressColor = obtainStyledAttributes.getColor(a.j.GuessCircleView_progress_color, Color.parseColor("#974DF8"));
         this.dPZ = obtainStyledAttributes.getColor(a.j.GuessCircleView_progress_end_color, Color.parseColor("#FF0050"));
-        this.gXK = obtainStyledAttributes.getColor(a.j.GuessCircleView_progress_color_background, 0);
+        this.gXM = obtainStyledAttributes.getColor(a.j.GuessCircleView_progress_color_background, 0);
         this.mDuration = obtainStyledAttributes.getInt(a.j.GuessCircleView_progress_animate_duration, -1);
         this.cHm = vZ(obtainStyledAttributes.getInt(a.j.GuessCircleView_progress_circle_sweep_angle, 0));
-        this.gXM = obtainStyledAttributes.getDimension(a.j.GuessCircleView_progress_paint_bg_width, 10.0f);
-        this.gXN = obtainStyledAttributes.getDimension(a.j.GuessCircleView_progress_paint_value_width, 10.0f);
+        this.gXO = obtainStyledAttributes.getDimension(a.j.GuessCircleView_progress_paint_bg_width, 10.0f);
+        this.gXP = obtainStyledAttributes.getDimension(a.j.GuessCircleView_progress_paint_value_width, 10.0f);
         obtainStyledAttributes.recycle();
         sz();
     }
@@ -102,7 +102,7 @@ public class MagicProgressCircle extends View {
             this.dQe = min;
         }
         if (this.mRadius < 1.0f) {
-            this.mRadius = min - Math.max(this.gXM, this.gXN);
+            this.mRadius = min - Math.max(this.gXO, this.gXP);
         }
         this.mRect.set(min - this.mRadius, min - this.mRadius, this.mRadius + min, min + this.mRadius);
     }
@@ -114,36 +114,36 @@ public class MagicProgressCircle extends View {
     }
 
     private void sz() {
+        bYi();
         bYh();
-        bYg();
     }
 
-    private void bYg() {
+    private void bYh() {
         if (this.dPP == null) {
             this.dPP = new Paint();
             this.dPP.setColor(this.mProgressColor);
             this.dPP.setStyle(Paint.Style.STROKE);
             this.dPP.setStrokeCap(Paint.Cap.ROUND);
-            this.dPP.setStrokeWidth(this.gXN);
+            this.dPP.setStrokeWidth(this.gXP);
             this.dPP.setAntiAlias(true);
         }
     }
 
-    private void bYh() {
+    private void bYi() {
         if (this.dPQ == null) {
             this.dPQ = new Paint();
-            this.dPQ.setColor(this.gXK);
+            this.dPQ.setColor(this.gXM);
             this.dPQ.setStyle(Paint.Style.STROKE);
             this.dPQ.setStrokeCap(Paint.Cap.ROUND);
-            this.dPQ.setStrokeWidth(this.gXM);
+            this.dPQ.setStrokeWidth(this.gXO);
             this.dPQ.setAntiAlias(true);
         }
     }
 
     private void f(Canvas canvas) {
         if (this.mDuration != -1) {
-            if (this.mProgress / this.gXL < 3000.0f / this.mDuration) {
-                bYg();
+            if (this.mProgress / this.gXN < 3000.0f / this.mDuration) {
+                bYh();
                 this.dPP.setColor(this.dPZ);
             } else {
                 this.dPP.setColor(this.mProgressColor);
@@ -152,7 +152,7 @@ public class MagicProgressCircle extends View {
             this.dPP.setColor(this.mProgressColor);
         }
         canvas.drawCircle(this.dQd, this.dQe, this.mRadius, this.dPQ);
-        canvas.drawArc(this.mRect, this.cHm, 360.0f * (-(this.mProgress / this.gXL)), false, this.dPP);
+        canvas.drawArc(this.mRect, this.cHm, 360.0f * (-(this.mProgress / this.gXN)), false, this.dPP);
     }
 
     public MagicProgressCircle aw(float f) {
@@ -176,11 +176,11 @@ public class MagicProgressCircle extends View {
     /* JADX INFO: Access modifiers changed from: private */
     public MagicProgressCircle ax(float f) {
         this.mProgress = f;
-        bYf();
+        bYg();
         return this;
     }
 
-    private void bYf() {
+    private void bYg() {
         if (isMainThread()) {
             invalidate();
         } else {

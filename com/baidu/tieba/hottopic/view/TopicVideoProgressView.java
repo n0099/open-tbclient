@@ -13,22 +13,22 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class TopicVideoProgressView extends RelativeLayout {
     private boolean bbP;
-    private int gaB;
-    private MediaController.MediaPlayerControl gaC;
-    private View iDw;
+    private int gaD;
+    private MediaController.MediaPlayerControl gaE;
+    private View iDy;
     private Handler mHandler;
 
     public TopicVideoProgressView(Context context) {
         super(context);
-        this.gaB = 50;
+        this.gaD = 50;
         this.bbP = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.view.TopicVideoProgressView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (TopicVideoProgressView.this.bbP && TopicVideoProgressView.this.gaC != null && TopicVideoProgressView.this.gaC.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gaB - (TopicVideoProgressView.this.bMH() % TopicVideoProgressView.this.gaB));
+                        if (TopicVideoProgressView.this.bbP && TopicVideoProgressView.this.gaE != null && TopicVideoProgressView.this.gaE.isPlaying()) {
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gaD - (TopicVideoProgressView.this.bMI() % TopicVideoProgressView.this.gaD));
                             return;
                         }
                         return;
@@ -42,15 +42,15 @@ public class TopicVideoProgressView extends RelativeLayout {
 
     public TopicVideoProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gaB = 50;
+        this.gaD = 50;
         this.bbP = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.view.TopicVideoProgressView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (TopicVideoProgressView.this.bbP && TopicVideoProgressView.this.gaC != null && TopicVideoProgressView.this.gaC.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gaB - (TopicVideoProgressView.this.bMH() % TopicVideoProgressView.this.gaB));
+                        if (TopicVideoProgressView.this.bbP && TopicVideoProgressView.this.gaE != null && TopicVideoProgressView.this.gaE.isPlaying()) {
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gaD - (TopicVideoProgressView.this.bMI() % TopicVideoProgressView.this.gaD));
                             return;
                         }
                         return;
@@ -64,15 +64,15 @@ public class TopicVideoProgressView extends RelativeLayout {
 
     public TopicVideoProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gaB = 50;
+        this.gaD = 50;
         this.bbP = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.view.TopicVideoProgressView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (TopicVideoProgressView.this.bbP && TopicVideoProgressView.this.gaC != null && TopicVideoProgressView.this.gaC.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gaB - (TopicVideoProgressView.this.bMH() % TopicVideoProgressView.this.gaB));
+                        if (TopicVideoProgressView.this.bbP && TopicVideoProgressView.this.gaE != null && TopicVideoProgressView.this.gaE.isPlaying()) {
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gaD - (TopicVideoProgressView.this.bMI() % TopicVideoProgressView.this.gaD));
                             return;
                         }
                         return;
@@ -85,35 +85,35 @@ public class TopicVideoProgressView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.iDw = new View(context);
-        this.iDw.setBackgroundColor(getResources().getColor(R.color.CAM_X0303));
-        addView(this.iDw, 0, (int) context.getResources().getDimension(R.dimen.ds6));
+        this.iDy = new View(context);
+        this.iDy.setBackgroundColor(getResources().getColor(R.color.CAM_X0303));
+        addView(this.iDy, 0, (int) context.getResources().getDimension(R.dimen.ds6));
         setBackgroundColor(getResources().getColor(R.color.CAM_X0204));
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.gaC = mediaPlayerControl;
+        this.gaE = mediaPlayerControl;
     }
 
     public void initProgress() {
         RelativeLayout.LayoutParams layoutParams;
         this.bbP = false;
         this.mHandler.removeMessages(1);
-        if (this.iDw != null && (layoutParams = (RelativeLayout.LayoutParams) this.iDw.getLayoutParams()) != null) {
+        if (this.iDy != null && (layoutParams = (RelativeLayout.LayoutParams) this.iDy.getLayoutParams()) != null) {
             layoutParams.width = 0;
-            this.iDw.setLayoutParams(layoutParams);
+            this.iDy.setLayoutParams(layoutParams);
         }
     }
 
     public void showProgress() {
-        if (this.gaC != null) {
-            this.gaB = ((this.gaC.getDuration() / 200) / 50) * 50;
-            if (this.gaB < 50) {
-                this.gaB = 50;
+        if (this.gaE != null) {
+            this.gaD = ((this.gaE.getDuration() / 200) / 50) * 50;
+            if (this.gaD < 50) {
+                this.gaD = 50;
             }
             this.bbP = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.gaB - (this.gaC.getCurrentPosition() % this.gaB));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.gaD - (this.gaE.getCurrentPosition() % this.gaD));
         }
     }
 
@@ -122,23 +122,23 @@ public class TopicVideoProgressView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bMH() {
-        if (this.gaC == null || this.iDw == null) {
+    public int bMI() {
+        if (this.gaE == null || this.iDy == null) {
             return 0;
         }
-        int currentPosition = this.gaC.getCurrentPosition();
-        int duration = this.gaC.getDuration();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iDw.getLayoutParams();
+        int currentPosition = this.gaE.getCurrentPosition();
+        int duration = this.gaE.getDuration();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iDy.getLayoutParams();
         if ((layoutParams instanceof RelativeLayout.LayoutParams) && duration > 0) {
             layoutParams.width = (int) (((1.0f * getWidth()) * currentPosition) / duration);
-            this.iDw.setLayoutParams(layoutParams);
+            this.iDy.setLayoutParams(layoutParams);
         }
         return currentPosition;
     }
 
     public void onChangeSkinType(int i) {
         ap.setBackgroundColor(this, R.color.CAM_X0204);
-        ap.setBackgroundColor(this.iDw, R.color.CAM_X0303);
+        ap.setBackgroundColor(this.iDy, R.color.CAM_X0303);
     }
 
     public void destroy() {

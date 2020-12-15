@@ -16,10 +16,10 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.yuyinala.liveroom.wheat.e.e;
 /* loaded from: classes4.dex */
 public class CharmValueView extends FrameLayout {
-    private ImageView oyj;
-    private ImageView oyk;
     private ImageView oyl;
-    private TextView oym;
+    private ImageView oym;
+    private ImageView oyn;
+    private TextView oyo;
 
     public CharmValueView(@NonNull Context context) {
         this(context, null, 0);
@@ -36,10 +36,10 @@ public class CharmValueView extends FrameLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_charm_value_view_layout, this);
-        this.oyj = (ImageView) findViewById(a.f.yuyin_sdk_wheat_charm_value_bg_1);
-        this.oyk = (ImageView) findViewById(a.f.yuyin_sdk_wheat_charm_value_bg_2);
-        this.oyl = (ImageView) findViewById(a.f.yuyin_sdk_wheat_charm_value_bg_3);
-        this.oym = (TextView) findViewById(a.f.yuyin_sdk_wheat_charm_value_text);
+        this.oyl = (ImageView) findViewById(a.f.yuyin_sdk_wheat_charm_value_bg_1);
+        this.oym = (ImageView) findViewById(a.f.yuyin_sdk_wheat_charm_value_bg_2);
+        this.oyn = (ImageView) findViewById(a.f.yuyin_sdk_wheat_charm_value_bg_3);
+        this.oyo = (TextView) findViewById(a.f.yuyin_sdk_wheat_charm_value_text);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -70,21 +70,21 @@ public class CharmValueView extends FrameLayout {
     }
 
     public void setProgress(final int i) {
-        this.oyl.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.1
+        this.oyn.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.1
             @Override // java.lang.Runnable
             public void run() {
-                CharmValueView.this.oyl.setVisibility(0);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) CharmValueView.this.oyl.getLayoutParams();
+                CharmValueView.this.oyn.setVisibility(0);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) CharmValueView.this.oyn.getLayoutParams();
                 layoutParams.height = (e.c(30.0f, CharmValueView.this.getContext()) * i) / 100;
-                CharmValueView.this.oyl.setLayoutParams(layoutParams);
-                CharmValueView.this.oyl.setImageBitmap(CharmValueView.this.i(CharmValueView.this.R(CharmValueView.this.getContext(), a.e.yuyin_sdk_wheat_charm_value_bg_3), i));
+                CharmValueView.this.oyn.setLayoutParams(layoutParams);
+                CharmValueView.this.oyn.setImageBitmap(CharmValueView.this.i(CharmValueView.this.R(CharmValueView.this.getContext(), a.e.yuyin_sdk_wheat_charm_value_bg_3), i));
             }
         });
     }
 
     public void setCharmValue(String str) {
-        if (this.oym != null) {
-            this.oym.setText(str);
+        if (this.oyo != null) {
+            this.oyo.setText(str);
         }
     }
 }

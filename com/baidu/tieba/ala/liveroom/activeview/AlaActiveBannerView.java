@@ -24,12 +24,12 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class AlaActiveBannerView extends LinearLayout implements d {
-    private AlaActiveBannerViewPager hdJ;
-    private AlaActiveBannerViewPagerAdapter hdK;
-    private AlaActiveBannerDot hdL;
-    private b.a hdM;
-    private String hdN;
-    private Set<Integer> hdO;
+    private AlaActiveBannerViewPager hdL;
+    private AlaActiveBannerViewPagerAdapter hdM;
+    private AlaActiveBannerDot hdN;
+    private b.a hdO;
+    private String hdP;
+    private Set<Integer> hdQ;
     private boolean isHost;
     private int mCurrentPosition;
     private SlideRatioViewPager.OnPageChangeListener mOnPageChangeListener;
@@ -38,9 +38,9 @@ public class AlaActiveBannerView extends LinearLayout implements d {
     public AlaActiveBannerView(Context context) {
         super(context);
         this.mCurrentPosition = 0;
-        this.hdN = "";
+        this.hdP = "";
         this.isHost = false;
-        this.hdO = new HashSet();
+        this.hdQ = new HashSet();
         this.mOnPageChangeListener = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerView.1
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
@@ -61,9 +61,9 @@ public class AlaActiveBannerView extends LinearLayout implements d {
     public AlaActiveBannerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCurrentPosition = 0;
-        this.hdN = "";
+        this.hdP = "";
         this.isHost = false;
-        this.hdO = new HashSet();
+        this.hdQ = new HashSet();
         this.mOnPageChangeListener = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerView.1
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
@@ -84,9 +84,9 @@ public class AlaActiveBannerView extends LinearLayout implements d {
     public AlaActiveBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCurrentPosition = 0;
-        this.hdN = "";
+        this.hdP = "";
         this.isHost = false;
-        this.hdO = new HashSet();
+        this.hdQ = new HashSet();
         this.mOnPageChangeListener = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerView.1
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i22) {
@@ -105,31 +105,31 @@ public class AlaActiveBannerView extends LinearLayout implements d {
     }
 
     public void setActivityContext(Activity activity) {
-        if (this.hdK != null) {
-            this.hdK.setActivityContext(activity);
+        if (this.hdM != null) {
+            this.hdM.setActivityContext(activity);
         }
     }
 
     public void setHost(boolean z) {
         this.isHost = z;
-        if (this.hdK != null) {
-            this.hdK.setIsHost(z);
+        if (this.hdM != null) {
+            this.hdM.setIsHost(z);
         }
     }
 
     public void setLiveShowData(w wVar) {
-        if (this.hdK != null) {
-            this.hdK.setLiveShowData(wVar);
+        if (this.hdM != null) {
+            this.hdM.setLiveShowData(wVar);
         }
     }
 
     public boolean HZ(String str) {
-        return this.hdK != null && this.hdK.HZ(str);
+        return this.hdM != null && this.hdM.HZ(str);
     }
 
     public List<o> getOriginDatas() {
-        if (this.hdK != null) {
-            return this.hdK.getOriginDatas();
+        if (this.hdM != null) {
+            return this.hdM.getOriginDatas();
         }
         return null;
     }
@@ -137,30 +137,30 @@ public class AlaActiveBannerView extends LinearLayout implements d {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(a.g.ala_active_banner, (ViewGroup) this, true);
-        this.hdJ = (AlaActiveBannerViewPager) findViewById(a.f.active_view_pager);
-        this.hdJ.setSlideRatioToLeft(0.8f);
-        this.hdJ.setSlideRatioToRight(0.2f);
-        this.hdL = (AlaActiveBannerDot) findViewById(a.f.dot_container);
-        this.hdK = new AlaActiveBannerViewPagerAdapter();
-        this.hdJ.setAdapter(this.hdK);
-        this.hdJ.addOnPageChangeListener(this.mOnPageChangeListener);
+        this.hdL = (AlaActiveBannerViewPager) findViewById(a.f.active_view_pager);
+        this.hdL.setSlideRatioToLeft(0.8f);
+        this.hdL.setSlideRatioToRight(0.2f);
+        this.hdN = (AlaActiveBannerDot) findViewById(a.f.dot_container);
+        this.hdM = new AlaActiveBannerViewPagerAdapter();
+        this.hdL.setAdapter(this.hdM);
+        this.hdL.addOnPageChangeListener(this.mOnPageChangeListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void wl(int i) {
-        int count = this.hdJ.getAdapter().getCount();
+        int count = this.hdL.getAdapter().getCount();
         if (count > 3) {
             if (i == count - 1) {
                 this.mCurrentPosition = 1;
-                this.hdJ.setCurrentItem(this.mCurrentPosition, false);
+                this.hdL.setCurrentItem(this.mCurrentPosition, false);
             } else if (i == 0) {
                 this.mCurrentPosition = count - 2;
-                this.hdJ.setCurrentItem(this.mCurrentPosition, false);
+                this.hdL.setCurrentItem(this.mCurrentPosition, false);
             } else {
                 this.mCurrentPosition = i;
                 wm(this.mCurrentPosition);
             }
-            this.hdL.vq(this.mCurrentPosition - 1);
+            this.hdN.vq(this.mCurrentPosition - 1);
         }
         wn(i);
     }
@@ -177,21 +177,21 @@ public class AlaActiveBannerView extends LinearLayout implements d {
 
     private void wn(int i) {
         o wq;
-        if (!this.isHost && (wq = this.hdK.wq(i)) != null) {
+        if (!this.isHost && (wq = this.hdM.wq(i)) != null) {
             int i2 = wq.activityId;
-            if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) && !this.hdO.contains(Integer.valueOf(i2)) && !TextUtils.isEmpty(this.hdN)) {
+            if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) && !this.hdQ.contains(Integer.valueOf(i2)) && !TextUtils.isEmpty(this.hdP)) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.DISPLAY_PENDANT);
-                alaStaticItem.addParams("feed_id", this.hdN);
+                alaStaticItem.addParams("feed_id", this.hdP);
                 alaStaticItem.addParams(SdkStaticKeys.KEY_PENDANT_ID, i2 + "");
                 alaStaticItem.addParams("other_params", this.otherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
-                this.hdO.add(Integer.valueOf(i2));
+                this.hdQ.add(Integer.valueOf(i2));
             }
         }
     }
 
     public boolean cy(List<o> list) {
-        List<o> originDatas = this.hdK.getOriginDatas();
+        List<o> originDatas = this.hdM.getOriginDatas();
         if (originDatas == null || list.size() != originDatas.size()) {
             return false;
         }
@@ -214,32 +214,32 @@ public class AlaActiveBannerView extends LinearLayout implements d {
     }
 
     public void j(List<o> list, String str) {
-        if (!TextUtils.equals(this.hdN, str)) {
-            this.hdO = new HashSet();
-            this.hdN = str;
+        if (!TextUtils.equals(this.hdP, str)) {
+            this.hdQ = new HashSet();
+            this.hdP = str;
         }
-        this.hdL.vr(ListUtils.getCount(list));
-        this.hdK.setData(list);
-        this.hdK.notifyDataSetChanged();
-        this.hdJ.bZT();
+        this.hdN.vr(ListUtils.getCount(list));
+        this.hdM.setData(list);
+        this.hdM.notifyDataSetChanged();
+        this.hdL.bZU();
     }
 
     public void bP(int i, int i2) {
-        if (this.hdJ != null) {
-            ViewGroup.LayoutParams layoutParams = this.hdJ.getLayoutParams();
+        if (this.hdL != null) {
+            ViewGroup.LayoutParams layoutParams = this.hdL.getLayoutParams();
             layoutParams.width = i;
             layoutParams.height = i2;
-            this.hdJ.setLayoutParams(layoutParams);
+            this.hdL.setLayoutParams(layoutParams);
         }
     }
 
     public void wo(int i) {
-        this.hdK.wp(i);
+        this.hdM.wp(i);
     }
 
     public void a(b.a aVar) {
-        this.hdM = aVar;
-        this.hdK.a(this.hdM);
+        this.hdO = aVar;
+        this.hdM.a(this.hdO);
     }
 
     public int getCurrentPosition() {
@@ -248,28 +248,28 @@ public class AlaActiveBannerView extends LinearLayout implements d {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.d
     public void onStart() {
-        if (this.hdK != null) {
-            this.hdK.onStart();
+        if (this.hdM != null) {
+            this.hdM.onStart();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.d
     public void onStop() {
-        if (this.hdK != null) {
-            this.hdK.onStop();
+        if (this.hdM != null) {
+            this.hdM.onStop();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.d
     public void release() {
-        if (this.hdK != null) {
-            this.hdK.release();
+        if (this.hdM != null) {
+            this.hdM.release();
         }
-        if (this.hdJ != null) {
-            this.hdJ.release();
+        if (this.hdL != null) {
+            this.hdL.release();
         }
-        this.hdN = "";
-        this.hdO.clear();
+        this.hdP = "";
+        this.hdQ.clear();
     }
 
     public void setOtherParams(String str) {

@@ -10,24 +10,24 @@ import java.util.List;
 public class c {
     private final List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
     private com.baidu.adp.base.e eNZ;
-    private BdTypeListView gpX;
-    private b jkM;
+    private BdTypeListView gpZ;
+    private b jkO;
 
     public c(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView) {
         this.eNZ = eVar;
-        this.gpX = bdTypeListView;
+        this.gpZ = bdTypeListView;
         Nt();
     }
 
     private void Nt() {
-        this.jkM = new b((TbPageContext) this.eNZ, com.baidu.tieba.frs.game.strategy.data.b.jjU);
-        this.bnf.add(this.jkM);
-        this.gpX.addAdapters(this.bnf);
+        this.jkO = new b((TbPageContext) this.eNZ, com.baidu.tieba.frs.game.strategy.data.b.jjW);
+        this.bnf.add(this.jkO);
+        this.gpZ.addAdapters(this.bnf);
     }
 
     public void setData(List<q> list) {
-        if (this.gpX != null) {
-            this.gpX.setData(list);
+        if (this.gpZ != null) {
+            this.gpZ.setData(list);
         }
     }
 
@@ -40,8 +40,8 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        if (this.gpX.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.gpX.getAdapter().notifyDataSetChanged();
+        if (this.gpZ.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
+            this.gpZ.getAdapter().notifyDataSetChanged();
         }
     }
 }

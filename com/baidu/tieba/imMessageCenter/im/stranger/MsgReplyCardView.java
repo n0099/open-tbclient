@@ -13,11 +13,11 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.a;
 /* loaded from: classes22.dex */
 public class MsgReplyCardView extends g {
-    private LinearLayout kHg;
-    private TextView kHh;
-    private TextView kHi;
+    private LinearLayout kHi;
     private TextView kHj;
     private TextView kHk;
+    private TextView kHl;
+    private TextView kHm;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_reply_card_view);
@@ -25,15 +25,15 @@ public class MsgReplyCardView extends g {
     }
 
     private void init() {
-        this.kHg = (LinearLayout) findViewById(R.id.reply_card);
-        this.kHh = (TextView) findViewById(R.id.reply_title);
-        this.kHi = (TextView) findViewById(R.id.reply_content);
-        this.kHj = (TextView) findViewById(R.id.reply_quote_content);
-        this.kHk = (TextView) findViewById(R.id.reply_frs_name);
-        this.kHg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
+        this.kHi = (LinearLayout) findViewById(R.id.reply_card);
+        this.kHj = (TextView) findViewById(R.id.reply_title);
+        this.kHk = (TextView) findViewById(R.id.reply_content);
+        this.kHl = (TextView) findViewById(R.id.reply_quote_content);
+        this.kHm = (TextView) findViewById(R.id.reply_frs_name);
+        this.kHi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgReplyCardView.this.kjV.onItemViewClick(view, 14, MsgReplyCardView.this.mPosition, 0L);
+                MsgReplyCardView.this.kjX.onItemViewClick(view, 14, MsgReplyCardView.this.mPosition, 0L);
             }
         });
     }
@@ -42,10 +42,10 @@ public class MsgReplyCardView extends g {
         if (chatMessage != null) {
             a.C0790a Od = a.Od(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.kHh.setText(a(Od, valueOf));
-            this.kHi.setText(Od.kGQ);
-            this.kHj.setText(b(Od, valueOf));
-            this.kHk.setText(Od.fName + this.mContext.getString(R.string.forum));
+            this.kHj.setText(a(Od, valueOf));
+            this.kHk.setText(Od.kGS);
+            this.kHl.setText(b(Od, valueOf));
+            this.kHm.setText(Od.fName + this.mContext.getString(R.string.forum));
         }
     }
 
@@ -53,11 +53,11 @@ public class MsgReplyCardView extends g {
         String string;
         String EP;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = EP(c0790a.kHm);
+            string = EP(c0790a.kHo);
             EP = this.mContext.getString(R.string.you);
         } else {
             string = this.mContext.getString(R.string.you);
-            EP = EP(c0790a.kHm);
+            EP = EP(c0790a.kHo);
         }
         return String.format(this.mContext.getString(R.string.add_friend_card_title), string, EQ(c0790a.type), EP);
     }
@@ -68,11 +68,11 @@ public class MsgReplyCardView extends g {
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
             EP = this.mContext.getString(R.string.me);
         } else {
-            EP = EP(c0790a.kHm);
+            EP = EP(c0790a.kHo);
         }
         if (c0790a.type == 1) {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_comment), EP));
-            sb.append(c0790a.kHq);
+            sb.append(c0790a.kHs);
         } else {
             sb.append(String.format(this.mContext.getString(R.string.add_friend_card_quote_thread), EP));
             sb.append(c0790a.title);

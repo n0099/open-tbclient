@@ -5,8 +5,8 @@ import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes22.dex */
 public class e {
     public int index;
-    public String jXS;
-    public String jXT;
+    public String jXU;
+    public String jXV;
     public long tid;
     public String title;
     public long topicId;
@@ -15,8 +15,8 @@ public class e {
         if (timeLineInfo != null) {
             this.tid = timeLineInfo.tid.longValue();
             this.title = timeLineInfo.title;
-            this.jXS = au.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
-            this.jXT = timeLineInfo.bg_color;
+            this.jXU = au.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
+            this.jXV = timeLineInfo.bg_color;
         }
     }
 }

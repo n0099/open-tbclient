@@ -8,25 +8,25 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes18.dex */
 public final class b extends Drawable {
-    private boolean pyp;
-    private int pyq;
-    private final com.opensource.svgaplayer.a.b pyr;
-    private final f pys;
-    private final c pyt;
+    private boolean pyr;
+    private int pys;
+    private final com.opensource.svgaplayer.a.b pyt;
+    private final f pyu;
+    private final c pyv;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pys = fVar;
-        this.pyt = cVar;
-        this.pyp = true;
+        this.pyu = fVar;
+        this.pyv = cVar;
+        this.pyr = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pyr = new com.opensource.svgaplayer.a.b(this.pys, this.pyt);
+        this.pyt = new com.opensource.svgaplayer.a.b(this.pyu, this.pyv);
     }
 
-    public final f ezA() {
-        return this.pys;
+    public final f ezB() {
+        return this.pyu;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -36,19 +36,19 @@ public final class b extends Drawable {
     }
 
     public final void Bh(boolean z) {
-        if (this.pyp != z) {
-            this.pyp = z;
+        if (this.pyr != z) {
+            this.pyr = z;
             invalidateSelf();
         }
     }
 
-    public final int ezz() {
-        return this.pyq;
+    public final int ezA() {
+        return this.pys;
     }
 
     public final void RB(int i) {
-        if (this.pyq != i) {
-            this.pyq = i;
+        if (this.pys != i) {
+            this.pys = i;
             invalidateSelf();
         }
     }
@@ -60,8 +60,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pyp && canvas != null) {
-            this.pyr.a(canvas, this.pyq, this.scaleType);
+        if (!this.pyr && canvas != null) {
+            this.pyt.a(canvas, this.pys, this.scaleType);
         }
     }
 

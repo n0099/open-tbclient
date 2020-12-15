@@ -11,7 +11,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.g.gtl);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.g.gtn);
         this.mPageContext = tbPageContext;
     }
 
@@ -27,11 +27,11 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.g gVar, n.a aVar) {
-        if (aVar == null || aVar.gux == null) {
+        if (aVar == null || aVar.guz == null) {
             return null;
         }
-        aVar.gux.a(gVar);
-        aVar.gux.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.guz.a(gVar);
+        aVar.guz.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

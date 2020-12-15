@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class n extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private a guw;
+    private a guy;
 
     public n(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.guw = new a(this);
+        this.guy = new a(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setBackgroundColor(this.guw.egT, R.color.CAM_X0201);
-        ap.setViewTextColor(this.guw.mTitle, (int) R.color.CAM_X0105);
+        ap.setBackgroundColor(this.guy.egT, R.color.CAM_X0201);
+        ap.setViewTextColor(this.guy.mTitle, (int) R.color.CAM_X0105);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -33,8 +33,8 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (gVar != null && !StringUtils.isNull(gVar.gxD) && this.guw != null) {
-            this.guw.mTitle.setText(gVar.gxD);
+        if (gVar != null && !StringUtils.isNull(gVar.gxF) && this.guy != null) {
+            this.guy.mTitle.setText(gVar.gxF);
         }
     }
 
@@ -45,12 +45,12 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     /* loaded from: classes6.dex */
     public static class a extends af.a {
         public View egT;
-        public n gux;
+        public n guz;
         public TextView mTitle;
 
         public a(n nVar) {
             super(nVar.getView());
-            this.gux = nVar;
+            this.guz = nVar;
             this.egT = nVar.getView();
             this.mTitle = (TextView) this.egT.findViewById(R.id.tab_sub_rec_title_tv);
         }

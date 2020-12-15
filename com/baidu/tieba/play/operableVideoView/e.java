@@ -9,71 +9,71 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes21.dex */
 public class e extends d {
-    private int mae;
+    private int mag;
     private int viewHeight;
 
     public e(Context context, View view) {
         super(context, view);
         xc(false);
-        this.mae = l.getEquipmentWidth(this.mContext) / 10;
+        this.mag = l.getEquipmentWidth(this.mContext) / 10;
     }
 
     public void setData(String str, String str2) {
         this.mVideoUrl = str2;
-        dxa();
         dxb();
-        HS(this.mzC);
-        this.mzU.setPlayer(this.gqT);
+        dxc();
+        HS(this.mzE);
+        this.mzW.setPlayer(this.gqV);
         this.amT.setVisibility(8);
         this.amP.setPlaceHolder(3);
         this.amP.startLoad(str, 10, false);
-        this.mzW.setShareData(null);
+        this.mzY.setShareData(null);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
     public void onPrepared() {
         super.onPrepared();
-        if (this.gqT.getCyberPlayer() != null) {
-            CyberPlayer cyberPlayer = this.gqT.getCyberPlayer();
+        if (this.gqV.getCyberPlayer() != null) {
+            CyberPlayer cyberPlayer = this.gqV.getCyberPlayer();
             this.amX = cyberPlayer.getVideoHeight() > cyberPlayer.getVideoWidth();
             this.viewHeight = (int) ((cyberPlayer.getVideoHeight() / cyberPlayer.getVideoWidth()) * l.getEquipmentWidth(this.mContext));
             if (this.viewHeight > l.getEquipmentHeight(this.mContext)) {
                 this.viewHeight = l.getEquipmentHeight(this.mContext);
             }
-            this.mAc.getLayoutParams().height = this.viewHeight;
-            this.mAc.requestLayout();
+            this.mAe.getLayoutParams().height = this.viewHeight;
+            this.mAe.requestLayout();
         }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     protected void initVideoMute() {
-        this.gqT.setVolume(1.0f, 1.0f);
+        this.gqV.setVolume(1.0f, 1.0f);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void wj(boolean z) {
         if (this.mContext instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) this.mContext).setSwipeBackEnabled(this.lDw);
+            ((BaseFragmentActivity) this.mContext).setSwipeBackEnabled(this.lDy);
         } else if (this.mContext instanceof BaseActivity) {
-            ((BaseActivity) this.mContext).setSwipeBackEnabled(this.lDw);
+            ((BaseActivity) this.mContext).setSwipeBackEnabled(this.lDy);
         }
         super.wj(z);
-        if (this.lDw) {
-            this.mAc.getLayoutParams().height = -1;
+        if (this.lDy) {
+            this.mAe.getLayoutParams().height = -1;
             return;
         }
-        this.mAc.getLayoutParams().height = this.viewHeight;
+        this.mAe.getLayoutParams().height = this.viewHeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     protected boolean ac(MotionEvent motionEvent) {
-        return this.lDw || motionEvent.getX() > ((float) this.mae);
+        return this.lDy || motionEvent.getX() > ((float) this.mag);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void HS(int i) {
         super.HS(i);
-        this.mzY.setVisibility(8);
-        this.mzS.setVisibility(8);
+        this.mAa.setVisibility(8);
+        this.mzU.setVisibility(8);
     }
 }

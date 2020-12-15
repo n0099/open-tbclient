@@ -15,39 +15,39 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes26.dex */
 public class b extends Thread {
-    private a mYc;
-    private final String mYf;
-    private Process mYg;
-    private FileOutputStream mYi;
+    private a mYe;
+    private final String mYh;
+    private Process mYi;
+    private FileOutputStream mYk;
     private boolean mRunning = true;
-    private BufferedReader mYh = null;
+    private BufferedReader mYj = null;
 
     /* loaded from: classes26.dex */
     public interface a {
-        void dKy();
+        void dKz();
     }
 
     public b(String str, String str2, boolean z) {
-        this.mYi = null;
+        this.mYk = null;
         try {
-            this.mYi = new FileOutputStream(new File(str, str2 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH).format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+            this.mYk = new FileOutputStream(new File(str, str2 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH).format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
         } catch (FileNotFoundException e) {
             BdLog.e(Log.getStackTraceString(e));
         }
         if (z) {
-            this.mYf = "logcat -v threadtime *:v -d";
+            this.mYh = "logcat -v threadtime *:v -d";
         } else {
-            this.mYf = "logcat -v threadtime *:v";
+            this.mYh = "logcat -v threadtime *:v";
         }
     }
 
     public void a(a aVar) {
-        this.mYc = aVar;
+        this.mYe = aVar;
     }
 
-    public void dKz() {
+    public void dKA() {
         this.mRunning = false;
-        dKA();
+        dKB();
         interrupt();
     }
 
@@ -55,44 +55,44 @@ public class b extends Thread {
     public void run() {
         String readLine;
         try {
-            this.mYg = Runtime.getRuntime().exec(this.mYf);
-            this.mYh = new BufferedReader(new InputStreamReader(this.mYg.getInputStream()), 1024);
-            while (this.mRunning && (readLine = this.mYh.readLine()) != null && this.mRunning) {
-                if (readLine.length() != 0 && this.mYi != null) {
-                    this.mYi.write((readLine + "\n").getBytes());
+            this.mYi = Runtime.getRuntime().exec(this.mYh);
+            this.mYj = new BufferedReader(new InputStreamReader(this.mYi.getInputStream()), 1024);
+            while (this.mRunning && (readLine = this.mYj.readLine()) != null && this.mRunning) {
+                if (readLine.length() != 0 && this.mYk != null) {
+                    this.mYk.write((readLine + "\n").getBytes());
                 }
             }
             BdLog.d("collector complete.");
         } catch (IOException e) {
             BdLog.e(Log.getStackTraceString(e));
         } finally {
-            dKA();
+            dKB();
         }
     }
 
-    private void dKA() {
-        if (this.mYg != null) {
-            this.mYg.destroy();
-            this.mYg = null;
+    private void dKB() {
+        if (this.mYi != null) {
+            this.mYi.destroy();
+            this.mYi = null;
         }
-        if (this.mYh != null) {
+        if (this.mYj != null) {
             try {
-                this.mYh.close();
-                this.mYh = null;
+                this.mYj.close();
+                this.mYj = null;
             } catch (IOException e) {
                 BdLog.e(Log.getStackTraceString(e));
             }
         }
-        if (this.mYi != null) {
+        if (this.mYk != null) {
             try {
-                this.mYi.close();
+                this.mYk.close();
             } catch (IOException e2) {
                 BdLog.e(Log.getStackTraceString(e2));
             }
-            this.mYi = null;
+            this.mYk = null;
         }
-        if (this.mYc != null) {
-            this.mYc.dKy();
+        if (this.mYe != null) {
+            this.mYe.dKz();
         }
     }
 }

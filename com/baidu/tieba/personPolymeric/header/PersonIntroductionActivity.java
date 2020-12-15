@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class PersonIntroductionActivity extends BaseActivity {
-    private ImageView hGK;
+    private ImageView hGM;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.PersonIntroductionActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -22,7 +22,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     };
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private TextView msi;
+    private TextView msk;
 
     public static void aX(Context context, String str) {
         if (!au.isEmpty(str) && context != null) {
@@ -41,11 +41,11 @@ public class PersonIntroductionActivity extends BaseActivity {
         this.mRootView = findViewById(R.id.person_intro_root_view);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.person_introduction_title));
-        this.hGK = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
-        this.hGK.setOnClickListener(this.mClickListener);
-        ap.setImageResource(this.hGK, R.drawable.selector_topbar_return_black);
-        this.msi = (TextView) findViewById(R.id.person_intro);
-        this.msi.setText(getIntent().getStringExtra("person_introduction"));
+        this.hGM = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
+        this.hGM.setOnClickListener(this.mClickListener);
+        ap.setImageResource(this.hGM, R.drawable.selector_topbar_return_black);
+        this.msk = (TextView) findViewById(R.id.person_intro);
+        this.msk.setText(getIntent().getStringExtra("person_introduction"));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,7 +53,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setViewTextColor(this.msi, R.color.CAM_X0105, 1, i);
+        ap.setViewTextColor(this.msk, R.color.CAM_X0105, 1, i);
         ap.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i);
     }
 }

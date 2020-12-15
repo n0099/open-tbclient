@@ -94,7 +94,7 @@ public class InputView extends EditText implements n {
                 case 3:
                     if (getSelectionStart() > 0) {
                         String substring = getText().toString().substring(0, getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.iEW.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.iEY.matcher(substring);
                         if (matcher.find()) {
                             getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                             return;

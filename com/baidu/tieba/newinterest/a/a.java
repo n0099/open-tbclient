@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class a extends BaseAdapter {
-    private int lvq;
-    private final List<com.baidu.tieba.newinterest.data.b> lvr;
-    private b lvs;
+    private int lvs;
+    private final List<com.baidu.tieba.newinterest.data.b> lvt;
+    private b lvu;
     private final Context mContext;
 
     /* loaded from: classes23.dex */
@@ -28,16 +28,16 @@ public class a extends BaseAdapter {
     }
 
     public a(List<com.baidu.tieba.newinterest.data.b> list, Context context) {
-        this.lvr = list;
+        this.lvt = list;
         this.mContext = context;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lvr == null) {
+        if (this.lvt == null) {
             return 0;
         }
-        return this.lvr.size();
+        return this.lvt.size();
     }
 
     @Override // android.widget.Adapter
@@ -61,27 +61,27 @@ public class a extends BaseAdapter {
         } else {
             c0816a = (C0816a) view.getTag();
         }
-        final com.baidu.tieba.newinterest.data.b bVar = this.lvr.get(i);
+        final com.baidu.tieba.newinterest.data.b bVar = this.lvt.get(i);
         if (bVar.getIcon() > 0) {
-            SvgManager.btW().a(c0816a.lvw, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
+            SvgManager.btW().a(c0816a.lvy, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
         }
-        c0816a.lvx.setText(bVar.getText());
-        a(c0816a.lvy, bVar);
+        c0816a.lvz.setText(bVar.getText());
+        a(c0816a.lvA, bVar);
         if (bVar.isSelected()) {
-            this.lvq++;
+            this.lvs++;
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!bVar.isSelected() && a.this.lvq >= 10) {
+                if (!bVar.isSelected() && a.this.lvs >= 10) {
                     l.showToast(a.this.mContext.getApplicationContext(), a.this.mContext.getApplicationContext().getString(R.string.max_interest_select_num));
                     return;
                 }
                 bVar.setSelected(!bVar.isSelected());
-                a.this.a(c0816a.lvy, bVar);
+                a.this.a(c0816a.lvA, bVar);
                 a.this.a(bVar);
-                if (a.this.lvs != null) {
-                    a.this.lvs.GF(a.this.lvq);
+                if (a.this.lvu != null) {
+                    a.this.lvu.GF(a.this.lvs);
                 }
                 if (bVar.isSelected()) {
                     ar arVar = new ar("c13682");
@@ -95,9 +95,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public List<com.baidu.tieba.newinterest.data.b> dlr() {
+    public List<com.baidu.tieba.newinterest.data.b> dls() {
         ArrayList arrayList = new ArrayList();
-        for (com.baidu.tieba.newinterest.data.b bVar : this.lvr) {
+        for (com.baidu.tieba.newinterest.data.b bVar : this.lvt) {
             if (bVar.isSelected()) {
                 arrayList.add(bVar);
             }
@@ -108,15 +108,15 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.newinterest.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes23.dex */
     public static class C0816a {
-        public ImageView lvw;
-        public TextView lvx;
+        public ImageView lvA;
         public ImageView lvy;
+        public TextView lvz;
 
         public C0816a(View view) {
-            this.lvw = (ImageView) view.findViewById(R.id.interest_icon);
-            this.lvx = (TextView) view.findViewById(R.id.interest_text);
-            this.lvy = (ImageView) view.findViewById(R.id.select_status_view);
-            ap.setViewTextColor(this.lvx, R.color.CAM_X0105);
+            this.lvy = (ImageView) view.findViewById(R.id.interest_icon);
+            this.lvz = (TextView) view.findViewById(R.id.interest_text);
+            this.lvA = (ImageView) view.findViewById(R.id.select_status_view);
+            ap.setViewTextColor(this.lvz, R.color.CAM_X0105);
             ap.setBackgroundResource(view, R.drawable.bg_interest_item_selection);
         }
     }
@@ -133,13 +133,13 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.newinterest.data.b bVar) {
         if (bVar.isSelected()) {
-            this.lvq++;
+            this.lvs++;
         } else {
-            this.lvq--;
+            this.lvs--;
         }
     }
 
     public void a(b bVar) {
-        this.lvs = bVar;
+        this.lvu = bVar;
     }
 }

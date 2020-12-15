@@ -18,11 +18,11 @@ import tbclient.User;
 public class d implements j {
     public boolean hasMore;
     public ItemInfo itemInfo;
-    public int jck;
-    public String jcl;
-    public String jcm;
-    public boolean jcn;
-    public SportScheduleInfo jco;
+    public int jcm;
+    public String jcn;
+    public String jco;
+    public boolean jcp;
+    public SportScheduleInfo jcq;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<q> threadList = new ArrayList<>();
     public int sortType = 1;
@@ -56,13 +56,13 @@ public class d implements j {
                 }
             }
             com.baidu.tbadk.a.a.a.bh(this.threadList);
-            this.jck = dataRes.new_thread_num.intValue();
+            this.jcm = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.jcl = dataRes.sport_head_info.head_url;
-                this.jcm = dataRes.sport_head_info.jump_url;
-                this.jcn = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.jcn = dataRes.sport_head_info.head_url;
+                this.jco = dataRes.sport_head_info.jump_url;
+                this.jcp = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.jco = dataRes.sport_schedule_info;
+            this.jcq = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
             this.itemInfo = dataRes.item_info;
         }

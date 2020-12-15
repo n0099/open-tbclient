@@ -24,13 +24,13 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     private v amH;
     private int eXm;
     private BdUniqueId fzO;
-    private at iBk;
+    private at iBm;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, l lVar) {
-        if (this.iBk != null && this.iBk.uf() != null && this.iBk.uf().dBH() != null) {
-            if (view.getId() == this.iBk.uf().dBH().getId()) {
+        if (this.iBm != null && this.iBm.uf() != null && this.iBm.uf().dBI() != null) {
+            if (view.getId() == this.iBm.uf().dBI().getId()) {
                 com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.eXm);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.gamevideo.e.a.b(lVar, this.eXm);
@@ -62,11 +62,11 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     /* renamed from: aS */
     public com.baidu.card.a<l> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        this.iBk = new ac(this.mPageContext.getPageActivity());
-        this.iBk.setPageUniqueId(this.fzO);
-        this.iBk.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
-        this.iBk.setStageType("2001");
-        aVar.c(this.iBk);
+        this.iBm = new ac(this.mPageContext.getPageActivity());
+        this.iBm.setPageUniqueId(this.fzO);
+        this.iBm.setFrom(ImageViewerConfig.FROM_GAME_VIDEO);
+        this.iBm.setStageType("2001");
+        aVar.c(this.iBm);
         ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amH);
         com.baidu.card.a<l> aVar2 = new com.baidu.card.a<>(a2);
         aVar2.setPageId(this.fzO);
@@ -119,17 +119,17 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
             if (lVar.bmn() != null) {
                 oVar.fFV = String.valueOf(lVar.bmn().getFid());
                 if (lVar.bmn().bph() != null) {
-                    oVar.myt = lVar.bmn().bph().video_md5;
-                    oVar.myv = String.valueOf(lVar.bmn().bph().is_vertical);
+                    oVar.myv = lVar.bmn().bph().video_md5;
+                    oVar.myx = String.valueOf(lVar.bmn().bph().is_vertical);
                 }
             }
             oVar.eGn = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.mys = lVar.cst();
-            oVar.myp = lVar.getWeight();
+            oVar.myu = lVar.csu();
+            oVar.myr = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(lVar.css());
-            oVar.myw = String.valueOf(this.eXm);
+            oVar.mFloor = String.valueOf(lVar.cst());
+            oVar.myy = String.valueOf(this.eXm);
         }
         return oVar;
     }
@@ -143,8 +143,8 @@ public class c extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     }
 
     public void onPause() {
-        if (this.iBk != null) {
-            this.iBk.onPause();
+        if (this.iBm != null) {
+            this.iBm.onPause();
         }
     }
 }

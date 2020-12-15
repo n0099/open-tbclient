@@ -7,7 +7,7 @@ import com.baidu.tieba.yuyinala.liveroom.views.d;
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b olR;
+    private com.baidu.tieba.yuyinala.liveroom.views.b olT;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,59 +15,59 @@ public class b {
     }
 
     private void init() {
-        this.olR = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.olR.getView();
+        this.olT = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.olT.getView();
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public boolean cev() {
-        return this.olR.cev();
-    }
-
     public boolean cew() {
-        return this.olR.cew();
-    }
-
-    public String getLiveTitle() {
-        return this.olR.getLiveTitle();
+        return this.olT.cew();
     }
 
     public boolean cex() {
-        return this.olR.cex();
+        return this.olT.cex();
+    }
+
+    public String getLiveTitle() {
+        return this.olT.getLiveTitle();
     }
 
     public boolean cey() {
-        return this.olR.cey();
+        return this.olT.cey();
     }
 
-    public String ceA() {
-        return this.olR.ceA();
+    public boolean cez() {
+        return this.olT.cez();
+    }
+
+    public String ceB() {
+        return this.olT.ceB();
     }
 
     public void a(d.b bVar) {
-        this.olR.a(bVar);
+        this.olT.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.olR.a(aVar);
+        this.olT.a(aVar);
     }
 
     public void In(String str) {
-        this.olR.In(str);
+        this.olT.In(str);
     }
 
-    public void ceD() {
-        if (this.olR != null) {
-            this.olR.ceD();
+    public void ceE() {
+        if (this.olT != null) {
+            this.olT.ceE();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.olR != null) {
-            this.olR.onKeyboardVisibilityChanged(z);
+        if (this.olT != null) {
+            this.olT.onKeyboardVisibilityChanged(z);
         }
     }
 }

@@ -8,10 +8,10 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 /* loaded from: classes4.dex */
 public class AlaLivePkPanelInitialize {
     static {
-        bYU();
+        bYV();
     }
 
-    private static void bYU() {
+    private static void bYV() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913256, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.live.pkpanel.AlaLivePkPanelInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.s.a> run(CustomMessage<Context> customMessage) {

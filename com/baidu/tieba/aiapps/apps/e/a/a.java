@@ -26,8 +26,8 @@ import org.json.JSONObject;
 /* loaded from: classes25.dex */
 public class a implements z {
     private static BroadcastReceiver broadcastReceiver = null;
-    c geK;
-    CustomMessageListener geL = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
+    c geM;
+    CustomMessageListener geN = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -46,7 +46,7 @@ public class a implements z {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.geK != null) {
+                        if (a.this.geM != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -55,19 +55,19 @@ public class a implements z {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.geK.aK(arrayList);
+                                a.this.geM.aK(arrayList);
                             } else {
-                                a.this.geK.qy("cancel");
+                                a.this.geM.qy("cancel");
                             }
                         }
-                    } else if (a.this.geK != null) {
-                        a.this.geK.qy(BdStatsConstant.StatsType.ERROR);
+                    } else if (a.this.geM != null) {
+                        a.this.geM.qy(BdStatsConstant.StatsType.ERROR);
                     }
                     e.mY().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.geK = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.geL);
+                            a.this.geM = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.geN);
                         }
                     });
                 }
@@ -78,8 +78,8 @@ public class a implements z {
             e.mY().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.e.a.a.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.geK = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.geL);
+                    a.this.geM = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.geN);
                 }
             });
         }

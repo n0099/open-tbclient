@@ -11,11 +11,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 /* loaded from: classes22.dex */
 public class EmotionEditLayout extends FrameLayout {
-    private float iFt;
+    private float iFv;
     private ViewDragHelper mDragHelper;
-    private float mhr;
-    private float mhs;
-    private long mht;
+    private float mht;
+    private float mhu;
+    private long mhv;
 
     public EmotionEditLayout(Context context) {
         this(context, null);
@@ -27,7 +27,7 @@ public class EmotionEditLayout extends FrameLayout {
 
     public EmotionEditLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iFt = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.iFv = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     public void a(final EmotionEditText emotionEditText) {
@@ -36,7 +36,7 @@ public class EmotionEditLayout extends FrameLayout {
             public boolean tryCaptureView(View view, int i) {
                 boolean z = view == emotionEditText;
                 if (view instanceof ImageView) {
-                    emotionEditText.dxT();
+                    emotionEditText.dxU();
                 }
                 return z;
             }
@@ -55,10 +55,10 @@ public class EmotionEditLayout extends FrameLayout {
             public void onViewCaptured(View view, int i) {
                 super.onViewCaptured(view, i);
                 if (view instanceof EmotionEditText) {
-                    EmotionEditLayout.this.mht = System.currentTimeMillis();
-                    EmotionEditLayout.this.mhr = view.getX();
-                    EmotionEditLayout.this.mhs = view.getY();
-                    emotionEditText.dxT();
+                    EmotionEditLayout.this.mhv = System.currentTimeMillis();
+                    EmotionEditLayout.this.mht = view.getX();
+                    EmotionEditLayout.this.mhu = view.getY();
+                    emotionEditText.dxU();
                 }
             }
 
@@ -68,10 +68,10 @@ public class EmotionEditLayout extends FrameLayout {
                 if (view instanceof EmotionEditText) {
                     float x = view.getX();
                     float y = view.getY();
-                    float abs = Math.abs(x - EmotionEditLayout.this.mhr);
-                    float abs2 = Math.abs(y - EmotionEditLayout.this.mhs);
-                    if (abs < EmotionEditLayout.this.iFt && abs2 < EmotionEditLayout.this.iFt && System.currentTimeMillis() - EmotionEditLayout.this.mht < 300) {
-                        emotionEditText.dxU();
+                    float abs = Math.abs(x - EmotionEditLayout.this.mht);
+                    float abs2 = Math.abs(y - EmotionEditLayout.this.mhu);
+                    if (abs < EmotionEditLayout.this.iFv && abs2 < EmotionEditLayout.this.iFv && System.currentTimeMillis() - EmotionEditLayout.this.mhv < 300) {
+                        emotionEditText.dxV();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                     layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);

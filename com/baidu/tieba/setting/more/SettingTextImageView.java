@@ -19,7 +19,7 @@ public class SettingTextImageView extends FrameLayout {
     private LinearLayout fqI;
     private ImageView fqN;
     private Context mContext;
-    private HeadImageView mXG;
+    private HeadImageView mXI;
     private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -41,18 +41,18 @@ public class SettingTextImageView extends FrameLayout {
         setBackgroundDrawable(ap.pT(R.color.CAM_X0205));
         ap.setViewTextColor(this.textView, R.color.CAM_X0105, 1);
         SvgManager.btW().a(this.fqN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        this.mXG.invalidate();
-    }
-
-    public void dKn() {
-        if (this.mXG != null) {
-            this.mXG.setVisibility(8);
-        }
+        this.mXI.invalidate();
     }
 
     public void dKo() {
-        if (this.mXG != null) {
-            this.mXG.setVisibility(0);
+        if (this.mXI != null) {
+            this.mXI.setVisibility(8);
+        }
+    }
+
+    public void dKp() {
+        if (this.mXI != null) {
+            this.mXI.setVisibility(0);
         }
     }
 
@@ -62,9 +62,9 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.mXG.startLoad(str, 26, false);
+            this.mXI.startLoad(str, 26, false);
         } else {
-            this.mXG.startLoad(str, 12, false);
+            this.mXI.startLoad(str, 12, false);
         }
     }
 
@@ -75,7 +75,7 @@ public class SettingTextImageView extends FrameLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
         this.fqI = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.mXG = (HeadImageView) findViewById(R.id.icon);
+        this.mXI = (HeadImageView) findViewById(R.id.icon);
         this.fqN = (ImageView) findViewById(R.id.arrow);
     }
 

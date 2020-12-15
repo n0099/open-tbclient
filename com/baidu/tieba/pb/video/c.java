@@ -9,15 +9,15 @@ import com.baidu.tieba.R;
 public class c extends af.a {
     public int aku;
     public View dividerLine;
-    public TextView ijL;
+    public TextView ijN;
 
     public c(View view) {
         super(view);
         this.aku = 3;
-        this.ijL = (TextView) view.findViewById(R.id.look_more_view);
+        this.ijN = (TextView) view.findViewById(R.id.look_more_view);
         this.dividerLine = view.findViewById(R.id.divider_line_above_more_god_replays);
-        ap.setViewTextColor(this.ijL, R.color.CAM_X0106);
-        ap.setBackgroundResource(this.ijL, R.drawable.more_all);
+        ap.setViewTextColor(this.ijN, R.color.CAM_X0106);
+        ap.setBackgroundResource(this.ijN, R.drawable.more_all);
         ap.setBackgroundResource(this.dividerLine, R.color.CAM_X0204);
     }
 }

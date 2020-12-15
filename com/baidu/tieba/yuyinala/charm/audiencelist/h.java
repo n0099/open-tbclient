@@ -56,15 +56,15 @@ public class h extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.oiv = (OnlineAudienceItemView) view.findViewById(a.f.item);
+            aVar2.oix = (OnlineAudienceItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).aJV) != null) {
-            aVar.oiv.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.nobleRoleId);
-            aVar.oiv.oiu.setData4Yuyin(alaLiveUserInfoData);
+            aVar.oix.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.nobleRoleId);
+            aVar.oix.oiw.setData4Yuyin(alaLiveUserInfoData);
         }
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -72,7 +72,7 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class a {
-        private OnlineAudienceItemView oiv;
+        private OnlineAudienceItemView oix;
 
         private a() {
         }

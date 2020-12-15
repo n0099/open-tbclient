@@ -5,7 +5,7 @@ import android.app.Fragment;
 public class ActivityLifeCycleListener extends Fragment {
     @Override // android.app.Fragment
     public void onStop() {
-        a.cud().cue();
+        a.cue().cuf();
         super.onStop();
     }
 }

@@ -56,8 +56,8 @@ public class a extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_guard_throne_privilege_item_layout, (ViewGroup) null);
             c0663a = new C0663a();
             c0663a.fcb = (TextView) view.findViewById(a.f.tv_text);
-            c0663a.gSB = (TbImageView) view.findViewById(a.f.iv_pic);
-            c0663a.gSB.setDefaultBgResource(a.e.ala_guard_throne_privilege_corner_bg);
+            c0663a.gSD = (TbImageView) view.findViewById(a.f.iv_pic);
+            c0663a.gSD.setDefaultBgResource(a.e.ala_guard_throne_privilege_corner_bg);
             view.setTag(c0663a);
         } else {
             c0663a = (C0663a) view.getTag();
@@ -65,7 +65,7 @@ public class a extends BaseAdapter {
         a.C0664a.C0665a c0665a = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (c0665a != null) {
             c0663a.fcb.setText(c0665a.text);
-            c0663a.gSB.startLoad(c0665a.pic, 10, false);
+            c0663a.gSD.startLoad(c0665a.pic, 10, false);
         }
         return view;
     }
@@ -74,7 +74,7 @@ public class a extends BaseAdapter {
     /* loaded from: classes4.dex */
     private class C0663a {
         public TextView fcb;
-        public TbImageView gSB;
+        public TbImageView gSD;
 
         private C0663a() {
         }

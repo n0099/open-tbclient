@@ -24,27 +24,27 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         ((Button) findViewById(R.id.remind_button)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.dme().a(RemindActivity.this, new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
+                c.dmf().a(RemindActivity.this, new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void e(boolean z, boolean z2, String str) {
-                        b.dlY().A(z2, str);
+                        b.dlZ().A(z2, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void y(boolean z, String str) {
-                        b.dlY().A(z, str);
+                        b.dlZ().A(z, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
-                    public void dlM() {
-                        b.dlY().A(false, null);
+                    public void dlN() {
+                        b.dlZ().A(false, null);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void onFail() {
-                        b.dlY().A(false, null);
+                        b.dlZ().A(false, null);
                     }
                 });
             }
@@ -68,7 +68,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
     public void finishActivity(boolean z) {
         super.finish();
         if (!z) {
-            b.dlY().a((j.c) null);
+            b.dlZ().a((j.c) null);
         }
     }
 }

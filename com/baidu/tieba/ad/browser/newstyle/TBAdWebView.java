@@ -33,7 +33,7 @@ public class TBAdWebView extends BaseAdWebView {
         if (!ae.checkWriteExternalStorage(getContext())) {
             ae.requestWriteExternalStorage((Activity) getContext(), 0);
         } else {
-            d.bMx().c(downloadCacheKey, null);
+            d.bMy().c(downloadCacheKey, null);
         }
     }
 }

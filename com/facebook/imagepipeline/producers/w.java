@@ -26,22 +26,22 @@ public class w extends z {
     protected com.facebook.imagepipeline.f.e g(ImageRequest imageRequest) throws IOException {
         com.facebook.imagepipeline.f.e ab;
         InputStream createInputStream;
-        Uri exl = imageRequest.exl();
-        if (!com.facebook.common.util.d.N(exl)) {
-            return (!com.facebook.common.util.d.O(exl) || (ab = ab(exl)) == null) ? e(this.mContentResolver.openInputStream(exl), -1) : ab;
+        Uri exm = imageRequest.exm();
+        if (!com.facebook.common.util.d.N(exm)) {
+            return (!com.facebook.common.util.d.O(exm) || (ab = ab(exm)) == null) ? e(this.mContentResolver.openInputStream(exm), -1) : ab;
         }
-        if (exl.toString().endsWith("/photo")) {
-            createInputStream = this.mContentResolver.openInputStream(exl);
-        } else if (exl.toString().endsWith("/display_photo")) {
+        if (exm.toString().endsWith("/photo")) {
+            createInputStream = this.mContentResolver.openInputStream(exm);
+        } else if (exm.toString().endsWith("/display_photo")) {
             try {
-                createInputStream = this.mContentResolver.openAssetFileDescriptor(exl, "r").createInputStream();
+                createInputStream = this.mContentResolver.openAssetFileDescriptor(exm, "r").createInputStream();
             } catch (IOException e) {
-                throw new IOException("Contact photo does not exist: " + exl);
+                throw new IOException("Contact photo does not exist: " + exm);
             }
         } else {
-            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, exl);
+            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, exm);
             if (createInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + exl);
+                throw new IOException("Contact photo does not exist: " + exm);
             }
         }
         return e(createInputStream, -1);
@@ -75,7 +75,7 @@ public class w extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String ewG() {
+    protected String ewH() {
         return "LocalContentUriFetchProducer";
     }
 }

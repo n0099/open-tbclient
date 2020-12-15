@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
-    private static final String[] gwf = {TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
-    private static final int[] gwg = {100, 200};
+    private static final String[] gwh = {TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
+    private static final int[] gwi = {100, 200};
     private Fragment[] bgH;
 
     public AlaRecentHistoryAdapter(FragmentManager fragmentManager) {
@@ -20,12 +20,12 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public int getPageType(int i) {
-        return gwg[i];
+        return gwi[i];
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i) {
-        return gwf[i];
+        return gwh[i];
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter

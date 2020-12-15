@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class k extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
     private ab<by> agG;
     private v amH;
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     public BdUniqueId fzO;
     private TbPageContext<?> mPageContext;
     private String mTabName;
@@ -40,11 +40,11 @@ public class k extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, by byVar) {
-                t.csg().mj(true);
+                t.csh().mj(true);
                 com.baidu.tieba.enterForum.a.a(view, byVar, k.this.mTabName);
             }
         };
-        this.fWA = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.k.4
+        this.fWC = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.k.4
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(at atVar) {
                 TiebaStatic.log(com.baidu.tbadk.core.util.l.a(atVar, k.this.mTabName));
@@ -123,7 +123,7 @@ public class k extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
         }
         bxVar.eCR.eHa = getPositionByType(i) + 1;
         amVar.tZ().setPosition(i);
-        amVar.a(true, Align.ALIGN_RIGHT_TOP, this.fWA);
+        amVar.a(true, Align.ALIGN_RIGHT_TOP, this.fWC);
         amVar.b((am<by>) bxVar.eCR);
         amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tZ().a(this.agG);

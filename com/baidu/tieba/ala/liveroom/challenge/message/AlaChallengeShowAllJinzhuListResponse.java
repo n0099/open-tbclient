@@ -8,12 +8,12 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaChallengeShowAllJinzhuListResponse extends JsonHttpResponsedMessage {
     private int bbx;
-    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> hjE;
+    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> hjG;
     private boolean mHasMore;
 
     public AlaChallengeShowAllJinzhuListResponse() {
         super(1021198);
-        this.hjE = new ArrayList();
+        this.hjG = new ArrayList();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -29,7 +29,7 @@ public class AlaChallengeShowAllJinzhuListResponse extends JsonHttpResponsedMess
                     if (optJSONObject2 != null) {
                         com.baidu.tieba.ala.liveroom.challenge.a.a aVar = new com.baidu.tieba.ala.liveroom.challenge.a.a();
                         aVar.parserJson(optJSONObject2);
-                        this.hjE.add(aVar);
+                        this.hjG.add(aVar);
                     }
                 }
             }
@@ -39,7 +39,7 @@ public class AlaChallengeShowAllJinzhuListResponse extends JsonHttpResponsedMess
     }
 
     public List<com.baidu.tieba.ala.liveroom.challenge.a.a> getUserList() {
-        return this.hjE;
+        return this.hjG;
     }
 
     public int bKK() {

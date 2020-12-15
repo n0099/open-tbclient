@@ -19,11 +19,11 @@ public class a extends BaseAdapter {
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
-    private HotTopicChangeFourmActivity nXx;
+    private HotTopicChangeFourmActivity nXz;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.nXx = hotTopicChangeFourmActivity;
-        this.mContext = this.nXx.getPageContext().getContext();
+        this.nXz = hotTopicChangeFourmActivity;
+        this.mContext = this.nXz.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -84,29 +84,29 @@ public class a extends BaseAdapter {
     private C0898a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0898a c0898a;
         if (obj == null) {
-            c0898a = dZo();
+            c0898a = dZp();
         } else {
             c0898a = (C0898a) obj;
         }
-        c0898a.nXz.setText(VL(hotTopicBussinessData.mForumName));
-        c0898a.nXy.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0898a.nXB.setText(VL(hotTopicBussinessData.mForumName));
+        c0898a.nXA.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         ap.setBackgroundResource(c0898a.mRootView, R.drawable.select_forum_item_bg);
-        ap.setViewTextColor(c0898a.nXz, R.color.CAM_X0105);
-        ap.setBackgroundColor(c0898a.jfq, R.color.CAM_X0205);
+        ap.setViewTextColor(c0898a.nXB, R.color.CAM_X0105);
+        ap.setBackgroundColor(c0898a.jfs, R.color.CAM_X0205);
         return c0898a;
     }
 
-    private C0898a dZo() {
+    private C0898a dZp() {
         C0898a c0898a = new C0898a();
         c0898a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
         ap.setBackgroundResource(c0898a.mRootView, R.drawable.select_forum_item_bg);
-        ap.setViewTextColor(c0898a.nXz, R.color.CAM_X0105);
-        c0898a.nXz = (TextView) c0898a.mRootView.findViewById(R.id.fourm_tv);
-        c0898a.jfq = c0898a.mRootView.findViewById(R.id.line_view);
-        c0898a.nXy = (TbImageView) c0898a.mRootView.findViewById(R.id.icon_img);
-        c0898a.nXy.setDefaultBgResource(R.color.CAM_X0205);
-        c0898a.nXy.setDefaultResource(R.drawable.transparent_bg);
-        c0898a.nXy.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        ap.setViewTextColor(c0898a.nXB, R.color.CAM_X0105);
+        c0898a.nXB = (TextView) c0898a.mRootView.findViewById(R.id.fourm_tv);
+        c0898a.jfs = c0898a.mRootView.findViewById(R.id.line_view);
+        c0898a.nXA = (TbImageView) c0898a.mRootView.findViewById(R.id.icon_img);
+        c0898a.nXA.setDefaultBgResource(R.color.CAM_X0205);
+        c0898a.nXA.setDefaultResource(R.drawable.transparent_bg);
+        c0898a.nXA.setDefaultErrorResource(R.drawable.icon_default_ba_120);
         c0898a.mRootView.setTag(c0898a);
         return c0898a;
     }
@@ -115,10 +115,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0898a {
-        public View jfq;
+        public View jfs;
         public View mRootView;
-        public TbImageView nXy;
-        public TextView nXz;
+        public TbImageView nXA;
+        public TextView nXB;
 
         private C0898a() {
         }

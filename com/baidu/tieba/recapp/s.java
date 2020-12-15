@@ -48,12 +48,12 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.dFl().a(advertAppInfo.eEg, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.RY(advertAppInfo.eEg).intValue(), null, true, false, true, advertAppInfo.eEm.userPortrait, downloadStaticsData, advertAppInfo.eEm.userName);
+        com.baidu.tieba.recapp.download.e.dFm().a(advertAppInfo.eEg, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.RY(advertAppInfo.eEg).intValue(), null, true, false, true, advertAppInfo.eEm.userPortrait, downloadStaticsData, advertAppInfo.eEm.userName);
         return true;
     }
 
     public static final void h(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.dFl().D(advertAppInfo.apkUrl, advertAppInfo.eEg, true);
+        com.baidu.tieba.recapp.download.e.dFm().D(advertAppInfo.apkUrl, advertAppInfo.eEg, true);
     }
 
     public static final void aY(Context context, String str) {
@@ -165,11 +165,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.dFf().sendFRS(z, str, str2, str3, list, str4);
+        r.dFg().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.dFf().a(z, str, str2, str3, str4, list, str5);
+        r.dFg().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int c(TbPageContext tbPageContext, String str, String str2) {
@@ -228,15 +228,15 @@ public class s {
 
     private static boolean i(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        i dFc = r.dFf().dFc();
-        if (dFc == null) {
+        i dFd = r.dFg().dFd();
+        if (dFd == null) {
             return false;
         }
-        if (dFc.Fs(str)) {
-            dFc.a(tbPageContext.getPageActivity(), strArr, true);
+        if (dFd.Fs(str)) {
+            dFd.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return dFc.c(tbPageContext.getPageActivity(), strArr);
+        return dFd.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aZ(Context context, String str) {
@@ -260,7 +260,7 @@ public class s {
         if (str.startsWith("tieba://deeplink?") && f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
-        r.dFf().a(advertAppInfo, context);
+        r.dFg().a(advertAppInfo, context);
         return 2;
     }
 
@@ -284,14 +284,14 @@ public class s {
 
     private static boolean bb(Context context, String str) {
         String[] strArr = {str};
-        i dFc = r.dFf().dFc();
-        if (dFc == null) {
+        i dFd = r.dFg().dFd();
+        if (dFd == null) {
             return false;
         }
-        if (dFc.Fs(str)) {
-            dFc.a(context, strArr, true);
+        if (dFd.Fs(str)) {
+            dFd.a(context, strArr, true);
             return true;
         }
-        return dFc.c(context, strArr);
+        return dFd.c(context, strArr);
     }
 }

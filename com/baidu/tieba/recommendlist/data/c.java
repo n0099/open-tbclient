@@ -4,13 +4,13 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 /* loaded from: classes4.dex */
 public class c implements IAdapterData {
-    public static BdUniqueId mQz = BdUniqueId.gen();
-    public AlaRecommendLiveData mQA;
-    public AlaRecommendLiveData mQB;
+    public static BdUniqueId mQB = BdUniqueId.gen();
+    public AlaRecommendLiveData mQC;
+    public AlaRecommendLiveData mQD;
     public int type;
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return mQz;
+        return mQB;
     }
 }

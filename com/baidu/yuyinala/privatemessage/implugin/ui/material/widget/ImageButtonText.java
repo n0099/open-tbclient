@@ -16,9 +16,9 @@ public class ImageButtonText extends ImageButton {
     private int mColor;
     Paint mPaint;
     private String mText;
-    private float oSA;
-    private boolean oSy;
-    private a oSz;
+    private boolean oSA;
+    private a oSB;
+    private float oSC;
 
     /* loaded from: classes4.dex */
     private class a {
@@ -33,7 +33,7 @@ public class ImageButtonText extends ImageButton {
             this.Yp = (int) (3.0f * f);
             this.fov = (int) (f * 9.0f);
             this.color = Color.parseColor("#F43531");
-            if (ThemeManager.enN() == ThemeManager.ThemeMode.NIGHT) {
+            if (ThemeManager.enO() == ThemeManager.ThemeMode.NIGHT) {
                 this.color = Color.parseColor("#79251f");
             }
         }
@@ -41,35 +41,35 @@ public class ImageButtonText extends ImageButton {
 
     public ImageButtonText(Context context) {
         super(context);
-        this.oSy = false;
+        this.oSA = false;
         this.mText = "";
         this.mColor = 0;
-        this.oSA = 0.0f;
+        this.oSC = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.oSz = new a();
+        this.oSB = new a();
     }
 
     public ImageButtonText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oSy = false;
+        this.oSA = false;
         this.mText = "";
         this.mColor = 0;
-        this.oSA = 0.0f;
+        this.oSC = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.oSz = new a();
+        this.oSB = new a();
     }
 
     public ImageButtonText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oSy = false;
+        this.oSA = false;
         this.mText = "";
         this.mColor = 0;
-        this.oSA = 0.0f;
+        this.oSC = 0.0f;
         this.mPaint = new Paint();
         this.mBounds = new Rect();
-        this.oSz = new a();
+        this.oSB = new a();
     }
 
     public void setText(String str) {
@@ -86,36 +86,36 @@ public class ImageButtonText extends ImageButton {
     }
 
     public void setTextSize(float f) {
-        this.oSA = f;
+        this.oSC = f;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         int intrinsicWidth;
         super.onDraw(canvas);
-        if (this.oSy) {
-            float width = (getWidth() - this.oSz.fov) - this.oSz.radius;
-            float f = this.oSz.Yp + this.oSz.radius;
+        if (this.oSA) {
+            float width = (getWidth() - this.oSB.fov) - this.oSB.radius;
+            float f = this.oSB.Yp + this.oSB.radius;
             Drawable drawable = getDrawable();
             if (drawable != null && (intrinsicWidth = drawable.getIntrinsicWidth()) > 0) {
-                width = (getWidth() / 2) + (intrinsicWidth / 2) + this.oSz.radius;
+                width = (getWidth() / 2) + (intrinsicWidth / 2) + this.oSB.radius;
             }
             int color = this.mPaint.getColor();
-            this.mPaint.setColor(this.oSz.color);
+            this.mPaint.setColor(this.oSB.color);
             this.mPaint.setStyle(Paint.Style.FILL);
-            canvas.drawCircle(width, f, this.oSz.radius, this.mPaint);
+            canvas.drawCircle(width, f, this.oSB.radius, this.mPaint);
             this.mPaint.setColor(color);
         }
         this.mPaint.setTextAlign(Paint.Align.CENTER);
         this.mPaint.setColor(this.mColor);
-        this.mPaint.setTextSize(this.oSA);
+        this.mPaint.setTextSize(this.oSC);
         this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
         this.mPaint.getTextBounds(this.mText, 0, this.mText.length(), this.mBounds);
         canvas.drawText(this.mText, getWidth() / 2.0f, ((this.mBounds.height() / 2.0f) + (getHeight() / 2.0f)) - 2.0f, this.mPaint);
     }
 
     public void setTipOn(boolean z) {
-        this.oSy = z;
+        this.oSA = z;
         invalidate();
     }
 }

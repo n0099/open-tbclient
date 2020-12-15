@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 public class FeedAdProgressText extends AppCompatTextView implements a {
     private int mColor;
     private int mMax;
-    private int mPM;
+    private int mPO;
     private int mProgress;
 
     public FeedAdProgressText(Context context) {
@@ -18,7 +18,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mPM = 0;
+        this.mPO = 0;
         init(context);
     }
 
@@ -27,7 +27,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mPM = 0;
+        this.mPO = 0;
         init(context);
     }
 
@@ -36,7 +36,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
         this.mMax = 100;
         this.mProgress = 0;
         this.mColor = 0;
-        this.mPM = 0;
+        this.mPO = 0;
         init(context);
     }
 
@@ -72,7 +72,7 @@ public class FeedAdProgressText extends AppCompatTextView implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextNightColor(int i) {
-        this.mPM = i;
+        this.mPO = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a

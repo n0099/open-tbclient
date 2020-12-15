@@ -23,7 +23,7 @@ import com.baidu.tieba.view.f;
 /* loaded from: classes24.dex */
 public class a implements f {
     protected TbPageContext mPageContext;
-    protected int mse = 1;
+    protected int msh = 1;
     protected int userType = 2;
     protected boolean isHost = false;
 
@@ -35,12 +35,12 @@ public class a implements f {
     public void a(View view, com.baidu.tieba.h.a aVar) {
         if (aVar != null) {
             UserData userData = null;
-            if (aVar.iEw != null && (userData = (UserData) aVar.iEw.getSerializable(UserData.TYPE_USER)) != null) {
-                this.mse = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+            if (aVar.iEy != null && (userData = (UserData) aVar.iEy.getSerializable(UserData.TYPE_USER)) != null) {
+                this.msh = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
                 this.userType = userData.isGod() ? 1 : 2;
-                this.isHost = this.mse == 1;
+                this.isHost = this.msh == 1;
             }
-            switch (aVar.iEv) {
+            switch (aVar.iEx) {
                 case 2:
                     if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
                         bf.bua().b(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
@@ -58,30 +58,30 @@ public class a implements f {
                         if (aVar instanceof com.baidu.tieba.personCenter.d.a) {
                             TiebaStatic.log(new ar("c11586"));
                         } else {
-                            TiebaStatic.log(new ar("c11597").al("obj_locate", 2).al("obj_type", this.mse).al("obj_source", this.userType));
+                            TiebaStatic.log(new ar("c11597").al("obj_locate", 2).al("obj_type", this.msh).al("obj_source", this.userType));
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 5:
-                    com.baidu.tieba.q.a.dGN().h(2, false, this.isHost);
+                    com.baidu.tieba.q.a.dGO().h(2, false, this.isHost);
                     if (userData != null) {
-                        TiebaStatic.log(new ar("c11597").al("obj_locate", 3).al("obj_type", this.mse).al("obj_source", this.userType));
+                        TiebaStatic.log(new ar("c11597").al("obj_locate", 3).al("obj_type", this.msh).al("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 6:
                     if (userData != null) {
-                        TiebaStatic.log(new ar("c11597").al("obj_locate", 1).al("obj_type", this.mse).al("obj_source", this.userType));
+                        TiebaStatic.log(new ar("c11597").al("obj_locate", 1).al("obj_type", this.msh).al("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 7:
                     if (userData != null) {
-                        TiebaStatic.log(new ar("c11597").al("obj_locate", 4).al("obj_type", this.mse).al("obj_source", this.userType));
+                        TiebaStatic.log(new ar("c11597").al("obj_locate", 4).al("obj_type", this.msh).al("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.mPageContext.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
                         return;
                     }

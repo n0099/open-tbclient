@@ -12,13 +12,13 @@ import okio.ByteString;
 /* loaded from: classes18.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
     private static final long serialVersionUID = 0;
-    @WireField(eAP = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
+    @WireField(eAQ = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
     public final Integer fps;
-    @WireField(eAP = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
+    @WireField(eAQ = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
     public final Integer frames;
-    @WireField(eAP = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(eAQ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float viewBoxHeight;
-    @WireField(eAP = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(eAQ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float viewBoxWidth;
     public static final ProtoAdapter<MovieParams> ADAPTER = new ProtoAdapter_MovieParams();
     public static final Float DEFAULT_VIEWBOXWIDTH = Float.valueOf(0.0f);
@@ -161,11 +161,11 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieParams decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eAH = cVar.eAH();
+            long eAI = cVar.eAI();
             while (true) {
-                int eAI = cVar.eAI();
-                if (eAI != -1) {
-                    switch (eAI) {
+                int eAJ = cVar.eAJ();
+                if (eAJ != -1) {
+                    switch (eAJ) {
                         case 1:
                             builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -179,12 +179,12 @@ public final class MovieParams extends Message<MovieParams, Builder> {
                             builder.frames(ProtoAdapter.INT32.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eAJ = cVar.eAJ();
-                            builder.addUnknownField(eAI, eAJ, eAJ.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eAK = cVar.eAK();
+                            builder.addUnknownField(eAJ, eAK, eAK.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.iE(eAH);
+                    cVar.iE(eAI);
                     return builder.build();
                 }
             }

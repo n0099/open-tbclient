@@ -12,30 +12,30 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.message.AlaLootRedPacketResultResponseMessage;
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
-    private HttpMessageListener hHY;
-    private f ohM;
+    private HttpMessageListener hIa;
+    private f ohO;
 
     public a(BdPageContext<?> bdPageContext, f fVar) {
         super(bdPageContext);
-        this.hHY = new HttpMessageListener(1031075) { // from class: com.baidu.tieba.yuyinala.c.a.1
+        this.hIa = new HttpMessageListener(1031075) { // from class: com.baidu.tieba.yuyinala.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031075 && (httpResponsedMessage instanceof AlaLootRedPacketResultResponseMessage)) {
                     AlaLootRedPacketResultResponseMessage alaLootRedPacketResultResponseMessage = (AlaLootRedPacketResultResponseMessage) httpResponsedMessage;
-                    if (a.this.ohM != null) {
+                    if (a.this.ohO != null) {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
-                            a.this.ohM.t(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
+                            a.this.ohO.t(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            a.this.ohM.b(alaLootRedPacketResultResponseMessage.egs());
+                            a.this.ohO.b(alaLootRedPacketResultResponseMessage.egt());
                         }
                     }
                 }
             }
         };
-        this.ohM = fVar;
+        this.ohO = fVar;
         initTasks();
-        registerListener(this.hHY);
+        registerListener(this.hIa);
     }
 
     private void initTasks() {
@@ -67,7 +67,7 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hHY);
+        MessageManager.getInstance().unRegisterListener(this.hIa);
         MessageManager.getInstance().unRegisterTask(1031075);
     }
 }

@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class j {
-    private static String cKe() {
+    private static String cKf() {
         return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(cKe(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(cKf(), 0);
     }
 
     public static void aS(String str, int i) {

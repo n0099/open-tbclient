@@ -14,12 +14,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
     public boolean isStarting;
-    private float jAk;
-    private float jAl;
     private float jAm;
     private float jAn;
-    public boolean jAo;
-    private View.OnClickListener jAp;
+    private float jAo;
+    private float jAp;
+    public boolean jAq;
+    private View.OnClickListener jAr;
     private Paint paint;
     private float progress;
     private float step;
@@ -28,14 +28,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.jAk = 0.0f;
-        this.jAl = 0.0f;
-        this.step = 0.0f;
-        this.y = 0.0f;
         this.jAm = 0.0f;
         this.jAn = 0.0f;
+        this.step = 0.0f;
+        this.y = 0.0f;
+        this.jAo = 0.0f;
+        this.jAp = 0.0f;
         this.isStarting = false;
-        this.jAo = false;
+        this.jAq = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -43,14 +43,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jAk = 0.0f;
-        this.jAl = 0.0f;
-        this.step = 0.0f;
-        this.y = 0.0f;
         this.jAm = 0.0f;
         this.jAn = 0.0f;
+        this.step = 0.0f;
+        this.y = 0.0f;
+        this.jAo = 0.0f;
+        this.jAp = 0.0f;
         this.isStarting = false;
-        this.jAo = false;
+        this.jAq = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -64,14 +64,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.paint = getPaint();
         this.paint.setColor(-1);
         this.text = getText().toString();
-        this.jAk = this.paint.measureText(this.text);
-        this.jAl = getWidth();
-        if (this.jAl == 0.0f && windowManager != null) {
-            this.jAl = windowManager.getDefaultDisplay().getWidth();
+        this.jAm = this.paint.measureText(this.text);
+        this.jAn = getWidth();
+        if (this.jAn == 0.0f && windowManager != null) {
+            this.jAn = windowManager.getDefaultDisplay().getWidth();
         }
-        this.step = this.jAk;
-        this.jAm = this.jAk;
-        this.jAn = this.jAk * 2.0f;
+        this.step = this.jAm;
+        this.jAo = this.jAm;
+        this.jAp = this.jAm * 2.0f;
         this.y = getTextSize();
     }
 
@@ -142,7 +142,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    public void cES() {
+    public void cET() {
         this.isStarting = true;
         invalidate();
     }
@@ -157,27 +157,27 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         if (!this.isStarting) {
             if (this.progress > 0.5f) {
                 setWidth((int) (3000.0f * (this.progress - 0.5f)));
-                canvas.drawText(this.text, this.jAm - this.step, getTextSize() + 2.7f, this.paint);
+                canvas.drawText(this.text, this.jAo - this.step, getTextSize() + 2.7f, this.paint);
                 return;
             }
             return;
         }
-        canvas.drawText(this.text, this.jAm - this.step, getTextSize() + 2.7f, this.paint);
+        canvas.drawText(this.text, this.jAo - this.step, getTextSize() + 2.7f, this.paint);
         this.step = TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3) + this.step;
-        if (this.step > this.jAn) {
-            this.step = this.jAk;
+        if (this.step > this.jAp) {
+            this.step = this.jAm;
         }
         invalidate();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jAp != null) {
-            this.jAp.onClick(view);
+        if (this.jAr != null) {
+            this.jAr.onClick(view);
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
-        this.jAp = onClickListener;
+        this.jAr = onClickListener;
     }
 }

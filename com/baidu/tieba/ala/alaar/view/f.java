@@ -13,12 +13,12 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, T, a> {
-    private int gnK;
+    private int gnM;
     private Context mContext;
 
     public f(Context context) {
         super(context, null);
-        this.gnK = 0;
+        this.gnM = 0;
         this.mContext = context;
     }
 
@@ -57,20 +57,20 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
     }
 
     public void uK(int i) {
-        this.gnK = i;
+        this.gnM = i;
     }
 
     /* loaded from: classes4.dex */
     public class a extends b<T> {
-        private ObjectAnimator gnj;
-        private BeautyItemView gol;
+        private ObjectAnimator gnl;
+        private BeautyItemView gon;
 
         public a(View view, b.a aVar) {
             super(view, aVar);
-            this.gol = (BeautyItemView) view;
-            com.facebook.drawee.generic.a hierarchy = this.gol.gnS.getHierarchy();
+            this.gon = (BeautyItemView) view;
+            com.facebook.drawee.generic.a hierarchy = this.gon.gnU.getHierarchy();
             if (hierarchy == null) {
-                this.gol.gnS.setHierarchy(new com.facebook.drawee.generic.b(this.gol.getResources()).Ql(300).Qm(a.e.filter_beauty_item_bg).esf());
+                this.gon.gnU.setHierarchy(new com.facebook.drawee.generic.b(this.gon.getResources()).Ql(300).Qm(a.e.filter_beauty_item_bg).esg());
                 return;
             }
             hierarchy.Qk(a.e.filter_beauty_item_bg);
@@ -81,27 +81,27 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
         /* renamed from: a */
         public void j(int i, T t) {
             String str;
-            c.a bPI = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).bPI();
-            if (bPI == null) {
+            c.a bPJ = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).bPJ();
+            if (bPJ == null) {
                 str = null;
             } else {
-                str = bPI.bPT();
+                str = bPJ.bPU();
             }
             if (TextUtils.isEmpty(str)) {
                 str = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).getIcon();
             }
             if (!TextUtils.isEmpty(str) && !"null".equals(str)) {
                 if (str.charAt(0) == File.separatorChar) {
-                    this.gol.gnS.setImageURI("file://" + str);
+                    this.gon.gnU.setImageURI("file://" + str);
                 } else {
-                    this.gol.gnS.setImageURI(str);
+                    this.gon.gnU.setImageURI(str);
                 }
             }
-            this.gol.setItemText(((com.baidu.tieba.ala.alaar.makeup.c) this.item).bPG());
-            if (i == 0 && f.this.gnK != 0) {
-                this.gol.setPadding(f.this.gnK, 0, 0, 0);
+            this.gon.setItemText(((com.baidu.tieba.ala.alaar.makeup.c) this.item).bPH());
+            if (i == 0 && f.this.gnM != 0) {
+                this.gon.setPadding(f.this.gnM, 0, 0, 0);
             } else {
-                this.gol.setPadding(0, 0, 0, 0);
+                this.gon.setPadding(0, 0, 0, 0);
             }
             lQ(false);
             b(t);
@@ -110,16 +110,16 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
         private void b(T t) {
             if (t == this.item) {
                 if (t.isLoaded()) {
-                    this.gol.gni.setVisibility(4);
-                    bRi();
+                    this.gon.gnk.setVisibility(4);
+                    bRj();
                 } else if (t.isLoading()) {
-                    this.gol.gni.setVisibility(0);
-                    bRh();
-                } else {
-                    this.gol.gni.setVisibility(0);
-                    this.gol.gni.setRotation(0.0f);
-                    this.gol.gni.setImageResource(a.e.sticker_unload);
+                    this.gon.gnk.setVisibility(0);
                     bRi();
+                } else {
+                    this.gon.gnk.setVisibility(0);
+                    this.gon.gnk.setRotation(0.0f);
+                    this.gon.gnk.setImageResource(a.e.sticker_unload);
+                    bRj();
                 }
             }
         }
@@ -135,28 +135,28 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
 
         public boolean lQ(boolean z) {
             if (z) {
-                this.gol.setSelectedBackground();
+                this.gon.setSelectedBackground();
                 return false;
             }
-            this.gol.setUnselectedBackground();
+            this.gon.setUnselectedBackground();
             return false;
         }
 
-        public void bRh() {
-            if (this.gnj == null) {
-                this.gnj = ObjectAnimator.ofFloat(this.gol.gni, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
-                this.gnj.setRepeatCount(-1);
-                this.gnj.setDuration(1000L);
+        public void bRi() {
+            if (this.gnl == null) {
+                this.gnl = ObjectAnimator.ofFloat(this.gon.gnk, MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, 0.0f, 359.0f);
+                this.gnl.setRepeatCount(-1);
+                this.gnl.setDuration(1000L);
             }
-            if (!this.gnj.isRunning()) {
-                this.gol.gni.setImageResource(a.e.sticker_loading);
-                this.gnj.start();
+            if (!this.gnl.isRunning()) {
+                this.gon.gnk.setImageResource(a.e.sticker_loading);
+                this.gnl.start();
             }
         }
 
-        public void bRi() {
-            if (this.gnj != null && this.gnj.isRunning()) {
-                this.gnj.cancel();
+        public void bRj() {
+            if (this.gnl != null && this.gnl.isRunning()) {
+                this.gnl.cancel();
             }
         }
     }

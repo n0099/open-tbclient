@@ -18,13 +18,13 @@ import java.io.IOException;
 /* loaded from: classes4.dex */
 public class b {
     private static final String TAG;
-    private static final boolean oVx;
-    public static double oVy;
+    public static double oVA;
+    private static final boolean oVz;
 
     static {
-        oVx = Build.VERSION.SDK_INT >= 11;
+        oVz = Build.VERSION.SDK_INT >= 11;
         TAG = b.class.getSimpleName();
-        oVy = 1.778d;
+        oVA = 1.778d;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [106=5, 108=4, 109=4, 110=4] */
@@ -187,7 +187,7 @@ public class b {
 
     @TargetApi(11)
     private static void b(BitmapFactory.Options options) {
-        if (oVx) {
+        if (oVz) {
             options.inMutable = true;
         }
     }

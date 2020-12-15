@@ -24,7 +24,7 @@ public class a {
     private TbPageContext context;
     private String forumId;
     private String forumName;
-    private HttpMessageListener iUQ = new HttpMessageListener(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS) { // from class: com.baidu.tieba.frs.broadcast.a.3
+    private HttpMessageListener iUS = new HttpMessageListener(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS) { // from class: com.baidu.tieba.frs.broadcast.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -48,7 +48,7 @@ public class a {
     public a(TbPageContext tbPageContext) {
         this.context = tbPageContext;
         registerTask();
-        tbPageContext.registerListener(this.iUQ);
+        tbPageContext.registerListener(this.iUS);
     }
 
     public void e(int i, String str, String str2, String str3) {

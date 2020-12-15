@@ -3,27 +3,27 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes12.dex */
 public class y<E> extends aa<E> {
-    private static final long pUD;
-    private static final int pUE;
-    private static final long pUG;
-    private static final long pUH;
-    static final int pHv = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object pHB = new Object();
+    private static final long pUF;
+    private static final int pUG;
+    private static final long pUI;
+    private static final long pUJ;
+    static final int pHx = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object pHD = new Object();
 
     static {
-        int Q = ae.pUN.Q(Object[].class);
+        int Q = ae.pUP.Q(Object[].class);
         if (4 == Q) {
-            pUE = 2;
+            pUG = 2;
         } else if (8 == Q) {
-            pUE = 3;
+            pUG = 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        pUD = ae.pUN.R(Object[].class);
+        pUF = ae.pUP.R(Object[].class);
         try {
-            pUH = ae.pUN.b(ad.class.getDeclaredField("producerIndex"));
+            pUJ = ae.pUP.b(ad.class.getDeclaredField("producerIndex"));
             try {
-                pUG = ae.pUN.b(aa.class.getDeclaredField("consumerIndex"));
+                pUI = ae.pUP.b(aa.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e);
@@ -40,11 +40,11 @@ public class y<E> extends aa<E> {
         int RR = h.RR(i);
         long j = RR - 1;
         E[] eArr = (E[]) new Object[RR + 1];
+        this.pUO = eArr;
+        this.pUN = j;
+        RO(RR);
         this.pUM = eArr;
         this.pUL = j;
-        RO(RR);
-        this.pUK = eArr;
-        this.pUJ = j;
         this.producerLookAhead = j - 1;
         soProducerIndex(0L);
     }
@@ -59,14 +59,14 @@ public class y<E> extends aa<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.pUM;
+        E[] eArr = this.pUO;
         long j = this.producerIndex;
-        long j2 = this.pUL;
+        long j2 = this.pUN;
         long T = T(j, j2);
         if (j < this.producerLookAhead) {
             return a(eArr, e, j, T);
         }
-        int i = this.pHw;
+        int i = this.pHy;
         if (b(eArr, T(i + j, j2)) == null) {
             this.producerLookAhead = (i + j) - 1;
             return a(eArr, e, j, T);
@@ -86,11 +86,11 @@ public class y<E> extends aa<E> {
 
     private void a(E[] eArr, long j, long j2, E e, long j3) {
         E[] eArr2 = (E[]) new Object[eArr.length];
-        this.pUM = eArr2;
+        this.pUO = eArr2;
         this.producerLookAhead = (j + j3) - 1;
         b(eArr2, j2, e);
         b(eArr, eArr2);
-        b(eArr, j2, pHB);
+        b(eArr, j2, pHD);
         soProducerIndex(j + 1);
     }
 
@@ -104,12 +104,12 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E poll() {
-        E[] eArr = this.pUK;
+        E[] eArr = this.pUM;
         long j = this.consumerIndex;
-        long j2 = this.pUJ;
+        long j2 = this.pUL;
         long T = T(j, j2);
         E e = (E) b(eArr, T);
-        boolean z = e == pHB;
+        boolean z = e == pHD;
         if (e != null && !z) {
             b(eArr, T, (Object) null);
             soConsumerIndex(j + 1);
@@ -122,7 +122,7 @@ public class y<E> extends aa<E> {
     }
 
     private E a(E[] eArr, long j, long j2) {
-        this.pUK = eArr;
+        this.pUM = eArr;
         long T = T(j, j2);
         E e = (E) b(eArr, T);
         if (e == null) {
@@ -135,52 +135,52 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E peek() {
-        E[] eArr = this.pUK;
+        E[] eArr = this.pUM;
         long j = this.consumerIndex;
-        long j2 = this.pUJ;
+        long j2 = this.pUL;
         E e = (E) b(eArr, T(j, j2));
-        if (e == pHB) {
+        if (e == pHD) {
             return b(S(eArr), j, j2);
         }
         return e;
     }
 
     private E b(E[] eArr, long j, long j2) {
-        this.pUK = eArr;
+        this.pUM = eArr;
         return (E) b(eArr, T(j, j2));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
-        long eDi = eDi();
+        long eDj = eDj();
         while (true) {
-            long eDh = eDh();
-            long eDi2 = eDi();
-            if (eDi == eDi2) {
-                return (int) (eDh - eDi2);
+            long eDi = eDi();
+            long eDj2 = eDj();
+            if (eDj == eDj2) {
+                return (int) (eDi - eDj2);
             }
-            eDi = eDi2;
+            eDj = eDj2;
         }
     }
 
     private void RO(int i) {
-        this.pHw = Math.min(i / 4, pHv);
-    }
-
-    private long eDh() {
-        return ae.pUN.e(this, pUH);
+        this.pHy = Math.min(i / 4, pHx);
     }
 
     private long eDi() {
-        return ae.pUN.e(this, pUG);
+        return ae.pUP.e(this, pUJ);
+    }
+
+    private long eDj() {
+        return ae.pUP.e(this, pUI);
     }
 
     private void soProducerIndex(long j) {
-        ae.pUN.a(this, pUH, j);
+        ae.pUP.a(this, pUJ, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.pUN.a(this, pUG, j);
+        ae.pUP.a(this, pUI, j);
     }
 
     private static long T(long j, long j2) {
@@ -188,14 +188,14 @@ public class y<E> extends aa<E> {
     }
 
     private static long iP(long j) {
-        return pUD + (j << pUE);
+        return pUF + (j << pUG);
     }
 
     private static void b(Object[] objArr, long j, Object obj) {
-        ae.pUN.b(objArr, j, obj);
+        ae.pUP.b(objArr, j, obj);
     }
 
     private static <E> Object b(E[] eArr, long j) {
-        return ae.pUN.d(eArr, j);
+        return ae.pUP.d(eArr, j);
     }
 }

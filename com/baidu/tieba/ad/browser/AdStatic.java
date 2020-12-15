@@ -75,7 +75,7 @@ public class AdStatic {
         intentFilter.addAction("android.intent.action.PACKAGE_REMOVED");
         intentFilter.addDataScheme("package");
         TbadkCoreApplication.getInst().registerReceiver(new AppNotificationReceiver(), intentFilter);
-        com.baidu.tieba.ad.a.bMm().a(cVar);
+        com.baidu.tieba.ad.a.bMn().a(cVar);
         SwitchManager.getInstance().addSwitchData(new com.baidu.adp.lib.featureSwitch.b("switch_mbaidu_startup", 1, null));
         blx();
         bly();
@@ -83,7 +83,7 @@ public class AdStatic {
     }
 
     private static void blx() {
-        com.baidu.tieba.ad.a.bMm().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
+        com.baidu.tieba.ad.a.bMn().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
             @Override // com.baidu.tieba.recapp.i.a
             public int d(Context context, String[] strArr) {
                 Bundle parserQuery;
@@ -226,7 +226,7 @@ public class AdStatic {
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(context, "url_1", null);
         String realUrl = getRealUrl(str);
-        if (!Ft(realUrl) && bMn() && Fv(GlobalConstants.SEARCHBOX_PACKAGE_NAME) && Fu(realUrl) && eAn) {
+        if (!Ft(realUrl) && bMo() && Fv(GlobalConstants.SEARCHBOX_PACKAGE_NAME) && Fu(realUrl) && eAn) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, z, z2, z3, z4);
             return;
@@ -238,7 +238,7 @@ public class AdStatic {
         return str != null;
     }
 
-    private static boolean bMn() {
+    private static boolean bMo() {
         return SwitchManager.getInstance().findType("switch_mbaidu_startup") == 1;
     }
 
@@ -281,7 +281,7 @@ public class AdStatic {
     }
 
     private static void bly() {
-        com.baidu.tieba.ad.a.bMm().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
+        com.baidu.tieba.ad.a.bMn().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
             @Override // com.baidu.tieba.recapp.i.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -353,7 +353,7 @@ public class AdStatic {
     }
 
     private static void blz() {
-        com.baidu.tieba.ad.a.bMm().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
+        com.baidu.tieba.ad.a.bMn().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
             @Override // com.baidu.tieba.recapp.i.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

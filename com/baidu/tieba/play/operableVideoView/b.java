@@ -17,13 +17,13 @@ import com.baidu.tieba.video.VideoItemData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends d {
-    private VideoSerializeVideoThreadInfo jzo;
-    private VideoItemData mzl;
-    private by mzm;
+    private VideoSerializeVideoThreadInfo jzq;
+    private VideoItemData mzn;
+    private by mzo;
 
     public b(Context context, View view) {
         super(context, view);
-        this.mzn = 5000;
+        this.mzp = 5000;
     }
 
     public b(Context context, View view, boolean z) {
@@ -35,81 +35,81 @@ public class b extends d {
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void init() {
         super.init();
-        this.mAc.setOnTouchListener(null);
-        this.mAc.setOnClickListener(this);
+        this.mAe.setOnTouchListener(null);
+        this.mAe.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setData(by byVar) {
         super.setData(byVar);
-        this.mzm = byVar;
+        this.mzo = byVar;
         if (this.amX) {
-            this.mzl = new VideoItemData();
-            this.mzl.buildWithThreadData(byVar);
+            this.mzn = new VideoItemData();
+            this.mzn.buildWithThreadData(byVar);
             return;
         }
-        this.jzo = new VideoSerializeVideoThreadInfo();
-        this.jzo.copyFromThreadInfo(byVar);
-        this.jzo.source = byVar.mRecomSource;
-        this.jzo.extra = byVar.mRecomExtra;
-        this.jzo.ab_tag = byVar.mRecomAbTag;
-        this.jzo.weight = byVar.mRecomWeight;
+        this.jzq = new VideoSerializeVideoThreadInfo();
+        this.jzq.copyFromThreadInfo(byVar);
+        this.jzq.source = byVar.mRecomSource;
+        this.jzq.extra = byVar.mRecomExtra;
+        this.jzq.ab_tag = byVar.mRecomAbTag;
+        this.jzq.weight = byVar.mRecomWeight;
+    }
+
+    @Override // com.baidu.tieba.play.operableVideoView.d
+    public void dxc() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void dxb() {
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.d
-    public void dxa() {
-        this.mzF = 32;
+        this.mzH = 32;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                dCB();
+                dCC();
                 return;
             }
             if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, R.string.no_network_guide);
             } else if (this.amX) {
-                crP();
+                crQ();
             } else if ("index".equals(this.mFrom) || "frs".equals(this.mFrom) || "concern_tab".equals(this.mFrom) || "video_tab".equals(this.mFrom) || "14".equals(this.mFrom)) {
-                crQ();
+                crR();
             } else {
-                crQ();
+                crR();
             }
             if (this.akt != null) {
-                this.akt.onClick(dBH());
+                this.akt.onClick(dBI());
             }
         }
     }
 
-    private void crP() {
-        if (this.mzl != null) {
+    private void crQ() {
+        if (this.mzn != null) {
             ArrayList arrayList = new ArrayList();
-            if (this.mzm != null) {
-                this.mzl.buildWithThreadData(this.mzm);
+            if (this.mzo != null) {
+                this.mzn.buildWithThreadData(this.mzo);
             }
-            arrayList.add(this.mzl);
+            arrayList.add(this.mzn);
             VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.mContext, arrayList, 0, null, VideoPlayActivityConfig.FROM_NANI_VIDEO, "personalize_page", "", this.mFrom, this.mFrom);
-            if (this.mzm != null && this.mzm.getBaijiahaoData() != null) {
-                videoPlayActivityConfig.setNid(this.mzm.getBaijiahaoData().oriUgcNid);
+            if (this.mzo != null && this.mzo.getBaijiahaoData() != null) {
+                videoPlayActivityConfig.setNid(this.mzo.getBaijiahaoData().oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoPlayActivityConfig));
         }
     }
 
-    private void crQ() {
-        if (this.jzo != null) {
-            if (this.mzm != null) {
-                this.jzo.copyFromThreadInfo(this.mzm);
+    private void crR() {
+        if (this.jzq != null) {
+            if (this.mzo != null) {
+                this.jzq.copyFromThreadInfo(this.mzo);
             }
-            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.amY, n.boB(), "", this.jzo);
-            if (this.mzm != null && this.mzm.getBaijiahaoData() != null) {
-                videoMiddlePageActivityConfig.setNid(this.mzm.getBaijiahaoData().oriUgcNid);
+            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.mContext, this.mFrom, this.amY, n.boB(), "", this.jzq);
+            if (this.mzo != null && this.mzo.getBaijiahaoData() != null) {
+                videoMiddlePageActivityConfig.setNid(this.mzo.getBaijiahaoData().oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
         }
@@ -122,18 +122,18 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void dwY() {
-        if (this.mzM == this.mzE) {
-            dCu();
+    public void dwZ() {
+        if (this.mzO == this.mzG) {
+            dCv();
         }
     }
 
-    public void dCu() {
-        HS(this.mzF);
+    public void dCv() {
+        HS(this.mzH);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
-    public boolean dCt() {
+    public boolean dCu() {
         return false;
     }
 }

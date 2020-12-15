@@ -26,8 +26,8 @@ public class AlaStickerTabHost extends RelativeLayout implements ViewPager.OnPag
     private CustomViewPager aHn;
     private final int bQC;
     private AlaViewPagerAdapter bQD;
-    private a gmu;
-    private b gmv;
+    private a gmw;
+    private b gmx;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private int mDividerColor;
@@ -183,8 +183,8 @@ public class AlaStickerTabHost extends RelativeLayout implements ViewPager.OnPag
             this.mCurrentPositionOffset = f;
             updateTabStyles();
             invalidate();
-            if (this.gmu != null) {
-                this.gmu.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
+            if (this.gmw != null) {
+                this.gmw.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
             }
         }
     }
@@ -195,12 +195,12 @@ public class AlaStickerTabHost extends RelativeLayout implements ViewPager.OnPag
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.gmu != null) {
-                this.gmu.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
+            if (this.gmw != null) {
+                this.gmw.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
             }
         }
-        if (this.gmv != null) {
-            this.gmv.onPageSelected(i);
+        if (this.gmx != null) {
+            this.gmx.onPageSelected(i);
         }
     }
 
@@ -213,11 +213,11 @@ public class AlaStickerTabHost extends RelativeLayout implements ViewPager.OnPag
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.gmu = aVar;
+        this.gmw = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.gmv = bVar;
+        this.gmx = bVar;
     }
 
     public int getCurrentIndex() {

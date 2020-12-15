@@ -9,8 +9,8 @@ import android.view.WindowManager;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public abstract class a extends Dialog {
-    public InterfaceC0694a hsO;
-    public String hsP;
+    public InterfaceC0694a hsQ;
+    public String hsR;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -35,10 +35,10 @@ public abstract class a extends Dialog {
     private void Ki() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        cfR();
+        cfS();
     }
 
-    public void cfR() {
+    public void cfS() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -57,10 +57,10 @@ public abstract class a extends Dialog {
     }
 
     public void a(InterfaceC0694a interfaceC0694a) {
-        this.hsO = interfaceC0694a;
+        this.hsQ = interfaceC0694a;
     }
 
-    public String cfS() {
-        return this.hsP;
+    public String cfT() {
+        return this.hsR;
     }
 }

@@ -29,11 +29,11 @@ import org.json.JSONObject;
 public class a {
     private boolean isFromCache;
     private boolean isLoading;
-    private RecentlyVisitedForumData iuW;
-    private boolean iuX;
-    private InterfaceC0730a iuY;
-    private CustomMessageListener iuZ;
-    private com.baidu.adp.framework.listener.a iva;
+    private RecentlyVisitedForumData iuY;
+    private boolean iuZ;
+    private InterfaceC0730a iva;
+    private CustomMessageListener ivb;
+    private com.baidu.adp.framework.listener.a ivc;
     private CustomMessageListener mAccountChangeListener;
 
     /* renamed from: com.baidu.tieba.enterForum.c.a$a  reason: collision with other inner class name */
@@ -46,27 +46,27 @@ public class a {
         void yK(int i);
     }
 
-    public static a cvn() {
-        return b.ivc;
+    public static a cvo() {
+        return b.ive;
     }
 
     public void a(InterfaceC0730a interfaceC0730a) {
-        this.iuY = interfaceC0730a;
+        this.iva = interfaceC0730a;
     }
 
-    public void cvo() {
+    public void cvp() {
         if (!this.isLoading) {
             RecentlyVisitedForumRequestMessage recentlyVisitedForumRequestMessage = new RecentlyVisitedForumRequestMessage();
-            recentlyVisitedForumRequestMessage.setForumData(this.iuW.getForumData());
+            recentlyVisitedForumRequestMessage.setForumData(this.iuY.getForumData());
             this.isLoading = MessageManager.getInstance().sendMessage(recentlyVisitedForumRequestMessage);
         }
     }
 
-    public String cvp() {
-        if (this.iuW == null || this.iuW.getForumData() == null || this.iuW.getForumData().size() < 1) {
+    public String cvq() {
+        if (this.iuY == null || this.iuY.getForumData() == null || this.iuY.getForumData().size() < 1) {
             return "";
         }
-        ArrayList<VisitedForumData> arrayList = new ArrayList(this.iuW.getForumData());
+        ArrayList<VisitedForumData> arrayList = new ArrayList(this.iuY.getForumData());
         JSONArray jSONArray = new JSONArray();
         for (VisitedForumData visitedForumData : arrayList) {
             JSONObject jSONObject = new JSONObject();
@@ -81,14 +81,14 @@ public class a {
         return jSONArray.toString();
     }
 
-    public void cvq() {
-        if (!this.iuX) {
+    public void cvr() {
+        if (!this.iuZ) {
             ad.a(new ac<Object>() { // from class: com.baidu.tieba.enterForum.c.a.1
                 @Override // com.baidu.tbadk.util.ac
                 public Object doInBackground() {
                     l<String> dN = com.baidu.tbadk.core.c.a.brq().dN("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? "local" : TbadkCoreApplication.getCurrentAccount());
-                    if (dN != null && a.this.iuW != null) {
-                        dN.setForever("recently_visited_forum", OrmObject.jsonStrWithObject(a.this.iuW));
+                    if (dN != null && a.this.iuY != null) {
+                        dN.setForever("recently_visited_forum", OrmObject.jsonStrWithObject(a.this.iuY));
                     }
                     return null;
                 }
@@ -100,22 +100,22 @@ public class a {
         e(visitedForumData);
     }
 
-    public void cvr() {
-        if (this.iuY != null) {
-            this.iuY.b(this.iuW.getForumData(), this.isFromCache);
+    public void cvs() {
+        if (this.iva != null) {
+            this.iva.b(this.iuY.getForumData(), this.isFromCache);
         }
     }
 
     public void onNotify() {
-        if (this.iuY != null) {
-            this.iuY.onNotify();
+        if (this.iva != null) {
+            this.iva.onNotify();
         }
     }
 
     private a() {
-        this.iuX = false;
+        this.iuZ = false;
         this.isLoading = false;
-        this.iuZ = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_FORUM) { // from class: com.baidu.tieba.enterForum.c.a.3
+        this.ivb = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_FORUM) { // from class: com.baidu.tieba.enterForum.c.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -129,11 +129,11 @@ public class a {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    a.this.cvt();
+                    a.this.cvu();
                 }
             }
         };
-        this.iva = new com.baidu.adp.framework.listener.a(1003394, CmdConfigSocket.CMD_GET_HISTORY_FORUM) { // from class: com.baidu.tieba.enterForum.c.a.5
+        this.ivc = new com.baidu.adp.framework.listener.a(1003394, CmdConfigSocket.CMD_GET_HISTORY_FORUM) { // from class: com.baidu.tieba.enterForum.c.a.5
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 a.this.isLoading = false;
@@ -146,21 +146,21 @@ public class a {
                 }
             }
         };
-        this.iuW = new RecentlyVisitedForumData();
+        this.iuY = new RecentlyVisitedForumData();
         registerListener();
-        cvt();
+        cvu();
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.iva);
-        MessageManager.getInstance().registerListener(this.iuZ);
+        MessageManager.getInstance().registerListener(this.ivc);
+        MessageManager.getInstance().registerListener(this.ivb);
         MessageManager.getInstance().registerListener(this.mAccountChangeListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        private static a ivc = new a();
+        private static a ive = new a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -177,29 +177,29 @@ public class a {
         }
     }
 
-    public RecentlyVisitedForumData cvs() {
-        return this.iuW;
+    public RecentlyVisitedForumData cvt() {
+        return this.iuY;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(VisitedForumData visitedForumData) {
         if (visitedForumData != null) {
-            this.iuW.a(visitedForumData);
-            this.iuW.yJ(20);
+            this.iuY.a(visitedForumData);
+            this.iuY.yJ(20);
+            cvs();
             cvr();
-            cvq();
-            cvn().cvo();
+            cvo().cvp();
         }
     }
 
     private void e(VisitedForumData visitedForumData) {
         int b2;
-        if (visitedForumData != null && (b2 = this.iuW.b(visitedForumData)) >= 0) {
-            if (this.iuY != null) {
-                this.iuY.yK(b2);
+        if (visitedForumData != null && (b2 = this.iuY.b(visitedForumData)) >= 0) {
+            if (this.iva != null) {
+                this.iva.yK(b2);
             }
             f(visitedForumData);
-            cvq();
+            cvr();
         }
     }
 
@@ -214,16 +214,16 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(LinkedList<VisitedForumData> linkedList, boolean z) {
         if (linkedList != null) {
-            this.iuW.setForumData(linkedList);
-            this.iuW.yJ(20);
+            this.iuY.setForumData(linkedList);
+            this.iuY.yJ(20);
             this.isFromCache = z;
-            cvr();
+            cvs();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cvt() {
-        this.iuX = true;
+    public void cvu() {
+        this.iuZ = true;
         BdAsyncTask<Void, Void, RecentlyVisitedForumData> bdAsyncTask = new BdAsyncTask<Void, Void, RecentlyVisitedForumData>() { // from class: com.baidu.tieba.enterForum.c.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -262,7 +262,7 @@ public class a {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: b */
             public void onPostExecute(RecentlyVisitedForumData recentlyVisitedForumData) {
-                a.this.iuX = false;
+                a.this.iuZ = false;
                 if (recentlyVisitedForumData != null) {
                     a.this.a(recentlyVisitedForumData.getForumData(), true);
                 }

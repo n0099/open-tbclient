@@ -20,15 +20,15 @@ import com.baidu.tieba.sdk.b.e;
 public class b implements CustomMessageTask.CustomRunnable {
     @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-        e dHt = com.baidu.tieba.sdk.d.a.dHl().dHt();
-        if (dHt != null) {
+        e dHu = com.baidu.tieba.sdk.d.a.dHm().dHu();
+        if (dHu != null) {
             if (customMessage.getData() instanceof x) {
                 x xVar = (x) customMessage.getData();
                 ShareEntity shareEntity = new ShareEntity();
                 a(xVar.alaLiveShowData, shareEntity);
                 f(shareEntity);
                 if (ay(xVar.activity)) {
-                    dHt.a(xVar.activity, shareEntity);
+                    dHu.a(xVar.activity, shareEntity);
                 }
             } else if (customMessage.getData() instanceof ShareEntityWrapperData) {
                 ShareEntityWrapperData shareEntityWrapperData = (ShareEntityWrapperData) customMessage.getData();
@@ -36,7 +36,7 @@ public class b implements CustomMessageTask.CustomRunnable {
                 ShareEntity shareEntity2 = shareEntityWrapperData.shareEntity;
                 if (shareEntity2.sharePanel()) {
                     if (ay(shareEntityWrapperData.activity)) {
-                        dHt.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                        dHu.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
                     }
                 } else {
                     try {
@@ -54,7 +54,7 @@ public class b implements CustomMessageTask.CustomRunnable {
                         }
                     } catch (Exception e) {
                         if (ay(shareEntityWrapperData.activity)) {
-                            dHt.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
+                            dHu.a(shareEntityWrapperData.activity, shareEntityWrapperData.shareEntity);
                         }
                     }
                 }
@@ -64,7 +64,7 @@ public class b implements CustomMessageTask.CustomRunnable {
     }
 
     private boolean ay(Activity activity) {
-        if (activity == null || com.baidu.tieba.sdk.d.a.dHl().dHt() == null || com.baidu.tieba.sdk.d.a.dHl().dHt().dfE() || UtilHelper.getRealScreenOrientation(activity) != 2) {
+        if (activity == null || com.baidu.tieba.sdk.d.a.dHm().dHu() == null || com.baidu.tieba.sdk.d.a.dHm().dHu().dfF() || UtilHelper.getRealScreenOrientation(activity) != 2) {
             return true;
         }
         BdUtilHelper.showToast(activity, "暂不支持分享");

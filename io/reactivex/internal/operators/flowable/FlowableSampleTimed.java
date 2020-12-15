@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes9.dex */
 public final class FlowableSampleTimed<T> extends a<T, T> {
-    final boolean pFQ;
+    final boolean pFS;
     final long period;
     final v scheduler;
     final TimeUnit unit;
@@ -21,10 +21,10 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.pFQ) {
-            this.pFg.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
+        if (this.pFS) {
+            this.pFi.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
-            this.pFg.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
+            this.pFi.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
         }
     }
 

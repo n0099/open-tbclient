@@ -30,9 +30,9 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffec
 public class AlaEffectPreviewView extends LinearLayout {
     private int bdE;
     private TextView cRf;
-    private LinearLayout gfN;
-    private b.a hPH;
-    private ImageView hPI;
+    private LinearLayout gfP;
+    private b.a hPJ;
+    private ImageView hPK;
     private ImageView mIconView;
     private ObjectAnimator mObjectAnimator;
     private View mRootView;
@@ -57,12 +57,12 @@ public class AlaEffectPreviewView extends LinearLayout {
         this.mRootView = inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
         this.mIconView = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
         this.cRf = (TextView) findViewById(R.id.ala_im_user_enter_content);
-        this.gfN = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
-        this.hPI = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
+        this.gfP = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
+        this.hPK = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
     }
 
     public void setAnimCompleteCallback(b.a aVar) {
-        this.hPH = aVar;
+        this.hPJ = aVar;
     }
 
     public void setData(AlaEnterEffectData alaEnterEffectData) {
@@ -161,14 +161,14 @@ public class AlaEffectPreviewView extends LinearLayout {
                 gradientDrawable.setColor(-1291889568);
             }
             gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds10));
-            this.gfN.setBackgroundDrawable(gradientDrawable);
+            this.gfP.setBackgroundDrawable(gradientDrawable);
             if (3 == alaEnterEffectData.categoryType) {
-                this.hPI.setVisibility(0);
+                this.hPK.setVisibility(0);
             }
         }
     }
 
-    public void cnk() {
+    public void cnl() {
         if (getMeasuredWidth() <= 0) {
             measure(0, 0);
         }
@@ -189,8 +189,8 @@ public class AlaEffectPreviewView extends LinearLayout {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (AlaEffectPreviewView.this.hPH != null) {
-                    AlaEffectPreviewView.this.hPH.cnm();
+                if (AlaEffectPreviewView.this.hPJ != null) {
+                    AlaEffectPreviewView.this.hPJ.cnn();
                 }
             }
 

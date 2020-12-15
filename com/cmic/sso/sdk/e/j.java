@@ -8,27 +8,27 @@ import com.cmic.sso.sdk.a.b;
 /* loaded from: classes10.dex */
 public class j {
     @SuppressLint({"StaticFieldLeak"})
-    private static j pac;
+    private static j paf;
 
     /* renamed from: a  reason: collision with root package name */
     private Context f4027a;
 
     public static void a(Context context) {
-        pac = new j(context);
+        paf = new j(context);
     }
 
     private j(Context context) {
         this.f4027a = context;
     }
 
-    public static j eoH() {
-        return pac;
+    public static j eoI() {
+        return paf;
     }
 
     public String b() {
         try {
-            b.C0982b eoz = com.cmic.sso.sdk.a.b.eoy().eoz();
-            return eoz.PH(eoz.f());
+            b.C0982b eoA = com.cmic.sso.sdk.a.b.eoz().eoA();
+            return eoA.PH(eoA.f());
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -40,8 +40,8 @@ public class j {
         String str;
         TelephonyManager telephonyManager;
         String str2;
-        b.C0982b eoz = com.cmic.sso.sdk.a.b.eoy().eoz();
-        String PJ = eoz.PJ(eoz.f());
+        b.C0982b eoA = com.cmic.sso.sdk.a.b.eoz().eoA();
+        String PJ = eoA.PJ(eoA.f());
         if (TextUtils.isEmpty(PJ) && n.a(this.f4027a) && (telephonyManager = (TelephonyManager) this.f4027a.getSystemService("phone")) != null) {
             String simOperator = telephonyManager.getSimOperator();
             if (TextUtils.isEmpty(simOperator) && g.a(this.f4027a, "android.permission.READ_PHONE_STATE") && n.d()) {
@@ -159,8 +159,8 @@ public class j {
     public String AI(boolean z) {
         try {
             if (n.d()) {
-                b.C0982b eoz = com.cmic.sso.sdk.a.b.eoy().eoz();
-                String PI = eoz.PI(eoz.f());
+                b.C0982b eoA = com.cmic.sso.sdk.a.b.eoz().eoA();
+                String PI = eoA.PI(eoA.f());
                 if (TextUtils.isEmpty(PI) && z) {
                     PI = ((TelephonyManager) this.f4027a.getSystemService("phone")).getDeviceId();
                 }
@@ -178,8 +178,8 @@ public class j {
 
     public String c() {
         try {
-            b.C0982b eoz = com.cmic.sso.sdk.a.b.eoy().eoz();
-            String PH = eoz.PH((eoz.f() + 1) % 2);
+            b.C0982b eoA = com.cmic.sso.sdk.a.b.eoz().eoA();
+            String PH = eoA.PH((eoA.f() + 1) % 2);
             if (PH == null) {
                 return "";
             }
@@ -191,8 +191,8 @@ public class j {
 
     public String d() {
         try {
-            b.C0982b eoz = com.cmic.sso.sdk.a.b.eoy().eoz();
-            String PI = eoz.PI((eoz.f() + 1) % 2);
+            b.C0982b eoA = com.cmic.sso.sdk.a.b.eoz().eoA();
+            String PI = eoA.PI((eoA.f() + 1) % 2);
             if (PI == null) {
                 return "";
             }
@@ -204,8 +204,8 @@ public class j {
 
     @SuppressLint({"MissingPermission"})
     public static String e() {
-        b.C0982b eoz = com.cmic.sso.sdk.a.b.eoy().eoz();
-        return eoz.a(eoz.f());
+        b.C0982b eoA = com.cmic.sso.sdk.a.b.eoz().eoA();
+        return eoA.a(eoA.f());
     }
 
     public String f() {

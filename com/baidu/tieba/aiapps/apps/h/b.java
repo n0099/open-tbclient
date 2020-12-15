@@ -31,7 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes25.dex */
 public class b extends aa {
-    public static String geX = "com.baidu.tieba://";
+    public static String geZ = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -154,7 +154,7 @@ public class b extends aa {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = geX;
+            String str7 = geZ;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;

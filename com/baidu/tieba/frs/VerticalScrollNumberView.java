@@ -9,9 +9,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class VerticalScrollNumberView extends LinearLayout {
     private int fgy;
-    private int iYk;
-    private int iYl;
     private int iYm;
+    private int iYn;
+    private int iYo;
     private Context mContext;
 
     public VerticalScrollNumberView(Context context) {
@@ -34,10 +34,10 @@ public class VerticalScrollNumberView extends LinearLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        this.iYk = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds30);
+        this.iYm = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds30);
         this.fgy = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds40);
-        this.iYl = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds2);
-        this.iYm = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds8);
+        this.iYn = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds2);
+        this.iYo = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds8);
     }
 
     public void setData(int i) {
@@ -54,10 +54,10 @@ public class VerticalScrollNumberView extends LinearLayout {
             if (getChildAt(childCount) instanceof ScrollTextView) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 if (i4 == 2) {
-                    layoutParams.setMargins(this.iYm, 0, 0, 0);
+                    layoutParams.setMargins(this.iYo, 0, 0, 0);
                     i4 = 0;
                 } else {
-                    layoutParams.setMargins(this.iYl, 0, 0, 0);
+                    layoutParams.setMargins(this.iYn, 0, 0, 0);
                     i4++;
                 }
                 getChildAt(childCount).setLayoutParams(layoutParams);
@@ -77,7 +77,7 @@ public class VerticalScrollNumberView extends LinearLayout {
         scrollTextView.setMaxLines(1);
         scrollTextView.setContinuousScrolling(false);
         scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-        scrollTextView.setWidth(this.iYk);
+        scrollTextView.setWidth(this.iYm);
         scrollTextView.setHeight(this.fgy);
         addView(scrollTextView);
     }

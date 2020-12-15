@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class i extends BaseAdapter {
-    private List<com.baidu.live.challenge.d> hjE = new ArrayList();
-    private j.a hls;
+    private List<com.baidu.live.challenge.d> hjG = new ArrayList();
+    private j.a hlu;
     private Context mContext;
 
     public i(Context context) {
@@ -25,38 +25,38 @@ public class i extends BaseAdapter {
 
     public void setDatas(List<com.baidu.live.challenge.d> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
-            this.hjE.clear();
-            this.hjE.addAll(list);
+            this.hjG.clear();
+            this.hjG.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public void cC(List<com.baidu.live.challenge.d> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
-            this.hjE.addAll(list);
+            this.hjG.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public void cdM() {
-        if (!ListUtils.isEmpty(this.hjE)) {
-            this.hjE.clear();
+    public void cdN() {
+        if (!ListUtils.isEmpty(this.hjG)) {
+            this.hjG.clear();
             notifyDataSetChanged();
         }
     }
 
     public void a(j.a aVar) {
-        this.hls = aVar;
+        this.hlu = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.hjE.size();
+        return this.hjG.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.hjE.get(i);
+        return this.hjG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,7 +66,7 @@ public class i extends BaseAdapter {
 
     public void i(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            for (com.baidu.live.challenge.d dVar2 : this.hjE) {
+            for (com.baidu.live.challenge.d dVar2 : this.hjG) {
                 if (dVar.equals(dVar2)) {
                     dVar2.aIh = dVar.aIh;
                     dVar2.aIg = dVar.aIg;
@@ -82,40 +82,40 @@ public class i extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_challenge_user_item_view_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.hlv = (HeadImageView) view.findViewById(a.f.ala_challenge_user_header);
-            aVar.hlv.setIsRound(true);
-            aVar.hlv.setAutoChangeStyle(false);
+            aVar.hlx = (HeadImageView) view.findViewById(a.f.ala_challenge_user_header);
+            aVar.hlx.setIsRound(true);
+            aVar.hlx.setAutoChangeStyle(false);
             aVar.eBQ = (TextView) view.findViewById(a.f.ala_challenge_user_name);
-            aVar.hlw = (TextView) view.findViewById(a.f.ala_challenge_user_status);
-            aVar.gED = (TextView) view.findViewById(a.f.ala_challenge_user_charm);
+            aVar.hly = (TextView) view.findViewById(a.f.ala_challenge_user_status);
+            aVar.gEF = (TextView) view.findViewById(a.f.ala_challenge_user_charm);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        final com.baidu.live.challenge.d dVar = this.hjE.get(i);
-        aVar.hlv.startLoad(dVar.avatar, 12, false);
+        final com.baidu.live.challenge.d dVar = this.hjG.get(i);
+        aVar.hlx.startLoad(dVar.avatar, 12, false);
         aVar.eBQ.setText(Html.fromHtml(dVar.userName));
-        aVar.gED.setText(this.mContext.getString(a.h.sdk_charm_name, String.valueOf(dVar.charmCount)));
+        aVar.gEF.setText(this.mContext.getString(a.h.sdk_charm_name, String.valueOf(dVar.charmCount)));
         if (dVar.aIh && dVar.aIg != 1) {
-            aVar.hlw.setEnabled(true);
-            aVar.hlw.setBackgroundResource(a.e.sdk_red_border_bg);
-            aVar.hlw.setText(this.mContext.getString(a.h.ala_challenge_invite));
-            aVar.hlw.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i));
+            aVar.hly.setEnabled(true);
+            aVar.hly.setBackgroundResource(a.e.sdk_red_border_bg);
+            aVar.hly.setText(this.mContext.getString(a.h.ala_challenge_invite));
+            aVar.hly.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i));
         } else if (dVar.aIg == 1) {
-            aVar.hlw.setEnabled(false);
-            aVar.hlw.setBackgroundDrawable(null);
-            aVar.hlw.setText(this.mContext.getString(a.h.ala_live_pking));
-            aVar.hlw.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
+            aVar.hly.setEnabled(false);
+            aVar.hly.setBackgroundDrawable(null);
+            aVar.hly.setText(this.mContext.getString(a.h.ala_live_pking));
+            aVar.hly.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
         } else {
-            aVar.hlw.setBackgroundDrawable(null);
-            aVar.hlw.setText(this.mContext.getString(a.h.ala_live_challenging));
-            aVar.hlw.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
+            aVar.hly.setBackgroundDrawable(null);
+            aVar.hly.setText(this.mContext.getString(a.h.ala_live_challenging));
+            aVar.hly.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
         }
-        aVar.hlw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.i.1
+        aVar.hly.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (dVar.aIh && i.this.hls != null) {
-                    i.this.hls.f(dVar);
+                if (dVar.aIh && i.this.hlu != null) {
+                    i.this.hlu.f(dVar);
                     view2.setEnabled(false);
                 }
             }
@@ -126,9 +126,9 @@ public class i extends BaseAdapter {
     /* loaded from: classes4.dex */
     private static class a {
         public TextView eBQ;
-        public TextView gED;
-        public HeadImageView hlv;
-        public TextView hlw;
+        public TextView gEF;
+        public HeadImageView hlx;
+        public TextView hly;
 
         private a() {
         }

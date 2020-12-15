@@ -16,9 +16,9 @@ import tbclient.UserMuteQuery.MuteUser;
 public class a extends BaseAdapter {
     private ArrayList<MuteUser> eOt;
     private BaseActivity mActivity;
-    private b mZi;
-    private InterfaceC0861a mZj;
-    private SimpleDateFormat mZl = new SimpleDateFormat("yyyy.MM.dd");
+    private b mZk;
+    private InterfaceC0861a mZl;
+    private SimpleDateFormat mZn = new SimpleDateFormat("yyyy.MM.dd");
 
     /* renamed from: com.baidu.tieba.setting.usermutelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes26.dex */
@@ -33,8 +33,8 @@ public class a extends BaseAdapter {
 
     public a(BaseActivity baseActivity, b bVar, InterfaceC0861a interfaceC0861a) {
         this.mActivity = baseActivity;
-        this.mZi = bVar;
-        this.mZj = interfaceC0861a;
+        this.mZk = bVar;
+        this.mZl = interfaceC0861a;
     }
 
     public void setData(ArrayList<MuteUser> arrayList) {
@@ -83,56 +83,56 @@ public class a extends BaseAdapter {
         if (obj == null) {
             cVar = new c();
             cVar.rootView = LayoutInflater.from(this.mActivity.getPageContext().getContext()).inflate(R.layout.user_mute_list_item, (ViewGroup) null);
-            cVar.hLB = (TextView) cVar.rootView.findViewById(R.id.item_user_name);
-            cVar.mZp = (TextView) cVar.rootView.findViewById(R.id.item_mute_terminate_time);
-            cVar.mZq = (TextView) cVar.rootView.findViewById(R.id.item_remove_button);
-            cVar.mZo = (HeadImageView) cVar.rootView.findViewById(R.id.item_header_view);
+            cVar.hLD = (TextView) cVar.rootView.findViewById(R.id.item_user_name);
+            cVar.mZr = (TextView) cVar.rootView.findViewById(R.id.item_mute_terminate_time);
+            cVar.mZs = (TextView) cVar.rootView.findViewById(R.id.item_remove_button);
+            cVar.mZq = (HeadImageView) cVar.rootView.findViewById(R.id.item_header_view);
             cVar.rootView.setTag(cVar);
+            cVar.mZs.setTag(Integer.valueOf(i));
             cVar.mZq.setTag(Integer.valueOf(i));
-            cVar.mZo.setTag(Integer.valueOf(i));
-            cVar.hLB.setTag(Integer.valueOf(i));
+            cVar.hLD.setTag(Integer.valueOf(i));
         } else {
             cVar = (c) obj;
         }
-        cVar.mZq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.1
+        cVar.mZs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.mZi != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.mZi.B(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.mZk != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.mZk.B(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
-        cVar.mZo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.2
+        cVar.mZq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.mZj != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.mZj.C(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.mZl != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.mZl.C(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
-        cVar.hLB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.3
+        cVar.hLD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.mZj != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.mZj.C(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.mZl != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.mZl.C(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
         String str = muteUser.portrait;
         if (str != null) {
-            cVar.mZo.setTag(str);
-            cVar.mZo.startLoad(str, 12, false);
+            cVar.mZq.setTag(str);
+            cVar.mZq.startLoad(str, 12, false);
         }
         if (muteUser.name_show != null) {
-            cVar.hLB.setText(muteUser.name_show);
+            cVar.hLD.setText(muteUser.name_show);
         } else {
-            cVar.hLB.setText(muteUser.user_name);
+            cVar.hLD.setText(muteUser.user_name);
         }
         if (muteUser.mute_time != null) {
-            cVar.mZp.setText(this.mActivity.getResources().getString(R.string.auto_terminate_mute_time, this.mZl.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
+            cVar.mZr.setText(this.mActivity.getResources().getString(R.string.auto_terminate_mute_time, this.mZn.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
         }
         if (muteUser.user_id != null) {
-            cVar.mZq.setTag(muteUser.user_id);
+            cVar.mZs.setTag(muteUser.user_id);
         }
         this.mActivity.getLayoutMode().onModeChanged(cVar.rootView);
         return cVar;
@@ -141,10 +141,10 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes26.dex */
     public class c {
-        TextView hLB;
-        HeadImageView mZo;
-        TextView mZp;
-        TextView mZq;
+        TextView hLD;
+        HeadImageView mZq;
+        TextView mZr;
+        TextView mZs;
         View rootView;
 
         private c() {

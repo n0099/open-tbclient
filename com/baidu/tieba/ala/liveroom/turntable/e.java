@@ -18,8 +18,8 @@ import com.baidu.webkit.internal.ETAG;
 public class e {
     private CustomMessageListener bRw;
     private Activity beD;
-    private d.a hCR;
-    private d hCT;
+    private d.a hCT;
+    private d hCV;
 
     public e(Activity activity) {
         this.beD = activity;
@@ -27,39 +27,39 @@ public class e {
     }
 
     public void a(String str, long j, long j2, long j3) {
-        this.hCT = new d(this.beD);
-        this.hCT.a(this.hCR);
-        this.hCT.getWebView().setBackgroundColor(iu(str));
+        this.hCV = new d(this.beD);
+        this.hCV.a(this.hCT);
+        this.hCV.getWebView().setBackgroundColor(iu(str));
         g gVar = new g();
-        gVar.x(this.beD).a(this.hCT).a(this.hCT.getWebView().getSchemeCallback());
+        gVar.x(this.beD).a(this.hCV).a(this.hCV.getWebView().getSchemeCallback());
         com.baidu.live.view.web.a[] YO = gVar.YO();
         for (com.baidu.live.view.web.a aVar : YO) {
-            this.hCT.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            this.hCV.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hCT.GD(b(str, j, j2, j3));
+        this.hCV.GD(b(str, j, j2, j3));
     }
 
     public void resume() {
-        if (this.hCT != null && this.hCT.isShowing() && this.hCT.getWebView() != null) {
-            this.hCT.getWebView().onResume();
+        if (this.hCV != null && this.hCV.isShowing() && this.hCV.getWebView() != null) {
+            this.hCV.getWebView().onResume();
         }
     }
 
     public void pause() {
-        if (this.hCT != null && this.hCT.isShowing() && this.hCT.getWebView() != null) {
-            this.hCT.getWebView().onPause();
+        if (this.hCV != null && this.hCV.isShowing() && this.hCV.getWebView() != null) {
+            this.hCV.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.hCT != null) {
-            this.hCT.YQ();
+        if (this.hCV != null) {
+            this.hCV.YQ();
         }
     }
 
     public void dX(int i) {
-        if (this.hCT != null && this.hCT.isShowing()) {
-            this.hCT.dX(i);
+        if (this.hCV != null && this.hCV.isShowing()) {
+            this.hCV.dX(i);
         }
     }
 
@@ -77,8 +77,8 @@ public class e {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.hCT != null && e.this.hCT.isShowing()) {
-                    e.this.hCT.dismiss();
+                if (e.this.hCV != null && e.this.hCV.isShowing()) {
+                    e.this.hCV.dismiss();
                 }
             }
         };
@@ -127,10 +127,10 @@ public class e {
     }
 
     public void a(d.a aVar) {
-        this.hCR = aVar;
+        this.hCT = aVar;
     }
 
-    public d.a ckH() {
-        return this.hCR;
+    public d.a ckI() {
+        return this.hCT;
     }
 }

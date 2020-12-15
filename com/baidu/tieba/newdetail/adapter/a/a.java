@@ -6,7 +6,7 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.adp.widget.ListView.af.a;
 /* loaded from: classes21.dex */
 public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private boolean lpH;
+    private boolean lpJ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -14,10 +14,10 @@ public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView
     }
 
     public void uf(boolean z) {
-        this.lpH = z;
+        this.lpJ = z;
     }
 
-    public boolean dki() {
-        return this.lpH;
+    public boolean dkj() {
+        return this.lpJ;
     }
 }

@@ -4,29 +4,29 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 /* loaded from: classes14.dex */
 public class b {
-    static ArrayList<Integer> oJi = new ArrayList<>(4);
-    static String oJj;
+    static ArrayList<Integer> oJk = new ArrayList<>(4);
+    static String oJl;
 
     static {
-        oJi.add(10000);
-        oJi.add(10001);
-        oJi.add(10002);
-        oJi.add(Integer.valueOf((int) com.baidu.sapi2.share.b.h));
-        oJi.add(-1);
+        oJk.add(10000);
+        oJk.add(10001);
+        oJk.add(10002);
+        oJk.add(Integer.valueOf((int) com.baidu.sapi2.share.b.h));
+        oJk.add(-1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int ejR() {
-        if (TextUtils.isEmpty(oJj)) {
-            oJj = com.baidu.r.a.c.d.getManufacturer();
+    public static int ejS() {
+        if (TextUtils.isEmpty(oJl)) {
+            oJl = com.baidu.r.a.c.d.getManufacturer();
         }
-        if (TextUtils.isEmpty(oJj)) {
+        if (TextUtils.isEmpty(oJl)) {
             return com.baidu.sapi2.share.b.h;
         }
-        if (oJj.toUpperCase().contains("HUAWEI")) {
+        if (oJl.toUpperCase().contains("HUAWEI")) {
             return 10001;
         }
-        if (oJj.toUpperCase().contains("XIAOMI")) {
+        if (oJl.toUpperCase().contains("XIAOMI")) {
             return 10002;
         }
         return com.baidu.sapi2.share.b.h;

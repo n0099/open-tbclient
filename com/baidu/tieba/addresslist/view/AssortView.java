@@ -12,7 +12,7 @@ import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class AssortView extends View {
-    private a gcZ;
+    private a gdb;
     private Paint mPaint;
     private int mPosition;
 
@@ -20,7 +20,7 @@ public class AssortView extends View {
     public interface a {
         void FH(String str);
 
-        void bMN();
+        void bMO();
     }
 
     public AssortView(Context context) {
@@ -46,7 +46,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.gcZ = aVar;
+        this.gdb = aVar;
     }
 
     @Override // android.view.View
@@ -80,22 +80,22 @@ public class AssortView extends View {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.gcZ != null) {
-                        this.gcZ.FH(c.fng[this.mPosition]);
+                    if (this.gdb != null) {
+                        this.gdb.FH(c.fng[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.gcZ != null) {
-                        this.gcZ.bMN();
+                    if (this.gdb != null) {
+                        this.gdb.bMO();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.gcZ != null) {
-                            this.gcZ.FH(c.fng[this.mPosition]);
+                        if (this.gdb != null) {
+                            this.gdb.FH(c.fng[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -106,8 +106,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.gcZ != null) {
-            this.gcZ.bMN();
+        if (this.gdb != null) {
+            this.gdb.bMO();
             return true;
         }
         return true;

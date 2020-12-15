@@ -11,12 +11,12 @@ import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes4.dex */
 public abstract class e {
     private Context mContext;
-    public TextView oMa;
-    public ImageView oMd;
+    public TextView oMc;
     public ImageView oMf;
-    public ImageView oMg;
-    public View oMh;
-    public ProgressBar oMi;
+    public ImageView oMh;
+    public ImageView oMi;
+    public View oMj;
+    public ProgressBar oMk;
 
     public abstract View getContentView();
 
@@ -24,29 +24,29 @@ public abstract class e {
 
     public void d(ChatMsg chatMsg) {
         if (chatMsg.isMsgSendSuccess()) {
-            this.oMh.setVisibility(4);
+            this.oMj.setVisibility(4);
             return;
         }
-        this.oMh.setVisibility(0);
+        this.oMj.setVisibility(0);
         if (chatMsg.getStatus() == 2) {
-            this.oMg.setVisibility(0);
-            this.oMi.setVisibility(8);
+            this.oMi.setVisibility(0);
+            this.oMk.setVisibility(8);
         } else if (chatMsg.getStatus() == 1) {
-            this.oMg.setVisibility(8);
+            this.oMi.setVisibility(8);
             SingleGraphicTextMsgExt singleGraphicTextMsgExt = null;
             if (chatMsg instanceof SignleGraphicTextMsg) {
                 singleGraphicTextMsgExt = new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
             }
-            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.enZ() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
+            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.eoa() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
                 if (chatMsg.isReSend()) {
-                    this.oMi.setVisibility(0);
+                    this.oMk.setVisibility(0);
                     return;
                 } else {
-                    this.oMi.setVisibility(8);
+                    this.oMk.setVisibility(8);
                     return;
                 }
             }
-            this.oMi.setVisibility(0);
+            this.oMk.setVisibility(0);
         }
     }
 

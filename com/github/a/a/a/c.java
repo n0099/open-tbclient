@@ -7,19 +7,19 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class c {
-    private static final Object psV = new Object();
+    private static final Object psX = new Object();
     private static volatile String sProcessName;
 
-    public static String exT() {
+    public static String exU() {
         String str;
         if (sProcessName != null) {
             return sProcessName;
         }
-        synchronized (psV) {
+        synchronized (psX) {
             if (sProcessName != null) {
                 str = sProcessName;
             } else {
-                sProcessName = hL(com.github.a.a.c.exJ().provideContext());
+                sProcessName = hL(com.github.a.a.c.exK().provideContext());
                 str = sProcessName;
             }
         }

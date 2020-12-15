@@ -15,18 +15,18 @@ import tbclient.FrsTabInfo;
 /* loaded from: classes22.dex */
 public class d {
     private TextView cRf;
-    private com.baidu.tbadk.core.dialog.a iWJ;
-    private TextView iWK;
-    private ImageView igR;
+    private com.baidu.tbadk.core.dialog.a iWL;
+    private TextView iWM;
+    private ImageView igT;
     private boolean mIsChecked;
     private TextView mTitleView;
 
     public void a(TbPageContext tbPageContext, final FrsTabInfo frsTabInfo, final FrsTabInfo frsTabInfo2) {
         if (frsTabInfo != null && frsTabInfo2 != null) {
-            if (this.iWJ == null || !this.iWJ.isShowing()) {
-                this.iWJ = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                this.iWJ.oT(1);
-                this.iWJ.oS(R.color.CAM_X0105);
+            if (this.iWL == null || !this.iWL.isShowing()) {
+                this.iWL = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+                this.iWL.oT(1);
+                this.iWL.oS(R.color.CAM_X0105);
                 View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
                 this.mTitleView = (TextView) inflate.findViewById(R.id.title);
                 this.mTitleView.setText(R.string.frs_move_area_popup_title);
@@ -36,8 +36,8 @@ public class d {
                 } else {
                     this.cRf.setText(String.format(tbPageContext.getString(R.string.frs_move_area_popup_content), frsTabInfo.tab_name, frsTabInfo2.tab_name, frsTabInfo.tab_name));
                 }
-                this.igR = (ImageView) inflate.findViewById(R.id.checkbox);
-                this.iWK = (TextView) inflate.findViewById(R.id.no_tip_again_text);
+                this.igT = (ImageView) inflate.findViewById(R.id.checkbox);
+                this.iWM = (TextView) inflate.findViewById(R.id.no_tip_again_text);
                 inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
@@ -46,24 +46,24 @@ public class d {
                     }
                 });
                 onChangeSkinType();
-                this.iWJ.bi(inflate);
-                this.iWJ.a(tbPageContext.getString(R.string.frs_move_area_popup_confirm), new a.b() { // from class: com.baidu.tieba.frs.view.d.2
+                this.iWL.bi(inflate);
+                this.iWL.a(tbPageContext.getString(R.string.frs_move_area_popup_confirm), new a.b() { // from class: com.baidu.tieba.frs.view.d.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("key_frs_move_area_tip", !d.this.mIsChecked);
-                        com.baidu.tieba.frs.a.cAW().co(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
-                        d.this.iWJ.dismiss();
-                        d.this.iWJ = null;
+                        com.baidu.tieba.frs.a.cAX().co(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                        d.this.iWL.dismiss();
+                        d.this.iWL = null;
                     }
                 });
-                this.iWJ.b(tbPageContext.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.view.d.3
+                this.iWL.b(tbPageContext.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.view.d.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                        d.this.iWJ.dismiss();
-                        d.this.iWJ = null;
+                        d.this.iWL.dismiss();
+                        d.this.iWL = null;
                     }
                 });
-                this.iWJ.b(tbPageContext).brv();
+                this.iWL.b(tbPageContext).brv();
             }
         }
     }
@@ -71,8 +71,8 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void brs() {
         Drawable a2;
-        if (this.igR != null) {
-            ImageView imageView = this.igR;
+        if (this.igT != null) {
+            ImageView imageView = this.igT;
             if (this.mIsChecked) {
                 a2 = SvgManager.btW().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
@@ -90,8 +90,8 @@ public class d {
             ap.setViewTextColor(this.cRf, R.color.CAM_X0107);
         }
         brs();
-        if (this.iWK != null) {
-            ap.setViewTextColor(this.iWK, R.color.CAM_X0107);
+        if (this.iWM != null) {
+            ap.setViewTextColor(this.iWM, R.color.CAM_X0107);
         }
     }
 }

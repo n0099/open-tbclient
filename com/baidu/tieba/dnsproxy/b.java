@@ -11,17 +11,17 @@ import java.io.IOException;
 import java.util.Set;
 /* loaded from: classes13.dex */
 public class b {
-    private static b iqV = null;
+    private static b iqX = null;
 
-    public static final b ctL() {
-        if (iqV == null) {
+    public static final b ctM() {
+        if (iqX == null) {
             synchronized (b.class) {
-                if (iqV == null) {
-                    iqV = new b();
+                if (iqX == null) {
+                    iqX = new b();
                 }
             }
         }
-        return iqV;
+        return iqX;
     }
 
     private b() {
@@ -35,14 +35,14 @@ public class b {
 
     /* loaded from: classes13.dex */
     private static class a extends BdAsyncTask<String, Void, Boolean> {
-        private static final BdUniqueId gtl = BdUniqueId.gen();
+        private static final BdUniqueId gtn = BdUniqueId.gen();
         private long Ny;
         Process frY;
         private String ip;
 
         private a(String str) {
             this.frY = null;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, gtl));
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, gtn));
             this.ip = str;
         }
 
@@ -79,19 +79,19 @@ public class b {
                     } catch (IOException e3) {
                         e2 = e3;
                         BdLog.detailException(e2);
-                        d.ctM().eL("test_speed", e2.getMessage());
+                        d.ctN().eL("test_speed", e2.getMessage());
                         this.frY.destroy();
                         return Boolean.valueOf(z);
                     } catch (InterruptedException e4) {
                         e = e4;
                         BdLog.detailException(e);
-                        d.ctM().eL("test_speed", e.getMessage());
+                        d.ctN().eL("test_speed", e.getMessage());
                         this.frY.destroy();
                         return Boolean.valueOf(z);
                     } catch (Throwable th2) {
                         th = th2;
                         BdLog.detailException(th);
-                        d.ctM().eL("test_speed", th.getMessage());
+                        d.ctN().eL("test_speed", th.getMessage());
                         this.frY.destroy();
                         return Boolean.valueOf(z);
                     }
@@ -122,7 +122,7 @@ public class b {
                     th.printStackTrace();
                 }
             }
-            com.baidu.tieba.dnsproxy.a.d.cua().c(this.ip, (int) this.Ny, false);
+            com.baidu.tieba.dnsproxy.a.d.cub().c(this.ip, (int) this.Ny, false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             boolean booleanValue = bool != null ? bool.booleanValue() : true;
-            com.baidu.tieba.dnsproxy.a.d.cua().c(this.ip, (int) this.Ny, booleanValue);
+            com.baidu.tieba.dnsproxy.a.d.cub().c(this.ip, (int) this.Ny, booleanValue);
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_testspeed");
             statsItem.append("issuc", Boolean.valueOf(booleanValue));

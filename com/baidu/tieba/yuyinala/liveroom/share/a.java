@@ -29,15 +29,15 @@ import org.json.JSONObject;
 public class a {
     private w aFN;
     private BlueCircleProgressDialog bIB;
-    private com.baidu.live.tieba.model.a hBQ;
-    private a.InterfaceC0223a hBR = new a.InterfaceC0223a() { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.2
+    private com.baidu.live.tieba.model.a hBS;
+    private a.InterfaceC0223a hBT = new a.InterfaceC0223a() { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.2
     };
     private Handler mHandler = new Handler();
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        ckr();
+        cks();
     }
 
     public void c(w wVar, boolean z) {
@@ -56,7 +56,7 @@ public class a {
         }
     }
 
-    private void ckr() {
+    private void cks() {
         this.mPageContext.registerListener(new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -96,30 +96,30 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", UbcStatConstant.Page.VOICE_ROOM, LogConfig.VALUE_LIVE_SHARE_TO).setContentExt(jSONObject));
     }
 
-    private void ckt() {
+    private void cku() {
         if (this.bIB != null) {
             this.bIB.setDialogVisiable(false);
         }
     }
 
     public void En() {
-        ckt();
+        cku();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hBQ != null) {
-            this.hBQ.Vg();
+        if (this.hBS != null) {
+            this.hBS.Vg();
         }
     }
 
     public void onDestroy() {
-        ckt();
+        cku();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hBQ != null) {
-            this.hBQ.Vg();
-            this.hBQ.onDestroy();
+        if (this.hBS != null) {
+            this.hBS.Vg();
+            this.hBS.onDestroy();
         }
     }
 }

@@ -17,8 +17,8 @@ import java.net.URL;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class DnsProxyStatic {
-    private static int irj = 0;
-    private static int irk = 0;
+    private static int irl = 0;
+    private static int irm = 0;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.dnsproxy.DnsProxyStatic.2
@@ -29,9 +29,9 @@ public class DnsProxyStatic {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (SwitchManager.getInstance().findType(DnsProxySwitch.DNSPROXY_KEY) == 1) {
-                            DnsProxyStatic.ctQ();
-                        } else {
                             DnsProxyStatic.ctR();
+                        } else {
+                            DnsProxyStatic.ctS();
                         }
                     }
                 }, 1000L);
@@ -39,7 +39,7 @@ public class DnsProxyStatic {
         });
     }
 
-    public static final void ctQ() {
+    public static final void ctR() {
         com.baidu.adp.lib.network.http.a.a(new com.baidu.adp.lib.network.http.a() { // from class: com.baidu.tieba.dnsproxy.DnsProxyStatic.1
             @Override // com.baidu.adp.lib.network.http.a
             public void a(com.baidu.adp.lib.network.http.e eVar) {
@@ -61,9 +61,9 @@ public class DnsProxyStatic {
 
             @Override // com.baidu.adp.lib.network.http.a
             public String bL(String str) {
-                if (f.ctU().JB(str)) {
+                if (f.ctV().JB(str)) {
                     try {
-                        return e.ctN().aK(new URL(str).getHost(), f.ctU().JC(str));
+                        return e.ctO().aK(new URL(str).getHost(), f.ctV().JC(str));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                         return null;
@@ -72,12 +72,12 @@ public class DnsProxyStatic {
                 return null;
             }
         });
-        e.ctN().start();
+        e.ctO().start();
     }
 
-    public static final void ctR() {
+    public static final void ctS() {
         com.baidu.adp.lib.network.http.a.a((com.baidu.adp.lib.network.http.a) null);
-        e.ctN().close();
+        e.ctO().close();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -94,40 +94,40 @@ public class DnsProxyStatic {
             if (bArr != null && bArr.length == 0) {
                 z = true;
             }
-            com.baidu.tieba.dnsproxy.a.d.cua().aL(dVar.MK, z ? false : true);
+            com.baidu.tieba.dnsproxy.a.d.cub().aL(dVar.MK, z ? false : true);
             if (z) {
                 try {
                     URL url = new URL(eVar.mx().getUrl());
                     com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.append("workflow", "dnsproxy_use");
-                    statsItem.append("sucnum", Integer.valueOf(irj));
+                    statsItem.append("sucnum", Integer.valueOf(irl));
                     statsItem.append("failnum", 1);
                     statsItem.append("host", url.getHost());
                     statsItem.append(TableDefine.UserInfoColumns.COLUMN_IP, dVar.MK);
                     statsItem.append(TiebaInitialize.LogFields.REASON, dVar.exception);
                     BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                    irj = 0;
+                    irl = 0;
                     return;
                 } catch (Throwable th) {
                     BdLog.detailException(th);
                     return;
                 }
             }
-            irj++;
-            if (irj >= 100) {
-                ctS();
+            irl++;
+            if (irl >= 100) {
+                ctT();
             }
         }
     }
 
-    public static final void ctS() {
-        if (irj > 0) {
+    public static final void ctT() {
+        if (irl > 0) {
             try {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.append("workflow", "dnsproxy_use");
-                statsItem.append("sucnum", Integer.valueOf(irj));
+                statsItem.append("sucnum", Integer.valueOf(irl));
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                irj = 0;
+                irl = 0;
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }
@@ -154,33 +154,33 @@ public class DnsProxyStatic {
                     URL url = new URL(eVar.mx().getUrl());
                     com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.append("workflow", "dnsproxy_unuse");
-                    statsItem.append("sucnum", Integer.valueOf(irk));
+                    statsItem.append("sucnum", Integer.valueOf(irm));
                     statsItem.append("failnum", 1);
                     statsItem.append("host", url.getHost());
                     statsItem.append(TiebaInitialize.LogFields.REASON, dVar.exception);
                     BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                    irk = 0;
+                    irm = 0;
                     return;
                 } catch (Throwable th) {
                     BdLog.detailException(th);
                     return;
                 }
             }
-            irk++;
-            if (irk >= 100) {
-                ctT();
+            irm++;
+            if (irm >= 100) {
+                ctU();
             }
         }
     }
 
-    public static final void ctT() {
-        if (irk > 0) {
+    public static final void ctU() {
+        if (irm > 0) {
             try {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.append("workflow", "dnsproxy_unuse");
-                statsItem.append("sucnum", Integer.valueOf(irk));
+                statsItem.append("sucnum", Integer.valueOf(irm));
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                irk = 0;
+                irm = 0;
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }

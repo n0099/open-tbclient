@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 public class RelevanceItemListFragment extends BaseFragment {
     private String mCategory;
     private View mRootView;
-    private a oge;
+    private a ogg;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -30,8 +30,8 @@ public class RelevanceItemListFragment extends BaseFragment {
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
         showLoadingView(this.mRootView);
-        this.oge = new a(this, this.mRootView, this.mCategory, getUniqueId());
-        this.oge.eco();
+        this.ogg = new a(this, this.mRootView, this.mCategory, getUniqueId());
+        this.ogg.ecp();
     }
 
     public void onError(String str) {
@@ -39,15 +39,15 @@ public class RelevanceItemListFragment extends BaseFragment {
         showNetRefreshView(this.mRootView, str, false);
     }
 
-    public void dlw() {
+    public void dlx() {
         if (isLoadingViewAttached()) {
             hideLoadingView(this.mRootView);
         }
     }
 
     public void g(Editable editable) {
-        this.oge.g(editable);
-        this.oge.getListView().setVisibility(8);
+        this.ogg.g(editable);
+        this.ogg.getListView().setVisibility(8);
         showLoadingView(this.mRootView);
     }
 
@@ -55,11 +55,11 @@ public class RelevanceItemListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         hideNetRefreshView(this.mRootView);
-        this.oge.eco();
+        this.ogg.ecp();
         showLoadingView(this.mRootView);
     }
 
-    public void cND() {
+    public void cNE() {
         hideLoadingView(this.mRootView);
         showNoDataNoRefreshView(this.mRootView, false);
     }
@@ -67,7 +67,7 @@ public class RelevanceItemListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.oge.onDestroy();
+        this.ogg.onDestroy();
     }
 
     public void setCategory(String str) {

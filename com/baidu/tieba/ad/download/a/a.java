@@ -11,29 +11,29 @@ import java.util.Set;
 /* loaded from: classes21.dex */
 public class a implements c {
     private static final String TAG = a.class.getSimpleName();
-    public final DownloadCacheKey gax;
+    public final DownloadCacheKey gaz;
     private final Object mLock = new Object();
     private int mPercent = 0;
     private int mState = 0;
-    private final Set<d> gay = new HashSet();
-    private final com.baidu.tieba.ad.download.c gaw = new com.baidu.tieba.ad.download.c();
+    private final Set<d> gaA = new HashSet();
+    private final com.baidu.tieba.ad.download.c gay = new com.baidu.tieba.ad.download.c();
 
     public a(DownloadCacheKey downloadCacheKey) {
-        this.gax = downloadCacheKey;
+        this.gaz = downloadCacheKey;
     }
 
     public void setState(int i) {
         this.mState = i;
     }
 
-    public int bMC() {
+    public int bMD() {
         return this.mState;
     }
 
     public boolean a(d dVar) {
         boolean add;
         synchronized (this.mLock) {
-            add = this.gay.add(dVar);
+            add = this.gaA.add(dVar);
         }
         return add;
     }
@@ -41,35 +41,35 @@ public class a implements c {
     public boolean b(d dVar) {
         boolean remove;
         synchronized (this.mLock) {
-            remove = this.gay.remove(dVar);
+            remove = this.gaA.remove(dVar);
         }
         return remove;
     }
 
-    public boolean bMD() {
-        return this.gay.isEmpty();
+    public boolean bME() {
+        return this.gaA.isEmpty();
     }
 
-    public void bME() {
-        if (this.gax != null) {
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bMx().d(this.gax);
-            this.gaw.j(710, this.gax.mPackageName, d.getExtInfo());
+    public void bMF() {
+        if (this.gaz != null) {
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bMy().d(this.gaz);
+            this.gay.j(710, this.gaz.mPackageName, d.getExtInfo());
             d.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
             d.extra().setPercent(100);
-            if (!bMD()) {
-                for (d dVar : this.gay) {
-                    dVar.f(this.gax);
+            if (!bME()) {
+                for (d dVar : this.gaA) {
+                    dVar.f(this.gaz);
                 }
             }
         }
     }
 
-    public void bMF() {
-        if (this.gax != null) {
-            com.baidu.tieba.ad.download.d.bMx().d(this.gax).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bMD()) {
-                for (d dVar : this.gay) {
-                    dVar.g(this.gax);
+    public void bMG() {
+        if (this.gaz != null) {
+            com.baidu.tieba.ad.download.d.bMy().d(this.gaz).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bME()) {
+                for (d dVar : this.gaA) {
+                    dVar.g(this.gaz);
                 }
             }
         }
@@ -77,11 +77,11 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void FC(String str) {
-        if (this.gax != null) {
-            com.baidu.tieba.ad.download.d.bMx().d(this.gax).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
-            if (!bMD()) {
-                for (d dVar : this.gay) {
-                    dVar.e(this.gax);
+        if (this.gaz != null) {
+            com.baidu.tieba.ad.download.d.bMy().d(this.gaz).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
+            if (!bME()) {
+                for (d dVar : this.gaA) {
+                    dVar.e(this.gaz);
                 }
             }
         }
@@ -89,11 +89,11 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void ay(String str, int i) {
-        if (this.gax != null) {
-            com.baidu.tieba.ad.download.d.bMx().d(this.gax).extra().setStatus(DownloadStatus.STATUS_PAUSED);
-            if (!bMD()) {
-                for (d dVar : this.gay) {
-                    dVar.b(this.gax, this.mPercent);
+        if (this.gaz != null) {
+            com.baidu.tieba.ad.download.d.bMy().d(this.gaz).extra().setStatus(DownloadStatus.STATUS_PAUSED);
+            if (!bME()) {
+                for (d dVar : this.gaA) {
+                    dVar.b(this.gaz, this.mPercent);
                 }
             }
         }
@@ -101,11 +101,11 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void a(String str, StopStatus stopStatus) {
-        if (this.gax != null) {
-            com.baidu.tieba.ad.download.d.bMx().d(this.gax).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bMD()) {
-                for (d dVar : this.gay) {
-                    dVar.a(this.gax, stopStatus);
+        if (this.gaz != null) {
+            com.baidu.tieba.ad.download.d.bMy().d(this.gaz).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bME()) {
+                for (d dVar : this.gaA) {
+                    dVar.a(this.gaz, stopStatus);
                 }
             }
         }
@@ -113,15 +113,15 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void onSuccess(String str, String str2) {
-        if (this.gax != null) {
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bMx().d(this.gax);
-            this.gaw.j(704, this.gax.mPackageName, d.getExtInfo());
+        if (this.gaz != null) {
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bMy().d(this.gaz);
+            this.gay.j(704, this.gaz.mPackageName, d.getExtInfo());
             d.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
             d.extra().setPercent(100);
-            com.baidu.tieba.ad.download.d.bMx().d(this.gax).extra().setDownloadPath(str2);
-            if (!bMD()) {
-                for (d dVar : this.gay) {
-                    dVar.a(this.gax, str2, false);
+            com.baidu.tieba.ad.download.d.bMy().d(this.gaz).extra().setDownloadPath(str2);
+            if (!bME()) {
+                for (d dVar : this.gaA) {
+                    dVar.a(this.gaz, str2, false);
                 }
             }
         }
@@ -129,12 +129,12 @@ public class a implements c {
 
     @Override // com.baidu.tieba.ad.download.a.c
     public void az(String str, int i) {
-        if (this.gax != null) {
+        if (this.gaz != null) {
             this.mPercent = i;
-            com.baidu.tieba.ad.download.d.bMx().d(this.gax).extra().setPercent(i);
-            if (!bMD()) {
-                for (d dVar : this.gay) {
-                    dVar.a(this.gax, this.mPercent);
+            com.baidu.tieba.ad.download.d.bMy().d(this.gaz).extra().setPercent(i);
+            if (!bME()) {
+                for (d dVar : this.gaA) {
+                    dVar.a(this.gaz, this.mPercent);
                 }
             }
         }
@@ -163,7 +163,7 @@ public class a implements c {
                 break;
         }
         if (i != -1) {
-            this.gaw.c(str, i, str2, str3);
+            this.gay.c(str, i, str2, str3);
         }
     }
 }

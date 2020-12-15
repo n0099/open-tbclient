@@ -27,9 +27,9 @@ public class b implements Runnable {
     private ArrayList<MediaModel> dhO;
     private String diK;
     private String diM;
-    private com.baidu.swan.apps.media.chooser.c.d gfr;
-    private HandlerC0631b gfs;
-    private a gft;
+    private com.baidu.swan.apps.media.chooser.c.d gft;
+    private HandlerC0631b gfu;
+    private a gfv;
     private Context mContext;
 
     public b(Context context, Bundle bundle, com.baidu.swan.apps.media.chooser.c.d dVar) {
@@ -38,15 +38,15 @@ public class b implements Runnable {
         this.diK = u.safeGetString(bundle, "swanAppId");
         this.dgW = u.c(bundle, "compressed", false);
         this.diM = u.safeGetString(bundle, "swanTmpPath");
-        this.gfr = dVar;
-        this.gfs = new HandlerC0631b(context);
+        this.gft = dVar;
+        this.gfu = new HandlerC0631b(context);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        bOJ();
-        if (this.gfs != null) {
-            this.gfs.sendEmptyMessage(1);
+        bOK();
+        if (this.gfu != null) {
+            this.gfu.sendEmptyMessage(1);
         }
         if (this.dgW) {
             Iterator<MediaModel> it = this.dhO.iterator();
@@ -77,13 +77,13 @@ public class b implements Runnable {
                 }
             }
         }
-        if (this.gfs != null) {
-            this.gfs.sendEmptyMessage(2);
+        if (this.gfu != null) {
+            this.gfu.sendEmptyMessage(2);
         }
-        if (this.gfr != null) {
-            this.gfr.a(true, null, this.dhO);
+        if (this.gft != null) {
+            this.gft.a(true, null, this.dhO);
         }
-        bOK();
+        bOL();
     }
 
     private void i(MediaModel mediaModel) {
@@ -128,10 +128,10 @@ public class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes25.dex */
     public class a extends com.baidu.swan.apps.v.a {
-        private HandlerC0631b gfs;
+        private HandlerC0631b gfu;
 
         public a(HandlerC0631b handlerC0631b) {
-            this.gfs = handlerC0631b;
+            this.gfu = handlerC0631b;
         }
 
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
@@ -139,29 +139,29 @@ public class b implements Runnable {
             if (!(activity instanceof SwanAppActivity) && !(activity instanceof SwanAppAlbumActivity) && !(activity instanceof SwanAppAlbumPreviewActivity)) {
                 return;
             }
-            if (this.gfs.gfv != null && this.gfs.gfv.isShowing()) {
-                this.gfs.gfv.cancel();
-                this.gfs.gfv = null;
+            if (this.gfu.gfx != null && this.gfu.gfx.isShowing()) {
+                this.gfu.gfx.cancel();
+                this.gfu.gfx = null;
             }
-            if (this.gfs != null) {
-                this.gfs.removeMessages(1);
-                this.gfs.removeMessages(2);
-                this.gfs = null;
+            if (this.gfu != null) {
+                this.gfu.removeMessages(1);
+                this.gfu.removeMessages(2);
+                this.gfu = null;
             }
-            b.this.bOK();
+            b.this.bOL();
         }
     }
 
-    private void bOJ() {
-        this.gft = new a(this.gfs);
-        com.baidu.swan.apps.t.a.aza().registerActivityLifecycleCallbacks(this.gft);
+    private void bOK() {
+        this.gfv = new a(this.gfu);
+        com.baidu.swan.apps.t.a.aza().registerActivityLifecycleCallbacks(this.gfv);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOK() {
-        if (this.gft != null) {
-            com.baidu.swan.apps.t.a.aza().unregisterActivityLifecycleCallbacks(this.gft);
-            this.gft = null;
+    public void bOL() {
+        if (this.gfv != null) {
+            com.baidu.swan.apps.t.a.aza().unregisterActivityLifecycleCallbacks(this.gfv);
+            this.gfv = null;
         }
     }
 
@@ -169,7 +169,7 @@ public class b implements Runnable {
     /* renamed from: com.baidu.tieba.aiapps.apps.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes25.dex */
     public static class HandlerC0631b extends Handler {
-        private Dialog gfv;
+        private Dialog gfx;
         private WeakReference<Context> mReference;
 
         private HandlerC0631b(Context context) {
@@ -182,21 +182,21 @@ public class b implements Runnable {
                 case 1:
                     Context context = this.mReference.get();
                     if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
-                        this.gfv = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
-                        this.gfv.setContentView(R.layout.swanapp_progress_dialog);
-                        this.gfv.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState() ? 0 : 8);
-                        this.gfv.setCancelable(false);
-                        this.gfv.show();
+                        this.gfx = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
+                        this.gfx.setContentView(R.layout.swanapp_progress_dialog);
+                        this.gfx.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState() ? 0 : 8);
+                        this.gfx.setCancelable(false);
+                        this.gfx.show();
                         return;
                     }
                     return;
                 case 2:
-                    if (this.gfv != null && this.gfv.isShowing()) {
+                    if (this.gfx != null && this.gfx.isShowing()) {
                         Context context2 = this.mReference.get();
                         if ((context2 instanceof Activity) && !((Activity) context2).isFinishing()) {
-                            this.gfv.cancel();
+                            this.gfx.cancel();
                         }
-                        this.gfv = null;
+                        this.gfx = null;
                         return;
                     }
                     return;

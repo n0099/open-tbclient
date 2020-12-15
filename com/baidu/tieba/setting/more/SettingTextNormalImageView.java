@@ -19,7 +19,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     private LinearLayout fqI;
     private ImageView fqN;
     private Context mContext;
-    private TbImageView mXH;
+    private TbImageView mXJ;
     private TextView textView;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
@@ -41,7 +41,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         ap.setViewTextColor(this.textView, R.color.CAM_X0105, 1);
         SvgManager.btW().a(this.fqN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         setBackgroundDrawable(ap.pT(R.color.CAM_X0205));
-        this.mXH.invalidate();
+        this.mXJ.invalidate();
     }
 
     public void setText(String str) {
@@ -49,16 +49,16 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.mXH.bHt();
-        this.mXH.setConrers(0);
-        this.mXH.setImageResource(i);
+        this.mXJ.bHt();
+        this.mXJ.setConrers(0);
+        this.mXJ.setImageResource(i);
     }
 
     private void bAL() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
         this.fqI = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.mXH = (TbImageView) findViewById(R.id.icon);
+        this.mXJ = (TbImageView) findViewById(R.id.icon);
         this.fqN = (ImageView) findViewById(R.id.arrow);
     }
 

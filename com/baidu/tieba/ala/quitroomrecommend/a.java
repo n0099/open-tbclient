@@ -37,7 +37,7 @@ public class a extends BaseAdapter {
     public a(Context context) {
         this.mContext = context;
         this.mScreenWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
-        coE();
+        coF();
     }
 
     public void setData(List<com.baidu.tieba.ala.quitroomrecommend.data.a> list) {
@@ -45,7 +45,7 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private void coE() {
+    private void coF() {
         this.cardWidth = (((this.mScreenWidth - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds34)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds34)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16)) / 2;
         if (this.cardWidth <= 0) {
             this.cardWidth = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds372);
@@ -88,80 +88,80 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.quitroomrecommend.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0718a {
-        private RelativeLayout[] hTF;
-        private TbImageView[] hTG;
-        private TextView[] hTH;
-        private TextView[] hTI;
-        private LinearLayout[] hTJ;
+        private RelativeLayout[] hTH;
+        private TbImageView[] hTI;
+        private TextView[] hTJ;
         private TextView[] hTK;
-        private TbImageView[] hTL;
-        private ViewGroup[] hTM;
-        private TextView[] hTN;
-        private com.baidu.tieba.ala.quitroomrecommend.data.a hTO;
-        private String hTP;
+        private LinearLayout[] hTL;
+        private TextView[] hTM;
+        private TbImageView[] hTN;
+        private ViewGroup[] hTO;
+        private TextView[] hTP;
+        private com.baidu.tieba.ala.quitroomrecommend.data.a hTQ;
+        private String hTR;
         private Context mContext;
         private int mPosition;
 
         private C0718a(View view, Context context, int i) {
-            this.hTP = "";
+            this.hTR = "";
             this.mContext = context;
-            this.hTF = new RelativeLayout[2];
-            this.hTG = new TbImageView[2];
-            this.hTH = new TextView[2];
-            this.hTI = new TextView[2];
-            this.hTJ = new LinearLayout[2];
+            this.hTH = new RelativeLayout[2];
+            this.hTI = new TbImageView[2];
+            this.hTJ = new TextView[2];
             this.hTK = new TextView[2];
-            this.hTN = new TextView[2];
-            this.hTL = new TbImageView[2];
-            this.hTM = new ViewGroup[2];
-            this.hTN[0] = (TextView) view.findViewById(a.f.sdk_ala_left_tv_label);
-            this.hTN[1] = (TextView) view.findViewById(a.f.sdk_ala_right_tv_label);
-            this.hTL[0] = (TbImageView) view.findViewById(a.f.sdk_ala_left_iv_icon);
-            this.hTL[1] = (TbImageView) view.findViewById(a.f.sdk_ala_right_iv_icon);
-            this.hTM[0] = (ViewGroup) view.findViewById(a.f.sdk_ala_left_quit_item_icon_container);
-            this.hTM[1] = (ViewGroup) view.findViewById(a.f.sdk_ala_right_quit_item_icon_container);
-            this.hTF[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
-            this.hTF[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
-            this.hTG[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
-            this.hTG[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
-            this.hTH[0] = (TextView) view.findViewById(a.f.left_count_textView);
-            this.hTH[1] = (TextView) view.findViewById(a.f.right_count_textView);
-            this.hTI[0] = (TextView) view.findViewById(a.f.left_name_textView);
-            this.hTI[1] = (TextView) view.findViewById(a.f.right_name_textView);
-            this.hTJ[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
-            this.hTJ[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
-            this.hTK[0] = (TextView) view.findViewById(a.f.left_location_textView);
-            this.hTK[1] = (TextView) view.findViewById(a.f.right_location_textView);
-            this.hTF[0].getLayoutParams().width = i;
-            this.hTF[0].getLayoutParams().height = i;
-            this.hTF[1].getLayoutParams().width = i;
-            this.hTF[1].getLayoutParams().height = i;
-            this.hTG[0].setDefaultBgResource(a.e.sdk_shape_quit_room_item_bg);
-            this.hTG[0].setDefaultErrorResource(a.e.sdk_shape_quit_room_item_bg);
-            this.hTG[1].setDefaultBgResource(a.e.sdk_shape_quit_room_item_bg);
-            this.hTG[1].setDefaultErrorResource(a.e.sdk_shape_quit_room_item_bg);
-            this.hTL[0].setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.hTL[1].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.hTL = new LinearLayout[2];
+            this.hTM = new TextView[2];
+            this.hTP = new TextView[2];
+            this.hTN = new TbImageView[2];
+            this.hTO = new ViewGroup[2];
+            this.hTP[0] = (TextView) view.findViewById(a.f.sdk_ala_left_tv_label);
+            this.hTP[1] = (TextView) view.findViewById(a.f.sdk_ala_right_tv_label);
+            this.hTN[0] = (TbImageView) view.findViewById(a.f.sdk_ala_left_iv_icon);
+            this.hTN[1] = (TbImageView) view.findViewById(a.f.sdk_ala_right_iv_icon);
+            this.hTO[0] = (ViewGroup) view.findViewById(a.f.sdk_ala_left_quit_item_icon_container);
+            this.hTO[1] = (ViewGroup) view.findViewById(a.f.sdk_ala_right_quit_item_icon_container);
+            this.hTH[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
+            this.hTH[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
+            this.hTI[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
+            this.hTI[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
+            this.hTJ[0] = (TextView) view.findViewById(a.f.left_count_textView);
+            this.hTJ[1] = (TextView) view.findViewById(a.f.right_count_textView);
+            this.hTK[0] = (TextView) view.findViewById(a.f.left_name_textView);
+            this.hTK[1] = (TextView) view.findViewById(a.f.right_name_textView);
+            this.hTL[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
+            this.hTL[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
+            this.hTM[0] = (TextView) view.findViewById(a.f.left_location_textView);
+            this.hTM[1] = (TextView) view.findViewById(a.f.right_location_textView);
+            this.hTH[0].getLayoutParams().width = i;
+            this.hTH[0].getLayoutParams().height = i;
+            this.hTH[1].getLayoutParams().width = i;
+            this.hTH[1].getLayoutParams().height = i;
+            this.hTI[0].setDefaultBgResource(a.e.sdk_shape_quit_room_item_bg);
+            this.hTI[0].setDefaultErrorResource(a.e.sdk_shape_quit_room_item_bg);
+            this.hTI[1].setDefaultBgResource(a.e.sdk_shape_quit_room_item_bg);
+            this.hTI[1].setDefaultErrorResource(a.e.sdk_shape_quit_room_item_bg);
+            this.hTN[0].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.hTN[1].setDefaultBgResource(a.e.sdk_shape_transparent);
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && i > 0) {
-                this.hTP = "@resize{w:" + i + ",h:" + i + "}";
+                this.hTR = "@resize{w:" + i + ",h:" + i + "}";
             }
-            this.hTF[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.1
+            this.hTH[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0718a.this.hTO != null) {
-                        if (C0718a.this.hTO.hUf != null) {
-                            C0718a.this.a(C0718a.this.hTO.hUf);
-                        } else if (C0718a.this.hTO.hUg != null) {
-                            C0718a.this.a(C0718a.this.hTO.hUg);
+                    if (C0718a.this.hTQ != null) {
+                        if (C0718a.this.hTQ.hUh != null) {
+                            C0718a.this.a(C0718a.this.hTQ.hUh);
+                        } else if (C0718a.this.hTQ.hUi != null) {
+                            C0718a.this.a(C0718a.this.hTQ.hUi);
                         }
                     }
                 }
             });
-            this.hTF[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.2
+            this.hTH[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.quitroomrecommend.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0718a.this.hTO != null && C0718a.this.hTO.hUg != null) {
-                        C0718a.this.a(C0718a.this.hTO.hUg);
+                    if (C0718a.this.hTQ != null && C0718a.this.hTQ.hUi != null) {
+                        C0718a.this.a(C0718a.this.hTQ.hUi);
                     }
                 }
             });
@@ -171,58 +171,58 @@ public class a extends BaseAdapter {
             boolean z;
             int i2;
             if (aVar != null) {
-                this.hTO = aVar;
+                this.hTQ = aVar;
                 this.mPosition = i;
-                if (aVar.hUf != null) {
-                    a(aVar.hUf, 0);
+                if (aVar.hUh != null) {
+                    a(aVar.hUh, 0);
                 }
-                if (aVar.hUg != null) {
-                    if (aVar.hUf == null) {
+                if (aVar.hUi != null) {
+                    if (aVar.hUh == null) {
                         i2 = 0;
                         z = false;
                     } else {
                         i2 = 1;
                         z = true;
                     }
-                    a(aVar.hUg, i2);
+                    a(aVar.hUi, i2);
                 } else {
                     z = false;
                 }
                 if (z) {
-                    this.hTF[1].setVisibility(0);
+                    this.hTH[1].setVisibility(0);
                 } else {
-                    this.hTF[1].setVisibility(8);
+                    this.hTH[1].setVisibility(8);
                 }
             }
         }
 
         private void a(AlaQuitRoomRecommendData alaQuitRoomRecommendData, int i) {
-            String str = alaQuitRoomRecommendData.cover + this.hTP;
+            String str = alaQuitRoomRecommendData.cover + this.hTR;
             if (TextUtils.isEmpty(alaQuitRoomRecommendData.labelIcon) && TextUtils.isEmpty(alaQuitRoomRecommendData.labelText)) {
-                this.hTM[i].setVisibility(4);
+                this.hTO[i].setVisibility(4);
             } else {
-                this.hTM[i].setVisibility(0);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hTN[i].getLayoutParams();
+                this.hTO[i].setVisibility(0);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hTP[i].getLayoutParams();
                 if (TextUtils.isEmpty(alaQuitRoomRecommendData.labelIcon)) {
                     layoutParams.leftMargin = 0;
-                    this.hTL[i].setVisibility(8);
+                    this.hTN[i].setVisibility(8);
                 } else {
-                    this.hTL[i].startLoad(alaQuitRoomRecommendData.labelIcon, 10, false);
-                    this.hTL[i].setVisibility(0);
+                    this.hTN[i].startLoad(alaQuitRoomRecommendData.labelIcon, 10, false);
+                    this.hTN[i].setVisibility(0);
                     layoutParams.leftMargin = BdUtilHelper.getDimens(this.mContext, a.d.sdk_ds4);
                 }
-                this.hTN[i].setText(alaQuitRoomRecommendData.labelText);
-                this.hTN[i].setLayoutParams(layoutParams);
+                this.hTP[i].setText(alaQuitRoomRecommendData.labelText);
+                this.hTP[i].setLayoutParams(layoutParams);
             }
-            this.hTG[i].startLoad(str, 10, false);
-            this.hTI[i].setText(alaQuitRoomRecommendData.getNameShow());
-            this.hTH[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaQuitRoomRecommendData.audience_count)));
+            this.hTI[i].startLoad(str, 10, false);
+            this.hTK[i].setText(alaQuitRoomRecommendData.getNameShow());
+            this.hTJ[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaQuitRoomRecommendData.audience_count)));
             if (!TextUtils.isEmpty(alaQuitRoomRecommendData.distance) && !TextUtils.equals(alaQuitRoomRecommendData.distance, "0")) {
-                this.hTK[i].setText(alaQuitRoomRecommendData.distance);
-                this.hTJ[i].setVisibility(0);
+                this.hTM[i].setText(alaQuitRoomRecommendData.distance);
+                this.hTL[i].setVisibility(0);
                 return;
             }
-            this.hTJ[i].setVisibility(8);
+            this.hTL[i].setVisibility(8);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

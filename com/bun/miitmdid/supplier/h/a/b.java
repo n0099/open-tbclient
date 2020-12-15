@@ -13,11 +13,11 @@ public class b {
     /* renamed from: a  reason: collision with root package name */
     private static Context f3996a;
     private static boolean b = false;
-    private static b oYX = null;
-    private static a oYY = null;
-    private static c oYZ = null;
-    private static c oZa = null;
+    private static b oYZ = null;
+    private static a oZa = null;
     private static c oZb = null;
+    private static c oZc = null;
+    private static c oZd = null;
     private static Object h = new Object();
     private static HandlerThread i = null;
     private static Handler j = null;
@@ -45,16 +45,16 @@ public class b {
     private static void a(Context context, int i2, String str) {
         switch (i2) {
             case 0:
-                oYZ = new c(oYX, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, oYZ);
+                oZb = new c(oYZ, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, oZb);
                 return;
             case 1:
-                oZa = new c(oYX, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, oZa);
+                oZc = new c(oYZ, 1, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, oZc);
                 return;
             case 2:
-                oZb = new c(oYX, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, oZb);
+                oZd = new c(oYZ, 2, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, oZd);
                 return;
             default:
                 return;
@@ -88,7 +88,7 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.oYY.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.oZa.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
@@ -101,14 +101,14 @@ public class b {
     }
 
     public static b hy(Context context) {
-        if (oYX == null) {
-            oYX = new b();
+        if (oYZ == null) {
+            oYZ = new b();
             f3996a = context;
             f();
-            oYY = new a(f3996a);
+            oZa = new a(f3996a);
             c();
         }
-        return oYX;
+        return oYZ;
     }
 
     public String a(String str) {
@@ -117,7 +117,7 @@ public class b {
                 return m;
             }
             a(1, str);
-            if (oZa == null && m != null) {
+            if (oZc == null && m != null) {
                 a(f3996a, 1, str);
             }
             return m;
@@ -175,7 +175,7 @@ public class b {
                 return l;
             }
             a(0, (String) null);
-            if (oYZ == null) {
+            if (oZb == null) {
                 a(f3996a, 0, null);
             }
             return l;
@@ -189,7 +189,7 @@ public class b {
                 return n;
             }
             a(2, str);
-            if (oZb == null && n != null) {
+            if (oZd == null && n != null) {
                 a(f3996a, 2, str);
             }
             return n;

@@ -15,32 +15,32 @@ import com.baidu.tieba.tbadkCore.ab;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class ServiceAreaView extends FrameLayout {
-    private b jtm;
-    private int jtn;
-    private boolean jto;
+    private b jto;
+    private int jtp;
+    private boolean jtq;
 
     public ServiceAreaView(@NonNull Context context) {
         super(context);
-        this.jtn = ap.getColor(R.color.CAM_X0302);
+        this.jtp = ap.getColor(R.color.CAM_X0302);
     }
 
     public ServiceAreaView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jtn = ap.getColor(R.color.CAM_X0302);
+        this.jtp = ap.getColor(R.color.CAM_X0302);
     }
 
     public ServiceAreaView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jtn = ap.getColor(R.color.CAM_X0302);
+        this.jtp = ap.getColor(R.color.CAM_X0302);
     }
 
     public void setData(aa aaVar, FrsViewData frsViewData) {
-        if (this.jto) {
+        if (this.jtq) {
             if (aaVar == null) {
                 aaVar = new aa();
                 aaVar.dataList = new ArrayList();
             }
-            aaVar.nkN++;
+            aaVar.nkP++;
             ab abVar = new ab();
             abVar.name = getResources().getString(R.string.hot_user_rank);
             abVar.imageUrl = getResources().getString(R.string.hot_user_rank);
@@ -49,42 +49,42 @@ public class ServiceAreaView extends FrameLayout {
         if (aaVar != null) {
             int dimens = l.getDimens(getContext(), R.dimen.M_H_X001);
             int dimens2 = l.getDimens(getContext(), R.dimen.M_H_X001);
-            if (aaVar.nkN >= 2) {
-                this.jtm = new c(getContext());
-            } else if (aaVar.nkN == 1) {
-                this.jtm = new d(getContext());
+            if (aaVar.nkP >= 2) {
+                this.jto = new c(getContext());
+            } else if (aaVar.nkP == 1) {
+                this.jto = new d(getContext());
                 dimens2 = l.getDimens(getContext(), R.dimen.tbds12);
                 dimens = l.getDimens(getContext(), R.dimen.tbds5);
             }
             setPadding(0, dimens, 0, dimens2);
             removeAllViews();
-            addView(this.jtm.getView(), -1, -2);
-            this.jtm.setData(aaVar, frsViewData);
-            if (this.jtm instanceof a) {
-                ((a) this.jtm).setThemeFontColor(this.jtn);
+            addView(this.jto.getView(), -1, -2);
+            this.jto.setData(aaVar, frsViewData);
+            if (this.jto instanceof a) {
+                ((a) this.jto).setThemeFontColor(this.jtp);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jtm != null) {
-            this.jtm.onChangeSkinType(i);
+        if (this.jto != null) {
+            this.jto.onChangeSkinType(i);
         }
     }
 
     public void setThemeFontColor(int i) {
-        this.jtn = i;
-        if (this.jtm instanceof a) {
-            ((a) this.jtm).setThemeFontColor(this.jtn);
+        this.jtp = i;
+        if (this.jto instanceof a) {
+            ((a) this.jto).setThemeFontColor(this.jtp);
         }
     }
 
     public void setHasHotRankList(boolean z) {
-        this.jto = z;
+        this.jtq = z;
     }
 
-    public boolean cJB() {
-        return this.jto;
+    public boolean cJC() {
+        return this.jtq;
     }
 }

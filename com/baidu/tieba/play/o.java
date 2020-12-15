@@ -17,16 +17,16 @@ public class o {
     public String mType;
     public String mUid;
     public String mVid;
-    public String myo;
-    public String myp;
     public String myq;
-    public int myr;
+    public String myr;
     public String mys;
-    public String myt;
+    public int myt;
     public String myu;
     public String myv;
     public String myw;
     public String myx;
+    public String myy;
+    public String myz;
 
     public ar f(ar arVar) {
         if (arVar != null) {
@@ -47,56 +47,56 @@ public class o {
             } else {
                 arVar.al("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.myo)) {
-                arVar.dY("obj_param1", this.myo);
+            if (!StringUtils.isNull(this.myq)) {
+                arVar.dY("obj_param1", this.myq);
             } else {
                 arVar.al("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.myp)) {
-                arVar.dY(TiebaInitialize.Params.OBJ_PARAM2, this.myp);
+            if (!StringUtils.isNull(this.myr)) {
+                arVar.dY(TiebaInitialize.Params.OBJ_PARAM2, this.myr);
             }
-            if (!StringUtils.isNull(this.myq)) {
-                arVar.dY(TiebaInitialize.Params.OBJ_PARAM3, this.myq);
+            if (!StringUtils.isNull(this.mys)) {
+                arVar.dY(TiebaInitialize.Params.OBJ_PARAM3, this.mys);
             }
-            if (this.myr > 0) {
-                arVar.al("obj_param5", this.myr);
+            if (this.myt > 0) {
+                arVar.al("obj_param5", this.myt);
             }
             if (!StringUtils.isNull(this.eGn)) {
                 arVar.dY("obj_id", this.eGn);
             }
-            if (!StringUtils.isNull(this.mys)) {
-                arVar.dY("ab_tag", this.mys);
+            if (!StringUtils.isNull(this.myu)) {
+                arVar.dY("ab_tag", this.myu);
             } else {
                 arVar.al("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.myu)) {
-                arVar.dY("topic_type", this.myu);
+            if (!StringUtils.isNull(this.myw)) {
+                arVar.dY("topic_type", this.myw);
             }
             if (!StringUtils.isNull(this.mExtra)) {
                 arVar.dY("extra", this.mExtra);
             } else {
                 arVar.al("extra", 0);
             }
-            if (!StringUtils.isNull(this.myv)) {
-                arVar.dY("is_vertical", this.myv);
+            if (!StringUtils.isNull(this.myx)) {
+                arVar.dY("is_vertical", this.myx);
             }
             if (!StringUtils.isNull(this.mFloor)) {
                 arVar.dY("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.myw)) {
-                arVar.dY("resource_id", this.myw);
+            if (!StringUtils.isNull(this.myy)) {
+                arVar.dY("resource_id", this.myy);
             }
             if (!StringUtils.isNull(this.mGroupId)) {
                 arVar.dY("group_id", this.mGroupId);
             }
             arVar.dY("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
             arVar.dY("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
-            arVar.dY("nid", StringUtils.isNull(this.myx) ? "" : this.myx);
+            arVar.dY("nid", StringUtils.isNull(this.myz) ? "" : this.myz);
         }
         return arVar;
     }
 
-    public o dCa() {
+    public o dCb() {
         o oVar = new o();
         oVar.mLocate = this.mLocate;
         oVar.mType = this.mType;
@@ -104,19 +104,19 @@ public class o {
         oVar.fFV = this.fFV;
         oVar.mUid = this.mUid;
         oVar.mSource = this.mSource;
-        oVar.myo = this.myo;
-        oVar.myp = this.myp;
         oVar.myq = this.myq;
-        oVar.eGn = this.eGn;
+        oVar.myr = this.myr;
         oVar.mys = this.mys;
-        oVar.myt = this.myt;
+        oVar.eGn = this.eGn;
         oVar.myu = this.myu;
-        oVar.mFloor = this.mFloor;
+        oVar.myv = this.myv;
         oVar.myw = this.myw;
+        oVar.mFloor = this.mFloor;
+        oVar.myy = this.myy;
         oVar.mGroupId = this.mGroupId;
         oVar.mNid = this.mNid;
         oVar.mVid = this.mVid;
-        oVar.myx = this.myx;
+        oVar.myz = this.myz;
         return oVar;
     }
 }

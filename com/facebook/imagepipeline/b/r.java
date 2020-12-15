@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.b;
 public interface r<K> {
     void br(K k);
 
-    void esU();
-
     void esV();
+
+    void esW();
 }

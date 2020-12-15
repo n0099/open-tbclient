@@ -15,7 +15,7 @@ public class a {
 
     /* renamed from: a  reason: collision with root package name */
     private X509Certificate f4021a;
-    private SSLContext oZT;
+    private SSLContext oZV;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [34=4] */
     /* JADX WARN: Removed duplicated region for block: B:38:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -81,14 +81,14 @@ public class a {
             keyStore.setCertificateEntry("cert", this.f4021a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
-            this.oZT = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.oZT.init(null, trustManagerFactory.getTrustManagers(), null);
+            this.oZV = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
+            this.oZV.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public SSLContext eoF() {
-        return this.oZT;
+    public SSLContext eoG() {
+        return this.oZV;
     }
 }

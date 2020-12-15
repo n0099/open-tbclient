@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> pqO = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> pqQ = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
     public static int am(@Nullable Bitmap bitmap) {
@@ -35,7 +35,7 @@ public final class a {
     public static Pair<Integer, Integer> y(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = pqO.acquire();
+        ByteBuffer acquire = pqQ.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,7 +49,7 @@ public final class a {
             }
             return pair;
         } finally {
-            pqO.release(acquire);
+            pqQ.release(acquire);
         }
     }
 
@@ -57,30 +57,30 @@ public final class a {
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
     /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] pqP = new int[Bitmap.Config.values().length];
+        static final /* synthetic */ int[] pqR = new int[Bitmap.Config.values().length];
 
         static {
             try {
-                pqP[Bitmap.Config.ARGB_8888.ordinal()] = 1;
+                pqR[Bitmap.Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                pqP[Bitmap.Config.ALPHA_8.ordinal()] = 2;
+                pqR[Bitmap.Config.ALPHA_8.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                pqP[Bitmap.Config.ARGB_4444.ordinal()] = 3;
+                pqR[Bitmap.Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                pqP[Bitmap.Config.RGB_565.ordinal()] = 4;
+                pqR[Bitmap.Config.RGB_565.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
         }
     }
 
     public static int d(Bitmap.Config config) {
-        switch (AnonymousClass1.pqP[config.ordinal()]) {
+        switch (AnonymousClass1.pqR[config.ordinal()]) {
             case 1:
                 return 4;
             case 2:

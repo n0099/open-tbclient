@@ -24,38 +24,38 @@ final class x extends com.google.a.b.a.a.a.e {
             int i = bundle.getInt("error.code", -100);
             int i2 = bundle.getInt("install.status", 0);
             if (i2 == 4) {
-                this.b.ptn.a(p.COMPLETED);
+                this.b.ptp.a(p.COMPLETED);
             } else if (i != 0) {
                 Log.w("ARCore-InstallService", new StringBuilder(51).append("requestInstall = ").append(i).append(", launching fullscreen.").toString());
-                w wVar = this.b.ptC;
-                w.b(this.b.f4042a, this.b.ptn);
+                w wVar = this.b.ptE;
+                w.b(this.b.f4042a, this.b.ptp);
             } else if (bundle.containsKey("resolution.intent")) {
-                w wVar2 = this.b.ptC;
-                w.a(this.b.f4042a, bundle, this.b.ptn);
+                w wVar2 = this.b.ptE;
+                w.a(this.b.f4042a, bundle, this.b.ptp);
             } else {
                 switch (i2) {
                     case 1:
                     case 2:
                     case 3:
-                        this.b.ptn.a(p.ACCEPTED);
+                        this.b.ptp.a(p.ACCEPTED);
                         return;
                     case 4:
-                        this.b.ptn.a(p.COMPLETED);
+                        this.b.ptp.a(p.COMPLETED);
                         return;
                     case 5:
-                        this.b.ptn.a(new FatalException("Unexpected FAILED install status without error."));
+                        this.b.ptp.a(new FatalException("Unexpected FAILED install status without error."));
                         return;
                     case 6:
-                        this.b.ptn.a(p.CANCELLED);
+                        this.b.ptp.a(p.CANCELLED);
                         return;
                     case 7:
                     case 8:
                     case 9:
                     default:
-                        this.b.ptn.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
+                        this.b.ptp.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
                         return;
                     case 10:
-                        this.b.ptn.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+                        this.b.ptp.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
                         return;
                 }
             }

@@ -5,7 +5,7 @@ import rx.h;
 import rx.internal.operators.u;
 /* loaded from: classes12.dex */
 public final class w<T> implements d.a<T> {
-    final h.a<T> pSR;
+    final h.a<T> pST;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,12 +13,12 @@ public final class w<T> implements d.a<T> {
     }
 
     public w(h.a<T> aVar) {
-        this.pSR = aVar;
+        this.pST = aVar;
     }
 
     public void call(rx.j<? super T> jVar) {
         u.a aVar = new u.a(jVar);
         jVar.add(aVar);
-        this.pSR.call(aVar);
+        this.pST.call(aVar);
     }
 }

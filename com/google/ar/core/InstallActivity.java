@@ -20,12 +20,12 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes17.dex */
 public class InstallActivity extends Activity {
     private boolean finished;
-    private ArCoreApk.UserMessageType ptd;
-    private ArCoreApk.InstallBehavior pte;
-    private boolean ptg;
-    private boolean pth;
-    private final ContextThemeWrapper ptc = new ContextThemeWrapper(this, 16974394);
-    private p ptf = p.CANCELLED;
+    private ArCoreApk.UserMessageType ptf;
+    private ArCoreApk.InstallBehavior ptg;
+    private boolean pti;
+    private boolean ptj;
+    private final ContextThemeWrapper pte = new ContextThemeWrapper(this, 16974394);
+    private p pth = p.CANCELLED;
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.app.Activity
@@ -36,22 +36,22 @@ public class InstallActivity extends Activity {
                 E(new FatalException("Install activity was suspended and recreated."));
                 return;
             }
-            this.ptd = (ArCoreApk.UserMessageType) getIntent().getSerializableExtra("message");
-            this.pte = (ArCoreApk.InstallBehavior) getIntent().getSerializableExtra("behavior");
-            if (this.ptd == null || this.pte == null) {
+            this.ptf = (ArCoreApk.UserMessageType) getIntent().getSerializableExtra("message");
+            this.ptg = (ArCoreApk.InstallBehavior) getIntent().getSerializableExtra("behavior");
+            if (this.ptf == null || this.ptg == null) {
                 Log.e("ARCore-InstallActivity", "missing intent data.");
                 E(new FatalException("Install activity launched without config data."));
                 return;
             }
             setTheme(16974394);
             getWindow().requestFeature(1);
-            setFinishOnTouchOutside(exZ());
-            if (this.ptd == ArCoreApk.UserMessageType.USER_ALREADY_INFORMED) {
-                exX();
+            setFinishOnTouchOutside(eya());
+            if (this.ptf == ArCoreApk.UserMessageType.USER_ALREADY_INFORMED) {
+                exY();
                 return;
             }
             AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-            o.eyc().hP(this).a(this, new m(atomicReference));
+            o.eyd().hP(this).a(this, new m(atomicReference));
             switch (((ArCoreApk.Availability) atomicReference.get()).ordinal()) {
                 case 0:
                     Log.w("ARCore-InstallActivity", "Preliminary compatibility check failed.");
@@ -60,7 +60,7 @@ public class InstallActivity extends Activity {
                     E(new UnavailableDeviceNotCompatibleException());
                     return;
             }
-            exW();
+            exX();
         } catch (RuntimeException e) {
             E(new FatalException("Exception starting install flow", e));
         }
@@ -72,15 +72,15 @@ public class InstallActivity extends Activity {
         bundle.putBoolean("didResume", true);
     }
 
-    private void exW() {
+    private void exX() {
         setContentView(R.layout.__arcore_education);
         findViewById(R.id.__arcore_cancelButton).setOnClickListener(new r(this));
-        if (!exZ()) {
+        if (!eya()) {
             findViewById(R.id.__arcore_cancelButton).setVisibility(8);
         }
         findViewById(R.id.__arcore_continueButton).setOnClickListener(new s(this));
         TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
-        switch (this.ptd.ordinal()) {
+        switch (this.ptf.ordinal()) {
             case 1:
                 textView.setText(R.string.__arcore_install_feature);
                 return;
@@ -91,15 +91,15 @@ public class InstallActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void exX() {
+    public void exY() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int i = (int) (280.0f * displayMetrics.density);
         getWindow().setLayout(i, i);
-        RelativeLayout relativeLayout = new RelativeLayout(this.ptc);
+        RelativeLayout relativeLayout = new RelativeLayout(this.pte);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        ProgressBar progressBar = new ProgressBar(this.ptc);
+        ProgressBar progressBar = new ProgressBar(this.pte);
         progressBar.setIndeterminate(true);
         progressBar.setLayoutParams(layoutParams);
         relativeLayout.addView(progressBar);
@@ -107,7 +107,7 @@ public class InstallActivity extends Activity {
         layoutParams2.addRule(14);
         layoutParams2.addRule(12);
         layoutParams2.bottomMargin = (int) (displayMetrics.density * 30.0f);
-        TextView textView = new TextView(this.ptc);
+        TextView textView = new TextView(this.pte);
         textView.setText(R.string.__arcore_installing);
         textView.setLayoutParams(layoutParams2);
         relativeLayout.addView(textView);
@@ -116,7 +116,7 @@ public class InstallActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void exY() {
+    public void exZ() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int i = (int) (displayMetrics.density * 280.0f);
@@ -138,18 +138,18 @@ public class InstallActivity extends Activity {
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (!this.ptg) {
-            if (this.ptd == ArCoreApk.UserMessageType.USER_ALREADY_INFORMED) {
-                eya();
+        if (!this.pti) {
+            if (this.ptf == ArCoreApk.UserMessageType.USER_ALREADY_INFORMED) {
+                eyb();
             }
         } else if (!this.finished) {
             synchronized (this) {
-                if (this.ptf == p.CANCELLED) {
+                if (this.pth == p.CANCELLED) {
                     finish();
-                } else if (this.ptf == p.ACCEPTED) {
-                    this.pth = true;
+                } else if (this.pth == p.ACCEPTED) {
+                    this.ptj = true;
                 } else {
-                    E(o.eyc().f4046a);
+                    E(o.eyd().f4046a);
                 }
             }
         }
@@ -162,8 +162,8 @@ public class InstallActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void E(Exception exc) {
-        o.eyc().f4046a = exc;
-        o.eyc().b();
+        o.eyd().f4046a = exc;
+        o.eyd().b();
         this.finished = true;
         super.finish();
     }
@@ -171,24 +171,24 @@ public class InstallActivity extends Activity {
     @Override // android.app.Activity
     public void onDestroy() {
         if (!this.finished) {
-            o.eyc().b();
+            o.eyd().b();
         }
         super.onDestroy();
     }
 
-    private boolean exZ() {
-        return this.pte == ArCoreApk.InstallBehavior.OPTIONAL;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void eya() {
-        this.ptg = true;
-        this.ptf = p.CANCELLED;
-        o.eyc().hP(this).a(this, new y(this));
+    private boolean eya() {
+        return this.ptg == ArCoreApk.InstallBehavior.OPTIONAL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eyb() {
+        this.pti = true;
+        this.pth = p.CANCELLED;
+        o.eyd().hP(this).a(this, new y(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void eyc() {
         startActivity(new Intent(this, InstallActivity.class).setFlags(67108864));
     }
 
@@ -209,7 +209,7 @@ public class InstallActivity extends Activity {
     /* JADX DEBUG: Method not inlined, still used in: [com.google.ar.core.y.a(com.google.ar.core.p):void, com.google.ar.core.y.a(java.lang.Exception):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ p a(InstallActivity installActivity, p pVar) {
-        installActivity.ptf = pVar;
+        installActivity.pth = pVar;
         return pVar;
     }
 
@@ -217,13 +217,13 @@ public class InstallActivity extends Activity {
     /* JADX DEBUG: Method not inlined, still used in: [com.google.ar.core.y.a(com.google.ar.core.p):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ boolean d(InstallActivity installActivity) {
-        return installActivity.pth;
+        return installActivity.ptj;
     }
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.google.ar.core.y.a(com.google.ar.core.p):void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void e(InstallActivity installActivity) {
-        installActivity.eyb();
+        installActivity.eyc();
     }
 }

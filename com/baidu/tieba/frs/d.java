@@ -4,14 +4,14 @@ import tbclient.FrsPage.BrandForumInfo;
 /* loaded from: classes.dex */
 public class d {
     public String aJj;
-    public String iRM;
-    public String iRN;
+    public String iRO;
+    public String iRP;
 
     public void a(BrandForumInfo brandForumInfo) {
         if (brandForumInfo != null) {
-            this.iRM = brandForumInfo.brand_desc;
+            this.iRO = brandForumInfo.brand_desc;
             this.aJj = brandForumInfo.jump_url;
-            this.iRN = brandForumInfo.jump_desc;
+            this.iRP = brandForumInfo.jump_desc;
         }
     }
 }

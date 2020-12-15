@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 /* loaded from: classes22.dex */
 public class c {
-    private static int jRg = 0;
-    private static int jRh = 0;
+    private static int jRi = 0;
+    private static int jRj = 0;
 
     public static boolean au(Activity activity) {
         if (activity != null) {
@@ -26,17 +26,17 @@ public class c {
             int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
             View childAt = bdTypeRecyclerView.getChildAt(0);
             int top = childAt != null ? childAt.getTop() : 0;
-            jRg = firstVisiblePosition;
-            jRh = top;
+            jRi = firstVisiblePosition;
+            jRj = top;
         }
     }
 
     public static void j(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) && jRg <= bdTypeRecyclerView.getCount() - 1) {
+        if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) && jRi <= bdTypeRecyclerView.getCount() - 1) {
             bdTypeRecyclerView.requestFocusFromTouch();
-            ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(jRg, jRh);
-            jRg = 0;
-            jRh = 0;
+            ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(jRi, jRj);
+            jRi = 0;
+            jRj = 0;
         }
     }
 }

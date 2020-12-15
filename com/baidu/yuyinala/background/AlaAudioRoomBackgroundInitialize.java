@@ -15,13 +15,13 @@ import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AlaAudioRoomBackgroundInitialize {
     static {
-        ekh();
         eki();
         ekj();
         ekk();
+        ekl();
     }
 
-    private static void ekh() {
+    private static void eki() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031015, TbConfig.SERVER_ADDRESS + "ala/audio/room/getBackgroundList");
         tbHttpMessageTask.setResponsedClass(AlaAudioBackgroundListResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -33,7 +33,7 @@ public class AlaAudioRoomBackgroundInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eki() {
+    private static void ekj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031016, TbConfig.SERVER_ADDRESS + "ala/audio/room/setBackground");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -45,7 +45,7 @@ public class AlaAudioRoomBackgroundInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ekj() {
+    private static void ekk() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501007) { // from class: com.baidu.yuyinala.background.AlaAudioRoomBackgroundInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -55,20 +55,20 @@ public class AlaAudioRoomBackgroundInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof w)) {
-                        a.eka().b((TbPageContext) obj, (w) obj2);
+                        a.ekb().b((TbPageContext) obj, (w) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void ekk() {
+    private static void ekl() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.background.AlaAudioRoomBackgroundInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.eka().ID();
+                    a.ekb().ID();
                 }
             }
         });

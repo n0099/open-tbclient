@@ -7,11 +7,11 @@ import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
 /* loaded from: classes21.dex */
 public class c implements q {
-    public static final BdUniqueId kdm = BdUniqueId.gen();
-    private long kdi;
-    private String kdj;
-    private int kdn = -1;
-    private String kdo;
+    public static final BdUniqueId kdo = BdUniqueId.gen();
+    private long kdk;
+    private String kdl;
+    private int kdp = -1;
+    private String kdq;
     private long mId;
     private String mName;
     private int mTag;
@@ -19,7 +19,7 @@ public class c implements q {
     String rule_jump_url;
     String tips;
 
-    public String cRO() {
+    public String cRP() {
         return this.module_title;
     }
 
@@ -27,12 +27,12 @@ public class c implements q {
         return this.tips;
     }
 
-    public String cRP() {
+    public String cRQ() {
         return this.rule_jump_url;
     }
 
-    public long cRQ() {
-        return this.kdi;
+    public long cRR() {
+        return this.kdk;
     }
 
     public int getTag() {
@@ -47,12 +47,12 @@ public class c implements q {
         return this.mName;
     }
 
-    public int cRR() {
-        return this.kdn;
+    public int cRS() {
+        return this.kdp;
     }
 
     public void Dr(int i) {
-        this.kdn = i;
+        this.kdp = i;
     }
 
     public void a(TopicList topicList) {
@@ -60,9 +60,9 @@ public class c implements q {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.kdi = topicList.discuss_num.longValue();
-            this.kdj = topicList.topic_desc;
-            this.kdo = topicList.topic_pic;
+            this.kdk = topicList.discuss_num.longValue();
+            this.kdl = topicList.topic_desc;
+            this.kdq = topicList.topic_pic;
         }
     }
 
@@ -78,6 +78,6 @@ public class c implements q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return kdm;
+        return kdo;
     }
 }

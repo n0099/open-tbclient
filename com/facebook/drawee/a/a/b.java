@@ -6,22 +6,22 @@ import javax.annotation.Nullable;
 /* loaded from: classes9.dex */
 public class b {
     @Nullable
-    private final ImmutableList<com.facebook.imagepipeline.e.a> pdn;
+    private final ImmutableList<com.facebook.imagepipeline.e.a> pdp;
     @Nullable
-    private final g pdo;
-    private final j<Boolean> pdp;
+    private final g pdq;
+    private final j<Boolean> pdr;
 
     @Nullable
-    public ImmutableList<com.facebook.imagepipeline.e.a> eqC() {
-        return this.pdn;
-    }
-
-    @Nullable
-    public g eqD() {
-        return this.pdo;
-    }
-
-    public j<Boolean> eqE() {
+    public ImmutableList<com.facebook.imagepipeline.e.a> eqD() {
         return this.pdp;
+    }
+
+    @Nullable
+    public g eqE() {
+        return this.pdq;
+    }
+
+    public j<Boolean> eqF() {
+        return this.pdr;
     }
 }

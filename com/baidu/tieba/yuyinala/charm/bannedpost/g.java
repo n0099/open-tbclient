@@ -20,7 +20,7 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     private TextView bTi;
     private Context mContext;
     private TextView mTitle;
-    private a oiX;
+    private a oiZ;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -110,13 +110,13 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     public void onClick(View view) {
         if (view == this.bTg || view == this.bTh) {
             dismiss();
-            if (this.oiX != null) {
-                this.oiX.onCancel();
+            if (this.oiZ != null) {
+                this.oiZ.onCancel();
             }
         } else if (view == this.bTi) {
             dismiss();
-            if (this.oiX != null) {
-                this.oiX.onConfirm();
+            if (this.oiZ != null) {
+                this.oiZ.onConfirm();
             }
         }
     }
@@ -126,6 +126,6 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     public void a(a aVar) {
-        this.oiX = aVar;
+        this.oiZ = aVar;
     }
 }

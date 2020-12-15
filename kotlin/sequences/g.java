@@ -5,8 +5,8 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes17.dex */
 public final class g<T, R> implements c<R> {
-    private final c<T> pLc;
-    private final kotlin.jvm.a.b<T, R> pLo;
+    private final c<T> pLe;
+    private final kotlin.jvm.a.b<T, R> pLq;
 
     @kotlin.e
     /* loaded from: classes17.dex */
@@ -20,12 +20,12 @@ public final class g<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iterator = g.this.pLc.iterator();
+            this.iterator = g.this.pLe.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) g.this.pLo.invoke(this.iterator.next());
+            return (R) g.this.pLq.invoke(this.iterator.next());
         }
 
         @Override // java.util.Iterator
@@ -40,8 +40,8 @@ public final class g<T, R> implements c<R> {
     public g(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
         p.o(cVar, "sequence");
         p.o(bVar, "transformer");
-        this.pLc = cVar;
-        this.pLo = bVar;
+        this.pLe = cVar;
+        this.pLq = bVar;
     }
 
     @Override // kotlin.sequences.c

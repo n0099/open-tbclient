@@ -18,9 +18,9 @@ public class IMChatHeader extends LinearLayout {
     private LinearLayout mContainer;
     public Context mContext;
     private int mState;
-    private ImageView oSZ;
-    private LinearLayout oTa;
-    private TextView oTb;
+    private ImageView oTb;
+    private LinearLayout oTc;
+    private TextView oTd;
 
     public IMChatHeader(Context context) {
         super(context);
@@ -43,10 +43,10 @@ public class IMChatHeader extends LinearLayout {
         this.mContainer = (LinearLayout) LayoutInflater.from(context).inflate(a.g.bd_im_listview_header, (ViewGroup) null);
         addView(this.mContainer, layoutParams);
         this.dup = (TextView) findViewById(a.f.bd_im_listview_header_hint_textview);
-        this.oSZ = (ImageView) findViewById(a.f.bd_im_listview_header_progressbar);
-        this.oTa = (LinearLayout) findViewById(a.f.bd_im_listview_header_content);
-        this.oTb = (TextView) findViewById(a.f.bd_im_listview_header_time);
-        this.mAnimationDrawable = (AnimationDrawable) this.oSZ.getDrawable();
+        this.oTb = (ImageView) findViewById(a.f.bd_im_listview_header_progressbar);
+        this.oTc = (LinearLayout) findViewById(a.f.bd_im_listview_header_content);
+        this.oTd = (TextView) findViewById(a.f.bd_im_listview_header_time);
+        this.mAnimationDrawable = (AnimationDrawable) this.oTb.getDrawable();
         this.mAnimationDrawable.start();
     }
 
@@ -84,21 +84,21 @@ public class IMChatHeader extends LinearLayout {
     }
 
     public void setVisiableContent(int i) {
-        this.oTa.setVisibility(i);
+        this.oTc.setVisibility(i);
         if (i != 0 && this.mAnimationDrawable != null) {
             this.mAnimationDrawable.stop();
         }
     }
 
     public void setRefreshTime() {
-        emR();
+        emS();
     }
 
     public long getRefreshTime() {
         return this.dtg;
     }
 
-    private void emR() {
+    private void emS() {
         String format;
         long currentTimeMillis = System.currentTimeMillis() - this.dtg;
         if (this.dtg == -1) {
@@ -118,6 +118,6 @@ public class IMChatHeader extends LinearLayout {
         } else {
             format = String.format(getResources().getString(a.h.bd_im_listview_updated_at), (currentTimeMillis / 31104000000L) + getResources().getString(a.h.bd_im_listview_year));
         }
-        this.oTb.setText(format);
+        this.oTd.setText(format);
     }
 }

@@ -55,9 +55,9 @@ public class i extends h {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
         kotlin.jvm.internal.p.o(hVar, "indices");
         if (hVar.isEmpty()) {
-            return n.eDJ();
+            return n.eDK();
         }
-        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eEi().intValue(), hVar.eEj().intValue() + 1);
+        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eEj().intValue(), hVar.eEk().intValue() + 1);
         kotlin.jvm.internal.p.n(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return f.ax(copyOfRange);
     }
@@ -90,7 +90,7 @@ public class i extends h {
         kotlin.jvm.internal.p.o(tArr, "$receiver");
         switch (tArr.length) {
             case 0:
-                return ag.eDR();
+                return ag.eDS();
             case 1:
                 return ag.bQ(tArr[0]);
             default:

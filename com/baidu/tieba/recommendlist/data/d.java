@@ -6,14 +6,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public int jFM;
+    public int jFO;
     public List<AlaRecommendLiveData> list;
     public int total_count;
     public int type;
 
     public void parserJson(JSONObject jSONObject) {
         this.total_count = jSONObject.optInt("total_count");
-        this.jFM = jSONObject.optInt("has_more");
+        this.jFO = jSONObject.optInt("has_more");
         this.list = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("list");
         if (optJSONArray != null) {

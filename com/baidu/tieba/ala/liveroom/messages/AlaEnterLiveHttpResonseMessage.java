@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
     private w aFN;
-    private ax hxB;
+    private ax hxD;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1021005);
@@ -21,8 +21,8 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
         return this.aFN;
     }
 
-    public ax ciV() {
-        return this.hxB;
+    public ax ciW() {
+        return this.hxD;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -71,10 +71,10 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
                     beVar2.parseJson(optJSONObject7);
                 }
                 if (baVar != null && beVar != null && beVar2 != null) {
-                    this.hxB = new ax();
-                    this.hxB.aPG = baVar;
-                    this.hxB.aPH = beVar;
-                    this.hxB.aPI = beVar2;
+                    this.hxD = new ax();
+                    this.hxD.aPG = baVar;
+                    this.hxD.aPH = beVar;
+                    this.hxD.aPI = beVar2;
                 }
             }
         }

@@ -26,16 +26,16 @@ public class EBusinessProtocolView extends Dialog {
     private View mRootView;
     private int mSkinType;
     private String mTitle;
-    private final String obc;
-    private TextView obd;
-    private WebView obe;
-    private TBSpecificationBtn obf;
-    private TBSpecificationBtn obg;
-    private TextView obh;
-    private Button obi;
-    private boolean obk;
-    private WindowType obl;
-    private a obm;
+    private final String obe;
+    private TextView obf;
+    private WebView obg;
+    private TBSpecificationBtn obh;
+    private TBSpecificationBtn obi;
+    private TextView obk;
+    private Button obl;
+    private boolean obm;
+    private WindowType obn;
+    private a obo;
     private WebViewClient webViewClient;
 
     /* loaded from: classes3.dex */
@@ -51,15 +51,15 @@ public class EBusinessProtocolView extends Dialog {
 
     public EBusinessProtocolView(@NonNull Context context) {
         super(context, R.style.e_business_protocol_dialog);
-        this.obc = "file:///android_asset/protocol.html";
-        this.obk = false;
+        this.obe = "file:///android_asset/protocol.html";
+        this.obm = false;
         this.mSkinType = 0;
         this.webViewClient = new WebViewClient() { // from class: com.baidu.tieba.write.write.EBusinessProtocolView.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 String str2 = "javascript:setContentTextColor(" + EBusinessProtocolView.this.mSkinType + ")";
-                if (EBusinessProtocolView.this.obe != null) {
-                    EBusinessProtocolView.this.obe.loadUrl(str2);
+                if (EBusinessProtocolView.this.obg != null) {
+                    EBusinessProtocolView.this.obg.loadUrl(str2);
                 }
             }
         };
@@ -86,15 +86,15 @@ public class EBusinessProtocolView extends Dialog {
     public void onChangeSkinType(int i) {
         MW(i);
         this.mSkinType = i;
-        ap.setViewTextColor(this.obd, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.obe, R.color.CAM_X0211);
-        ap.setViewTextColor(this.obf, R.color.CAM_X0108);
-        ap.setViewTextColor(this.obg, R.color.CAM_X0303);
-        ap.setViewTextColor(this.obh, R.color.CAM_X0105);
+        ap.setViewTextColor(this.obf, R.color.CAM_X0105);
+        ap.setBackgroundColor(this.obg, R.color.CAM_X0211);
+        ap.setViewTextColor(this.obh, R.color.CAM_X0108);
+        ap.setViewTextColor(this.obi, R.color.CAM_X0303);
+        ap.setViewTextColor(this.obk, R.color.CAM_X0105);
     }
 
     public void a(a aVar) {
-        this.obm = aVar;
+        this.obo = aVar;
     }
 
     public void setTitle(String str) {
@@ -102,46 +102,46 @@ public class EBusinessProtocolView extends Dialog {
     }
 
     public void a(WindowType windowType) {
-        this.obl = windowType;
+        this.obn = windowType;
     }
 
     private void initView() {
-        this.obd = (TextView) this.mRootView.findViewById(R.id.protocol_title);
-        this.obd.setText(this.mTitle);
-        this.obe = (WebView) this.mRootView.findViewById(R.id.protocol_content);
-        this.obg = (TBSpecificationBtn) this.mRootView.findViewById(R.id.agree_protocol);
-        this.obg.setTextSize(R.dimen.tbds42);
+        this.obf = (TextView) this.mRootView.findViewById(R.id.protocol_title);
+        this.obf.setText(this.mTitle);
+        this.obg = (WebView) this.mRootView.findViewById(R.id.protocol_content);
+        this.obi = (TBSpecificationBtn) this.mRootView.findViewById(R.id.agree_protocol);
+        this.obi.setTextSize(R.dimen.tbds42);
         com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
         cVar.rh(R.color.CAM_X0302);
-        this.obg.setConfig(cVar);
-        this.obg.setTextSize(R.dimen.tbds42);
-        this.obg.setText(this.mContext.getResources().getString(R.string.protocol_agree));
-        this.obf = (TBSpecificationBtn) this.mRootView.findViewById(R.id.cancel_protocol);
+        this.obi.setConfig(cVar);
+        this.obi.setTextSize(R.dimen.tbds42);
+        this.obi.setText(this.mContext.getResources().getString(R.string.protocol_agree));
+        this.obh = (TBSpecificationBtn) this.mRootView.findViewById(R.id.cancel_protocol);
         com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
         cVar2.rh(R.color.CAM_X0107);
-        this.obf.setConfig(cVar2);
-        this.obf.setTextSize(R.dimen.tbds42);
-        this.obf.setText(this.mContext.getResources().getString(R.string.protocol_cancel));
-        this.obh = (TextView) this.mRootView.findViewById(R.id.tip_content);
-        this.obi = (Button) findViewById(R.id.tip_known);
-        this.obi.setText(R.string.tip_known);
-        this.obi.setTextColor(ap.getColor(R.color.CAM_X0302));
+        this.obh.setConfig(cVar2);
+        this.obh.setTextSize(R.dimen.tbds42);
+        this.obh.setText(this.mContext.getResources().getString(R.string.protocol_cancel));
+        this.obk = (TextView) this.mRootView.findViewById(R.id.tip_content);
+        this.obl = (Button) findViewById(R.id.tip_known);
+        this.obl.setText(R.string.tip_known);
+        this.obl.setTextColor(ap.getColor(R.color.CAM_X0302));
+        eag();
         eaf();
         eae();
-        ead();
         HH();
     }
 
-    private void ead() {
-        if (WindowType.TIP == this.obl) {
-            this.obh.setVisibility(0);
-            this.obi.setVisibility(0);
+    private void eae() {
+        if (WindowType.TIP == this.obn) {
+            this.obk.setVisibility(0);
+            this.obl.setVisibility(0);
             setCanceledOnTouchOutside(true);
         }
-        if (WindowType.PROTOCOL == this.obl) {
-            this.obe.setVisibility(0);
+        if (WindowType.PROTOCOL == this.obn) {
             this.obg.setVisibility(0);
-            this.obf.setVisibility(0);
+            this.obi.setVisibility(0);
+            this.obh.setVisibility(0);
         }
     }
 
@@ -153,44 +153,44 @@ public class EBusinessProtocolView extends Dialog {
         this.mRootView.setBackgroundDrawable(gradientDrawable);
     }
 
-    private void eae() {
+    private void eaf() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) (getContext().getResources().getString(R.string.tip_content_1) + "\n"));
         spannableStringBuilder.append((CharSequence) (getContext().getResources().getString(R.string.tip_content_2) + "\n"));
         spannableStringBuilder.append((CharSequence) (getContext().getResources().getString(R.string.tip_content_3) + "\n"));
         spannableStringBuilder.append((CharSequence) (getContext().getResources().getString(R.string.tip_content_4) + "\n"));
         spannableStringBuilder.append((CharSequence) getContext().getResources().getString(R.string.tip_content_5));
-        this.obh.setText(spannableStringBuilder);
+        this.obk.setText(spannableStringBuilder);
     }
 
-    private void eaf() {
-        WebSettings settings = this.obe.getSettings();
+    private void eag() {
+        WebSettings settings = this.obg.getSettings();
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setJavaScriptEnabled(true);
-        this.obe.setWebViewClient(this.webViewClient);
+        this.obg.setWebViewClient(this.webViewClient);
         settings.setTextZoom(115);
-        this.obe.loadUrl("file:///android_asset/protocol.html");
+        this.obg.loadUrl("file:///android_asset/protocol.html");
     }
 
     private void HH() {
-        this.obg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.EBusinessProtocolView.2
+        this.obi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.EBusinessProtocolView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EBusinessProtocolView.this.obk = true;
-                EBusinessProtocolView.this.obm.zr(EBusinessProtocolView.this.obk);
+                EBusinessProtocolView.this.obm = true;
+                EBusinessProtocolView.this.obo.zr(EBusinessProtocolView.this.obm);
                 EBusinessProtocolView.this.dismiss();
             }
         });
-        this.obf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.EBusinessProtocolView.3
+        this.obh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.EBusinessProtocolView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EBusinessProtocolView.this.obk = false;
-                EBusinessProtocolView.this.obm.zr(EBusinessProtocolView.this.obk);
+                EBusinessProtocolView.this.obm = false;
+                EBusinessProtocolView.this.obo.zr(EBusinessProtocolView.this.obm);
                 EBusinessProtocolView.this.dismiss();
             }
         });
-        this.obi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.EBusinessProtocolView.4
+        this.obl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.EBusinessProtocolView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EBusinessProtocolView.this.dismiss();

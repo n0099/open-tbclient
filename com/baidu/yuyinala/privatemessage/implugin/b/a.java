@@ -13,27 +13,27 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a oOa;
+    private static a oOc;
     private Context mContext;
-    private LongSparseArray<ImageMsg> oOb = new LongSparseArray<>();
+    private LongSparseArray<ImageMsg> oOd = new LongSparseArray<>();
 
     private a(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
     public static a hf(Context context) {
-        if (oOa == null) {
+        if (oOc == null) {
             synchronized (a.class) {
-                if (oOa == null) {
-                    oOa = new a(context);
+                if (oOc == null) {
+                    oOc = new a(context);
                 }
             }
         }
-        return oOa;
+        return oOc;
     }
 
     public void a(ChatMsg chatMsg, String str) {
-        com.baidu.yuyinala.privatemessage.implugin.d.b.elg().saveMessage(this.mContext, chatMsg);
+        com.baidu.yuyinala.privatemessage.implugin.d.b.elh().saveMessage(this.mContext, chatMsg);
         switch (chatMsg.getMsgType()) {
             case 0:
                 b(chatMsg, str);
@@ -49,7 +49,7 @@ public class a {
 
     private void b(ChatMsg chatMsg, String str) {
         if (chatMsg instanceof TextMsg) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.elg().a(this.mContext, chatMsg, new C0964a(str));
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elh().a(this.mContext, chatMsg, new C0964a(str));
         } else {
             LogUtils.e(TAG, "sendTextChatMsg msg error");
         }
@@ -57,7 +57,7 @@ public class a {
 
     private void c(ChatMsg chatMsg, String str) {
         if (chatMsg instanceof SignleGraphicTextMsg) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.elg().a(this.mContext, chatMsg, new C0964a(str));
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elh().a(this.mContext, chatMsg, new C0964a(str));
         } else {
             LogUtils.e(TAG, "sendTextChatMsg msg error");
         }
@@ -68,9 +68,9 @@ public class a {
     }
 
     public void a(ImageMsg imageMsg) {
-        if (this.oOb != null) {
-            if (this.oOb.get(imageMsg.getRowId()) != null) {
-                imageMsg.setProgress(this.oOb.get(imageMsg.getRowId()).getProgress());
+        if (this.oOd != null) {
+            if (this.oOd.get(imageMsg.getRowId()) != null) {
+                imageMsg.setProgress(this.oOd.get(imageMsg.getRowId()).getProgress());
             } else {
                 imageMsg.setStatus(2);
             }
@@ -78,12 +78,12 @@ public class a {
     }
 
     public void a(int i, ChatMsg chatMsg, String str) {
-        c YK = d.emz().YK(str);
+        c YK = d.emA().YK(str);
         if (YK != null) {
             YK.onSendMessageResult(i, chatMsg);
         }
         if (chatMsg.getMsgType() == 1) {
-            this.oOb.remove(chatMsg.getRowId());
+            this.oOd.remove(chatMsg.getRowId());
         }
     }
 

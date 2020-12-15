@@ -22,9 +22,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gameshare.a;
 /* loaded from: classes22.dex */
 public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0746a {
-    private a jmv;
-    private g jmw;
-    private GameShareData jmx;
+    private a jmx;
+    private g jmy;
+    private GameShareData jmz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -39,7 +39,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putParcelable(GameShareActivityConfig.KEY_GAME_SHARE_DATA, this.jmx);
+        bundle.putParcelable(GameShareActivityConfig.KEY_GAME_SHARE_DATA, this.jmz);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,22 +58,22 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
     }
 
     private void initData(Bundle bundle) {
-        if (this.jmw == null) {
-            this.jmw = new g(getActivity(), null);
+        if (this.jmy == null) {
+            this.jmy = new g(getActivity(), null);
         }
         if (bundle == null) {
-            this.jmx = (GameShareData) getIntent().getParcelableExtra(GameShareActivityConfig.KEY_GAME_SHARE_DATA);
+            this.jmz = (GameShareData) getIntent().getParcelableExtra(GameShareActivityConfig.KEY_GAME_SHARE_DATA);
         } else {
-            this.jmx = (GameShareData) bundle.getParcelable(GameShareActivityConfig.KEY_GAME_SHARE_DATA);
+            this.jmz = (GameShareData) bundle.getParcelable(GameShareActivityConfig.KEY_GAME_SHARE_DATA);
         }
     }
 
     private void initView() {
-        if (this.jmv == null) {
-            this.jmv = new a(getActivity(), this);
+        if (this.jmx == null) {
+            this.jmx = new a(getActivity(), this);
         }
-        setContentView(this.jmv.getRootView());
-        this.jmv.a(this.jmx);
+        setContentView(this.jmx.getRootView());
+        this.jmx.a(this.jmz);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -103,7 +103,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
                 @Override // com.baidu.tbadk.util.m
                 /* renamed from: a */
                 public void onReturnDataInUI(ShareItem shareItem) {
-                    GameShareCardActivity.this.jmw.e(shareItem);
+                    GameShareCardActivity.this.jmy.e(shareItem);
                 }
             });
         }
@@ -126,7 +126,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
                 @Override // com.baidu.tbadk.util.m
                 /* renamed from: a */
                 public void onReturnDataInUI(ShareItem shareItem) {
-                    GameShareCardActivity.this.jmw.f(shareItem);
+                    GameShareCardActivity.this.jmy.f(shareItem);
                 }
             });
         }
@@ -149,7 +149,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
                 @Override // com.baidu.tbadk.util.m
                 /* renamed from: a */
                 public void onReturnDataInUI(ShareItem shareItem) {
-                    GameShareCardActivity.this.jmw.g(shareItem);
+                    GameShareCardActivity.this.jmy.g(shareItem);
                 }
             });
         }
@@ -172,7 +172,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
                 @Override // com.baidu.tbadk.util.m
                 /* renamed from: a */
                 public void onReturnDataInUI(ShareItem shareItem) {
-                    GameShareCardActivity.this.jmw.j(shareItem);
+                    GameShareCardActivity.this.jmy.j(shareItem);
                 }
             });
         }
@@ -187,8 +187,8 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jmv != null) {
-            this.jmv.onDestroy();
+        if (this.jmx != null) {
+            this.jmx.onDestroy();
         }
     }
 
@@ -200,7 +200,7 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
         paint.setTextSize(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.fontsize28));
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(R.string.game_share_slogon), bitmap.getWidth() / 2, this.jmv.cHL() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds50), paint);
+        canvas.drawText(TbadkCoreApplication.getInst().getResources().getString(R.string.game_share_slogon), bitmap.getWidth() / 2, this.jmx.cHM() + TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds50), paint);
         canvas.save(31);
         canvas.restore();
     }

@@ -4,52 +4,52 @@ import android.net.Uri;
 import javax.annotation.Nullable;
 /* loaded from: classes15.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.f.e> poV;
-    private final ak ppc;
-    private long ppd = 0;
-    private int ppe;
+    private final k<com.facebook.imagepipeline.f.e> poX;
+    private final ak ppe;
+    private long ppf = 0;
+    private int ppg;
     @Nullable
-    private com.facebook.imagepipeline.common.a ppf;
+    private com.facebook.imagepipeline.common.a pph;
 
     public t(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        this.poV = kVar;
-        this.ppc = akVar;
+        this.poX = kVar;
+        this.ppe = akVar;
     }
 
-    public k<com.facebook.imagepipeline.f.e> ewI() {
-        return this.poV;
+    public k<com.facebook.imagepipeline.f.e> ewJ() {
+        return this.poX;
     }
 
-    public ak ewJ() {
-        return this.ppc;
-    }
-
-    public String getId() {
-        return this.ppc.getId();
-    }
-
-    public am eww() {
-        return this.ppc.eww();
-    }
-
-    public Uri getUri() {
-        return this.ppc.ewv().exl();
-    }
-
-    public long ewK() {
-        return this.ppd;
-    }
-
-    public void ix(long j) {
-        this.ppd = j;
-    }
-
-    public int ewL() {
+    public ak ewK() {
         return this.ppe;
     }
 
-    @Nullable
-    public com.facebook.imagepipeline.common.a ewM() {
+    public String getId() {
+        return this.ppe.getId();
+    }
+
+    public am ewx() {
+        return this.ppe.ewx();
+    }
+
+    public Uri getUri() {
+        return this.ppe.eww().exm();
+    }
+
+    public long ewL() {
         return this.ppf;
+    }
+
+    public void ix(long j) {
+        this.ppf = j;
+    }
+
+    public int ewM() {
+        return this.ppg;
+    }
+
+    @Nullable
+    public com.facebook.imagepipeline.common.a ewN() {
+        return this.pph;
     }
 }

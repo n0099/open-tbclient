@@ -11,8 +11,8 @@ import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class CardBasicLayout extends LinearLayout {
-    protected f ibG;
-    protected d ify;
+    protected f ibI;
+    protected d ifA;
     public int status;
 
     public CardBasicLayout(Context context) {
@@ -25,29 +25,29 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i, f fVar) {
-        e crc;
-        this.ibG = fVar;
-        if (this.ibG != null && this.ibG.crc() != null && (crc = this.ibG.crc()) != null) {
-            int status = crc.getStatus();
-            if (status == com.baidu.tieba.barselect.a.d.ifQ) {
-                if (i == VoteCandidateCard.igd) {
-                    this.status = a.ifO;
-                    this.ify = this.ibG.crb();
+        e crd;
+        this.ibI = fVar;
+        if (this.ibI != null && this.ibI.crd() != null && (crd = this.ibI.crd()) != null) {
+            int status = crd.getStatus();
+            if (status == com.baidu.tieba.barselect.a.d.ifS) {
+                if (i == VoteCandidateCard.igf) {
+                    this.status = a.ifQ;
+                    this.ifA = this.ibI.crc();
                     return;
                 }
-                this.status = a.ifL;
-                List<d> cra = this.ibG.cra();
-                if (cra != null && cra.size() > i) {
-                    this.ify = cra.get(i);
+                this.status = a.ifN;
+                List<d> crb = this.ibI.crb();
+                if (crb != null && crb.size() > i) {
+                    this.ifA = crb.get(i);
                 }
-            } else if (status == com.baidu.tieba.barselect.a.d.ifR) {
-                if (i == VoteCandidateCard.igd) {
-                    this.status = a.ifN;
-                    List<d> cra2 = this.ibG.cra();
-                    if (cra2 != null && cra2.size() > 0) {
-                        for (d dVar : cra2) {
+            } else if (status == com.baidu.tieba.barselect.a.d.ifT) {
+                if (i == VoteCandidateCard.igf) {
+                    this.status = a.ifP;
+                    List<d> crb2 = this.ibI.crb();
+                    if (crb2 != null && crb2.size() > 0) {
+                        for (d dVar : crb2) {
                             if (dVar.getRank() == 1) {
-                                this.ify = dVar;
+                                this.ifA = dVar;
                                 return;
                             }
                         }
@@ -55,12 +55,12 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.ifM;
-                List<d> cra3 = this.ibG.cra();
-                if (cra3 != null && cra3.size() > i) {
-                    this.ify = cra3.get(i);
-                    if (this.ify.getRank() == 1 && i == 0) {
-                        this.status = a.ifN;
+                this.status = a.ifO;
+                List<d> crb3 = this.ibI.crb();
+                if (crb3 != null && crb3.size() > i) {
+                    this.ifA = crb3.get(i);
+                    if (this.ifA.getRank() == 1 && i == 0) {
+                        this.status = a.ifP;
                     }
                 }
             }

@@ -28,16 +28,16 @@ import com.baidu.tieba.R;
 public class WriteEvaluationHeaderView extends FrameLayout implements View.OnClickListener, RankStarView.a {
     private TbRichTextEvaluateItemInfo mEvaluateItemInfo;
     private int mSkinType;
-    private EMTextView oal;
-    private EMTextView oam;
-    private ImageView oan;
-    private View oao;
-    private View oap;
-    private ItemCardView oaq;
-    private RankStarView oar;
-    private b oas;
-    private a oat;
-    private boolean oau;
+    private EMTextView oan;
+    private EMTextView oao;
+    private ImageView oap;
+    private View oaq;
+    private View oar;
+    private ItemCardView oas;
+    private RankStarView oat;
+    private b oau;
+    private a oav;
+    private boolean oaw;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -60,38 +60,38 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.oau = true;
+        this.oaw = true;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.write_evaluation_header_view, (ViewGroup) this, true);
-        this.oam = (EMTextView) findViewById(R.id.item_relevance_desc);
-        this.oal = (EMTextView) findViewById(R.id.item_relevance_tip);
-        this.oao = findViewById(R.id.write_select_item_relevance);
-        this.oan = (ImageView) findViewById(R.id.item_relevance_arrow);
-        this.oap = findViewById(R.id.item_relevance_line);
-        this.oaq = (ItemCardView) findViewById(R.id.item_star_info);
-        this.oar = (RankStarView) findViewById(R.id.item_set_new_star);
-        this.oar.setStarSpacing(l.getDimens(getContext(), R.dimen.tbds30));
-        this.oar.setClickable(true);
-        this.oar.setStarChangListener(this);
-        this.oaq.buY();
-        this.oaq.setOnCloseListener(this);
-        this.oaq.setSizeStyle(1);
+        this.oao = (EMTextView) findViewById(R.id.item_relevance_desc);
+        this.oan = (EMTextView) findViewById(R.id.item_relevance_tip);
+        this.oaq = findViewById(R.id.write_select_item_relevance);
+        this.oap = (ImageView) findViewById(R.id.item_relevance_arrow);
+        this.oar = findViewById(R.id.item_relevance_line);
+        this.oas = (ItemCardView) findViewById(R.id.item_star_info);
+        this.oat = (RankStarView) findViewById(R.id.item_set_new_star);
+        this.oat.setStarSpacing(l.getDimens(getContext(), R.dimen.tbds30));
+        this.oat.setClickable(true);
+        this.oat.setStarChangListener(this);
+        this.oas.buY();
+        this.oas.setOnCloseListener(this);
+        this.oas.setSizeStyle(1);
         initListener();
     }
 
     private void initListener() {
-        this.oao.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.WriteEvaluationHeaderView.1
+        this.oaq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.WriteEvaluationHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                WriteEvaluationHeaderView.this.dZY();
+                WriteEvaluationHeaderView.this.dZZ();
             }
         });
     }
 
-    public void dZY() {
+    public void dZZ() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RelevanceItemSearchActivityConfig(getContext(), RequestResponseCode.REQUEST_SDK_WEB_VIEW)));
     }
 
@@ -99,89 +99,89 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            if (this.oal != null) {
-                ap.setViewTextColor(this.oal, R.color.CAM_X0109);
-                c.bm(this.oal).pA(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
-            }
             if (this.oan != null) {
-                SvgManager.btW().a(this.oan, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+                ap.setViewTextColor(this.oan, R.color.CAM_X0109);
+                c.bm(this.oan).pA(R.string.J_X06).setBackGroundColor(R.color.CAM_X0206);
             }
             if (this.oap != null) {
-                ap.setBackgroundColor(this.oap, R.color.CAM_X0210);
-            }
-            if (this.oaq != null) {
-                ap.setBackgroundColor(this.oaq, R.color.CAM_X0206);
-            }
-            if (this.oam != null) {
-                ap.setViewTextColor(this.oam, R.color.CAM_X0105);
+                SvgManager.btW().a(this.oap, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             }
             if (this.oar != null) {
-                this.oar.onChangeSkinType(skinType);
+                ap.setBackgroundColor(this.oar, R.color.CAM_X0210);
             }
-            if (this.oar != null) {
-                this.oar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            if (this.oas != null) {
+                ap.setBackgroundColor(this.oas, R.color.CAM_X0206);
+            }
+            if (this.oao != null) {
+                ap.setViewTextColor(this.oao, R.color.CAM_X0105);
+            }
+            if (this.oat != null) {
+                this.oat.onChangeSkinType(skinType);
+            }
+            if (this.oat != null) {
+                this.oat.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
     public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
         this.mEvaluateItemInfo = tbRichTextEvaluateItemInfo;
-        if (this.oau) {
-            this.oaq.setVisibility(0);
-            this.oap.setVisibility(8);
+        if (this.oaw) {
+            this.oas.setVisibility(0);
+            this.oar.setVisibility(8);
         }
-        this.oar.setVisibility(0);
-        this.oar.setStarCount(0.0f);
-        this.oal.setVisibility(8);
-        this.oaq.setData(tbRichTextEvaluateItemInfo, 10);
+        this.oat.setVisibility(0);
+        this.oat.setStarCount(0.0f);
+        this.oan.setVisibility(8);
+        this.oas.setData(tbRichTextEvaluateItemInfo, 10);
     }
 
     public int getStarCount() {
-        return this.oar.getStarCount();
+        return this.oat.getStarCount();
     }
 
     public void setStarCount(int i) {
-        this.oar.setStarCount(i);
+        this.oat.setStarCount(i);
     }
 
-    public boolean dZZ() {
-        return this.oar.bHk();
+    public boolean eaa() {
+        return this.oat.bHk();
     }
 
     @Override // com.baidu.tbadk.widget.RankStarView.a
     public void an(float f) {
-        if (this.oat != null) {
-            this.oat.an(f);
+        if (this.oav != null) {
+            this.oav.an(f);
         }
     }
 
     public void setShowItemInfo(boolean z) {
-        this.oau = z;
+        this.oaw = z;
+        this.oas.setVisibility(8);
+        this.oar.setVisibility(0);
         this.oaq.setVisibility(8);
-        this.oap.setVisibility(0);
-        this.oao.setVisibility(8);
     }
 
     public void setItemCloseListener(b bVar) {
-        this.oas = bVar;
+        this.oau = bVar;
     }
 
     public void setStarChangeListener(a aVar) {
-        this.oat = aVar;
+        this.oav = aVar;
     }
 
     public ItemCardView getItemStarInfo() {
-        return this.oaq;
+        return this.oas;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.oaq.setVisibility(8);
-        this.oap.setVisibility(0);
-        this.oar.setVisibility(8);
-        this.oal.setVisibility(0);
-        if (this.oas != null) {
-            this.oas.onClose();
+        this.oas.setVisibility(8);
+        this.oar.setVisibility(0);
+        this.oat.setVisibility(8);
+        this.oan.setVisibility(0);
+        if (this.oau != null) {
+            this.oau.onClose();
         }
     }
 

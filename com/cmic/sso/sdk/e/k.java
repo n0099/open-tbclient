@@ -33,7 +33,7 @@ public class k {
         return f4028a.getSharedPreferences("ssoconfigs", 0).getString(d.a(str), str2);
     }
 
-    public static a eoI() {
+    public static a eoJ() {
         return new a(f4028a.getSharedPreferences("ssoconfigs", 0).edit());
     }
 

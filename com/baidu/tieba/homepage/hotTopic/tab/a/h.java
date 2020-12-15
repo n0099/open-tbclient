@@ -10,19 +10,19 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class h {
     private List<com.baidu.adp.widget.ListView.a> bnf;
-    private v iyt;
-    private g jQb;
-    private l jQc;
-    private b jQd;
-    private d jQe;
-    private c jQf;
-    private e jQg;
-    private f jQh;
+    private v iyv;
+    private g jQd;
+    private l jQe;
+    private b jQf;
+    private d jQg;
+    private c jQh;
+    private e jQi;
+    private f jQj;
     private TbPageContext mPageContext;
 
     public h(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.iyt = vVar;
+        this.iyv = vVar;
         Nt();
     }
 
@@ -32,42 +32,42 @@ public class h {
         this.bnf.add(new k(this.mPageContext));
         this.bnf.add(new i(this.mPageContext));
         this.bnf.add(new w(this.mPageContext));
-        this.jQb = new g(this.mPageContext);
-        this.jQb.a(this.iyt);
-        this.bnf.add(this.jQb);
-        this.jQc = new l(this.mPageContext);
-        this.jQc.a(this.iyt);
-        this.bnf.add(this.jQc);
-        this.jQd = new b(this.mPageContext);
-        this.jQd.a(this.iyt);
+        this.jQd = new g(this.mPageContext);
+        this.jQd.a(this.iyv);
         this.bnf.add(this.jQd);
-        this.jQe = new d(this.mPageContext);
-        this.jQe.a(this.iyt);
+        this.jQe = new l(this.mPageContext);
+        this.jQe.a(this.iyv);
         this.bnf.add(this.jQe);
-        this.jQf = new c(this.mPageContext);
-        this.jQf.a(this.iyt);
+        this.jQf = new b(this.mPageContext);
+        this.jQf.a(this.iyv);
         this.bnf.add(this.jQf);
-        this.jQg = new e(this.mPageContext);
-        this.jQg.a(this.iyt);
+        this.jQg = new d(this.mPageContext);
+        this.jQg.a(this.iyv);
         this.bnf.add(this.jQg);
-        this.jQh = new f(this.mPageContext);
-        this.jQh.a(this.iyt);
+        this.jQh = new c(this.mPageContext);
+        this.jQh.a(this.iyv);
         this.bnf.add(this.jQh);
-        this.iyt.addAdapters(this.bnf);
+        this.jQi = new e(this.mPageContext);
+        this.jQi.a(this.iyv);
+        this.bnf.add(this.jQi);
+        this.jQj = new f(this.mPageContext);
+        this.jQj.a(this.iyv);
+        this.bnf.add(this.jQj);
+        this.iyv.addAdapters(this.bnf);
     }
 
     public void notifyDataSetChanged() {
-        if (this.iyt != null) {
-            this.iyt.getListAdapter().notifyDataSetChanged();
+        if (this.iyv != null) {
+            this.iyv.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.iyt.setData(list);
+        this.iyv.setData(list);
     }
 
     public List<q> getData() {
-        return this.iyt.getData();
+        return this.iyv.getData();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

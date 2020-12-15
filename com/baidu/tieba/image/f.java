@@ -21,22 +21,22 @@ import tbclient.GoodsInfo;
 /* loaded from: classes21.dex */
 public class f {
     public String fwy;
-    private ForumData jDq;
-    private LinkedList<d> kLE;
-    private String kLG;
-    private String kLH;
-    public int kLJ;
-    public MetaData kLt;
-    public String kLu;
+    private ForumData jDs;
+    private LinkedList<d> kLG;
+    private String kLI;
+    private String kLJ;
+    public int kLL;
+    public MetaData kLv;
+    public String kLw;
     private int replyPrivateFlag;
     private String fid = null;
-    private int kLD = 0;
-    private AdvertAppInfo kLF = null;
-    private LinkedList<AlaInfoData> kLI = new LinkedList<>();
+    private int kLF = 0;
+    private AdvertAppInfo kLH = null;
+    private LinkedList<AlaInfoData> kLK = new LinkedList<>();
 
     public f() {
-        this.kLE = null;
-        this.kLE = new LinkedList<>();
+        this.kLG = null;
+        this.kLG = new LinkedList<>();
     }
 
     public void aT(String str, boolean z) {
@@ -47,32 +47,32 @@ public class f {
         }
     }
 
-    public LinkedList<d> dcf() {
-        return this.kLE;
-    }
-
-    public LinkedList<AlaInfoData> dcg() {
-        return this.kLI;
-    }
-
-    public int getImageNum() {
-        return this.kLD;
-    }
-
-    public String bqz() {
+    public LinkedList<d> dcg() {
         return this.kLG;
     }
 
-    public String bqA() {
-        return this.kLH;
+    public LinkedList<AlaInfoData> dch() {
+        return this.kLK;
     }
 
-    public int dch() {
+    public int getImageNum() {
+        return this.kLF;
+    }
+
+    public String bqz() {
+        return this.kLI;
+    }
+
+    public String bqA() {
+        return this.kLJ;
+    }
+
+    public int dci() {
         return this.replyPrivateFlag;
     }
 
     public ForumData bDp() {
-        return this.jDq;
+        return this.jDs;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -80,30 +80,30 @@ public class f {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.jDq = new ForumData();
-                    this.jDq.parserJson(optJSONObject);
+                    this.jDs = new ForumData();
+                    this.jDs.parserJson(optJSONObject);
                     this.fid = optJSONObject.optString("id");
-                    this.kLG = optJSONObject.optString("frist_class");
-                    this.kLH = optJSONObject.optString("second_class");
+                    this.kLI = optJSONObject.optString("frist_class");
+                    this.kLJ = optJSONObject.optString("second_class");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
                 if (optJSONObject2 != null) {
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("author");
                     if (optJSONObject3 != null) {
-                        this.kLt = new MetaData();
-                        this.kLt.setUserId(optJSONObject3.optString("user_id"));
-                        this.kLt.setUserName(optJSONObject3.optString("user_name"));
-                        this.kLt.setName_show(optJSONObject3.optString("nickname"));
+                        this.kLv = new MetaData();
+                        this.kLv.setUserId(optJSONObject3.optString("user_id"));
+                        this.kLv.setUserName(optJSONObject3.optString("user_name"));
+                        this.kLv.setName_show(optJSONObject3.optString("nickname"));
                     }
-                    this.kLu = optJSONObject2.optString("first_post_id");
-                    this.kLJ = optJSONObject2.optInt("is_multiforum_thread");
+                    this.kLw = optJSONObject2.optString("first_post_id");
+                    this.kLL = optJSONObject2.optInt("is_multiforum_thread");
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
                 if (optJSONObject4 != null) {
                     this.replyPrivateFlag = optJSONObject4.optInt("reply_private_flag");
                     this.fwy = optJSONObject4.optString("voice_message");
                 }
-                this.kLD = jSONObject.optInt("pic_amount", 0);
+                this.kLF = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -111,8 +111,8 @@ public class f {
                             d dVar = new d();
                             dVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = dVar.getIndex();
-                            if (index >= 1 && index <= this.kLD) {
-                                this.kLE.addLast(dVar);
+                            if (index >= 1 && index <= this.kLF) {
+                                this.kLG.addLast(dVar);
                             }
                         }
                     } else {
@@ -120,8 +120,8 @@ public class f {
                             d dVar2 = new d();
                             dVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = dVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.kLD) {
-                                this.kLE.addFirst(dVar2);
+                            if (index2 >= 1 && index2 <= this.kLF) {
+                                this.kLG.addFirst(dVar2);
                             }
                         }
                     }
@@ -141,14 +141,14 @@ public class f {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     AlaInfoData alaInfoData = new AlaInfoData();
                     alaInfoData.parserJson(optJSONArray.optJSONObject(i));
-                    this.kLI.addLast(alaInfoData);
+                    this.kLK.addLast(alaInfoData);
                 }
                 return;
             }
             for (int length = optJSONArray.length() - 1; length >= 0; length--) {
                 AlaInfoData alaInfoData2 = new AlaInfoData();
                 alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
-                this.kLI.addFirst(alaInfoData2);
+                this.kLK.addFirst(alaInfoData2);
             }
         }
     }
@@ -196,10 +196,10 @@ public class f {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.kLF = new AdvertAppInfo();
-            this.kLF.a(build);
-            this.kLF.adPosition = "c0111";
-            this.kLF.eEr = this.fid;
+            this.kLH = new AdvertAppInfo();
+            this.kLH.a(build);
+            this.kLH.adPosition = "c0111";
+            this.kLH.eEr = this.fid;
         }
     }
 
@@ -233,6 +233,6 @@ public class f {
     }
 
     public AdvertAppInfo bmI() {
-        return this.kLF;
+        return this.kLH;
     }
 }

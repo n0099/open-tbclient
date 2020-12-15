@@ -13,15 +13,15 @@ import org.a.d;
 public final class FlowableUsing<T, D> extends g<T> {
     final io.reactivex.b.g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> pFe;
-    final h<? super D, ? extends org.a.b<? extends T>> pGa;
+    final Callable<? extends D> pFg;
+    final h<? super D, ? extends org.a.b<? extends T>> pGc;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            D call = this.pFe.call();
+            D call = this.pFg.call();
             try {
-                ((org.a.b) io.reactivex.internal.functions.a.m(this.pGa.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
+                ((org.a.b) io.reactivex.internal.functions.a.m(this.pGc.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.J(th);
                 try {

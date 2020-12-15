@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
 public class a {
-    private static a pej = null;
-    private final Runnable pel = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a pel = null;
+    private final Runnable pen = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.era();
-            for (InterfaceC0992a interfaceC0992a : a.this.pek) {
+            a.erb();
+            for (InterfaceC0992a interfaceC0992a : a.this.pem) {
                 interfaceC0992a.release();
             }
-            a.this.pek.clear();
+            a.this.pem.clear();
         }
     };
-    private final Set<InterfaceC0992a> pek = new HashSet();
+    private final Set<InterfaceC0992a> pem = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
@@ -27,31 +27,31 @@ public class a {
         void release();
     }
 
-    public static synchronized a eqZ() {
+    public static synchronized a era() {
         a aVar;
         synchronized (a.class) {
-            if (pej == null) {
-                pej = new a();
+            if (pel == null) {
+                pel = new a();
             }
-            aVar = pej;
+            aVar = pel;
         }
         return aVar;
     }
 
     public void a(InterfaceC0992a interfaceC0992a) {
-        era();
-        if (this.pek.add(interfaceC0992a) && this.pek.size() == 1) {
-            this.mUiHandler.post(this.pel);
+        erb();
+        if (this.pem.add(interfaceC0992a) && this.pem.size() == 1) {
+            this.mUiHandler.post(this.pen);
         }
     }
 
     public void b(InterfaceC0992a interfaceC0992a) {
-        era();
-        this.pek.remove(interfaceC0992a);
+        erb();
+        this.pem.remove(interfaceC0992a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void era() {
+    public static void erb() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

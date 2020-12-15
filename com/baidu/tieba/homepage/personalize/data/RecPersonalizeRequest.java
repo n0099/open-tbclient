@@ -98,8 +98,8 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dGe().Sm("tag_home_recommend_tab");
-        builder.app_pos = com.baidu.tieba.recapp.d.a.dFX().dGc();
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dGf().Sm("tag_home_recommend_tab");
+        builder.app_pos = com.baidu.tieba.recapp.d.a.dFY().dGd();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
             bc pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
             builder.from_tid = Long.valueOf(com.baidu.adp.lib.f.b.toLong(pbToHomeUpdateData.tid, 0L));

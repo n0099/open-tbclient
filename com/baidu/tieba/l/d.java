@@ -134,7 +134,7 @@ public class d {
 
     public static void Pj(String str) {
         if (!StringUtils.isNull(str)) {
-            n.deleteFileOrDir(new File(g.a.lll + g.a.llb + str));
+            n.deleteFileOrDir(new File(g.a.lln + g.a.lld + str));
         }
     }
 }

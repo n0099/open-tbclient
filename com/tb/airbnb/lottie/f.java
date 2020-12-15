@@ -32,7 +32,7 @@ public class f {
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eAU */
+            /* renamed from: eAV */
             public l<e> call() {
                 return f.bx(applicationContext, str);
             }
@@ -60,7 +60,7 @@ public class f {
         return b(X(i), new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eAU */
+            /* renamed from: eAV */
             public l<e> call() {
                 return f.W(applicationContext, i);
             }
@@ -84,7 +84,7 @@ public class f {
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eAU */
+            /* renamed from: eAV */
             public l<e> call() {
                 return f.j(inputStream, str);
             }
@@ -111,7 +111,7 @@ public class f {
         return b(str, new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
-            /* renamed from: eAU */
+            /* renamed from: eAV */
             public l<e> call() {
                 return f.d(jsonReader, str);
             }
@@ -122,7 +122,7 @@ public class f {
     public static l<e> d(JsonReader jsonReader, @Nullable String str) {
         try {
             e g = t.g(jsonReader);
-            com.tb.airbnb.lottie.model.g.eBh().a(str, g);
+            com.tb.airbnb.lottie.model.g.eBi().a(str, g);
             return new l<>(g);
         } catch (Exception e) {
             return new l<>(e);
@@ -176,7 +176,7 @@ public class f {
                     return new l<>(new IllegalStateException("There is no image for " + entry2.getValue().getFileName()));
                 }
             }
-            com.tb.airbnb.lottie.model.g.eBh().a(str, eVar2);
+            com.tb.airbnb.lottie.model.g.eBi().a(str, eVar2);
             return new l<>(eVar2);
         } catch (IOException e) {
             return new l<>(e);
@@ -194,12 +194,12 @@ public class f {
     }
 
     private static m<e> b(@Nullable final String str, Callable<l<e>> callable) {
-        final e ZU = com.tb.airbnb.lottie.model.g.eBh().ZU(str);
+        final e ZU = com.tb.airbnb.lottie.model.g.eBi().ZU(str);
         if (ZU != null) {
             return new m<>(new Callable<l<e>>() { // from class: com.tb.airbnb.lottie.f.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: eAU */
+                /* renamed from: eAV */
                 public l<e> call() {
                     Log.d("Gabe", "call\treturning from cache");
                     return new l<>(e.this);
@@ -215,7 +215,7 @@ public class f {
             @Override // com.tb.airbnb.lottie.i
             public void onResult(e eVar) {
                 if (str != null) {
-                    com.tb.airbnb.lottie.model.g.eBh().a(str, eVar);
+                    com.tb.airbnb.lottie.model.g.eBi().a(str, eVar);
                 }
                 f.Ci.remove(str);
             }

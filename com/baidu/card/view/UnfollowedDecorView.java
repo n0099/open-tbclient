@@ -44,7 +44,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!l.isFastDoubleClick()) {
-            this.amM.cts();
+            this.amM.ctt();
         }
     }
 

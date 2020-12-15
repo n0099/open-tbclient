@@ -10,11 +10,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class a extends g {
-    public static CopyOnWriteArrayList<Throwable> oZV = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<Throwable> oZX = new CopyOnWriteArrayList<>();
     private String A;
     private String B;
     private String C;
-    private JSONArray oZU;
+    private JSONArray oZW;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -94,7 +94,7 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONArray jSONArray) {
-        this.oZU = jSONArray;
+        this.oZW = jSONArray;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -185,7 +185,7 @@ public class a extends g {
             jSONObject.put("interfaceCode", this.m);
             jSONObject.put("interfaceElasped", this.n);
             jSONObject.put("loginType", this.o);
-            jSONObject.put("exceptionStackTrace", this.oZU);
+            jSONObject.put("exceptionStackTrace", this.oZW);
             jSONObject.put("operatorType", this.q);
             jSONObject.put("networkType", this.r);
             jSONObject.put("networkClass", this.s);

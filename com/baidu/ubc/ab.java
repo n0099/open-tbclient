@@ -20,7 +20,7 @@ public interface ab {
 
     Flow beginFlow(String str, JSONObject jSONObject);
 
-    boolean ejc();
+    boolean ejd();
 
     void flowAddEvent(Flow flow, String str, String str2);
 

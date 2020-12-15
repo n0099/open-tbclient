@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes24.dex */
 public class e {
-    private static final String ncR = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
+    private static final String ncT = TbConfig.SERVER_ADDRESS + Config.M_SIGN;
     private aa cfI = null;
     private String mAuthSid;
 
@@ -15,8 +15,8 @@ public class e {
         this.mAuthSid = str;
     }
 
-    public String dMD() {
-        this.cfI = new aa(ncR);
+    public String dME() {
+        this.cfI = new aa(ncT);
         this.cfI.addPostData("authsid", this.mAuthSid);
         this.cfI.btv().bue().mNeedBackgroundLogin = true;
         this.cfI.btv().bue().mIsNeedTbs = true;
@@ -30,7 +30,7 @@ public class e {
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.cfI = new aa(ncR);
+        this.cfI = new aa(ncT);
         this.cfI.addPostData("user_id", str2);
         this.cfI.addPostData("forum_ids", str);
         this.cfI.addPostData("authsid", this.mAuthSid);

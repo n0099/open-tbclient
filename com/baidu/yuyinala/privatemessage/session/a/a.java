@@ -12,16 +12,16 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class a extends c {
-    private LayoutInflater kiE;
+    private LayoutInflater kiG;
     private Context mContext;
     private List<com.baidu.yuyinala.privatemessage.session.b.a> mDatas;
-    private Set<com.baidu.yuyinala.privatemessage.session.b.a> oXn = new HashSet();
+    private Set<com.baidu.yuyinala.privatemessage.session.b.a> oXp = new HashSet();
 
     public a(Context context, List<com.baidu.yuyinala.privatemessage.session.b.a> list) {
         this.mContext = context;
         this.mDatas = list;
         if (this.mContext != null) {
-            this.kiE = LayoutInflater.from(context);
+            this.kiG = LayoutInflater.from(context);
         }
     }
 
@@ -60,8 +60,8 @@ public class a extends c {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.yuyinala.privatemessage.session.d.a aVar;
-        if (view == null && this.kiE != null) {
-            view = this.kiE.inflate(a.g.yuyin_item_user_message, viewGroup, false);
+        if (view == null && this.kiG != null) {
+            view = this.kiG.inflate(a.g.yuyin_item_user_message, viewGroup, false);
             com.baidu.yuyinala.privatemessage.session.d.a aVar2 = new com.baidu.yuyinala.privatemessage.session.d.a(view);
             view.setTag(aVar2);
             aVar = aVar2;

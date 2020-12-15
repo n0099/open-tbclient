@@ -13,21 +13,21 @@ import com.facebook.imagepipeline.a.f;
 import javax.annotation.Nullable;
 /* loaded from: classes11.dex */
 public class a implements com.facebook.fresco.animation.a.a, c.a {
-    private static final Class<?> paD = a.class;
+    private static final Class<?> paF = a.class;
     private int mBitmapHeight;
     private int mBitmapWidth;
     @Nullable
     private Rect mBounds;
-    private final f phJ;
-    private final b phK;
-    private final d phL;
-    private final c phM;
+    private final f phL;
+    private final b phM;
+    private final d phN;
+    private final c phO;
     @Nullable
-    private final com.facebook.fresco.animation.b.b.a phN;
+    private final com.facebook.fresco.animation.b.b.a phP;
     @Nullable
-    private final com.facebook.fresco.animation.b.b.b phO;
+    private final com.facebook.fresco.animation.b.b.b phQ;
     @Nullable
-    private InterfaceC0995a phP;
+    private InterfaceC0995a phR;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
     private final Paint mPaint = new Paint(6);
 
@@ -42,41 +42,41 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
     }
 
     public a(f fVar, b bVar, d dVar, c cVar, @Nullable com.facebook.fresco.animation.b.b.a aVar, @Nullable com.facebook.fresco.animation.b.b.b bVar2) {
-        this.phJ = fVar;
-        this.phK = bVar;
-        this.phL = dVar;
-        this.phM = cVar;
-        this.phN = aVar;
-        this.phO = bVar2;
-        esw();
+        this.phL = fVar;
+        this.phM = bVar;
+        this.phN = dVar;
+        this.phO = cVar;
+        this.phP = aVar;
+        this.phQ = bVar2;
+        esx();
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getFrameCount() {
-        return this.phL.getFrameCount();
+        return this.phN.getFrameCount();
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int Qq(int i) {
-        return this.phL.Qq(i);
+        return this.phN.Qq(i);
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getLoopCount() {
-        return this.phL.getLoopCount();
+        return this.phN.getLoopCount();
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public boolean a(Drawable drawable, Canvas canvas, int i) {
-        if (this.phP != null) {
-            this.phP.a(this, i);
+        if (this.phR != null) {
+            this.phR.a(this, i);
         }
         boolean a2 = a(canvas, i, 0);
-        if (!a2 && this.phP != null) {
-            this.phP.b(this, i);
+        if (!a2 && this.phR != null) {
+            this.phR.b(this, i);
         }
-        if (this.phN != null && this.phO != null) {
-            this.phN.a(this.phO, this.phK, this, i);
+        if (this.phP != null && this.phQ != null) {
+            this.phP.a(this.phQ, this.phM, this, i);
         }
         return a2;
     }
@@ -106,12 +106,12 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
             try {
                 switch (i2) {
                     case 0:
-                        b = this.phK.Qr(i);
+                        b = this.phM.Qr(i);
                         z = a(i, b, canvas, 0);
                         com.facebook.common.references.a.c(b);
                         return (z || i3 == -1) ? z : a(canvas, i, i3);
                     case 1:
-                        com.facebook.common.references.a<Bitmap> ah = this.phK.ah(i, this.mBitmapWidth, this.mBitmapHeight);
+                        com.facebook.common.references.a<Bitmap> ah = this.phM.ah(i, this.mBitmapWidth, this.mBitmapHeight);
                         try {
                             if (a(i, ah)) {
                                 break;
@@ -132,7 +132,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
                         }
                     case 2:
                         try {
-                            b = this.phJ.b(this.mBitmapWidth, this.mBitmapHeight, this.mBitmapConfig);
+                            b = this.phL.b(this.mBitmapWidth, this.mBitmapHeight, this.mBitmapConfig);
                             if (!a(i, b) || !a(i, b, canvas, 2)) {
                                 i3 = 0;
                             }
@@ -142,13 +142,13 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
                             if (z) {
                             }
                         } catch (RuntimeException e) {
-                            com.facebook.common.c.a.a(paD, "Failed to create frame bitmap", (Throwable) e);
+                            com.facebook.common.c.a.a(paF, "Failed to create frame bitmap", (Throwable) e);
                             com.facebook.common.references.a.c(null);
                             return false;
                         }
                         break;
                     case 3:
-                        com.facebook.common.references.a<Bitmap> Qs = this.phK.Qs(i);
+                        com.facebook.common.references.a<Bitmap> Qs = this.phM.Qs(i);
                         try {
                             b = Qs;
                             z = a(i, Qs, canvas, 3);
@@ -191,8 +191,8 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
     @Override // com.facebook.fresco.animation.a.a
     public void setBounds(@Nullable Rect rect) {
         this.mBounds = rect;
-        this.phM.setBounds(rect);
-        esw();
+        this.phO.setBounds(rect);
+        esx();
     }
 
     @Override // com.facebook.fresco.animation.a.a
@@ -207,7 +207,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
 
     @Override // com.facebook.fresco.animation.a.a
     public void clear() {
-        this.phK.clear();
+        this.phM.clear();
     }
 
     @Override // com.facebook.fresco.animation.a.c.a
@@ -215,12 +215,12 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
         clear();
     }
 
-    private void esw() {
-        this.mBitmapWidth = this.phM.getIntrinsicWidth();
+    private void esx() {
+        this.mBitmapWidth = this.phO.getIntrinsicWidth();
         if (this.mBitmapWidth == -1) {
             this.mBitmapWidth = this.mBounds == null ? -1 : this.mBounds.width();
         }
-        this.mBitmapHeight = this.phM.getIntrinsicHeight();
+        this.mBitmapHeight = this.phO.getIntrinsicHeight();
         if (this.mBitmapHeight == -1) {
             this.mBitmapHeight = this.mBounds != null ? this.mBounds.height() : -1;
         }
@@ -230,7 +230,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
         if (!com.facebook.common.references.a.a(aVar)) {
             return false;
         }
-        boolean b = this.phM.b(i, aVar.get());
+        boolean b = this.phO.b(i, aVar.get());
         if (!b) {
             com.facebook.common.references.a.c(aVar);
             return b;
@@ -248,10 +248,10 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
             canvas.drawBitmap(aVar.get(), (Rect) null, this.mBounds, this.mPaint);
         }
         if (i2 != 3) {
-            this.phK.a(i, aVar, i2);
+            this.phM.a(i, aVar, i2);
         }
-        if (this.phP != null) {
-            this.phP.a(this, i, i2);
+        if (this.phR != null) {
+            this.phR.a(this, i, i2);
         }
         return true;
     }

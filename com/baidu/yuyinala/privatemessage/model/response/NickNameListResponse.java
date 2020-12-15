@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class NickNameListResponse extends JsonHttpResponsedMessage {
-    public List<f> oWC;
+    public List<f> oWE;
 
     public NickNameListResponse() {
         super(1031060);
@@ -21,7 +21,7 @@ public class NickNameListResponse extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null && getError() == 0) {
-            this.oWC = new ArrayList();
+            this.oWE = new ArrayList();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("list");
             if (optJSONObject2 != null && (keys = optJSONObject2.keys()) != null) {
                 while (keys.hasNext()) {
@@ -30,12 +30,12 @@ public class NickNameListResponse extends JsonHttpResponsedMessage {
                     if (optJSONObject2.opt(fVar.uk) != null) {
                         JSONObject jSONObject2 = (JSONObject) optJSONObject2.opt(fVar.uk);
                         if (jSONObject2 != null) {
-                            fVar.oXt = jSONObject2.getInt(ImageViewerConfig.IS_BJH);
+                            fVar.oXv = jSONObject2.getInt(ImageViewerConfig.IS_BJH);
                             fVar.type = jSONObject2.optString("type");
                             fVar.user_nickname = jSONObject2.optString("user_nickname");
                             fVar.bd_portrait = jSONObject2.optString("bd_portrait");
                         }
-                        this.oWC.add(fVar);
+                        this.oWE.add(fVar);
                     }
                 }
             }

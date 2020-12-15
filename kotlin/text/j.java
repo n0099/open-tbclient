@@ -8,24 +8,24 @@ import java.util.regex.Matcher;
 @kotlin.e
 /* loaded from: classes17.dex */
 public final class j implements i {
-    private final Matcher pLA;
-    private final CharSequence pLq;
-    private final MatchResult pLy;
-    private final g pLz;
+    private final MatchResult pLA;
+    private final g pLB;
+    private final Matcher pLC;
+    private final CharSequence pLs;
 
     public j(Matcher matcher, CharSequence charSequence) {
         kotlin.jvm.internal.p.o(matcher, "matcher");
         kotlin.jvm.internal.p.o(charSequence, Config.INPUT_PART);
-        this.pLA = matcher;
-        this.pLq = charSequence;
-        this.pLy = this.pLA.toMatchResult();
-        this.pLz = new a();
+        this.pLC = matcher;
+        this.pLs = charSequence;
+        this.pLA = this.pLC.toMatchResult();
+        this.pLB = new a();
     }
 
     @Override // kotlin.text.i
-    public kotlin.b.h eEr() {
+    public kotlin.b.h eEs() {
         kotlin.b.h a2;
-        MatchResult matchResult = this.pLy;
+        MatchResult matchResult = this.pLA;
         kotlin.jvm.internal.p.n(matchResult, "matchResult");
         a2 = k.a(matchResult);
         return a2;
@@ -52,7 +52,7 @@ public final class j implements i {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return j.this.pLy.groupCount() + 1;
+            return j.this.pLA.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -67,11 +67,11 @@ public final class j implements i {
 
         public f RX(int i) {
             kotlin.b.h a2;
-            MatchResult matchResult = j.this.pLy;
+            MatchResult matchResult = j.this.pLA;
             kotlin.jvm.internal.p.n(matchResult, "matchResult");
             a2 = k.a(matchResult, i);
-            if (a2.eEi().intValue() >= 0) {
-                String group = j.this.pLy.group(i);
+            if (a2.eEj().intValue() >= 0) {
+                String group = j.this.pLA.group(i);
                 kotlin.jvm.internal.p.n(group, "matchResult.group(index)");
                 return new f(group, a2);
             }
@@ -80,11 +80,11 @@ public final class j implements i {
     }
 
     @Override // kotlin.text.i
-    public i eEs() {
+    public i eEt() {
         i a2;
-        int end = (this.pLy.end() == this.pLy.start() ? 1 : 0) + this.pLy.end();
-        if (end <= this.pLq.length()) {
-            a2 = k.a(this.pLA, end, this.pLq);
+        int end = (this.pLA.end() == this.pLA.start() ? 1 : 0) + this.pLA.end();
+        if (end <= this.pLs.length()) {
+            a2 = k.a(this.pLC, end, this.pLs);
             return a2;
         }
         return null;

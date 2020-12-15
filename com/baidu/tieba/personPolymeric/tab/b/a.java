@@ -16,8 +16,8 @@ import java.util.List;
 /* loaded from: classes24.dex */
 public class a {
     private static final int fPv = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int mtV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int mtW = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int mtX = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int mtY = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<q> fC(List<q> list) {
         by byVar;
@@ -91,13 +91,13 @@ public class a {
                 } else {
                     kVar3.isLinkThread = false;
                     if (byVar.boS()) {
-                        kVar3.inw = true;
+                        kVar3.iny = true;
                     } else {
-                        kVar3.inw = false;
+                        kVar3.iny = false;
                     }
                 }
                 kVar3.eCR = byVar;
-                kVar3.inx = true;
+                kVar3.inz = true;
                 kVar = kVar3;
             } else if (l.ad(byVar)) {
                 kVar = new l(byVar);
@@ -113,8 +113,8 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!y.isEmpty(list)) {
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.paddingBottom = mtW;
-            kVar.paddingTop = mtV;
+            kVar.paddingBottom = mtY;
+            kVar.paddingTop = mtX;
             kVar.paddingLeft = fPv;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);

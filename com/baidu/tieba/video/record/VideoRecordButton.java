@@ -11,13 +11,13 @@ import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public class VideoRecordButton extends FrameLayout {
     private TextView acm;
-    private View nKP;
-    private View nKQ;
     private View nKR;
-    private ObjectAnimator nKS;
-    private ObjectAnimator nKT;
+    private View nKS;
+    private View nKT;
     private ObjectAnimator nKU;
     private ObjectAnimator nKV;
+    private ObjectAnimator nKW;
+    private ObjectAnimator nKX;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), R.layout.layout_record_button, this);
-        this.nKP = findViewById(R.id.record_layer1);
-        this.nKQ = findViewById(R.id.record_layer2);
-        this.nKR = findViewById(R.id.record_layer3);
+        this.nKR = findViewById(R.id.record_layer1);
+        this.nKS = findViewById(R.id.record_layer2);
+        this.nKT = findViewById(R.id.record_layer3);
         this.acm = (TextView) findViewById(R.id.tv_tip);
-        this.nKR.setScaleX(0.766f);
-        this.nKR.setScaleY(0.766f);
+        this.nKT.setScaleX(0.766f);
+        this.nKT.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.nKR;
+        return this.nKT;
     }
 
     public View getLayer1() {
-        return this.nKP;
+        return this.nKR;
     }
 
     public View getLayer2() {
-        return this.nKQ;
+        return this.nKS;
     }
 
     public TextView getTvTip() {
         return this.acm;
     }
 
-    public void dWX() {
-        if (this.nKV != null && this.nKV.isRunning()) {
-            this.nKU.cancel();
+    public void dWY() {
+        if (this.nKX != null && this.nKX.isRunning()) {
+            this.nKW.cancel();
         }
-        if (this.nKU == null) {
-            this.nKU = ObjectAnimator.ofPropertyValuesHolder(this.nKQ, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.nKU.setDuration(200L);
+        if (this.nKW == null) {
+            this.nKW = ObjectAnimator.ofPropertyValuesHolder(this.nKS, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.nKW.setDuration(200L);
         }
-        this.nKU.start();
+        this.nKW.start();
     }
 
-    public void dWY() {
-        if (this.nKU != null && this.nKU.isRunning()) {
-            this.nKU.cancel();
+    public void dWZ() {
+        if (this.nKW != null && this.nKW.isRunning()) {
+            this.nKW.cancel();
         }
-        if (this.nKQ.getScaleX() != 1.0f) {
-            if (this.nKV == null) {
-                this.nKV = ObjectAnimator.ofPropertyValuesHolder(this.nKQ, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.nKV.setDuration(200L);
+        if (this.nKS.getScaleX() != 1.0f) {
+            if (this.nKX == null) {
+                this.nKX = ObjectAnimator.ofPropertyValuesHolder(this.nKS, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.nKX.setDuration(200L);
             }
-            this.nKV.start();
+            this.nKX.start();
         }
     }
 
     public void yR(boolean z) {
-        if (this.nKT != null && this.nKT.isRunning()) {
-            this.nKT.cancel();
+        if (this.nKV != null && this.nKV.isRunning()) {
+            this.nKV.cancel();
         }
-        if (this.nKS == null) {
-            this.nKS = ObjectAnimator.ofPropertyValuesHolder(this.nKR, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.nKS.setRepeatCount(-1);
-            this.nKS.setRepeatMode(2);
-            this.nKS.setDuration(1000L);
+        if (this.nKU == null) {
+            this.nKU = ObjectAnimator.ofPropertyValuesHolder(this.nKT, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.nKU.setRepeatCount(-1);
+            this.nKU.setRepeatMode(2);
+            this.nKU.setDuration(1000L);
         }
-        this.nKR.setVisibility(0);
+        this.nKT.setVisibility(0);
         if (z) {
-            this.nKP.setVisibility(8);
+            this.nKR.setVisibility(8);
         } else {
-            this.nKP.setBackgroundResource(R.drawable.red_square_bg);
+            this.nKR.setBackgroundResource(R.drawable.red_square_bg);
         }
         this.acm.setVisibility(8);
-        this.nKS.start();
+        this.nKU.start();
     }
 
-    public void dWM() {
-        if (this.nKS != null && this.nKS.isRunning()) {
-            this.nKS.cancel();
+    public void dWN() {
+        if (this.nKU != null && this.nKU.isRunning()) {
+            this.nKU.cancel();
         }
-        if (this.nKT == null) {
-            this.nKT = ObjectAnimator.ofPropertyValuesHolder(this.nKR, PropertyValuesHolder.ofFloat("scaleX", this.nKR.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.nKR.getScaleY(), 0.766f));
-            this.nKT.setDuration((500.0f * Math.abs(0.766f - this.nKR.getScaleX())) / 0.3f);
+        if (this.nKV == null) {
+            this.nKV = ObjectAnimator.ofPropertyValuesHolder(this.nKT, PropertyValuesHolder.ofFloat("scaleX", this.nKT.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.nKT.getScaleY(), 0.766f));
+            this.nKV.setDuration((500.0f * Math.abs(0.766f - this.nKT.getScaleX())) / 0.3f);
         }
-        this.nKP.setVisibility(0);
-        this.nKP.setBackgroundResource(R.drawable.red_circle_bg);
-        this.nKT.start();
+        this.nKR.setVisibility(0);
+        this.nKR.setBackgroundResource(R.drawable.red_circle_bg);
+        this.nKV.start();
     }
 }

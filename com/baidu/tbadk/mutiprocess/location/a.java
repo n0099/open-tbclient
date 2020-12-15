@@ -27,8 +27,8 @@ public class a implements b<LocationEvent> {
                 }
                 if (socketResponsedMessage.getError() == 0 && locationEvent.locationData != null) {
                     LocationModel.c(locationEvent.locationData);
-                    com.baidu.tieba.tbadkCore.location.b.dPT().setTimeStamp(System.currentTimeMillis());
-                    com.baidu.tieba.tbadkCore.location.b.dPT().setLocationData(locationEvent.locationData);
+                    com.baidu.tieba.tbadkCore.location.b.dPU().setTimeStamp(System.currentTimeMillis());
+                    com.baidu.tieba.tbadkCore.location.b.dPU().setLocationData(locationEvent.locationData);
                 }
                 g.publishEvent(locationEvent);
             }

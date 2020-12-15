@@ -5,20 +5,20 @@ import java.util.List;
 import tbclient.PbPage.PbSortType;
 /* loaded from: classes22.dex */
 public class n implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId lCa = BdUniqueId.gen();
-    public static final BdUniqueId lCb = BdUniqueId.gen();
+    public static final BdUniqueId lCc = BdUniqueId.gen();
+    public static final BdUniqueId lCd = BdUniqueId.gen();
     public BdUniqueId Wv;
     public boolean isDynamic;
-    public long lCc;
-    public String lCd;
-    public List<PbSortType> lCg;
+    public long lCe;
+    public String lCf;
+    public List<PbSortType> lCi;
     public boolean isNew = true;
     public int sortType = 0;
-    public String lCe = "";
-    public boolean lCf = false;
+    public String lCg = "";
+    public boolean lCh = false;
 
     public n(BdUniqueId bdUniqueId) {
-        this.Wv = lCb;
+        this.Wv = lCd;
         this.Wv = bdUniqueId;
     }
 

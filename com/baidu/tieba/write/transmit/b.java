@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int ltK = 3;
+    private static int ltM = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -61,32 +61,32 @@ public class b extends BaseAdapter {
     /* loaded from: classes3.dex */
     public static class a {
         public TextView fdz;
-        public BarImageView ltM;
+        public BarImageView ltO;
         public int mSkinType = 3;
-        public View nYd;
+        public View nYf;
 
         public a(View view) {
             if (view != null) {
                 this.fdz = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.ltM = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.ltM.setShowOval(true);
-                this.nYd = view.findViewById(R.id.divider_line);
+                this.ltO = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.ltO.setShowOval(true);
+                this.nYf = view.findViewById(R.id.divider_line);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
                 this.fdz.setText(transmitForumData.forumName);
-                this.ltM.startLoad(transmitForumData.avatar, 10, false);
+                this.ltO.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void bvt() {
-            if (b.ltK != this.mSkinType) {
+            if (b.ltM != this.mSkinType) {
                 ap.setViewTextColor(this.fdz, R.color.CAM_X0105);
-                ap.setBackgroundColor(this.nYd, R.color.CAM_X0204);
+                ap.setBackgroundColor(this.nYf, R.color.CAM_X0204);
             }
-            this.mSkinType = b.ltK;
+            this.mSkinType = b.ltM;
         }
     }
 
@@ -97,9 +97,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (ltK != i) {
+        if (ltM != i) {
             notifyDataSetChanged();
         }
-        ltK = i;
+        ltM = i;
     }
 }

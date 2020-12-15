@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes23.dex */
 public class b {
-    private List<a> kOG;
-    private List<Integer> kOH;
-    private List<a> kOK;
+    private List<a> kOI;
+    private List<Integer> kOJ;
+    private List<a> kOM;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!y.isEmpty(dataRes.sex_taglist)) {
-                this.kOK = new ArrayList();
-                A(this.kOK, dataRes.sex_taglist);
+                this.kOM = new ArrayList();
+                A(this.kOM, dataRes.sex_taglist);
             }
             if (!y.isEmpty(dataRes.taglist)) {
-                this.kOG = new ArrayList();
-                this.kOH = new ArrayList();
-                A(this.kOG, dataRes.taglist);
+                this.kOI = new ArrayList();
+                this.kOJ = new ArrayList();
+                A(this.kOI, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.kOH != null && aVar.isFollow) {
-                        this.kOH.add(Integer.valueOf(aVar.labelId));
+                    if (this.kOJ != null && aVar.isFollow) {
+                        this.kOJ.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> dcN() {
-        return this.kOK;
-    }
-
     public List<a> dcO() {
-        return this.kOG;
+        return this.kOM;
     }
 
-    public List<Integer> dcP() {
-        return this.kOH;
+    public List<a> dcP() {
+        return this.kOI;
+    }
+
+    public List<Integer> dcQ() {
+        return this.kOJ;
     }
 }

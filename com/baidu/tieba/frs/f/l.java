@@ -98,7 +98,7 @@ public class l {
                 if (indexOf >= 0 && (length = indexOf + "kw=".length()) <= decode.length()) {
                     gVar.forumName = decode.substring(length);
                     try {
-                        gVar.jvP = uri.getQueryParameter("from");
+                        gVar.jvR = uri.getQueryParameter("from");
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -221,7 +221,7 @@ public class l {
                 str = byVar.eLS.id;
                 str2 = valueOf;
             }
-            if (byVar.bpm() > 0 && com.baidu.tieba.tbadkCore.util.e.dQw()) {
+            if (byVar.bpm() > 0 && com.baidu.tieba.tbadkCore.util.e.dQx()) {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(byVar.getTid(), String.valueOf(byVar.bpm()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(byVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);

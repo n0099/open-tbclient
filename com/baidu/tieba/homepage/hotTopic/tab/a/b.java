@@ -104,7 +104,7 @@ public class b extends a<bx, am<by>> {
         this.fNa = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.homepage.hotTopic.tab.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cwK */
+            /* renamed from: cwL */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.blV().isShowImages();

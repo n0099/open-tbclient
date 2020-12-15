@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes19.dex */
     public static final class a {
         private final String className;
-        private C0987a pbO;
-        private C0987a pbP;
-        private boolean pbQ;
+        private C0987a pbQ;
+        private C0987a pbR;
+        private boolean pbS;
 
         private a(String str) {
-            this.pbO = new C0987a();
-            this.pbP = this.pbO;
-            this.pbQ = false;
+            this.pbQ = new C0987a();
+            this.pbR = this.pbQ;
+            this.pbS = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,10 +54,10 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.pbQ;
+            boolean z = this.pbS;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0987a c0987a = this.pbO.pbR; c0987a != null; c0987a = c0987a.pbR) {
+            for (C0987a c0987a = this.pbQ.pbT; c0987a != null; c0987a = c0987a.pbT) {
                 if (!z || c0987a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -70,17 +70,17 @@ public final class f {
             return append.append('}').toString();
         }
 
-        private C0987a epO() {
+        private C0987a epP() {
             C0987a c0987a = new C0987a();
-            this.pbP.pbR = c0987a;
-            this.pbP = c0987a;
+            this.pbR.pbT = c0987a;
+            this.pbR = c0987a;
             return c0987a;
         }
 
         private a F(String str, @Nullable Object obj) {
-            C0987a epO = epO();
-            epO.value = obj;
-            epO.name = (String) g.checkNotNull(str);
+            C0987a epP = epP();
+            epP.value = obj;
+            epP.name = (String) g.checkNotNull(str);
             return this;
         }
 
@@ -90,7 +90,7 @@ public final class f {
         public static final class C0987a {
             @Nullable
             String name;
-            C0987a pbR;
+            C0987a pbT;
             @Nullable
             Object value;
 

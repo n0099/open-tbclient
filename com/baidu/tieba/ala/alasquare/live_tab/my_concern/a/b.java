@@ -9,7 +9,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.gtl);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.gtn);
         this.mPageContext = tbPageContext;
     }
 
@@ -25,10 +25,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.e eVar, com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.c cVar) {
-        if (cVar == null || cVar.gtI == null) {
+        if (cVar == null || cVar.gtK == null) {
             return null;
         }
-        cVar.gtI.a(eVar);
+        cVar.gtK.a(eVar);
         return cVar.getView();
     }
 }

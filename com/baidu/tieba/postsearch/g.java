@@ -6,89 +6,89 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes24.dex */
 public class g {
-    private PostSearchActivity mCz;
-    private a mDp;
-    private c mDq;
-    private f mDr;
+    private PostSearchActivity mCB;
+    private a mDr;
+    private c mDs;
+    private f mDt;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.mCz = postSearchActivity;
+        this.mCB = postSearchActivity;
     }
 
     public void initView() {
-        this.mCz.setContentView(R.layout.post_search_activity);
-        this.mRootView = this.mCz.findViewById(R.id.search_rootview);
-        this.mDp = new a(this.mCz, this.mRootView);
-        this.mDq = new c(this.mCz, this.mRootView);
-        this.mDr = new f(this.mCz, this.mRootView);
+        this.mCB.setContentView(R.layout.post_search_activity);
+        this.mRootView = this.mCB.findViewById(R.id.search_rootview);
+        this.mDr = new a(this.mCB, this.mRootView);
+        this.mDs = new c(this.mCB, this.mRootView);
+        this.mDt = new f(this.mCB, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.mDr != null) {
-            this.mDr.setOnPageChangeListener(onPageChangeListener);
+        if (this.mDt != null) {
+            this.mDt.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void bh(ArrayList<String> arrayList) {
-        this.mDr.setVisibility(false);
-        this.mDq.bh(arrayList);
+        this.mDt.setVisibility(false);
+        this.mDs.bh(arrayList);
     }
 
     public void IU(int i) {
-        this.mDp.cMg();
+        this.mDr.cMh();
         hideSoftKeyPad();
-        this.mDp.dDm();
-        this.mDr.setVisibility(true);
-        this.mDr.IU(i);
+        this.mDr.dDn();
+        this.mDt.setVisibility(true);
+        this.mDt.IU(i);
     }
 
     public void Rw(String str) {
-        this.mDp.Rw(str);
+        this.mDr.Rw(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.mDr.a(i, bVar, z);
+        this.mDt.a(i, bVar, z);
     }
 
-    public boolean dDq() {
-        return this.mDq.dDy();
+    public boolean dDr() {
+        return this.mDs.dDz();
     }
 
     public void showLoadingView() {
-        this.mDq.showLoadingView();
+        this.mDs.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.mDq.hideLoadingView();
+        this.mDs.hideLoadingView();
     }
 
-    public void dDx() {
-        this.mDq.dDx();
+    public void dDy() {
+        this.mDs.dDy();
     }
 
     public void hideSoftKeyPad() {
-        this.mDp.hideSoftKeyPad();
+        this.mDr.hideSoftKeyPad();
     }
 
-    public void dDJ() {
-        this.mDq.dDw();
+    public void dDK() {
+        this.mDs.dDx();
     }
 
     public int getCurrentTabType() {
-        return this.mDr.getCurrentTabType();
+        return this.mDt.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.mDp.onChangeSkinType(i);
-        this.mDq.onChangeSkinType(i);
         this.mDr.onChangeSkinType(i);
-        com.baidu.tbadk.r.a.a(this.mCz.getPageContext(), this.mRootView);
+        this.mDs.onChangeSkinType(i);
+        this.mDt.onChangeSkinType(i);
+        com.baidu.tbadk.r.a.a(this.mCB.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.mDp != null) {
-            this.mDp.onDestroy();
+        if (this.mDr != null) {
+            this.mDr.onDestroy();
         }
     }
 }

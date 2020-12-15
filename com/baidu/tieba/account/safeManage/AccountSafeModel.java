@@ -7,18 +7,18 @@ import tbclient.SimpleUser;
 /* loaded from: classes22.dex */
 public class AccountSafeModel extends BdBaseModel {
     private boolean fEk;
-    private com.baidu.tieba.setting.im.more.a fZi;
-    private String fZj;
-    private String fZk;
+    private com.baidu.tieba.setting.im.more.a fZk;
     private String fZl;
+    private String fZm;
+    private String fZn;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a bMg() {
-        return this.fZi;
+    public com.baidu.tieba.setting.im.more.a bMh() {
+        return this.fZk;
     }
 
     public String Fk() {
-        return this.fZj;
+        return this.fZl;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
@@ -39,40 +39,40 @@ public class AccountSafeModel extends BdBaseModel {
         return false;
     }
 
-    private PrivateInfoNetMessage bMh() {
+    private PrivateInfoNetMessage bMi() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean bMi() {
+    public boolean bMj() {
         if (this.fEk) {
             return false;
         }
         this.fEk = true;
         this.mFinished = false;
-        sendMessage(bMh());
+        sendMessage(bMi());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.fZi = aVar;
-        bMj();
+        this.fZk = aVar;
+        bMk();
     }
 
-    private void bMj() {
-        SimpleUser bMk = bMk();
-        if (bMk != null) {
-            this.fZk = bMk.secureemail;
-            this.fZl = bMk.securemobil;
-            this.fZj = bMk.ahead_url;
+    private void bMk() {
+        SimpleUser bMl = bMl();
+        if (bMl != null) {
+            this.fZm = bMl.secureemail;
+            this.fZn = bMl.securemobil;
+            this.fZl = bMl.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser bMk() {
-        if (this.fZi == null || this.fZi.bMk() == null) {
+    private SimpleUser bMl() {
+        if (this.fZk == null || this.fZk.bMl() == null) {
             return null;
         }
-        return this.fZi.bMk();
+        return this.fZk.bMl();
     }
 
     public boolean isLoading() {

@@ -13,13 +13,13 @@ public class ab extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
     private String aiw;
     private com.baidu.adp.widget.ListView.v amH;
     public BdUniqueId fzO;
-    private byte jLh;
+    private byte jLj;
     private TbPageContext<?> mPageContext;
 
     public ab(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.jLh = b;
+        this.jLj = b;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class ab extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
     /* renamed from: aR */
     public am<com.baidu.tieba.homepage.concern.a.c> c(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fzO, this.jLh));
+        aVar.c(new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fzO, this.jLj));
         aVar.tY().bB(0);
         aVar.tY().bD(0);
         aVar.tY().bC(0);

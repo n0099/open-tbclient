@@ -14,7 +14,7 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UrlManager;
 /* loaded from: classes4.dex */
 public class AlaChallengeRankListEnter extends LinearLayout {
-    private TextView hou;
+    private TextView how;
 
     public AlaChallengeRankListEnter(Context context) {
         super(context);
@@ -33,7 +33,7 @@ public class AlaChallengeRankListEnter extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_challenge_rank_list_entry, this);
-        this.hou = (TextView) findViewById(a.f.ala_challenge_rank_enter);
+        this.how = (TextView) findViewById(a.f.ala_challenge_rank_enter);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeRankListEnter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

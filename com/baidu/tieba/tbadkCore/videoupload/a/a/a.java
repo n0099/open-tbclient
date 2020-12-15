@@ -15,10 +15,10 @@ import org.json.JSONObject;
 public abstract class a {
     private final long mFileLength;
     protected final String mFileName;
-    private final String npq;
-    private final int npr;
-    private final int nps;
-    private e npt;
+    private final String nps;
+    private final int npt;
+    private final int npu;
+    private e npv;
 
     public abstract void cancel();
 
@@ -28,20 +28,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.nps = i2;
+        this.npu = i2;
         this.mFileLength = j;
-        this.npq = str2;
-        this.npr = i;
+        this.nps = str2;
+        this.npt = i;
     }
 
     public void a(e eVar) {
-        this.npt = eVar;
+        this.npv = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void Lm(int i) {
-        if (this.npt != null) {
-            this.npt.aV(i / 100.0f);
+        if (this.npv != null) {
+            this.npv.aV(i / 100.0f);
         }
     }
 
@@ -58,10 +58,10 @@ public abstract class a {
         } else {
             aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             aaVar.addPostData("chunk_no", String.valueOf(i));
-            aaVar.addPostData("chunk_sum", String.valueOf(this.nps));
+            aaVar.addPostData("chunk_sum", String.valueOf(this.npu));
             aaVar.addPostData("chunk_size", String.valueOf(b.length));
             aaVar.addPostData("video_size", String.valueOf(this.mFileLength));
-            aaVar.addPostData("video_md5", this.npq);
+            aaVar.addPostData("video_md5", this.nps);
             aaVar.addPostData("video_len", String.valueOf(j));
             aaVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
             aaVar.addPostData("video_chunk", b);
@@ -93,15 +93,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.nps) {
-            i2 = (int) (this.mFileLength - ((i - 1) * this.npr));
+        if (i == this.npu) {
+            i2 = (int) (this.mFileLength - ((i - 1) * this.npt));
         } else {
-            i2 = this.npr;
+            i2 = this.npt;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.npr);
+                randomAccessFile.seek((i - 1) * this.npt);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {

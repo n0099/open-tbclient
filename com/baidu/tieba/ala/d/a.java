@@ -19,13 +19,13 @@ public class a implements com.baidu.live.a.a {
     private w aFN;
     public String aJj;
     private TbPageContext bAn;
-    private PendantParentView gEi;
-    private PendantChildView gEj;
-    private AlaAirDropView gGD;
-    public boolean gGE;
-    public boolean gGF;
-    CountDownTimer gGH;
-    private boolean gGG = false;
+    private PendantParentView gEk;
+    private PendantChildView gEl;
+    private AlaAirDropView gGF;
+    public boolean gGG;
+    public boolean gGH;
+    CountDownTimer gGJ;
+    private boolean gGI = false;
     private com.baidu.live.view.web.h bRm = new com.baidu.live.view.web.h() { // from class: com.baidu.tieba.ala.d.a.2
         @Override // com.baidu.live.view.web.h
         public void jr(String str) {
@@ -37,16 +37,16 @@ public class a implements com.baidu.live.a.a {
             }
         }
     };
-    public CustomMessageListener gGI = new CustomMessageListener(2913274) { // from class: com.baidu.tieba.ala.d.a.5
+    public CustomMessageListener gGK = new CustomMessageListener(2913274) { // from class: com.baidu.tieba.ala.d.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() == null) {
-                a.this.gGG = false;
+                a.this.gGI = false;
             } else {
-                a.this.gGG = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                a.this.gGI = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
-            if (a.this.gGG && a.this.gGD != null && a.this.gGD.isShowing() && a.this.aFN.url.contains("needReloadDangle=1")) {
+            if (a.this.gGI && a.this.gGF != null && a.this.gGF.isShowing() && a.this.aFN.url.contains("needReloadDangle=1")) {
                 a.this.x(a.this.aFN);
             }
         }
@@ -59,33 +59,33 @@ public class a implements com.baidu.live.a.a {
     @Override // com.baidu.live.a.a
     public void a(ViewGroup viewGroup, w wVar) {
         if (viewGroup != null && (viewGroup instanceof PendantParentView)) {
-            this.gEi = (PendantParentView) viewGroup;
-            bUj();
+            this.gEk = (PendantParentView) viewGroup;
+            bUk();
         }
     }
 
     @Override // com.baidu.live.a.a
     public void a(w wVar) {
         if (wVar == null || wVar.mLiveInfo == null) {
-            if (this.gEj != null) {
-                this.gEj.setVisibility(8);
+            if (this.gEl != null) {
+                this.gEl.setVisibility(8);
                 return;
             }
             return;
         }
         this.aFN = wVar;
-        if (this.aFN.aKz && this.gGD == null) {
-            this.gGD = new AlaAirDropView(this.gEj.getContext());
-            MessageManager.getInstance().registerListener(this.gGI);
+        if (this.aFN.aKz && this.gGF == null) {
+            this.gGF = new AlaAirDropView(this.gEl.getContext());
+            MessageManager.getInstance().registerListener(this.gGK);
             fd(this.aFN.countDown * 1000);
             x(this.aFN);
-            if (this.gEj != null && this.gEj.indexOfChild(this.gGD) < 0) {
-                if (this.gGE || this.gGF) {
-                    this.gEj.addView(this.gGD.getView(), new ViewGroup.LayoutParams(this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds122), this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds136)));
+            if (this.gEl != null && this.gEl.indexOfChild(this.gGF) < 0) {
+                if (this.gGG || this.gGH) {
+                    this.gEl.addView(this.gGF.getView(), new ViewGroup.LayoutParams(this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds122), this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds136)));
                 } else {
-                    this.gEj.addView(this.gGD.getView(), new ViewGroup.LayoutParams(this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds360), this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds740)));
+                    this.gEl.addView(this.gGF.getView(), new ViewGroup.LayoutParams(this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds360), this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds740)));
                 }
-                this.gEj.bringChildToFront(this.gGD);
+                this.gEl.bringChildToFront(this.gGF);
             }
         }
     }
@@ -93,7 +93,7 @@ public class a implements com.baidu.live.a.a {
     public void x(w wVar) {
         if (wVar.aKz) {
             if (wVar.url == null) {
-                this.gGD.getView().setVisibility(8);
+                this.gGF.getView().setVisibility(8);
                 return;
             }
             this.aJj = com.baidu.live.utils.b.a(1, wVar.url, this.aFN.isHost, String.valueOf(this.aFN.aKr.userId), String.valueOf(this.aFN.aJV.userId), String.valueOf(this.aFN.mLiveInfo.room_id), String.valueOf(this.aFN.mLiveInfo.live_id), "debug=1");
@@ -102,12 +102,12 @@ public class a implements com.baidu.live.a.a {
                 @Override // com.baidu.live.view.web.f
                 public void fr(int i) {
                 }
-            }).a(this.gGD.getWebView().getSchemeCallback()).b(this.bRm);
+            }).a(this.gGF.getWebView().getSchemeCallback()).b(this.bRm);
             com.baidu.live.view.web.a[] YO = gVar.YO();
             for (com.baidu.live.view.web.a aVar : YO) {
-                this.gGD.getWebView().addJavascriptInterface(aVar, aVar.getName());
+                this.gGF.getWebView().addJavascriptInterface(aVar, aVar.getName());
             }
-            this.gGD.getWebView().loadUrl(this.aJj);
+            this.gGF.getWebView().loadUrl(this.aJj);
         }
     }
 
@@ -134,13 +134,13 @@ public class a implements com.baidu.live.a.a {
 
     @Override // com.baidu.live.a.a
     public void bd(boolean z) {
-        this.gGE = z;
+        this.gGG = z;
     }
 
     @Override // com.baidu.live.a.a
     public void be(boolean z) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.gGD != null && this.gGD.getView() != null && (layoutParams = this.gGD.getView().getLayoutParams()) != null) {
+        if (this.gGF != null && this.gGF.getView() != null && (layoutParams = this.gGF.getView().getLayoutParams()) != null) {
             if (z) {
                 layoutParams.width = this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds122);
                 layoutParams.height = this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds136);
@@ -148,40 +148,40 @@ public class a implements com.baidu.live.a.a {
                 layoutParams.width = this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds360);
                 layoutParams.height = this.bAn.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds740);
             }
-            this.gGD.getView().setLayoutParams(layoutParams);
+            this.gGF.getView().setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.live.a.a
     public void bf(boolean z) {
-        this.gGF = z;
+        this.gGH = z;
     }
 
     @Override // com.baidu.live.a.a
     public void setCanVisible(boolean z) {
-        if (this.gEj != null) {
+        if (this.gEl != null) {
             if (z) {
-                this.gEj.setVisibility(0);
+                this.gEl.setVisibility(0);
             } else {
-                this.gEj.setVisibility(8);
+                this.gEl.setVisibility(8);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lY(boolean z) {
-        if (this.gGD != null && (this.gGD.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gGD.getParent()).removeView(this.gGD);
+        if (this.gGF != null && (this.gGF.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gGF.getParent()).removeView(this.gGF);
         }
-        if (z && this.gEj != null && (this.gEj.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gEj.getParent()).removeView(this.gEj);
+        if (z && this.gEl != null && (this.gEl.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gEl.getParent()).removeView(this.gEl);
         }
-        MessageManager.getInstance().unRegisterListener(this.gGI);
+        MessageManager.getInstance().unRegisterListener(this.gGK);
     }
 
-    private void bUj() {
-        if (this.gEj == null) {
-            this.gEj = new PendantChildView(this.bAn.getPageActivity()) { // from class: com.baidu.tieba.ala.d.a.3
+    private void bUk() {
+        if (this.gEl == null) {
+            this.gEl = new PendantChildView(this.bAn.getPageActivity()) { // from class: com.baidu.tieba.ala.d.a.3
                 @Override // com.baidu.live.pendantview.PendantChildView
                 public PendantParentView.Position getVerticalPosition() {
                     return PendantParentView.Position.RIGHT;
@@ -207,14 +207,14 @@ public class a implements com.baidu.live.a.a {
                     return this.btr == PendantParentView.Model.VERTICAL ? 94 : 23;
                 }
             };
-            if (this.gEi != null) {
-                this.gEi.a(this.gEj, new LinearLayout.LayoutParams(-2, -2));
+            if (this.gEk != null) {
+                this.gEk.a(this.gEl, new LinearLayout.LayoutParams(-2, -2));
             }
         }
     }
 
     public void fd(long j) {
-        this.gGH = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.d.a.4
+        this.gGJ = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.d.a.4
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
             }
@@ -222,10 +222,10 @@ public class a implements com.baidu.live.a.a {
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 a.this.lY(false);
-                a.this.gGD = null;
+                a.this.gGF = null;
                 cancel();
             }
         };
-        this.gGH.start();
+        this.gGJ.start();
     }
 }

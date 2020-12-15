@@ -112,7 +112,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    public long epX() {
+    public long epY() {
         return this.mNativePtr;
     }
 

@@ -15,7 +15,7 @@ import com.baidu.tieba.write.upload.VideoUploadData;
 /* loaded from: classes3.dex */
 public final class b {
     private boolean isInit;
-    private com.baidu.tieba.write.b.b.a nXq;
+    private com.baidu.tieba.write.b.b.a nXs;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -27,11 +27,11 @@ public final class b {
     /* renamed from: com.baidu.tieba.write.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private static class C0894b {
-        private static final b nXt = new b();
+        private static final b nXv = new b();
     }
 
-    public static final b dZm() {
-        return C0894b.nXt;
+    public static final b dZn() {
+        return C0894b.nXv;
     }
 
     private b() {
@@ -45,16 +45,16 @@ public final class b {
             UgcServerApiUtils.setHostAddress(UgcServerApiUtils.ONLINE_HOST_ADRESS);
             UgcServerApiUtils.setPublisherUserAgent(UgcServerApiUtils.DEFAULT_PUBLISHER_USER_AGENT);
             com.baidu.e.b.a.uN().setAppName("tieba");
-            if (this.nXq == null) {
-                this.nXq = new com.baidu.tieba.write.b.b.a();
+            if (this.nXs == null) {
+                this.nXs = new com.baidu.tieba.write.b.b.a();
             }
-            this.nXq.zm(false);
+            this.nXs.zm(false);
             MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.write.b.c.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.nXq != null) {
-                        b.this.nXq.zm(false);
+                    if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.nXs != null) {
+                        b.this.nXs.zm(false);
                     }
                 }
             });

@@ -10,49 +10,49 @@ import com.baidu.tieba.play.f;
 /* loaded from: classes21.dex */
 public class a implements e {
     private by alu;
-    private f gqU;
-    private AlaVideoContainer hbN;
-    private boolean iji = false;
-    private f.a iju = new f.a() { // from class: com.baidu.tieba.card.ala.a.1
+    private f gqW;
+    private AlaVideoContainer hbP;
+    private boolean ijk = false;
+    private f.a ijw = new f.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.f.a
         public void se() {
-            a.this.crO();
+            a.this.crP();
         }
     };
-    private AlaInfoData imo;
-    private String imp;
+    private AlaInfoData imq;
+    private String imr;
     private String mForumName;
 
     public a(AlaVideoContainer alaVideoContainer) {
-        this.hbN = alaVideoContainer;
-        if (this.hbN != null) {
-            this.gqU = new f();
-            this.gqU.setPlayer(this.hbN.getVideoView());
-            this.gqU.a(this.iju);
+        this.hbP = alaVideoContainer;
+        if (this.hbP != null) {
+            this.gqW = new f();
+            this.gqW.setPlayer(this.hbP.getVideoView());
+            this.gqW.a(this.ijw);
         }
     }
 
     public void a(by byVar, String str, String str2, boolean z) {
-        this.imp = str2;
+        this.imr = str2;
         this.mForumName = str;
         if (byVar != null) {
             this.alu = byVar;
-            if (this.hbN != null && this.alu.bpj() != null) {
-                this.imo = this.alu.bpj();
-                this.hbN.setVideoThumbnail(this.imo.cover);
+            if (this.hbP != null && this.alu.bpj() != null) {
+                this.imq = this.alu.bpj();
+                this.hbP.setVideoThumbnail(this.imq.cover);
                 if (z) {
-                    this.hbN.setTitle(this.alu.getTitle());
+                    this.hbP.setTitle(this.alu.getTitle());
                 } else {
-                    this.hbN.setTitle("");
+                    this.hbP.setTitle("");
                 }
-                this.hbN.setPlayCount(String.format(this.hbN.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), au.numFormatOverWan(this.alu.bpj().audience_count)));
+                this.hbP.setPlayCount(String.format(this.hbP.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), au.numFormatOverWan(this.alu.bpj().audience_count)));
             }
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        return this.iji;
+        return this.ijk;
     }
 
     @Override // com.baidu.tieba.play.e
@@ -71,20 +71,20 @@ public class a implements e {
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.hbN != null && this.hbN.getVideoView() != null) {
-            this.hbN.getVideoView().stopPlayback();
-            this.hbN.bRV();
-            if (this.gqU != null) {
-                this.gqU.stop();
+        if (this.hbP != null && this.hbP.getVideoView() != null) {
+            this.hbP.getVideoView().stopPlayback();
+            this.hbP.bRW();
+            if (this.gqW != null) {
+                this.gqW.stop();
             }
         }
-        this.iji = false;
+        this.ijk = false;
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.hbN != null) {
-            return this.hbN.getView();
+        if (this.hbP != null) {
+            return this.hbP.getView();
         }
         return null;
     }
@@ -99,21 +99,21 @@ public class a implements e {
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.hbN == null || this.hbN.getVideoView() == null) {
+        if (this.hbP == null || this.hbP.getVideoView() == null) {
             return 0;
         }
-        return this.hbN.getVideoView().getCurrentPositionSync();
+        return this.hbP.getVideoView().getCurrentPositionSync();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crO() {
+    public void crP() {
         if (this.alu == null || this.alu.bph() == null) {
         }
     }
 
     public void startPlayAnimation() {
-        if (this.hbN != null) {
-            this.hbN.startPlayAnimation();
+        if (this.hbP != null) {
+            this.hbP.startPlayAnimation();
         }
     }
 }

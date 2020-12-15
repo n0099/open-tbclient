@@ -9,67 +9,67 @@ import tbclient.AdInfo;
 import tbclient.Media;
 /* loaded from: classes22.dex */
 public class c extends BaseCardInfo {
-    public static final BdUniqueId iZj = BdUniqueId.gen();
+    public static final BdUniqueId iZl = BdUniqueId.gen();
     private String eEe;
     private String eEf;
-    public boolean iOc = false;
-    private String iZk;
-    private String iZl;
-    private List<MediaData> iZm;
-    private int iZn;
+    public boolean iOe = false;
+    private String iZm;
+    private String iZn;
+    private List<MediaData> iZo;
+    private int iZp;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.iZk = adInfo.portrait;
+            this.iZm = adInfo.portrait;
             this.eEe = adInfo.ad_name;
-            this.iZl = adInfo.ad_desc;
+            this.iZn = adInfo.ad_desc;
             this.eEf = adInfo.ad_url;
-            this.iZn = adInfo.show_rule.intValue();
+            this.iZp = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.iZm = new ArrayList();
+                this.iZo = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.iZm.add(mediaData);
+                    this.iZo.add(mediaData);
                 }
             }
         }
     }
 
-    public int cEI() {
-        return this.iZn;
-    }
-
-    public String cEJ() {
-        return this.iZk;
+    public int cEJ() {
+        return this.iZp;
     }
 
     public String cEK() {
-        return this.eEe;
+        return this.iZm;
     }
 
     public String cEL() {
-        return this.iZl;
+        return this.eEe;
+    }
+
+    public String cEM() {
+        return this.iZn;
     }
 
     public String bGb() {
         return this.eEf;
     }
 
-    public List<MediaData> cEM() {
-        return this.iZm;
+    public List<MediaData> cEN() {
+        return this.iZo;
     }
 
     public void qp(boolean z) {
-        this.iOc = z;
+        this.iOe = z;
     }
 
-    public boolean cEN() {
-        return this.iOc;
+    public boolean cEO() {
+        return this.iOe;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return iZj;
+        return iZl;
     }
 }

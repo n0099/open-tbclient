@@ -13,18 +13,18 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static AtomicBoolean npc = new AtomicBoolean(false);
-    private static List<Integer> npd = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+    private static AtomicBoolean npe = new AtomicBoolean(false);
+    private static List<Integer> npf = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!npd.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!npf.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return b(i, authTokenData.getAuthToken(), aVar);
     }
 
     public static boolean a(int i, String str, a aVar) {
-        if (!npd.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
+        if (!npf.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str))) {
             return false;
         }
         return b(i, str, aVar);
@@ -32,7 +32,7 @@ public class f {
 
     private static boolean b(int i, String str, a aVar) {
         j CP;
-        if (npc.compareAndSet(false, true)) {
+        if (npe.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
                 final j bxo = j.bxo();
@@ -74,7 +74,7 @@ public class f {
                 CP.a(aVar);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, CP));
             }
-            npc.set(false);
+            npe.set(false);
             return true;
         }
         return false;
@@ -86,7 +86,7 @@ public class f {
 
         public abstract void JL(String str);
 
-        public abstract void cuG();
+        public abstract void cuH();
 
         public void b(j.c cVar) {
             if (cVar != null && cVar.isSuccess) {
@@ -97,7 +97,7 @@ public class f {
                     JL(((j.b) cVar).callbackKey);
                     return;
                 } else {
-                    cuG();
+                    cuH();
                     return;
                 }
             }

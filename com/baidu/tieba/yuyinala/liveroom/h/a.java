@@ -23,13 +23,13 @@ import org.json.JSONObject;
 public class a {
     private boolean blr;
     private TextView eBQ;
-    private w htI;
-    private TextView iZV;
+    private w htK;
+    private TextView iZX;
     private Context mContext;
     private String mName;
     private View mView = null;
-    private h ojW;
-    private BarImageView omY;
+    private h ojY;
+    private BarImageView ona;
 
     public a(Context context) {
         this.mContext = context;
@@ -41,32 +41,32 @@ public class a {
     }
 
     private void initView() {
-        this.ojW = new h(this.mContext);
+        this.ojY = new h(this.mContext);
         this.mView = View.inflate(this.mContext, a.g.yuyin_ala_liveroom_hostheader_layout, null);
         this.mView.setBackgroundResource(a.e.sdk_round_host_bg);
-        this.iZV = (TextView) this.mView.findViewById(a.f.ala_liveroom_hostheader_attention);
-        this.omY = (BarImageView) this.mView.findViewById(a.f.ala_liveroom_hostheader_image);
+        this.iZX = (TextView) this.mView.findViewById(a.f.ala_liveroom_hostheader_attention);
+        this.ona = (BarImageView) this.mView.findViewById(a.f.ala_liveroom_hostheader_image);
         this.eBQ = (TextView) this.mView.findViewById(a.f.ala_liveroom_hostheader_guest);
-        this.omY.setShowOval(true);
-        this.omY.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-        this.omY.setAutoChangeStyle(false);
-        this.iZV.setBackgroundResource(a.e.yuyin_sdk_round_btn_qm_bg_radius_12_n);
-        this.iZV.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        this.iZV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.a.1
+        this.ona.setShowOval(true);
+        this.ona.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+        this.ona.setAutoChangeStyle(false);
+        this.iZX.setBackgroundResource(a.e.yuyin_sdk_round_btn_qm_bg_radius_12_n);
+        this.iZX.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        this.iZX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.edB();
+                a.this.edC();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(a.this.mContext);
                 } else if (BdUtilHelper.isNetOk()) {
-                    a.this.ojW.w(a.this.htI.aKL.aUg, a.this.htI.aKL.live_id, 1);
-                    a.this.ojW.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.h.a.1.1
+                    a.this.ojY.w(a.this.htK.aKL.aUg, a.this.htK.aKL.live_id, 1);
+                    a.this.ojY.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.h.a.1.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
                         public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
-                            a.this.edC();
-                            a.this.iZV.setVisibility(8);
+                            a.this.edD();
+                            a.this.iZX.setVisibility(8);
                             a.this.blr = true;
-                            a.this.edF();
+                            a.this.edG();
                             BdUtilHelper.showToast(a.this.mContext, "收藏成功，将收到房间的开播提醒", 3000);
                         }
 
@@ -84,11 +84,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edB() {
+    public void edC() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.htI.aKL.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.htK.aKL.croom_id);
             jSONObject.put("loc", UbcStatConstant.KEY_CONTENT_ROOM);
         } catch (Exception e) {
             BdLog.e(e);
@@ -97,11 +97,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edC() {
+    public void edD() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.htI.aKL.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.htK.aKL.croom_id);
             jSONObject.put("loc", UbcStatConstant.KEY_CONTENT_ROOM);
         } catch (Exception e) {
             BdLog.e(e);
@@ -109,16 +109,16 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", UbcStatConstant.Page.VOICE_ROOM, "collect_succ").setContentExt(jSONObject));
     }
 
-    public void edD() {
+    public void edE() {
         this.blr = true;
-        this.iZV.setVisibility(8);
-        edF();
+        this.iZX.setVisibility(8);
+        edG();
     }
 
-    public void edE() {
+    public void edF() {
         this.blr = false;
-        this.iZV.setVisibility(0);
-        edF();
+        this.iZX.setVisibility(0);
+        edG();
     }
 
     public View getView() {
@@ -127,11 +127,11 @@ public class a {
 
     public void Wp(String str) {
         this.mName = str;
-        edF();
+        edG();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edF() {
+    public void edG() {
         String str = this.mName;
         int textLengthAllOne = TextHelper.getTextLengthAllOne(str);
         if (this.blr) {
@@ -148,22 +148,22 @@ public class a {
     }
 
     public void Wq(String str) {
-        this.omY.startLoad(str, 12, false, false);
+        this.ona.startLoad(str, 12, false, false);
     }
 
     public void aa(w wVar) {
         if (wVar != null) {
-            this.htI = wVar;
-            if (this.htI.aKL != null) {
-                this.blr = this.htI.aKL.is_followed;
-                this.mName = this.htI.aKL.room_name;
-                this.omY.stopLoad();
-                this.omY.startLoad(this.htI.aKL.cover, 12, false, false);
-                edF();
-                if (this.htI.aKL.is_followed) {
-                    this.iZV.setVisibility(8);
+            this.htK = wVar;
+            if (this.htK.aKL != null) {
+                this.blr = this.htK.aKL.is_followed;
+                this.mName = this.htK.aKL.room_name;
+                this.ona.stopLoad();
+                this.ona.startLoad(this.htK.aKL.cover, 12, false, false);
+                edG();
+                if (this.htK.aKL.is_followed) {
+                    this.iZX.setVisibility(8);
                 } else {
-                    this.iZV.setVisibility(0);
+                    this.iZX.setVisibility(0);
                 }
             }
         }
@@ -171,12 +171,12 @@ public class a {
 
     public void ab(w wVar) {
         if (wVar != null) {
-            this.htI = wVar;
-            if (this.htI.aKL != null) {
-                this.mName = this.htI.aKL.room_name;
-                this.omY.stopLoad();
-                this.omY.startLoad(this.htI.aKL.cover, 12, false, false);
-                edF();
+            this.htK = wVar;
+            if (this.htK.aKL != null) {
+                this.mName = this.htK.aKL.room_name;
+                this.ona.stopLoad();
+                this.ona.startLoad(this.htK.aKL.cover, 12, false, false);
+                edG();
             }
         }
     }

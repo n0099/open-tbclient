@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes23.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader mFN;
+    private MultiFormatReader mFP;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,12 +19,12 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        dEy();
+        dEz();
     }
 
-    private void dEy() {
-        this.mFN = new MultiFormatReader();
-        this.mFN.setHints(a.mFM);
+    private void dEz() {
+        this.mFP = new MultiFormatReader();
+        this.mFP.setHints(a.mFO);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect Jb = this.mEI.Jb(i2);
+                Rect Jb = this.mEK.Jb(i2);
                 if (Jb != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, Jb.left, Jb.top, Jb.width(), Jb.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.mFN.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.mFP.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.mFN.reset();
+                this.mFP.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.mFN.reset();
+            this.mFP.reset();
         }
     }
 }

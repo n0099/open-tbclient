@@ -9,32 +9,32 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class a extends af.a {
     public int aku;
-    public TextView keE;
-    public TextView keF;
     public TextView keG;
     public TextView keH;
-    public View keI;
-    public View keJ;
-    public TbImageView keK;
-    public LinearLayout keL;
+    public TextView keI;
+    public TextView keJ;
+    public View keK;
+    public View keL;
+    public TbImageView keM;
+    public LinearLayout keN;
 
     public a(View view) {
         super(view);
         this.aku = 3;
-        this.keE = null;
-        this.keF = null;
         this.keG = null;
         this.keH = null;
         this.keI = null;
         this.keJ = null;
         this.keK = null;
         this.keL = null;
-        this.keE = (TextView) view.findViewById(R.id.topic_module);
-        this.keG = (TextView) view.findViewById(R.id.topic_desc);
-        this.keF = (TextView) view.findViewById(R.id.topic_title);
-        this.keK = (TbImageView) view.findViewById(R.id.topic_pic);
-        this.keI = view.findViewById(R.id.devide_line_top);
-        this.keJ = view.findViewById(R.id.devide_line_bottom);
-        this.keL = (LinearLayout) view.findViewById(R.id.topic_manual_item);
+        this.keM = null;
+        this.keN = null;
+        this.keG = (TextView) view.findViewById(R.id.topic_module);
+        this.keI = (TextView) view.findViewById(R.id.topic_desc);
+        this.keH = (TextView) view.findViewById(R.id.topic_title);
+        this.keM = (TbImageView) view.findViewById(R.id.topic_pic);
+        this.keK = view.findViewById(R.id.devide_line_top);
+        this.keL = view.findViewById(R.id.devide_line_bottom);
+        this.keN = (LinearLayout) view.findViewById(R.id.topic_manual_item);
     }
 }

@@ -18,24 +18,24 @@ import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
     private ArrayList<com.baidu.tieba.ala.live.personcenter.guardian.a> eOt;
-    private AlaGuardianListActivity haq;
-    private View.OnClickListener har = null;
-    private View.OnClickListener gFc = null;
+    private AlaGuardianListActivity has;
+    private View.OnClickListener hat = null;
+    private View.OnClickListener gFe = null;
 
     public b(AlaGuardianListActivity alaGuardianListActivity) {
         this.eOt = null;
-        this.haq = null;
-        this.haq = alaGuardianListActivity;
+        this.has = null;
+        this.has = alaGuardianListActivity;
         this.eOt = new ArrayList<>();
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.gFc = onClickListener;
+        this.gFe = onClickListener;
     }
 
     public void c(c cVar) {
         this.eOt.clear();
-        this.eOt.addAll(cVar.bYK());
+        this.eOt.addAll(cVar.bYL());
     }
 
     @Override // android.widget.Adapter
@@ -63,53 +63,53 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.haq.getPageContext().getPageActivity()).inflate(a.g.sdk_prc_person_center_guardian_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.has.getPageContext().getPageActivity()).inflate(a.g.sdk_prc_person_center_guardian_item, (ViewGroup) null);
             aVar = new a(view);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         aVar.we(i);
-        this.haq.getLayoutMode().onModeChanged(view);
+        this.has.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes4.dex */
     class a {
         TextView dMz;
-        ViewGroup gFv;
-        HeadImageView gFy;
-        TextView gFz;
-        ImageView has;
-        TextView hat;
-        LinearLayout hau;
+        HeadImageView gFA;
+        TextView gFB;
+        ViewGroup gFx;
+        ImageView hau;
+        TextView hav;
+        LinearLayout haw;
         TextView mName;
 
         public a(View view) {
-            this.has = (ImageView) view.findViewById(a.f.imgGradeRound);
-            this.hat = (TextView) view.findViewById(a.f.tvGradeNum);
-            this.gFv = (ViewGroup) view.findViewById(a.f.item_view);
-            this.gFv.setOnClickListener(b.this.har);
-            this.gFy = (HeadImageView) view.findViewById(a.f.photo);
-            this.gFy.setRadius(BdUtilHelper.getDimens(b.this.haq.getPageContext().getPageActivity(), a.d.sdk_ds90));
-            this.gFy.setAutoChangeStyle(true);
-            this.gFy.setClickable(false);
-            this.hau = (LinearLayout) view.findViewById(a.f.info);
+            this.hau = (ImageView) view.findViewById(a.f.imgGradeRound);
+            this.hav = (TextView) view.findViewById(a.f.tvGradeNum);
+            this.gFx = (ViewGroup) view.findViewById(a.f.item_view);
+            this.gFx.setOnClickListener(b.this.hat);
+            this.gFA = (HeadImageView) view.findViewById(a.f.photo);
+            this.gFA.setRadius(BdUtilHelper.getDimens(b.this.has.getPageContext().getPageActivity(), a.d.sdk_ds90));
+            this.gFA.setAutoChangeStyle(true);
+            this.gFA.setClickable(false);
+            this.haw = (LinearLayout) view.findViewById(a.f.info);
             this.mName = (TextView) view.findViewById(a.f.ala_name);
-            this.gFz = (TextView) view.findViewById(a.f.ala_intro);
+            this.gFB = (TextView) view.findViewById(a.f.ala_intro);
             this.dMz = (TextView) view.findViewById(a.f.attention_btn);
-            this.dMz.setOnClickListener(b.this.gFc);
+            this.dMz.setOnClickListener(b.this.gFe);
         }
 
         public void we(int i) {
             com.baidu.tieba.ala.live.personcenter.guardian.a aVar = (com.baidu.tieba.ala.live.personcenter.guardian.a) b.this.getItem(i);
             if (aVar != null) {
-                this.gFv.setTag(Integer.valueOf(i));
+                this.gFx.setTag(Integer.valueOf(i));
                 this.dMz.setTag(Integer.valueOf(i));
                 vz(i);
-                l.a(this.gFy, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
+                l.a(this.gFA, aVar.portrait, true, !StringUtils.isNull(aVar.appId));
                 this.mName.setText(aVar.getNameShow());
-                this.gFz.setText(b.this.haq.getResources().getString(a.h.sdk_prc_guardian_list_item_charm, aVar.haj));
+                this.gFB.setText(b.this.has.getResources().getString(a.h.sdk_prc_guardian_list_item_charm, aVar.hal));
                 mu(aVar.followStatus != 0);
             }
         }
@@ -121,20 +121,20 @@ public class b extends BaseAdapter {
         }
 
         public void vz(int i) {
-            this.has.setVisibility(8);
-            this.hat.setVisibility(8);
+            this.hau.setVisibility(8);
+            this.hav.setVisibility(8);
             if (i == 0) {
-                this.has.setVisibility(0);
-                SkinManager.setImageResource(this.has, a.e.sdk_prc_icon_grade_round_no1);
+                this.hau.setVisibility(0);
+                SkinManager.setImageResource(this.hau, a.e.sdk_prc_icon_grade_round_no1);
             } else if (i == 1) {
-                this.has.setVisibility(0);
-                SkinManager.setImageResource(this.has, a.e.sdk_prc_icon_grade_round_no2);
+                this.hau.setVisibility(0);
+                SkinManager.setImageResource(this.hau, a.e.sdk_prc_icon_grade_round_no2);
             } else if (i == 2) {
-                this.has.setVisibility(0);
-                SkinManager.setImageResource(this.has, a.e.sdk_prc_icon_grade_round_no3);
+                this.hau.setVisibility(0);
+                SkinManager.setImageResource(this.hau, a.e.sdk_prc_icon_grade_round_no3);
             } else {
-                this.hat.setVisibility(0);
-                this.hat.setText(String.valueOf(i + 1));
+                this.hav.setVisibility(0);
+                this.hav.setText(String.valueOf(i + 1));
             }
         }
     }
@@ -147,7 +147,7 @@ public class b extends BaseAdapter {
                     break;
                 }
                 com.baidu.tieba.ala.live.personcenter.guardian.a next = it.next();
-                if (str.equals(next.haf)) {
+                if (str.equals(next.hah)) {
                     if (z) {
                         next.followStatus = 1;
                     } else {

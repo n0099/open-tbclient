@@ -6,30 +6,30 @@ import android.os.Message;
 import android.widget.MediaController;
 /* loaded from: classes.dex */
 public class f {
-    private MediaController.MediaPlayerControl gaC;
-    private a iju;
-    private c mxq;
-    private b mxr;
-    private int mxo = 1000;
-    private int mxp = 0;
+    private MediaController.MediaPlayerControl gaE;
+    private a ijw;
+    private c mxs;
+    private b mxt;
+    private int mxq = 1000;
+    private int mxr = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && message.what == 1 && f.this.gaC != null && f.this.gaC.isPlaying()) {
-                int currentPosition = f.this.gaC.getCurrentPosition();
-                int duration = f.this.gaC.getDuration();
-                if (currentPosition < f.this.mxp) {
-                    if (f.this.iju != null) {
-                        f.this.iju.se();
+            if (message != null && message.what == 1 && f.this.gaE != null && f.this.gaE.isPlaying()) {
+                int currentPosition = f.this.gaE.getCurrentPosition();
+                int duration = f.this.gaE.getDuration();
+                if (currentPosition < f.this.mxr) {
+                    if (f.this.ijw != null) {
+                        f.this.ijw.se();
                     }
-                } else if (currentPosition == f.this.mxp && f.this.mxq != null) {
-                    f.this.mxq.bRY();
+                } else if (currentPosition == f.this.mxr && f.this.mxs != null) {
+                    f.this.mxs.bRZ();
                 }
-                if (f.this.mxr != null) {
-                    f.this.mxr.ci(duration, currentPosition);
+                if (f.this.mxt != null) {
+                    f.this.mxt.ci(duration, currentPosition);
                 }
-                f.this.mxp = currentPosition;
-                f.this.dBL();
+                f.this.mxr = currentPosition;
+                f.this.dBM();
             }
         }
     };
@@ -46,16 +46,16 @@ public class f {
 
     /* loaded from: classes.dex */
     public interface c {
-        void bRY();
+        void bRZ();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.gaC = mediaPlayerControl;
+        this.gaE = mediaPlayerControl;
     }
 
     public void start() {
-        this.mxp = 0;
-        dBL();
+        this.mxr = 0;
+        dBM();
     }
 
     public void stop() {
@@ -63,20 +63,20 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dBL() {
+    public void dBM() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.mxo);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.mxq);
     }
 
     public void a(a aVar) {
-        this.iju = aVar;
+        this.ijw = aVar;
     }
 
     public void a(c cVar) {
-        this.mxq = cVar;
+        this.mxs = cVar;
     }
 
     public void a(b bVar) {
-        this.mxr = bVar;
+        this.mxt = bVar;
     }
 }

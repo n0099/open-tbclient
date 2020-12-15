@@ -13,17 +13,17 @@ import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topicdetail.b.c, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topicdetail.view.d>> {
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iZp;
-    private com.baidu.adp.lib.d.b<TbImageView> iZq;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iZr;
+    private com.baidu.adp.lib.d.b<TbImageView> iZs;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topicdetail.b.c.jXL);
-        this.iZp = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topicdetail.b.c.jXN);
+        this.iZr = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cEO */
+            /* renamed from: cEP */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(a.this.mPageContext.getPageActivity());
             }
@@ -49,7 +49,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.iZq = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.2
+        this.iZs = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: bvP */
@@ -90,7 +90,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
                 com.baidu.tieba.homepage.topic.topicdetail.view.d dVar;
-                if ((view.getTag() instanceof com.baidu.tieba.card.a.a) && (dVar = (com.baidu.tieba.homepage.topic.topicdetail.view.d) ((com.baidu.tieba.card.a.a) view.getTag()).csM()) != null) {
+                if ((view.getTag() instanceof com.baidu.tieba.card.a.a) && (dVar = (com.baidu.tieba.homepage.topic.topicdetail.view.d) ((com.baidu.tieba.card.a.a) view.getTag()).csN()) != null) {
                     dVar.bAr();
                 }
             }
@@ -103,8 +103,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topicdetail.view.d> c(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.topic.topicdetail.view.d dVar = new com.baidu.tieba.homepage.topic.topicdetail.view.d(this.mPageContext);
-        dVar.setConstrainLayoutPool(this.iZp);
-        dVar.setConstrainImagePool(this.iZq);
+        dVar.setConstrainLayoutPool(this.iZr);
+        dVar.setConstrainImagePool(this.iZs);
         dVar.setTag(this.mPageId);
         return new com.baidu.tieba.card.a.a<>(dVar);
     }
@@ -113,10 +113,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topicdetail.b.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topicdetail.view.d> aVar) {
-        if (cVar == null || aVar == null || aVar.csM() == null) {
+        if (cVar == null || aVar == null || aVar.csN() == null) {
             return null;
         }
-        aVar.csM().a(cVar);
+        aVar.csN().a(cVar);
         return aVar.getView();
     }
 }

@@ -9,41 +9,41 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class b {
     private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private BdTypeListView gpX;
-    private d kbv;
-    private c kbw;
-    private m kbx;
+    private BdTypeListView gpZ;
+    private d kbx;
+    private c kby;
+    private m kbz;
 
     public b(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
         a(hotRanklistActivity, bdTypeListView);
     }
 
     private void a(HotRanklistActivity hotRanklistActivity, BdTypeListView bdTypeListView) {
-        this.kbv = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.kdm);
-        this.kbw = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.kdl);
-        this.kbx = new m(hotRanklistActivity, o.ker);
-        this.bnf.add(this.kbv);
-        this.bnf.add(this.kbw);
+        this.kbx = new d(hotRanklistActivity, com.baidu.tieba.hottopic.data.c.kdo);
+        this.kby = new c(hotRanklistActivity, com.baidu.tieba.hottopic.data.b.kdn);
+        this.kbz = new m(hotRanklistActivity, o.ket);
         this.bnf.add(this.kbx);
-        this.gpX = bdTypeListView;
-        this.gpX.addAdapters(this.bnf);
+        this.bnf.add(this.kby);
+        this.bnf.add(this.kbz);
+        this.gpZ = bdTypeListView;
+        this.gpZ.addAdapters(this.bnf);
     }
 
     public void a(com.baidu.tieba.hottopic.data.j jVar, String str) {
         ArrayList<q> arrayList;
-        if (jVar.cRZ() != null) {
-            arrayList = jVar.cRZ();
+        if (jVar.cSa() != null) {
+            arrayList = jVar.cSa();
         } else {
             arrayList = new ArrayList<>();
         }
+        if (this.kbz != null) {
+            this.kbz.cRq();
+        }
         if (this.kbx != null) {
-            this.kbx.cRp();
+            this.kbx.MC(str);
         }
-        if (this.kbv != null) {
-            this.kbv.MC(str);
-        }
-        if (this.gpX != null) {
-            this.gpX.setData(arrayList);
+        if (this.gpZ != null) {
+            this.gpZ.setData(arrayList);
         }
     }
 }

@@ -15,35 +15,35 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class e {
-    private static e oJn;
-    private volatile com.baidu.r.a.a.c oJk;
-    private AtomicBoolean oJo = new AtomicBoolean(false);
-    private AtomicBoolean oJp = new AtomicBoolean(false);
+    private static e oJp;
+    private volatile com.baidu.r.a.a.c oJm;
+    private AtomicBoolean oJq = new AtomicBoolean(false);
+    private AtomicBoolean oJr = new AtomicBoolean(false);
     private static String TAG = "UnionIDHelper";
-    private static boolean DEBUG = com.baidu.r.a.a.ejQ();
-    private static final String oJl = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-    private static final String oJm = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+    private static boolean DEBUG = com.baidu.r.a.a.ejR();
+    private static final String oJn = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+    private static final String oJo = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
     private static final Object sLock = new Object();
 
     private e() {
     }
 
-    public static e ejT() {
-        if (oJn == null) {
+    public static e ejU() {
+        if (oJp == null) {
             synchronized (e.class) {
-                if (oJn == null) {
-                    oJn = new e();
+                if (oJp == null) {
+                    oJp = new e();
                 }
             }
         }
-        return oJn;
+        return oJp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ejU() {
-        this.oJk = this.oJk.ejX();
+    public void ejV() {
+        this.oJm = this.oJm.ejY();
         if (DEBUG) {
-            Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.oJk.getOAID());
+            Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.oJm.getOAID());
         }
     }
 
@@ -52,18 +52,18 @@ public class e {
             throw new NullPointerException("param looper not null");
         }
         final a aVar = new a(looper, bVar);
-        if (ejV()) {
+        if (ejW()) {
             aVar.obtainMessage(100, null).sendToTarget();
-        } else if (this.oJk != null && this.oJp.get()) {
+        } else if (this.oJm != null && this.oJr.get()) {
             if (DEBUG) {
-                Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.oJk.getOAID());
-                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.oJk.ejY());
-                Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.oJk.getStatusCode());
+                Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.oJm.getOAID());
+                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.oJm.ejZ());
+                Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.oJm.getStatusCode());
             }
-            aVar.obtainMessage(100, this.oJk).sendToTarget();
+            aVar.obtainMessage(100, this.oJm).sendToTarget();
         } else {
-            if (!this.oJp.get()) {
-                this.oJk = new c(context).oJk;
+            if (!this.oJr.get()) {
+                this.oJm = new c(context).oJm;
             }
             new Thread(new Runnable() { // from class: com.baidu.r.a.e.1
                 @Override // java.lang.Runnable
@@ -79,11 +79,11 @@ public class e {
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, requestFromManufacturer");
                         }
-                        e.this.ejU();
+                        e.this.ejV();
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles！");
                         }
-                        e.this.oJp.set(e.this.hc(context));
+                        e.this.oJr.set(e.this.hc(context));
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles done");
                         }
@@ -91,7 +91,7 @@ public class e {
                     if (e.DEBUG) {
                         Log.d(e.TAG, "asyncRequest, send  innerHandler message");
                     }
-                    aVar.obtainMessage(100, e.this.oJk).sendToTarget();
+                    aVar.obtainMessage(100, e.this.oJm).sendToTarget();
                 }
             }).start();
         }
@@ -126,16 +126,16 @@ public class e {
                 String optString = optJSONObject.optString(str5);
                 String optString2 = optJSONObject.optString(str6);
                 String optString3 = optJSONObject.optString(str7);
-                this.oJk.Ao(optBoolean);
-                this.oJk.Ap(optBoolean2);
-                this.oJk.OP(optInt);
-                this.oJk.Yn(optString);
-                this.oJk.Yo(optString2);
-                this.oJk.Yp(optString3);
-                aVar.oJt = this.oJk;
+                this.oJm.Ao(optBoolean);
+                this.oJm.Ap(optBoolean2);
+                this.oJm.OP(optInt);
+                this.oJm.Yn(optString);
+                this.oJm.Yo(optString2);
+                this.oJm.Yp(optString3);
+                aVar.oJv = this.oJm;
                 return true;
             }
-            aVar.oJt = null;
+            aVar.oJv = null;
             if (DEBUG) {
                 Log.d(TAG, "tryParseCacheJsonObject return cause null：");
                 return false;
@@ -152,7 +152,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(@NonNull com.baidu.r.a.a.a aVar) {
-        if (Math.abs(System.currentTimeMillis() - aVar.time) > ejW()) {
+        if (Math.abs(System.currentTimeMillis() - aVar.time) > ejX()) {
             if (DEBUG) {
                 Log.d(TAG, "isExpireTime ：超过缓存有效期");
             }
@@ -167,7 +167,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean hc(Context context) {
         try {
-            if (this.oJk == null || TextUtils.isEmpty(this.oJk.getOAID())) {
+            if (this.oJm == null || TextUtils.isEmpty(this.oJm.getOAID())) {
                 return false;
             }
             File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
@@ -189,12 +189,12 @@ public class e {
             String str6 = new String(com.baidu.r.a.c.c.decode("b2FpZA==".getBytes()));
             String str7 = new String(com.baidu.r.a.c.c.decode("YWFpZA==".getBytes()));
             String str8 = new String(com.baidu.r.a.c.c.decode("dmFpZA==".getBytes()));
-            optJSONObject.put(str3, this.oJk.ejY());
-            optJSONObject.put(str4, this.oJk.isSupport());
-            optJSONObject.put(str5, this.oJk.getStatusCode());
-            optJSONObject.put(str6, this.oJk.getOAID());
-            optJSONObject.put(str7, this.oJk.getAAID());
-            optJSONObject.put(str8, this.oJk.getVAID());
+            optJSONObject.put(str3, this.oJm.ejZ());
+            optJSONObject.put(str4, this.oJm.isSupport());
+            optJSONObject.put(str5, this.oJm.getStatusCode());
+            optJSONObject.put(str6, this.oJm.getOAID());
+            optJSONObject.put(str7, this.oJm.getAAID());
+            optJSONObject.put(str8, this.oJm.getVAID());
             jSONObject.put(str2, optJSONObject);
             com.baidu.r.a.c.e.a(Yl(jSONObject.toString()), file2, false, sLock);
             if (DEBUG) {
@@ -266,7 +266,7 @@ public class e {
             return null;
         }
         try {
-            return com.baidu.r.a.c.c.encode(com.baidu.r.a.c.a.encrypt(oJl, oJm, str.getBytes()), "utf-8");
+            return com.baidu.r.a.c.c.encode(com.baidu.r.a.c.a.encrypt(oJn, oJo, str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException | Exception e) {
             return "";
         }
@@ -277,7 +277,7 @@ public class e {
             return null;
         }
         try {
-            return new String(com.baidu.r.a.c.a.decrypt(oJl, oJm, com.baidu.r.a.c.c.decode(str.getBytes())));
+            return new String(com.baidu.r.a.c.a.decrypt(oJn, oJo, com.baidu.r.a.c.c.decode(str.getBytes())));
         } catch (Exception e) {
             if (DEBUG) {
                 Log.d(TAG, "getCacheObject ，decryptUnionID：" + e.getMessage());
@@ -288,14 +288,14 @@ public class e {
 
     /* loaded from: classes14.dex */
     private static class a extends Handler {
-        private com.baidu.r.a.a.b oJs;
+        private com.baidu.r.a.a.b oJu;
 
         public a() {
         }
 
         public a(Looper looper, com.baidu.r.a.a.b bVar) {
             super(looper);
-            this.oJs = bVar;
+            this.oJu = bVar;
         }
 
         @Override // android.os.Handler
@@ -307,8 +307,8 @@ public class e {
                     if (e.DEBUG) {
                         Log.d(e.TAG, "handleMessage ，what：" + (cVar == null ? "" : cVar.getOAID()));
                     }
-                    if (this.oJs != null) {
-                        this.oJs.a(cVar);
+                    if (this.oJu != null) {
+                        this.oJu.a(cVar);
                         return;
                     }
                     return;
@@ -318,11 +318,11 @@ public class e {
         }
     }
 
-    private boolean ejV() {
-        return com.baidu.r.a.a.ON(b.ejR());
+    private boolean ejW() {
+        return com.baidu.r.a.a.ON(b.ejS());
     }
 
-    private long ejW() {
-        return com.baidu.r.a.a.OO(b.ejR()) * 60 * 1000;
+    private long ejX() {
+        return com.baidu.r.a.a.OO(b.ejS()) * 60 * 1000;
     }
 }

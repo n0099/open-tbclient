@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
     protected volatile int eXb;
-    protected volatile HashMap<Long, Integer> npa = new HashMap<>();
+    protected volatile HashMap<Long, Integer> npc = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
@@ -17,24 +17,24 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.npa.size() >= this.eXb) {
-                    dQt();
+                if (this.npc.size() >= this.eXb) {
+                    dQu();
                 }
                 this.mWeight++;
-                this.npa.put(valueOf, Integer.valueOf(this.mWeight));
+                this.npc.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void dQt() {
+    public void dQu() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.npa.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.npc.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.npa.remove(l2);
+                this.npc.remove(l2);
             } else {
-                this.npa.clear();
+                this.npc.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.npa.get(valueOf) != null;
+                z = this.npc.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,16 +70,16 @@ public class d {
 
     public boolean Uc(String str) {
         try {
-            return this.npa.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.npc.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void dQs() {
+    public void dQt() {
         synchronized (this) {
-            this.npa.clear();
+            this.npc.clear();
         }
     }
 }

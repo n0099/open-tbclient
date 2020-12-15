@@ -17,7 +17,7 @@ public class a {
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
     private View mView;
-    private InterfaceC0930a onI;
+    private InterfaceC0930a onK;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.livepager.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -65,18 +65,18 @@ public class a {
                     this.fTR = false;
                 }
                 if (this.fTS) {
-                    if (this.onI != null) {
-                        this.onI.y(motionEvent.getRawX(), motionEvent.getRawY());
+                    if (this.onK != null) {
+                        this.onK.y(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cBL - motionEvent.getY()) && this.onI != null) {
-                    this.onI.bJZ();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cBL - motionEvent.getY()) && this.onK != null) {
+                    this.onK.bJZ();
                 }
                 if (!this.fTS && this.fTR && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cBL - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.livepager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.fTS && a.this.fTR && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cBL - motionEvent.getY()) < 30.0f && a.this.onI != null) {
-                                a.this.onI.bJY();
+                            if (!a.this.fTS && a.this.fTR && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cBL - motionEvent.getY()) < 30.0f && a.this.onK != null) {
+                                a.this.onK.bJY();
                             }
                         }
                     }, 300L);
@@ -92,7 +92,7 @@ public class a {
     }
 
     public void setEventListener(InterfaceC0930a interfaceC0930a) {
-        this.onI = interfaceC0930a;
+        this.onK = interfaceC0930a;
     }
 
     private void releaseVelocityTracker() {

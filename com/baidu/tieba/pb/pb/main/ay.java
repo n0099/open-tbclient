@@ -20,7 +20,7 @@ import java.util.Random;
 /* loaded from: classes22.dex */
 public class ay {
     private static TextView fGr;
-    private static final int[] lOZ = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    private static final int[] lPb = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
     public static Intent aN(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -38,8 +38,8 @@ public class ay {
         return TbadkCoreApplication.getInst().getString(i, objArr);
     }
 
-    public static int drT() {
-        return lOZ[new Random().nextInt(lOZ.length)];
+    public static int drU() {
+        return lPb[new Random().nextInt(lPb.length)];
     }
 
     public static String Qq(String str) {
@@ -88,16 +88,16 @@ public class ay {
         }
     }
 
-    public static int drU() {
+    public static int drV() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
     public static int r(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar == null || fVar.dmT() == null) {
+        if (fVar == null || fVar.dmU() == null) {
             return 0;
         }
-        if (fVar.dmT().bqo()) {
-            return (com.baidu.tbadk.core.util.y.isEmpty(fVar.dnq()) && (fVar.dmS() == null || StringUtils.isNull(fVar.dmS().getForumName()))) ? 0 : 2;
+        if (fVar.dmU().bqo()) {
+            return (com.baidu.tbadk.core.util.y.isEmpty(fVar.dnr()) && (fVar.dmT() == null || StringUtils.isNull(fVar.dmT().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

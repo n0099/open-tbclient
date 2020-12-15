@@ -6,20 +6,20 @@ import android.view.MotionEvent;
 class b {
     private Camera mCamera;
     private int mode = 0;
-    private float nHk;
-    private int nHl;
-    private i nHm;
+    private float nHm;
+    private int nHn;
+    private i nHo;
 
     public b(Camera camera) {
         this.mCamera = camera;
     }
 
     public void setRecordController(i iVar) {
-        this.nHm = iVar;
+        this.nHo = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.nHm == null || !this.nHm.bwP()) {
+        if (this.nHo == null || !this.nHo.bwP()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.nHk) / 10.0f);
+                        int i = (int) ((spacing - this.nHm) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.nHl;
+                            int i2 = i + this.nHn;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.nHk = spacing;
+                            this.nHm = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.nHk = spacing(motionEvent);
+                    this.nHm = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.nHl = i;
+                this.nHn = i;
             }
         }
     }

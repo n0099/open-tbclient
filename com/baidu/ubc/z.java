@@ -16,8 +16,8 @@ public class z {
             boolean bgG = ajVar.bgG();
             for (int i = 0; i < length; i++) {
                 try {
-                    if (bgG != g.eiL().zp(bgF.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + bgG + "  content " + ajVar.ejk().toString());
+                    if (bgG != g.eiM().zp(bgF.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + bgG + "  content " + ajVar.ejl().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

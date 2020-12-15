@@ -12,17 +12,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaInviteConnectionWheatH
 /* loaded from: classes4.dex */
 public class g extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oxN;
+    private a oxP;
     private HttpMessageListener messageListener = new HttpMessageListener(1031008) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaInviteConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.brR && g.this.oxN != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaInviteConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.brR && g.this.oxP != null) {
                 AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage = (AlaInviteConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaInviteConnectionWheatHttpResponseMessage.getError() != 0 || !alaInviteConnectionWheatHttpResponseMessage.isSuccess()) {
-                    g.this.oxN.b(alaInviteConnectionWheatHttpResponseMessage);
+                    g.this.oxP.b(alaInviteConnectionWheatHttpResponseMessage);
                 } else {
-                    g.this.oxN.a(alaInviteConnectionWheatHttpResponseMessage);
+                    g.this.oxP.a(alaInviteConnectionWheatHttpResponseMessage);
                 }
             }
         }
@@ -39,7 +39,7 @@ public class g extends BdBaseModel {
     public g(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.brR);
         this.mPageContext = tbPageContext;
-        this.oxN = aVar;
+        this.oxP = aVar;
         bjQ();
         registerListener(this.messageListener);
     }

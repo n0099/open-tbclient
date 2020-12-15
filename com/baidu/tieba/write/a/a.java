@@ -5,20 +5,20 @@ public class a {
     public String linkTitle;
     public String linkUrl;
     public String linkUrlCode;
-    public String nWl;
-    public String nWm;
     public String nWn;
-    public boolean nWj = false;
-    public int nWk = 1;
+    public String nWo;
+    public String nWp;
+    public boolean nWl = false;
+    public int nWm = 1;
     public String videoUrl = "";
     public long videoSize = 0;
     public int videoDuration = 0;
     public String videoFormat = "";
-    public int nWo = 0;
+    public int nWq = 0;
     public int videoWidth = 0;
     public int videoHeight = 0;
-    public String nWp = "";
-    public int nWq = 0;
-    public int nWr = 0;
+    public String nWr = "";
     public int nWs = 0;
+    public int nWt = 0;
+    public int nWu = 0;
 }

@@ -6,8 +6,8 @@ public class c {
     private boolean acceptRanges;
     private boolean calledCompleted;
     private long finished;
-    private DownloadException gkm;
-    private a gkn;
+    private DownloadException gko;
+    private a gkp;
     private long length;
     private int percent;
     private String savedPath;
@@ -59,19 +59,19 @@ public class c {
     }
 
     public Exception getException() {
-        return this.gkm;
+        return this.gko;
     }
 
     public void d(DownloadException downloadException) {
-        this.gkm = downloadException;
+        this.gko = downloadException;
     }
 
-    public a bQy() {
-        return this.gkn;
+    public a bQz() {
+        return this.gkp;
     }
 
     public void a(a aVar) {
-        this.gkn = aVar;
+        this.gkp = aVar;
     }
 
     public String getSavedPath() {

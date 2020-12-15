@@ -20,36 +20,36 @@ import java.util.List;
 /* loaded from: classes23.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private BdTypeListView gpX;
-    private o iPW;
-    private r iPX;
+    private BdTypeListView gpZ;
+    private o iPY;
+    private r iPZ;
 
-    public List<com.baidu.adp.widget.ListView.a> bSn() {
+    public List<com.baidu.adp.widget.ListView.a> bSo() {
         return this.bnf;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.gpX = bdTypeListView;
-        this.bnf.add(new i(baseActivity.getPageContext(), j.iPh));
-        this.bnf.add(new l(baseActivity.getPageContext(), m.iPs));
-        this.bnf.add(new g(baseActivity.getPageContext(), n.iSE));
-        this.bnf.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.iOK));
-        this.bnf.add(new d(baseActivity.getPageContext(), e.iON));
+        this.gpZ = bdTypeListView;
+        this.bnf.add(new i(baseActivity.getPageContext(), j.iPj));
+        this.bnf.add(new l(baseActivity.getPageContext(), m.iPu));
+        this.bnf.add(new g(baseActivity.getPageContext(), n.iSG));
+        this.bnf.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.iOM));
+        this.bnf.add(new d(baseActivity.getPageContext(), e.iOP));
         this.bnf.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.iPW = new o(baseActivity.getPageContext(), p.iPJ);
-        this.bnf.add(this.iPW);
-        this.iPX = new r(baseActivity.getPageContext(), s.iPU);
-        this.bnf.add(this.iPX);
+        this.iPY = new o(baseActivity.getPageContext(), p.iPL);
+        this.bnf.add(this.iPY);
+        this.iPZ = new r(baseActivity.getPageContext(), s.iPW);
+        this.bnf.add(this.iPZ);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gpX != null && (this.gpX.getAdapter() instanceof f)) {
-            this.gpX.getAdapter().notifyDataSetChanged();
+        if (this.gpZ != null && (this.gpZ.getAdapter() instanceof f)) {
+            this.gpZ.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.iPW.onDestroy();
-        this.iPX.onDestroy();
+        this.iPY.onDestroy();
+        this.iPZ.onDestroy();
     }
 }

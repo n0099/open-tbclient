@@ -9,7 +9,7 @@ public class ab extends o<ac, ad> {
     private com.baidu.tieba.pb.data.f pbData;
 
     public ab(com.baidu.tieba.pb.videopb.b bVar) {
-        super(bVar, ac.lKX);
+        super(bVar, ac.lKZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public class ab extends o<ac, ad> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ck */
     public ad c(ViewGroup viewGroup) {
-        return new ad(LayoutInflater.from(this.mContext).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.lGo.dpQ());
+        return new ad(LayoutInflater.from(this.mContext).inflate(R.layout.pb_list_ala_recomment_layout, (ViewGroup) null), this.lGq.dpR());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

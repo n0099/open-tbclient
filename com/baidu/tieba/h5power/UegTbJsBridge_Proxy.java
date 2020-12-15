@@ -28,20 +28,20 @@ public class UegTbJsBridge_Proxy extends a {
         if (cVar == null) {
             cVar = new c();
         }
-        String dPS = eVar.dPS();
-        JSONObject dPQ = eVar.dPQ();
-        if (dPS.equals("host/callNativeSMS")) {
+        String dPT = eVar.dPT();
+        JSONObject dPR = eVar.dPR();
+        if (dPT.equals("host/callNativeSMS")) {
             cVar.ye(true);
-            c callNativeSMS = this.mJsBridge.callNativeSMS(dPQ.optString("phoneNumber"), dPQ.optString("content"));
+            c callNativeSMS = this.mJsBridge.callNativeSMS(dPR.optString("phoneNumber"), dPR.optString("content"));
             if (callNativeSMS != null) {
                 cVar.setStatus(callNativeSMS.getStatus());
                 cVar.setMessage(callNativeSMS.getMessage());
                 cVar.setData(callNativeSMS.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("device/setBlockPopInfo")) {
+        } else if (dPT.equals("device/setBlockPopInfo")) {
             cVar.ye(true);
-            c blockPopInfo = this.mJsBridge.setBlockPopInfo(dPQ.optInt("canPost"), dPQ.optString("blockInfo"), dPQ.optString("aheadInfo"), dPQ.optString("aheadUrl"), dPQ.optString("okInfo"), dPQ.optInt("aheadType"));
+            c blockPopInfo = this.mJsBridge.setBlockPopInfo(dPR.optInt("canPost"), dPR.optString("blockInfo"), dPR.optString("aheadInfo"), dPR.optString("aheadUrl"), dPR.optString("okInfo"), dPR.optInt("aheadType"));
             if (blockPopInfo != null) {
                 cVar.setStatus(blockPopInfo.getStatus());
                 cVar.setMessage(blockPopInfo.getMessage());
@@ -73,7 +73,7 @@ public class UegTbJsBridge_Proxy extends a {
                 cVar2.setMessage(cVar.getMessage());
                 cVar2.setData(cVar.getData());
                 arrayList.add(cVar2);
-                if (!next.dPJ()) {
+                if (!next.dPK()) {
                     it.remove();
                 }
             }

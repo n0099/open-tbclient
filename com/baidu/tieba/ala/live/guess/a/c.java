@@ -29,70 +29,70 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
     private static final String TAG = c.class.getSimpleName();
     private Activity beD;
     private boolean fbE;
-    private Dialog gWC;
-    private TextView gWD;
-    private TextView gWE;
+    private Dialog gWE;
     private TextView gWF;
     private TextView gWG;
     private TextView gWH;
-    private TimeCountTextView gWI;
-    private MagicProgressCircle gWJ;
-    private int gWK;
-    private String gWL;
-    private String gWM;
+    private TextView gWI;
+    private TextView gWJ;
+    private TimeCountTextView gWK;
+    private MagicProgressCircle gWL;
+    private int gWM;
     private String gWN;
-    private boolean gWO;
-    private boolean gWP;
-    private b.a gWQ;
-    private DialogInterface.OnKeyListener gWR;
-    private RelativeSizeSpan gWS;
-    private String gWT;
-    private ImageView gWk;
-    private ForegroundColorSpan gWm;
-    private TextView gWp;
+    private String gWO;
+    private String gWP;
+    private boolean gWQ;
+    private boolean gWR;
+    private b.a gWS;
+    private DialogInterface.OnKeyListener gWT;
+    private RelativeSizeSpan gWU;
+    private String gWV;
+    private ImageView gWm;
+    private ForegroundColorSpan gWo;
+    private TextView gWr;
     private LinearLayout mContentView;
     private int mDialogGravity;
     private ViewGroup mRootView;
 
     private c(a aVar, Activity activity) {
-        this.gWK = 30;
+        this.gWM = 30;
         this.mDialogGravity = 17;
-        this.gWL = "";
-        this.gWM = "";
         this.gWN = "";
-        this.gWO = true;
-        this.gWP = false;
-        this.gWT = "(本轮奖金";
+        this.gWO = "";
+        this.gWP = "";
+        this.gWQ = true;
+        this.gWR = false;
+        this.gWV = "(本轮奖金";
         this.fbE = true;
         this.beD = activity;
-        this.gWL = aVar.gxD;
-        this.gWK = aVar.maxCount;
-        this.gWM = aVar.gWV;
-        this.gWN = aVar.gWW;
+        this.gWN = aVar.gxF;
+        this.gWM = aVar.maxCount;
+        this.gWO = aVar.gWX;
+        this.gWP = aVar.gWY;
         this.mDialogGravity = aVar.gravity;
-        this.gWP = aVar.gWP;
-        this.gWO = aVar.gWO;
-        this.gWQ = aVar.gWY;
-        this.gWR = aVar.gWX;
+        this.gWR = aVar.gWR;
+        this.gWQ = aVar.gWQ;
+        this.gWS = aVar.gXa;
+        this.gWT = aVar.gWZ;
     }
 
     public void ask() {
-        if (this.gWQ != null) {
-            this.gWQ.Mj();
-            this.gWC = new AlertDialog.Builder(this.beD, a.i.guess_theme_dialog).create();
-            this.gWC.setCancelable(this.gWO);
-            this.gWC.setCanceledOnTouchOutside(this.gWP);
-            this.gWC.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.live.guess.a.c.1
+        if (this.gWS != null) {
+            this.gWS.Mj();
+            this.gWE = new AlertDialog.Builder(this.beD, a.i.guess_theme_dialog).create();
+            this.gWE.setCancelable(this.gWQ);
+            this.gWE.setCanceledOnTouchOutside(this.gWR);
+            this.gWE.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.live.guess.a.c.1
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    c.this.gWQ.onDismiss(dialogInterface);
+                    c.this.gWS.onDismiss(dialogInterface);
                 }
             });
-            if (this.gWR != null) {
-                this.gWC.setOnKeyListener(this.gWR);
+            if (this.gWT != null) {
+                this.gWE.setOnKeyListener(this.gWT);
             }
             Ki();
-            bYb();
+            bYc();
             registerListener();
             return;
         }
@@ -100,7 +100,7 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
     }
 
     private void Ki() {
-        Window window = this.gWC.getWindow();
+        Window window = this.gWE.getWindow();
         window.setGravity(this.mDialogGravity);
         window.setWindowAnimations(a.i.sdk_dialog_windowanim);
         window.setBackgroundDrawableResource(a.e.sdk_transparent_bg);
@@ -118,87 +118,87 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
         }
     }
 
-    private void bYb() {
+    private void bYc() {
         this.mRootView = (ViewGroup) LayoutInflater.from(this.beD).inflate(a.g.ala_guess_dialog, (ViewGroup) null);
-        this.gWI = (TimeCountTextView) this.mRootView.findViewById(a.f.txt_center_number);
-        this.gWJ = (MagicProgressCircle) this.mRootView.findViewById(a.f.circle_guess_progress);
+        this.gWK = (TimeCountTextView) this.mRootView.findViewById(a.f.txt_center_number);
+        this.gWL = (MagicProgressCircle) this.mRootView.findViewById(a.f.circle_guess_progress);
         this.mContentView = (LinearLayout) this.mRootView.findViewById(a.f.dialog_content);
-        this.gWD = (TextView) this.mRootView.findViewById(a.f.tv_guess_bonus);
-        this.gWE = (TextView) this.mRootView.findViewById(a.f.tv_guess_ques);
-        this.gWF = (TextView) this.mRootView.findViewById(a.f.tv_guess_success);
-        this.gWG = (TextView) this.mRootView.findViewById(a.f.tv_guess_failure);
-        this.gWp = (TextView) this.mRootView.findViewById(a.f.tv_guess_notify);
-        this.gWk = (ImageView) this.mRootView.findViewById(a.f.img_exit);
-        this.gWm = new ForegroundColorSpan(this.beD.getResources().getColor(a.c.ala_guess_bonus));
-        this.gWS = new RelativeSizeSpan(1.3f);
+        this.gWF = (TextView) this.mRootView.findViewById(a.f.tv_guess_bonus);
+        this.gWG = (TextView) this.mRootView.findViewById(a.f.tv_guess_ques);
+        this.gWH = (TextView) this.mRootView.findViewById(a.f.tv_guess_success);
+        this.gWI = (TextView) this.mRootView.findViewById(a.f.tv_guess_failure);
+        this.gWr = (TextView) this.mRootView.findViewById(a.f.tv_guess_notify);
+        this.gWm = (ImageView) this.mRootView.findViewById(a.f.img_exit);
+        this.gWo = new ForegroundColorSpan(this.beD.getResources().getColor(a.c.ala_guess_bonus));
+        this.gWU = new RelativeSizeSpan(1.3f);
     }
 
     private void registerListener() {
         this.mContentView.setOnClickListener(this);
-        this.gWF.setOnClickListener(this);
-        this.gWG.setOnClickListener(this);
-        this.gWk.setOnClickListener(this);
-        a(new b(this.gWR));
+        this.gWH.setOnClickListener(this);
+        this.gWI.setOnClickListener(this);
+        this.gWm.setOnClickListener(this);
+        a(new b(this.gWT));
     }
 
     @Override // com.baidu.live.guess.b
     public void eZ(int i) {
-        this.gWK = i;
+        this.gWM = i;
     }
 
     @Override // com.baidu.live.guess.b
     public boolean isShowing() {
-        if (this.gWC != null) {
-            return this.gWC.isShowing();
+        if (this.gWE != null) {
+            return this.gWE.isShowing();
         }
         return false;
     }
 
     @Override // com.baidu.live.guess.b
     public void hV(String str) {
-        int length = this.gWT.length();
-        this.gWT += str + "元)";
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.gWT);
-        spannableStringBuilder.setSpan(this.gWm, length, str.length() + length, 34);
-        spannableStringBuilder.setSpan(this.gWS, length, str.length() + length, 34);
-        this.gWD.setText(spannableStringBuilder);
+        int length = this.gWV.length();
+        this.gWV += str + "元)";
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.gWV);
+        spannableStringBuilder.setSpan(this.gWo, length, str.length() + length, 34);
+        spannableStringBuilder.setSpan(this.gWU, length, str.length() + length, 34);
+        this.gWF.setText(spannableStringBuilder);
     }
 
     @Override // com.baidu.live.guess.b
     public void hW(String str) {
-        this.gWF.setText(str);
+        this.gWH.setText(str);
     }
 
     @Override // com.baidu.live.guess.b
     public void hX(String str) {
-        this.gWG.setText(str);
+        this.gWI.setText(str);
     }
 
     @Override // com.baidu.live.guess.b
     public void setQuesContent(String str) {
-        this.gWE.setText(str);
+        this.gWG.setText(str);
     }
 
     @Override // com.baidu.live.guess.b
     public void show() {
-        if (this.gWC == null) {
+        if (this.gWE == null) {
             ask();
         }
         if (!isShowing()) {
             this.fbE = true;
-            ShowUtil.showDialog(this.gWC, this.beD);
-            this.gWC.setContentView(this.mRootView);
-            bYc();
+            ShowUtil.showDialog(this.gWE, this.beD);
+            this.gWE.setContentView(this.mRootView);
+            bYd();
         }
     }
 
-    private void bYc() {
-        this.gWJ.aw(100.0f).wa(this.gWK * 1000).startAnim();
-        this.gWI.a(this.gWK * 1000, IMConnection.RETRY_DELAY_TIMES, new TimeCountTextView.a() { // from class: com.baidu.tieba.ala.live.guess.a.c.2
+    private void bYd() {
+        this.gWL.aw(100.0f).wa(this.gWM * 1000).startAnim();
+        this.gWK.a(this.gWM * 1000, IMConnection.RETRY_DELAY_TIMES, new TimeCountTextView.a() { // from class: com.baidu.tieba.ala.live.guess.a.c.2
             @Override // com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.a
             public void onFinish() {
-                if (c.this.gWQ != null) {
-                    c.this.gWQ.Mk();
+                if (c.this.gWS != null) {
+                    c.this.gWS.Mk();
                 }
             }
         });
@@ -206,54 +206,54 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
 
     @Override // com.baidu.live.guess.b
     public void dismiss() {
-        if (this.gWC != null && this.gWC.isShowing()) {
-            ShowUtil.dismissDialog(this.gWC, this.beD);
+        if (this.gWE != null && this.gWE.isShowing()) {
+            ShowUtil.dismissDialog(this.gWE, this.beD);
         }
         this.fbE = true;
     }
 
     public void mT(boolean z) {
         this.fbE = z;
-        this.gWF.setEnabled(z);
-        this.gWG.setEnabled(z);
+        this.gWH.setEnabled(z);
+        this.gWI.setEnabled(z);
     }
 
     @Override // com.baidu.live.guess.b
     public void Mh() {
-        this.gWk.setVisibility(0);
-        if (this.gWH != null) {
-            this.gWH.setTextColor(this.beD.getResources().getColor(a.c.sdk_white_alpha100));
-            this.gWH.setBackgroundResource(a.e.guess_button_choice_background);
+        this.gWm.setVisibility(0);
+        if (this.gWJ != null) {
+            this.gWJ.setTextColor(this.beD.getResources().getColor(a.c.sdk_white_alpha100));
+            this.gWJ.setBackgroundResource(a.e.guess_button_choice_background);
             mT(false);
         }
     }
 
     @Override // com.baidu.live.guess.b
     public void Mi() {
-        this.gWI.cancel();
+        this.gWK.cancel();
     }
 
     @Override // com.baidu.live.guess.b
     public void a(DialogInterface.OnKeyListener onKeyListener) {
-        this.gWR = onKeyListener;
+        this.gWT = onKeyListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mContentView && this.gWP) {
+        if (view == this.mContentView && this.gWR) {
             dismiss();
-        } else if (view == this.gWF && this.fbE) {
-            if (this.gWQ != null) {
-                this.gWH = (TextView) view;
-                this.gWQ.a(this);
+        } else if (view == this.gWH && this.fbE) {
+            if (this.gWS != null) {
+                this.gWJ = (TextView) view;
+                this.gWS.a(this);
             }
-        } else if (view == this.gWG && this.fbE) {
-            if (this.gWQ != null) {
-                this.gWH = (TextView) view;
-                this.gWQ.b(this);
+        } else if (view == this.gWI && this.fbE) {
+            if (this.gWS != null) {
+                this.gWJ = (TextView) view;
+                this.gWS.b(this);
             }
-        } else if (view == this.gWk) {
-            this.gWQ.onExit();
+        } else if (view == this.gWm) {
+            this.gWS.onExit();
             Mi();
             dismiss();
         }
@@ -261,16 +261,16 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
 
     /* loaded from: classes4.dex */
     public static class b implements DialogInterface.OnKeyListener {
-        private DialogInterface.OnKeyListener gWX;
+        private DialogInterface.OnKeyListener gWZ;
 
         public b(DialogInterface.OnKeyListener onKeyListener) {
-            this.gWX = onKeyListener;
+            this.gWZ = onKeyListener;
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
         public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
             if (i == 4 && keyEvent.getRepeatCount() == 0) {
-                this.gWX.onKey(dialogInterface, i, keyEvent);
+                this.gWZ.onKey(dialogInterface, i, keyEvent);
                 return true;
             }
             return false;
@@ -281,22 +281,22 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
     public static class a {
         private Activity context;
         private int maxCount = 30;
-        private String gxD = "";
-        private String gWV = "";
-        private String gWW = "";
-        private boolean gWO = true;
-        private boolean gWP = false;
+        private String gxF = "";
+        private String gWX = "";
+        private String gWY = "";
+        private boolean gWQ = true;
+        private boolean gWR = false;
         private int gravity = 17;
-        private DialogInterface.OnKeyListener gWX = null;
-        private b.a gWY = null;
+        private DialogInterface.OnKeyListener gWZ = null;
+        private b.a gXa = null;
 
         public a mU(boolean z) {
-            this.gWO = z;
+            this.gWQ = z;
             return this;
         }
 
         public a mV(boolean z) {
-            this.gWP = z;
+            this.gWR = z;
             return this;
         }
 
@@ -306,7 +306,7 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
         }
 
         public a a(b.a aVar) {
-            this.gWY = aVar;
+            this.gXa = aVar;
             return this;
         }
 

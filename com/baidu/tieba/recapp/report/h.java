@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h implements e {
-    private TbHttpMessageTask mNB;
-    private HttpMessageListener mNA = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.h.1
+    private TbHttpMessageTask mND;
+    private HttpMessageListener mNC = new HttpMessageListener(1003062) { // from class: com.baidu.tieba.recapp.report.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -28,18 +28,18 @@ public class h implements e {
             }
         }
     };
-    private ArrayList<c> mNC = new ArrayList<>();
+    private ArrayList<c> mNE = new ArrayList<>();
 
     public h() {
         acn();
-        MessageManager.getInstance().registerListener(this.mNA);
+        MessageManager.getInstance().registerListener(this.mNC);
     }
 
     private void acn() {
-        this.mNB = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
-        this.mNB.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.mNB.setIsNeedAddCommenParam(true);
-        this.mNB.setResponsedClass(JsonHttpResponsedMessage.class);
+        this.mND = new TbHttpMessageTask(1003062, "https://als.baidu.com/clog/clog");
+        this.mND.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.mND.setIsNeedAddCommenParam(true);
+        this.mND.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.e
@@ -47,16 +47,16 @@ public class h implements e {
         if (cVar != null) {
             com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (!(adAdSense == null || adAdSense.bxe())) {
-                this.mNB.setUrl("http://als.baidu.com/clog/clog");
+                this.mND.setUrl("http://als.baidu.com/clog/clog");
             }
             d(cVar);
-            dGi();
+            dGj();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.e
-    public void dGh() {
-        dGi();
+    public void dGi() {
+        dGj();
     }
 
     @Override // com.baidu.tieba.recapp.report.e
@@ -66,10 +66,10 @@ public class h implements e {
         }
     }
 
-    private void dGi() {
-        if (y.getCount(this.mNC) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.mNC), this.mNB);
-            this.mNC.clear();
+    private void dGj() {
+        if (y.getCount(this.mNE) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.mNE), this.mND);
+            this.mNE.clear();
         }
     }
 
@@ -86,10 +86,10 @@ public class h implements e {
 
     private void d(c cVar) {
         if (cVar != null) {
-            if (y.getCount(this.mNC) >= 20) {
-                this.mNC.remove(0);
+            if (y.getCount(this.mNE) >= 20) {
+                this.mNE.remove(0);
             }
-            this.mNC.add(cVar);
+            this.mNE.add(cVar);
         }
     }
 }

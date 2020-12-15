@@ -15,20 +15,20 @@ import com.baidu.tbadk.TbPageContext;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject ggS;
-    private HttpMessageListener ggT;
-    private BdUniqueId ggU = BdUniqueId.gen();
-    private BdUniqueId ggV = BdUniqueId.gen();
-    private CustomMessageListener fVW = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.a.2
+    private JSONObject ggU;
+    private HttpMessageListener ggV;
+    private BdUniqueId ggW = BdUniqueId.gen();
+    private BdUniqueId ggX = BdUniqueId.gen();
+    private CustomMessageListener fVY = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.ggS != null) {
-                a.this.a(a.this.ggS, a.this.ggV);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetworkAvailableForImmediately() && a.this.ggU != null) {
+                a.this.a(a.this.ggU, a.this.ggX);
             }
         }
     };
-    private CustomMessageListener ggW = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener ggY = new CustomMessageListener(CmdConfigCustom.CMD_BUSINESS_NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,38 +39,38 @@ public class a {
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.ggT == null) {
-            this.ggT = new HttpMessageListener(1003390) { // from class: com.baidu.tieba.ala.a.1
+        if (this.ggV == null) {
+            this.ggV = new HttpMessageListener(1003390) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.ggS = null;
+                        a.this.ggU = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.ggT);
-        MessageManager.getInstance().registerListener(this.fVW);
-        this.ggW.setTag(tbPageContext.getUniqueId());
-        this.ggW.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.ggW);
+        MessageManager.getInstance().registerListener(this.ggV);
+        MessageManager.getInstance().registerListener(this.fVY);
+        this.ggY.setTag(tbPageContext.getUniqueId());
+        this.ggY.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.ggY);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ggT);
-        MessageManager.getInstance().unRegisterListener(this.fVW);
-        MessageManager.getInstance().unRegisterListener(this.ggW);
-        this.ggS = null;
+        MessageManager.getInstance().unRegisterListener(this.ggV);
+        MessageManager.getInstance().unRegisterListener(this.fVY);
+        MessageManager.getInstance().unRegisterListener(this.ggY);
+        this.ggU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dt(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (j.isNetworkAvailableForImmediately()) {
-                a(jSONObject, this.ggU);
+                a(jSONObject, this.ggW);
             } else {
-                this.ggS = jSONObject;
+                this.ggU = jSONObject;
             }
         }
     }

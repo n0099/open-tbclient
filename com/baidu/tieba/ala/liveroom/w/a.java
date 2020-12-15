@@ -23,18 +23,18 @@ import org.json.JSONObject;
 public class a extends com.baidu.tieba.ala.liveroom.a {
     private ViewGroup bNk;
     IZanResponseCallback bSB;
-    private boolean hBu;
-    private final int hGA;
-    private IAlaBdZan hGB;
-    private View hGC;
-    private boolean hGD;
-    private int hGE;
-    private int hGF;
+    private boolean hBw;
+    private int hGB;
+    private final int hGC;
+    private IAlaBdZan hGD;
+    private View hGE;
+    private boolean hGF;
     private int hGG;
-    private boolean hGH;
-    private Runnable hGI;
-    private int hGz;
-    private com.baidu.live.liveroom.a.a hie;
+    private int hGH;
+    private int hGI;
+    private boolean hGJ;
+    private Runnable hGK;
+    private com.baidu.live.liveroom.a.a hig;
     private String mCastId;
     protected Handler mHandler;
     private boolean mIsHost;
@@ -44,22 +44,22 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
         super(tbPageContext);
-        this.hGz = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds240);
-        this.hGA = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds420);
+        this.hGB = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds240);
+        this.hGC = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds420);
         this.mHandler = new Handler();
-        this.hGD = true;
+        this.hGF = true;
         this.mIsHost = false;
-        this.hGE = -1;
-        this.hGF = 0;
-        this.hGG = 0;
-        this.hGH = false;
-        this.hGI = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.w.a.2
+        this.hGG = -1;
+        this.hGH = 0;
+        this.hGI = 0;
+        this.hGJ = false;
+        this.hGK = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.w.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.hGF > 0) {
-                    a.this.p(a.this.mRoomId, a.this.mCastId, a.this.hGF);
-                    a.this.hGG += a.this.hGF;
-                    a.this.hGF = 0;
+                if (a.this.hGH > 0) {
+                    a.this.p(a.this.mRoomId, a.this.mCastId, a.this.hGH);
+                    a.this.hGI += a.this.hGH;
+                    a.this.hGH = 0;
                 }
             }
         };
@@ -67,43 +67,43 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             @Override // com.baidu.live.tbadk.ala.zan.IZanResponseCallback
             public void onResult(int i, long j, long j2) {
                 Log.i("IZanResponseCallback", "@@ responseListener i =" + i + ", l=" + j + ", l1=" + j2);
-                if (!a.this.mIsHost && !a.this.hGH && i >= 0 && TbadkCoreApplication.isLogin() && !TextUtils.isEmpty(a.this.mLiveId)) {
+                if (!a.this.mIsHost && !a.this.hGJ && i >= 0 && TbadkCoreApplication.isLogin() && !TextUtils.isEmpty(a.this.mLiveId)) {
                     com.baidu.live.q.a.aG(a.this.mLiveId, "zan_rmb");
-                    a.this.hGH = true;
+                    a.this.hGJ = true;
                 }
             }
         };
         this.mTbPageContext = tbPageContext;
-        this.hie = aVar;
-        this.hGz = (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds60) / 2) + TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds42) + BdUtilHelper.dip2px(tbPageContext.getPageActivity(), 90.0f);
+        this.hig = aVar;
+        this.hGB = (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds60) / 2) + TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds42) + BdUtilHelper.dip2px(tbPageContext.getPageActivity(), 90.0f);
     }
 
     public void c(ViewGroup viewGroup, boolean z) {
         if (viewGroup != null) {
-            this.hGE = -1;
+            this.hGG = -1;
             this.mIsHost = z;
             this.bNk = viewGroup;
-            this.hGB = BdZanViewCreater.getInst().create();
-            if (this.hGB != null) {
-                this.hGB.setGetZanViewCallback(new IGetZanViewCallback() { // from class: com.baidu.tieba.ala.liveroom.w.a.1
+            this.hGD = BdZanViewCreater.getInst().create();
+            if (this.hGD != null) {
+                this.hGD.setGetZanViewCallback(new IGetZanViewCallback() { // from class: com.baidu.tieba.ala.liveroom.w.a.1
                     @Override // com.baidu.live.tbadk.ala.zan.IGetZanViewCallback
                     public void onGetZanView(View view) {
                         if (view != null) {
-                            a.this.hGC = view;
-                            a.this.hGC.setClickable(false);
+                            a.this.hGE = view;
+                            a.this.hGE.setClickable(false);
                             a.this.aE(a.this.bNk);
                         }
                     }
                 });
-                this.hGB.setZanResponseCallback(this.bSB);
-                this.hGB.prepareZanView(this.mTbPageContext.getPageActivity());
+                this.hGD.setZanResponseCallback(this.bSB);
+                this.hGD.prepareZanView(this.mTbPageContext.getPageActivity());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aE(ViewGroup viewGroup) {
-        if (this.hGC != null && viewGroup.indexOfChild(this.hGC) < 0) {
+        if (this.hGE != null && viewGroup.indexOfChild(this.hGE) < 0) {
             if (viewGroup instanceof RelativeLayout) {
                 aF((RelativeLayout) viewGroup);
             } else if (viewGroup instanceof FrameLayout) {
@@ -113,67 +113,67 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     private void aF(ViewGroup viewGroup) {
-        if (this.hGC != null && viewGroup != null) {
+        if (this.hGE != null && viewGroup != null) {
             if (viewGroup instanceof FrameLayout) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.hGz, this.hGA);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.hGB, this.hGC);
                 layoutParams.bottomMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds104);
                 layoutParams.gravity = 85;
-                viewGroup.addView(this.hGC, layoutParams);
+                viewGroup.addView(this.hGE, layoutParams);
             } else if (viewGroup instanceof RelativeLayout) {
-                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(this.hGz, this.hGA);
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(this.hGB, this.hGC);
                 layoutParams2.bottomMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds80);
                 layoutParams2.addRule(11);
                 layoutParams2.addRule(12);
-                viewGroup.addView(this.hGC, layoutParams2);
+                viewGroup.addView(this.hGE, layoutParams2);
             }
-            if (this.hGC instanceof SurfaceView) {
-                ((SurfaceView) this.hGC).setZOrderOnTop(true);
-                ((SurfaceView) this.hGC).getHolder().setFormat(-3);
+            if (this.hGE instanceof SurfaceView) {
+                ((SurfaceView) this.hGE).setZOrderOnTop(true);
+                ((SurfaceView) this.hGE).getHolder().setFormat(-3);
             }
         }
-    }
-
-    public void clK() {
-        aE(this.bNk);
     }
 
     public void clL() {
+        aE(this.bNk);
+    }
+
+    public void clM() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hGC != null && this.bNk != null && this.bNk.indexOfChild(this.hGC) > 0) {
-            this.bNk.removeView(this.hGC);
+        if (this.hGE != null && this.bNk != null && this.bNk.indexOfChild(this.hGE) > 0) {
+            this.bNk.removeView(this.hGE);
         }
     }
 
-    public boolean clM() {
-        return this.hGD;
+    public boolean clN() {
+        return this.hGF;
     }
 
     public void om(boolean z) {
-        this.hGD = z;
+        this.hGF = z;
     }
 
     public void of(boolean z) {
-        this.hBu = z;
+        this.hBw = z;
     }
 
     public void on(boolean z) {
-        if (this.hBu && z) {
+        if (this.hBw && z) {
             z = false;
         }
         if (z) {
-            if (this.hGC != null) {
-                this.hGC.setVisibility(0);
+            if (this.hGE != null) {
+                this.hGE.setVisibility(0);
             }
-        } else if (this.hGC != null) {
-            this.hGC.setVisibility(8);
+        } else if (this.hGE != null) {
+            this.hGE.setVisibility(8);
         }
     }
 
     public void K(b bVar) {
         JSONObject jSONObject;
-        if (this.hGC != null) {
+        if (this.hGE != null) {
             try {
                 if (bVar.getObjContent() instanceof JSONObject) {
                     jSONObject = (JSONObject) bVar.getObjContent();
@@ -182,20 +182,20 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 }
                 int optInt = jSONObject.optInt("zan_count", 0);
                 if (optInt > 0) {
-                    if (this.hGE > 0 && optInt > this.hGE && clM() && this.hGB != null) {
-                        int i = optInt - this.hGE;
-                        if (this.hGG > 0) {
-                            if (i > this.hGG) {
-                                addHeart(i - this.hGG);
-                                this.hGG = 0;
+                    if (this.hGG > 0 && optInt > this.hGG && clN() && this.hGD != null) {
+                        int i = optInt - this.hGG;
+                        if (this.hGI > 0) {
+                            if (i > this.hGI) {
+                                addHeart(i - this.hGI);
+                                this.hGI = 0;
                             } else {
-                                this.hGG -= i;
+                                this.hGI -= i;
                             }
                         } else {
                             addHeart(i);
                         }
                     }
-                    this.hGE = optInt;
+                    this.hGG = optInt;
                 }
             } catch (JSONException e) {
             }
@@ -203,10 +203,10 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     public void release() {
-        this.mHandler.removeCallbacks(this.hGI);
+        this.mHandler.removeCallbacks(this.hGK);
         this.bNk = null;
-        this.hGC = null;
-        this.hGH = false;
+        this.hGE = null;
+        this.hGJ = false;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
@@ -214,31 +214,31 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     public void au(String str, String str2, String str3) {
-        if (this.hGB != null) {
-            if (clM()) {
+        if (this.hGD != null) {
+            if (clN()) {
                 addHeart(1);
             }
             this.mLiveId = str;
             this.mRoomId = str2;
             this.mCastId = str3;
-            if (this.hGF == 0) {
-                this.mHandler.removeCallbacks(this.hGI);
-                this.mHandler.postDelayed(this.hGI, 1000L);
+            if (this.hGH == 0) {
+                this.mHandler.removeCallbacks(this.hGK);
+                this.mHandler.postDelayed(this.hGK, 1000L);
             }
-            this.hGF++;
+            this.hGH++;
         }
     }
 
     private void addHeart(int i) {
-        if (i > 0 && this.hGB != null && this.hGC != null && this.hGC.getVisibility() == 0) {
-            this.hGB.addHeart(i);
+        if (i > 0 && this.hGD != null && this.hGE != null && this.hGE.getVisibility() == 0) {
+            this.hGD.addHeart(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(String str, String str2, int i) {
-        if (this.hGB != null && this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null) {
-            this.hGB.postZan(this.mTbPageContext.getPageActivity(), str, str2, i);
+        if (this.hGD != null && this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null) {
+            this.hGD.postZan(this.mTbPageContext.getPageActivity(), str, str2, i);
         }
     }
 }

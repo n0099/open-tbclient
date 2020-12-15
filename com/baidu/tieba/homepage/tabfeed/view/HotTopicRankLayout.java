@@ -23,9 +23,9 @@ import com.baidu.tieba.homepage.tabfeed.data.b;
 public class HotTopicRankLayout extends LinearLayout implements View.OnClickListener, p<b>, q {
     private View amo;
     private ImageView amp;
-    private f<c> jPN;
-    private HotTopicTabRankListLayout jXj;
-    private View jXk;
+    private f<c> jPP;
+    private HotTopicTabRankListLayout jXl;
+    private View jXm;
     private View mBottomLine;
     private int mSkinType;
     private TextView mTitle;
@@ -34,7 +34,7 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
     public HotTopicRankLayout(Context context) {
         super(context, null);
         this.mSkinType = 3;
-        this.jPN = new f<c>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout.1
+        this.jPP = new f<c>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, c cVar, int i, long j) {
@@ -62,16 +62,16 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
         this.amo = findViewById(R.id.layout_into);
         this.mTopLine = findViewById(R.id.divider_line_top);
         this.mBottomLine = findViewById(R.id.divider_line_bottom);
-        this.jXk = findViewById(R.id.title_layout);
-        this.jXk.setPadding(0, l.getDimens(getContext(), R.dimen.tbds44), 0, l.getDimens(getContext(), R.dimen.tbds22));
-        ViewGroup.LayoutParams layoutParams = this.jXk.getLayoutParams();
+        this.jXm = findViewById(R.id.title_layout);
+        this.jXm.setPadding(0, l.getDimens(getContext(), R.dimen.tbds44), 0, l.getDimens(getContext(), R.dimen.tbds22));
+        ViewGroup.LayoutParams layoutParams = this.jXm.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
-        this.jXk.setLayoutParams(layoutParams);
+        this.jXm.setLayoutParams(layoutParams);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.card_container);
-        this.jXj = new HotTopicTabRankListLayout(getContext());
-        this.jXj.setOnItemCoverListener(this.jPN);
-        linearLayout.addView(this.jXj);
+        this.jXl = new HotTopicTabRankListLayout(getContext());
+        this.jXl.setOnItemCoverListener(this.jPP);
+        linearLayout.addView(this.jXl);
         linearLayout.setPadding(0, 0, 0, l.getDimens(getContext(), R.dimen.tbds48));
         this.amp.setClickable(false);
         this.amo.setOnClickListener(this);
@@ -83,7 +83,7 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
     /* renamed from: a */
     public void H(b bVar) {
         this.mTitle.setText(bVar.title != null ? bVar.title : "");
-        this.jXj.a(bVar);
+        this.jXl.a(bVar);
         if (d.bkA()) {
             this.mTopLine.setVisibility(8);
             this.mBottomLine.setVisibility(0);

@@ -27,20 +27,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
-    private TbTabLayout fXB;
+    private TbTabLayout fXD;
     private BdBaseViewPager fhx;
-    private NoNetworkView grd;
-    private List<MessageFragmentPagerAdapter.a> iwc;
-    private NavigationBar iwh;
-    private MessageCenterFragment kIT;
-    private MessageFragmentPagerAdapter kJa;
-    private ChatAggregationFragment kJb;
-    private ImageView kJc;
+    private NoNetworkView grf;
+    private List<MessageFragmentPagerAdapter.a> iwe;
+    private NavigationBar iwj;
+    private MessageCenterFragment kIV;
+    private MessageFragmentPagerAdapter kJc;
+    private ChatAggregationFragment kJd;
+    private ImageView kJe;
     private View mRootView;
 
     public g(MessageCenterFragment messageCenterFragment) {
         super(messageCenterFragment.getPageContext());
-        this.kIT = messageCenterFragment;
+        this.kIV = messageCenterFragment;
     }
 
     public void a(View view, Bundle bundle) {
@@ -49,78 +49,78 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
             ak(bundle);
             al(bundle);
             am(bundle);
-            this.grd = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
-            this.grd.a(this);
+            this.grf = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
+            this.grf.a(this);
         }
     }
 
     private void ak(Bundle bundle) {
         this.fhx = (BdBaseViewPager) this.mRootView.findViewById(R.id.message_viewpager);
         MessageFragmentPagerAdapter.a aVar = new MessageFragmentPagerAdapter.a();
-        this.kJb = new ChatAggregationFragment();
-        aVar.fragment = this.kJb;
-        aVar.title = this.kIT.getResources().getString(R.string.message_center_message_tab);
-        this.iwc = new ArrayList();
-        this.iwc.add(aVar);
-        this.kJa = new MessageFragmentPagerAdapter(this.kIT.getActivity().getSupportFragmentManager(), this.iwc);
-        this.fhx.setAdapter(this.kJa);
-        this.fhx.setOffscreenPageLimit(this.iwc.size());
-        this.kJa.notifyDataSetChanged();
+        this.kJd = new ChatAggregationFragment();
+        aVar.fragment = this.kJd;
+        aVar.title = this.kIV.getResources().getString(R.string.message_center_message_tab);
+        this.iwe = new ArrayList();
+        this.iwe.add(aVar);
+        this.kJc = new MessageFragmentPagerAdapter(this.kIV.getActivity().getSupportFragmentManager(), this.iwe);
+        this.fhx.setAdapter(this.kJc);
+        this.fhx.setOffscreenPageLimit(this.iwe.size());
+        this.kJc.notifyDataSetChanged();
     }
 
     private void al(Bundle bundle) {
-        this.fXB = (TbTabLayout) LayoutInflater.from(this.kIT.getContext()).inflate(R.layout.message_center_tab_layout, (ViewGroup) null);
-        this.fXB.setupWithViewPager(this.fhx);
-        int tabCount = this.fXB.getTabCount();
+        this.fXD = (TbTabLayout) LayoutInflater.from(this.kIV.getContext()).inflate(R.layout.message_center_tab_layout, (ViewGroup) null);
+        this.fXD.setupWithViewPager(this.fhx);
+        int tabCount = this.fXD.getTabCount();
         if (tabCount > 0) {
             for (int i = 0; i < tabCount; i++) {
-                this.fXB.aY(i).ba(1);
+                this.fXD.aY(i).ba(1);
             }
         }
     }
 
     private void am(Bundle bundle) {
-        this.iwh = (NavigationBar) this.mRootView.findViewById(R.id.navigation_bar);
-        View addSystemImageButton = this.iwh.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.g.1
+        this.iwj = (NavigationBar) this.mRootView.findViewById(R.id.navigation_bar);
+        View addSystemImageButton = this.iwj.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.kIT != null) {
-                    g.this.kIT.dbx();
+                if (g.this.kIV != null) {
+                    g.this.kIV.dby();
                 }
             }
         });
         if (addSystemImageButton != null) {
-            if (this.kIT.getActivity() instanceof MessageCenterActivity) {
+            if (this.kIV.getActivity() instanceof MessageCenterActivity) {
                 addSystemImageButton.setVisibility(0);
             } else {
                 addSystemImageButton.setVisibility(4);
             }
         }
-        this.kJc = new ImageView(this.kIT.getContext());
-        int dimens = com.baidu.adp.lib.util.l.getDimens(this.kIT.getContext(), R.dimen.ds88);
-        this.kJc.setLayoutParams(new ViewGroup.LayoutParams(dimens, dimens));
-        this.kJc.setScaleType(ImageView.ScaleType.CENTER);
-        this.iwh.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.kJc, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.g.2
+        this.kJe = new ImageView(this.kIV.getContext());
+        int dimens = com.baidu.adp.lib.util.l.getDimens(this.kIV.getContext(), R.dimen.ds88);
+        this.kJe.setLayoutParams(new ViewGroup.LayoutParams(dimens, dimens));
+        this.kJe.setScaleType(ImageView.ScaleType.CENTER);
+        this.iwj.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.kJe, new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.g.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.kIT != null) {
-                    g.this.kIT.dby();
+                if (g.this.kIV != null) {
+                    g.this.kIV.dbz();
                 }
             }
         });
-        if (this.kJc.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.kJc.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, com.baidu.adp.lib.util.l.getDimens(this.kIT.getContext(), R.dimen.ds14), marginLayoutParams.bottomMargin);
-            this.kJc.setLayoutParams(marginLayoutParams);
+        if (this.kJe.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.kJe.getLayoutParams();
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, com.baidu.adp.lib.util.l.getDimens(this.kIV.getContext(), R.dimen.ds14), marginLayoutParams.bottomMargin);
+            this.kJe.setLayoutParams(marginLayoutParams);
         }
         if (SwitchManager.getInstance().findType(MessageChooseFriendSwitch.SWITCH_NAME) == 1) {
-            this.kJc.setVisibility(0);
+            this.kJe.setVisibility(0);
         } else {
-            this.kJc.setVisibility(4);
+            this.kJe.setVisibility(4);
         }
-        if (this.fXB != null) {
-            this.iwh.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, this.fXB, (View.OnClickListener) null);
-            ViewGroup viewGroup = (ViewGroup) this.fXB.getParent();
+        if (this.fXD != null) {
+            this.iwj.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, this.fXD, (View.OnClickListener) null);
+            ViewGroup viewGroup = (ViewGroup) this.fXD.getParent();
             if (viewGroup instanceof LinearLayout) {
                 ((LinearLayout) viewGroup).setGravity(17);
             } else if (viewGroup instanceof RelativeLayout) {
@@ -130,19 +130,19 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
                 layoutParams.gravity = 17;
                 viewGroup.setLayoutParams(layoutParams);
             }
-            this.fXB.setPadding(this.fXB.getPaddingLeft(), this.fXB.getPaddingTop(), this.fXB.getPaddingRight(), this.fXB.getPaddingBottom() + com.baidu.adp.lib.util.l.getDimens(this.kIT.getContext(), R.dimen.ds1));
+            this.fXD.setPadding(this.fXD.getPaddingLeft(), this.fXD.getPaddingTop(), this.fXD.getPaddingRight(), this.fXD.getPaddingBottom() + com.baidu.adp.lib.util.l.getDimens(this.kIV.getContext(), R.dimen.ds1));
         }
     }
 
     public void a(TbTabLayout.b bVar) {
-        if (this.fXB != null && bVar != null) {
-            this.fXB.a(bVar);
+        if (this.fXD != null && bVar != null) {
+            this.fXD.a(bVar);
         }
     }
 
     public void b(TbTabLayout.b bVar) {
-        if (this.fXB != null && bVar != null) {
-            this.fXB.b(bVar);
+        if (this.fXD != null && bVar != null) {
+            this.fXD.b(bVar);
         }
     }
 
@@ -153,18 +153,18 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public TbTabLayout.e dbz() {
-        if (this.fXB == null || this.fXB.getTabCount() <= 0) {
+    public TbTabLayout.e dbA() {
+        if (this.fXD == null || this.fXD.getTabCount() <= 0) {
             return null;
         }
-        return this.fXB.aY(this.fXB.getSelectedTabPosition());
+        return this.fXD.aY(this.fXD.getSelectedTabPosition());
     }
 
     public TbTabLayout.e EW(int i) {
         int tabCount;
-        if (this.fXB != null && (tabCount = this.fXB.getTabCount()) > 0) {
+        if (this.fXD != null && (tabCount = this.fXD.getTabCount()) > 0) {
             for (int i2 = 0; i2 < tabCount; i2++) {
-                TbTabLayout.e aY = this.fXB.aY(i2);
+                TbTabLayout.e aY = this.fXD.aY(i2);
                 if (aY != null && aY.getId() != -1 && aY.getId() == i) {
                     return aY;
                 }
@@ -176,32 +176,32 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        if (this.iwh != null) {
-            this.iwh.onChangeSkinType(getPageContext(), i);
-            ap.setBackgroundColor(this.iwh.getBarBgView(), R.color.CAM_X0207, i);
+        if (this.iwj != null) {
+            this.iwj.onChangeSkinType(getPageContext(), i);
+            ap.setBackgroundColor(this.iwj.getBarBgView(), R.color.CAM_X0207, i);
         }
-        if (this.grd != null) {
-            this.grd.onChangeSkinType(getPageContext(), i);
+        if (this.grf != null) {
+            this.grf.onChangeSkinType(getPageContext(), i);
         }
-        if (this.iwc != null && this.iwc.size() > 0) {
-            for (int i2 = 0; i2 < this.iwc.size(); i2++) {
-                MessageFragmentPagerAdapter.a aVar = this.iwc.get(i2);
+        if (this.iwe != null && this.iwe.size() > 0) {
+            for (int i2 = 0; i2 < this.iwe.size(); i2++) {
+                MessageFragmentPagerAdapter.a aVar = this.iwe.get(i2);
                 if (aVar != null && aVar.fragment != null && (aVar.fragment instanceof BaseFragment)) {
                     ((BaseFragment) aVar.fragment).onChangeSkinType(i);
                 }
             }
         }
-        SvgManager.btW().a(this.kJc, R.drawable.ic_icon_pure_chat_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        if (this.fXB != null) {
-            this.fXB.setSelectedTabIndicatorColor(this.mContext.getResources().getColor(R.color.transparent));
-            this.fXB.setSelectedTabIndicatorHeight(0);
-            this.fXB.setTabTextColors(ap.getColor(R.color.CAM_X0107), ap.getColor(R.color.CAM_X0105));
+        SvgManager.btW().a(this.kJe, R.drawable.ic_icon_pure_chat_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (this.fXD != null) {
+            this.fXD.setSelectedTabIndicatorColor(this.mContext.getResources().getColor(R.color.transparent));
+            this.fXD.setSelectedTabIndicatorHeight(0);
+            this.fXD.setTabTextColors(ap.getColor(R.color.CAM_X0107), ap.getColor(R.color.CAM_X0105));
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.iwc != null && this.iwc.size() > 0 && this.fhx != null) {
-            MessageFragmentPagerAdapter.a aVar = this.iwc.get(this.fhx.getCurrentItem());
+        if (this.iwe != null && this.iwe.size() > 0 && this.fhx != null) {
+            MessageFragmentPagerAdapter.a aVar = this.iwe.get(this.fhx.getCurrentItem());
             if (aVar != null && aVar.fragment != null) {
                 aVar.fragment.onActivityResult(i, i2, intent);
             }
@@ -209,12 +209,12 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
     }
 
     public void ame() {
-        if (this.kIT != null && this.iwc != null && this.fhx != null && this.kJa != null) {
-            FragmentManager supportFragmentManager = this.kIT.getActivity().getSupportFragmentManager();
+        if (this.kIV != null && this.iwe != null && this.fhx != null && this.kJc != null) {
+            FragmentManager supportFragmentManager = this.kIV.getActivity().getSupportFragmentManager();
             if (!supportFragmentManager.isDestroyed()) {
                 FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-                for (int i = 0; i < this.iwc.size(); i++) {
-                    Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(makeFragmentName(this.fhx.getId(), this.kJa.getItemId(i)));
+                for (int i = 0; i < this.iwe.size(); i++) {
+                    Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(makeFragmentName(this.fhx.getId(), this.kJc.getItemId(i)));
                     if (findFragmentByTag != null) {
                         beginTransaction.remove(findFragmentByTag);
                     }
@@ -224,8 +224,8 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
                 return;
             }
         }
-        if (this.grd != null) {
-            this.grd.b(this);
+        if (this.grf != null) {
+            this.grf.b(this);
         }
     }
 
@@ -235,11 +235,11 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setPrimary(boolean z) {
-        if (this.kJa != null) {
-            this.kJa.setPrimary(z);
+        if (this.kJc != null) {
+            this.kJc.setPrimary(z);
         }
-        if (this.iwc != null && this.iwc.size() > 0 && this.fhx != null) {
-            MessageFragmentPagerAdapter.a aVar = this.iwc.get(this.fhx.getCurrentItem());
+        if (this.iwe != null && this.iwe.size() > 0 && this.fhx != null) {
+            MessageFragmentPagerAdapter.a aVar = this.iwe.get(this.fhx.getCurrentItem());
             if (aVar != null && aVar.fragment != null && (aVar.fragment instanceof BaseFragment)) {
                 ((BaseFragment) aVar.fragment).setPrimary(z);
             }
@@ -248,12 +248,12 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void onNetworkChange(boolean z) {
-        if (this.iwc != null && this.iwc.size() > 0) {
+        if (this.iwe != null && this.iwe.size() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.iwc.size()) {
-                    MessageFragmentPagerAdapter.a aVar = this.iwc.get(i2);
+                if (i2 < this.iwe.size()) {
+                    MessageFragmentPagerAdapter.a aVar = this.iwe.get(i2);
                     if (aVar != null && aVar.fragment != null && (aVar.fragment instanceof NoNetworkView.a)) {
                         ((NoNetworkView.a) aVar.fragment).onNetworkChange(z);
                     }
@@ -265,9 +265,9 @@ public class g extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public void cOr() {
-        if (this.kJb != null) {
-            this.kJb.VC();
+    public void cOs() {
+        if (this.kJd != null) {
+            this.kJd.VC();
         }
     }
 }

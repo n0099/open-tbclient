@@ -5,11 +5,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes15.dex */
 public abstract class b<T> implements k<T> {
-    private boolean poy = false;
+    private boolean poA = false;
 
     protected abstract void D(Throwable th);
 
-    protected abstract void evj();
+    protected abstract void evk();
 
     protected abstract void g(T t, int i);
 
@@ -39,8 +39,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void h(@Nullable T t, int i) {
-        if (!this.poy) {
-            this.poy = Rh(i);
+        if (!this.poA) {
+            this.poA = Rh(i);
             try {
                 g(t, i);
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void E(Throwable th) {
-        if (!this.poy) {
-            this.poy = true;
+        if (!this.poA) {
+            this.poA = true;
             try {
                 D(th);
             } catch (Exception e) {
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void epM() {
-        if (!this.poy) {
-            this.poy = true;
+    public synchronized void epN() {
+        if (!this.poA) {
+            this.poA = true;
             try {
-                evj();
+                evk();
             } catch (Exception e) {
                 C(e);
             }
@@ -75,7 +75,7 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void aV(float f) {
-        if (!this.poy) {
+        if (!this.poA) {
             try {
                 by(f);
             } catch (Exception e) {

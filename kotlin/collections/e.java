@@ -9,7 +9,7 @@ import kotlin.TypeCastException;
 @kotlin.e
 /* loaded from: classes17.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a pKg = new a(null);
+    public static final a pKi = new a(null);
 
     public abstract Set getEntries();
 

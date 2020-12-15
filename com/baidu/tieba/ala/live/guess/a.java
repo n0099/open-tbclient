@@ -24,35 +24,35 @@ public class a {
         return d.BM().getInt("live_guess_last_answer", -1);
     }
 
-    public void bXB() {
+    public void bXC() {
         a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "missguess_show"));
     }
 
-    public void bXC() {
+    public void bXD() {
         a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "wrongguess_show"));
     }
 
-    public void bXD() {
+    public void bXE() {
         a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "rightguess_show"));
     }
 
-    public void bXE() {
+    public void bXF() {
         a(ar(UbcStatisticLiveKey.KEY_ID_1396, "click", "guessflw_clk"));
     }
 
-    public void bXF() {
+    public void bXG() {
         a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "guessflw_show"));
     }
 
-    public void bXG() {
+    public void bXH() {
         a(ar(UbcStatisticLiveKey.KEY_ID_1396, "click", "getticket_clk"));
     }
 
-    public void bXH() {
+    public void bXI() {
         a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "ticketlack_show"));
     }
 
-    public void bXI() {
+    public void bXJ() {
         a(w(UbcStatisticLiveKey.KEY_ID_1395, "click", "guessing_succ", ""));
     }
 
@@ -66,7 +66,7 @@ public class a {
         a(ar(UbcStatisticLiveKey.KEY_ID_1396, "click", "guesschoice_clk").setContentExt(jSONObject));
     }
 
-    public void bXJ() {
+    public void bXK() {
         a(ar(UbcStatisticLiveKey.KEY_ID_1394, "display", "guesspop_show"));
     }
 

@@ -15,8 +15,8 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 public class b {
     private CustomMessageListener bRw;
     private Activity beD;
-    private PopupWindow.OnDismissListener gBl;
-    private c oou;
+    private PopupWindow.OnDismissListener gBn;
+    private c oow;
 
     public b(Activity activity) {
         this.beD = activity;
@@ -24,33 +24,33 @@ public class b {
     }
 
     public void ir(String str) {
-        this.oou = new c(this.beD);
-        this.oou.setOnDismissListener(this.gBl);
-        this.oou.getWebView().setBackgroundColor(iu(str));
+        this.oow = new c(this.beD);
+        this.oow.setOnDismissListener(this.gBn);
+        this.oow.getWebView().setBackgroundColor(iu(str));
         g gVar = new g();
-        gVar.x(this.beD).a(this.oou).a(this.oou.getWebView().getSchemeCallback());
+        gVar.x(this.beD).a(this.oow).a(this.oow.getWebView().getSchemeCallback());
         com.baidu.live.view.web.a[] YO = gVar.YO();
         for (com.baidu.live.view.web.a aVar : YO) {
-            this.oou.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            this.oow.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.oou.GD(str);
+        this.oow.GD(str);
     }
 
     public void resume() {
-        if (this.oou != null && this.oou.isShowing() && this.oou.getWebView() != null) {
-            this.oou.getWebView().onResume();
+        if (this.oow != null && this.oow.isShowing() && this.oow.getWebView() != null) {
+            this.oow.getWebView().onResume();
         }
     }
 
     public void pause() {
-        if (this.oou != null && this.oou.isShowing() && this.oou.getWebView() != null) {
-            this.oou.getWebView().onPause();
+        if (this.oow != null && this.oow.isShowing() && this.oow.getWebView() != null) {
+            this.oow.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.oou != null) {
-            this.oou.YQ();
+        if (this.oow != null) {
+            this.oow.YQ();
         }
     }
 
@@ -68,8 +68,8 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.oou != null && b.this.oou.isShowing()) {
-                    b.this.oou.dismiss();
+                if (b.this.oow != null && b.this.oow.isShowing()) {
+                    b.this.oow.dismiss();
                 }
             }
         };

@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class a {
     public int aPZ;
     public int aQa;
-    public AlaUserInfoData gZo;
+    public AlaUserInfoData gZq;
     public String intro;
     private int isFriend;
     public String liveId;
@@ -39,8 +39,8 @@ public class a {
             this.isFriend = jSONObject.optInt("is_friend");
             this.aQa = jSONObject.optInt("has_concerned");
             if (jSONObject.optJSONObject("ala_info") != null) {
-                this.gZo = new AlaUserInfoData();
-                this.gZo.parserJson(jSONObject.optJSONObject("ala_info"));
+                this.gZq = new AlaUserInfoData();
+                this.gZq.parserJson(jSONObject.optJSONObject("ala_info"));
             }
         }
     }
@@ -49,7 +49,7 @@ public class a {
         return TextUtils.isEmpty(this.name_show) ? this.userName : this.name_show;
     }
 
-    public boolean bYB() {
+    public boolean bYC() {
         return this.aQa != 0;
     }
 }

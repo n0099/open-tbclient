@@ -3,7 +3,7 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes17.dex */
 public class Config {
-    long psX;
+    long psZ;
 
     private static native long nativeCreate(long j);
 
@@ -172,8 +172,8 @@ public class Config {
     }
 
     protected void finalize() throws Throwable {
-        if (this.psX != 0) {
-            nativeDestroy(this.psX);
+        if (this.psZ != 0) {
+            nativeDestroy(this.psZ);
         }
         super.finalize();
     }

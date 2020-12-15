@@ -19,7 +19,7 @@ public class b {
         ar arVar = new ar(str);
         arVar.al("obj_type", 1);
         arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
-        t.csg().e(arVar);
+        t.csh().e(arVar);
     }
 
     public static void b(String str, Object obj, int i) {
@@ -31,26 +31,26 @@ public class b {
             arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
             arVar.w("tid", specialColumnItemData.threadId);
             arVar.w("obj_id", specialColumnItemData.liveId);
-            t.csg().e(arVar);
+            t.csh().e(arVar);
         } else if (obj instanceof MetaData) {
             ar arVar2 = new ar(str);
             arVar2.al("obj_type", 1);
             arVar2.al("obj_locate", i);
             arVar2.w("uid", ((MetaData) obj).getUserIdLong());
-            t.csg().e(arVar2);
+            t.csh().e(arVar2);
         } else if (obj instanceof bk) {
             ar arVar3 = new ar(str);
             arVar3.al("obj_type", 1);
             arVar3.al("obj_locate", i);
             arVar3.w("fid", ((bk) obj).getForumId());
-            t.csg().e(arVar3);
+            t.csh().e(arVar3);
         } else if (obj instanceof k) {
             ar arVar4 = new ar(str);
             arVar4.al("obj_type", 1);
             arVar4.dY("uid", TbadkCoreApplication.getCurrentAccount());
             arVar4.al("obj_locate", i);
             arVar4.dY("obj_param1", ((k) obj).bmM());
-            t.csg().e(arVar4);
+            t.csh().e(arVar4);
         }
     }
 
@@ -126,9 +126,9 @@ public class b {
     public static void a(com.baidu.tbadk.core.data.a aVar, String str) {
         if (aVar != null && aVar.bmn() != null) {
             if (aVar.bmn().bnv()) {
-                t.csg().e(l.b(aVar.bmn(), str));
+                t.csh().e(l.b(aVar.bmn(), str));
             } else {
-                t.csg().e(l.a(aVar.bmn(), str));
+                t.csh().e(l.a(aVar.bmn(), str));
             }
         }
     }

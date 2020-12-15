@@ -23,15 +23,15 @@ public class PkRankView extends RelativeLayout {
     w aLD;
     CustomMessageListener boD;
     Context context;
-    boolean hXn;
-    PkRankEnterView hZI;
-    PkRankInView hZJ;
-    PkRankResultView hZK;
-    private l hZL;
-    PkInfoData hZM;
-    public int hZN;
-    CustomMessageListener hZO;
-    boolean hZP;
+    boolean hXp;
+    PkRankEnterView hZK;
+    PkRankInView hZL;
+    PkRankResultView hZM;
+    private l hZN;
+    PkInfoData hZO;
+    public int hZP;
+    CustomMessageListener hZQ;
+    boolean hZR;
     boolean isHost;
     private View mView;
 
@@ -47,37 +47,37 @@ public class PkRankView extends RelativeLayout {
 
     public PkRankView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hZN = -1;
-        this.hXn = true;
-        this.hZP = false;
+        this.hZP = -1;
+        this.hXp = true;
+        this.hZR = false;
         this.context = context;
         initView();
     }
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_pk_rank_view_layout, (ViewGroup) this, true);
-        this.hZI = (PkRankEnterView) this.mView.findViewById(a.f.enter_view);
-        this.hZI.setPkRankView(this);
-        this.hZJ = (PkRankInView) this.mView.findViewById(a.f.in_view);
-        this.hZJ.setPkRankView(this);
-        this.hZK = (PkRankResultView) this.mView.findViewById(a.f.result_view);
+        this.hZK = (PkRankEnterView) this.mView.findViewById(a.f.enter_view);
         this.hZK.setPkRankView(this);
-        cpH();
-        cql();
+        this.hZL = (PkRankInView) this.mView.findViewById(a.f.in_view);
+        this.hZL.setPkRankView(this);
+        this.hZM = (PkRankResultView) this.mView.findViewById(a.f.result_view);
+        this.hZM.setPkRankView(this);
+        cpI();
+        cqm();
     }
 
-    public void cqh() {
+    public void cqi() {
         if (this.aLD.mLiveInfo.pkId == 0) {
             if (this.isHost) {
-                cqi();
-                this.hZI.xP(1);
+                cqj();
+                this.hZK.xP(1);
                 return;
             }
             postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankView.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (PkRankView.this.aLD.mLiveInfo.pkId == 0) {
-                        PkRankView.this.cpH();
+                        PkRankView.this.cpI();
                     }
                 }
             }, 6000L);
@@ -87,14 +87,14 @@ public class PkRankView extends RelativeLayout {
     }
 
     public void f(JSONObject jSONObject, int i) {
-        if (this.hZN < 10 || this.hZN > 30 || i >= 10) {
-            if ((this.hZN >= 10 && this.hZN < 30) || i <= 10 || i >= 30) {
-                if (jSONObject.optLong("pk_id") == 0 || this.hZM == null || this.hZM.pkStatusInfoData.pkID == jSONObject.optLong("pk_id") || i == 10) {
-                    if (i != 4 || this.hZN == 1) {
+        if (this.hZP < 10 || this.hZP > 30 || i >= 10) {
+            if ((this.hZP >= 10 && this.hZP < 30) || i <= 10 || i >= 30) {
+                if (jSONObject.optLong("pk_id") == 0 || this.hZO == null || this.hZO.pkStatusInfoData.pkID == jSONObject.optLong("pk_id") || i == 10) {
+                    if (i != 4 || this.hZP == 1) {
                         if (i < 10 && this.isHost) {
-                            this.hZI.d(jSONObject, i);
+                            this.hZK.d(jSONObject, i);
                         } else if (i >= 10 && i < 30) {
-                            this.hZJ.e(jSONObject, i);
+                            this.hZL.e(jSONObject, i);
                         }
                     }
                 }
@@ -103,43 +103,43 @@ public class PkRankView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cqi() {
-        this.hZI.setVisibility(0);
-        this.hZJ.setVisibility(8);
-        this.hZK.setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public void cqj() {
-        this.hZI.setVisibility(8);
-        this.hZJ.setVisibility(0);
-        this.hZK.setVisibility(8);
+        this.hZK.setVisibility(0);
+        this.hZL.setVisibility(8);
+        this.hZM.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cqk() {
-        this.hZI.setVisibility(8);
-        this.hZJ.setVisibility(8);
-        this.hZK.setVisibility(0);
+        this.hZK.setVisibility(8);
+        this.hZL.setVisibility(0);
+        this.hZM.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void cql() {
+        this.hZK.setVisibility(8);
+        this.hZL.setVisibility(8);
+        this.hZM.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpH() {
-        this.hZI.setVisibility(8);
-        this.hZJ.setVisibility(8);
+    public void cpI() {
         this.hZK.setVisibility(8);
+        this.hZL.setVisibility(8);
+        this.hZM.setVisibility(8);
     }
 
     public void setCanVisible(boolean z) {
-        this.hXn = z;
-        this.mView.setVisibility((z && this.hZP) ? 0 : 8);
+        this.hXp = z;
+        this.mView.setVisibility((z && this.hZR) ? 0 : 8);
     }
 
     public void setInSeason(boolean z) {
         int i = 8;
-        this.hZP = z;
-        if (this.hXn) {
-            this.mView.setVisibility((this.hZN >= 10 || z) ? 0 : 0);
+        this.hZR = z;
+        if (this.hXp) {
+            this.mView.setVisibility((this.hZP >= 10 || z) ? 0 : 0);
         } else {
             this.mView.setVisibility(8);
         }
@@ -155,36 +155,36 @@ public class PkRankView extends RelativeLayout {
     }
 
     public l getGetPkInfoModel() {
-        if (this.hZL == null) {
-            this.hZL = new l();
-            this.hZL.a(new l.a() { // from class: com.baidu.tieba.ala.view.PkRankView.2
+        if (this.hZN == null) {
+            this.hZN = new l();
+            this.hZN.a(new l.a() { // from class: com.baidu.tieba.ala.view.PkRankView.2
                 @Override // com.baidu.tieba.ala.g.l.a
                 public void a(PkInfoData pkInfoData) {
-                    if (PkRankView.this.isHost || PkRankView.this.hZM != null || pkInfoData.pkStatusInfoData.pkStatus == 1) {
+                    if (PkRankView.this.isHost || PkRankView.this.hZO != null || pkInfoData.pkStatusInfoData.pkStatus == 1) {
                         PkRankView.this.l(pkInfoData);
-                        if (PkRankView.this.hZM == null || PkRankView.this.hZM.myPkData.userID == pkInfoData.myPkData.userID) {
-                            PkRankView.this.hZM = pkInfoData;
+                        if (PkRankView.this.hZO == null || PkRankView.this.hZO.myPkData.userID == pkInfoData.myPkData.userID) {
+                            PkRankView.this.hZO = pkInfoData;
                             switch (pkInfoData.pkStatusInfoData.pkStatus) {
                                 case 1:
-                                    PkRankView.this.hZK.isShowing = false;
-                                    PkRankView.this.hZJ.a(pkInfoData, 10);
-                                    PkRankView.this.hZJ.getPkRankPropController().f(pkInfoData);
+                                    PkRankView.this.hZM.isShowing = false;
+                                    PkRankView.this.hZL.a(pkInfoData, 10);
+                                    PkRankView.this.hZL.getPkRankPropController().f(pkInfoData);
                                     return;
                                 case 2:
-                                    PkRankView.this.hZK.isShowing = false;
-                                    PkRankView.this.hZJ.a(pkInfoData, 30);
+                                    PkRankView.this.hZM.isShowing = false;
+                                    PkRankView.this.hZL.a(pkInfoData, 30);
                                     return;
                                 case 3:
-                                    PkRankView.this.hZL.hJ(false);
-                                    PkRankView.this.hZJ.resetView();
-                                    PkRankView.this.hZK.b(pkInfoData, 40);
+                                    PkRankView.this.hZN.hJ(false);
+                                    PkRankView.this.hZL.resetView();
+                                    PkRankView.this.hZM.b(pkInfoData, 40);
                                     return;
                                 case 4:
-                                    PkRankView.this.hZL.hJ(false);
-                                    PkRankView.this.hZK.isShowing = false;
-                                    PkRankView.this.hZJ.resetView();
-                                    PkRankView.this.hZJ.setVisibility(8);
-                                    PkRankView.this.hZI.xP(1);
+                                    PkRankView.this.hZN.hJ(false);
+                                    PkRankView.this.hZM.isShowing = false;
+                                    PkRankView.this.hZL.resetView();
+                                    PkRankView.this.hZL.setVisibility(8);
+                                    PkRankView.this.hZK.xP(1);
                                     return;
                                 default:
                                     return;
@@ -192,7 +192,7 @@ public class PkRankView extends RelativeLayout {
                         }
                         return;
                     }
-                    PkRankView.this.hZL.hJ(false);
+                    PkRankView.this.hZN.hJ(false);
                 }
 
                 @Override // com.baidu.tieba.ala.g.l.a
@@ -200,12 +200,12 @@ public class PkRankView extends RelativeLayout {
                 }
             });
         }
-        return this.hZL;
+        return this.hZN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(PkInfoData pkInfoData) {
-        if (this.hZM == null || this.hZM.pkStatusInfoData.pkID != pkInfoData.pkStatusInfoData.pkID) {
+        if (this.hZO == null || this.hZO.pkStatusInfoData.pkID != pkInfoData.pkStatusInfoData.pkID) {
             AlaStatsItem alaStatsItem = new AlaStatsItem();
             alaStatsItem.addValue("lodId", Long.valueOf(pkInfoData.logId));
             alaStatsItem.addValue("pkId", Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
@@ -226,21 +226,21 @@ public class PkRankView extends RelativeLayout {
         }
     }
 
-    public void cql() {
-        if (this.hZO == null) {
-            this.hZO = new CustomMessageListener(2913233) { // from class: com.baidu.tieba.ala.view.PkRankView.3
+    public void cqm() {
+        if (this.hZQ == null) {
+            this.hZQ = new CustomMessageListener(2913233) { // from class: com.baidu.tieba.ala.view.PkRankView.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage.getData() != null) {
-                        PkRankView.this.hZI.hYc.fL(PkRankView.this.aLD.aJV.userId);
+                        PkRankView.this.hZK.hYe.fL(PkRankView.this.aLD.aJV.userId);
                         AlaStatsItem alaStatsItem = new AlaStatsItem();
                         alaStatsItem.addValue("source", "pk_challage_btn_click");
                         AlaStatManager.getInstance().debug("pk_competition_start_match", alaStatsItem);
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hZO);
+            MessageManager.getInstance().registerListener(this.hZQ);
         }
         if (this.boD == null) {
             this.boD = new CustomMessageListener(2913237) { // from class: com.baidu.tieba.ala.view.PkRankView.4
@@ -257,22 +257,22 @@ public class PkRankView extends RelativeLayout {
     }
 
     public boolean xR(int i) {
-        if (this.hZN < 10 || this.hZN > 30 || i >= 10 || i == 1) {
-            if (this.hZN == 4 && i < 4) {
-                this.hZI.hYc.cmj();
-                this.hZI.cpB();
+        if (this.hZP < 10 || this.hZP > 30 || i >= 10 || i == 1) {
+            if (this.hZP == 4 && i < 4) {
+                this.hZK.hYe.cmk();
+                this.hZK.cpC();
                 return false;
             }
             if (i >= 10 && i < 30) {
-                if (this.hZM != null && this.hZM.pkStatusInfoData != null) {
-                    fR(this.hZM.pkStatusInfoData.pkID);
+                if (this.hZO != null && this.hZO.pkStatusInfoData != null) {
+                    fR(this.hZO.pkStatusInfoData.pkID);
                 } else {
                     fR(-1L);
                 }
             } else {
                 fR(-1L);
             }
-            this.hZN = i;
+            this.hZP = i;
             return true;
         }
         return false;
@@ -283,13 +283,13 @@ public class PkRankView extends RelativeLayout {
     }
 
     public void onDestroy() {
-        if (this.hZL != null) {
-            this.hZL.cmg();
+        if (this.hZN != null) {
+            this.hZN.cmh();
         }
-        this.hZI.onDestroy();
-        this.hZJ.onDestroy();
         this.hZK.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.hZO);
+        this.hZL.onDestroy();
+        this.hZM.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.hZQ);
         MessageManager.getInstance().unRegisterListener(this.boD);
     }
 }

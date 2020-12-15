@@ -27,25 +27,25 @@ public class c {
             c.this.closeLoadingDialog();
             if (postWriteCallBackData != null) {
                 if (!z) {
-                    c.this.ixc.showToast(postWriteCallBackData.getErrorString());
+                    c.this.ixe.showToast(postWriteCallBackData.getErrorString());
                     return;
                 }
-                TiebaStatic.log(new ar("c13723").dY("tid", postWriteCallBackData.getThreadId()).dY("fid", c.this.jfR.forumId).dY("fname", c.this.jfR.forumName).dY("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new ar("c13723").dY("tid", postWriteCallBackData.getThreadId()).dY("fid", c.this.jfT.forumId).dY("fname", c.this.jfT.forumName).dY("uid", TbadkCoreApplication.getCurrentAccount()));
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                 intent.putExtras(bundle);
-                c.this.ixc.setResult(-1, intent);
-                c.this.ixc.finish();
+                c.this.ixe.setResult(-1, intent);
+                c.this.ixe.finish();
             }
         }
     };
     private NewWriteModel fwu;
-    private final BaseFragmentActivity ixc;
-    private final ForumWriteData jfR;
-    private final SerializableItemInfo jfT;
-    private WriteData jgg;
-    private a jgh;
+    private final BaseFragmentActivity ixe;
+    private final ForumWriteData jfT;
+    private final SerializableItemInfo jfV;
+    private WriteData jgi;
+    private a jgj;
     private InputMethodManager mInputManager;
 
     /* loaded from: classes22.dex */
@@ -55,46 +55,46 @@ public class c {
 
     public c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
         this.mInputManager = null;
-        this.ixc = baseFragmentActivity;
-        this.jfR = forumWriteData;
-        this.jfT = serializableItemInfo;
+        this.ixe = baseFragmentActivity;
+        this.jfT = forumWriteData;
+        this.jfV = serializableItemInfo;
         this.mInputManager = (InputMethodManager) baseFragmentActivity.getSystemService("input_method");
         initUI();
         initData();
     }
 
     private void initUI() {
-        this.fEW = new com.baidu.tbadk.core.view.a(this.ixc);
+        this.fEW = new com.baidu.tbadk.core.view.a(this.ixe);
     }
 
     private void initData() {
         this.fwu = new NewWriteModel();
-        this.jgg = new WriteData();
+        this.jgi = new WriteData();
         this.fwu.b(this.fwI);
     }
 
     public void a(String str, String str2, ForumWriteData forumWriteData) {
         if (!j.isNetWorkAvailable()) {
-            l.showToast(this.ixc, R.string.neterror);
+            l.showToast(this.ixe, R.string.neterror);
         }
-        if (this.jfT != null) {
-            this.jgg.setItem_id(String.valueOf(this.jfT.id));
+        if (this.jfV != null) {
+            this.jgi.setItem_id(String.valueOf(this.jfV.id));
         }
-        this.jgg.setForumName(forumWriteData.forumName);
-        this.jgg.setContent(str);
-        this.jgg.setComment_head(str2);
-        this.jgg.setForumId(forumWriteData.forumId);
-        this.jgg.setTitle("");
-        this.jgg.setIsNoTitle(true);
-        if (this.jgh != null) {
-            this.jgh.a(this.mInputManager);
+        this.jgi.setForumName(forumWriteData.forumName);
+        this.jgi.setContent(str);
+        this.jgi.setComment_head(str2);
+        this.jgi.setForumId(forumWriteData.forumId);
+        this.jgi.setTitle("");
+        this.jgi.setIsNoTitle(true);
+        if (this.jgj != null) {
+            this.jgj.a(this.mInputManager);
         }
-        cGv();
+        cGw();
     }
 
-    private void cGv() {
-        this.fwu.e(this.jgg);
-        this.fwu.dQD();
+    private void cGw() {
+        this.fwu.e(this.jgi);
+        this.fwu.dQE();
         showLoadingDialog();
     }
 
@@ -109,6 +109,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.jgh = aVar;
+        this.jgj = aVar;
     }
 }

@@ -9,11 +9,11 @@ import java.util.List;
 public class a {
     private List<AbsDelegateAdapter> bnf = new ArrayList();
     private BdTypeListView bnh;
-    private e hJA;
-    private f hJB;
-    private d hJC;
-    private b hJy;
-    private c hJz;
+    private b hJA;
+    private c hJB;
+    private e hJC;
+    private f hJD;
+    private d hJE;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
@@ -23,25 +23,25 @@ public class a {
     }
 
     private void Nt() {
-        this.hJy = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.hJF);
-        this.hJz = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.hJI);
-        this.hJA = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.hJK);
-        this.hJB = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.hJL);
-        this.hJC = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.hJJ);
-        this.bnf.add(this.hJy);
-        this.bnf.add(this.hJz);
+        this.hJA = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.hJH);
+        this.hJB = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.hJK);
+        this.hJC = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.hJM);
+        this.hJD = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.hJN);
+        this.hJE = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.hJL);
         this.bnf.add(this.hJA);
         this.bnf.add(this.hJB);
         this.bnf.add(this.hJC);
+        this.bnf.add(this.hJD);
+        this.bnf.add(this.hJE);
         this.bnh.addAdapters(this.bnf);
     }
 
     public void onDestroy() {
-        if (this.hJy != null) {
-            this.hJy.onDestroy();
+        if (this.hJA != null) {
+            this.hJA.onDestroy();
         }
-        if (this.hJz != null) {
-            this.hJz.onDestroy();
+        if (this.hJB != null) {
+            this.hJB.onDestroy();
         }
     }
 }

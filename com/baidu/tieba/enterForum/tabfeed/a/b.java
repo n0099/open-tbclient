@@ -113,7 +113,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
         this.fNa = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cwK */
+            /* renamed from: cwL */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.blV().isShowImages();
@@ -177,7 +177,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, by byVar) {
-                t.csg().mj(true);
+                t.csh().mj(true);
                 com.baidu.tieba.enterForum.a.a(view, byVar, b.this.mTabName);
             }
         };

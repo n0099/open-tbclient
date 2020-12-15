@@ -14,13 +14,13 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout;
 import com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatCommonLayout;
 /* loaded from: classes4.dex */
 public class b extends a {
-    private WheatCommonLayout oxw;
+    private WheatCommonLayout oxy;
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    View efT() {
-        this.oxw = new WheatCommonLayout(this.mActivity);
-        this.oxw.setTbPageContext(this.oty);
-        return this.oxw;
+    View efU() {
+        this.oxy = new WheatCommonLayout(this.mActivity);
+        this.oxy.setTbPageContext(this.otA);
+        return this.oxy;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
@@ -32,8 +32,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public ViewGroup eff() {
-        return this.oxw;
+    public ViewGroup efg() {
+        return this.oxy;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,21 +44,21 @@ public class b extends a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public void efU() {
-        super.efU();
-        this.oxw.setOnItemClickListener(new BaseWheatLayout.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.b.1
+    public void efV() {
+        super.efV();
+        this.oxy.setOnItemClickListener(new BaseWheatLayout.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.b.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout.a
             public void a(AlaWheatInfoData alaWheatInfoData, boolean z, int i) {
-                b.this.oxo = i;
-                b.this.a(alaWheatInfoData, z ? 0 : i + 1, z ? g.ouD : g.ouE);
+                b.this.oxq = i;
+                b.this.a(alaWheatInfoData, z ? 0 : i + 1, z ? g.ouF : g.ouG);
             }
         });
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public AlaWheatInfoData WX(String str) {
-        if (this.oxw != null) {
-            return this.oxw.jw(str);
+        if (this.oxy != null) {
+            return this.oxy.jw(str);
         }
         return null;
     }
@@ -66,39 +66,39 @@ public class b extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void aP(String str, String str2, String str3) {
         super.aP(str, str2, str3);
-        if (this.oxw != null && !efk()) {
-            this.oxw.aP(str, str2, str3);
+        if (this.oxy != null && !efl()) {
+            this.oxy.aP(str, str2, str3);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void WY(String str) {
         super.WY(str);
-        if (this.oxw != null) {
-            this.oxw.WY(str);
+        if (this.oxy != null) {
+            this.oxy.WY(str);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void WZ(String str) {
         super.WZ(str);
-        if (this.oxw != null) {
-            this.oxw.WZ(str);
+        if (this.oxy != null) {
+            this.oxy.WZ(str);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public void efV() {
-        super.efV();
+    public void efW() {
+        super.efW();
         try {
-            if (this.oxw != null) {
+            if (this.oxy != null) {
                 if (BdUtilHelper.isMainThread()) {
-                    this.oxw.a(this.oxi, this.oxj, this.bur);
+                    this.oxy.a(this.oxk, this.oxl, this.bur);
                 } else {
-                    this.oxw.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.b.2
+                    this.oxy.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.d.b.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.oxw.a(b.this.oxi, b.this.oxj, b.this.bur);
+                            b.this.oxy.a(b.this.oxk, b.this.oxl, b.this.bur);
                         }
                     });
                 }
@@ -121,7 +121,7 @@ public class b extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void l(w wVar) {
         super.l(wVar);
-        if ((wVar == null || wVar.mLiveInfo == null || wVar.mLiveInfo.live_status != 2) && this.oxw != null && this.oxw.getVisibility() != 0) {
+        if ((wVar == null || wVar.mLiveInfo == null || wVar.mLiveInfo.live_status != 2) && this.oxy != null && this.oxy.getVisibility() != 0) {
             setVisible(true);
         }
     }
@@ -135,23 +135,23 @@ public class b extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void setMaskBg(boolean z) {
         super.setMaskBg(z);
-        if (this.oxw != null) {
-            this.oxw.setMaskBg(z);
+        if (this.oxy != null) {
+            this.oxy.setMaskBg(z);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void setVisible(boolean z) {
         super.setVisible(z);
-        if (this.oxw != null) {
-            this.oxw.setVisibility(z ? 0 : 8);
+        if (this.oxy != null) {
+            this.oxy.setVisibility(z ? 0 : 8);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public int getWheatHeight() {
-        if (this.oxw != null) {
-            return this.oxw.getWheatHeight();
+        if (this.oxy != null) {
+            return this.oxy.getWheatHeight();
         }
         return 0;
     }

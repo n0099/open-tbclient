@@ -49,11 +49,11 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes24.dex */
 public class c extends a {
-    private g mrd;
+    private g mrf;
 
     public c(TbPageContext tbPageContext, g gVar) {
         super(tbPageContext);
-        this.mrd = gVar;
+        this.mrf = gVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0151, code lost:
@@ -70,12 +70,12 @@ public class c extends a {
         int i2 = 1;
         super.a(view, aVar);
         if (aVar != null) {
-            if (aVar.iEw == null) {
+            if (aVar.iEy == null) {
                 userData = null;
             } else {
-                userData = (UserData) aVar.iEw.getSerializable(UserData.TYPE_USER);
+                userData = (UserData) aVar.iEy.getSerializable(UserData.TYPE_USER);
             }
-            switch (aVar.iEv) {
+            switch (aVar.iEx) {
                 case 1:
                     if (userData != null) {
                         o oVar = new o();
@@ -88,7 +88,7 @@ public class c extends a {
                         oVar.kk(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(oVar);
-                        this.mrd.dAg().a((q) oVar, (List<q>) arrayList, 0);
+                        this.mrf.dAh().a((q) oVar, (List<q>) arrayList, 0);
                         return;
                     }
                     return;
@@ -112,9 +112,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.mrd != null && this.mrd.dAf() != null) {
+                    if (this.mrf != null && this.mrf.dAg() != null) {
                         TiebaStatic.log("c12207");
-                        this.mrd.dAf().dAl();
+                        this.mrf.dAg().dAm();
                         return;
                     }
                     return;
@@ -163,8 +163,8 @@ public class c extends a {
                             personChangeData.setMem(userData.getIsMem());
                             personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                             personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
-                            if (aVar.iEw != null) {
-                                personChangeData.setNickNameLeftDays(aVar.iEw.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
+                            if (aVar.iEy != null) {
+                                personChangeData.setNickNameLeftDays(aVar.iEy.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(this.mPageContext.getPageActivity(), 101, personChangeData, false)));
@@ -204,7 +204,7 @@ public class c extends a {
                     return;
                 case 16:
                     Iu(7);
-                    com.baidu.tieba.q.a.dGN().h(7, false, this.isHost);
+                    com.baidu.tieba.q.a.dGO().h(7, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MembercenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 17:
@@ -213,7 +213,7 @@ public class c extends a {
                     return;
                 case 20:
                     Iu(2);
-                    com.baidu.tieba.q.a.dGN().h(3, false, this.isHost);
+                    com.baidu.tieba.q.a.dGO().h(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -231,7 +231,7 @@ public class c extends a {
                     return;
                 case 24:
                     Iu(3);
-                    com.baidu.tieba.q.a.dGN().h(4, false, this.isHost);
+                    com.baidu.tieba.q.a.dGO().h(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLEAR_ADDRESSLIST_TIP));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddressListActivityConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -249,17 +249,17 @@ public class c extends a {
                     return;
                 case 30:
                     Iu(1);
-                    com.baidu.tieba.q.a.dGN().h(8, false, this.isHost);
+                    com.baidu.tieba.q.a.dGO().h(8, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 31:
                     Iu(9);
-                    bf.bua().a(this.mPageContext, new String[]{aVar.iEw.getString("book_jump_link")}, true);
+                    bf.bua().a(this.mPageContext, new String[]{aVar.iEy.getString("book_jump_link")}, true);
                     return;
                 case 32:
                     if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
                         Iu(4);
-                        com.baidu.tieba.q.a.dGN().h(1, false, this.isHost);
+                        com.baidu.tieba.q.a.dGO().h(1, false, this.isHost);
                         if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                             return;
@@ -309,8 +309,8 @@ public class c extends a {
                         oVar2.kk(false);
                         ArrayList arrayList2 = new ArrayList();
                         arrayList2.add(oVar2);
-                        if (this.mrd.dAg() != null) {
-                            this.mrd.dAg().a((q) oVar2, (List<q>) arrayList2, 0, true);
+                        if (this.mrf.dAh() != null) {
+                            this.mrf.dAh().a((q) oVar2, (List<q>) arrayList2, 0, true);
                             return;
                         }
                         return;

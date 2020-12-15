@@ -18,9 +18,9 @@ public class a {
     private static final String TAG = a.class.getName();
     private int aku = 3;
     private TextView eBQ;
-    private TbRichTextView jhq;
-    private HeadImageView kKQ;
-    private TextView kKR;
+    private TbRichTextView jhs;
+    private HeadImageView kKS;
+    private TextView kKT;
     private View mBottomLine;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -28,39 +28,39 @@ public class a {
     public a(TbPageContext tbPageContext, ViewGroup viewGroup, View.OnClickListener onClickListener) {
         this.mPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.official_notification_text_item, viewGroup, false);
-        this.kKQ = (HeadImageView) this.mRootView.findViewById(R.id.iv_head);
-        this.kKQ.setIsRound(true);
-        this.kKQ.setOnClickListener(onClickListener);
-        this.kKQ.setPlaceHolder(1);
+        this.kKS = (HeadImageView) this.mRootView.findViewById(R.id.iv_head);
+        this.kKS.setIsRound(true);
+        this.kKS.setOnClickListener(onClickListener);
+        this.kKS.setPlaceHolder(1);
         this.eBQ = (TextView) this.mRootView.findViewById(R.id.tv_user_name);
         this.eBQ.setOnClickListener(onClickListener);
-        this.kKR = (TextView) this.mRootView.findViewById(R.id.tv_date);
-        this.jhq = (TbRichTextView) this.mRootView.findViewById(R.id.tv_content);
-        this.jhq.setTextSize(tbPageContext.getResources().getDimension(R.dimen.tbfontsize42));
-        com.baidu.tbadk.widget.richText.a layoutStrategy = this.jhq.getLayoutStrategy();
+        this.kKT = (TextView) this.mRootView.findViewById(R.id.tv_date);
+        this.jhs = (TbRichTextView) this.mRootView.findViewById(R.id.tv_content);
+        this.jhs.setTextSize(tbPageContext.getResources().getDimension(R.dimen.tbfontsize42));
+        com.baidu.tbadk.widget.richText.a layoutStrategy = this.jhs.getLayoutStrategy();
         layoutStrategy.setLineSpacing(tbPageContext.getResources().getDimension(R.dimen.tbds12), 1.0f);
-        this.jhq.setLayoutStrategy(layoutStrategy);
-        this.jhq.setClickable(true);
-        this.jhq.setFocusable(true);
+        this.jhs.setLayoutStrategy(layoutStrategy);
+        this.jhs.setClickable(true);
+        this.jhs.setFocusable(true);
         this.mBottomLine = this.mRootView.findViewById(R.id.bottom_line);
         onChangeSkinType();
     }
 
     public void setData(ChatMessage chatMessage) {
         if (chatMessage.getUserInfo() != null) {
-            this.kKQ.setUserId(chatMessage.getUserInfo().getUserId());
-            this.kKQ.startLoad(chatMessage.getUserInfo().getPortrait(), 12, false);
-            this.kKR.setText(au.getFormatTimeShort(chatMessage.getTime() * 1000));
-            if (this.mPageContext != null && this.jhq != null) {
-                j.a(this.mPageContext.getContext(), this.jhq, chatMessage, TAG, 0);
+            this.kKS.setUserId(chatMessage.getUserInfo().getUserId());
+            this.kKS.startLoad(chatMessage.getUserInfo().getPortrait(), 12, false);
+            this.kKT.setText(au.getFormatTimeShort(chatMessage.getTime() * 1000));
+            if (this.mPageContext != null && this.jhs != null) {
+                j.a(this.mPageContext.getContext(), this.jhs, chatMessage, TAG, 0);
                 if (chatMessage != null && chatMessage.getContent() != null) {
                     String[] split = chatMessage.getContent().split("#");
                     StringBuffer stringBuffer = new StringBuffer();
                     for (String str : split) {
                         stringBuffer.append(str);
                     }
-                    this.jhq.setContentDescription(stringBuffer.toString());
-                    this.jhq.getTextView().setContentDescription(stringBuffer.toString());
+                    this.jhs.setContentDescription(stringBuffer.toString());
+                    this.jhs.getTextView().setContentDescription(stringBuffer.toString());
                 }
             }
         }
@@ -70,9 +70,9 @@ public class a {
         if (this.aku != TbadkCoreApplication.getInst().getSkinType()) {
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
             ap.setViewTextColor(this.eBQ, R.color.CAM_X0106);
-            ap.setViewTextColor(this.kKR, R.color.CAM_X0109);
-            this.jhq.setTextColor(ap.getColor(R.color.CAM_X0105));
-            this.jhq.setLinkTextColor(ap.getColor(R.color.CAM_X0304));
+            ap.setViewTextColor(this.kKT, R.color.CAM_X0109);
+            this.jhs.setTextColor(ap.getColor(R.color.CAM_X0105));
+            this.jhs.setLinkTextColor(ap.getColor(R.color.CAM_X0304));
             ap.setBackgroundColor(this.mBottomLine, R.color.CAM_X0204);
             this.aku = TbadkCoreApplication.getInst().getSkinType();
         }

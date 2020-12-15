@@ -47,14 +47,14 @@ public class a {
     private Dialog biC;
     private boolean biE;
     private Context context;
-    private AnimatorSet hrW;
+    private AnimatorSet hrY;
     private View mContentView;
     private String otherParams;
-    private boolean hrX = false;
-    private Handler handler = new Handler();
-    private boolean hrY = false;
     private boolean hrZ = false;
+    private Handler handler = new Handler();
     private boolean hsa = false;
+    private boolean hsb = false;
+    private boolean hsc = false;
 
     public void bF(boolean z) {
         this.biE = z;
@@ -113,8 +113,8 @@ public class a {
                 if (booleanValue) {
                     this.aLD.aKr.isNewUser = true;
                 }
-                this.hrY = this.aLD.aKr.isNewUser;
-                if (this.hrY && !this.hrX && TbadkCoreApplication.isLogin() && (boVar = com.baidu.live.ae.a.RB().bxq) != null && boVar.aQP != null && boVar.aQP.aTi && (cfVar = boVar.aQM) != null) {
+                this.hsa = this.aLD.aKr.isNewUser;
+                if (this.hsa && !this.hrZ && TbadkCoreApplication.isLogin() && (boVar = com.baidu.live.ae.a.RB().bxq) != null && boVar.aQP != null && boVar.aQP.aTi && (cfVar = boVar.aQM) != null) {
                     this.aSj = cfVar.aSj;
                     if (this.aSj != null && !TextUtils.isEmpty(this.aSj.aSq)) {
                         int i4 = this.aSj.aSe;
@@ -180,7 +180,7 @@ public class a {
                                         }
                                     }
                                 }, i2 * 1000);
-                                this.hrX = true;
+                                this.hrZ = true;
                             }
                             return;
                         }
@@ -220,7 +220,7 @@ public class a {
                                 }
                             }
                         }, i2 * 1000);
-                        this.hrX = true;
+                        this.hrZ = true;
                     }
                 }
             }
@@ -239,7 +239,7 @@ public class a {
             dialog.setCanceledOnTouchOutside(false);
             this.mContentView = inflate;
             this.biC = dialog;
-            cfs();
+            cft();
             inflate.findViewById(a.f.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -284,26 +284,26 @@ public class a {
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
             ofFloat.setRepeatCount(-1);
             ofFloat2.setRepeatCount(-1);
-            this.hrW = new AnimatorSet();
-            this.hrW.play(ofFloat).with(ofFloat2);
-            this.hrW.setInterpolator(new AccelerateDecelerateInterpolator());
-            this.hrW.setDuration(2000L);
-            this.hrW.setStartDelay(0L);
+            this.hrY = new AnimatorSet();
+            this.hrY.play(ofFloat).with(ofFloat2);
+            this.hrY.setInterpolator(new AccelerateDecelerateInterpolator());
+            this.hrY.setDuration(2000L);
+            this.hrY.setStartDelay(0L);
             dialog.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.4
                 @Override // android.content.DialogInterface.OnShowListener
                 public void onShow(DialogInterface dialogInterface) {
-                    if (a.this.hrW != null) {
-                        a.this.hrW.start();
+                    if (a.this.hrY != null) {
+                        a.this.hrY.start();
                     }
                 }
             });
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.k.a.5
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    if (a.this.hrW != null) {
-                        a.this.hrW.cancel();
+                    if (a.this.hrY != null) {
+                        a.this.hrY.cancel();
                     }
-                    a.this.hrX = false;
+                    a.this.hrZ = false;
                 }
             });
             tbImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.ala.liveroom.k.a.6
@@ -375,53 +375,53 @@ public class a {
     }
 
     public void onResume() {
-        if (!this.hrZ && this.hrY && this.context != null && this.aLD != null && this.aLD.aKr != null && !this.aLD.aKr.isNewUser) {
+        if (!this.hsb && this.hsa && this.context != null && this.aLD != null && this.aLD.aKr != null && !this.aLD.aKr.isNewUser) {
             ID();
-            if (this.hrY && this.aSj != null) {
+            if (this.hsa && this.aSj != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098, this.aSj.aKm));
             }
-            this.hrZ = true;
-            cfr();
+            this.hsb = true;
+            cfs();
         }
     }
 
     public void n(w wVar) {
-        if (!this.hsa && this.hrY && wVar != null && wVar.aKr != null) {
+        if (!this.hsc && this.hsa && wVar != null && wVar.aKr != null) {
             boolean z = wVar.aKr.isNewUser;
             this.aLD = wVar;
-            if (!z && this.hrY) {
+            if (!z && this.hsa) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913115));
-                this.hsa = true;
-                cfr();
+                this.hsc = true;
+                cfs();
             }
         }
     }
 
-    private void cfr() {
-        if (this.hrZ && this.hsa) {
-            this.hrY = false;
+    private void cfs() {
+        if (this.hsb && this.hsc) {
+            this.hsa = false;
         }
     }
 
     public void release() {
-        this.hrX = false;
+        this.hrZ = false;
         this.aLD = null;
         this.handler.removeCallbacksAndMessages(null);
         ID();
-        if (this.hrW != null) {
-            this.hrW.cancel();
-            this.hrW = null;
+        if (this.hrY != null) {
+            this.hrY.cancel();
+            this.hrY = null;
         }
     }
 
     public void HO() {
         if (this.biC != null && this.biC.isShowing() && this.mContentView != null) {
             this.biC.show();
-            cfs();
+            cft();
         }
     }
 
-    private void cfs() {
+    private void cft() {
         TbImageView tbImageView = (TbImageView) this.mContentView.findViewById(a.f.rechargeBg_imageView);
         tbImageView.setDefaultBgResource(a.e.sdk_shape_transparent);
         TbImageView tbImageView2 = (TbImageView) this.mContentView.findViewById(a.f.recharge_imageView);

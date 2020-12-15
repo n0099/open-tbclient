@@ -27,13 +27,13 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
     private ab<l> agG;
     private v amH;
     public BdUniqueId fzO;
-    private at iBk;
+    private at iBm;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, l lVar) {
-        if (this.iBk != null && this.iBk.uf() != null && this.iBk.uf().dBH() != null) {
-            if (view.getId() == this.iBk.uf().dBH().getId()) {
+        if (this.iBm != null && this.iBm.uf() != null && this.iBm.uf().dBI() != null) {
+            if (view.getId() == this.iBm.uf().dBI().getId()) {
                 com.baidu.tieba.pb.c.a.a(lVar, 4);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.pb.c.a.a(lVar, 1);
@@ -48,7 +48,7 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, l lVar) {
-                t.csg().mj(true);
+                t.csh().mj(true);
                 if (lVar != null && lVar.bmn() != null && !StringUtils.isNull(lVar.bmn().getTid())) {
                     if (lVar.bmn().eLF <= 0) {
                         i.this.a(view, lVar);
@@ -88,10 +88,10 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
                 }
             }
         });
-        this.iBk = hVar;
-        aVar.c(this.iBk);
-        if (this.iBk != null) {
-            this.iBk.setStageType("2002");
+        this.iBm = hVar;
+        aVar.c(this.iBm);
+        if (this.iBm != null) {
+            this.iBm.setStageType("2002");
         }
         ak a2 = aVar.aL(true).a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amH);
         com.baidu.card.a<l> aVar2 = new com.baidu.card.a<>(a2);
@@ -145,16 +145,16 @@ public class i extends com.baidu.adp.widget.ListView.a<l, com.baidu.card.a<l>> {
             if (lVar.bmn() != null) {
                 oVar.fFV = String.valueOf(lVar.bmn().getFid());
                 if (lVar.bmn().bph() != null) {
-                    oVar.myt = lVar.bmn().bph().video_md5;
-                    oVar.myv = String.valueOf(lVar.bmn().bph().is_vertical);
+                    oVar.myv = lVar.bmn().bph().video_md5;
+                    oVar.myx = String.valueOf(lVar.bmn().bph().is_vertical);
                 }
             }
             oVar.eGn = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.mys = lVar.cst();
-            oVar.myp = lVar.getWeight();
+            oVar.myu = lVar.csu();
+            oVar.myr = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(lVar.css());
+            oVar.mFloor = String.valueOf(lVar.cst());
         }
         return oVar;
     }

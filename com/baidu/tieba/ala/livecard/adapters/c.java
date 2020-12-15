@@ -13,13 +13,13 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes6.dex */
 public class c extends k<by, com.baidu.tieba.ala.livecard.a.a> implements z {
-    private com.baidu.tieba.ala.livecard.b.b hbt;
-    private ab<by> hbu;
+    private com.baidu.tieba.ala.livecard.b.b hbv;
+    private ab<by> hbw;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hbu = new ab<by>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.hbw = new ab<by>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
@@ -44,19 +44,19 @@ public class c extends k<by, com.baidu.tieba.ala.livecard.a.a> implements z {
         if (this.mPageContext == null) {
             return null;
         }
-        this.hbt = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.hbt.o(this.mPageId);
-        this.hbt.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.hbt);
+        this.hbv = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.hbv.o(this.mPageId);
+        this.hbv.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.hbv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, by byVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.hbG.a(byVar);
-        aVar.hbG.setForumName(this.mForumName);
-        aVar.hbG.c(this.hbu);
+        aVar.hbI.a(byVar);
+        aVar.hbI.setForumName(this.mForumName);
+        aVar.hbI.c(this.hbw);
         if (byVar != null) {
             byVar.bqd();
         }

@@ -17,7 +17,7 @@ import org.a.d;
 public final class FlowableZip<T, R> extends g<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends org.a.b<? extends T>> pFh;
+    final Iterable<? extends org.a.b<? extends T>> pFj;
     final org.a.b<? extends T>[] sources;
     final h<? super Object[], ? extends R> zipper;
 
@@ -30,7 +30,7 @@ public final class FlowableZip<T, R> extends g<R> {
         if (bVarArr3 == null) {
             int i = 0;
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
-            for (org.a.b<? extends T> bVar : this.pFh) {
+            for (org.a.b<? extends T> bVar : this.pFj) {
                 if (i == bVarArr4.length) {
                     bVarArr2 = new org.a.b[(i >> 2) + i];
                     System.arraycopy(bVarArr4, 0, bVarArr2, 0, i);

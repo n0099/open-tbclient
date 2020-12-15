@@ -4,18 +4,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
 /* loaded from: classes10.dex */
 public class OkHttpVersionUtil {
-    public static boolean ehE() throws RuntimeException {
-        String ehF = ehF();
-        if (ehF.isEmpty()) {
+    public static boolean ehF() throws RuntimeException {
+        String ehG = ehG();
+        if (ehG.isEmpty()) {
             throw new NoSuchElementException();
         }
-        String[] split = ehF.split("/");
+        String[] split = ehG.split("/");
         if (split.length != 2) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehF));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehG));
         }
         String[] split2 = split[1].split("\\.");
         if (split2.length != 3) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehF));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehG));
         }
         try {
             if (Integer.parseInt(split2[0]) == 3) {
@@ -25,12 +25,12 @@ public class OkHttpVersionUtil {
             }
             return false;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehF));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", ehG));
         }
     }
 
-    private static String ehF() {
-        if (ehG()) {
+    private static String ehG() {
+        if (ehH()) {
             try {
                 return (String) Class.forName("okhttp3.internal.Version").getMethod("userAgent", new Class[0]).invoke(null, new Object[0]);
             } catch (ClassNotFoundException e) {
@@ -46,7 +46,7 @@ public class OkHttpVersionUtil {
         return "";
     }
 
-    private static boolean ehG() {
+    private static boolean ehH() {
         try {
             Class.forName("okhttp3.OkHttpClient");
             return true;

@@ -29,22 +29,22 @@ public class w {
     private volatile int c;
     private BroadcastReceiver e;
     private Context f;
-    private com.google.a.b.a.a.a.a ptw;
-    private final ServiceConnection ptx;
-    private final AtomicReference<l> pty;
+    private final AtomicReference<l> ptA;
+    private com.google.a.b.a.a.a.a pty;
+    private final ServiceConnection ptz;
 
     w() {
     }
 
     public synchronized void a(Context context) {
         this.b = context;
-        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.ptx, 1)) {
+        if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.ptz, 1)) {
             this.c = al.b;
         } else {
             this.c = al.f4044a;
             this.b = null;
             Log.w("ARCore-InstallService", "bindService returned false.");
-            context.unbindService(this.ptx);
+            context.unbindService(this.ptz);
         }
     }
 
@@ -53,7 +53,7 @@ public class w {
         switch (this.c - 1) {
             case 1:
             case 2:
-                this.b.unbindService(this.ptx);
+                this.b.unbindService(this.ptz);
                 this.b = null;
                 this.c = al.f4044a;
                 break;
@@ -74,7 +74,7 @@ public class w {
 
     public void a(Activity activity, y yVar) {
         l lVar = new l(activity, yVar);
-        l andSet = this.pty.getAndSet(lVar);
+        l andSet = this.ptA.getAndSet(lVar);
         if (andSet != null) {
             andSet.a();
         }
@@ -97,8 +97,8 @@ public class w {
         this();
         this.f4051a = new ArrayDeque();
         this.c = al.f4044a;
-        this.ptx = new z(this);
-        this.pty = new AtomicReference<>();
+        this.ptz = new z(this);
+        this.ptA = new AtomicReference<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -135,7 +135,7 @@ public class w {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        l andSet = this.pty.getAndSet(null);
+        l andSet = this.ptA.getAndSet(null);
         if (andSet != null) {
             andSet.a();
         }
@@ -145,7 +145,7 @@ public class w {
     public synchronized void a(IBinder iBinder) {
         com.google.a.b.a.a.a.a a2 = com.google.a.b.a.a.a.b.a(iBinder);
         Log.i("ARCore-InstallService", "Install service connected");
-        this.ptw = a2;
+        this.pty = a2;
         this.c = al.c;
         for (Runnable runnable : this.f4051a) {
             runnable.run();
@@ -156,7 +156,7 @@ public class w {
     public synchronized void d() {
         Log.i("ARCore-InstallService", "Install service disconnected");
         this.c = al.f4044a;
-        this.ptw = null;
+        this.pty = null;
         c();
     }
 

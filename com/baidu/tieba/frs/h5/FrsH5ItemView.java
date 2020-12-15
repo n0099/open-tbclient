@@ -16,7 +16,7 @@ public class FrsH5ItemView extends FrameLayout {
     private boolean cpz;
     private boolean hasLoaded;
     private boolean isLoading;
-    private final LinearLayout jqt;
+    private final LinearLayout jqv;
     private final View mNoDataView;
     private final BaseWebView.c mOnPageFinishedListener;
     private final BaseWebView.d mOnPageStartedListener;
@@ -55,7 +55,7 @@ public class FrsH5ItemView extends FrameLayout {
         this.mOnReceivedErrorListener = new BaseWebView.f() { // from class: com.baidu.tieba.frs.h5.FrsH5ItemView.3
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                FrsH5ItemView.this.cIJ();
+                FrsH5ItemView.this.cIK();
                 FrsH5ItemView.this.cpz = true;
             }
         };
@@ -69,33 +69,33 @@ public class FrsH5ItemView extends FrameLayout {
         this.mNoDataView = LayoutInflater.from(context).inflate(R.layout.frs_no_list_item_view, (ViewGroup) this, false);
         this.mNoDataView.setVisibility(8);
         addView(this.mNoDataView);
-        this.jqt = (LinearLayout) inflate(getContext(), R.layout.custom_loading_toast, null);
+        this.jqv = (LinearLayout) inflate(getContext(), R.layout.custom_loading_toast, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds220), -2);
         layoutParams.gravity = 1;
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds140);
-        addView(this.jqt, layoutParams);
+        addView(this.jqv, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
         this.mNoDataView.setVisibility(8);
-        this.jqt.setVisibility(0);
+        this.jqv.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoading() {
         this.mWebView.setVisibility(0);
-        this.jqt.setVisibility(8);
+        this.jqv.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cIJ() {
+    public void cIK() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.height = (l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
         setLayoutParams(layoutParams);
         this.mWebView.setVisibility(8);
-        this.jqt.setVisibility(8);
+        this.jqv.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 

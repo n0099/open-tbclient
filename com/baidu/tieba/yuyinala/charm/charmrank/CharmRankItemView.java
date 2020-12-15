@@ -20,19 +20,19 @@ import com.baidu.live.view.YuyinALALevelView;
 /* loaded from: classes4.dex */
 public class CharmRankItemView extends LinearLayout {
     public TextView aGv;
-    public TextView gFE;
-    public ImageView gFF;
-    public HeadImageView gFG;
-    public TextView gFJ;
-    public YuyinALALevelView oiu;
-    public TbImageView ojh;
-    private TextView oji;
-    private i.b ojj;
-    private a ojk;
+    public TextView gFG;
+    public ImageView gFH;
+    public HeadImageView gFI;
+    public TextView gFL;
+    public YuyinALALevelView oiw;
+    public TbImageView ojj;
+    private TextView ojk;
+    private i.b ojl;
+    private a ojm;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void ecQ();
+        void ecR();
     }
 
     public CharmRankItemView(Context context) {
@@ -47,59 +47,59 @@ public class CharmRankItemView extends LinearLayout {
 
     public void setData(int i, i.b bVar) {
         int i2;
-        this.ojj = bVar;
+        this.ojl = bVar;
         if (i == 1) {
-            this.gFE.setVisibility(8);
-            this.gFF.setVisibility(0);
-            this.gFF.setImageResource(a.e.yuyin_icon_live_list_first);
+            this.gFG.setVisibility(8);
+            this.gFH.setVisibility(0);
+            this.gFH.setImageResource(a.e.yuyin_icon_live_list_first);
         } else if (i == 2) {
-            this.gFE.setVisibility(8);
-            this.gFF.setVisibility(0);
-            this.gFF.setImageResource(a.e.yuyin_icon_live_list_second);
+            this.gFG.setVisibility(8);
+            this.gFH.setVisibility(0);
+            this.gFH.setImageResource(a.e.yuyin_icon_live_list_second);
         } else if (i == 3) {
-            this.gFE.setVisibility(8);
-            this.gFF.setVisibility(0);
-            this.gFF.setImageResource(a.e.yuyin_icon_live_list_thrid);
+            this.gFG.setVisibility(8);
+            this.gFH.setVisibility(0);
+            this.gFH.setImageResource(a.e.yuyin_icon_live_list_thrid);
         } else {
-            this.gFE.setVisibility(0);
-            this.gFF.setVisibility(8);
-            this.gFE.setText(i + "");
+            this.gFG.setVisibility(0);
+            this.gFH.setVisibility(8);
+            this.gFG.setText(i + "");
         }
-        this.aGv.setText(this.ojj.user_nickname);
-        l.a(this.gFG, bVar.bd_portrait, true, false);
-        this.gFJ.setText(bVar.aJh);
+        this.aGv.setText(this.ojl.user_nickname);
+        l.a(this.gFI, bVar.bd_portrait, true, false);
+        this.gFL.setText(bVar.aJh);
         try {
             i2 = Integer.valueOf(bVar.aJi).intValue();
         } catch (Exception e) {
             i2 = 0;
         }
         if (i2 == 7) {
-            this.ojh.setVisibility(0);
-            this.ojh.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
+            this.ojj.setVisibility(0);
+            this.ojj.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
         } else if (i2 == 6) {
-            this.ojh.setVisibility(0);
-            this.ojh.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
+            this.ojj.setVisibility(0);
+            this.ojj.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
         } else if (i2 == 5) {
-            this.ojh.setVisibility(0);
-            this.ojh.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
+            this.ojj.setVisibility(0);
+            this.ojj.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
         } else if (i2 == 4) {
-            this.ojh.setVisibility(0);
-            this.ojh.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
+            this.ojj.setVisibility(0);
+            this.ojj.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
         } else {
-            this.ojh.setVisibility(8);
+            this.ojj.setVisibility(8);
         }
         if (ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())).equals(bVar.user_uk)) {
-            this.oji.setVisibility(8);
+            this.ojk.setVisibility(8);
             return;
         }
-        this.oji.setVisibility(0);
+        this.ojk.setVisibility(0);
         cg(bVar.Fj());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmJ() {
-        if (this.ojk != null) {
-            this.ojk.ecQ();
+    public void cmK() {
+        if (this.ojm != null) {
+            this.ojm.ecR();
         }
     }
 
@@ -111,44 +111,44 @@ public class CharmRankItemView extends LinearLayout {
     }
 
     private void Jh() {
-        this.gFE = (TextView) findViewById(a.f.tv_rank);
-        this.gFF = (ImageView) findViewById(a.f.iv_rank);
-        this.gFG = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.ojh = (TbImageView) findViewById(a.f.iv_pendant);
-        this.oiu = (YuyinALALevelView) findViewById(a.f.level);
+        this.gFG = (TextView) findViewById(a.f.tv_rank);
+        this.gFH = (ImageView) findViewById(a.f.iv_rank);
+        this.gFI = (HeadImageView) findViewById(a.f.iv_avatar);
+        this.ojj = (TbImageView) findViewById(a.f.iv_pendant);
+        this.oiw = (YuyinALALevelView) findViewById(a.f.level);
         this.aGv = (TextView) findViewById(a.f.tv_name);
-        this.gFJ = (TextView) findViewById(a.f.tv_value);
-        this.oji = (TextView) findViewById(a.f.tv_attention);
+        this.gFL = (TextView) findViewById(a.f.tv_value);
+        this.ojk = (TextView) findViewById(a.f.tv_attention);
     }
 
     private void initView() {
-        this.gFG.setAutoChangeStyle(false);
-        this.gFG.setDrawBorder(false);
-        this.gFG.setIsRound(true);
-        this.ojh.setDefaultBgResource(a.c.sdk_transparent);
-        this.ojh.setDefaultErrorResource(a.e.sdk_shape_transparent);
-        this.oji.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.1
+        this.gFI.setAutoChangeStyle(false);
+        this.gFI.setDrawBorder(false);
+        this.gFI.setIsRound(true);
+        this.ojj.setDefaultBgResource(a.c.sdk_transparent);
+        this.ojj.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.ojk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CharmRankItemView.this.cmJ();
+                CharmRankItemView.this.cmK();
             }
         });
     }
 
     private void cg(boolean z) {
-        this.oji.setVisibility(0);
+        this.ojk.setVisibility(0);
         if (z) {
-            this.oji.setBackgroundResource(a.c.sdk_white_alpha100);
-            this.oji.setText("已关注");
-            this.oji.setTextColor(getResources().getColor(a.c.sdk_color_858585));
+            this.ojk.setBackgroundResource(a.c.sdk_white_alpha100);
+            this.ojk.setText("已关注");
+            this.ojk.setTextColor(getResources().getColor(a.c.sdk_color_858585));
             return;
         }
-        this.oji.setBackgroundResource(a.e.yuyin_round_charm_item_attention_bg);
-        this.oji.setText("关注");
-        this.oji.setTextColor(getResources().getColor(a.c.sdk_color_ff1e66));
+        this.ojk.setBackgroundResource(a.e.yuyin_round_charm_item_attention_bg);
+        this.ojk.setText("关注");
+        this.ojk.setTextColor(getResources().getColor(a.c.sdk_color_ff1e66));
     }
 
     public void setmCallBack(a aVar) {
-        this.ojk = aVar;
+        this.ojm = aVar;
     }
 }

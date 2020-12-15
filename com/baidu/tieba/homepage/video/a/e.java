@@ -21,7 +21,7 @@ import com.baidu.tieba.card.data.k;
 public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     private ab<k> agG;
     private v amH;
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     private BdUniqueId fzO;
     private TbPageContext mPageContext;
 
@@ -95,8 +95,8 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
         }
         kVar.ym(kVar.position + 1);
         amVar.tZ().setPosition(i);
-        amVar.aN(false).a(this.fWA);
-        amVar.a(false, Align.ALIGN_RIGHT_BOTTOM, this.fWA);
+        amVar.aN(false).a(this.fWC);
+        amVar.a(false, Align.ALIGN_RIGHT_BOTTOM, this.fWC);
         amVar.b((am<k>) kVar);
         amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tZ().a(this.agG);
@@ -108,6 +108,6 @@ public class e extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.fWA = aVar;
+        this.fWC = aVar;
     }
 }

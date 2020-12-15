@@ -20,26 +20,26 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class l extends BaseAdapter {
     private String eXq;
-    private RelateTopicForumActivity kbX;
+    private RelateTopicForumActivity kbZ;
     private ArrayList<RelateForumItemData> dataList = new ArrayList<>();
-    private View.OnClickListener kbY = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.l.1
+    private View.OnClickListener kca = new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.l.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            if (l.this.kbX != null && l.this.kbX.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
+            if (l.this.kbZ != null && l.this.kbZ.checkUpIsLogin() && view.getId() == R.id.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
                 RelateForumItemData relateForumItemData = (RelateForumItemData) l.this.dataList.get(intValue);
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new ar("c10371").dY("fid", String.valueOf(relateForumItemData.forumId)).al("obj_type", com.baidu.tieba.hottopic.data.k.kej).dY("topic_id", l.this.eXq));
+                    TiebaStatic.log(new ar("c10371").dY("fid", String.valueOf(relateForumItemData.forumId)).al("obj_type", com.baidu.tieba.hottopic.data.k.kel).dY("topic_id", l.this.eXq));
                 }
                 if (au.isForumName(relateForumItemData.forumName)) {
-                    l.this.kbX.jLH.gu(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
+                    l.this.kbZ.jLJ.gu(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
                 }
             }
         }
     };
 
     public l(RelateTopicForumActivity relateTopicForumActivity) {
-        this.kbX = relateTopicForumActivity;
+        this.kbZ = relateTopicForumActivity;
     }
 
     public void c(List<RelateForumItemData> list, String str) {
@@ -68,39 +68,39 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.hottopic.a.f fVar;
         if (view == null) {
-            view = LayoutInflater.from(this.kbX.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.kbZ.getPageContext().getContext()).inflate(R.layout.hot_topic_list_item, (ViewGroup) null);
             com.baidu.tieba.hottopic.a.f fVar2 = new com.baidu.tieba.hottopic.a.f(view);
             view.setTag(fVar2);
-            fVar2.kfm.setOnClickListener(this.kbY);
+            fVar2.kfo.setOnClickListener(this.kca);
             fVar = fVar2;
         } else {
             fVar = (com.baidu.tieba.hottopic.a.f) view.getTag();
         }
-        fVar.kfm.setTag(Integer.valueOf(i));
+        fVar.kfo.setTag(Integer.valueOf(i));
         if (this.dataList != null && this.dataList.get(i) != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (fVar.aku != skinType) {
-                ap.setViewTextColor(fVar.kfj, R.color.CAM_X0105, 1);
-                ap.setViewTextColor(fVar.jCt, R.color.CAM_X0108, 1);
-                ap.setViewTextColor(fVar.jCu, R.color.CAM_X0108, 1);
-                ap.setViewTextColor(fVar.kfk, R.color.CAM_X0108, 1);
-                ap.setViewTextColor(fVar.kfl, R.color.CAM_X0108, 1);
-                ap.setViewTextColor(fVar.haW, R.color.CAM_X0109, 1);
-                ap.setBackgroundResource(fVar.hOR, R.color.CAM_X0204);
-                ap.setBackgroundResource(fVar.kfm, R.drawable.btn_appdownload);
+                ap.setViewTextColor(fVar.kfl, R.color.CAM_X0105, 1);
+                ap.setViewTextColor(fVar.jCv, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(fVar.jCw, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(fVar.kfm, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(fVar.kfn, R.color.CAM_X0108, 1);
+                ap.setViewTextColor(fVar.haY, R.color.CAM_X0109, 1);
+                ap.setBackgroundResource(fVar.hOT, R.color.CAM_X0204);
+                ap.setBackgroundResource(fVar.kfo, R.drawable.btn_appdownload);
                 ap.setBackgroundResource(view, R.drawable.list_item_selector);
                 fVar.aku = skinType;
             }
-            fVar.kfj.setText(this.dataList.get(i).forumName);
+            fVar.kfl.setText(this.dataList.get(i).forumName);
             if (!StringUtils.isNULL(this.dataList.get(i).forumAvatar)) {
-                fVar.kfi.startLoad(this.dataList.get(i).forumAvatar, 10, false);
+                fVar.kfk.startLoad(this.dataList.get(i).forumAvatar, 10, false);
             }
-            fVar.jCt.setText(au.numberUniformFormat(this.dataList.get(i).postNum));
-            fVar.jCu.setText(au.numberUniformFormat(this.dataList.get(i).followNum));
-            fVar.haW.setText(au.forceLToR(this.dataList.get(i).forumAbstract));
-            d(fVar.kfm, this.dataList.get(i).isLiked);
+            fVar.jCv.setText(au.numberUniformFormat(this.dataList.get(i).postNum));
+            fVar.jCw.setText(au.numberUniformFormat(this.dataList.get(i).followNum));
+            fVar.haY.setText(au.forceLToR(this.dataList.get(i).forumAbstract));
+            d(fVar.kfo, this.dataList.get(i).isLiked);
             if (i == this.dataList.size() - 1) {
-                da(fVar.hOR);
+                da(fVar.hOT);
             }
         }
         return view;

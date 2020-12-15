@@ -169,8 +169,8 @@ public class c {
                 z8 = true;
             }
         }
-        if (bVar.erZ() != null && i > 0) {
-            bVar.w(new com.facebook.drawee.drawable.b(bVar.erZ(), i));
+        if (bVar.esa() != null && i > 0) {
+            bVar.w(new com.facebook.drawee.drawable.b(bVar.esa(), i));
         }
         if (i2 > 0) {
             a(bVar).j(z9 ? i2 : 0.0f, z10 ? i2 : 0.0f, z12 ? i2 : 0.0f, z11 ? i2 : 0.0f);
@@ -180,10 +180,10 @@ public class c {
 
     @ReturnsOwnership
     private static RoundingParams a(b bVar) {
-        if (bVar.erP() == null) {
+        if (bVar.erQ() == null) {
             bVar.b(new RoundingParams());
         }
-        return bVar.erP();
+        return bVar.erQ();
     }
 
     @Nullable
@@ -201,23 +201,23 @@ public class c {
             case -1:
                 return null;
             case 0:
-                return p.b.pgr;
-            case 1:
-                return p.b.pgs;
-            case 2:
                 return p.b.pgt;
-            case 3:
+            case 1:
                 return p.b.pgu;
-            case 4:
+            case 2:
                 return p.b.pgv;
-            case 5:
+            case 3:
                 return p.b.pgw;
-            case 6:
+            case 4:
                 return p.b.pgx;
-            case 7:
+            case 5:
                 return p.b.pgy;
-            case 8:
+            case 6:
                 return p.b.pgz;
+            case 7:
+                return p.b.pgA;
+            case 8:
+                return p.b.pgB;
             default:
                 throw new RuntimeException("XML attribute not specified!");
         }

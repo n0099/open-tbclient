@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes6.dex */
 public abstract class SpecialForumTabBaseFragment extends BaseFragment {
     private Handler mHandler = new Handler();
-    private Runnable gxh = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment.1
+    private Runnable gxj = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment.1
         @Override // java.lang.Runnable
         public void run() {
             SpecialForumTabBaseFragment.this.notifyDataSetChanged();
@@ -19,14 +19,14 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            SpecialForumTabBaseFragment.this.mHandler.removeCallbacks(SpecialForumTabBaseFragment.this.gxh);
-            SpecialForumTabBaseFragment.this.mHandler.postDelayed(SpecialForumTabBaseFragment.this.gxh, 500L);
+            SpecialForumTabBaseFragment.this.mHandler.removeCallbacks(SpecialForumTabBaseFragment.this.gxj);
+            SpecialForumTabBaseFragment.this.mHandler.postDelayed(SpecialForumTabBaseFragment.this.gxj, 500L);
         }
     };
 
     protected abstract void notifyDataSetChanged();
 
-    public void bSZ() {
+    public void bTa() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment

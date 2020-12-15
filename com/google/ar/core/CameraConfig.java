@@ -3,7 +3,7 @@ package com.google.ar.core;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes17.dex */
 public class CameraConfig {
-    long psX;
+    long psZ;
 
     private static native void nativeDestroyCameraConfig(long j);
 
@@ -38,9 +38,9 @@ public class CameraConfig {
     }
 
     protected void finalize() throws Throwable {
-        if (this.psX != 0) {
-            nativeDestroyCameraConfig(this.psX);
-            this.psX = 0L;
+        if (this.psZ != 0) {
+            nativeDestroyCameraConfig(this.psZ);
+            this.psZ = 0L;
         }
         super.finalize();
     }

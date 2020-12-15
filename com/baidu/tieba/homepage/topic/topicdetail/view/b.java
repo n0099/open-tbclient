@@ -65,7 +65,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                             case 8:
                                 if (b.this.a(aVar.bxs(), (int) RequestResponseCode.REQUEST_LOGIN_WRITE)) {
                                     aVar.bDr();
-                                    TiebaStatic.log(new ar("c13363").dY("topic_id", String.valueOf(aVar.cQV())));
+                                    TiebaStatic.log(new ar("c13363").dY("topic_id", String.valueOf(aVar.cQW())));
                                     return;
                                 }
                                 return;

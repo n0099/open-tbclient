@@ -7,25 +7,25 @@ import com.baidu.tieba.l.e;
 import java.io.File;
 /* loaded from: classes23.dex */
 public class b implements e {
-    private String lmc;
-    private boolean lmd = false;
-    private boolean lme = false;
-    private e.a lmf;
+    private String lme;
+    private boolean lmf = false;
+    private boolean lmg = false;
+    private e.a lmh;
 
     public b(String str) {
-        this.lmc = str;
+        this.lme = str;
     }
 
     @Override // com.baidu.tieba.l.e
     public void a(e.a aVar) {
-        this.lmf = aVar;
+        this.lmh = aVar;
     }
 
     @Override // com.baidu.tieba.l.e
-    public void diJ() {
-        if (StringUtils.isNull(this.lmc)) {
-            if (this.lmf != null) {
-                this.lmf.Gd(2);
+    public void diK() {
+        if (StringUtils.isNull(this.lme)) {
+            if (this.lmh != null) {
+                this.lmh.Gd(2);
                 return;
             }
             return;
@@ -64,19 +64,19 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.lmf != null) {
-                            b.this.lmf.Gd(cVar.value);
+                        if (b.this.lmh != null) {
+                            b.this.lmh.Gd(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.lmf != null) {
-                            b.this.lmf.onChange(cVar.value == 1);
+                        if (b.this.lmh != null) {
+                            b.this.lmh.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.lmf != null) {
-                        b.this.lmf.tP(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.lmh != null) {
+                        b.this.lmh.tP(cVar.value == 1);
                     }
                 }
             }
-        }.execute(this.lmc);
+        }.execute(this.lme);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -13,7 +13,7 @@ public class h implements CustomMessageTask.CustomRunnable<Object> {
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         byte[] bArr;
         if (customMessage == null || !(customMessage instanceof RequestGroupInfoLocalMessage)) {
-            return daf();
+            return dag();
         }
         RequestGroupInfoLocalMessage requestGroupInfoLocalMessage = (RequestGroupInfoLocalMessage) customMessage;
         String str = "";
@@ -31,10 +31,10 @@ public class h implements CustomMessageTask.CustomRunnable<Object> {
                 e.printStackTrace();
             }
         }
-        return daf();
+        return dag();
     }
 
-    private CustomResponsedMessage<?> daf() {
+    private CustomResponsedMessage<?> dag() {
         ResponseGroupInfoLocalMessage responseGroupInfoLocalMessage = new ResponseGroupInfoLocalMessage();
         responseGroupInfoLocalMessage.setError(-18);
         return responseGroupInfoLocalMessage;

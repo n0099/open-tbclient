@@ -20,13 +20,13 @@ public class b extends Dialog implements View.OnClickListener {
     private TextView bTh;
     private long mPaid;
     private long mUid;
-    private boolean oOU;
-    private TextView oYc;
-    private TextView oYd;
-    private InterfaceC0978b oYe;
-    private ActivityChat oYf;
-    private int oYg;
-    private int oYh;
+    private boolean oOW;
+    private TextView oYe;
+    private TextView oYf;
+    private InterfaceC0978b oYg;
+    private ActivityChat oYh;
+    private int oYi;
+    private int oYj;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
@@ -39,19 +39,19 @@ public class b extends Dialog implements View.OnClickListener {
     public interface InterfaceC0978b {
         void PD(int i);
 
-        void eoj();
+        void eok();
 
         void onCancel();
     }
 
     public b(ActivityChat activityChat, long j, boolean z, long j2) {
         super(activityChat, a.i.theme_manage_dialog);
-        this.oYg = -1;
-        this.oYh = 0;
-        this.oYf = activityChat;
+        this.oYi = -1;
+        this.oYj = 0;
+        this.oYh = activityChat;
         this.mUid = j;
         this.mPaid = j2;
-        this.oOU = z;
+        this.oOW = z;
     }
 
     @Override // android.app.Dialog
@@ -62,33 +62,33 @@ public class b extends Dialog implements View.OnClickListener {
         setCanceledOnTouchOutside(true);
         setCancelable(true);
         this.bTh = (TextView) findViewById(a.f.ala_person_manage_cancel);
-        this.oYc = (TextView) findViewById(a.f.ala_clean_message);
-        this.oYd = (TextView) findViewById(a.f.ala_shield_user);
-        this.oYd.setOnClickListener(this);
-        this.oYc.setOnClickListener(this);
+        this.oYe = (TextView) findViewById(a.f.ala_clean_message);
+        this.oYf = (TextView) findViewById(a.f.ala_shield_user);
+        this.oYf.setOnClickListener(this);
+        this.oYe.setOnClickListener(this);
         this.bTh.setOnClickListener(this);
-        IMBoxManager.getShield(this.oYf.getActivity(), ChatInfo.mContacter, new IGetShieldAndTopListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.1
+        IMBoxManager.getShield(this.oYh.getActivity(), ChatInfo.mContacter, new IGetShieldAndTopListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.1
             @Override // com.baidu.android.imsdk.shield.IGetShieldAndTopListener
             public void onResult(GetShieldAndTopResult getShieldAndTopResult) {
                 if (getShieldAndTopResult.getShield() == 1) {
                     SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.oYd.setText("接受此人消息");
-                            b.this.oYd.setVisibility(0);
+                            b.this.oYf.setText("接受此人消息");
+                            b.this.oYf.setVisibility(0);
                         }
                     });
-                    b.this.oYh = 0;
+                    b.this.oYj = 0;
                     return;
                 }
                 SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.oYd.setText("不接受此人消息");
-                        b.this.oYd.setVisibility(0);
+                        b.this.oYf.setText("不接受此人消息");
+                        b.this.oYf.setVisibility(0);
                     }
                 });
-                b.this.oYh = 1;
+                b.this.oYj = 1;
             }
         });
     }
@@ -96,38 +96,38 @@ public class b extends Dialog implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.oYe != null) {
-            if (view == this.oYc) {
+        if (this.oYg != null) {
+            if (view == this.oYe) {
                 a(new a() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.2
                     @Override // com.baidu.yuyinala.privatemessage.session.view.b.a
                     public void onConfirm() {
-                        if (b.this.oYe != null) {
-                            b.this.oYe.eoj();
+                        if (b.this.oYg != null) {
+                            b.this.oYg.eok();
                         }
                     }
                 }, "确定要清空聊天记录吗？");
-            } else if (view == this.oYd) {
+            } else if (view == this.oYf) {
                 a aVar = new a() { // from class: com.baidu.yuyinala.privatemessage.session.view.b.3
                     @Override // com.baidu.yuyinala.privatemessage.session.view.b.a
                     public void onConfirm() {
-                        if (b.this.oYe != null) {
-                            b.this.oYe.PD(b.this.oYh);
+                        if (b.this.oYg != null) {
+                            b.this.oYg.PD(b.this.oYj);
                         }
                     }
                 };
-                if (this.oYh == 0) {
+                if (this.oYj == 0) {
                     a(aVar, "确定接受此人消息吗？");
                 } else {
                     a(aVar, "确定不接受此人消息吗？");
                 }
             } else if (view == this.bTh) {
-                this.oYe.onCancel();
+                this.oYg.onCancel();
             }
         }
     }
 
     private void a(final a aVar, String str) {
-        BdAlertDialog bdAlertDialog = new BdAlertDialog(this.oYf.getActivity());
+        BdAlertDialog bdAlertDialog = new BdAlertDialog(this.oYh.getActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
         bdAlertDialog.setMessage(str);
@@ -146,17 +146,17 @@ public class b extends Dialog implements View.OnClickListener {
                 bdAlertDialog2.dismiss();
             }
         });
-        bdAlertDialog.create(this.oYf.getPageContext()).show();
+        bdAlertDialog.create(this.oYh.getPageContext()).show();
     }
 
     public void a(InterfaceC0978b interfaceC0978b) {
-        this.oYe = interfaceC0978b;
+        this.oYg = interfaceC0978b;
     }
 
     public void resize() {
-        int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.oYf);
+        int[] screenDimensions = BdUtilHelper.getScreenDimensions(this.oYh);
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
-        if (UtilHelper.getRealScreenOrientation(this.oYf) == 2) {
+        if (UtilHelper.getRealScreenOrientation(this.oYh) == 2) {
             attributes.width = Math.max(screenDimensions[0], screenDimensions[1]);
         } else {
             attributes.width = Math.min(screenDimensions[0], screenDimensions[1]);

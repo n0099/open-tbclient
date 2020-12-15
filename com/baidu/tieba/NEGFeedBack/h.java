@@ -1,30 +1,30 @@
 package com.baidu.tieba.NEGFeedBack;
 /* loaded from: classes21.dex */
 public class h {
-    private int fXc;
-    private int fXd;
     private int fXe;
-    private String fXf;
+    private int fXf;
+    private int fXg;
+    private String fXh;
     private String forumId;
     private String forumName;
     private int userLevel;
 
     public h(int i, int i2, int i3) {
-        this.fXc = i;
-        this.fXd = i2;
-        this.fXe = i3;
-    }
-
-    public int bLx() {
-        return this.fXe;
+        this.fXe = i;
+        this.fXf = i2;
+        this.fXg = i3;
     }
 
     public int bLy() {
-        return this.fXd;
+        return this.fXg;
     }
 
     public int bLz() {
-        return this.fXc;
+        return this.fXf;
+    }
+
+    public int bLA() {
+        return this.fXe;
     }
 
     public void ek(String str, String str2) {
@@ -40,15 +40,15 @@ public class h {
         return this.forumName;
     }
 
-    public String bLA() {
-        return this.fXf;
+    public String bLB() {
+        return this.fXh;
     }
 
     public void setForumHeadUrl(String str) {
-        this.fXf = str;
+        this.fXh = str;
     }
 
-    public int bLB() {
+    public int bLC() {
         return this.userLevel;
     }
 

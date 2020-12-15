@@ -61,7 +61,7 @@ public class c {
                 aaVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 aaVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dPT().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dPU().getLocationData();
             if (locationData != null) {
                 aaVar.addPostData("name", locationData.getFormatted_address());
                 aaVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());

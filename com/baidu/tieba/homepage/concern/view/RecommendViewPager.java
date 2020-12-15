@@ -8,19 +8,19 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes22.dex */
 public class RecommendViewPager extends ViewPager {
-    private float jMn;
-    private float jMo;
+    private float jMp;
+    private float jMq;
 
     public RecommendViewPager(@NonNull Context context) {
         super(context);
-        this.jMn = 0.0f;
-        this.jMo = 0.0f;
+        this.jMp = 0.0f;
+        this.jMq = 0.0f;
     }
 
     public RecommendViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jMn = 0.0f;
-        this.jMo = 0.0f;
+        this.jMp = 0.0f;
+        this.jMq = 0.0f;
     }
 
     public void requestParentInterceptTouchEvent(boolean z) {
@@ -35,18 +35,18 @@ public class RecommendViewPager extends ViewPager {
         boolean z = (currentItem == 0 || currentItem == (getAdapter() == null ? 0 : getAdapter().getCount()) + (-1)) ? false : true;
         switch (motionEvent.getAction()) {
             case 0:
-                this.jMn = motionEvent.getX();
-                this.jMo = motionEvent.getY();
+                this.jMp = motionEvent.getX();
+                this.jMq = motionEvent.getY();
                 break;
             case 1:
             case 3:
                 requestParentInterceptTouchEvent(false);
                 break;
             case 2:
-                float abs = Math.abs(motionEvent.getX() - this.jMn);
-                float abs2 = Math.abs(motionEvent.getY() - this.jMo);
-                this.jMn = motionEvent.getX();
-                this.jMo = motionEvent.getY();
+                float abs = Math.abs(motionEvent.getX() - this.jMp);
+                float abs2 = Math.abs(motionEvent.getY() - this.jMq);
+                this.jMp = motionEvent.getX();
+                this.jMq = motionEvent.getY();
                 if (abs2 / abs < 1.0f && z) {
                     requestParentInterceptTouchEvent(true);
                     break;

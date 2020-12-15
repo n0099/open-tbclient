@@ -24,19 +24,19 @@ import com.baidu.tieba.personCenter.c.h;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes24.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private ab hbx = new ab<h>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
+    private ab hbz = new ab<h>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.ab
         public void a(View view, h hVar) {
-            PersonCenterMoreActivity.this.mjm = hVar;
-            if (PersonCenterMoreActivity.this.mjm != null && !PersonCenterMoreActivity.this.cgP()) {
-                PersonCenterMoreActivity.this.QT(PersonCenterMoreActivity.this.mjm.aJj);
+            PersonCenterMoreActivity.this.mjo = hVar;
+            if (PersonCenterMoreActivity.this.mjo != null && !PersonCenterMoreActivity.this.cgQ()) {
+                PersonCenterMoreActivity.this.QT(PersonCenterMoreActivity.this.mjo.aJj);
             }
         }
     };
-    private b mjk;
-    private Bundle mjl;
-    private h mjm;
+    private b mjm;
+    private Bundle mjn;
+    private h mjo;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -44,15 +44,15 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
-            this.mjl = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.mjn = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(R.layout.person_center_more_layout);
-        this.mjk = new b(getPageContext(), this.mjl, this.hbx);
-        this.mjk.initView();
+        this.mjm = new b(getPageContext(), this.mjn, this.hbz);
+        this.mjm.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cgP() {
+    public boolean cgQ() {
         Activity pageActivity = getPageContext().getPageActivity();
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
@@ -63,7 +63,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            QT(this.mjm.aJj);
+            QT(this.mjo.aJj);
         }
     }
 
@@ -100,8 +100,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mjk != null) {
-            this.mjk.onChangeSkinType();
+        if (this.mjm != null) {
+            this.mjm.onChangeSkinType();
         }
     }
 }

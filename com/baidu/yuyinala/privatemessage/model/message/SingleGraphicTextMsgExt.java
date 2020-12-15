@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SingleGraphicTextMsgExt {
     public String groupId;
-    public SignleGraphicTextMsg oWx;
-    public String oWy;
-    public double oWz;
+    public String oWA;
+    public double oWB;
+    public SignleGraphicTextMsg oWz;
     public String vid;
     public String videoDuration;
 
@@ -23,12 +23,12 @@ public class SingleGraphicTextMsgExt {
     }
 
     public SingleGraphicTextMsgExt(SignleGraphicTextMsg signleGraphicTextMsg) {
-        this.oWx = signleGraphicTextMsg;
+        this.oWz = signleGraphicTextMsg;
         try {
             JSONObject jSONObject = new JSONObject(signleGraphicTextMsg.getMsgContent());
-            this.oWy = jSONObject.optString("quanminUrl");
+            this.oWA = jSONObject.optString("quanminUrl");
             this.groupId = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-            this.oWz = jSONObject.optDouble("coverHW");
+            this.oWB = jSONObject.optDouble("coverHW");
             this.videoDuration = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, "0:00");
             this.vid = jSONObject.optString("vid");
         } catch (JSONException e) {
@@ -36,8 +36,8 @@ public class SingleGraphicTextMsgExt {
         }
     }
 
-    public SingleGraphicTextType enZ() {
-        if (!TextUtils.isEmpty(this.oWy)) {
+    public SingleGraphicTextType eoa() {
+        if (!TextUtils.isEmpty(this.oWA)) {
             return SingleGraphicTextType.VIDEOSHARE;
         }
         if (!TextUtils.isEmpty(this.groupId)) {

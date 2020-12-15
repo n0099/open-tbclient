@@ -22,11 +22,11 @@ import java.util.List;
 public class AlaNewSquareSubListModel extends BdBaseModel {
     public static final int FIRST_PN = 0;
     private String entryName;
-    private boolean gpG;
-    private List<by> gxW;
-    private boolean gzC;
-    private a gzD;
-    private HttpMessageListener gzE;
+    private boolean gpI;
+    private List<by> gxY;
+    private boolean gzE;
+    private a gzF;
+    private HttpMessageListener gzG;
     private boolean hasMore;
     private String labelName;
     private String lat;
@@ -58,11 +58,11 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         this.ps = 20;
         this.lng = "";
         this.lat = "";
-        this.gpG = false;
-        this.gxW = new ArrayList();
+        this.gpI = false;
+        this.gxY = new ArrayList();
         this.mDatas = new ArrayList();
         this.mBdUniqueId = BdUniqueId.gen();
-        this.gzE = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_NEW_SQUARE_SUB_LIST) { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.1
+        this.gzG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_NEW_SQUARE_SUB_LIST) { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -71,8 +71,8 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                     if (httpResponsedMessage.getOrginalMessage() instanceof AlaNewSquareSubListRequestMessage) {
                         AlaNewSquareSubListRequestMessage alaNewSquareSubListRequestMessage = (AlaNewSquareSubListRequestMessage) httpResponsedMessage.getOrginalMessage();
                         if (httpResponsedMessage.hasError()) {
-                            if (AlaNewSquareSubListModel.this.gzD != null) {
-                                AlaNewSquareSubListModel.this.gzD.aC(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                            if (AlaNewSquareSubListModel.this.gzF != null) {
+                                AlaNewSquareSubListModel.this.gzF.aC(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                                 return;
                             }
                             return;
@@ -80,28 +80,28 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                         List<by> liveList = alaNewSquareSubListResponseMessage.getLiveList();
                         AlaNewSquareSubListModel.this.hasMore = alaNewSquareSubListResponseMessage.hasMore();
                         AlaNewSquareSubListModel.this.pn = alaNewSquareSubListRequestMessage.getPn();
-                        if (AlaNewSquareSubListModel.this.pn == 0 || y.getCount(AlaNewSquareSubListModel.this.gxW) == 0) {
-                            AlaNewSquareSubListModel.this.gxW.clear();
+                        if (AlaNewSquareSubListModel.this.pn == 0 || y.getCount(AlaNewSquareSubListModel.this.gxY) == 0) {
+                            AlaNewSquareSubListModel.this.gxY.clear();
                             AlaNewSquareSubListModel.this.mDatas.clear();
-                            AlaNewSquareSubListModel.this.gxW = liveList;
+                            AlaNewSquareSubListModel.this.gxY = liveList;
                             AlaNewSquareSubListModel.this.liveCount = alaNewSquareSubListResponseMessage.getLiveCount();
                             AlaNewSquareSubListModel.this.sortTypeList = alaNewSquareSubListResponseMessage.getSortTypeList();
                         } else if (y.getCount(liveList) > 0) {
                             AlaNewSquareSubListModel.this.ch(liveList);
                         }
                         AlaNewSquareSubListModel.e(AlaNewSquareSubListModel.this);
-                        AlaNewSquareSubListModel.this.n(AlaNewSquareSubListModel.this.gxW, AlaNewSquareSubListModel.this.hasMore);
-                        if (AlaNewSquareSubListModel.this.gzD != null) {
-                            AlaNewSquareSubListModel.this.gzD.mn(AlaNewSquareSubListModel.this.hasMore);
+                        AlaNewSquareSubListModel.this.n(AlaNewSquareSubListModel.this.gxY, AlaNewSquareSubListModel.this.hasMore);
+                        if (AlaNewSquareSubListModel.this.gzF != null) {
+                            AlaNewSquareSubListModel.this.gzF.mn(AlaNewSquareSubListModel.this.hasMore);
                         }
                     }
                 }
             }
         };
         setUniqueId(this.mBdUniqueId);
-        this.gzE.setTag(this.mBdUniqueId);
-        this.gzE.setSelfListener(true);
-        registerListener(this.gzE);
+        this.gzG.setTag(this.mBdUniqueId);
+        this.gzG.setSelfListener(true);
+        registerListener(this.gzG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,7 +111,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             if (byVar != null && byVar.getThreadType() == 49) {
                 String tid = byVar.getTid();
                 if (!TextUtils.isEmpty(tid)) {
-                    Iterator<by> it = this.gxW.iterator();
+                    Iterator<by> it = this.gxY.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
@@ -122,7 +122,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
                         }
                     }
                     if (!z) {
-                        this.gxW.add(byVar);
+                        this.gxY.add(byVar);
                     }
                 }
             }
@@ -134,38 +134,38 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             this.mDatas = new ArrayList();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
-                if (this.gzC) {
+                if (this.gzE) {
                     com.baidu.tieba.ala.alasquare.subtablist.b.a aVar = new com.baidu.tieba.ala.alasquare.subtablist.b.a();
                     c cVar = new c();
-                    cVar.gpG = this.gpG;
+                    cVar.gpI = this.gpI;
                     cVar.entryName = this.entryName;
                     cVar.labelName = this.labelName;
-                    cVar.gpF = list.get(i);
-                    aVar.grU = cVar;
+                    cVar.gpH = list.get(i);
+                    aVar.grW = cVar;
                     if (i + 1 < size) {
                         c cVar2 = new c();
-                        cVar2.gpG = this.gpG;
+                        cVar2.gpI = this.gpI;
                         cVar2.entryName = this.entryName;
                         cVar2.labelName = this.labelName;
-                        cVar2.gpF = list.get(i + 1);
-                        aVar.grV = cVar2;
+                        cVar2.gpH = list.get(i + 1);
+                        aVar.grX = cVar2;
                     }
                     this.mDatas.add(aVar);
                 } else {
                     b bVar = new b();
                     c cVar3 = new c();
-                    cVar3.gpG = this.gpG;
+                    cVar3.gpI = this.gpI;
                     cVar3.entryName = this.entryName;
                     cVar3.labelName = this.labelName;
-                    cVar3.gpF = list.get(i);
-                    bVar.grU = cVar3;
+                    cVar3.gpH = list.get(i);
+                    bVar.grW = cVar3;
                     if (i + 1 < size) {
                         c cVar4 = new c();
-                        cVar4.gpG = this.gpG;
+                        cVar4.gpI = this.gpI;
                         cVar4.entryName = this.entryName;
                         cVar4.labelName = this.labelName;
-                        cVar4.gpF = list.get(i + 1);
-                        bVar.grV = cVar4;
+                        cVar4.gpH = list.get(i + 1);
+                        bVar.grX = cVar4;
                     }
                     this.mDatas.add(bVar);
                 }
@@ -187,7 +187,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         sendMessage(alaNewSquareSubListRequestMessage);
     }
 
-    public boolean bTf() {
+    public boolean bTg() {
         if (!this.hasMore) {
             return false;
         }
@@ -231,15 +231,15 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.gzD = aVar;
+        this.gzF = aVar;
     }
 
     public List<q> getDatas() {
         return this.mDatas;
     }
 
-    public List<by> bSY() {
-        return this.gxW;
+    public List<by> bSZ() {
+        return this.gxY;
     }
 
     public int getLiveCount() {
@@ -251,7 +251,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     }
 
     public void mp(boolean z) {
-        this.gzC = z;
+        this.gzE = z;
     }
 
     public void onDestroy() {
@@ -271,6 +271,6 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     }
 
     public void mq(boolean z) {
-        this.gpG = z;
+        this.gpI = z;
     }
 }

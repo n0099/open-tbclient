@@ -24,9 +24,9 @@ import org.json.JSONObject;
 /* loaded from: classes26.dex */
 public class RecAppStatic {
     static {
-        r.mHz.set(new t());
+        r.mHB.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.bMm().a(new i.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.bMn().a(new i.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.i.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -91,8 +91,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.dEQ().dET();
-        b.dEQ().dER();
+        b.dER().dEU();
+        b.dER().dES();
         if (BdLog.isDebugMode()) {
         }
         com.baidu.tieba.ad.download.b.a.clZ.set(new com.baidu.tieba.recapp.download.b());

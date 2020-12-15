@@ -18,18 +18,18 @@ import java.util.ArrayList;
 /* loaded from: classes24.dex */
 public class a extends BaseAdapter {
     private String ejE;
-    private final boolean kZp = true;
-    private ArrayList<ForumSuggestModel.Forum> kZq;
+    private final boolean kZr = true;
+    private ArrayList<ForumSuggestModel.Forum> kZs;
     private final BaseActivity<?> mActivity;
 
     public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
         this.mActivity = baseActivity;
-        this.kZq = arrayList;
+        this.kZs = arrayList;
     }
 
     public void aQ(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.kZq = arrayList;
-        if (this.kZq != null) {
+        this.kZs = arrayList;
+        if (this.kZs != null) {
             notifyDataSetChanged();
         }
     }
@@ -40,10 +40,10 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.kZq == null) {
+        if (this.kZs == null) {
             return 0;
         }
-        return this.kZq.size();
+        return this.kZs.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.kZq.get(i);
+        return this.kZs.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,13 +69,13 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mActivity.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
             C0806a c0806a2 = new C0806a();
-            c0806a2.kZs = (BarImageView) view.findViewById(R.id.forum_avatar);
-            c0806a2.kZs.setGifIconSupport(false);
+            c0806a2.kZu = (BarImageView) view.findViewById(R.id.forum_avatar);
+            c0806a2.kZu.setGifIconSupport(false);
             c0806a2.fdz = (TextView) view.findViewById(R.id.name);
-            c0806a2.kZt = (TextView) view.findViewById(R.id.forum_member_count);
-            c0806a2.kZu = (TextView) view.findViewById(R.id.forum_thread_count);
-            c0806a2.kZv = (TextView) view.findViewById(R.id.slogan);
-            c0806a2.kZr = view.findViewById(R.id.offical_icon);
+            c0806a2.kZv = (TextView) view.findViewById(R.id.forum_member_count);
+            c0806a2.kZw = (TextView) view.findViewById(R.id.forum_thread_count);
+            c0806a2.kZx = (TextView) view.findViewById(R.id.slogan);
+            c0806a2.kZt = view.findViewById(R.id.offical_icon);
             view.setTag(c0806a2);
             c0806a = c0806a2;
         } else {
@@ -85,29 +85,29 @@ public class a extends BaseAdapter {
         if (item != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            c0806a.kZs.setTag(str2);
-            c0806a.kZs.startLoad(str2, 10, false);
-            c0806a.kZs.invalidate();
-            if (this.kZp) {
+            c0806a.kZu.setTag(str2);
+            c0806a.kZu.startLoad(str2, 10, false);
+            c0806a.kZu.invalidate();
+            if (this.kZr) {
                 str = this.mActivity.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
             d(c0806a.fdz, str);
-            c0806a.kZs.setTag(item.avatar);
-            c0806a.kZt.setText(this.mActivity.getPageContext().getString(R.string.attention) + " " + FF(item.member_num));
-            c0806a.kZu.setText(this.mActivity.getPageContext().getString(R.string.text_post) + " " + FF(item.thread_num));
-            if (this.kZp || !TextUtils.isEmpty(item.slogan)) {
-                c0806a.kZv.setVisibility(0);
-                c0806a.kZv.setText(item.slogan);
+            c0806a.kZu.setTag(item.avatar);
+            c0806a.kZv.setText(this.mActivity.getPageContext().getString(R.string.attention) + " " + FF(item.member_num));
+            c0806a.kZw.setText(this.mActivity.getPageContext().getString(R.string.text_post) + " " + FF(item.thread_num));
+            if (this.kZr || !TextUtils.isEmpty(item.slogan)) {
+                c0806a.kZx.setVisibility(0);
+                c0806a.kZx.setText(item.slogan);
             } else {
-                c0806a.kZv.setVisibility(8);
+                c0806a.kZx.setVisibility(8);
             }
             if (item.is_offical == 1) {
-                c0806a.kZr.setVisibility(0);
-                ap.setBackgroundResource(c0806a.kZr, R.drawable.icon_search_official);
+                c0806a.kZt.setVisibility(0);
+                ap.setBackgroundResource(c0806a.kZt, R.drawable.icon_search_official);
             } else {
-                c0806a.kZr.setVisibility(8);
+                c0806a.kZt.setVisibility(8);
             }
             this.mActivity.getLayoutMode().setNightMode(skinType == 1);
             this.mActivity.getLayoutMode().onModeChanged(view);
@@ -142,11 +142,11 @@ public class a extends BaseAdapter {
     /* loaded from: classes24.dex */
     private class C0806a {
         TextView fdz;
-        View kZr;
-        BarImageView kZs;
-        TextView kZt;
-        TextView kZu;
+        View kZt;
+        BarImageView kZu;
         TextView kZv;
+        TextView kZw;
+        TextView kZx;
 
         private C0806a() {
         }

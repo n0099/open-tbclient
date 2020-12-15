@@ -22,11 +22,11 @@ import com.baidu.tieba.tbadkCore.i;
 /* loaded from: classes22.dex */
 public class g {
     private ForumData fxa;
-    private TbImageView iZC;
-    private i iZE;
-    private RoundAdapterLinearLayout iZG;
-    private TextView iZH;
-    private FrsAdCommentScrollView iZI;
+    private TbImageView iZE;
+    private i iZG;
+    private RoundAdapterLinearLayout iZI;
+    private TextView iZJ;
+    private FrsAdCommentScrollView iZK;
     private Context mContext;
     private TextView mTitleView;
 
@@ -36,34 +36,34 @@ public class g {
     }
 
     private void initView() {
-        this.iZG = (RoundAdapterLinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.frs_top_ad_view, (ViewGroup) null);
-        this.iZG.setRadius(this.mContext.getResources().getDimension(R.dimen.tbds20));
-        this.mTitleView = (TextView) this.iZG.findViewById(R.id.frs_top_ad_title);
-        this.iZH = (TextView) this.iZG.findViewById(R.id.frs_top_person_num);
-        this.iZC = (TbImageView) this.iZG.findViewById(R.id.frs_top_ad_img);
-        this.iZC.setDefaultBgResource(R.color.white_alpha100);
-        this.iZI = (FrsAdCommentScrollView) this.iZG.findViewById(R.id.ad_comment_scroll_view);
-        this.iZG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.g.1
+        this.iZI = (RoundAdapterLinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.frs_top_ad_view, (ViewGroup) null);
+        this.iZI.setRadius(this.mContext.getResources().getDimension(R.dimen.tbds20));
+        this.mTitleView = (TextView) this.iZI.findViewById(R.id.frs_top_ad_title);
+        this.iZJ = (TextView) this.iZI.findViewById(R.id.frs_top_person_num);
+        this.iZE = (TbImageView) this.iZI.findViewById(R.id.frs_top_ad_img);
+        this.iZE.setDefaultBgResource(R.color.white_alpha100);
+        this.iZK = (FrsAdCommentScrollView) this.iZI.findViewById(R.id.ad_comment_scroll_view);
+        this.iZI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int i;
-                if (g.this.iZE != null && !StringUtils.isNull(g.this.iZE.getUrl())) {
-                    bf.bua().a((TbPageContext) com.baidu.adp.base.i.J(g.this.mContext), new String[]{g.this.iZE.getUrl()}, true);
+                if (g.this.iZG != null && !StringUtils.isNull(g.this.iZG.getUrl())) {
+                    bf.bua().a((TbPageContext) com.baidu.adp.base.i.J(g.this.mContext), new String[]{g.this.iZG.getUrl()}, true);
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                    httpMessage.addParam("id", g.this.iZE.getId());
+                    httpMessage.addParam("id", g.this.iZG.getId());
                     MessageManager.getInstance().sendMessage(httpMessage);
                     ar arVar = new ar("common_click");
                     arVar.dY("page_type", PageStayDurationConstants.PageName.FRS);
                     arVar.dY("obj_isad", "1");
-                    if (g.this.iZE.getType() == 1) {
+                    if (g.this.iZG.getType() == 1) {
                         i = 6;
-                    } else if (g.this.iZE.getType() == 2) {
+                    } else if (g.this.iZG.getType() == 2) {
                         i = 7;
                     } else {
-                        i = g.this.iZE.getType() == 3 ? 8 : 6;
+                        i = g.this.iZG.getType() == 3 ? 8 : 6;
                     }
                     arVar.al("obj_adlocate", i);
-                    arVar.w("obj_id", g.this.iZE.getId());
+                    arVar.w("obj_id", g.this.iZG.getId());
                     arVar.al("obj_locate", 3);
                     arVar.al("obj_floor", 1);
                     if (g.this.fxa != null) {
@@ -71,9 +71,9 @@ public class g {
                         arVar.dY("first_dir", g.this.fxa.getFirst_class());
                         arVar.dY("second_dir", g.this.fxa.getSecond_class());
                     }
-                    if (g.this.iZE.getType() == 1) {
-                        arVar.dY("tid", g.this.iZE.getThreadId());
-                        arVar.al("thread_type", g.this.iZE.getThreadType());
+                    if (g.this.iZG.getType() == 1) {
+                        arVar.dY("tid", g.this.iZG.getThreadId());
+                        arVar.al("thread_type", g.this.iZG.getThreadType());
                     }
                     TiebaStatic.log(arVar);
                 }
@@ -82,41 +82,41 @@ public class g {
     }
 
     public View getView() {
-        return this.iZG;
+        return this.iZI;
     }
 
     public void cb(boolean z) {
-        if (this.iZI != null) {
-            this.iZI.cb(z);
+        if (this.iZK != null) {
+            this.iZK.cb(z);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.iZC.invalidate();
+        this.iZE.invalidate();
     }
 
     public void a(ForumData forumData, i iVar) {
         if (iVar != null) {
             this.fxa = forumData;
-            this.iZE = iVar;
-            this.mTitleView.setText(this.iZE.getTitle());
+            this.iZG = iVar;
+            this.mTitleView.setText(this.iZG.getTitle());
             if (iVar.getType() == 3) {
-                this.iZH.setText(this.mContext.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.iZE.dOi())));
+                this.iZJ.setText(this.mContext.getString(R.string.frs_top_ad_download_num, Integer.valueOf(this.iZG.dOj())));
             } else if (iVar.getType() == 1) {
-                this.iZH.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.iZE.dOi())));
+                this.iZJ.setText(this.mContext.getString(R.string.frs_top_ad_person_num, Integer.valueOf(this.iZG.dOj())));
             } else if (iVar.getType() == 2) {
-                this.iZH.setText(this.mContext.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.iZE.dOi())));
+                this.iZJ.setText(this.mContext.getString(R.string.frs_top_ad_appointment_num, Integer.valueOf(this.iZG.dOj())));
             }
-            this.iZC.startLoad(this.iZE.getImg(), 10, false);
-            if (this.iZI != null) {
-                this.iZI.cb(this.iZE.dOj());
+            this.iZE.startLoad(this.iZG.getImg(), 10, false);
+            if (this.iZK != null) {
+                this.iZK.cb(this.iZG.dOk());
             }
         }
     }
 
     public void onDestroy() {
-        if (this.iZI != null) {
-            this.iZI.onDestroy();
+        if (this.iZK != null) {
+            this.iZK.onDestroy();
         }
     }
 }

@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes21.dex */
 public class a {
-    private ArrayList<Integer> fYv;
-    private c fYw;
+    private ArrayList<Integer> fYx;
+    private c fYy;
     private HashMap<String, b> mData = new HashMap<>();
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.fYv = arrayList;
-        this.fYw = cVar;
+        this.fYx = arrayList;
+        this.fYy = cVar;
     }
 
     public int ax(String str, int i) {
-        if (this.mData == null || au.isEmpty(str) || this.fYv == null || !this.fYv.contains(Integer.valueOf(i))) {
+        if (this.mData == null || au.isEmpty(str) || this.fYx == null || !this.fYx.contains(Integer.valueOf(i))) {
             return 0;
         }
         if (!this.mData.containsKey(str)) {
@@ -29,15 +29,15 @@ public class a {
     }
 
     public void Fm(String str) {
-        if (this.mData != null && !au.isEmpty(str) && this.fYw != null) {
+        if (this.mData != null && !au.isEmpty(str) && this.fYy != null) {
             if (this.mData.containsKey(str)) {
                 b bVar = this.mData.get(str);
-                this.fYw.a(this.fYv, bVar);
+                this.fYy.a(this.fYx, bVar);
                 this.mData.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.fYw.a(this.fYv, bVar2);
+            this.fYy.a(this.fYx, bVar2);
             this.mData.put(str, bVar2);
         }
     }

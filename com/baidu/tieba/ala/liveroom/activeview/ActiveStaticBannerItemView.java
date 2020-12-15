@@ -12,9 +12,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
 public class ActiveStaticBannerItemView extends FrameLayout implements c {
-    private a hdC;
-    private TbImageView hdD;
-    private View hdE;
+    private a hdE;
+    private TbImageView hdF;
+    private View hdG;
 
     public ActiveStaticBannerItemView(@NonNull Context context) {
         super(context);
@@ -23,17 +23,17 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setCallback(a aVar) {
-        this.hdC = aVar;
+        this.hdE = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setData(boolean z, w wVar, o oVar) {
         if (oVar != null) {
-            this.hdD.startLoad(oVar.pic_url, 10, false);
+            this.hdF.startLoad(oVar.pic_url, 10, false);
             if (oVar.aJy) {
-                this.hdE.setVisibility(0);
+                this.hdG.setVisibility(0);
             } else {
-                this.hdE.setVisibility(4);
+                this.hdG.setVisibility(4);
             }
         }
     }
@@ -48,21 +48,21 @@ public class ActiveStaticBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        this.hdC = null;
+        this.hdE = null;
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_active_view_item, (ViewGroup) this, true);
-        this.hdD = (TbImageView) findViewById(a.f.ala_live_active_view_img);
-        this.hdE = findViewById(a.f.new_icon);
-        this.hdD.setDefaultErrorResource(0);
-        this.hdD.setDefaultBgResource(a.c.sdk_transparent);
-        this.hdD.setAutoChangeStyle(false);
+        this.hdF = (TbImageView) findViewById(a.f.ala_live_active_view_img);
+        this.hdG = findViewById(a.f.new_icon);
+        this.hdF.setDefaultErrorResource(0);
+        this.hdF.setDefaultBgResource(a.c.sdk_transparent);
+        this.hdF.setAutoChangeStyle(false);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveStaticBannerItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ActiveStaticBannerItemView.this.hdC != null) {
-                    ActiveStaticBannerItemView.this.hdC.bZS();
+                if (ActiveStaticBannerItemView.this.hdE != null) {
+                    ActiveStaticBannerItemView.this.hdE.bZT();
                 }
             }
         });

@@ -14,15 +14,15 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class ObservableConcatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final h<? super T, ? extends t<? extends U>> mapper;
-    final ErrorMode pGC;
+    final ErrorMode pGE;
 
     @Override // io.reactivex.q
     public void a(u<? super U> uVar) {
         if (!ObservableScalarXMap.a(this.source, uVar, this.mapper)) {
-            if (this.pGC == ErrorMode.IMMEDIATE) {
+            if (this.pGE == ErrorMode.IMMEDIATE) {
                 this.source.subscribe(new SourceObserver(new io.reactivex.observers.b(uVar), this.mapper, this.bufferSize));
             } else {
-                this.source.subscribe(new ConcatMapDelayErrorObserver(uVar, this.mapper, this.bufferSize, this.pGC == ErrorMode.END));
+                this.source.subscribe(new ConcatMapDelayErrorObserver(uVar, this.mapper, this.bufferSize, this.pGE == ErrorMode.END));
             }
         }
     }

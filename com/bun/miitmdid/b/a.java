@@ -10,7 +10,7 @@ public class a {
 
     public static String a() {
         if (TextUtils.isEmpty(f3979a)) {
-            f3979a = "miitmdid(sdkv_" + sysParamters.eow().c() + ")";
+            f3979a = "miitmdid(sdkv_" + sysParamters.eox().c() + ")";
             return f3979a;
         }
         return f3979a;

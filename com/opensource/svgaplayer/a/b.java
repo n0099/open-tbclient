@@ -27,22 +27,22 @@ import kotlin.text.l;
 @e
 /* loaded from: classes18.dex */
 public final class b extends com.opensource.svgaplayer.a.a {
-    private final c pyt;
-    private final C1014b pzt;
-    private final HashMap<String, Bitmap> pzu;
-    private final a pzv;
-    private final float[] pzw;
+    private final c pyv;
+    private final C1014b pzv;
+    private final HashMap<String, Bitmap> pzw;
+    private final a pzx;
+    private final float[] pzy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(f fVar, c cVar) {
         super(fVar);
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pyt = cVar;
-        this.pzt = new C1014b();
-        this.pzu = new HashMap<>();
-        this.pzv = new a();
-        this.pzw = new float[16];
+        this.pyv = cVar;
+        this.pzv = new C1014b();
+        this.pzw = new HashMap<>();
+        this.pzx = new a();
+        this.pzy = new float[16];
     }
 
     @Override // com.opensource.svgaplayer.a.a
@@ -50,7 +50,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
         p.o(canvas, "canvas");
         p.o(scaleType, "scaleType");
         super.a(canvas, i, scaleType);
-        this.pzv.at(canvas);
+        this.pzx.at(canvas);
         for (a.C1013a c1013a : RC(i)) {
             a(c1013a, canvas, i);
         }
@@ -58,19 +58,19 @@ public final class b extends com.opensource.svgaplayer.a.a {
     }
 
     private final void RD(int i) {
-        SoundPool ezT;
-        Integer eAf;
-        for (com.opensource.svgaplayer.entities.a aVar : ezA().ezS()) {
-            if (aVar.eAd() == i && (ezT = ezA().ezT()) != null && (eAf = aVar.eAf()) != null) {
-                aVar.u(Integer.valueOf(ezT.play(eAf.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
+        SoundPool ezU;
+        Integer eAg;
+        for (com.opensource.svgaplayer.entities.a aVar : ezB().ezT()) {
+            if (aVar.eAe() == i && (ezU = ezB().ezU()) != null && (eAg = aVar.eAg()) != null) {
+                aVar.u(Integer.valueOf(ezU.play(eAg.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
             }
-            if (aVar.eAe() <= i) {
-                Integer eAg = aVar.eAg();
-                if (eAg != null) {
-                    int intValue = eAg.intValue();
-                    SoundPool ezT2 = ezA().ezT();
-                    if (ezT2 != null) {
-                        ezT2.stop(intValue);
+            if (aVar.eAf() <= i) {
+                Integer eAh = aVar.eAh();
+                if (eAh != null) {
+                    int intValue = eAh.intValue();
+                    SoundPool ezU2 = ezB().ezU();
+                    if (ezU2 != null) {
+                        ezU2.stop(intValue);
                     }
                 }
                 aVar.u(null);
@@ -79,11 +79,11 @@ public final class b extends com.opensource.svgaplayer.a.a {
     }
 
     private final Matrix e(Matrix matrix) {
-        Matrix eAb = this.pzt.eAb();
-        eAb.postScale(ezW().eAA(), ezW().eAB());
-        eAb.postTranslate(ezW().eAy(), ezW().eAz());
-        eAb.preConcat(matrix);
-        return eAb;
+        Matrix eAc = this.pzv.eAc();
+        eAc.postScale(ezX().eAB(), ezX().eAC());
+        eAc.postTranslate(ezX().eAz(), ezX().eAA());
+        eAc.preConcat(matrix);
+        return eAc;
     }
 
     private final void a(a.C1013a c1013a, Canvas canvas, int i) {
@@ -94,35 +94,35 @@ public final class b extends com.opensource.svgaplayer.a.a {
 
     private final void a(a.C1013a c1013a, Canvas canvas) {
         String imageKey = c1013a.getImageKey();
-        if (imageKey != null && !p.l(this.pyt.ezB().get(imageKey), true)) {
-            Bitmap bitmap = this.pyt.ezC().get(imageKey);
+        if (imageKey != null && !p.l(this.pyv.ezC().get(imageKey), true)) {
+            Bitmap bitmap = this.pyv.ezD().get(imageKey);
             if (bitmap == null) {
-                bitmap = ezA().ezU().get(imageKey);
+                bitmap = ezB().ezV().get(imageKey);
             }
             if (bitmap != null) {
-                Matrix e = e(c1013a.ezX().eAj());
-                Paint ezY = this.pzt.ezY();
-                ezY.setAntiAlias(ezA().ezO());
-                ezY.setFilterBitmap(ezA().ezO());
-                ezY.setAlpha((int) (c1013a.ezX().eAv() * 255));
-                if (c1013a.ezX().eAx() != null) {
-                    com.opensource.svgaplayer.entities.b eAx = c1013a.ezX().eAx();
-                    if (eAx != null) {
+                Matrix e = e(c1013a.ezY().eAk());
+                Paint ezZ = this.pzv.ezZ();
+                ezZ.setAntiAlias(ezB().ezP());
+                ezZ.setFilterBitmap(ezB().ezP());
+                ezZ.setAlpha((int) (c1013a.ezY().eAw() * 255));
+                if (c1013a.ezY().eAy() != null) {
+                    com.opensource.svgaplayer.entities.b eAy = c1013a.ezY().eAy();
+                    if (eAy != null) {
                         canvas.save();
-                        ezY.reset();
-                        Path ezZ = this.pzt.ezZ();
-                        eAx.a(ezZ);
-                        ezZ.transform(e);
-                        canvas.clipPath(ezZ);
-                        e.preScale((float) (c1013a.ezX().eAw().getWidth() / bitmap.getWidth()), (float) (c1013a.ezX().eAw().getWidth() / bitmap.getWidth()));
-                        canvas.drawBitmap(bitmap, e, ezY);
+                        ezZ.reset();
+                        Path eAa = this.pzv.eAa();
+                        eAy.a(eAa);
+                        eAa.transform(e);
+                        canvas.clipPath(eAa);
+                        e.preScale((float) (c1013a.ezY().eAx().getWidth() / bitmap.getWidth()), (float) (c1013a.ezY().eAx().getWidth() / bitmap.getWidth()));
+                        canvas.drawBitmap(bitmap, e, ezZ);
                         canvas.restore();
                     } else {
                         return;
                     }
                 } else {
-                    e.preScale((float) (c1013a.ezX().eAw().getWidth() / bitmap.getWidth()), (float) (c1013a.ezX().eAw().getWidth() / bitmap.getWidth()));
-                    canvas.drawBitmap(bitmap, e, ezY);
+                    e.preScale((float) (c1013a.ezY().eAx().getWidth() / bitmap.getWidth()), (float) (c1013a.ezY().eAx().getWidth() / bitmap.getWidth()));
+                    canvas.drawBitmap(bitmap, e, ezZ);
                 }
                 a(canvas, bitmap, c1013a, e);
             }
@@ -132,24 +132,24 @@ public final class b extends com.opensource.svgaplayer.a.a {
     private final void a(Canvas canvas, Bitmap bitmap, a.C1013a c1013a, Matrix matrix) {
         Bitmap bitmap2;
         Rect rect;
-        if (this.pyt.ezI()) {
-            this.pzu.clear();
-            this.pyt.Bi(false);
+        if (this.pyv.ezJ()) {
+            this.pzw.clear();
+            this.pyv.Bi(false);
         }
         String imageKey = c1013a.getImageKey();
         if (imageKey != null) {
             Bitmap bitmap3 = null;
-            String str = this.pyt.ezD().get(imageKey);
+            String str = this.pyv.ezE().get(imageKey);
             if (str != null) {
-                TextPaint textPaint = this.pyt.ezE().get(imageKey);
-                if (textPaint != null && (bitmap3 = this.pzu.get(imageKey)) == null) {
+                TextPaint textPaint = this.pyv.ezF().get(imageKey);
+                if (textPaint != null && (bitmap3 = this.pzw.get(imageKey)) == null) {
                     Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
                     Canvas canvas2 = new Canvas(createBitmap);
                     p.n(textPaint, "drawingTextPaint");
                     textPaint.setAntiAlias(true);
                     textPaint.getTextBounds(str, 0, str.length(), new Rect());
                     canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((0 + bitmap.getHeight()) - textPaint.getFontMetrics().bottom) - textPaint.getFontMetrics().top) / 2, textPaint);
-                    HashMap<String, Bitmap> hashMap = this.pzu;
+                    HashMap<String, Bitmap> hashMap = this.pzw;
                     if (createBitmap == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
@@ -160,9 +160,9 @@ public final class b extends com.opensource.svgaplayer.a.a {
             } else {
                 bitmap2 = bitmap3;
             }
-            StaticLayout staticLayout = this.pyt.ezF().get(imageKey);
+            StaticLayout staticLayout = this.pyv.ezG().get(imageKey);
             if (staticLayout != null) {
-                Bitmap bitmap4 = this.pzu.get(imageKey);
+                Bitmap bitmap4 = this.pzw.get(imageKey);
                 if (bitmap4 == null) {
                     p.n(staticLayout, AdvanceSetting.NETWORK_TYPE);
                     TextPaint paint = staticLayout.getPaint();
@@ -173,7 +173,7 @@ public final class b extends com.opensource.svgaplayer.a.a {
                     Canvas canvas3 = new Canvas(createBitmap2);
                     canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout2.getHeight()) / 2);
                     staticLayout2.draw(canvas3);
-                    HashMap<String, Bitmap> hashMap2 = this.pzu;
+                    HashMap<String, Bitmap> hashMap2 = this.pzw;
                     if (createBitmap2 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
@@ -183,129 +183,129 @@ public final class b extends com.opensource.svgaplayer.a.a {
                 bitmap2 = bitmap4;
             }
             if (bitmap2 != null) {
-                Paint ezY = this.pzt.ezY();
-                ezY.setAntiAlias(ezA().ezO());
-                if (c1013a.ezX().eAx() != null) {
-                    com.opensource.svgaplayer.entities.b eAx = c1013a.ezX().eAx();
-                    if (eAx != null) {
+                Paint ezZ = this.pzv.ezZ();
+                ezZ.setAntiAlias(ezB().ezP());
+                if (c1013a.ezY().eAy() != null) {
+                    com.opensource.svgaplayer.entities.b eAy = c1013a.ezY().eAy();
+                    if (eAy != null) {
                         canvas.save();
                         canvas.concat(matrix);
                         canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                        ezY.setShader(new BitmapShader(bitmap2, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
-                        Path ezZ = this.pzt.ezZ();
-                        eAx.a(ezZ);
-                        canvas.drawPath(ezZ, ezY);
+                        ezZ.setShader(new BitmapShader(bitmap2, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
+                        Path eAa = this.pzv.eAa();
+                        eAy.a(eAa);
+                        canvas.drawPath(eAa, ezZ);
                         canvas.restore();
                         return;
                     }
                     return;
                 }
-                ezY.setFilterBitmap(ezA().ezO());
-                canvas.drawBitmap(bitmap2, matrix, ezY);
+                ezZ.setFilterBitmap(ezB().ezP());
+                canvas.drawBitmap(bitmap2, matrix, ezZ);
             }
         }
     }
 
     private final void b(a.C1013a c1013a, Canvas canvas) {
-        float[] eAs;
+        float[] eAt;
+        String eAr;
         String eAq;
-        String eAp;
-        int eAn;
-        Matrix e = e(c1013a.ezX().eAj());
-        for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c1013a.ezX().jz()) {
-            sVGAVideoShapeEntity.eAm();
-            if (sVGAVideoShapeEntity.eAl() != null) {
-                Paint ezY = this.pzt.ezY();
-                ezY.reset();
-                ezY.setAntiAlias(ezA().ezO());
-                ezY.setAlpha((int) (c1013a.ezX().eAv() * 255));
-                Path ezZ = this.pzt.ezZ();
+        int eAo;
+        Matrix e = e(c1013a.ezY().eAk());
+        for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c1013a.ezY().jz()) {
+            sVGAVideoShapeEntity.eAn();
+            if (sVGAVideoShapeEntity.eAm() != null) {
+                Paint ezZ = this.pzv.ezZ();
                 ezZ.reset();
-                ezZ.addPath(this.pzv.a(sVGAVideoShapeEntity));
-                Matrix eAc = this.pzt.eAc();
-                eAc.reset();
-                Matrix eAj = sVGAVideoShapeEntity.eAj();
-                if (eAj != null) {
-                    eAc.postConcat(eAj);
+                ezZ.setAntiAlias(ezB().ezP());
+                ezZ.setAlpha((int) (c1013a.ezY().eAw() * 255));
+                Path eAa = this.pzv.eAa();
+                eAa.reset();
+                eAa.addPath(this.pzx.a(sVGAVideoShapeEntity));
+                Matrix eAd = this.pzv.eAd();
+                eAd.reset();
+                Matrix eAk = sVGAVideoShapeEntity.eAk();
+                if (eAk != null) {
+                    eAd.postConcat(eAk);
                 }
-                eAc.postConcat(e);
-                ezZ.transform(eAc);
-                SVGAVideoShapeEntity.a eAi = sVGAVideoShapeEntity.eAi();
-                if (eAi != null && (eAn = eAi.eAn()) != 0) {
-                    ezY.setStyle(Paint.Style.FILL);
-                    ezY.setColor(eAn);
-                    ezY.setAlpha(Math.min(255, Math.max(0, (int) (c1013a.ezX().eAv() * 255))));
-                    if (c1013a.ezX().eAx() != null) {
+                eAd.postConcat(e);
+                eAa.transform(eAd);
+                SVGAVideoShapeEntity.a eAj = sVGAVideoShapeEntity.eAj();
+                if (eAj != null && (eAo = eAj.eAo()) != 0) {
+                    ezZ.setStyle(Paint.Style.FILL);
+                    ezZ.setColor(eAo);
+                    ezZ.setAlpha(Math.min(255, Math.max(0, (int) (c1013a.ezY().eAw() * 255))));
+                    if (c1013a.ezY().eAy() != null) {
                         canvas.save();
                     }
-                    com.opensource.svgaplayer.entities.b eAx = c1013a.ezX().eAx();
-                    if (eAx != null) {
-                        Path eAa = this.pzt.eAa();
-                        eAx.a(eAa);
-                        eAa.transform(e);
-                        canvas.clipPath(eAa);
+                    com.opensource.svgaplayer.entities.b eAy = c1013a.ezY().eAy();
+                    if (eAy != null) {
+                        Path eAb = this.pzv.eAb();
+                        eAy.a(eAb);
+                        eAb.transform(e);
+                        canvas.clipPath(eAb);
                     }
-                    canvas.drawPath(ezZ, ezY);
-                    if (c1013a.ezX().eAx() != null) {
+                    canvas.drawPath(eAa, ezZ);
+                    if (c1013a.ezY().eAy() != null) {
                         canvas.restore();
                     }
                 }
-                SVGAVideoShapeEntity.a eAi2 = sVGAVideoShapeEntity.eAi();
-                if (eAi2 != null && eAi2.getStrokeWidth() > 0) {
-                    ezY.setStyle(Paint.Style.STROKE);
-                    SVGAVideoShapeEntity.a eAi3 = sVGAVideoShapeEntity.eAi();
-                    if (eAi3 != null) {
-                        ezY.setColor(eAi3.eAo());
-                        ezY.setAlpha(Math.min(255, Math.max(0, (int) (c1013a.ezX().eAv() * 255))));
+                SVGAVideoShapeEntity.a eAj2 = sVGAVideoShapeEntity.eAj();
+                if (eAj2 != null && eAj2.getStrokeWidth() > 0) {
+                    ezZ.setStyle(Paint.Style.STROKE);
+                    SVGAVideoShapeEntity.a eAj3 = sVGAVideoShapeEntity.eAj();
+                    if (eAj3 != null) {
+                        ezZ.setColor(eAj3.eAp());
+                        ezZ.setAlpha(Math.min(255, Math.max(0, (int) (c1013a.ezY().eAw() * 255))));
                     }
                     float f = f(e);
-                    SVGAVideoShapeEntity.a eAi4 = sVGAVideoShapeEntity.eAi();
-                    if (eAi4 != null) {
-                        ezY.setStrokeWidth(eAi4.getStrokeWidth() * f);
+                    SVGAVideoShapeEntity.a eAj4 = sVGAVideoShapeEntity.eAj();
+                    if (eAj4 != null) {
+                        ezZ.setStrokeWidth(eAj4.getStrokeWidth() * f);
                     }
-                    SVGAVideoShapeEntity.a eAi5 = sVGAVideoShapeEntity.eAi();
-                    if (eAi5 != null && (eAp = eAi5.eAp()) != null) {
-                        if (l.K(eAp, "butt", true)) {
-                            ezY.setStrokeCap(Paint.Cap.BUTT);
-                        } else if (l.K(eAp, "round", true)) {
-                            ezY.setStrokeCap(Paint.Cap.ROUND);
-                        } else if (l.K(eAp, "square", true)) {
-                            ezY.setStrokeCap(Paint.Cap.SQUARE);
-                        }
-                    }
-                    SVGAVideoShapeEntity.a eAi6 = sVGAVideoShapeEntity.eAi();
-                    if (eAi6 != null && (eAq = eAi6.eAq()) != null) {
-                        if (l.K(eAq, "miter", true)) {
-                            ezY.setStrokeJoin(Paint.Join.MITER);
+                    SVGAVideoShapeEntity.a eAj5 = sVGAVideoShapeEntity.eAj();
+                    if (eAj5 != null && (eAq = eAj5.eAq()) != null) {
+                        if (l.K(eAq, "butt", true)) {
+                            ezZ.setStrokeCap(Paint.Cap.BUTT);
                         } else if (l.K(eAq, "round", true)) {
-                            ezY.setStrokeJoin(Paint.Join.ROUND);
-                        } else if (l.K(eAq, "bevel", true)) {
-                            ezY.setStrokeJoin(Paint.Join.BEVEL);
+                            ezZ.setStrokeCap(Paint.Cap.ROUND);
+                        } else if (l.K(eAq, "square", true)) {
+                            ezZ.setStrokeCap(Paint.Cap.SQUARE);
                         }
                     }
-                    SVGAVideoShapeEntity.a eAi7 = sVGAVideoShapeEntity.eAi();
-                    if (eAi7 != null) {
-                        ezY.setStrokeMiter(eAi7.eAr() * f);
+                    SVGAVideoShapeEntity.a eAj6 = sVGAVideoShapeEntity.eAj();
+                    if (eAj6 != null && (eAr = eAj6.eAr()) != null) {
+                        if (l.K(eAr, "miter", true)) {
+                            ezZ.setStrokeJoin(Paint.Join.MITER);
+                        } else if (l.K(eAr, "round", true)) {
+                            ezZ.setStrokeJoin(Paint.Join.ROUND);
+                        } else if (l.K(eAr, "bevel", true)) {
+                            ezZ.setStrokeJoin(Paint.Join.BEVEL);
+                        }
                     }
-                    SVGAVideoShapeEntity.a eAi8 = sVGAVideoShapeEntity.eAi();
-                    if (eAi8 != null && (eAs = eAi8.eAs()) != null && eAs.length == 3 && (eAs[0] > 0 || eAs[1] > 0)) {
+                    SVGAVideoShapeEntity.a eAj7 = sVGAVideoShapeEntity.eAj();
+                    if (eAj7 != null) {
+                        ezZ.setStrokeMiter(eAj7.eAs() * f);
+                    }
+                    SVGAVideoShapeEntity.a eAj8 = sVGAVideoShapeEntity.eAj();
+                    if (eAj8 != null && (eAt = eAj8.eAt()) != null && eAt.length == 3 && (eAt[0] > 0 || eAt[1] > 0)) {
                         float[] fArr = new float[2];
-                        fArr[0] = (eAs[0] < 1.0f ? 1.0f : eAs[0]) * f;
-                        fArr[1] = (eAs[1] < 0.1f ? 0.1f : eAs[1]) * f;
-                        ezY.setPathEffect(new DashPathEffect(fArr, eAs[2] * f));
+                        fArr[0] = (eAt[0] < 1.0f ? 1.0f : eAt[0]) * f;
+                        fArr[1] = (eAt[1] < 0.1f ? 0.1f : eAt[1]) * f;
+                        ezZ.setPathEffect(new DashPathEffect(fArr, eAt[2] * f));
                     }
-                    if (c1013a.ezX().eAx() != null) {
+                    if (c1013a.ezY().eAy() != null) {
                         canvas.save();
                     }
-                    com.opensource.svgaplayer.entities.b eAx2 = c1013a.ezX().eAx();
-                    if (eAx2 != null) {
-                        Path eAa2 = this.pzt.eAa();
-                        eAx2.a(eAa2);
-                        eAa2.transform(e);
-                        canvas.clipPath(eAa2);
+                    com.opensource.svgaplayer.entities.b eAy2 = c1013a.ezY().eAy();
+                    if (eAy2 != null) {
+                        Path eAb2 = this.pzv.eAb();
+                        eAy2.a(eAb2);
+                        eAb2.transform(e);
+                        canvas.clipPath(eAb2);
                     }
-                    canvas.drawPath(ezZ, ezY);
-                    if (c1013a.ezX().eAx() != null) {
+                    canvas.drawPath(eAa, ezZ);
+                    if (c1013a.ezY().eAy() != null) {
                         canvas.restore();
                     }
                 }
@@ -314,14 +314,14 @@ public final class b extends com.opensource.svgaplayer.a.a {
     }
 
     private final float f(Matrix matrix) {
-        matrix.getValues(this.pzw);
-        if (this.pzw[0] == 0.0f) {
+        matrix.getValues(this.pzy);
+        if (this.pzy[0] == 0.0f) {
             return 0.0f;
         }
-        double d = this.pzw[0];
-        double d2 = this.pzw[3];
-        double d3 = this.pzw[1];
-        double d4 = this.pzw[4];
+        double d = this.pzy[0];
+        double d2 = this.pzy[3];
+        double d3 = this.pzy[1];
+        double d4 = this.pzy[4];
         if (d * d4 == d2 * d3) {
             return 0.0f;
         }
@@ -336,26 +336,26 @@ public final class b extends com.opensource.svgaplayer.a.a {
         if (d5 * (d9 / sqrt2) < d6 * (d8 / sqrt2)) {
             sqrt = -sqrt;
         }
-        return ezW().eAC() ? Math.abs((float) sqrt) : Math.abs((float) sqrt2);
+        return ezX().eAD() ? Math.abs((float) sqrt) : Math.abs((float) sqrt2);
     }
 
     private final void b(a.C1013a c1013a, Canvas canvas, int i) {
         String imageKey = c1013a.getImageKey();
         if (imageKey != null) {
-            kotlin.jvm.a.c<Canvas, Integer, Boolean> cVar = this.pyt.ezG().get(imageKey);
+            kotlin.jvm.a.c<Canvas, Integer, Boolean> cVar = this.pyv.ezH().get(imageKey);
             if (cVar != null) {
-                Matrix e = e(c1013a.ezX().eAj());
+                Matrix e = e(c1013a.ezY().eAk());
                 canvas.save();
                 canvas.concat(e);
                 cVar.invoke(canvas, Integer.valueOf(i));
                 canvas.restore();
             }
-            d<Canvas, Integer, Integer, Integer, Boolean> dVar = this.pyt.ezH().get(imageKey);
+            d<Canvas, Integer, Integer, Integer, Boolean> dVar = this.pyv.ezI().get(imageKey);
             if (dVar != null) {
-                Matrix e2 = e(c1013a.ezX().eAj());
+                Matrix e2 = e(c1013a.ezY().eAk());
                 canvas.save();
                 canvas.concat(e2);
-                dVar.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) c1013a.ezX().eAw().getWidth()), Integer.valueOf((int) c1013a.ezX().eAw().getHeight()));
+                dVar.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) c1013a.ezY().eAx().getWidth()), Integer.valueOf((int) c1013a.ezY().eAx().getHeight()));
                 canvas.restore();
             }
         }
@@ -365,35 +365,35 @@ public final class b extends com.opensource.svgaplayer.a.a {
     /* renamed from: com.opensource.svgaplayer.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes18.dex */
     public static final class C1014b {
-        private final Paint pzy = new Paint();
-        private final Path pzz = new Path();
-        private final Path pzA = new Path();
-        private final Matrix pzB = new Matrix();
-        private final Matrix pzC = new Matrix();
+        private final Paint pzA = new Paint();
+        private final Path pzB = new Path();
+        private final Path pzC = new Path();
+        private final Matrix pzD = new Matrix();
+        private final Matrix pzE = new Matrix();
 
-        public final Paint ezY() {
-            this.pzy.reset();
-            return this.pzy;
-        }
-
-        public final Path ezZ() {
-            this.pzz.reset();
-            return this.pzz;
-        }
-
-        public final Path eAa() {
+        public final Paint ezZ() {
             this.pzA.reset();
             return this.pzA;
         }
 
-        public final Matrix eAb() {
+        public final Path eAa() {
             this.pzB.reset();
             return this.pzB;
         }
 
-        public final Matrix eAc() {
+        public final Path eAb() {
             this.pzC.reset();
             return this.pzC;
+        }
+
+        public final Matrix eAc() {
+            this.pzD.reset();
+            return this.pzD;
+        }
+
+        public final Matrix eAd() {
+            this.pzE.reset();
+            return this.pzE;
         }
     }
 
@@ -402,12 +402,12 @@ public final class b extends com.opensource.svgaplayer.a.a {
     public static final class a {
         private int canvasHeight;
         private int canvasWidth;
-        private final HashMap<SVGAVideoShapeEntity, Path> pzx = new HashMap<>();
+        private final HashMap<SVGAVideoShapeEntity, Path> pzz = new HashMap<>();
 
         public final void at(Canvas canvas) {
             p.o(canvas, "canvas");
             if (this.canvasWidth != canvas.getWidth() || this.canvasHeight != canvas.getHeight()) {
-                this.pzx.clear();
+                this.pzz.clear();
             }
             this.canvasWidth = canvas.getWidth();
             this.canvasHeight = canvas.getHeight();
@@ -415,14 +415,14 @@ public final class b extends com.opensource.svgaplayer.a.a {
 
         public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
             p.o(sVGAVideoShapeEntity, "shape");
-            if (!this.pzx.containsKey(sVGAVideoShapeEntity)) {
+            if (!this.pzz.containsKey(sVGAVideoShapeEntity)) {
                 Path path = new Path();
-                path.set(sVGAVideoShapeEntity.eAl());
-                this.pzx.put(sVGAVideoShapeEntity, path);
+                path.set(sVGAVideoShapeEntity.eAm());
+                this.pzz.put(sVGAVideoShapeEntity, path);
             }
-            Path path2 = this.pzx.get(sVGAVideoShapeEntity);
+            Path path2 = this.pzz.get(sVGAVideoShapeEntity);
             if (path2 == null) {
-                p.eDZ();
+                p.eEa();
             }
             return path2;
         }

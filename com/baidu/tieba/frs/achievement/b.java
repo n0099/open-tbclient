@@ -16,8 +16,6 @@ public class b {
     private TbPageContext context;
     public String fid;
     public String fname;
-    public String iYB;
-    public String iYC;
     public String iYD;
     public String iYE;
     public String iYF;
@@ -30,6 +28,8 @@ public class b {
     public String iYM;
     public String iYN;
     public String iYO;
+    public String iYP;
+    public String iYQ;
     public String nickName;
     public String shareUrl;
     public String url;
@@ -38,7 +38,7 @@ public class b {
         this.context = tbPageContext;
     }
 
-    public void cED() {
+    public void cEE() {
         Uri parse;
         if (this.context.getPageActivity() != null && this.context.getPageActivity().getIntent() != null) {
             this.url = this.context.getPageActivity().getIntent().getStringExtra("key_url");
@@ -47,37 +47,37 @@ public class b {
                 this.nickName = parse.getQueryParameter("nickname");
                 this.fid = parse.getQueryParameter("fid");
                 this.fname = parse.getQueryParameter("fname");
-                this.iYB = parse.getQueryParameter("subcribe-num");
-                this.iYC = parse.getQueryParameter("bazhu-days");
-                this.iYD = parse.getQueryParameter("goods-num");
-                this.iYE = parse.getQueryParameter("tid-num");
-                this.iYF = parse.getQueryParameter("most-hot-name");
-                this.iYF = au.cutStringWithSuffix(this.iYF, 20, StringHelper.STRING_MORE);
-                this.iYG = parse.getQueryParameter("most-hot-floors");
-                this.iYH = parse.getQueryParameter("achievement");
-                this.iYI = parse.getQueryParameter("join-days");
-                this.iYJ = parse.getQueryParameter("send-tids");
-                this.iYK = parse.getQueryParameter("reply-num");
-                this.iYL = parse.getQueryParameter("zan-num");
-                this.iYM = parse.getQueryParameter("sign-days");
-                this.iYN = parse.getQueryParameter("join-topicnum");
-                this.iYO = parse.getQueryParameter("write-num");
+                this.iYD = parse.getQueryParameter("subcribe-num");
+                this.iYE = parse.getQueryParameter("bazhu-days");
+                this.iYF = parse.getQueryParameter("goods-num");
+                this.iYG = parse.getQueryParameter("tid-num");
+                this.iYH = parse.getQueryParameter("most-hot-name");
+                this.iYH = au.cutStringWithSuffix(this.iYH, 20, StringHelper.STRING_MORE);
+                this.iYI = parse.getQueryParameter("most-hot-floors");
+                this.iYJ = parse.getQueryParameter("achievement");
+                this.iYK = parse.getQueryParameter("join-days");
+                this.iYL = parse.getQueryParameter("send-tids");
+                this.iYM = parse.getQueryParameter("reply-num");
+                this.iYN = parse.getQueryParameter("zan-num");
+                this.iYO = parse.getQueryParameter("sign-days");
+                this.iYP = parse.getQueryParameter("join-topicnum");
+                this.iYQ = parse.getQueryParameter("write-num");
             }
         }
     }
 
-    public SpannableStringBuilder cEE() {
-        if (this.iYH == null) {
+    public SpannableStringBuilder cEF() {
+        if (this.iYJ == null) {
             return null;
         }
-        if (this.iYH.equals("bazhu")) {
-            return a(this.fname, this.iYB, this.iYC, this.iYD, this.iYE, this.iYF, this.iYG);
+        if (this.iYJ.equals("bazhu")) {
+            return a(this.fname, this.iYD, this.iYE, this.iYF, this.iYG, this.iYH, this.iYI);
         }
-        if (this.iYH.equals("active-a")) {
-            return c(this.fname, this.iYB, this.iYI, this.iYJ, this.iYE, this.iYF, this.iYK, this.iYL, this.iYM);
+        if (this.iYJ.equals("active-a")) {
+            return c(this.fname, this.iYD, this.iYK, this.iYL, this.iYG, this.iYH, this.iYM, this.iYN, this.iYO);
         }
-        if (this.iYH.equals("active-b")) {
-            return e(this.fname, this.iYB, this.iYI, this.iYN, this.iYO, this.iYM);
+        if (this.iYJ.equals("active-b")) {
+            return e(this.fname, this.iYD, this.iYK, this.iYP, this.iYQ, this.iYO);
         }
         return null;
     }
@@ -144,18 +144,18 @@ public class b {
         return spannableStringBuilder;
     }
 
-    public SpannableStringBuilder cEF() {
-        if (this.iYH == null) {
+    public SpannableStringBuilder cEG() {
+        if (this.iYJ == null) {
             return null;
         }
-        if (this.iYH.equals("bazhu")) {
-            return b(this.fname, this.iYB, this.iYC, this.iYD, this.iYE, this.iYF, this.iYG);
+        if (this.iYJ.equals("bazhu")) {
+            return b(this.fname, this.iYD, this.iYE, this.iYF, this.iYG, this.iYH, this.iYI);
         }
-        if (this.iYH.equals("active-a")) {
-            return d(this.fname, this.iYB, this.iYI, this.iYJ, this.iYE, this.iYF, this.iYK, this.iYL, this.iYM);
+        if (this.iYJ.equals("active-a")) {
+            return d(this.fname, this.iYD, this.iYK, this.iYL, this.iYG, this.iYH, this.iYM, this.iYN, this.iYO);
         }
-        if (this.iYH.equals("active-b")) {
-            return f(this.fname, this.iYB, this.iYI, this.iYN, this.iYO, this.iYM);
+        if (this.iYJ.equals("active-b")) {
+            return f(this.fname, this.iYD, this.iYK, this.iYP, this.iYQ, this.iYO);
         }
         return null;
     }

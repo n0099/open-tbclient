@@ -16,7 +16,7 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 /* loaded from: classes26.dex */
 public class AdCardVideoView extends AdCardBaseView implements m {
-    public DistributeVideoView mHH;
+    public DistributeVideoView mHJ;
     private TbPageContext mTbPageContext;
 
     public AdCardVideoView(TbPageContext<?> tbPageContext) {
@@ -35,25 +35,25 @@ public class AdCardVideoView extends AdCardBaseView implements m {
             float Jm = Jm(R.string.J_X05);
             ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{Jm, Jm, Jm, Jm, Jm, Jm, Jm, Jm});
             ((XfremodeRoundLayout) view).setLayerType(2, null);
-            this.mHH = (DistributeVideoView) view.findViewById(R.id.advert_video);
-            this.mHH.setHolderView(view);
+            this.mHJ = (DistributeVideoView) view.findViewById(R.id.advert_video);
+            this.mHJ.setHolderView(view);
         }
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard != null && adCard.videoInfo != null) {
-            this.mHH.setPageContext(this.mTbPageContext);
-            this.mHH.setVideoTailFrameData(adCard.tailFrame);
-            this.mHH.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
-            this.mHH.setChargeInfo(adCard.chargeInfo);
-            this.mHH.setScheme(adCard.getScheme());
-            this.mHH.setAdInfo(adCard);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mHH.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mJp.getLayoutParams();
+            this.mHJ.setPageContext(this.mTbPageContext);
+            this.mHJ.setVideoTailFrameData(adCard.tailFrame);
+            this.mHJ.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
+            this.mHJ.setChargeInfo(adCard.chargeInfo);
+            this.mHJ.setScheme(adCard.getScheme());
+            this.mHJ.setAdInfo(adCard);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mHJ.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mJr.getLayoutParams();
             if (adCard.goodsStyle == 14) {
-                ViewGroup.LayoutParams layoutParams3 = this.mJO.getLayoutParams();
-                int equipmentWidth = layoutParams3.width > 0 ? layoutParams3.width / 2 : (l.getEquipmentWidth(getContext()) - (this.mJu * 2)) / 2;
+                ViewGroup.LayoutParams layoutParams3 = this.mJQ.getLayoutParams();
+                int equipmentWidth = layoutParams3.width > 0 ? layoutParams3.width / 2 : (l.getEquipmentWidth(getContext()) - (this.mJw * 2)) / 2;
                 layoutParams.width = equipmentWidth;
                 layoutParams2.width = equipmentWidth;
                 int Jk = a.Jk(layoutParams.width);
@@ -67,9 +67,9 @@ public class AdCardVideoView extends AdCardBaseView implements m {
                 layoutParams.gravity = 1;
                 layoutParams2.gravity = 1;
             }
-            this.mJp.requestLayout();
+            this.mJr.requestLayout();
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            this.mHH.updateTailFrameView(advertAppInfo);
+            this.mHJ.updateTailFrameView(advertAppInfo);
             if (advertAppInfo != null) {
                 int i = -1;
                 String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.page) ? getPageTypeByBusiness() : advertAppInfo.page;
@@ -77,13 +77,13 @@ public class AdCardVideoView extends AdCardBaseView implements m {
                     i = advertAppInfo.advertAppContext.pn;
                     pageTypeByBusiness = advertAppInfo.advertAppContext.page;
                 }
-                this.mHH.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
+                this.mHJ.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
             }
-            this.mHH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVideoView.1
+            this.mHJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVideoView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AdCardVideoView.this.mHH.jump2DownloadDetailPage();
-                    AdCardVideoView.this.dFx();
+                    AdCardVideoView.this.mHJ.jump2DownloadDetailPage();
+                    AdCardVideoView.this.dFy();
                 }
             });
         }
@@ -106,7 +106,7 @@ public class AdCardVideoView extends AdCardBaseView implements m {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
     public void setDownloadAppCallback(c cVar) {
         super.setDownloadAppCallback(cVar);
-        this.mHH.setDownloadCallback(cVar);
+        this.mHJ.setDownloadCallback(cVar);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
@@ -116,6 +116,6 @@ public class AdCardVideoView extends AdCardBaseView implements m {
 
     @Override // com.baidu.tieba.recapp.m
     public j getVideoOrVrView() {
-        return this.mHH;
+        return this.mHJ;
     }
 }

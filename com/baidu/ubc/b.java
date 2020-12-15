@@ -63,7 +63,7 @@ public class b {
             if (nVar.bfZ()) {
                 jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", g.eiL().zv(nVar.getId()));
+            jSONObject.put("idtype", g.eiM().zv(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -129,7 +129,7 @@ public class b {
             file.mkdirs();
         }
         File file2 = new File(file, "filequality");
-        if (file2.length() > g.eiL().eiM()) {
+        if (file2.length() > g.eiM().eiN()) {
             if (file2.delete()) {
                 file2 = new File(file, "filequality");
             } else {
@@ -156,7 +156,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(Exception exc) {
-        ac.ejd().XU(Log.getStackTraceString(exc));
+        ac.eje().XU(Log.getStackTraceString(exc));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */

@@ -26,7 +26,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a implements BoxAccountManager {
-    private static boolean nXk = false;
+    private static boolean nXm = false;
     private static String mUid = "";
     private static String mBduss = "";
     private static String mZid = "";
@@ -57,7 +57,7 @@ public class a implements BoxAccountManager {
                 c.bS(mBduss);
                 com.baidu.tieba.write.b.a.a.setZid(mZid);
                 com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("key_dynamic_publish_login_status", true);
-                nXk = true;
+                nXm = true;
                 return;
             }
             logout();
@@ -75,8 +75,8 @@ public class a implements BoxAccountManager {
 
     public void logout() {
         com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("key_dynamic_publish_login_status", false);
-        nXk = false;
-        c.dZi();
+        nXm = false;
+        c.dZj();
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
@@ -89,13 +89,13 @@ public class a implements BoxAccountManager {
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin() {
-        nXk = com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean("key_dynamic_publish_login_status", false);
-        return nXk;
+        nXm = com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean("key_dynamic_publish_login_status", false);
+        return nXm;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager
     public boolean isLogin(int i) {
-        return nXk;
+        return nXm;
     }
 
     @Override // com.baidu.searchbox.account.BoxAccountManager

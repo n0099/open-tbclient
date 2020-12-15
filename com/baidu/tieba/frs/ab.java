@@ -47,17 +47,17 @@ public class ab {
     };
     private String forumName;
     private int from;
-    private b iXb;
-    private View iXc;
-    private String iXd;
-    private a iXe;
+    private b iXd;
+    private View iXe;
+    private String iXf;
+    private a iXg;
     private PermissionJudgePolicy mPermissionJudgement;
 
     /* loaded from: classes22.dex */
     public interface a {
-        void cDX();
-
         void cDY();
+
+        void cDZ();
     }
 
     /* loaded from: classes22.dex */
@@ -89,13 +89,13 @@ public class ab {
             this.eBP = (TextView) view.findViewById(R.id.frs_private_share_weibo);
             a(this.eBP, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_weibo40_svg));
             this.eBP.setOnClickListener(this.foP);
-            this.iXc = view2;
-            this.iXe = aVar;
+            this.iXe = view2;
+            this.iXg = aVar;
         }
     }
 
     public void setData(String str, String str2) {
-        this.iXd = str;
+        this.iXf = str;
         this.forumName = str2;
     }
 
@@ -127,8 +127,8 @@ public class ab {
     /* JADX INFO: Access modifiers changed from: private */
     public void t(Bitmap bitmap) {
         if (!blP()) {
-            if (this.iXb != null) {
-                this.iXb.Ab(1);
+            if (this.iXd != null) {
+                this.iXd.Ab(1);
             }
             com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c13724");
             arVar.al("obj_type", 1);
@@ -137,7 +137,7 @@ public class ab {
             if (this.eBS == null) {
                 this.eBS = new com.baidu.tieba.pb.pb.main.bd(this.context);
             }
-            this.eBS.j(this.iXd, BitmapHelper.Bitmap2Bytes(bitmap, 100));
+            this.eBS.j(this.iXf, BitmapHelper.Bitmap2Bytes(bitmap, 100));
         }
     }
 
@@ -165,8 +165,8 @@ public class ab {
             } else if (i == 6) {
                 i2 = 6;
             }
-            if (this.iXb != null) {
-                this.iXb.Ab(i2);
+            if (this.iXd != null) {
+                this.iXd.Ab(i2);
             }
             com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c13724");
             if (i == 3) {
@@ -219,20 +219,20 @@ public class ab {
 
     public Bitmap blO() {
         if (this.eBT == null) {
-            if (this.iXe != null) {
-                this.iXe.cDY();
+            if (this.iXg != null) {
+                this.iXg.cDZ();
             }
-            this.iXc.buildDrawingCache();
-            this.eBT = this.iXc.getDrawingCache();
-            if (this.iXe != null) {
-                this.iXe.cDX();
+            this.iXe.buildDrawingCache();
+            this.eBT = this.iXe.getDrawingCache();
+            if (this.iXg != null) {
+                this.iXg.cDY();
             }
         }
         return this.eBT;
     }
 
     public void a(b bVar) {
-        this.iXb = bVar;
+        this.iXd = bVar;
     }
 
     public void setFrom(int i) {

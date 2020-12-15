@@ -15,8 +15,8 @@ import com.baidu.live.tbadk.data.Config;
 /* loaded from: classes4.dex */
 public class c {
     private Context context;
-    private a hLb;
-    private b hLc;
+    private a hLd;
+    private b hLe;
     private boolean hasMore;
     private TbPageContext mTbPageContext;
     private int pn = 0;
@@ -41,8 +41,8 @@ public class c {
 
     public void e(int i, String str, String str2) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
-            if (this.hLb != null) {
-                this.hLb.onFail(this.context.getResources().getString(a.h.sdk_no_network));
+            if (this.hLd != null) {
+                this.hLd.onFail(this.context.getResources().getString(a.h.sdk_no_network));
                 return;
             }
             return;
@@ -54,21 +54,21 @@ public class c {
             this.url = TbConfig.SERVER_ADDRESS + "ala/user/followList";
         }
         this.pn++;
-        this.hLc = new b();
-        this.hLc.execute(str, str2);
+        this.hLe = new b();
+        this.hLe.execute(str, str2);
     }
 
     public void cancel() {
-        if (this.hLc != null && !this.hLc.isCancelled()) {
-            this.hLc.cancel();
+        if (this.hLe != null && !this.hLe.isCancelled()) {
+            this.hLe.cancel();
         }
-        if (this.hLb != null) {
-            this.hLb.onFail(null);
+        if (this.hLd != null) {
+            this.hLd.onFail(null);
         }
     }
 
     public void a(a aVar) {
-        this.hLb = aVar;
+        this.hLd = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -121,8 +121,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (c.this.hLb != null) {
-                c.this.hLb.c((com.baidu.tieba.ala.person.a.c) obj);
+            if (c.this.hLd != null) {
+                c.this.hLd.c((com.baidu.tieba.ala.person.a.c) obj);
             }
         }
     }

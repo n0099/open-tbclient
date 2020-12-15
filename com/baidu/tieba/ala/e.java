@@ -12,8 +12,8 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.ala.tasklist.layer.LiveFreeTaskLayer;
 /* loaded from: classes4.dex */
 public class e implements com.baidu.live.ah.d {
-    private LiveFreeTaskLayer gir;
-    private CustomMessageListener gis = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.e.1
+    private LiveFreeTaskLayer git;
+    private CustomMessageListener giu = new CustomMessageListener(2913220) { // from class: com.baidu.tieba.ala.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,33 +35,33 @@ public class e implements com.baidu.live.ah.d {
     }
 
     public void v(Context context, boolean z) {
-        if (this.gir == null) {
-            this.gir = new LiveFreeTaskLayer(context);
-            this.gir.setNeedHideAnim(true);
-            this.gir.setNeedShowAnim(true);
-            this.gir.setCanceledOnTouchOutside(true);
+        if (this.git == null) {
+            this.git = new LiveFreeTaskLayer(context);
+            this.git.setNeedHideAnim(true);
+            this.git.setNeedShowAnim(true);
+            this.git.setCanceledOnTouchOutside(true);
         }
-        this.gir.setIsFromFlowerGuide(z);
+        this.git.setIsFromFlowerGuide(z);
         if (UtilHelper.getRealScreenOrientation(this.mTbPageContext.getPageActivity()) == 2) {
             BdUtilHelper.showToast(context, a.h.ala_task_page_not_support_landscape);
         } else {
-            com.baidu.live.core.layer.b.EY().d(this.gir);
+            com.baidu.live.core.layer.b.EY().d(this.git);
         }
     }
 
     @Override // com.baidu.live.ah.d
     public void e(w wVar) {
-        this.gis.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gis);
+        this.giu.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.giu);
     }
 
     @Override // com.baidu.live.ah.d
     public void Mg() {
-        MessageManager.getInstance().unRegisterListener(this.gis);
+        MessageManager.getInstance().unRegisterListener(this.giu);
     }
 
     @Override // com.baidu.live.ah.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gis);
+        MessageManager.getInstance().unRegisterListener(this.giu);
     }
 }

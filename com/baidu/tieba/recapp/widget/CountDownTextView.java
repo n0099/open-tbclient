@@ -10,10 +10,10 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes26.dex */
 public class CountDownTextView extends TextView {
     private int cPz;
-    private Runnable gdN;
+    private Runnable gdP;
     private Handler mHandler;
-    private b mPD;
-    private boolean mPE;
+    private b mPF;
+    private boolean mPG;
 
     /* loaded from: classes26.dex */
     public interface b {
@@ -23,30 +23,30 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context) {
         super(context);
         this.mHandler = null;
-        this.mPD = null;
-        this.mPE = true;
-        dGB();
+        this.mPF = null;
+        this.mPG = true;
+        dGC();
     }
 
-    private void dGB() {
-        this.gdN = new a();
+    private void dGC() {
+        this.gdP = new a();
         this.mHandler = new Handler();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = null;
-        this.mPD = null;
-        this.mPE = true;
-        dGB();
+        this.mPF = null;
+        this.mPG = true;
+        dGC();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = null;
-        this.mPD = null;
-        this.mPE = true;
-        dGB();
+        this.mPF = null;
+        this.mPG = true;
+        dGC();
     }
 
     public void update(int i) {
@@ -58,25 +58,25 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(b bVar) {
-        this.mPD = bVar;
+        this.mPF = bVar;
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.mPE = z;
+        this.mPG = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes26.dex */
     public static class a implements Runnable {
-        private final WeakReference<CountDownTextView> gdf;
+        private final WeakReference<CountDownTextView> gdh;
 
         private a(CountDownTextView countDownTextView) {
-            this.gdf = new WeakReference<>(countDownTextView);
+            this.gdh = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.gdf.get();
+            CountDownTextView countDownTextView = this.gdh.get();
             if (countDownTextView != null) {
                 countDownTextView.uw(1);
             }
@@ -87,8 +87,8 @@ public class CountDownTextView extends TextView {
     public void uw(int i) {
         if (i > 0) {
             if (this.cPz == 0) {
-                if (this.mPD != null && this.mPE && getVisibility() == 0) {
-                    this.mPD.ca(this);
+                if (this.mPF != null && this.mPG && getVisibility() == 0) {
+                    this.mPF.ca(this);
                 }
                 setText(String.valueOf(this.cPz));
                 this.mHandler.removeCallbacksAndMessages(null);
@@ -97,8 +97,8 @@ public class CountDownTextView extends TextView {
             if (this.cPz > 0) {
                 setText(String.valueOf(this.cPz));
             }
-            this.mHandler.removeCallbacks(this.gdN);
-            this.mHandler.postDelayed(this.gdN, 1000L);
+            this.mHandler.removeCallbacks(this.gdP);
+            this.mHandler.postDelayed(this.gdP, 1000L);
             this.cPz -= i;
         }
     }
@@ -112,10 +112,10 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bND();
+        bNE();
     }
 
-    private void bND() {
+    private void bNE() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 

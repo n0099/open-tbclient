@@ -13,14 +13,14 @@ import java.util.ArrayList;
 /* loaded from: classes24.dex */
 public class d extends BaseAdapter {
     private ArrayList<String> eOt;
-    private final String iSN;
-    private boolean kZp = true;
+    private final String iSP;
+    private boolean kZr = true;
     private final Context mContext;
 
     public d(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
         this.eOt = arrayList;
-        this.iSN = this.mContext.getText(R.string.forum).toString();
+        this.iSP = this.mContext.getText(R.string.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
@@ -28,7 +28,7 @@ public class d extends BaseAdapter {
     }
 
     public void tD(boolean z) {
-        this.kZp = z;
+        this.kZr = z;
     }
 
     @Override // android.widget.Adapter
@@ -69,8 +69,8 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.kZp) {
-                aVar.fdz.setText(str.concat(this.iSN));
+            if (this.kZr) {
+                aVar.fdz.setText(str.concat(this.iSP));
             } else {
                 aVar.fdz.setText(str);
             }

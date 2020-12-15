@@ -12,29 +12,29 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes15.dex */
 public class ImageRequest {
-    private File gCh;
+    private File gCj;
     public String mTag;
     @Nullable
-    private final com.facebook.imagepipeline.common.d pjW;
-    private final e pjX;
-    private final com.facebook.imagepipeline.common.b pjY;
-    private final boolean plY;
+    private final com.facebook.imagepipeline.common.d pjY;
+    private final e pjZ;
+    private final com.facebook.imagepipeline.common.b pka;
     @Nullable
-    private final com.facebook.imagepipeline.g.c plp;
+    private final com.facebook.imagepipeline.g.c plr;
+    private final boolean pma;
     @Nullable
-    private final com.facebook.imagepipeline.common.a pno;
-    private final RequestLevel poA;
+    private final com.facebook.imagepipeline.common.a pnq;
+    private final RequestLevel poC;
     @Nullable
-    private final b ppV;
-    private final boolean ppb;
-    private final CacheChoice pqD;
-    private final Uri pqE;
-    private final int pqF;
-    private final boolean pqG;
-    private final Priority pqH;
+    private final b ppX;
+    private final boolean ppd;
+    private final CacheChoice pqF;
+    private final Uri pqG;
+    private final int pqH;
     private final boolean pqI;
-    private final Map<String, String> pqJ;
-    public String pqK;
+    private final Priority pqJ;
+    private final boolean pqK;
+    private final Map<String, String> pqL;
+    public String pqM;
 
     /* loaded from: classes15.dex */
     public enum CacheChoice {
@@ -46,7 +46,7 @@ public class ImageRequest {
         if (uri == null) {
             return null;
         }
-        return ImageRequestBuilder.af(uri).exw();
+        return ImageRequestBuilder.af(uri).exx();
     }
 
     public static ImageRequest Zv(@Nullable String str) {
@@ -58,120 +58,120 @@ public class ImageRequest {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.pqD = imageRequestBuilder.exk();
-        this.pqE = imageRequestBuilder.exl();
-        this.pqF = ae(this.pqE);
-        this.plY = imageRequestBuilder.euk();
-        this.pqG = imageRequestBuilder.exu();
-        this.pjY = imageRequestBuilder.exp();
-        this.pjW = imageRequestBuilder.exn();
-        this.pjX = imageRequestBuilder.exo() == null ? e.etA() : imageRequestBuilder.exo();
-        this.pno = imageRequestBuilder.evC();
-        this.pqH = imageRequestBuilder.exv();
-        this.poA = imageRequestBuilder.ewx();
-        this.pqI = imageRequestBuilder.etT();
-        this.ppb = imageRequestBuilder.exs();
-        this.ppV = imageRequestBuilder.ext();
-        this.plp = imageRequestBuilder.eqL();
-        this.pqJ = imageRequestBuilder.exj();
+        this.pqF = imageRequestBuilder.exl();
+        this.pqG = imageRequestBuilder.exm();
+        this.pqH = ae(this.pqG);
+        this.pma = imageRequestBuilder.eul();
+        this.pqI = imageRequestBuilder.exv();
+        this.pka = imageRequestBuilder.exq();
+        this.pjY = imageRequestBuilder.exo();
+        this.pjZ = imageRequestBuilder.exp() == null ? e.etB() : imageRequestBuilder.exp();
+        this.pnq = imageRequestBuilder.evD();
+        this.pqJ = imageRequestBuilder.exw();
+        this.poC = imageRequestBuilder.ewy();
+        this.pqK = imageRequestBuilder.etU();
+        this.ppd = imageRequestBuilder.ext();
+        this.ppX = imageRequestBuilder.exu();
+        this.plr = imageRequestBuilder.eqM();
+        this.pqL = imageRequestBuilder.exk();
         this.mTag = imageRequestBuilder.getTag();
-        this.pqK = imageRequestBuilder.getLogTag();
+        this.pqM = imageRequestBuilder.getLogTag();
     }
 
-    public Map<String, String> exj() {
-        return this.pqJ;
+    public Map<String, String> exk() {
+        return this.pqL;
     }
 
-    public CacheChoice exk() {
-        return this.pqD;
-    }
-
-    public Uri exl() {
-        return this.pqE;
-    }
-
-    public int exm() {
+    public CacheChoice exl() {
         return this.pqF;
     }
 
+    public Uri exm() {
+        return this.pqG;
+    }
+
+    public int exn() {
+        return this.pqH;
+    }
+
     public int getPreferredWidth() {
-        if (this.pjW != null) {
-            return this.pjW.width;
+        if (this.pjY != null) {
+            return this.pjY.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.pjW != null) {
-            return this.pjW.height;
+        if (this.pjY != null) {
+            return this.pjY.height;
         }
         return 2048;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.d exn() {
-        return this.pjW;
-    }
-
-    public e exo() {
-        return this.pjX;
-    }
-
-    @Nullable
-    public com.facebook.imagepipeline.common.a evC() {
-        return this.pno;
-    }
-
-    public com.facebook.imagepipeline.common.b exp() {
+    public com.facebook.imagepipeline.common.d exo() {
         return this.pjY;
     }
 
-    public boolean exq() {
-        return this.plY;
+    public e exp() {
+        return this.pjZ;
+    }
+
+    @Nullable
+    public com.facebook.imagepipeline.common.a evD() {
+        return this.pnq;
+    }
+
+    public com.facebook.imagepipeline.common.b exq() {
+        return this.pka;
     }
 
     public boolean exr() {
-        return this.pqG;
-    }
-
-    public Priority ewz() {
-        return this.pqH;
-    }
-
-    public RequestLevel ewx() {
-        return this.poA;
-    }
-
-    public boolean etT() {
-        return this.pqI;
+        return this.pma;
     }
 
     public boolean exs() {
-        return this.ppb;
+        return this.pqI;
+    }
+
+    public Priority ewA() {
+        return this.pqJ;
+    }
+
+    public RequestLevel ewy() {
+        return this.poC;
+    }
+
+    public boolean etU() {
+        return this.pqK;
+    }
+
+    public boolean ext() {
+        return this.ppd;
     }
 
     public synchronized File acr() {
-        if (this.gCh == null) {
-            this.gCh = new File(this.pqE.getPath());
+        if (this.gCj == null) {
+            this.gCj = new File(this.pqG.getPath());
         }
-        return this.gCh;
+        return this.gCj;
     }
 
     @Nullable
-    public b ext() {
-        return this.ppV;
+    public b exu() {
+        return this.ppX;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.g.c eqL() {
-        return this.plp;
+    public com.facebook.imagepipeline.g.c eqM() {
+        return this.plr;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            if (f.equal(this.pqE, imageRequest.pqE) && f.equal(this.pqD, imageRequest.pqD) && f.equal(this.gCh, imageRequest.gCh) && f.equal(this.pno, imageRequest.pno) && f.equal(this.pjY, imageRequest.pjY) && f.equal(this.pjW, imageRequest.pjW) && f.equal(this.pjX, imageRequest.pjX)) {
-                return f.equal(this.ppV != null ? this.ppV.ewu() : null, imageRequest.ppV != null ? imageRequest.ppV.ewu() : null);
+            if (f.equal(this.pqG, imageRequest.pqG) && f.equal(this.pqF, imageRequest.pqF) && f.equal(this.gCj, imageRequest.gCj) && f.equal(this.pnq, imageRequest.pnq) && f.equal(this.pka, imageRequest.pka) && f.equal(this.pjY, imageRequest.pjY) && f.equal(this.pjZ, imageRequest.pjZ)) {
+                return f.equal(this.ppX != null ? this.ppX.ewv() : null, imageRequest.ppX != null ? imageRequest.ppX.ewv() : null);
             }
             return false;
         }
@@ -179,11 +179,11 @@ public class ImageRequest {
     }
 
     public int hashCode() {
-        return f.M(this.pqD, this.pqE, this.gCh, this.pno, this.pjY, this.pjW, this.pjX, this.ppV != null ? this.ppV.ewu() : null);
+        return f.M(this.pqF, this.pqG, this.gCj, this.pnq, this.pka, this.pjY, this.pjZ, this.ppX != null ? this.ppX.ewv() : null);
     }
 
     public String toString() {
-        return f.ba(this).E(DownloadDataConstants.Columns.COLUMN_URI, this.pqE).E("cacheChoice", this.pqD).E("decodeOptions", this.pjY).E("postprocessor", this.ppV).E("priority", this.pqH).E("resizeOptions", this.pjW).E("rotationOptions", this.pjX).E("bytesRange", this.pno).toString();
+        return f.ba(this).E(DownloadDataConstants.Columns.COLUMN_URI, this.pqG).E("cacheChoice", this.pqF).E("decodeOptions", this.pka).E("postprocessor", this.ppX).E("priority", this.pqJ).E("resizeOptions", this.pjY).E("rotationOptions", this.pjZ).E("bytesRange", this.pnq).toString();
     }
 
     /* loaded from: classes15.dex */

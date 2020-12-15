@@ -4,13 +4,13 @@ import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class d {
     private long forumId;
-    private long lyK;
+    private long lyM;
     private BdUniqueId mPageId;
     private int source;
     private long threadId;
 
     public void hr(long j) {
-        this.lyK = j;
+        this.lyM = j;
     }
 
     public void setForumId(long j) {
@@ -29,16 +29,16 @@ public class d {
         this.threadId = j;
     }
 
-    public BdUniqueId dmE() {
+    public BdUniqueId dmF() {
         return this.mPageId;
     }
 
-    public int dmF() {
+    public int dmG() {
         return this.source;
     }
 
-    public long dmG() {
-        return this.lyK;
+    public long dmH() {
+        return this.lyM;
     }
 
     public long getForumId() {

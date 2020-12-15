@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class a extends BaseAdapter {
-    private int gbA = R.color.CAM_X0105;
-    private int gbB = R.color.CAM_X0108;
-    private List<com.baidu.tbadk.coreExtra.relationship.a> gbx;
+    private int gbC = R.color.CAM_X0105;
+    private int gbD = R.color.CAM_X0108;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> gbz;
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.gbx = list;
+        this.gbz = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gbx == null) {
+        if (this.gbz == null) {
             return 0;
         }
-        return this.gbx.size();
+        return this.gbz.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: ut */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.gbx == null || i < 0 || i >= this.gbx.size()) {
+        if (this.gbz == null || i < 0 || i >= this.gbz.size()) {
             return null;
         }
-        return this.gbx.get(i);
+        return this.gbz.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -82,7 +82,7 @@ public class a extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.gbJ = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                bVar2.gbL = (TextView) view.findViewById(R.id.addresslist_group_item_key);
                 bVar2.eOv = view.findViewById(R.id.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
@@ -90,17 +90,17 @@ public class a extends BaseAdapter {
                 bVar = (b) view.getTag();
             }
             if (item.bAg() != null) {
-                bVar.gbJ.setText(item.bAg());
+                bVar.gbL.setText(item.bAg());
             }
-            ap.setViewTextColor(bVar.gbJ, this.gbB, 1);
+            ap.setViewTextColor(bVar.gbL, this.gbD, 1);
             ap.setBackgroundColor(bVar.eOv, R.color.CAM_X0204);
             return view;
         } else if (getItemViewType(i) == 1) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof C0789a)) {
                 C0789a c0789a2 = new C0789a();
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                c0789a2.gby = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                c0789a2.gbz = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0789a2.gbA = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0789a2.gbB = (TextView) view.findViewById(R.id.addresslist_child_item_name);
                 c0789a2.eOv = view.findViewById(R.id.addresslist_child_item_divider);
                 view.setTag(c0789a2);
                 c0789a = c0789a2;
@@ -108,10 +108,10 @@ public class a extends BaseAdapter {
                 c0789a = (C0789a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0789a.gbz.setText(item.getUserName());
-                c0789a.gby.startLoad(item.getUserPortrait(), 12, false);
+                c0789a.gbB.setText(item.getUserName());
+                c0789a.gbA.startLoad(item.getUserPortrait(), 12, false);
             }
-            ap.setViewTextColor(c0789a.gbz, this.gbA, 1);
+            ap.setViewTextColor(c0789a.gbB, this.gbC, 1);
             ap.setBackgroundResource(c0789a.eOv, R.color.CAM_X0204);
             ap.setBackgroundResource(view, R.drawable.select_friend_item_bg);
             return view;
@@ -123,7 +123,7 @@ public class a extends BaseAdapter {
     /* loaded from: classes22.dex */
     private class b {
         View eOv;
-        TextView gbJ;
+        TextView gbL;
 
         private b() {
         }
@@ -133,8 +133,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes22.dex */
     private class C0789a {
         View eOv;
-        HeadImageView gby;
-        TextView gbz;
+        HeadImageView gbA;
+        TextView gbB;
 
         private C0789a() {
         }

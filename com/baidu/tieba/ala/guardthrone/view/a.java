@@ -34,34 +34,34 @@ public class a implements View.OnClickListener {
     private String aOt;
     private String brl;
     private long bsA;
-    private Animation gTA;
-    private boolean gTB;
-    private long gTC;
-    private long gTD;
+    private b gTA;
+    private com.baidu.tieba.ala.guardthrone.adapter.a gTB;
+    private Animation gTC;
+    private boolean gTD;
     private long gTE;
     private long gTF;
-    private boolean gTG;
-    private com.baidu.tieba.ala.guardthrone.b.a gTb;
-    private View gTi;
-    private FrameLayout gTj;
+    private long gTG;
+    private long gTH;
+    private boolean gTI;
+    private com.baidu.tieba.ala.guardthrone.b.a gTd;
     private View gTk;
-    private View gTl;
-    private HeadImageView gTm;
-    private TbImageView gTn;
-    private TextView gTo;
-    private TextView gTp;
-    private ListView gTq;
-    private ScrollView gTr;
-    private HListView gTs;
-    private RelativeLayout gTt;
-    private TextView gTu;
-    private TextView gTv;
-    private com.baidu.tieba.ala.guardthrone.d.a gTw;
-    private a.InterfaceC0668a gTx;
-    private b gTy;
-    private com.baidu.tieba.ala.guardthrone.adapter.a gTz;
-    private ImageView ghd;
-    private LinearLayout gqh;
+    private FrameLayout gTl;
+    private View gTm;
+    private View gTn;
+    private HeadImageView gTo;
+    private TbImageView gTp;
+    private TextView gTq;
+    private TextView gTr;
+    private ListView gTs;
+    private ScrollView gTt;
+    private HListView gTu;
+    private RelativeLayout gTv;
+    private TextView gTw;
+    private TextView gTx;
+    private com.baidu.tieba.ala.guardthrone.d.a gTy;
+    private a.InterfaceC0668a gTz;
+    private ImageView ghf;
+    private LinearLayout gqj;
     protected final Activity mActivity;
     private boolean mIsHost;
     private String mLiveId;
@@ -72,150 +72,150 @@ public class a implements View.OnClickListener {
     private final Runnable bsD = new Runnable() { // from class: com.baidu.tieba.ala.guardthrone.view.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.gTw != null) {
-                a.this.gTw.eu(a.this.mLiveId, a.this.brl);
+            if (a.this.gTy != null) {
+                a.this.gTy.eu(a.this.mLiveId, a.this.brl);
             }
         }
     };
-    private final Runnable gTH = new Runnable() { // from class: com.baidu.tieba.ala.guardthrone.view.a.2
+    private final Runnable gTJ = new Runnable() { // from class: com.baidu.tieba.ala.guardthrone.view.a.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.gTC <= 0) {
-                a.this.gTC = 0L;
-                a.this.bXe();
+            if (a.this.gTE <= 0) {
+                a.this.gTE = 0L;
+                a.this.bXf();
             } else {
                 a.e(a.this);
                 a.this.startCountDown();
             }
-            if (a.this.gTC <= 0 || a.this.gTp == null || a.this.gTb == null || a.this.gTb.gSM == null || TextUtils.isEmpty(a.this.gTb.gSM.gSQ)) {
-                if (a.this.gTp != null && a.this.gTp.getVisibility() == 0) {
-                    a.this.gTp.setVisibility(8);
+            if (a.this.gTE <= 0 || a.this.gTr == null || a.this.gTd == null || a.this.gTd.gSO == null || TextUtils.isEmpty(a.this.gTd.gSO.gSS)) {
+                if (a.this.gTr != null && a.this.gTr.getVisibility() == 0) {
+                    a.this.gTr.setVisibility(8);
                     return;
                 }
                 return;
             }
-            String str = a.this.gTb.gSM.gSQ + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(a.this.gTC));
-            if (a.this.gTp.getVisibility() != 0) {
-                a.this.gTp.setVisibility(0);
+            String str = a.this.gTd.gSO.gSS + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(a.this.gTE));
+            if (a.this.gTr.getVisibility() != 0) {
+                a.this.gTr.setVisibility(0);
             }
-            a.this.gTp.setText(str);
+            a.this.gTr.setText(str);
         }
     };
-    private final Runnable gTI = new Runnable() { // from class: com.baidu.tieba.ala.guardthrone.view.a.3
+    private final Runnable gTK = new Runnable() { // from class: com.baidu.tieba.ala.guardthrone.view.a.3
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.gTF <= 0) {
-                a.this.gTF = 0L;
-                a.this.bXg();
+            if (a.this.gTH <= 0) {
+                a.this.gTH = 0L;
+                a.this.bXh();
             } else {
                 a.i(a.this);
-                a.this.bXf();
+                a.this.bXg();
             }
-            if (a.this.gTF >= 0 && a.this.gTp != null && a.this.gTb != null && a.this.gTb.gSM != null && !TextUtils.isEmpty(a.this.gTb.gSM.gSQ)) {
-                a.this.gTp.setText(a.this.gTb.gSM.gSQ + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(a.this.gTF)));
+            if (a.this.gTH >= 0 && a.this.gTr != null && a.this.gTd != null && a.this.gTd.gSO != null && !TextUtils.isEmpty(a.this.gTd.gSO.gSS)) {
+                a.this.gTr.setText(a.this.gTd.gSO.gSS + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(a.this.gTH)));
             }
         }
     };
 
     static /* synthetic */ long e(a aVar) {
-        long j = aVar.gTC;
-        aVar.gTC = j - 1;
+        long j = aVar.gTE;
+        aVar.gTE = j - 1;
         return j;
     }
 
     static /* synthetic */ long i(a aVar) {
-        long j = aVar.gTF;
-        aVar.gTF = 1 + j;
+        long j = aVar.gTH;
+        aVar.gTH = 1 + j;
         return j;
     }
 
     public a(TbPageContext tbPageContext, boolean z, boolean z2) {
         this.mTbPageContext = tbPageContext;
         this.mActivity = tbPageContext.getPageActivity();
-        this.gTB = z;
+        this.gTD = z;
         this.mIsHost = z2;
         initView();
         initListener();
     }
 
     private void initView() {
-        this.mRootView = mR(this.gTB);
-        this.gTi = this.mRootView.findViewById(a.f.content_layout);
-        this.gTj = (FrameLayout) this.mRootView.findViewById(a.f.portrait_layout);
-        this.gTk = this.mRootView.findViewById(a.f.guard_throne_layout);
-        this.gTl = this.mRootView.findViewById(a.f.view_foreground);
-        this.ghd = (ImageView) this.mRootView.findViewById(a.f.iv_regulation);
-        this.gTm = (HeadImageView) this.mRootView.findViewById(a.f.iv_portrait);
-        this.gTn = (TbImageView) this.mRootView.findViewById(a.f.iv_portrait_border);
-        this.gTo = (TextView) this.mRootView.findViewById(a.f.tv_guarder_name);
-        this.gTp = (TextView) this.mRootView.findViewById(a.f.tv_guard_throne_countdown);
-        this.gqh = (LinearLayout) this.mRootView.findViewById(a.f.guard_throne_rank_view);
-        this.gTq = (ListView) this.mRootView.findViewById(a.f.rank_list_view);
-        this.gTq.setDividerHeight(0);
-        this.gTr = (ScrollView) this.mRootView.findViewById(a.f.guard_throne_scrollview);
-        this.gTs = (HListView) this.mRootView.findViewById(a.f.privilege_list_view);
-        this.gTs.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
-        this.gTt = (RelativeLayout) this.mRootView.findViewById(a.f.guard_throne_bottom_view);
-        this.gTu = (TextView) this.mRootView.findViewById(a.f.tv_bottom);
-        this.gTv = (TextView) this.mRootView.findViewById(a.f.btn_bottom_start);
-        bWW();
+        this.mRootView = mR(this.gTD);
+        this.gTk = this.mRootView.findViewById(a.f.content_layout);
+        this.gTl = (FrameLayout) this.mRootView.findViewById(a.f.portrait_layout);
+        this.gTm = this.mRootView.findViewById(a.f.guard_throne_layout);
+        this.gTn = this.mRootView.findViewById(a.f.view_foreground);
+        this.ghf = (ImageView) this.mRootView.findViewById(a.f.iv_regulation);
+        this.gTo = (HeadImageView) this.mRootView.findViewById(a.f.iv_portrait);
+        this.gTp = (TbImageView) this.mRootView.findViewById(a.f.iv_portrait_border);
+        this.gTq = (TextView) this.mRootView.findViewById(a.f.tv_guarder_name);
+        this.gTr = (TextView) this.mRootView.findViewById(a.f.tv_guard_throne_countdown);
+        this.gqj = (LinearLayout) this.mRootView.findViewById(a.f.guard_throne_rank_view);
+        this.gTs = (ListView) this.mRootView.findViewById(a.f.rank_list_view);
+        this.gTs.setDividerHeight(0);
+        this.gTt = (ScrollView) this.mRootView.findViewById(a.f.guard_throne_scrollview);
+        this.gTu = (HListView) this.mRootView.findViewById(a.f.privilege_list_view);
+        this.gTu.setSelector(this.mActivity.getResources().getDrawable(a.e.sdk_transparent_bg));
+        this.gTv = (RelativeLayout) this.mRootView.findViewById(a.f.guard_throne_bottom_view);
+        this.gTw = (TextView) this.mRootView.findViewById(a.f.tv_bottom);
+        this.gTx = (TextView) this.mRootView.findViewById(a.f.btn_bottom_start);
         bWX();
         bWY();
         bWZ();
-    }
-
-    private void bWW() {
-        this.gTm.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.gTm.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.gTm.setIsRound(true);
-        this.gTm.setAutoChangeStyle(false);
-        this.gTm.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gTn.setDefaultResource(a.e.portrait_no_guard_bg);
-        this.gTn.setDefaultBgResource(a.c.sdk_transparent);
+        bXa();
     }
 
     private void bWX() {
-        if (this.mActivity != null) {
-            ViewGroup.LayoutParams layoutParams = this.gTl.getLayoutParams();
-            layoutParams.height = BdUtilHelper.getEquipmentWidth(this.mActivity) / 2;
-            this.gTl.setLayoutParams(layoutParams);
-        }
+        this.gTo.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.gTo.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.gTo.setIsRound(true);
+        this.gTo.setAutoChangeStyle(false);
+        this.gTo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gTp.setDefaultResource(a.e.portrait_no_guard_bg);
+        this.gTp.setDefaultBgResource(a.c.sdk_transparent);
     }
 
     private void bWY() {
-        if (this.gTB) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gTk.getLayoutParams();
-            layoutParams.width = BdUtilHelper.getEquipmentWidth(this.mActivity);
-            this.gTk.setLayoutParams(layoutParams);
-            this.gTt.setBackgroundResource(a.e.ala_guard_throne_land_bottom_bg);
+        if (this.mActivity != null) {
+            ViewGroup.LayoutParams layoutParams = this.gTn.getLayoutParams();
+            layoutParams.height = BdUtilHelper.getEquipmentWidth(this.mActivity) / 2;
+            this.gTn.setLayoutParams(layoutParams);
         }
     }
 
     private void bWZ() {
+        if (this.gTD) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gTm.getLayoutParams();
+            layoutParams.width = BdUtilHelper.getEquipmentWidth(this.mActivity);
+            this.gTm.setLayoutParams(layoutParams);
+            this.gTv.setBackgroundResource(a.e.ala_guard_throne_land_bottom_bg);
+        }
+    }
+
+    private void bXa() {
         if (this.mIsHost) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gTr.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gTt.getLayoutParams();
             layoutParams.bottomMargin = 0;
-            this.gTr.setLayoutParams(layoutParams);
+            this.gTt.setLayoutParams(layoutParams);
         }
     }
 
     private void initListener() {
-        this.gTi.setOnClickListener(this);
-        this.gTj.setOnClickListener(this);
+        this.gTk.setOnClickListener(this);
+        this.gTl.setOnClickListener(this);
         this.mRootView.setOnClickListener(this);
-        this.ghd.setOnClickListener(this);
+        this.ghf.setOnClickListener(this);
+        this.gTx.setOnClickListener(this);
         this.gTv.setOnClickListener(this);
-        this.gTt.setOnClickListener(this);
     }
 
     private void KR() {
-        bXa();
-        this.gTw = new com.baidu.tieba.ala.guardthrone.d.a(this.mTbPageContext, this.gTx);
-        this.gTw.eu(this.mLiveId, this.brl);
+        bXb();
+        this.gTy = new com.baidu.tieba.ala.guardthrone.d.a(this.mTbPageContext, this.gTz);
+        this.gTy.eu(this.mLiveId, this.brl);
     }
 
-    private void bXa() {
-        this.gTx = new a.InterfaceC0668a() { // from class: com.baidu.tieba.ala.guardthrone.view.a.4
+    private void bXb() {
+        this.gTz = new a.InterfaceC0668a() { // from class: com.baidu.tieba.ala.guardthrone.view.a.4
             @Override // com.baidu.tieba.ala.guardthrone.d.a.InterfaceC0668a
             public void a(com.baidu.tieba.ala.guardthrone.b.a aVar) {
                 a.this.b(aVar);
@@ -225,8 +225,8 @@ public class a implements View.OnClickListener {
             public void onFail(int i, String str) {
                 a.this.bsA = 5L;
                 a.this.bb(a.this.bsA);
-                if (a.this.mActivity != null && !a.this.gTG) {
-                    a.this.gTG = true;
+                if (a.this.mActivity != null && !a.this.gTI) {
+                    a.this.gTI = true;
                     BdUtilHelper.showToast(a.this.mActivity, str);
                 }
             }
@@ -243,126 +243,126 @@ public class a implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.ala.guardthrone.b.a aVar) {
-        if (aVar == null || aVar.gSM == null || aVar.gSN == null || this.mActivity == null) {
+        if (aVar == null || aVar.gSO == null || aVar.gSP == null || this.mActivity == null) {
             this.bsA = 5L;
             bb(this.bsA);
             return;
         }
-        this.gTb = aVar;
+        this.gTd = aVar;
         int i = aVar.status;
-        if (!TextUtils.isEmpty(aVar.gSM.gSP)) {
-            this.gTn.startLoad(aVar.gSM.gSP, 10, false);
+        if (!TextUtils.isEmpty(aVar.gSO.gSR)) {
+            this.gTp.startLoad(aVar.gSO.gSR, 10, false);
         }
         if (i == 1) {
-            this.gTm.setVisibility(8);
+            this.gTo.setVisibility(8);
         } else {
-            String str = aVar.gSM.gSO;
+            String str = aVar.gSO.gSQ;
             if (!TextUtils.isEmpty(str)) {
-                this.gTm.setVisibility(0);
-                this.gTm.startLoad(str, 12, false);
-            } else {
-                this.gTm.setVisibility(8);
-            }
-        }
-        if (i == 1) {
-            if (!TextUtils.isEmpty(aVar.gSM.gSQ)) {
                 this.gTo.setVisibility(0);
-                this.gTo.setText(aVar.gSM.gSQ);
-            } else {
-                this.gTo.setVisibility(4);
-            }
-        } else {
-            String str2 = aVar.gSM.username;
-            if (!TextUtils.isEmpty(str2)) {
-                this.gTo.setVisibility(0);
-                this.gTo.setText(str2);
+                this.gTo.startLoad(str, 12, false);
             } else {
                 this.gTo.setVisibility(8);
             }
         }
         if (i == 1) {
-            this.gTp.setVisibility(4);
+            if (!TextUtils.isEmpty(aVar.gSO.gSS)) {
+                this.gTq.setVisibility(0);
+                this.gTq.setText(aVar.gSO.gSS);
+            } else {
+                this.gTq.setVisibility(4);
+            }
+        } else {
+            String str2 = aVar.gSO.username;
+            if (!TextUtils.isEmpty(str2)) {
+                this.gTq.setVisibility(0);
+                this.gTq.setText(str2);
+            } else {
+                this.gTq.setVisibility(8);
+            }
+        }
+        if (i == 1) {
+            this.gTr.setVisibility(4);
         } else if (i == 2) {
-            if (this.gTD != aVar.gSM.startTime || this.gTC > aVar.gSM.bzb) {
-                this.gTD = aVar.gSM.startTime;
-                if (aVar.gSM.bzb > 0) {
-                    this.gTC = aVar.gSM.bzb;
-                    if (!TextUtils.isEmpty(aVar.gSM.gSQ)) {
-                        this.gTp.setVisibility(0);
-                        this.gTp.setText(aVar.gSM.gSQ + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(this.gTC)));
-                        if (this.mHandler != null && this.gTI != null) {
-                            this.mHandler.removeCallbacks(this.gTI);
+            if (this.gTF != aVar.gSO.startTime || this.gTE > aVar.gSO.bzb) {
+                this.gTF = aVar.gSO.startTime;
+                if (aVar.gSO.bzb > 0) {
+                    this.gTE = aVar.gSO.bzb;
+                    if (!TextUtils.isEmpty(aVar.gSO.gSS)) {
+                        this.gTr.setVisibility(0);
+                        this.gTr.setText(aVar.gSO.gSS + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(this.gTE)));
+                        if (this.mHandler != null && this.gTK != null) {
+                            this.mHandler.removeCallbacks(this.gTK);
                         }
                         startCountDown();
                     }
                 } else {
-                    this.gTp.setVisibility(8);
+                    this.gTr.setVisibility(8);
                 }
             }
-        } else if (i == 3 && (this.gTE != aVar.gSM.startTime || this.gTF != aVar.gSM.gST)) {
-            this.gTE = aVar.gSM.startTime;
-            if (aVar.gSM.gST >= 0) {
-                this.gTF = aVar.gSM.gST;
-                if (!TextUtils.isEmpty(aVar.gSM.gSQ)) {
-                    this.gTp.setVisibility(0);
-                    this.gTp.setText(aVar.gSM.gSQ + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(this.gTF)));
-                    if (this.mHandler != null && this.gTH != null) {
-                        this.mHandler.removeCallbacks(this.gTH);
+        } else if (i == 3 && (this.gTG != aVar.gSO.startTime || this.gTH != aVar.gSO.gSV)) {
+            this.gTG = aVar.gSO.startTime;
+            if (aVar.gSO.gSV >= 0) {
+                this.gTH = aVar.gSO.gSV;
+                if (!TextUtils.isEmpty(aVar.gSO.gSS)) {
+                    this.gTr.setVisibility(0);
+                    this.gTr.setText(aVar.gSO.gSS + com.baidu.tieba.ala.guardthrone.e.a.f(Long.valueOf(this.gTH)));
+                    if (this.mHandler != null && this.gTJ != null) {
+                        this.mHandler.removeCallbacks(this.gTJ);
                     }
-                    bXf();
+                    bXg();
                 }
             } else {
-                this.gTp.setVisibility(8);
+                this.gTr.setVisibility(8);
             }
         }
         if (i == 2) {
-            this.gTs.setVisibility(8);
-        } else if (aVar.gSM.gSV != null && aVar.gSM.gSV.size() > 0) {
-            if (this.gTz == null) {
-                this.gTz = new com.baidu.tieba.ala.guardthrone.adapter.a(this.mActivity);
-                this.gTs.setAdapter((ListAdapter) this.gTz);
+            this.gTu.setVisibility(8);
+        } else if (aVar.gSO.gSX != null && aVar.gSO.gSX.size() > 0) {
+            if (this.gTB == null) {
+                this.gTB = new com.baidu.tieba.ala.guardthrone.adapter.a(this.mActivity);
+                this.gTu.setAdapter((ListAdapter) this.gTB);
             }
-            this.gTz.setList(aVar.gSM.gSV);
-            int a2 = com.baidu.tieba.ala.guardthrone.e.a.a(this.mActivity, this.gTs);
-            this.gTs.setDividerWidth(a2);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gTs.getLayoutParams();
+            this.gTB.setList(aVar.gSO.gSX);
+            int a2 = com.baidu.tieba.ala.guardthrone.e.a.a(this.mActivity, this.gTu);
+            this.gTu.setDividerWidth(a2);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gTu.getLayoutParams();
             layoutParams.leftMargin = a2;
             layoutParams.rightMargin = a2;
-            this.gTs.setLayoutParams(layoutParams);
-            this.gTs.setVisibility(0);
+            this.gTu.setLayoutParams(layoutParams);
+            this.gTu.setVisibility(0);
         } else {
-            this.gTs.setVisibility(8);
+            this.gTu.setVisibility(8);
         }
-        if (i == 2 && aVar.gSN.aIZ != null && aVar.gSN.aIZ.size() > 0) {
-            if (this.gTy == null) {
-                this.gTy = new b(this.mActivity);
-                this.gTq.setAdapter((ListAdapter) this.gTy);
+        if (i == 2 && aVar.gSP.aIZ != null && aVar.gSP.aIZ.size() > 0) {
+            if (this.gTA == null) {
+                this.gTA = new b(this.mActivity);
+                this.gTs.setAdapter((ListAdapter) this.gTA);
             }
-            this.gTy.setList(aVar.gSN.aIZ);
-            com.baidu.tieba.ala.guardthrone.e.a.c(this.gTq);
-            this.gqh.setVisibility(0);
+            this.gTA.setList(aVar.gSP.aIZ);
+            com.baidu.tieba.ala.guardthrone.e.a.c(this.gTs);
+            this.gqj.setVisibility(0);
         } else {
-            this.gqh.setVisibility(8);
+            this.gqj.setVisibility(8);
         }
         if (this.mIsHost) {
-            this.gTt.setVisibility(8);
+            this.gTv.setVisibility(8);
         } else {
-            this.gTt.setVisibility(0);
-            if (aVar.gSN.gSW != null && !TextUtils.isEmpty(aVar.gSN.gSW.text)) {
-                if (aVar.gSN.gSW.rank > 0 && aVar.gSN.gSW.rank < 4) {
-                    this.gTu.setTextColor(this.mActivity.getResources().getColor(a.c.ala_guard_throne_color_FFB92D));
+            this.gTv.setVisibility(0);
+            if (aVar.gSP.gSY != null && !TextUtils.isEmpty(aVar.gSP.gSY.text)) {
+                if (aVar.gSP.gSY.rank > 0 && aVar.gSP.gSY.rank < 4) {
+                    this.gTw.setTextColor(this.mActivity.getResources().getColor(a.c.ala_guard_throne_color_FFB92D));
                 } else {
-                    this.gTu.setTextColor(this.mActivity.getResources().getColor(a.c.ala_guard_throne_color_E5B372));
+                    this.gTw.setTextColor(this.mActivity.getResources().getColor(a.c.ala_guard_throne_color_E5B372));
                 }
-                this.gTu.setText(aVar.gSN.gSW.text);
+                this.gTw.setText(aVar.gSP.gSY.text);
             }
-            if (TbadkCoreApplication.getCurrentAccountId() > 0 && !TextUtils.isEmpty(aVar.gSM.gSS) && TextUtils.equals(aVar.gSM.gSS, String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                this.gTv.setVisibility(8);
+            if (TbadkCoreApplication.getCurrentAccountId() > 0 && !TextUtils.isEmpty(aVar.gSO.gSU) && TextUtils.equals(aVar.gSO.gSU, String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                this.gTx.setVisibility(8);
             } else {
-                this.gTv.setVisibility(0);
+                this.gTx.setVisibility(0);
             }
         }
-        this.bsA = aVar.gSM.gSU;
+        this.bsA = aVar.gSO.gSW;
         bb(this.bsA);
     }
 
@@ -370,22 +370,22 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.mRootView) {
             this.mActivity.finish();
-        } else if (view == this.ghd) {
-            bXb();
-        } else if (view == this.gTv || view == this.gTt) {
+        } else if (view == this.ghf) {
             bXc();
-        }
-    }
-
-    private void bXb() {
-        if (this.mActivity == null || this.gTb == null || this.gTb.gSM == null || TextUtils.isEmpty(this.gTb.gSM.gSR)) {
-            BdUtilHelper.showToast(this.mActivity, a.h.sdk_url_is_null);
-        } else {
-            UrlManager.getInstance().dealOneLinkWithDialog(this.mTbPageContext, "", new String[]{this.gTb.gSM.gSR}, false, null, true);
+        } else if (view == this.gTx || view == this.gTv) {
+            bXd();
         }
     }
 
     private void bXc() {
+        if (this.mActivity == null || this.gTd == null || this.gTd.gSO == null || TextUtils.isEmpty(this.gTd.gSO.gST)) {
+            BdUtilHelper.showToast(this.mActivity, a.h.sdk_url_is_null);
+        } else {
+            UrlManager.getInstance().dealOneLinkWithDialog(this.mTbPageContext, "", new String[]{this.gTd.gSO.gST}, false, null, true);
+        }
+    }
+
+    private void bXd() {
         if (this.mActivity != null) {
             this.mActivity.finish();
         }
@@ -406,31 +406,31 @@ public class a implements View.OnClickListener {
         }
     }
 
-    public void bXd() {
+    public void bXe() {
         if (this.mHandler != null && this.bsD != null) {
             this.mHandler.removeCallbacks(this.bsD);
         }
     }
 
     public void startCountDown() {
-        this.mHandler.removeCallbacks(this.gTH);
-        this.mHandler.postDelayed(this.gTH, 1000L);
-    }
-
-    public void bXe() {
-        if (this.mHandler != null && this.gTH != null) {
-            this.mHandler.removeCallbacks(this.gTH);
-        }
+        this.mHandler.removeCallbacks(this.gTJ);
+        this.mHandler.postDelayed(this.gTJ, 1000L);
     }
 
     public void bXf() {
-        this.mHandler.removeCallbacks(this.gTI);
-        this.mHandler.postDelayed(this.gTI, 1000L);
+        if (this.mHandler != null && this.gTJ != null) {
+            this.mHandler.removeCallbacks(this.gTJ);
+        }
     }
 
     public void bXg() {
-        if (this.mHandler != null && this.gTI != null) {
-            this.mHandler.removeCallbacks(this.gTI);
+        this.mHandler.removeCallbacks(this.gTK);
+        this.mHandler.postDelayed(this.gTK, 1000L);
+    }
+
+    public void bXh() {
+        if (this.mHandler != null && this.gTK != null) {
+            this.mHandler.removeCallbacks(this.gTK);
         }
     }
 
@@ -449,26 +449,26 @@ public class a implements View.OnClickListener {
     }
 
     public void onDestroy() {
-        if (this.gTk != null) {
-            this.gTk.clearAnimation();
+        if (this.gTm != null) {
+            this.gTm.clearAnimation();
         }
-        if (this.gTw != null) {
-            this.gTw.onDestroy();
+        if (this.gTy != null) {
+            this.gTy.onDestroy();
         }
+        bXf();
+        bXh();
         bXe();
-        bXg();
-        bXd();
     }
 
-    public Animation bXh() {
+    public Animation bXi() {
         this.mHandler.removeCallbacksAndMessages(null);
         this.mHandler = null;
-        if (this.gTA != null) {
-            this.gTA.cancel();
+        if (this.gTC != null) {
+            this.gTC.cancel();
         }
         Animation loadAnimation = AnimationUtils.loadAnimation(this.mActivity, a.C0205a.sdk_push_up_out);
-        this.gTk.setAnimation(loadAnimation);
-        this.gTk.setVisibility(8);
+        this.gTm.setAnimation(loadAnimation);
+        this.gTm.setVisibility(8);
         return loadAnimation;
     }
 }

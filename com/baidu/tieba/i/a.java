@@ -5,46 +5,46 @@ import tbclient.EsportRank;
 public class a {
     private String bOR;
     private String bcG;
-    private String fZj;
-    private String jDI;
-    private String jDJ;
+    private String fZl;
     private String jDK;
+    private String jDL;
+    private String jDM;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.jDI = String.valueOf(esportRank.rank);
+            this.jDK = String.valueOf(esportRank.rank);
             this.bcG = esportRank.text;
-            this.fZj = esportRank.url;
+            this.fZl = esportRank.url;
             if (esportRank.user != null) {
-                this.jDJ = esportRank.user.steam_name;
-                this.jDK = esportRank.user.steam_portrait;
+                this.jDL = esportRank.user.steam_name;
+                this.jDM = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String cGK() {
+    public String cGL() {
         return this.mTitle;
     }
 
-    public String cMh() {
-        return this.jDI;
-    }
-
     public String cMi() {
-        return this.bcG;
-    }
-
-    public String cMj() {
-        return this.jDJ;
-    }
-
-    public String cMk() {
         return this.jDK;
     }
 
+    public String cMj() {
+        return this.bcG;
+    }
+
+    public String cMk() {
+        return this.jDL;
+    }
+
     public String cMl() {
+        return this.jDM;
+    }
+
+    public String cMm() {
         return this.bOR;
     }
 
@@ -52,11 +52,11 @@ public class a {
         this.bOR = str;
     }
 
-    public String cMm() {
-        return this.fZj;
+    public String cMn() {
+        return this.fZl;
     }
 
     public void LO(String str) {
-        this.fZj = str;
+        this.fZl = str;
     }
 }

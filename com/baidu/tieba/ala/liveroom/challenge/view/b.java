@@ -13,89 +13,89 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.liveroom.d.d {
     private long brr;
-    private long ggj;
-    private long hiF;
-    private c how;
-    private com.baidu.tieba.ala.liveroom.challenge.b.a hox;
-    private boolean mIsHost;
-    private TbPageContext mTbPageContext;
-    private int mType;
-    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> hoy = new ArrayList();
-    private final c.a hoz = new c.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.1
+    private long ggl;
+    private long hiH;
+    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> hoA = new ArrayList();
+    private final c.a hoB = new c.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.1
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
         public void onScrollToBottom() {
-            if (b.this.hox != null) {
-                b.this.hox.bRM();
+            if (b.this.hoz != null) {
+                b.this.hoz.bRN();
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.view.c.a
-        public void cei() {
-            if (b.this.hox != null) {
-                b.this.hox.refresh();
+        public void cej() {
+            if (b.this.hoz != null) {
+                b.this.hoz.refresh();
             }
         }
     };
-    private final a.InterfaceC0682a hoA = new a.InterfaceC0682a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.2
+    private final a.InterfaceC0682a hoC = new a.InterfaceC0682a() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.b.2
         @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0682a
         public void e(boolean z, List<com.baidu.tieba.ala.liveroom.challenge.a.a> list) {
-            b.this.hoy = list;
-            if (b.this.how != null) {
-                b.this.how.completePullRefresh();
-                b.this.how.Qt();
+            b.this.hoA = list;
+            if (b.this.hoy != null) {
+                b.this.hoy.completePullRefresh();
+                b.this.hoy.Qt();
                 if (ListUtils.isEmpty(list)) {
-                    b.this.how.cC(false);
-                    b.this.how.bSm();
+                    b.this.hoy.cC(false);
+                    b.this.hoy.bSn();
                     return;
                 }
                 if (z) {
-                    b.this.how.bSb();
+                    b.this.hoy.bSc();
                 } else {
-                    b.this.how.bSa();
+                    b.this.hoy.bSb();
                 }
-                b.this.how.setData(list);
+                b.this.hoy.setData(list);
             }
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.b.a.InterfaceC0682a
         public void h(int i, String str, boolean z) {
-            if (b.this.how != null) {
-                b.this.how.completePullRefresh();
-                b.this.how.Qt();
-                b.this.how.bSm();
-                if (!ListUtils.isEmpty(b.this.hoy)) {
+            if (b.this.hoy != null) {
+                b.this.hoy.completePullRefresh();
+                b.this.hoy.Qt();
+                b.this.hoy.bSn();
+                if (!ListUtils.isEmpty(b.this.hoA)) {
                     BdUtilHelper.showToast(b.this.mTbPageContext.getPageActivity(), str);
                 } else if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    b.this.how.cC(false);
+                    b.this.hoy.cC(false);
                 } else {
-                    b.this.how.cC(true);
+                    b.this.hoy.cC(true);
                 }
             }
         }
     };
+    private c hoy;
+    private com.baidu.tieba.ala.liveroom.challenge.b.a hoz;
+    private boolean mIsHost;
+    private TbPageContext mTbPageContext;
+    private int mType;
 
     public b(TbPageContext tbPageContext, int i, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mType = i;
         this.mIsHost = z;
-        this.how = new c(this.mTbPageContext, this.mType, this.mIsHost);
-        this.how.a(this.hoz);
-        this.hox = new com.baidu.tieba.ala.liveroom.challenge.b.a(this.mTbPageContext, this.mType, this.mIsHost);
-        this.hox.a(this.hoA);
+        this.hoy = new c(this.mTbPageContext, this.mType, this.mIsHost);
+        this.hoy.a(this.hoB);
+        this.hoz = new com.baidu.tieba.ala.liveroom.challenge.b.a(this.mTbPageContext, this.mType, this.mIsHost);
+        this.hoz.a(this.hoC);
     }
 
     public void e(long j, long j2, long j3) {
-        this.hiF = j;
+        this.hiH = j;
         this.brr = j2;
-        this.ggj = j3;
-        this.how.c(this.hiF, this.brr, this.ggj);
-        this.hox.c(this.hiF, this.brr, this.ggj);
-        this.hox.refresh();
+        this.ggl = j3;
+        this.hoy.c(this.hiH, this.brr, this.ggl);
+        this.hoz.c(this.hiH, this.brr, this.ggl);
+        this.hoz.refresh();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        return this.how.getView();
+        return this.hoy.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -123,11 +123,11 @@ public class b implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.hox != null) {
-            this.hox.onDestroy();
+        if (this.hoz != null) {
+            this.hoz.onDestroy();
         }
-        if (this.how != null) {
-            this.how.onDestroy();
+        if (this.hoy != null) {
+            this.hoy.onDestroy();
         }
     }
 

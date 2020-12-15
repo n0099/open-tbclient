@@ -19,16 +19,16 @@ import com.baidu.live.utils.j;
 public class b {
     ViewGroup bNk;
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b hfu;
-    private TextView hhX;
-    private ImageView hhY;
-    View hhZ;
+    private com.baidu.tieba.ala.liveroom.operation.b hfw;
+    private TextView hhZ;
+    private ImageView hia;
+    View hib;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean gBW = true;
-    private boolean hia = true;
-    private boolean hib = false;
+    private boolean gBY = true;
+    private boolean hic = true;
+    private boolean hie = false;
     private Handler handler = new Handler();
 
     public b(Context context, boolean z) {
@@ -42,25 +42,25 @@ public class b {
         this.mView = View.inflate(this.mContext, a.g.ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds90));
         this.mView.setId(a.f.ala_liveroom_audience_count_layout);
-        this.hhX = (TextView) this.mView.findViewById(a.f.ala_live_room_audience_count);
-        this.hhY = (ImageView) this.mView.findViewById(a.f.close_imageView);
+        this.hhZ = (TextView) this.mView.findViewById(a.f.ala_live_room_audience_count);
+        this.hia = (ImageView) this.mView.findViewById(a.f.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.hhY.setVisibility(4);
+            this.hia.setVisibility(4);
         } else {
-            this.hhY.setVisibility(8);
+            this.hia.setVisibility(8);
         }
-        this.hhX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
+        this.hhZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.hfu != null) {
-                    b.this.hfu.s(view, 14);
+                if (b.this.hfw != null) {
+                    b.this.hfw.s(view, 14);
                 }
-                if (b.this.hhZ != null) {
-                    b.this.hhZ.setVisibility(8);
+                if (b.this.hib != null) {
+                    b.this.hib.setVisibility(8);
                 }
             }
         });
-        this.hib = SharedPrefHelper.getInstance().getBoolean(SharedPrefConfig.POKE_DIALOG_SHOWED, false);
+        this.hie = SharedPrefHelper.getInstance().getBoolean(SharedPrefConfig.POKE_DIALOG_SHOWED, false);
     }
 
     public void a(ViewGroup viewGroup, int i, long j) {
@@ -77,7 +77,7 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.gBW) {
+        if (this.gBY) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
@@ -86,9 +86,9 @@ public class b {
 
     public void nr(boolean z) {
         if (z) {
-            this.hhY.setVisibility(4);
+            this.hia.setVisibility(4);
         } else {
-            this.hhY.setVisibility(8);
+            this.hia.setVisibility(8);
         }
     }
 
@@ -96,35 +96,35 @@ public class b {
         if (j < 0) {
             j = 0;
         }
-        if (this.count == 0 && j > 0 && !this.hia) {
-            ccu();
+        if (this.count == 0 && j > 0 && !this.hic) {
+            ccv();
         }
         this.count = j;
-        this.hhX.setText(j.numFormatOverWanNaForAudienceNum(j));
-        this.hia = false;
+        this.hhZ.setText(j.numFormatOverWanNaForAudienceNum(j));
+        this.hic = false;
     }
 
-    private void ccu() {
-        if (this.isHost && !this.hib) {
+    private void ccv() {
+        if (this.isHost && !this.hie) {
             int[] iArr = new int[2];
-            this.hhX.getLocationInWindow(iArr);
-            this.hhZ = LayoutInflater.from(this.mContext).inflate(a.g.ala_poke_dialog, (ViewGroup) null);
-            this.hhZ.setVisibility(8);
-            this.hhZ.measure(0, 0);
+            this.hhZ.getLocationInWindow(iArr);
+            this.hib = LayoutInflater.from(this.mContext).inflate(a.g.ala_poke_dialog, (ViewGroup) null);
+            this.hib.setVisibility(8);
+            this.hib.measure(0, 0);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.leftMargin = (iArr[0] - this.hhZ.getMeasuredWidth()) + this.hhX.getWidth();
-            layoutParams.topMargin = iArr[1] + this.hhX.getHeight();
+            layoutParams.leftMargin = (iArr[0] - this.hib.getMeasuredWidth()) + this.hhZ.getWidth();
+            layoutParams.topMargin = iArr[1] + this.hhZ.getHeight();
             if (this.bNk.getParent() != null) {
-                ((ViewGroup) this.bNk.getParent()).addView(this.hhZ.getRootView(), layoutParams);
+                ((ViewGroup) this.bNk.getParent()).addView(this.hib.getRootView(), layoutParams);
             }
-            this.hhZ.setVisibility(0);
+            this.hib.setVisibility(0);
             this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.hhZ.setVisibility(8);
+                    b.this.hib.setVisibility(8);
                 }
             }, 5000L);
-            this.hib = true;
+            this.hie = true;
             SharedPrefHelper.getInstance().putBoolean(SharedPrefConfig.POKE_DIALOG_SHOWED, true);
         }
     }
@@ -134,12 +134,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.hfu = bVar;
+        this.hfw = bVar;
     }
 
     public void ns(boolean z) {
-        if (this.hhX != null) {
-            this.hhX.setEnabled(z);
+        if (this.hhZ != null) {
+            this.hhZ.setEnabled(z);
         }
     }
 }

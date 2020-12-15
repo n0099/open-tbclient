@@ -20,15 +20,15 @@ import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
 public class a implements e {
     private String aGk;
     private boolean bns;
-    private c hKC;
-    private int hKD;
+    private c hKE;
+    private int hKF;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private String mUserId;
     private String mUserName;
-    private BdUniqueId gEP = BdUniqueId.gen();
-    private InterfaceC0707a hKE = new InterfaceC0707a() { // from class: com.baidu.tieba.ala.person.b.a.1
+    private BdUniqueId gER = BdUniqueId.gen();
+    private InterfaceC0707a hKG = new InterfaceC0707a() { // from class: com.baidu.tieba.ala.person.b.a.1
         @Override // com.baidu.tieba.ala.person.b.a.InterfaceC0707a
         public void a(bf bfVar, View view, int i) {
             if (bfVar.live_status != 1) {
@@ -44,11 +44,11 @@ public class a implements e {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
                     if (updateAttentionMessage.getData().isSucc) {
-                        if (a.this.hKC != null) {
-                            a.this.hKC.aD(updateAttentionMessage.getData().toUid, updateAttentionMessage.isAttention());
+                        if (a.this.hKE != null) {
+                            a.this.hKE.aD(updateAttentionMessage.getData().toUid, updateAttentionMessage.isAttention());
                         }
                         Message<?> message = updateAttentionMessage.getmOrginalMessage();
-                        if (message != null && message.getTag() != null && message.getTag().equals(a.this.gEP)) {
+                        if (message != null && message.getTag() != null && message.getTag().equals(a.this.gER)) {
                             if (updateAttentionMessage.getData().isAttention) {
                                 com.baidu.live.view.a.Yo().a(a.this.mPageContext, true);
                                 return;
@@ -59,8 +59,8 @@ public class a implements e {
                         }
                         return;
                     }
-                    if (a.this.hKC != null) {
-                        a.this.hKC.aD(updateAttentionMessage.getData().toUid, !updateAttentionMessage.isAttention());
+                    if (a.this.hKE != null) {
+                        a.this.hKE.aD(updateAttentionMessage.getData().toUid, !updateAttentionMessage.isAttention());
                     }
                     if (!com.baidu.live.view.a.Yo().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && updateAttentionMessage.getData().errorString != null) {
                         CustomToast.newInstance().showToast(updateAttentionMessage.getData().errorString);
@@ -82,26 +82,26 @@ public class a implements e {
     }
 
     private void createView() {
-        if (this.hKC == null) {
-            this.hKC = new c(this.mPageContext, this.mUserId, this.gEP);
-            if (this.hKD == 1) {
-                this.hKC.xv(0);
-            } else if (this.hKD == 2) {
-                this.hKC.xv(1);
+        if (this.hKE == null) {
+            this.hKE = new c(this.mPageContext, this.mUserId, this.gER);
+            if (this.hKF == 1) {
+                this.hKE.xv(0);
+            } else if (this.hKF == 2) {
+                this.hKE.xv(1);
             }
-            this.hKC.a(this.hKE);
+            this.hKE.a(this.hKG);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.hKC == null) {
+        if (this.hKE == null) {
             createView();
         }
-        if (this.hKC == null) {
+        if (this.hKE == null) {
             return null;
         }
-        return this.hKC.getView();
+        return this.hKE.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -125,23 +125,23 @@ public class a implements e {
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.hKC != null) {
-            this.hKC.enterForeground();
+        if (this.hKE != null) {
+            this.hKE.enterForeground();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.blx);
-        if (this.hKC != null) {
-            this.hKC.onDestory();
+        if (this.hKE != null) {
+            this.hKE.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.hKC != null) {
-            this.hKC.onChangeSkinType(i);
+        if (this.hKE != null) {
+            this.hKE.onChangeSkinType(i);
         }
     }
 }

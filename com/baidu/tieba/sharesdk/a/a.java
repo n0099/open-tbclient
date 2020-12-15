@@ -32,9 +32,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes24.dex */
 public abstract class a implements com.baidu.tieba.sharesdk.b.a {
-    public static String mZC = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
-    public static String mZD = "temp_video_thumb.png";
-    public static String mZE = "_temp_share_pic.png";
+    public static String mZE = n.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME;
+    public static String mZF = "temp_video_thumb.png";
+    public static String mZG = "_temp_share_pic.png";
     Context context;
     String extLiveInfo;
     BdUniqueId pageId;
@@ -125,7 +125,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap dKX() {
+    public Bitmap dKY() {
         return BitmapHelper.getCashBitmap(R.drawable.tb_launcher_icon);
     }
 
@@ -236,7 +236,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             a2.draw(canvas);
         }
         if (z) {
-            String saveFileAsPNG = n.saveFileAsPNG(mZC, mZD, createBitmap, 100);
+            String saveFileAsPNG = n.saveFileAsPNG(mZE, mZF, createBitmap, 100);
             if (!StringUtils.isNull(saveFileAsPNG)) {
                 shareEntity.setImageUri(Uri.parse(saveFileAsPNG));
             }

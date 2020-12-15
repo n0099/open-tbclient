@@ -8,27 +8,27 @@ import com.baidu.tbadk.b.f;
 import java.util.HashMap;
 /* loaded from: classes26.dex */
 public class b implements e {
-    private final HashMap<String, f> kRd;
+    private final HashMap<String, f> kRf;
 
     private b() {
-        this.kRd = new HashMap<>();
+        this.kRf = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes26.dex */
     public static class C0853b {
-        private static b mHF = new b();
+        private static b mHH = new b();
     }
 
-    public static b dFg() {
-        return C0853b.mHF;
+    public static b dFh() {
+        return C0853b.mHH;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
             a RV = a.RV(str);
-            f fVar = this.kRd.get(RV.getKey());
+            f fVar = this.kRf.get(RV.getKey());
             if (fVar != null && RV.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
                     RV.getParams().putAll(hashMap);
@@ -39,7 +39,7 @@ public class b implements e {
     }
 
     public void a(String str, f fVar) {
-        this.kRd.put(str, fVar);
+        this.kRf.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {

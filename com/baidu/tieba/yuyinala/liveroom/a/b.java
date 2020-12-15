@@ -24,7 +24,7 @@ public class b extends e implements f {
     private CommonWebLayout bug;
     private View buh;
     private float bui;
-    private boolean hdA;
+    private boolean hdC;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -163,7 +163,7 @@ public class b extends e implements f {
         if (getContentView() == null) {
             return false;
         }
-        if (this.hdA) {
+        if (this.hdC) {
             return true;
         }
         TranslateAnimation translateAnimation = null;
@@ -186,7 +186,7 @@ public class b extends e implements f {
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     b.this.YQ();
-                    b.this.hdA = false;
+                    b.this.hdC = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -194,7 +194,7 @@ public class b extends e implements f {
                 }
             });
             getContentView().startAnimation(translateAnimation);
-            this.hdA = true;
+            this.hdC = true;
             return true;
         }
         return false;

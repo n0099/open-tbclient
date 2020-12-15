@@ -15,30 +15,30 @@ import java.util.Iterator;
 public class c {
     private int bgColor;
     private String enb;
-    private int jAj;
-    private int nTA;
-    private int nTB = -1;
-    private boolean nTC = false;
-    private boolean nTD = false;
-    private ArrayList<String> nTy;
-    private int nTz;
+    private int jAl;
+    private ArrayList<String> nTA;
+    private int nTB;
+    private int nTC;
+    private int nTD = -1;
+    private boolean nTE = false;
+    private boolean nTF = false;
 
     public SpannableStringBuilder c(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || y.isEmpty(this.nTy)) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || y.isEmpty(this.nTA)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.nTB >= 0;
-        this.nTB = -1;
-        Iterator<String> it = this.nTy.iterator();
+        boolean z = this.nTD >= 0;
+        this.nTD = -1;
+        Iterator<String> it = this.nTA.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 a(spannableStringBuilder, obj, next);
             }
         }
-        if (this.nTB >= 0 || z) {
+        if (this.nTD >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -56,19 +56,19 @@ public class c {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.jAj != 0 || this.bgColor != 0) {
+        if (this.jAl != 0 || this.bgColor != 0) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             if (indexOf >= 0) {
-                if (this.nTB == -1) {
-                    this.nTB = indexOf + length;
-                } else if (indexOf + length < this.nTB) {
-                    this.nTB = indexOf + length;
+                if (this.nTD == -1) {
+                    this.nTD = indexOf + length;
+                } else if (indexOf + length < this.nTD) {
+                    this.nTD = indexOf + length;
                 }
             }
             while (indexOf >= 0) {
-                if (this.jAj != 0) {
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.jAj), indexOf, indexOf + length, 33);
+                if (this.jAl != 0) {
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.jAl), indexOf, indexOf + length, 33);
                 }
                 if (this.bgColor != 0) {
                     spannableStringBuilder.setSpan(new BackgroundColorSpan(this.bgColor), indexOf, indexOf + length, 33);
@@ -79,57 +79,57 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        if (this.nTz != 0) {
-            this.jAj = ap.getColor(this.nTz);
+        if (this.nTB != 0) {
+            this.jAl = ap.getColor(this.nTB);
         }
-        if (this.nTA != 0) {
-            this.bgColor = ap.getColor(this.nTA);
+        if (this.nTC != 0) {
+            this.bgColor = ap.getColor(this.nTC);
         }
     }
 
     public void bn(ArrayList<String> arrayList) {
-        this.nTy = arrayList;
+        this.nTA = arrayList;
     }
 
-    public ArrayList<String> dYm() {
-        return this.nTy;
+    public ArrayList<String> dYn() {
+        return this.nTA;
     }
 
     public void MB(int i) {
-        this.nTz = i;
-        this.jAj = ap.getColor(this.nTz);
+        this.nTB = i;
+        this.jAl = ap.getColor(this.nTB);
     }
 
     public void MC(int i) {
-        this.nTA = i;
-        this.bgColor = ap.getColor(this.nTA);
+        this.nTC = i;
+        this.bgColor = ap.getColor(this.nTC);
     }
 
-    public int dYn() {
-        return this.nTB;
+    public int dYo() {
+        return this.nTD;
     }
 
     public void zb(boolean z) {
-        this.nTC = z;
-    }
-
-    public boolean dYo() {
-        return this.nTC;
-    }
-
-    public void zc(boolean z) {
-        this.nTD = z;
+        this.nTE = z;
     }
 
     public boolean dYp() {
-        return this.nTD;
+        return this.nTE;
+    }
+
+    public void zc(boolean z) {
+        this.nTF = z;
+    }
+
+    public boolean dYq() {
+        return this.nTF;
     }
 
     public void VA(String str) {
         this.enb = str;
     }
 
-    public String dYq() {
+    public String dYr() {
         return this.enb;
     }
 }

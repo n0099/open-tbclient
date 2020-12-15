@@ -3,5 +3,5 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes21.dex */
 public interface as {
-    NavigationBar bVK();
+    NavigationBar bVL();
 }

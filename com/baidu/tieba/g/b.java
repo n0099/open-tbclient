@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.g.a {
-    private a irO;
+    private a irQ;
     private ScaleGestureDetector mScaleGestureDetector;
 
     /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class b extends com.baidu.tieba.g.a {
     }
 
     public void a(a aVar) {
-        this.irO = aVar;
+        this.irQ = aVar;
     }
 
     /* renamed from: com.baidu.tieba.g.b$b  reason: collision with other inner class name */
@@ -38,14 +38,14 @@ public class b extends com.baidu.tieba.g.a {
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            if (scaleGestureDetector != null && b.this.irO != null) {
+            if (scaleGestureDetector != null && b.this.irQ != null) {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
                 if (!this.bDp && scaleFactor > 1.0f) {
                     this.bDp = true;
-                    b.this.irO.cW(true);
+                    b.this.irQ.cW(true);
                 } else if (!this.bDp && scaleFactor > 0.0f && scaleFactor < 1.0f) {
                     this.bDp = true;
-                    b.this.irO.cW(false);
+                    b.this.irQ.cW(false);
                 }
             }
             return true;

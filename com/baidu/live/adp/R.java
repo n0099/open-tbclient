@@ -82,17 +82,17 @@ public final class R {
 
         /* renamed from: common  reason: collision with root package name */
         public static final int f1853common = 0x7f1001a2;
-        public static final int pull_content = 0x7f102201;
+        public static final int pull_content = 0x7f102205;
         public static final int pull_image = 0x7f100db4;
-        public static final int pull_root = 0x7f1021ff;
-        public static final int pull_text = 0x7f102202;
-        public static final int pull_time = 0x7f102203;
+        public static final int pull_root = 0x7f102203;
+        public static final int pull_text = 0x7f102206;
+        public static final int pull_time = 0x7f102207;
         public static final int shader = 0x7f1001a3;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int sdk_pull_view = 0x7f0407db;
+        public static final int sdk_pull_view = 0x7f0407dc;
     }
 
     /* loaded from: classes3.dex */

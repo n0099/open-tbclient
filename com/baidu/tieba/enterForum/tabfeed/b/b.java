@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.data.bl;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class b {
-    public c iBz;
+    public c iBB;
     public boolean hasMore = true;
     public boolean alo = true;
-    public int iBy = 0;
+    public int iBA = 0;
     public int refreshCount = 0;
     public boolean fVi = true;
-    public ArrayList<q> iBx = new ArrayList<>();
-    public bl iBw = new bl();
+    public ArrayList<q> iBz = new ArrayList<>();
+    public bl iBy = new bl();
 }

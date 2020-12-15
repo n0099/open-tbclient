@@ -16,12 +16,8 @@ public class a extends g implements PersonalizePageView.a, BigdaySwipeRefreshLay
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public int cQh() {
+    public int cQi() {
         return 0;
-    }
-
-    @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void cQi() {
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
@@ -30,5 +26,9 @@ public class a extends g implements PersonalizePageView.a, BigdaySwipeRefreshLay
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
     public void cQk() {
+    }
+
+    @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
+    public void cQl() {
     }
 }

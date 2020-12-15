@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d itk = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> itl;
+    private static d itm = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> itn;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized d cuy() {
+    public static synchronized d cuz() {
         d dVar;
         synchronized (d.class) {
-            dVar = itk;
+            dVar = itm;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.itl;
+        return this.itn;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0602a interfaceC0602a) {
-        if (this.itl == null || this.itl.isEmpty()) {
-            this.itl = new LinkedList<>();
+        if (this.itn == null || this.itn.isEmpty()) {
+            this.itn = new LinkedList<>();
             if (TbFaceManager.bDU().bCF() > 0) {
                 c cVar = new c();
-                this.itl.add(cVar);
+                this.itn.add(cVar);
                 if (interfaceC0602a != null) {
                     interfaceC0602a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.itl.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.itn.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0602a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.itl == null || this.itl.size() == 0;
+        return this.itn == null || this.itn.size() == 0;
     }
 }

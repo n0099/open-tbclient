@@ -9,21 +9,21 @@ public class f {
     private BdUniqueId ajD;
     private long fid;
     private boolean hasMore;
-    private e idb;
-    private d idc;
-    private List<d> idd;
-    private ManagerElection ide;
+    private e idd;
+    private d ide;
+    private List<d> idf;
+    private ManagerElection idg;
 
-    public List<d> cra() {
+    public List<d> crb() {
+        return this.idf;
+    }
+
+    public d crc() {
+        return this.ide;
+    }
+
+    public e crd() {
         return this.idd;
-    }
-
-    public d crb() {
-        return this.idc;
-    }
-
-    public e crc() {
-        return this.idb;
     }
 
     public boolean getHasMore() {
@@ -38,20 +38,20 @@ public class f {
         return this.ajD;
     }
 
-    public ManagerElection crd() {
-        return this.ide;
+    public ManagerElection cre() {
+        return this.idg;
     }
 
     public void ap(ArrayList<d> arrayList) {
-        this.idd = arrayList;
+        this.idf = arrayList;
     }
 
     public void a(e eVar) {
-        this.idb = eVar;
+        this.idd = eVar;
     }
 
     public void a(d dVar) {
-        this.idc = dVar;
+        this.ide = dVar;
     }
 
     public void setHasMore(boolean z) {
@@ -67,6 +67,6 @@ public class f {
     }
 
     public void a(ManagerElection managerElection) {
-        this.ide = managerElection;
+        this.idg = managerElection;
     }
 }

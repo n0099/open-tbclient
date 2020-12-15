@@ -10,8 +10,8 @@ public class f {
     private static float bFr = 8.0f;
     private static float bFs;
     private final boolean bFq;
-    private final a kbq;
-    private final a kbr;
+    private final a kbs;
+    private final a kbt;
     private Interpolator mInterpolator;
     private int mMode;
 
@@ -42,8 +42,8 @@ public class f {
     public f(Context context, Interpolator interpolator, boolean z) {
         this.mInterpolator = interpolator;
         this.bFq = z;
-        this.kbq = new a(context);
-        this.kbr = new a(context);
+        this.kbs = new a(context);
+        this.kbt = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,20 +52,20 @@ public class f {
     }
 
     public final void setFriction(float f) {
-        this.kbq.setFriction(f);
-        this.kbr.setFriction(f);
+        this.kbs.setFriction(f);
+        this.kbt.setFriction(f);
     }
 
     public final boolean isFinished() {
-        return this.kbq.mFinished && this.kbr.mFinished;
+        return this.kbs.mFinished && this.kbt.mFinished;
     }
 
     public final int getCurrX() {
-        return this.kbq.mCurrentPosition;
+        return this.kbs.mCurrentPosition;
     }
 
     public float getCurrVelocity() {
-        return (float) Math.sqrt((this.kbq.bFv * this.kbq.bFv) + (this.kbr.bFv * this.kbr.bFv));
+        return (float) Math.sqrt((this.kbs.bFv * this.kbs.bFv) + (this.kbt.bFv * this.kbt.bFv));
     }
 
     public boolean computeScrollOffset() {
@@ -75,8 +75,8 @@ public class f {
         }
         switch (this.mMode) {
             case 0:
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.kbq.mStartTime;
-                int i = this.kbq.mDuration;
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.kbs.mStartTime;
+                int i = this.kbs.mDuration;
                 if (currentAnimationTimeMillis < i) {
                     float f = ((float) currentAnimationTimeMillis) / i;
                     if (this.mInterpolator == null) {
@@ -84,19 +84,19 @@ public class f {
                     } else {
                         interpolation = this.mInterpolator.getInterpolation(f);
                     }
-                    this.kbq.u(interpolation);
-                    this.kbr.u(interpolation);
+                    this.kbs.u(interpolation);
+                    this.kbt.u(interpolation);
                     break;
                 } else {
                     abortAnimation();
                     break;
                 }
             case 1:
-                if (!this.kbq.mFinished && !this.kbq.update() && !this.kbq.Vf()) {
-                    this.kbq.finish();
+                if (!this.kbs.mFinished && !this.kbs.update() && !this.kbs.Vf()) {
+                    this.kbs.finish();
                 }
-                if (!this.kbr.mFinished && !this.kbr.update() && !this.kbr.Vf()) {
-                    this.kbr.finish();
+                if (!this.kbt.mFinished && !this.kbt.update() && !this.kbt.Vf()) {
+                    this.kbt.finish();
                     break;
                 }
                 break;
@@ -106,13 +106,13 @@ public class f {
 
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
         this.mMode = 0;
-        this.kbq.p(i, i3, i5);
-        this.kbr.p(i2, i4, i5);
+        this.kbs.p(i, i3, i5);
+        this.kbt.p(i2, i4, i5);
     }
 
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         this.mMode = 1;
-        return this.kbq.q(i, i3, i4) || this.kbr.q(i2, i5, i6);
+        return this.kbs.q(i, i3, i4) || this.kbt.q(i2, i5, i6);
     }
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
@@ -122,33 +122,33 @@ public class f {
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         int i11;
         if (this.bFq && !isFinished()) {
-            float f = this.kbq.bFv;
-            float f2 = this.kbr.bFv;
+            float f = this.kbs.bFv;
+            float f2 = this.kbt.bFv;
             if (Math.signum(i3) == Math.signum(f) && Math.signum(i4) == Math.signum(f2)) {
                 i4 = (int) (i4 + f2);
                 i11 = (int) (f + i3);
                 this.mMode = 1;
-                this.kbq.b(i, i11, i5, i6, i9);
-                this.kbr.b(i2, i4, i7, i8, i10);
+                this.kbs.b(i, i11, i5, i6, i9);
+                this.kbt.b(i2, i4, i7, i8, i10);
             }
         }
         i11 = i3;
         this.mMode = 1;
-        this.kbq.b(i, i11, i5, i6, i9);
-        this.kbr.b(i2, i4, i7, i8, i10);
+        this.kbs.b(i, i11, i5, i6, i9);
+        this.kbt.b(i2, i4, i7, i8, i10);
     }
 
     public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.kbq.u(i, i2, i3);
+        this.kbs.u(i, i2, i3);
     }
 
     public void abortAnimation() {
-        this.kbq.finish();
-        this.kbr.finish();
+        this.kbs.finish();
+        this.kbt.finish();
     }
 
     public boolean l(float f, float f2) {
-        return !isFinished() && Math.signum(f) == Math.signum((float) (this.kbq.bFt - this.kbq.mStart)) && Math.signum(f2) == Math.signum((float) (this.kbr.bFt - this.kbr.mStart));
+        return !isFinished() && Math.signum(f) == Math.signum((float) (this.kbs.bFt - this.kbs.mStart)) && Math.signum(f2) == Math.signum((float) (this.kbt.bFt - this.kbt.mStart));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

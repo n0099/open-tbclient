@@ -19,10 +19,10 @@ public class a {
     public boolean a(PbModel pbModel) {
         String str;
         int i = 2;
-        if (this.eNx.getPageActivity() == null || pbModel == null || pbModel.lEN == null) {
+        if (this.eNx.getPageActivity() == null || pbModel == null || pbModel.lEP == null) {
             return false;
         }
-        if ("3".equals(pbModel.lEN.lBD)) {
+        if ("3".equals(pbModel.lEP.lBF)) {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.eNx.getPageActivity()).createNormalCfg(2);
             createNormalCfg.setSubTabName(this.eNx.getString(R.string.tab_name_topic_rank));
             this.eNx.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));
@@ -35,8 +35,8 @@ public class a {
         } else {
             str = (TextUtils.isEmpty(string2) || com.baidu.tbadk.a.c.bkb().Ao(string2) == null) ? null : "2";
         }
-        if (str == null && pbModel.lEN.lBC != null) {
-            str = pbModel.lEN.lBC;
+        if (str == null && pbModel.lEP.lBE != null) {
+            str = pbModel.lEP.lBE;
         }
         if (str != null) {
             if (str.equals("1")) {
@@ -47,10 +47,10 @@ public class a {
                 return true;
             } else if (str.equals("2")) {
                 MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.eNx.getPageActivity()).createNormalCfg(1);
-                createNormalCfg3.setSubTab(0, pbModel.lEN.lBD);
+                createNormalCfg3.setSubTab(0, pbModel.lEP.lBF);
                 this.eNx.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg3));
-                if (!"游戏".equals(pbModel.lEN.lBD)) {
-                    i = "数码".equals(pbModel.lEN.lBD) ? 3 : 0;
+                if (!"游戏".equals(pbModel.lEP.lBF)) {
+                    i = "数码".equals(pbModel.lEP.lBF) ? 3 : 0;
                 }
                 a(pbModel, i);
                 return true;
@@ -64,12 +64,12 @@ public class a {
     private void a(PbModel pbModel, int i) {
         if (pbModel != null) {
             com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c13719");
-            arVar.dY("fid", pbModel.lEN.getForumId());
-            arVar.dY("tid", pbModel.lEN.getThreadId());
+            arVar.dY("fid", pbModel.lEP.getForumId());
+            arVar.dY("tid", pbModel.lEP.getThreadId());
             arVar.al("obj_type", i);
-            if (pbModel.dqU() == 5) {
+            if (pbModel.dqV() == 5) {
                 arVar.al("obj_source", 1);
-            } else if (pbModel.dqU() == 7) {
+            } else if (pbModel.dqV() == 7) {
                 arVar.al("obj_source", 2);
             } else {
                 arVar.al("obj_source", 3);

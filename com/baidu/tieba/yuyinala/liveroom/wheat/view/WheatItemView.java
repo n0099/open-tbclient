@@ -33,11 +33,11 @@ import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes4.dex */
 public class WheatItemView extends SafeFrameLayout {
     private w bur;
-    private PublishLoverView oyT;
-    private AlaWheatInfoData oyU;
-    private View oyV;
-    private a oyW;
-    private BaseWheatLayout.a oyc;
+    private PublishLoverView oyV;
+    private AlaWheatInfoData oyW;
+    private View oyX;
+    private a oyY;
+    private BaseWheatLayout.a oye;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -55,20 +55,20 @@ public class WheatItemView extends SafeFrameLayout {
     public WheatItemView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_wheat_item_layout, this);
-        this.oyT = (PublishLoverView) findViewById(a.f.view_pubish_lover);
-        this.oyV = findViewById(a.f.view_choose_lover);
-        this.oyV.setVisibility(8);
-        this.oyT.setVisibility(4);
-        this.oyT.setOnPublishClickListener(new PublishLoverView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1
+        this.oyV = (PublishLoverView) findViewById(a.f.view_pubish_lover);
+        this.oyX = findViewById(a.f.view_choose_lover);
+        this.oyX.setVisibility(8);
+        this.oyV.setVisibility(4);
+        this.oyV.setOnPublishClickListener(new PublishLoverView.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.PublishLoverView.a
             public void onClick() {
                 b bVar = new b(WheatItemView.this.getContext());
-                bVar.h(g.Zc(), WheatItemView.this.oyU.uk, g.ar(WheatItemView.this.bur), g.aq(WheatItemView.this.bur));
+                bVar.h(g.Zc(), WheatItemView.this.oyW.uk, g.ar(WheatItemView.this.bur), g.aq(WheatItemView.this.bur));
                 bVar.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatItemView.1.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.publishlover.b.a
                     public void a(PublishLoverHttpResponseMessage publishLoverHttpResponseMessage) {
                         BdUtilHelper.showToast(WheatItemView.this.getContext(), "操作成功");
-                        WheatItemView.this.oyT.ege();
+                        WheatItemView.this.oyV.egf();
                     }
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.publishlover.b.a
@@ -99,10 +99,10 @@ public class WheatItemView extends SafeFrameLayout {
         LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(a.f.speeding_lottieAnimationView);
         textView.setText("");
         textView2.setText("");
-        this.oyU = alaWheatInfoData;
+        this.oyW = alaWheatInfoData;
         this.bur = wVar;
         a(z, wVar);
-        if (this.oyU == null) {
+        if (this.oyW == null) {
             relativeLayout3.setVisibility(8);
             if (lottieAnimationView.getVisibility() == 0) {
                 lottieAnimationView.cancelAnimation();
@@ -115,7 +115,7 @@ public class WheatItemView extends SafeFrameLayout {
             headImageView.setAutoChangeStyle(false);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             headImageView.setImageResource(a.e.yuyin_sdk_wheat_empty_wheat);
-            if (ego()) {
+            if (egp()) {
                 headImageView.setBackgroundResource(a.e.yuyin_sdk_wheat_dating_bg_2);
             } else {
                 headImageView.setBackgroundResource(a.e.yuyin_sdk_connection_wheat_empty);
@@ -161,7 +161,7 @@ public class WheatItemView extends SafeFrameLayout {
             headImageView.setDrawBorder(false);
             headImageView.setAutoChangeStyle(false);
             headImageView.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-            if (ego()) {
+            if (egp()) {
                 headImageView.setDefaultBgResource(a.e.yuyin_sdk_wheat_dating_bg_2);
             } else {
                 headImageView.setDefaultBgResource(a.e.yuyin_sdk_connection_wheat_empty);
@@ -223,9 +223,9 @@ public class WheatItemView extends SafeFrameLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue = ((Integer) view.getTag()).intValue();
-                if (WheatItemView.this.oyc != null) {
+                if (WheatItemView.this.oye != null) {
                     if (WheatItemView.this.bur != null && WheatItemView.this.bur.aLd) {
-                        WheatItemView.this.oyc.a(alaWheatInfoData, z, intValue);
+                        WheatItemView.this.oye.a(alaWheatInfoData, z, intValue);
                     } else {
                         BdUtilHelper.showToast(WheatItemView.this.getContext(), "正在获取数据，请稍等");
                     }
@@ -254,7 +254,7 @@ public class WheatItemView extends SafeFrameLayout {
         postInvalidate();
     }
 
-    private boolean ego() {
+    private boolean egp() {
         return (this.bur == null || this.bur.aKQ == null || this.bur.aKQ.getRoomMode() != 1) ? false : true;
     }
 
@@ -267,62 +267,62 @@ public class WheatItemView extends SafeFrameLayout {
     }
 
     private void a(boolean z, w wVar) {
-        this.oyT.setVisibility(4);
-        if (this.oyU != null && this.bur != null) {
+        this.oyV.setVisibility(4);
+        if (this.oyW != null && this.bur != null) {
             int ao = g.ao(wVar);
             int ap = g.ap(wVar);
-            boolean efY = g.efY();
+            boolean efZ = g.efZ();
             if (!z && ao == 1) {
                 switch (ap) {
                     case 2:
-                        if (efY) {
-                            if (this.oyU.select != 0) {
-                                c(this.oyU.sex != 2, "选" + this.oyU.select, false);
-                                this.oyT.setVisibility(0);
+                        if (efZ) {
+                            if (this.oyW.select != 0) {
+                                c(this.oyW.sex != 2, "选" + this.oyW.select, false);
+                                this.oyV.setVisibility(0);
                                 return;
                             }
                             return;
                         } else if (isSelf()) {
-                            if (this.oyU.select == 0) {
+                            if (this.oyW.select == 0) {
                                 if (this.bur != null && !TextUtils.isEmpty(this.bur.aLb)) {
-                                    if (this.oyW != null) {
-                                        this.oyW.Xe(this.bur.aLb);
+                                    if (this.oyY != null) {
+                                        this.oyY.Xe(this.bur.aLb);
                                     }
                                     this.bur.aLb = "";
                                     return;
                                 }
                                 return;
                             }
-                            c(this.oyU.sex != 2, "选" + this.oyU.select, false);
-                            this.oyT.setVisibility(0);
+                            c(this.oyW.sex != 2, "选" + this.oyW.select, false);
+                            this.oyV.setVisibility(0);
                             return;
-                        } else if (this.oyU.select != 0) {
-                            zY(this.oyU.sex != 2);
-                            this.oyT.setVisibility(0);
+                        } else if (this.oyW.select != 0) {
+                            zY(this.oyW.sex != 2);
+                            this.oyV.setVisibility(0);
                             return;
                         } else {
                             return;
                         }
                     case 3:
-                        if (this.oyU.select == 0) {
-                            this.oyT.setVisibility(0);
-                            egd();
+                        if (this.oyW.select == 0) {
+                            this.oyV.setVisibility(0);
+                            ege();
                             return;
-                        } else if (efY) {
-                            this.oyT.setVisibility(0);
-                            c(this.oyU.sex != 2, "选" + this.oyU.select, this.oyU.publish == 0);
+                        } else if (efZ) {
+                            this.oyV.setVisibility(0);
+                            c(this.oyW.sex != 2, "选" + this.oyW.select, this.oyW.publish == 0);
                             return;
                         } else if (isSelf()) {
-                            c(this.oyU.sex != 2, "选" + this.oyU.select, false);
-                            this.oyT.setVisibility(0);
+                            c(this.oyW.sex != 2, "选" + this.oyW.select, false);
+                            this.oyV.setVisibility(0);
                             return;
-                        } else if (this.oyU.publish == 1) {
-                            c(this.oyU.sex != 2, "选" + this.oyU.select, false);
-                            this.oyT.setVisibility(0);
+                        } else if (this.oyW.publish == 1) {
+                            c(this.oyW.sex != 2, "选" + this.oyW.select, false);
+                            this.oyV.setVisibility(0);
                             return;
-                        } else if (this.oyU.publish == 0) {
-                            zY(this.oyU.sex != 2);
-                            this.oyT.setVisibility(0);
+                        } else if (this.oyW.publish == 0) {
+                            zY(this.oyW.sex != 2);
+                            this.oyV.setVisibility(0);
                             return;
                         } else {
                             return;
@@ -335,57 +335,57 @@ public class WheatItemView extends SafeFrameLayout {
     }
 
     private boolean isSelf() {
-        return this.oyU.uk.equals(g.Zc());
+        return this.oyW.uk.equals(g.Zc());
     }
 
     public void a(SimpleDraweeView simpleDraweeView, String str) {
-        simpleDraweeView.setController(c.eqF().bo(ImageRequest.Zv(str)).AP(true).c(simpleDraweeView.getController()).erw());
+        simpleDraweeView.setController(c.eqG().bo(ImageRequest.Zv(str)).AP(true).c(simpleDraweeView.getController()).erx());
     }
 
     public void zY(boolean z) {
-        if (this.oyT != null) {
-            this.oyT.setVisibility(0);
-            this.oyT.zY(z);
+        if (this.oyV != null) {
+            this.oyV.setVisibility(0);
+            this.oyV.zY(z);
         }
     }
 
     public void c(boolean z, String str, boolean z2) {
-        if (this.oyT != null) {
-            this.oyT.setVisibility(0);
-            this.oyT.c(z, str, z2);
+        if (this.oyV != null) {
+            this.oyV.setVisibility(0);
+            this.oyV.c(z, str, z2);
         }
     }
 
-    public void egd() {
-        if (this.oyT != null) {
-            this.oyT.setVisibility(0);
-            this.oyT.egd();
+    public void ege() {
+        if (this.oyV != null) {
+            this.oyV.setVisibility(0);
+            this.oyV.ege();
         }
     }
 
     public AlaWheatInfoData getAlaWheatInfoData() {
-        return this.oyU;
+        return this.oyW;
     }
 
     public void setOnItemClickListener(BaseWheatLayout.a aVar) {
-        this.oyc = aVar;
+        this.oye = aVar;
     }
 
     public void setChooseLoverBgView(boolean z) {
-        if (this.oyV != null) {
-            this.oyV.setVisibility(z ? 0 : 8);
+        if (this.oyX != null) {
+            this.oyX.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void egp() {
-        if (this.oyT != null) {
-            this.oyT.ek(this.oyT);
-            c(this.oyU.sex != 2, "选" + this.oyU.select, false);
-            this.oyT.setVisibility(0);
+    public void egq() {
+        if (this.oyV != null) {
+            this.oyV.ek(this.oyV);
+            c(this.oyW.sex != 2, "选" + this.oyW.select, false);
+            this.oyV.setVisibility(0);
         }
     }
 
     public void setDialogLister(a aVar) {
-        this.oyW = aVar;
+        this.oyY = aVar;
     }
 }

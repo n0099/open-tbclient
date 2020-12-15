@@ -24,15 +24,15 @@ import java.util.List;
 public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaEmoticonListDialogData> implements DialogInterface.OnDismissListener, ViewPager.OnPageChangeListener, AdapterView.OnItemClickListener {
     private List<View> bbt;
     private CommonEmptyView btg;
-    private c hmu;
-    private a oKa;
-    private BaseViewPager oKb;
-    private RoundRectPageIndicator oKc;
-    private View oKd;
-    private AlaEmoticonListDialogData oKe;
-    private List<List<com.baidu.yuyinala.emoticon.a.a>> oKf;
-    private long oKg;
-    private com.baidu.yuyinala.emoticon.a.a oKh;
+    private c hmw;
+    private a oKc;
+    private BaseViewPager oKd;
+    private RoundRectPageIndicator oKe;
+    private View oKf;
+    private AlaEmoticonListDialogData oKg;
+    private List<List<com.baidu.yuyinala.emoticon.a.a>> oKh;
+    private long oKi;
+    private com.baidu.yuyinala.emoticon.a.a oKj;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -44,7 +44,7 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
     public AlaEmoticonListView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.bbt = new ArrayList();
-        this.oKf = new ArrayList();
+        this.oKh = new ArrayList();
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
@@ -60,9 +60,9 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
     }
 
     public void a(AlaEmoticonListDialogData alaEmoticonListDialogData, boolean z) {
-        this.oKe = alaEmoticonListDialogData;
+        this.oKg = alaEmoticonListDialogData;
         if (z) {
-            if (this.oKe == null || ListUtils.isEmpty(alaEmoticonListDialogData.getEmoticonList())) {
+            if (this.oKg == null || ListUtils.isEmpty(alaEmoticonListDialogData.getEmoticonList())) {
                 Ar(alaEmoticonListDialogData.isNetError());
             } else {
                 cv(alaEmoticonListDialogData.getEmoticonList());
@@ -72,11 +72,11 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.d
     public void initView() {
-        this.oKb = (BaseViewPager) getViewGroup().findViewById(a.f.emoticon_vp);
-        this.oKc = (RoundRectPageIndicator) getViewGroup().findViewById(a.f.emoticon_indicator);
-        this.oKd = getViewGroup().findViewById(a.f.emoticon_succ_view);
+        this.oKd = (BaseViewPager) getViewGroup().findViewById(a.f.emoticon_vp);
+        this.oKe = (RoundRectPageIndicator) getViewGroup().findViewById(a.f.emoticon_indicator);
+        this.oKf = getViewGroup().findViewById(a.f.emoticon_succ_view);
         this.btg = (CommonEmptyView) getViewGroup().findViewById(a.f.emoticon_empty_view);
-        this.oKb.setOnPageChangeListener(this);
+        this.oKd.setOnPageChangeListener(this);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -85,7 +85,7 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.oKc.onPageSelected(i);
+        this.oKe.onPageSelected(i);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -93,11 +93,11 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
     }
 
     public void a(a aVar) {
-        this.oKa = aVar;
+        this.oKc = aVar;
     }
 
     public void a(c cVar) {
-        this.hmu = cVar;
+        this.hmw = cVar;
     }
 
     private void Ar(boolean z) {
@@ -105,17 +105,17 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
         this.btg.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.yuyinala.emoticon.AlaEmoticonListView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaEmoticonListView.this.oKa != null) {
-                    AlaEmoticonListView.this.oKa.loadData();
+                if (AlaEmoticonListView.this.oKc != null) {
+                    AlaEmoticonListView.this.oKc.loadData();
                     AlaEmoticonListView.this.btg.setVisibility(8);
-                    AlaEmoticonListView.this.oKd.setVisibility(0);
+                    AlaEmoticonListView.this.oKf.setVisibility(0);
                 }
             }
         });
         this.btg.setTitle(z ? a.h.sdk_net_no : a.h.sdk_net_fail_tip_rank);
         this.btg.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.LIGHT);
         this.btg.setVisibility(0);
-        this.oKd.setVisibility(8);
+        this.oKf.setVisibility(8);
     }
 
     private BdGridView gC(List<com.baidu.yuyinala.emoticon.a.a> list) {
@@ -131,18 +131,18 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (com.baidu.live.ap.b.YX().jt(ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount())) && currentTimeMillis - this.oKg < this.oKe.getSendIntervalTime() * 1000) {
+        if (com.baidu.live.ap.b.YX().jt(ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount())) && currentTimeMillis - this.oKi < this.oKg.getSendIntervalTime() * 1000) {
             this.mTbPageContext.showToast(a.h.send_emoticon_interval_time_tips);
             return;
         }
         com.baidu.yuyinala.emoticon.a.a aVar = (com.baidu.yuyinala.emoticon.a.a) adapterView.getAdapter().getItem(i);
-        this.oKg = currentTimeMillis;
-        this.oKh = aVar;
-        if (this.oKa != null) {
-            this.oKa.a(aVar);
+        this.oKi = currentTimeMillis;
+        this.oKj = aVar;
+        if (this.oKc != null) {
+            this.oKc.a(aVar);
         }
-        if (this.hmu != null && this.hmu.isShowing()) {
-            this.hmu.dismiss();
+        if (this.hmw != null && this.hmw.isShowing()) {
+            this.hmw.dismiss();
         }
     }
 
@@ -150,10 +150,10 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
         ArrayList arrayList;
         int i = 0;
         this.btg.setVisibility(8);
-        this.oKd.setVisibility(0);
+        this.oKf.setVisibility(0);
         this.bbt.clear();
-        this.oKb.setAdapter(null);
-        this.oKf.clear();
+        this.oKd.setAdapter(null);
+        this.oKh.clear();
         int count = ListUtils.getCount(list);
         int ceil = (int) Math.ceil(count / 10.0d);
         int i2 = 0;
@@ -169,15 +169,15 @@ public class AlaEmoticonListView extends com.baidu.live.tieba.pb.interactionpopu
                 arrayList = new ArrayList();
                 arrayList.addAll(list.subList(i * 10, (i + 1) * 10));
             }
-            this.oKf.add(arrayList);
+            this.oKh.add(arrayList);
             this.bbt.add(gC(arrayList));
-            int i3 = (this.oKh == null || !arrayList.contains(this.oKh)) ? i2 : i;
+            int i3 = (this.oKj == null || !arrayList.contains(this.oKj)) ? i2 : i;
             i++;
             i2 = i3;
         }
-        this.oKb.setAdapter(new AlaEmoticonPagerAdapter(this.bbt));
-        this.oKc.setCount(ceil);
-        this.oKb.setCurrentItem(i2);
+        this.oKd.setAdapter(new AlaEmoticonPagerAdapter(this.bbt));
+        this.oKe.setCount(ceil);
+        this.oKd.setCurrentItem(i2);
     }
 
     @Override // android.content.DialogInterface.OnDismissListener

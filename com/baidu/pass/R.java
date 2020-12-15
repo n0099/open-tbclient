@@ -50,21 +50,21 @@ public final class R {
     /* loaded from: classes6.dex */
     public static final class id {
         public static final int center = 0x7f100169;
-        public static final int first_style_btn = 0x7f101a85;
+        public static final int first_style_btn = 0x7f101a89;
         public static final int left = 0x7f100171;
         public static final int message = 0x7f10026b;
         public static final int negative_btn = 0x7f101236;
-        public static final int next_btn = 0x7f101a87;
+        public static final int next_btn = 0x7f101a8b;
         public static final int positive_btn = 0x7f101237;
         public static final int right = 0x7f100172;
         public static final int root_view = 0x7f1002da;
-        public static final int second_style_btn = 0x7f101a86;
+        public static final int second_style_btn = 0x7f101a8a;
         public static final int title = 0x7f100156;
     }
 
     /* loaded from: classes6.dex */
     public static final class layout {
-        public static final int layout_pass_confirm_dialog = 0x7f04056e;
+        public static final int layout_pass_confirm_dialog = 0x7f04056f;
     }
 
     /* loaded from: classes6.dex */

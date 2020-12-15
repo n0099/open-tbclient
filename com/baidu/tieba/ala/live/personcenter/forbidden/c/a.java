@@ -14,11 +14,11 @@ import com.baidu.live.tbadk.core.view.TbListCommonPullView;
 import com.baidu.tieba.ala.live.personcenter.forbidden.c.b;
 /* loaded from: classes4.dex */
 public class a {
-    private e gYz;
-    private b gZQ;
-    private c gZR;
+    private e gYB;
+    private b gZS;
+    private c gZT;
     public TbPageContext pageContext;
-    private CustomMessageListener gYA = new CustomMessageListener(2913051, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.1
+    private CustomMessageListener gYC = new CustomMessageListener(2913051, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,8 +37,8 @@ public class a {
                     @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                     public void onClick(BdAlertDialog bdAlertDialog2) {
                         bdAlertDialog2.dismiss();
-                        a.this.gYz.y(bVar.getUserId(), null, null);
-                        a.this.gZQ.a(bVar);
+                        a.this.gYB.y(bVar.getUserId(), null, null);
+                        a.this.gZS.a(bVar);
                     }
                 });
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
@@ -50,47 +50,47 @@ public class a {
             }
         }
     };
-    private b.a gZS = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2
+    private b.a gZU = new b.a() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2
         @Override // com.baidu.tieba.ala.live.personcenter.forbidden.c.b.a
         public void mn(boolean z) {
-            a.this.gZR.completePullRefresh();
-            a.this.gZR.hideNoDataView();
-            if (a.this.gZQ.getUserList().size() == 0) {
-                a.this.gZR.bYt();
-                a.this.gZR.bWk();
-                a.this.gZR.showNoDataView();
+            a.this.gZT.completePullRefresh();
+            a.this.gZT.hideNoDataView();
+            if (a.this.gZS.getUserList().size() == 0) {
+                a.this.gZT.bYu();
+                a.this.gZT.bWl();
+                a.this.gZT.showNoDataView();
                 return;
             }
-            a.this.gZR.Yb();
-            a.this.gZR.bYs();
-            a.this.gZR.f(a.this.gZQ.getUserList(), a.this.gZQ.getTotalCount());
+            a.this.gZT.Yb();
+            a.this.gZT.bYt();
+            a.this.gZT.f(a.this.gZS.getUserList(), a.this.gZS.getTotalCount());
             if (z) {
-                a.this.gZR.bVP();
+                a.this.gZT.bVQ();
             } else {
-                a.this.gZR.bWk();
+                a.this.gZT.bWl();
             }
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.forbidden.c.b.a
         public void aC(int i, String str) {
-            a.this.gZR.completePullRefresh();
-            a.this.gZR.hideNoDataView();
-            if (a.this.gZQ.getUserList().size() > 0) {
-                if (a.this.gZQ.hasMore()) {
-                    a.this.gZR.bVP();
+            a.this.gZT.completePullRefresh();
+            a.this.gZT.hideNoDataView();
+            if (a.this.gZS.getUserList().size() > 0) {
+                if (a.this.gZS.hasMore()) {
+                    a.this.gZT.bVQ();
                 } else {
-                    a.this.gZR.bSa();
+                    a.this.gZT.bSb();
                 }
                 a.this.getPageContext().showToast(str, true);
                 return;
             }
-            a.this.gZR.bWk();
-            a.this.gZR.bYt();
-            a.this.gZR.a(a.h.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2.1
+            a.this.gZT.bWl();
+            a.this.gZT.bYu();
+            a.this.gZT.a(a.h.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.gZR.Yb();
-                    a.this.gZQ.bYr();
+                    a.this.gZT.Yb();
+                    a.this.gZS.bYs();
                 }
             });
         }
@@ -106,30 +106,30 @@ public class a {
     }
 
     private void ci(View view) {
-        this.gZQ = new b(getPageContext());
-        this.gZQ.a(this.gZS);
-        this.gYz = new e(getPageContext());
-        this.gZR = new c(getPageContext(), view);
-        this.gZR.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.3
+        this.gZS = new b(getPageContext());
+        this.gZS.a(this.gZU);
+        this.gYB = new e(getPageContext());
+        this.gZT = new c(getPageContext(), view);
+        this.gZT.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.gZQ.bYr();
+                a.this.gZS.bYs();
             }
         });
-        this.gZR.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.4
+        this.gZT.setOnSrollToBottomListener(new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.a.4
             @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
             public void onScrollToBottom() {
-                if (a.this.gZQ.hasMore()) {
-                    a.this.gZQ.bWp();
-                    a.this.gZR.bSb();
+                if (a.this.gZS.hasMore()) {
+                    a.this.gZS.bWq();
+                    a.this.gZT.bSc();
                 }
             }
         });
     }
 
     public void onCreate(Bundle bundle) {
-        getPageContext().registerListener(this.gYA);
-        this.gZQ.bYr();
+        getPageContext().registerListener(this.gYC);
+        this.gZS.bYs();
     }
 
     public void onPause() {
@@ -148,8 +148,8 @@ public class a {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gZR != null) {
-            this.gZR.onChangeSkinType(i);
+        if (this.gZT != null) {
+            this.gZT.onChangeSkinType(i);
         }
     }
 }

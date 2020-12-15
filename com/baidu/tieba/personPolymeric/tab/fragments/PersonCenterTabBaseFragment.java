@@ -9,7 +9,7 @@ import com.baidu.tieba.personPolymeric.view.l;
 import tbclient.User;
 /* loaded from: classes24.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
-    private l mtP;
+    private l mtR;
 
     public abstract void d(User user);
 
@@ -21,30 +21,30 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.mtP == null) {
-            this.mtP = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-            this.mtP.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-            this.mtP.setSubText(null);
-            this.mtP.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-            this.mtP.showRefreshButton();
-            this.mtP.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if (this.mtR == null) {
+            this.mtR = new l(getPageContext().getPageActivity(), getNetRefreshListener());
+            this.mtR.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+            this.mtR.setSubText(null);
+            this.mtR.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+            this.mtR.showRefreshButton();
+            this.mtR.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.mtP.onChangeSkinType();
-        this.mtP.attachView(view, z);
+        this.mtR.onChangeSkinType();
+        this.mtR.attachView(view, z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        if (this.mtP != null) {
-            this.mtP.dettachView(view);
+        if (this.mtR != null) {
+            this.mtR.dettachView(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mtP != null) {
-            this.mtP.onChangeSkinType();
+        if (this.mtR != null) {
+            this.mtR.onChangeSkinType();
         }
     }
 

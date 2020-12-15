@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes13.dex */
 public class b {
     String address;
-    float irr;
+    float irt;
     private List<Integer> data = new ArrayList();
-    boolean irs = false;
-    boolean irt = false;
+    boolean iru = false;
+    boolean irv = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.irr = 0.0f;
+            this.irt = 0.0f;
         } else if (size == 1) {
-            this.irr = this.data.get(0).intValue();
+            this.irt = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.irr = ((i * f3) / size) + f;
-            if (this.irr < 0.05d) {
-                if (!this.irs) {
-                    com.baidu.tieba.dnsproxy.d.ctM().aA("ip_weight_lower", this.address, String.valueOf(this.irr));
-                    this.irs = true;
+            this.irt = ((i * f3) / size) + f;
+            if (this.irt < 0.05d) {
+                if (!this.iru) {
+                    com.baidu.tieba.dnsproxy.d.ctN().aA("ip_weight_lower", this.address, String.valueOf(this.irt));
+                    this.iru = true;
                 }
-            } else if (this.irs && this.irr > 0.5d && !this.irt) {
-                com.baidu.tieba.dnsproxy.d.ctM().aA("ip_weight_lower_recover", this.address, String.valueOf(this.irr));
-                this.irt = true;
+            } else if (this.iru && this.irt > 0.5d && !this.irv) {
+                com.baidu.tieba.dnsproxy.d.ctN().aA("ip_weight_lower_recover", this.address, String.valueOf(this.irt));
+                this.irv = true;
             }
         }
     }

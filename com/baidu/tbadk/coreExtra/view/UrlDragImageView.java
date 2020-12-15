@@ -992,7 +992,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.mProgressBar.setVisibility(8);
         }
         e.mY().removeCallbacks(this.frA);
-        com.baidu.tieba.view.c.dXR().setColor(-1);
+        com.baidu.tieba.view.c.dXS().setColor(-1);
     }
 
     public void release() {

@@ -124,14 +124,14 @@ public class EasterEggH5Service extends Service {
         this.model.a(new d.a() { // from class: com.baidu.tieba.easterEgg.EasterEggH5Service.4
             @Override // com.baidu.tieba.easterEgg.d.a
             public void a(boolean z, com.baidu.tieba.easterEgg.a.a aVar) {
-                if (z && aVar != null && !au.isEmpty(aVar.cuj()) && aVar.isOpen()) {
+                if (z && aVar != null && !au.isEmpty(aVar.cuk()) && aVar.isOpen()) {
                     if (EasterEggH5Service.this.mWebView != null) {
-                        EasterEggH5Service.this.mWebView.loadUrl(aVar.cuj());
+                        EasterEggH5Service.this.mWebView.loadUrl(aVar.cuk());
                     }
-                    HashMap<String, String> cui = aVar.cui();
-                    if (cui != null) {
-                        EasterEggH5Service.this.mHttpRule.F(cui);
-                        EasterEggH5Service.this.mSocketRule.F(cui);
+                    HashMap<String, String> cuj = aVar.cuj();
+                    if (cuj != null) {
+                        EasterEggH5Service.this.mHttpRule.F(cuj);
+                        EasterEggH5Service.this.mSocketRule.F(cuj);
                         return;
                     }
                     return;

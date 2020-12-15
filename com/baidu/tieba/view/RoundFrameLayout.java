@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class RoundFrameLayout extends FrameLayout {
     private RectF Hx;
-    private Path nRl;
+    private Path nRn;
 
     public RoundFrameLayout(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class RoundFrameLayout extends FrameLayout {
 
     private void init() {
         setWillNotDraw(false);
-        this.nRl = new Path();
+        this.nRn = new Path();
         this.Hx = new RectF();
     }
 
@@ -39,7 +39,7 @@ public class RoundFrameLayout extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.Hx.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-        this.nRl.addOval(this.Hx, Path.Direction.CW);
+        this.nRn.addOval(this.Hx, Path.Direction.CW);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -50,7 +50,7 @@ public class RoundFrameLayout extends FrameLayout {
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
         super.dispatchDraw(canvas);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-        canvas.drawPath(this.nRl, paint);
+        canvas.drawPath(this.nRn, paint);
         if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
             canvas.restoreToCount(saveLayer);
         }

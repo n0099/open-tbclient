@@ -33,49 +33,49 @@ import java.util.ArrayList;
 public class g extends BaseAdapter {
     private TbPageContext<Object> eNx;
     private Activity mActivity;
-    private h nhB;
-    private ArrayList<bv> nhC;
-    private ArrayList<h.b> nhD;
-    private ArrayList<h.a> nhE;
-    private com.baidu.tieba.square.view.a nhF;
+    private h nhD;
+    private ArrayList<bv> nhE;
+    private ArrayList<h.b> nhF;
+    private ArrayList<h.a> nhG;
+    private com.baidu.tieba.square.view.a nhH;
 
     public g(TbPageContext<Object> tbPageContext) {
-        this.nhF = null;
+        this.nhH = null;
         if (tbPageContext != null && tbPageContext.getOrignalPage() != null) {
             this.eNx = tbPageContext;
             this.mActivity = tbPageContext.getPageActivity();
-            this.nhF = new com.baidu.tieba.square.view.a(tbPageContext);
-            CoverFlowView<i> dOc = this.nhF.dOc();
+            this.nhH = new com.baidu.tieba.square.view.a(tbPageContext);
+            CoverFlowView<i> dOd = this.nhH.dOd();
             if (tbPageContext.getOrignalPage() instanceof f) {
-                dOc.setSwipeControlInterface((f) tbPageContext.getOrignalPage());
+                dOd.setSwipeControlInterface((f) tbPageContext.getOrignalPage());
             }
-            dOc.setDisableParentEvent(false);
+            dOd.setDisableParentEvent(false);
         }
     }
 
     public void a(h hVar) {
         if (hVar != null) {
-            this.nhB = hVar;
-            this.nhC = this.nhB.dNT();
-            this.nhD = this.nhB.dNR();
-            this.nhE = this.nhB.dNS();
-            this.nhF.setData(this.nhC);
+            this.nhD = hVar;
+            this.nhE = this.nhD.dNU();
+            this.nhF = this.nhD.dNS();
+            this.nhG = this.nhD.dNT();
+            this.nhH.setData(this.nhE);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        if (this.nhD != null && this.nhD.size() != 0) {
-            i = 0 + this.nhD.size();
+        if (this.nhF != null && this.nhF.size() != 0) {
+            i = 0 + this.nhF.size();
         }
-        if (this.nhC != null && this.nhC.size() != 0) {
+        if (this.nhE != null && this.nhE.size() != 0) {
             i++;
         }
         if (i != 0) {
             i++;
         }
-        if (this.nhE != null && this.nhE.size() > 0) {
+        if (this.nhG != null && this.nhG.size() > 0) {
             return i + 1;
         }
         return i;
@@ -89,22 +89,22 @@ public class g extends BaseAdapter {
             return null;
         }
         if (itemViewType == 0) {
-            return this.nhC;
-        }
-        if (itemViewType == 1) {
             return this.nhE;
         }
+        if (itemViewType == 1) {
+            return this.nhG;
+        }
         if (itemViewType == 2 || itemViewType == 3) {
-            if (this.nhC == null || this.nhC.size() == 0) {
+            if (this.nhE == null || this.nhE.size() == 0) {
                 i2 = 0;
             }
-            if (this.nhE != null && this.nhE.size() != 0) {
+            if (this.nhG != null && this.nhG.size() != 0) {
                 i2++;
             }
-            if (i - i2 < 0 || i - i2 >= this.nhD.size()) {
+            if (i - i2 < 0 || i - i2 >= this.nhF.size()) {
                 return null;
             }
-            return this.nhD.get(i - i2);
+            return this.nhF.get(i - i2);
         }
         return null;
     }
@@ -123,31 +123,31 @@ public class g extends BaseAdapter {
     public int getItemViewType(int i) {
         int i2 = 1;
         if (i == 0) {
-            if (this.nhC != null && this.nhC.size() != 0) {
+            if (this.nhE != null && this.nhE.size() != 0) {
                 return 0;
             }
-            if (this.nhE != null && this.nhE.size() != 0) {
+            if (this.nhG != null && this.nhG.size() != 0) {
                 return 1;
             }
         }
-        if (i != 1 || this.nhC == null || this.nhC.size() == 0 || this.nhE == null || this.nhE.size() == 0) {
+        if (i != 1 || this.nhE == null || this.nhE.size() == 0 || this.nhG == null || this.nhG.size() == 0) {
             if (i == getCount() - 1) {
                 return 4;
             }
-            if (this.nhC == null || this.nhC.size() == 0) {
+            if (this.nhE == null || this.nhE.size() == 0) {
                 i2 = 0;
             }
-            if (this.nhE != null && this.nhE.size() != 0) {
+            if (this.nhG != null && this.nhG.size() != 0) {
                 i2++;
             }
-            if (i - i2 < 0 || i - i2 >= this.nhD.size()) {
+            if (i - i2 < 0 || i - i2 >= this.nhF.size()) {
                 return -1;
             }
-            h.b bVar = this.nhD.get(i - i2);
+            h.b bVar = this.nhF.get(i - i2);
             if (bVar == null) {
                 return -1;
             }
-            if (bVar.nhW) {
+            if (bVar.nhY) {
                 return 2;
             }
             return 3;
@@ -159,7 +159,7 @@ public class g extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            return this.nhF.getView(i, view, viewGroup);
+            return this.nhH.getView(i, view, viewGroup);
         }
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
@@ -177,9 +177,9 @@ public class g extends BaseAdapter {
         if (i2 == 2) {
             View inflate = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.square_list_title_view, (ViewGroup) null);
             a aVar = new a();
-            aVar.nhQ = (RelativeLayout) inflate.findViewById(R.id.title_layout);
+            aVar.nhS = (RelativeLayout) inflate.findViewById(R.id.title_layout);
             aVar.titleText = (TextView) inflate.findViewById(R.id.title_text);
-            aVar.jQy = (TextView) inflate.findViewById(R.id.more_text);
+            aVar.jQA = (TextView) inflate.findViewById(R.id.more_text);
             inflate.setTag(aVar);
             return inflate;
         } else if (i2 != 3) {
@@ -189,7 +189,7 @@ public class g extends BaseAdapter {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         TiebaStatic.eventStat(g.this.eNx.getPageActivity(), "square_bottom_find_more", "click", 1, new Object[0]);
-                        g.this.dNP();
+                        g.this.dNQ();
                     }
                 });
                 return inflate2;
@@ -198,16 +198,16 @@ public class g extends BaseAdapter {
         } else {
             View inflate3 = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.square_forum_item_view, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.kfj = (TextView) inflate3.findViewById(R.id.forum_name);
-            aVar2.nhK = (BarImageView) inflate3.findViewById(R.id.forum_image);
-            aVar2.nhL = (TextView) inflate3.findViewById(R.id.forum_rank);
-            aVar2.nhM = (TextView) inflate3.findViewById(R.id.forum_intro);
-            aVar2.nhN = (TextView) inflate3.findViewById(R.id.like_num_tv);
-            aVar2.nhO = (TextView) inflate3.findViewById(R.id.thread_num_tv);
-            aVar2.nhP = (TextView) inflate3.findViewById(R.id.category_name_tv);
-            aVar2.iJK = inflate3.findViewById(R.id.vertical_line_view);
-            aVar2.nhS = (TextView) inflate3.findViewById(R.id.enter_forum);
-            aVar2.nhR = (LinearLayout) inflate3.findViewById(R.id.enter_forum_ll);
+            aVar2.kfl = (TextView) inflate3.findViewById(R.id.forum_name);
+            aVar2.nhM = (BarImageView) inflate3.findViewById(R.id.forum_image);
+            aVar2.nhN = (TextView) inflate3.findViewById(R.id.forum_rank);
+            aVar2.nhO = (TextView) inflate3.findViewById(R.id.forum_intro);
+            aVar2.nhP = (TextView) inflate3.findViewById(R.id.like_num_tv);
+            aVar2.nhQ = (TextView) inflate3.findViewById(R.id.thread_num_tv);
+            aVar2.nhR = (TextView) inflate3.findViewById(R.id.category_name_tv);
+            aVar2.iJM = inflate3.findViewById(R.id.vertical_line_view);
+            aVar2.nhU = (TextView) inflate3.findViewById(R.id.enter_forum);
+            aVar2.nhT = (LinearLayout) inflate3.findViewById(R.id.enter_forum_ll);
             inflate3.setTag(aVar2);
             return inflate3;
         }
@@ -223,21 +223,21 @@ public class g extends BaseAdapter {
                 if (item instanceof h.b) {
                     final h.b bVar = (h.b) item;
                     a aVar = (a) view.getTag();
-                    if (bVar.nic == 0) {
-                        aVar.nhQ.setPadding(this.eNx.getResources().getDimensionPixelSize(R.dimen.ds30), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds26), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds20), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds10));
+                    if (bVar.nif == 0) {
+                        aVar.nhS.setPadding(this.eNx.getResources().getDimensionPixelSize(R.dimen.ds30), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds26), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds20), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds10));
                     } else {
-                        aVar.nhQ.setPadding(this.eNx.getResources().getDimensionPixelSize(R.dimen.ds30), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds6), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds20), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds10));
+                        aVar.nhS.setPadding(this.eNx.getResources().getDimensionPixelSize(R.dimen.ds30), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds6), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds20), this.eNx.getResources().getDimensionPixelSize(R.dimen.ds10));
                     }
                     aVar.titleText.setText(bVar.title);
-                    if (bVar.nhX) {
-                        aVar.jQy.setVisibility(8);
+                    if (bVar.nhZ) {
+                        aVar.jQA.setVisibility(8);
                         return;
                     }
-                    aVar.jQy.setVisibility(0);
-                    aVar.jQy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.2
+                    aVar.jQA.setVisibility(0);
+                    aVar.jQA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            TiebaStatic.eventStat(g.this.mActivity, "square_category_more", "click", 1, "loc", Integer.valueOf(bVar.nic));
+                            TiebaStatic.eventStat(g.this.mActivity, "square_category_more", "click", 1, "loc", Integer.valueOf(bVar.nif));
                             bf.bua().b(g.this.eNx, new String[]{bVar.link});
                         }
                     });
@@ -248,50 +248,50 @@ public class g extends BaseAdapter {
                     final h.b bVar2 = (h.b) item2;
                     final a aVar2 = (a) view.getTag();
                     if (aVar2 != null) {
-                        aVar2.nhK.startLoad(bVar2.lBF, 10, false);
-                        aVar2.kfj.setText(bVar2.forumName);
-                        aVar2.nhL.setText(bVar2.nhZ);
-                        aVar2.nhM.setText(bVar2.nia);
-                        long j = bVar2.nib;
+                        aVar2.nhM.startLoad(bVar2.lBH, 10, false);
+                        aVar2.kfl.setText(bVar2.forumName);
+                        aVar2.nhN.setText(bVar2.nib);
+                        aVar2.nhO.setText(bVar2.nic);
+                        long j = bVar2.nie;
                         if (j < 0) {
                             j = 0;
                         }
                         long j2 = bVar2.threadNum;
                         long j3 = j2 >= 0 ? j2 : 0L;
-                        aVar2.nhN.setText(this.eNx.getString(R.string.attention) + au.numFormatOver10000wan(j));
-                        aVar2.nhO.setText(this.eNx.getString(R.string.text_post) + au.numFormatOver10000wan(j3));
-                        if (bVar2.nhX && !StringUtils.isNull(bVar2.nhY)) {
-                            aVar2.nhP.setText(UtilHelper.getFixedText(bVar2.nhY, 5));
-                            aVar2.nhP.setVisibility(0);
-                            aVar2.iJK.setVisibility(0);
+                        aVar2.nhP.setText(this.eNx.getString(R.string.attention) + au.numFormatOver10000wan(j));
+                        aVar2.nhQ.setText(this.eNx.getString(R.string.text_post) + au.numFormatOver10000wan(j3));
+                        if (bVar2.nhZ && !StringUtils.isNull(bVar2.nia)) {
+                            aVar2.nhR.setText(UtilHelper.getFixedText(bVar2.nia, 5));
+                            aVar2.nhR.setVisibility(0);
+                            aVar2.iJM.setVisibility(0);
                         } else {
-                            aVar2.nhP.setVisibility(8);
-                            aVar2.iJK.setVisibility(8);
+                            aVar2.nhR.setVisibility(8);
+                            aVar2.iJM.setVisibility(8);
                         }
-                        aVar2.nhP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.3
+                        aVar2.nhR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(g.this.mActivity, "square_module_menu", "click", 1, "loc", Integer.valueOf(bVar2.nie));
+                                TiebaStatic.eventStat(g.this.mActivity, "square_module_menu", "click", 1, "loc", Integer.valueOf(bVar2.nig));
                                 bf.bua().b(g.this.eNx, new String[]{bVar2.link});
                             }
                         });
-                        aVar2.nhS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.4
+                        aVar2.nhU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.4
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(g.this.mActivity, "square_module_entry", "click", 1, "moduleloc", Integer.valueOf(bVar2.nic), "loc", Integer.valueOf(bVar2.nie));
+                                TiebaStatic.eventStat(g.this.mActivity, "square_module_entry", "click", 1, "moduleloc", Integer.valueOf(bVar2.nif), "loc", Integer.valueOf(bVar2.nig));
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(g.this.eNx.getPageActivity()).createNormalCfg(bVar2.forumName, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
                             }
                         });
-                        aVar2.nhR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.5
+                        aVar2.nhT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.5
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                aVar2.nhS.performClick();
+                                aVar2.nhU.performClick();
                             }
                         });
                         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.6
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(g.this.mActivity, "square_module_content", "click", 1, "moduleloc", Integer.valueOf(bVar2.nic), "loc", Integer.valueOf(bVar2.nie));
+                                TiebaStatic.eventStat(g.this.mActivity, "square_module_content", "click", 1, "moduleloc", Integer.valueOf(bVar2.nif), "loc", Integer.valueOf(bVar2.nig));
                                 if (TbadkCoreApplication.getInst().isRegistedIntent(ForumDetailActivityConfig.class)) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(g.this.eNx.getPageActivity(), bVar2.forumId + "", ForumDetailActivityConfig.FromType.BAR_SQUARE)));
                                 } else {
@@ -307,18 +307,18 @@ public class g extends BaseAdapter {
 
     private void dZ(View view) {
         if (view != null) {
-            if (this.nhE == null || this.nhE.size() == 0) {
+            if (this.nhG == null || this.nhG.size() == 0) {
                 view.setVisibility(8);
                 return;
             }
             view.setVisibility(0);
-            int size = this.nhE.size();
+            int size = this.nhG.size();
             int i = size > 4 ? 4 : size;
             View[] viewArr = {view.findViewById(R.id.empty_view_01), view.findViewById(R.id.empty_view_02), view.findViewById(R.id.empty_view_03), view.findViewById(R.id.empty_view_04), view.findViewById(R.id.empty_view_05)};
             View[] viewArr2 = {view.findViewById(R.id.entry_ll_01), view.findViewById(R.id.entry_ll_02), view.findViewById(R.id.entry_ll_03), view.findViewById(R.id.entry_ll_04)};
             for (int i2 = 0; i2 < viewArr2.length; i2++) {
                 if (i2 < i) {
-                    final h.a aVar = this.nhE.get(i2);
+                    final h.a aVar = this.nhG.get(i2);
                     if (aVar == null) {
                         viewArr2[i2].setVisibility(8);
                     } else {
@@ -331,7 +331,7 @@ public class g extends BaseAdapter {
                                 tbImageView.setTag(Integer.valueOf(i2));
                                 tbImageView.setDrawerType(1);
                                 tbImageView.setIsRound(true);
-                                tbImageView.startLoad(aVar.nhV, 10, false);
+                                tbImageView.startLoad(aVar.nhX, 10, false);
                             }
                             View childAt2 = linearLayout.getChildAt(1);
                             if (childAt2 instanceof TextView) {
@@ -340,8 +340,8 @@ public class g extends BaseAdapter {
                             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.g.7
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (aVar.jJv) {
-                                        g.this.dNP();
+                                    if (aVar.jJx) {
+                                        g.this.dNQ();
                                     } else {
                                         bf.bua().b(g.this.eNx, new String[]{aVar.link});
                                     }
@@ -363,13 +363,13 @@ public class g extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dNP() {
+    public void dNQ() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_BAR_FOLDER_FIRST_DIR, new BarFolderFirstDirActivityConfig(this.eNx.getPageActivity(), SingleSquareActivityConfig.makeStatisticsParam("forum_browse", "all"))));
     }
 
     public void onChangeSkinType(int i) {
-        if (this.nhF != null) {
-            this.nhF.onChangeSkinType(i);
+        if (this.nhH != null) {
+            this.nhH.onChangeSkinType(i);
         }
         notifyDataSetChanged();
     }
@@ -377,18 +377,18 @@ public class g extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes23.dex */
     public static class a {
-        View iJK;
-        TextView jQy;
-        TextView kfj;
-        BarImageView nhK;
-        TextView nhL;
-        TextView nhM;
+        View iJM;
+        TextView jQA;
+        TextView kfl;
+        BarImageView nhM;
         TextView nhN;
         TextView nhO;
         TextView nhP;
-        RelativeLayout nhQ;
-        LinearLayout nhR;
-        TextView nhS;
+        TextView nhQ;
+        TextView nhR;
+        RelativeLayout nhS;
+        LinearLayout nhT;
+        TextView nhU;
         TextView titleText;
 
         private a() {

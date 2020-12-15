@@ -12,17 +12,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaEndConnectionWheatHttp
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oxJ;
+    private a oxL;
     private HttpMessageListener messageListener = new HttpMessageListener(1031011) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaEndConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.brR && e.this.oxJ != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaEndConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.brR && e.this.oxL != null) {
                 AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage = (AlaEndConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaEndConnectionWheatHttpResponseMessage.getError() != 0 || !alaEndConnectionWheatHttpResponseMessage.isSuccess()) {
-                    e.this.oxJ.onFail(alaEndConnectionWheatHttpResponseMessage.getError(), alaEndConnectionWheatHttpResponseMessage.getErrorString());
+                    e.this.oxL.onFail(alaEndConnectionWheatHttpResponseMessage.getError(), alaEndConnectionWheatHttpResponseMessage.getErrorString());
                 } else {
-                    e.this.oxJ.a(alaEndConnectionWheatHttpResponseMessage);
+                    e.this.oxL.a(alaEndConnectionWheatHttpResponseMessage);
                 }
             }
         }
@@ -39,7 +39,7 @@ public class e extends BdBaseModel {
     public e(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.brR);
         this.mPageContext = tbPageContext;
-        this.oxJ = aVar;
+        this.oxL = aVar;
         bjQ();
         registerListener(this.messageListener);
     }

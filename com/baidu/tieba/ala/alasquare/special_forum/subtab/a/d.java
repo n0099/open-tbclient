@@ -23,27 +23,27 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.f> {
-    private a gyP;
-    private int gyQ;
+    private a gyR;
+    private int gyS;
     private TbPageContext mTbPageContext;
 
     public d(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gyQ = 28;
+        this.gyS = 28;
         this.mTbPageContext = tbPageContext;
-        this.gyP = new a(this);
+        this.gyR = new a(this);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gyP.gyT, (int) R.color.CAM_X0105);
-        ap.setViewTextColor(this.gyP.gyU, (int) R.color.CAM_X0109);
-        ap.setViewTextColor(this.gyP.gyV, (int) R.color.CAM_X0109);
-        ap.setViewTextColor(this.gyP.gwx, (int) R.color.common_color_10140);
-        ap.setViewTextColor(this.gyP.gwq, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gyR.gyV, (int) R.color.CAM_X0105);
+        ap.setViewTextColor(this.gyR.gyW, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gyR.gyX, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gyR.gwz, (int) R.color.common_color_10140);
+        ap.setViewTextColor(this.gyR.gws, (int) R.color.CAM_X0109);
         ap.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-        this.gyP.gwq.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
-        ap.setBackgroundColor(this.gyP.eOv, R.color.CAM_X0204);
+        this.gyR.gws.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
+        ap.setBackgroundColor(this.gyR.eOv, R.color.CAM_X0204);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -56,42 +56,42 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.f fVar) {
         if (fVar.mUserData != null) {
             if (!StringUtils.isNull(fVar.mUserData.getPortrait())) {
-                this.gyP.gyS.startLoad(fVar.mUserData.getPortrait(), 12, false);
+                this.gyR.gyU.startLoad(fVar.mUserData.getPortrait(), 12, false);
             }
             if (!StringUtils.isNull(fVar.mUserData.getName_show())) {
-                this.gyP.gyT.setText(fVar.mUserData.getName_show());
+                this.gyR.gyV.setText(fVar.mUserData.getName_show());
             }
-            if (fVar.gxB) {
+            if (fVar.gxD) {
                 if (fVar.mUserData.hadConcerned()) {
-                    this.gyP.gwx.setVisibility(8);
-                    this.gyP.gyV.setVisibility(0);
+                    this.gyR.gwz.setVisibility(8);
+                    this.gyR.gyX.setVisibility(0);
                 } else {
-                    this.gyP.gwx.setVisibility(0);
-                    this.gyP.gyV.setVisibility(8);
+                    this.gyR.gwz.setVisibility(0);
+                    this.gyR.gyX.setVisibility(8);
                 }
             } else {
-                this.gyP.gwx.setVisibility(8);
-                this.gyP.gyV.setVisibility(8);
+                this.gyR.gwz.setVisibility(8);
+                this.gyR.gyX.setVisibility(8);
             }
-            this.gyP.gwx.setTag(fVar.mUserData);
+            this.gyR.gwz.setTag(fVar.mUserData);
         }
-        if (fVar.gxA != null) {
-            this.gyP.egT.setTag(fVar.gxA);
-            if (!StringUtils.isNull(fVar.gxA.description)) {
-                String str = fVar.gxA.description;
-                int i = this.gyQ;
-                if (fVar.gxB) {
+        if (fVar.gxC != null) {
+            this.gyR.egT.setTag(fVar.gxC);
+            if (!StringUtils.isNull(fVar.gxC.description)) {
+                String str = fVar.gxC.description;
+                int i = this.gyS;
+                if (fVar.gxD) {
                     i -= 9;
                 }
-                this.gyP.gyU.setText(k.byteLength(str) > i ? au.cutChineseAndEnglishWithSuffix(str, i, StringHelper.STRING_MORE) : str);
+                this.gyR.gyW.setText(k.byteLength(str) > i ? au.cutChineseAndEnglishWithSuffix(str, i, StringHelper.STRING_MORE) : str);
             }
         }
-        if (fVar.gxB) {
+        if (fVar.gxD) {
             TiebaStatic.log(new ar("c12895"));
         } else {
             TiebaStatic.log(new ar("c12893"));
         }
-        this.gyP.gwx.setTag(fVar.mUserData);
+        this.gyR.gwz.setTag(fVar.mUserData);
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -103,13 +103,13 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     public class a extends af.a {
         public View eOv;
         public View egT;
-        public TextView gwq;
-        public TextView gwx;
-        public d gyR;
-        public TbImageView gyS;
-        public TextView gyT;
-        public TextView gyU;
+        public TextView gws;
+        public TextView gwz;
+        public d gyT;
+        public TbImageView gyU;
         public TextView gyV;
+        public TextView gyW;
+        public TextView gyX;
         private View.OnClickListener mOnClickListener;
 
         public a(d dVar) {
@@ -124,29 +124,29 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
                         }
                         UserData userData = (UserData) view.getTag();
                         AlaAttentionManager.getInstance().updateAttention(String.valueOf(userData.getUserId()), new AlaAttentionData(userData.getPortrait(), String.valueOf(userData.getUserId()), "1", true, null));
-                        d.this.gyP.gwx.setVisibility(8);
-                        d.this.gyP.gyV.setVisibility(0);
+                        d.this.gyR.gwz.setVisibility(8);
+                        d.this.gyR.gyX.setVisibility(0);
                         TiebaStatic.log(new ar("c12897"));
                     }
                 }
             };
-            this.gyR = dVar;
+            this.gyT = dVar;
             this.egT = dVar.getView();
-            this.gyS = (TbImageView) this.egT.findViewById(R.id.protrait);
-            this.gyS.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-            this.gyS.setIsRound(true);
-            this.gyS.setAutoChangeStyle(false);
-            this.gyS.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.gyT = (TextView) this.egT.findViewById(R.id.live_title);
-            this.gwq = (TextView) this.egT.findViewById(R.id.living_tag);
+            this.gyU = (TbImageView) this.egT.findViewById(R.id.protrait);
+            this.gyU.setDefaultResource(R.drawable.icon_default_avatar100_bg);
+            this.gyU.setIsRound(true);
+            this.gyU.setAutoChangeStyle(false);
+            this.gyU.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.gyV = (TextView) this.egT.findViewById(R.id.live_title);
+            this.gws = (TextView) this.egT.findViewById(R.id.living_tag);
             this.eOv = this.egT.findViewById(R.id.devider_line);
             Drawable drawable = ap.getDrawable(d.this.mContext.getResources(), (int) R.drawable.icon_living_seeding);
             drawable.setBounds(0, 0, d.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8), d.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-            this.gwq.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.gyU = (TextView) this.egT.findViewById(R.id.user_name);
-            this.gwx = (TextView) this.egT.findViewById(R.id.follow_btn);
-            this.gyV = (TextView) this.egT.findViewById(R.id.followed_btn);
-            this.gwx.setOnClickListener(this.mOnClickListener);
+            this.gws.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.gyW = (TextView) this.egT.findViewById(R.id.user_name);
+            this.gwz = (TextView) this.egT.findViewById(R.id.follow_btn);
+            this.gyX = (TextView) this.egT.findViewById(R.id.followed_btn);
+            this.gwz.setOnClickListener(this.mOnClickListener);
         }
     }
 }

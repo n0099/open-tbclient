@@ -9,11 +9,11 @@ public class a implements com.baidu.tieba.s.a {
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
     private static class C0620a {
-        private static a gaM = new a();
+        private static a gaO = new a();
     }
 
-    public static a bMJ() {
-        return C0620a.gaM;
+    public static a bMK() {
+        return C0620a.gaO;
     }
 
     @Override // com.baidu.tieba.s.a

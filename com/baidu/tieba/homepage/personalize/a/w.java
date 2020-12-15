@@ -18,7 +18,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes22.dex */
 public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, am<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
     private String aiw;
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     public BdUniqueId fzO;
     private TbPageContext<?> mPageContext;
 
@@ -74,7 +74,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         TiebaStatic.log(new ar("c13448").w("topic_id", aVar.topicId));
         amVar.tZ().setPosition(i);
         amVar.tZ().setPage(this.aiw);
-        amVar.aN(false).a(this.fWA);
+        amVar.aN(false).a(this.fWC);
         amVar.b((am<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
         amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();
@@ -86,6 +86,6 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.fWA = aVar;
+        this.fWC = aVar;
     }
 }

@@ -17,11 +17,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class ExecutorScheduler extends v {
-    static final v pHO = io.reactivex.e.a.eDx();
+    static final v pHQ = io.reactivex.e.a.eDy();
     final Executor executor;
 
     @Override // io.reactivex.v
-    public v.c eCV() {
+    public v.c eCW() {
         return new ExecutorWorker(this.executor);
     }
 
@@ -61,7 +61,7 @@ public final class ExecutorScheduler extends v {
             }
         }
         DelayedRunnable delayedRunnable = new DelayedRunnable(J);
-        delayedRunnable.timed.replace(pHO.b(new a(delayedRunnable), j, timeUnit));
+        delayedRunnable.timed.replace(pHQ.b(new a(delayedRunnable), j, timeUnit));
         return delayedRunnable;
     }
 
@@ -85,8 +85,8 @@ public final class ExecutorScheduler extends v {
         volatile boolean disposed;
         final Executor executor;
         final AtomicInteger wip = new AtomicInteger();
-        final io.reactivex.disposables.a pHS = new io.reactivex.disposables.a();
-        final MpscLinkedQueue<Runnable> pHR = new MpscLinkedQueue<>();
+        final io.reactivex.disposables.a pHU = new io.reactivex.disposables.a();
+        final MpscLinkedQueue<Runnable> pHT = new MpscLinkedQueue<>();
 
         public ExecutorWorker(Executor executor) {
             this.executor = executor;
@@ -98,14 +98,14 @@ public final class ExecutorScheduler extends v {
                 return EmptyDisposable.INSTANCE;
             }
             BooleanRunnable booleanRunnable = new BooleanRunnable(io.reactivex.d.a.J(runnable));
-            this.pHR.offer(booleanRunnable);
+            this.pHT.offer(booleanRunnable);
             if (this.wip.getAndIncrement() == 0) {
                 try {
                     this.executor.execute(this);
                     return booleanRunnable;
                 } catch (RejectedExecutionException e) {
                     this.disposed = true;
-                    this.pHR.clear();
+                    this.pHT.clear();
                     io.reactivex.d.a.onError(e);
                     return EmptyDisposable.INSTANCE;
                 }
@@ -123,8 +123,8 @@ public final class ExecutorScheduler extends v {
             }
             SequentialDisposable sequentialDisposable = new SequentialDisposable();
             SequentialDisposable sequentialDisposable2 = new SequentialDisposable(sequentialDisposable);
-            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.d.a.J(runnable)), this.pHS);
-            this.pHS.a(scheduledRunnable);
+            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(new a(sequentialDisposable2, io.reactivex.d.a.J(runnable)), this.pHU);
+            this.pHU.a(scheduledRunnable);
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     scheduledRunnable.setFuture(((ScheduledExecutorService) this.executor).schedule((Callable) scheduledRunnable, j, timeUnit));
@@ -134,7 +134,7 @@ public final class ExecutorScheduler extends v {
                     return EmptyDisposable.INSTANCE;
                 }
             } else {
-                scheduledRunnable.setFuture(new b(ExecutorScheduler.pHO.b(scheduledRunnable, j, timeUnit)));
+                scheduledRunnable.setFuture(new b(ExecutorScheduler.pHQ.b(scheduledRunnable, j, timeUnit)));
             }
             sequentialDisposable.replace(scheduledRunnable);
             return sequentialDisposable2;
@@ -144,9 +144,9 @@ public final class ExecutorScheduler extends v {
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.pHS.dispose();
+                this.pHU.dispose();
                 if (this.wip.getAndIncrement() == 0) {
-                    this.pHR.clear();
+                    this.pHT.clear();
                 }
             }
         }
@@ -180,7 +180,7 @@ public final class ExecutorScheduler extends v {
         */
         public void run() {
             int i = 1;
-            MpscLinkedQueue<Runnable> mpscLinkedQueue = this.pHR;
+            MpscLinkedQueue<Runnable> mpscLinkedQueue = this.pHT;
             while (true) {
                 int i2 = i;
                 if (this.disposed) {
@@ -235,17 +235,17 @@ public final class ExecutorScheduler extends v {
 
         /* loaded from: classes9.dex */
         final class a implements Runnable {
-            private final Runnable pEz;
-            private final SequentialDisposable pHT;
+            private final Runnable pEB;
+            private final SequentialDisposable pHV;
 
             a(SequentialDisposable sequentialDisposable, Runnable runnable) {
-                this.pHT = sequentialDisposable;
-                this.pEz = runnable;
+                this.pHV = sequentialDisposable;
+                this.pEB = runnable;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.pHT.replace(ExecutorWorker.this.H(this.pEz));
+                this.pHV.replace(ExecutorWorker.this.H(this.pEB));
             }
         }
     }
@@ -291,21 +291,21 @@ public final class ExecutorScheduler extends v {
 
         public Runnable getWrappedRunnable() {
             Runnable runnable = get();
-            return runnable != null ? runnable : Functions.pEL;
+            return runnable != null ? runnable : Functions.pEN;
         }
     }
 
     /* loaded from: classes9.dex */
     final class a implements Runnable {
-        private final DelayedRunnable pHP;
+        private final DelayedRunnable pHR;
 
         a(DelayedRunnable delayedRunnable) {
-            this.pHP = delayedRunnable;
+            this.pHR = delayedRunnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.pHP.direct.replace(ExecutorScheduler.this.G(this.pHP));
+            this.pHR.direct.replace(ExecutorScheduler.this.G(this.pHR));
         }
     }
 }

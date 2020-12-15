@@ -15,15 +15,15 @@ import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, n {
-    private boolean jbS;
-    private TBSpecificationBtn kYU;
-    private EditorTools kYV;
-    private int kYW;
+    private boolean jbU;
+    private TBSpecificationBtn kYW;
+    private EditorTools kYX;
+    private int kYY;
 
     public PbLocationInfoContainer(Context context) {
         super(context);
-        this.kYW = 0;
-        this.jbS = true;
+        this.kYY = 0;
+        this.jbU = true;
         initView();
     }
 
@@ -41,21 +41,21 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
         bVar.rf(l.getDimens(getContext(), R.dimen.M_H_X002));
         bVar.a(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
         bVar.rc(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
-        this.kYU = new TBSpecificationBtn(getContext());
-        this.kYU.setConfig(bVar);
-        this.kYU.setTextSize(R.dimen.tbds32);
-        this.kYU.setOnClickListener(this);
-        this.kYU.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.kYU, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
+        this.kYW = new TBSpecificationBtn(getContext());
+        this.kYW.setConfig(bVar);
+        this.kYW.setTextSize(R.dimen.tbds32);
+        this.kYW.setOnClickListener(this);
+        this.kYW.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.kYW, new LinearLayout.LayoutParams(-2, l.getDimens(getContext(), R.dimen.tbds63)));
     }
 
     public void changeSkinType(int i) {
-        this.kYU.changeSkinType(i);
+        this.kYW.changeSkinType(i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.kYU) {
+        if (view == this.kYW) {
             b(new com.baidu.tbadk.editortools.a(18, -1, null));
         }
     }
@@ -70,11 +70,11 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
                 }
                 com.baidu.tbadk.editortools.d.a aVar2 = (com.baidu.tbadk.editortools.d.a) aVar.data;
                 if (aVar2.state == 1) {
-                    this.kYU.setText(getContext().getString(R.string.location_loading));
+                    this.kYW.setText(getContext().getString(R.string.location_loading));
                 } else if (!TextUtils.isEmpty(aVar2.addr)) {
-                    this.kYU.setText(aVar2.addr);
+                    this.kYW.setText(aVar2.addr);
                 } else {
-                    this.kYU.setText(getContext().getString(R.string.location_where_are_you));
+                    this.kYW.setText(getContext().getString(R.string.location_where_are_you));
                 }
             } else if (aVar.code == 20) {
                 hide();
@@ -84,24 +84,24 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.kYV = editorTools;
+        this.kYX = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.kYV != null) {
-            this.kYV.b(aVar);
+        if (this.kYX != null) {
+            this.kYX.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.kYW = i;
+        this.kYY = i;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.kYW;
+        return this.kYY;
     }
 
     @Override // com.baidu.tbadk.editortools.n
@@ -110,15 +110,15 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tbadk.editortools.n
     public void su() {
-        if (this.jbS) {
-            this.jbS = false;
+        if (this.jbU) {
+            this.jbU = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, Config.TRACE_VISIT_FIRST));
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void hide() {
-        this.kYU.setText(getContext().getString(R.string.location_where_are_you));
+        this.kYW.setText(getContext().getString(R.string.location_where_are_you));
     }
 
     @Override // com.baidu.tbadk.editortools.n

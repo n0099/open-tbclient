@@ -9,14 +9,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes19.dex */
 public class b extends AbstractExecutorService {
-    private static final Class<?> paD = b.class;
+    private static final Class<?> paF = b.class;
     private final Executor mExecutor;
     private final String mName;
-    private volatile int pbE;
-    private final BlockingQueue<Runnable> pbF;
-    private final a pbG;
-    private final AtomicInteger pbH;
-    private final AtomicInteger pbI;
+    private volatile int pbG;
+    private final BlockingQueue<Runnable> pbH;
+    private final a pbI;
+    private final AtomicInteger pbJ;
+    private final AtomicInteger pbK;
 
     public b(String str, int i, Executor executor, BlockingQueue<Runnable> blockingQueue) {
         if (i <= 0) {
@@ -24,11 +24,11 @@ public class b extends AbstractExecutorService {
         }
         this.mName = str;
         this.mExecutor = executor;
-        this.pbE = i;
-        this.pbF = blockingQueue;
-        this.pbG = new a();
-        this.pbH = new AtomicInteger(0);
-        this.pbI = new AtomicInteger(0);
+        this.pbG = i;
+        this.pbH = blockingQueue;
+        this.pbI = new a();
+        this.pbJ = new AtomicInteger(0);
+        this.pbK = new AtomicInteger(0);
     }
 
     @Override // java.util.concurrent.Executor
@@ -36,29 +36,29 @@ public class b extends AbstractExecutorService {
         if (runnable == null) {
             throw new NullPointerException("runnable parameter is null");
         }
-        if (!this.pbF.offer(runnable)) {
-            throw new RejectedExecutionException(this.mName + " queue is full, size=" + this.pbF.size());
+        if (!this.pbH.offer(runnable)) {
+            throw new RejectedExecutionException(this.mName + " queue is full, size=" + this.pbH.size());
         }
-        int size = this.pbF.size();
-        int i = this.pbI.get();
-        if (size > i && this.pbI.compareAndSet(i, size)) {
-            com.facebook.common.c.a.a(paD, "%s: max pending work in queue = %d", this.mName, Integer.valueOf(size));
+        int size = this.pbH.size();
+        int i = this.pbK.get();
+        if (size > i && this.pbK.compareAndSet(i, size)) {
+            com.facebook.common.c.a.a(paF, "%s: max pending work in queue = %d", this.mName, Integer.valueOf(size));
         }
-        epJ();
+        epK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void epJ() {
-        int i = this.pbH.get();
-        while (i < this.pbE) {
+    public void epK() {
+        int i = this.pbJ.get();
+        while (i < this.pbG) {
             int i2 = i + 1;
-            if (this.pbH.compareAndSet(i, i2)) {
-                com.facebook.common.c.a.a(paD, "%s: starting worker %d of %d", this.mName, Integer.valueOf(i2), Integer.valueOf(this.pbE));
-                this.mExecutor.execute(this.pbG);
+            if (this.pbJ.compareAndSet(i, i2)) {
+                com.facebook.common.c.a.a(paF, "%s: starting worker %d of %d", this.mName, Integer.valueOf(i2), Integer.valueOf(this.pbG));
+                this.mExecutor.execute(this.pbI);
                 return;
             }
-            com.facebook.common.c.a.a(paD, "%s: race in startWorkerIfNeeded; retrying", this.mName);
-            i = this.pbH.get();
+            com.facebook.common.c.a.a(paF, "%s: race in startWorkerIfNeeded; retrying", this.mName);
+            i = this.pbJ.get();
         }
     }
 
@@ -96,24 +96,24 @@ public class b extends AbstractExecutorService {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                Runnable runnable = (Runnable) b.this.pbF.poll();
+                Runnable runnable = (Runnable) b.this.pbH.poll();
                 if (runnable == null) {
-                    com.facebook.common.c.a.a(b.paD, "%s: Worker has nothing to run", b.this.mName);
+                    com.facebook.common.c.a.a(b.paF, "%s: Worker has nothing to run", b.this.mName);
                 } else {
                     runnable.run();
                 }
-                int decrementAndGet = b.this.pbH.decrementAndGet();
-                if (!b.this.pbF.isEmpty()) {
-                    b.this.epJ();
+                int decrementAndGet = b.this.pbJ.decrementAndGet();
+                if (!b.this.pbH.isEmpty()) {
+                    b.this.epK();
                 } else {
-                    com.facebook.common.c.a.a(b.paD, "%s: worker finished; %d workers left", b.this.mName, Integer.valueOf(decrementAndGet));
+                    com.facebook.common.c.a.a(b.paF, "%s: worker finished; %d workers left", b.this.mName, Integer.valueOf(decrementAndGet));
                 }
             } catch (Throwable th) {
-                int decrementAndGet2 = b.this.pbH.decrementAndGet();
-                if (!b.this.pbF.isEmpty()) {
-                    b.this.epJ();
+                int decrementAndGet2 = b.this.pbJ.decrementAndGet();
+                if (!b.this.pbH.isEmpty()) {
+                    b.this.epK();
                 } else {
-                    com.facebook.common.c.a.a(b.paD, "%s: worker finished; %d workers left", b.this.mName, Integer.valueOf(decrementAndGet2));
+                    com.facebook.common.c.a.a(b.paF, "%s: worker finished; %d workers left", b.this.mName, Integer.valueOf(decrementAndGet2));
                 }
                 throw th;
             }

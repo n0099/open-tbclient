@@ -24,36 +24,36 @@ import tbclient.SearchSug.ForumInfo;
 /* loaded from: classes24.dex */
 public class a extends BaseAdapter {
     private String ejE;
-    private List<ForumInfo> laF;
-    private ArrayList<Object> laG;
+    private List<ForumInfo> laH;
+    private ArrayList<Object> laI;
     private final Context mContext;
-    private final boolean kZp = true;
+    private final boolean kZr = true;
     private LikeModel fgf = new LikeModel(null);
 
     public a(Context context, ArrayList<ForumInfo> arrayList) {
         this.mContext = context;
-        this.laF = arrayList;
+        this.laH = arrayList;
     }
 
     public void eP(List<ForumInfo> list) {
-        this.laF = list;
-        this.laG = new ArrayList<>();
+        this.laH = list;
+        this.laI = new ArrayList<>();
         int i = 0;
         while (true) {
-            if (i >= this.laF.size()) {
+            if (i >= this.laH.size()) {
                 i = 0;
                 break;
-            } else if (this.laF.get(i).has_concerned.intValue() == 0) {
+            } else if (this.laH.get(i).has_concerned.intValue() == 0) {
                 break;
             } else {
                 i++;
             }
         }
-        this.laG.addAll(this.laF);
+        this.laI.addAll(this.laH);
         if (i > 0) {
-            this.laG.add(i, "divider");
+            this.laI.add(i, "divider");
         }
-        if (this.laF != null) {
+        if (this.laH != null) {
             notifyDataSetChanged();
         }
     }
@@ -64,10 +64,10 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.laG == null || TextUtils.isEmpty(this.ejE)) {
+        if (this.laI == null || TextUtils.isEmpty(this.ejE)) {
             return 0;
         }
-        return this.laG.size();
+        return this.laI.size();
     }
 
     @Override // android.widget.Adapter
@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.laG.get(i);
+        return this.laI.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -94,11 +94,11 @@ public class a extends BaseAdapter {
             if (view == null) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.forum_search_sug_item, (ViewGroup) null);
                 c0808a = new C0808a();
-                c0808a.kZs = (BarImageView) view.findViewById(R.id.forum_avatar);
-                c0808a.kZs.setGifIconSupport(false);
+                c0808a.kZu = (BarImageView) view.findViewById(R.id.forum_avatar);
+                c0808a.kZu.setGifIconSupport(false);
                 c0808a.fdz = (TextView) view.findViewById(R.id.name);
-                c0808a.kZt = (TextView) view.findViewById(R.id.forum_member_count);
-                c0808a.kZu = (TextView) view.findViewById(R.id.forum_thread_count);
+                c0808a.kZv = (TextView) view.findViewById(R.id.forum_member_count);
+                c0808a.kZw = (TextView) view.findViewById(R.id.forum_thread_count);
                 c0808a.blo = (TextView) view.findViewById(R.id.follow_text_view);
                 view.setTag(c0808a);
             } else {
@@ -106,20 +106,20 @@ public class a extends BaseAdapter {
             }
             if (forumInfo != null) {
                 String str2 = forumInfo.avatar;
-                c0808a.kZs.setTag(str2);
-                c0808a.kZs.startLoad(str2, 15, false);
-                c0808a.kZs.invalidate();
-                if (this.kZp) {
+                c0808a.kZu.setTag(str2);
+                c0808a.kZu.startLoad(str2, 15, false);
+                c0808a.kZu.invalidate();
+                if (this.kZr) {
                     str = this.mContext.getString(R.string.chosen_pb_original_bar, forumInfo.forum_name);
                 } else {
                     str = forumInfo.forum_name;
                 }
                 d(c0808a.fdz, str);
-                c0808a.kZs.setTag(forumInfo.avatar);
-                c0808a.kZt.setText(this.mContext.getString(R.string.attention) + " " + forumInfo.concern_num);
-                c0808a.kZu.setText(this.mContext.getString(R.string.text_post) + " " + forumInfo.post_num);
-                ap.setViewTextColor(c0808a.kZt, R.color.CAM_X0109);
-                ap.setViewTextColor(c0808a.kZu, R.color.CAM_X0109);
+                c0808a.kZu.setTag(forumInfo.avatar);
+                c0808a.kZv.setText(this.mContext.getString(R.string.attention) + " " + forumInfo.concern_num);
+                c0808a.kZw.setText(this.mContext.getString(R.string.text_post) + " " + forumInfo.post_num);
+                ap.setViewTextColor(c0808a.kZv, R.color.CAM_X0109);
+                ap.setViewTextColor(c0808a.kZw, R.color.CAM_X0109);
                 ap.setViewTextColor(c0808a.fdz, R.color.CAM_X0105);
                 if (forumInfo.has_concerned.intValue() > 0) {
                     c0808a.blo.setText(R.string.followed);
@@ -185,9 +185,9 @@ public class a extends BaseAdapter {
     private class C0808a {
         TextView blo;
         TextView fdz;
-        BarImageView kZs;
-        TextView kZt;
-        TextView kZu;
+        BarImageView kZu;
+        TextView kZv;
+        TextView kZw;
 
         private C0808a() {
         }

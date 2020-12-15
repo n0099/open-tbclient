@@ -8,41 +8,41 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
-    ImageProblemView kNR;
-    ImageProblemAssistant kNS;
-    CheckTask kNT;
+    ImageProblemView kNT;
+    ImageProblemAssistant kNU;
+    CheckTask kNV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kNS = new ImageProblemAssistant(getPageContext().getPageActivity());
-        this.kNR = new ImageProblemView(this, this.kNS);
+        this.kNU = new ImageProblemAssistant(getPageContext().getPageActivity());
+        this.kNT = new ImageProblemView(this, this.kNU);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kNT != null) {
-            this.kNT.cancel();
-            this.kNT = null;
+        if (this.kNV != null) {
+            this.kNV.cancel();
+            this.kNV = null;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.kNR.getCheckButton()) {
-            if (this.kNT == null) {
-                this.kNR.getCheckButton().setText(getResources().getText(R.string.stop));
-                this.kNT = new CheckTask();
-                this.kNT.execute(new Object[0]);
+        if (view == this.kNT.getCheckButton()) {
+            if (this.kNV == null) {
+                this.kNT.getCheckButton().setText(getResources().getText(R.string.stop));
+                this.kNV = new CheckTask();
+                this.kNV.execute(new Object[0]);
                 return;
             }
-            this.kNR.getCheckButton().setText(getResources().getText(R.string.diagnose));
-            if (this.kNT != null) {
-                this.kNT.cancel();
-                this.kNT = null;
+            this.kNT.getCheckButton().setText(getResources().getText(R.string.diagnose));
+            if (this.kNV != null) {
+                this.kNV.cancel();
+                this.kNV = null;
             }
         }
     }
@@ -50,7 +50,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.kNR.onChangeSkinType(i);
+        this.kNT.onChangeSkinType(i);
     }
 
     /* loaded from: classes13.dex */
@@ -61,7 +61,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            ImageProblemActivity.this.kNR.start();
+            ImageProblemActivity.this.kNT.start();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,19 +70,19 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: f */
         public BdStatSwitchData doInBackground(Object... objArr) {
             publishProgress(0);
-            ImageProblemActivity.this.kNS.networkCheck();
+            ImageProblemActivity.this.kNU.networkCheck();
             publishProgress(1);
-            ImageProblemActivity.this.kNS.checkDNSIP();
+            ImageProblemActivity.this.kNU.checkDNSIP();
             publishProgress(2);
-            ImageProblemActivity.this.kNS.checkProxyIP();
+            ImageProblemActivity.this.kNU.checkProxyIP();
             publishProgress(3);
-            ImageProblemActivity.this.kNS.networkTest();
+            ImageProblemActivity.this.kNU.networkTest();
             publishProgress(4);
-            ImageProblemActivity.this.kNS.checkSetting();
+            ImageProblemActivity.this.kNU.checkSetting();
             publishProgress(5);
-            ImageProblemActivity.this.kNS.checkLoadImg();
+            ImageProblemActivity.this.kNU.checkLoadImg();
             publishProgress(6);
-            ImageProblemActivity.this.kNS.fix();
+            ImageProblemActivity.this.kNU.fix();
             publishProgress(7);
             return null;
         }
@@ -92,7 +92,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate((Object[]) numArr);
-            ImageProblemActivity.this.kNR.setValue(numArr[0].intValue(), ImageProblemActivity.this.kNS.aPa);
+            ImageProblemActivity.this.kNT.setValue(numArr[0].intValue(), ImageProblemActivity.this.kNU.aPa);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,9 +101,9 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: a */
         public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
             super.onPostExecute(bdStatSwitchData);
-            ImageProblemActivity.this.kNR.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(R.string.diagnose));
-            ImageProblemActivity.this.kNR.complete();
-            ImageProblemActivity.this.kNT = null;
+            ImageProblemActivity.this.kNT.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(R.string.diagnose));
+            ImageProblemActivity.this.kNT.complete();
+            ImageProblemActivity.this.kNV = null;
         }
     }
 }

@@ -8,23 +8,23 @@ import java.util.List;
 public class r implements b, a.InterfaceC1019a {
     private final List<a.InterfaceC1019a> listeners = new ArrayList();
     private final String name;
-    private final ShapeTrimPath.Type pBq;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> pBr;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> pBs;
+    private final ShapeTrimPath.Type pBs;
     private final com.tb.airbnb.lottie.a.b.a<?, Float> pBt;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pBu;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> pBv;
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.pBq = shapeTrimPath.eAY();
-        this.pBr = shapeTrimPath.eBR().eBi();
-        this.pBs = shapeTrimPath.eBQ().eBi();
-        this.pBt = shapeTrimPath.eBM().eBi();
-        aVar.a(this.pBr);
-        aVar.a(this.pBs);
+        this.pBs = shapeTrimPath.eAZ();
+        this.pBt = shapeTrimPath.eBS().eBj();
+        this.pBu = shapeTrimPath.eBR().eBj();
+        this.pBv = shapeTrimPath.eBN().eBj();
         aVar.a(this.pBt);
-        this.pBr.b(this);
-        this.pBs.b(this);
+        aVar.a(this.pBu);
+        aVar.a(this.pBv);
         this.pBt.b(this);
+        this.pBu.b(this);
+        this.pBv.b(this);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1019a
@@ -56,19 +56,19 @@ public class r implements b, a.InterfaceC1019a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type eAY() {
-        return this.pBq;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> eAZ() {
-        return this.pBr;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> eBa() {
+    public ShapeTrimPath.Type eAZ() {
         return this.pBs;
     }
 
-    public com.tb.airbnb.lottie.a.b.a<?, Float> eBb() {
+    public com.tb.airbnb.lottie.a.b.a<?, Float> eBa() {
         return this.pBt;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> eBb() {
+        return this.pBu;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> eBc() {
+        return this.pBv;
     }
 }

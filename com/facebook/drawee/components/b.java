@@ -1,33 +1,33 @@
 package com.facebook.drawee.components;
 /* loaded from: classes8.dex */
 public class b {
-    private boolean pep;
-    private int peq;
-    private int per;
+    private boolean per;
+    private int pes;
+    private int pet;
 
     public b() {
         init();
     }
 
     public void init() {
-        this.pep = false;
-        this.peq = 4;
+        this.per = false;
+        this.pes = 4;
         reset();
     }
 
     public void reset() {
-        this.per = 0;
+        this.pet = 0;
     }
 
     public void AN(boolean z) {
-        this.pep = z;
+        this.per = z;
     }
 
-    public boolean erc() {
-        return this.pep && this.per < this.peq;
+    public boolean erd() {
+        return this.per && this.pet < this.pes;
     }
 
-    public void erd() {
-        this.per++;
+    public void ere() {
+        this.pet++;
     }
 }

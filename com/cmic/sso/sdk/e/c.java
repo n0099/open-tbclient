@@ -3,7 +3,7 @@ package com.cmic.sso.sdk.e;
 import android.util.Log;
 /* loaded from: classes10.dex */
 public class c {
-    private static final c oZY = new c();
+    private static final c paa = new c();
     private static boolean b = false;
 
     public static void a(String str, String str2) {

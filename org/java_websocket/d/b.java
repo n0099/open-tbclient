@@ -1,19 +1,19 @@
 package org.java_websocket.d;
 /* loaded from: classes5.dex */
 public class b implements a {
-    private final String pOD;
+    private final String pOF;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.pOD = str;
+        this.pOF = str;
     }
 
     @Override // org.java_websocket.d.a
     public boolean aaF(String str) {
         for (String str2 : str.replaceAll(" ", "").split(",")) {
-            if (this.pOD.equals(str2)) {
+            if (this.pOF.equals(str2)) {
                 return true;
             }
         }
@@ -21,18 +21,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String eFd() {
-        return this.pOD;
+    public String eFe() {
+        return this.pOF;
     }
 
     @Override // org.java_websocket.d.a
-    public a eFe() {
-        return new b(eFd());
+    public a eFf() {
+        return new b(eFe());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return eFd();
+        return eFe();
     }
 
     public boolean equals(Object obj) {
@@ -42,10 +42,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.pOD.equals(((b) obj).pOD);
+        return this.pOF.equals(((b) obj).pOF);
     }
 
     public int hashCode() {
-        return this.pOD.hashCode();
+        return this.pOF.hashCode();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.entelechy.b;
 public interface c {
     void Y(boolean z, boolean z2);
 
-    boolean cGf();
+    boolean cGg();
 
     void onChangeSkinType(int i);
 

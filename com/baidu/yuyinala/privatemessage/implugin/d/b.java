@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b oOi;
+    private static volatile b oOk;
 
     /* loaded from: classes4.dex */
     public interface a<T> extends BIMValueCallBack<T> {
@@ -59,13 +59,13 @@ public class b {
     public interface g extends IGetUsersProfileBatchListener {
     }
 
-    public static synchronized b elg() {
+    public static synchronized b elh() {
         b bVar;
         synchronized (b.class) {
-            if (oOi == null) {
-                oOi = new b();
+            if (oOk == null) {
+                oOk = new b();
             }
-            bVar = oOi;
+            bVar = oOk;
         }
         return bVar;
     }
@@ -202,7 +202,7 @@ public class b {
         return AccountManager.isCuidLogin(context);
     }
 
-    public boolean elh() {
+    public boolean eli() {
         return false;
     }
 

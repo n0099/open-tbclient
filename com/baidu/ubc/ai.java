@@ -9,10 +9,10 @@ public class ai extends SharedPrefsWrapper {
 
     /* loaded from: classes15.dex */
     private static final class a {
-        private static final ai oHE = new ai();
+        private static final ai oHG = new ai();
     }
 
-    public static ai ejh() {
-        return a.oHE;
+    public static ai eji() {
+        return a.oHG;
     }
 }

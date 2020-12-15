@@ -23,8 +23,8 @@ public class b extends BaseAdapter {
 
     public b(TbPageContext<SelectLocationActivity> tbPageContext) {
         this.eNx = tbPageContext;
-        LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dPT().getLocationData();
-        this.isShowLocation = !com.baidu.tieba.tbadkCore.location.b.dPT().dPU();
+        LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dPU().getLocationData();
+        this.isShowLocation = !com.baidu.tieba.tbadkCore.location.b.dPU().dPV();
         if (locationData != null) {
             this.data = n(locationData.getPoi_info(), locationData.getFormatted_address());
         }
@@ -114,8 +114,8 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.location.selectpoi.b$b  reason: collision with other inner class name */
     /* loaded from: classes23.dex */
     public static class C0805b {
-        View hOR;
-        ImageView kZn;
+        View hOT;
+        ImageView kZp;
         TextView title;
 
         private C0805b() {
@@ -132,8 +132,8 @@ public class b extends BaseAdapter {
                 View inflate = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
                 c0805b = new C0805b();
                 c0805b.title = (TextView) inflate.findViewById(R.id.select_location_title);
-                c0805b.kZn = (ImageView) inflate.findViewById(R.id.select_location_tick);
-                c0805b.hOR = inflate.findViewById(R.id.select_location_line);
+                c0805b.kZp = (ImageView) inflate.findViewById(R.id.select_location_tick);
+                c0805b.hOT = inflate.findViewById(R.id.select_location_line);
                 inflate.setTag(c0805b);
                 view2 = inflate;
             } else {
@@ -141,13 +141,13 @@ public class b extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0805b.kZn.setVisibility(0);
-                c0805b.kZn.setImageDrawable(WebPManager.a(R.drawable.icon_pure_chx__site_ok24, ap.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                c0805b.kZp.setVisibility(0);
+                c0805b.kZp.setImageDrawable(WebPManager.a(R.drawable.icon_pure_chx__site_ok24, ap.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
             } else {
-                c0805b.kZn.setVisibility(4);
+                c0805b.kZp.setVisibility(4);
             }
             c0805b.title.setText(str);
-            ap.setBackgroundColor(c0805b.hOR, R.color.CAM_X0204);
+            ap.setBackgroundColor(c0805b.hOT, R.color.CAM_X0204);
             ap.setViewTextColor(c0805b.title, R.color.CAM_X0302, 1);
             ap.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
             return view2;
@@ -159,8 +159,8 @@ public class b extends BaseAdapter {
     /* loaded from: classes23.dex */
     public static class a {
         TextView egV;
-        TextView kZj;
-        ImageView kZn;
+        TextView kZl;
+        ImageView kZp;
 
         private a() {
         }
@@ -175,22 +175,22 @@ public class b extends BaseAdapter {
                 view = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
                 aVar2.egV = (TextView) view.findViewById(R.id.select_location_name);
-                aVar2.kZj = (TextView) view.findViewById(R.id.select_location_address);
-                aVar2.kZn = (ImageView) view.findViewById(R.id.select_location_tick);
+                aVar2.kZl = (TextView) view.findViewById(R.id.select_location_address);
+                aVar2.kZp = (ImageView) view.findViewById(R.id.select_location_tick);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.kZj.setText(nearByAddressData.getAddr());
+            aVar.kZl.setText(nearByAddressData.getAddr());
             if (this.isShowLocation && i == 1) {
-                aVar.kZn.setVisibility(0);
-                aVar.kZn.setImageDrawable(WebPManager.a(R.drawable.icon_pure_chx__site_ok24, ap.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                aVar.kZp.setVisibility(0);
+                aVar.kZp.setImageDrawable(WebPManager.a(R.drawable.icon_pure_chx__site_ok24, ap.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
                 if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
-                    aVar.kZj.setText(R.string.select_location_current);
+                    aVar.kZl.setText(R.string.select_location_current);
                 }
             } else {
-                aVar.kZn.setVisibility(4);
+                aVar.kZp.setVisibility(4);
             }
             aVar.egV.setText(nearByAddressData.getName());
             this.eNx.getLayoutMode().setNightMode(z);

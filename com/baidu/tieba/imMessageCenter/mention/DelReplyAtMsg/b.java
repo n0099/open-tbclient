@@ -14,68 +14,68 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class b {
-    private k ilN;
-    private List<g> ilQ;
-    private i kIN;
-    private g kIO;
-    private com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a kIP;
-    private a kIQ;
-    private k.b kIR = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
+    private k ilP;
+    private List<g> ilS;
+    private i kIP;
+    private g kIQ;
+    private com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a kIR;
+    private a kIS;
+    private k.b kIT = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            b.this.dbw();
-            if (b.this.kIQ != null) {
-                b.this.kIQ.dbs();
+            b.this.dbx();
+            if (b.this.kIS != null) {
+                b.this.kIS.dbt();
             }
-            b.this.cfD();
+            b.this.cfE();
         }
     };
     private e mContext;
 
     /* loaded from: classes22.dex */
     public interface a {
-        void dbs();
+        void dbt();
     }
 
     public b(e eVar) {
         this.mContext = eVar;
-        this.ilN = new k(eVar.getPageActivity());
-        this.kIO = new g(eVar.getString(R.string.delete), this.ilN);
-        this.kIO.a(this.kIR);
-        this.ilQ = new ArrayList();
-        this.ilQ.add(this.kIO);
-        this.ilN.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
+        this.ilP = new k(eVar.getPageActivity());
+        this.kIQ = new g(eVar.getString(R.string.delete), this.ilP);
+        this.kIQ.a(this.kIT);
+        this.ilS = new ArrayList();
+        this.ilS.add(this.kIQ);
+        this.ilP.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                b.this.cfD();
+                b.this.cfE();
             }
         });
-        this.ilN.bu(this.ilQ);
-        this.kIN = new i(eVar, this.ilN);
+        this.ilP.bu(this.ilS);
+        this.kIP = new i(eVar, this.ilP);
         onChangeSkinType();
         registerTask();
     }
 
-    public void cfD() {
-        if (this.kIN != null && this.kIN.isShowing()) {
-            this.kIN.dismiss();
+    public void cfE() {
+        if (this.kIP != null && this.kIP.isShowing()) {
+            this.kIP.dismiss();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.ilN != null) {
-            this.ilN.onChangeSkinType();
+        if (this.ilP != null) {
+            this.ilP.onChangeSkinType();
         }
     }
 
     public void show() {
-        if (this.kIN != null) {
-            this.kIN.show();
+        if (this.kIP != null) {
+            this.kIP.show();
         }
     }
 
     public void a(com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.a aVar) {
-        this.kIP = aVar;
+        this.kIR = aVar;
     }
 
     private void registerTask() {
@@ -87,18 +87,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbw() {
-        if (this.kIP != null) {
+    public void dbx() {
+        if (this.kIR != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-            httpMessage.addParam("type", this.kIP.type);
-            httpMessage.addParam("thread_id", this.kIP.threadId);
-            httpMessage.addParam("post_id", this.kIP.postId);
-            httpMessage.addParam("ori_ugc_nid", this.kIP.nid);
+            httpMessage.addParam("type", this.kIR.type);
+            httpMessage.addParam("thread_id", this.kIR.threadId);
+            httpMessage.addParam("post_id", this.kIR.postId);
+            httpMessage.addParam("ori_ugc_nid", this.kIR.nid);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public void a(a aVar) {
-        this.kIQ = aVar;
+        this.kIS = aVar;
     }
 }

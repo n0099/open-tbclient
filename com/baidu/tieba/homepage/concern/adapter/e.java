@@ -206,7 +206,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         }
         kVar.ym(kVar.position + 1);
         amVar.tZ().setPosition(i);
-        com.baidu.tieba.card.t.csg().e(kVar.Jv("c12351"));
+        com.baidu.tieba.card.t.csh().e(kVar.Jv("c12351"));
         amVar.tZ().setPage(this.aiw);
         amVar.a(true, Align.ALIGN_RIGHT_TOP);
         amVar.uc();

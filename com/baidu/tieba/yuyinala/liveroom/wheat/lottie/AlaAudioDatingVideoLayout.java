@@ -16,7 +16,7 @@ public class AlaAudioDatingVideoLayout extends RelativeLayout {
     private MediaMetadataRetriever bek;
     private boolean mStopped;
     private String mVideoPath;
-    private d owJ;
+    private d owL;
 
     public AlaAudioDatingVideoLayout(Context context) {
         super(context);
@@ -78,7 +78,7 @@ public class AlaAudioDatingVideoLayout extends RelativeLayout {
     }
 
     public void setVideoCallback(d dVar) {
-        this.owJ = dVar;
+        this.owL = dVar;
     }
 
     public void startAnim() {
@@ -119,22 +119,22 @@ public class AlaAudioDatingVideoLayout extends RelativeLayout {
         this.bef.a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.AlaAudioDatingVideoLayout.1
             @Override // com.baidu.live.alphavideo.c.a
             public void onStart() {
-                if (AlaAudioDatingVideoLayout.this.owJ != null) {
-                    AlaAudioDatingVideoLayout.this.owJ.FC(AlaAudioDatingVideoLayout.this.mVideoPath);
+                if (AlaAudioDatingVideoLayout.this.owL != null) {
+                    AlaAudioDatingVideoLayout.this.owL.FC(AlaAudioDatingVideoLayout.this.mVideoPath);
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onEnd() {
-                if (!AlaAudioDatingVideoLayout.this.mStopped && AlaAudioDatingVideoLayout.this.owJ != null) {
-                    AlaAudioDatingVideoLayout.this.owJ.WT(AlaAudioDatingVideoLayout.this.mVideoPath);
+                if (!AlaAudioDatingVideoLayout.this.mStopped && AlaAudioDatingVideoLayout.this.owL != null) {
+                    AlaAudioDatingVideoLayout.this.owL.WT(AlaAudioDatingVideoLayout.this.mVideoPath);
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onError(int i, String str) {
-                if (AlaAudioDatingVideoLayout.this.owJ != null) {
-                    AlaAudioDatingVideoLayout.this.owJ.onFail(AlaAudioDatingVideoLayout.this.mVideoPath);
+                if (AlaAudioDatingVideoLayout.this.owL != null) {
+                    AlaAudioDatingVideoLayout.this.owL.onFail(AlaAudioDatingVideoLayout.this.mVideoPath);
                 }
             }
         });

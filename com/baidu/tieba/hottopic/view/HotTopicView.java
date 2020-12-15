@@ -33,59 +33,59 @@ public class HotTopicView extends FrameLayout {
     AbsListView.OnScrollListener dvn;
     private CustomMessageListener fLk;
     private CustomMessageListener fLl;
-    private g gAe;
-    private BdTypeListView gpX;
-    private PbListView gre;
-    private int iVL;
-    f.c jRB;
-    private c.a kbN;
-    private c kbO;
-    private com.baidu.tieba.hottopic.adapter.e kgL;
-    private com.baidu.tieba.hottopic.controller.d kgM;
-    private com.baidu.tieba.hottopic.data.e kgN;
-    private int kgO;
-    private View kgP;
+    private g gAg;
+    private BdTypeListView gpZ;
+    private PbListView grg;
+    private int iVN;
+    f.c jRD;
+    private c.a kbP;
+    private c kbQ;
+    private com.baidu.tieba.hottopic.adapter.e kgN;
+    private com.baidu.tieba.hottopic.controller.d kgO;
+    private com.baidu.tieba.hottopic.data.e kgP;
     private int kgQ;
-    private int kgR;
-    private a kgS;
+    private View kgR;
+    private int kgS;
+    private int kgT;
+    private a kgU;
     private com.baidu.tbadk.core.view.g mPullView;
     private h mRefreshView;
     private TbPageContext<HotTopicActivity> pageContext;
 
     public HotTopicView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iVL = 0;
-        this.jRB = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
+        this.iVN = 0;
+        this.jRD = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
                 if (j.isNetWorkAvailable()) {
-                    HotTopicView.this.kgM.cPh();
+                    HotTopicView.this.kgO.cPi();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).cRz();
+                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).cRA();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                HotTopicView.this.kgM.rS(true);
-                HotTopicView.this.gpX.completePullRefreshPostDelayed(0L);
+                HotTopicView.this.kgO.rS(true);
+                HotTopicView.this.gpZ.completePullRefreshPostDelayed(0L);
             }
         };
         this.dvn = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i2) {
                 if (i2 == 0) {
-                    HotTopicView.this.kgM.cRL();
-                    t.csg().bPr();
+                    HotTopicView.this.kgO.cRM();
+                    t.csh().bPs();
                 }
-                if (HotTopicView.this.kbN != null) {
-                    HotTopicView.this.kbN.onScrollStateChanged(absListView, i2);
+                if (HotTopicView.this.kbP != null) {
+                    HotTopicView.this.kbP.onScrollStateChanged(absListView, i2);
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-                HotTopicView.this.kgM.onScroll(i2, i3);
-                if (HotTopicView.this.kbN != null) {
-                    HotTopicView.this.kbN.onScroll(absListView, i2, i3, i4);
+                HotTopicView.this.kgO.onScroll(i2, i3);
+                if (HotTopicView.this.kbP != null) {
+                    HotTopicView.this.kbP.onScroll(absListView, i2, i3, i4);
                 }
                 HotTopicView.this.a(absListView, i2);
             }
@@ -94,15 +94,15 @@ public class HotTopicView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.kgN != null && HotTopicView.this.kgN.cRX() != null && HotTopicView.this.kgN.cRX().keo != null) {
+                if (customResponsedMessage != null && HotTopicView.this.kgP != null && HotTopicView.this.kgP.cRY() != null && HotTopicView.this.kgP.cRY().keq != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData gF = HotTopicView.this.gF(((Long) data).longValue());
                         if (gF != null) {
                             gF.followNum++;
                             gF.setIsLiked(true);
-                            HotTopicView.this.kgN.cRX().keq = true;
-                            HotTopicView.this.kgL.a(HotTopicView.this.kgN);
+                            HotTopicView.this.kgP.cRY().kes = true;
+                            HotTopicView.this.kgN.a(HotTopicView.this.kgP);
                         }
                     }
                 }
@@ -112,15 +112,15 @@ public class HotTopicView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.kgN != null && HotTopicView.this.kgN.cRX() != null && HotTopicView.this.kgN.cRX().keo != null) {
+                if (customResponsedMessage != null && HotTopicView.this.kgP != null && HotTopicView.this.kgP.cRY() != null && HotTopicView.this.kgP.cRY().keq != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData gF = HotTopicView.this.gF(((Long) data).longValue());
                         if (gF != null) {
                             gF.followNum--;
                             gF.setIsLiked(false);
-                            HotTopicView.this.kgN.cRX().keq = true;
-                            HotTopicView.this.kgL.a(HotTopicView.this.kgN);
+                            HotTopicView.this.kgP.cRY().kes = true;
+                            HotTopicView.this.kgN.a(HotTopicView.this.kgP);
                         }
                     }
                 }
@@ -131,38 +131,38 @@ public class HotTopicView extends FrameLayout {
 
     public HotTopicView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iVL = 0;
-        this.jRB = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
+        this.iVN = 0;
+        this.jRD = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
                 if (j.isNetWorkAvailable()) {
-                    HotTopicView.this.kgM.cPh();
+                    HotTopicView.this.kgO.cPi();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).cRz();
+                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).cRA();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                HotTopicView.this.kgM.rS(true);
-                HotTopicView.this.gpX.completePullRefreshPostDelayed(0L);
+                HotTopicView.this.kgO.rS(true);
+                HotTopicView.this.gpZ.completePullRefreshPostDelayed(0L);
             }
         };
         this.dvn = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i2) {
                 if (i2 == 0) {
-                    HotTopicView.this.kgM.cRL();
-                    t.csg().bPr();
+                    HotTopicView.this.kgO.cRM();
+                    t.csh().bPs();
                 }
-                if (HotTopicView.this.kbN != null) {
-                    HotTopicView.this.kbN.onScrollStateChanged(absListView, i2);
+                if (HotTopicView.this.kbP != null) {
+                    HotTopicView.this.kbP.onScrollStateChanged(absListView, i2);
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-                HotTopicView.this.kgM.onScroll(i2, i3);
-                if (HotTopicView.this.kbN != null) {
-                    HotTopicView.this.kbN.onScroll(absListView, i2, i3, i4);
+                HotTopicView.this.kgO.onScroll(i2, i3);
+                if (HotTopicView.this.kbP != null) {
+                    HotTopicView.this.kbP.onScroll(absListView, i2, i3, i4);
                 }
                 HotTopicView.this.a(absListView, i2);
             }
@@ -171,15 +171,15 @@ public class HotTopicView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.kgN != null && HotTopicView.this.kgN.cRX() != null && HotTopicView.this.kgN.cRX().keo != null) {
+                if (customResponsedMessage != null && HotTopicView.this.kgP != null && HotTopicView.this.kgP.cRY() != null && HotTopicView.this.kgP.cRY().keq != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData gF = HotTopicView.this.gF(((Long) data).longValue());
                         if (gF != null) {
                             gF.followNum++;
                             gF.setIsLiked(true);
-                            HotTopicView.this.kgN.cRX().keq = true;
-                            HotTopicView.this.kgL.a(HotTopicView.this.kgN);
+                            HotTopicView.this.kgP.cRY().kes = true;
+                            HotTopicView.this.kgN.a(HotTopicView.this.kgP);
                         }
                     }
                 }
@@ -189,15 +189,15 @@ public class HotTopicView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.kgN != null && HotTopicView.this.kgN.cRX() != null && HotTopicView.this.kgN.cRX().keo != null) {
+                if (customResponsedMessage != null && HotTopicView.this.kgP != null && HotTopicView.this.kgP.cRY() != null && HotTopicView.this.kgP.cRY().keq != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData gF = HotTopicView.this.gF(((Long) data).longValue());
                         if (gF != null) {
                             gF.followNum--;
                             gF.setIsLiked(false);
-                            HotTopicView.this.kgN.cRX().keq = true;
-                            HotTopicView.this.kgL.a(HotTopicView.this.kgN);
+                            HotTopicView.this.kgP.cRY().kes = true;
+                            HotTopicView.this.kgN.a(HotTopicView.this.kgP);
                         }
                     }
                 }
@@ -208,38 +208,38 @@ public class HotTopicView extends FrameLayout {
 
     public HotTopicView(Context context) {
         super(context);
-        this.iVL = 0;
-        this.jRB = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
+        this.iVN = 0;
+        this.jRD = new f.c() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
                 if (j.isNetWorkAvailable()) {
-                    HotTopicView.this.kgM.cPh();
+                    HotTopicView.this.kgO.cPi();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).cRz();
+                    ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).cRA();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                HotTopicView.this.kgM.rS(true);
-                HotTopicView.this.gpX.completePullRefreshPostDelayed(0L);
+                HotTopicView.this.kgO.rS(true);
+                HotTopicView.this.gpZ.completePullRefreshPostDelayed(0L);
             }
         };
         this.dvn = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i2) {
                 if (i2 == 0) {
-                    HotTopicView.this.kgM.cRL();
-                    t.csg().bPr();
+                    HotTopicView.this.kgO.cRM();
+                    t.csh().bPs();
                 }
-                if (HotTopicView.this.kbN != null) {
-                    HotTopicView.this.kbN.onScrollStateChanged(absListView, i2);
+                if (HotTopicView.this.kbP != null) {
+                    HotTopicView.this.kbP.onScrollStateChanged(absListView, i2);
                 }
             }
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
-                HotTopicView.this.kgM.onScroll(i2, i3);
-                if (HotTopicView.this.kbN != null) {
-                    HotTopicView.this.kbN.onScroll(absListView, i2, i3, i4);
+                HotTopicView.this.kgO.onScroll(i2, i3);
+                if (HotTopicView.this.kbP != null) {
+                    HotTopicView.this.kbP.onScroll(absListView, i2, i3, i4);
                 }
                 HotTopicView.this.a(absListView, i2);
             }
@@ -248,15 +248,15 @@ public class HotTopicView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.kgN != null && HotTopicView.this.kgN.cRX() != null && HotTopicView.this.kgN.cRX().keo != null) {
+                if (customResponsedMessage != null && HotTopicView.this.kgP != null && HotTopicView.this.kgP.cRY() != null && HotTopicView.this.kgP.cRY().keq != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData gF = HotTopicView.this.gF(((Long) data).longValue());
                         if (gF != null) {
                             gF.followNum++;
                             gF.setIsLiked(true);
-                            HotTopicView.this.kgN.cRX().keq = true;
-                            HotTopicView.this.kgL.a(HotTopicView.this.kgN);
+                            HotTopicView.this.kgP.cRY().kes = true;
+                            HotTopicView.this.kgN.a(HotTopicView.this.kgP);
                         }
                     }
                 }
@@ -266,15 +266,15 @@ public class HotTopicView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && HotTopicView.this.kgN != null && HotTopicView.this.kgN.cRX() != null && HotTopicView.this.kgN.cRX().keo != null) {
+                if (customResponsedMessage != null && HotTopicView.this.kgP != null && HotTopicView.this.kgP.cRY() != null && HotTopicView.this.kgP.cRY().keq != null) {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof Long) {
                         RelateForumItemData gF = HotTopicView.this.gF(((Long) data).longValue());
                         if (gF != null) {
                             gF.followNum--;
                             gF.setIsLiked(false);
-                            HotTopicView.this.kgN.cRX().keq = true;
-                            HotTopicView.this.kgL.a(HotTopicView.this.kgN);
+                            HotTopicView.this.kgP.cRY().kes = true;
+                            HotTopicView.this.kgN.a(HotTopicView.this.kgP);
                         }
                     }
                 }
@@ -289,59 +289,59 @@ public class HotTopicView extends FrameLayout {
             this.pageContext = (TbPageContext) J;
         }
         if (this.pageContext != null) {
-            this.gpX = new BdTypeListView(context);
-            this.gpX.setVerticalScrollBarEnabled(false);
-            this.gpX.setDividerHeight(0);
-            this.gpX.setSelector(17170445);
+            this.gpZ = new BdTypeListView(context);
+            this.gpZ.setVerticalScrollBarEnabled(false);
+            this.gpZ.setDividerHeight(0);
+            this.gpZ.setSelector(17170445);
             this.mPullView = new com.baidu.tbadk.core.view.g(this.pageContext);
-            this.mPullView.setListPullRefreshListener(this.jRB);
-            this.gpX.setPullRefresh(this.mPullView);
+            this.mPullView.setListPullRefreshListener(this.jRD);
+            this.gpZ.setPullRefresh(this.mPullView);
             View view = new View(context);
             view.setLayoutParams(new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.ds88)));
-            this.gpX.addFooterView(view);
-            this.gpX.setOnScrollListener(this.dvn);
-            this.gpX.setOnSrollToBottomListener(this.pageContext.getOrignalPage());
-            this.gpX.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.5
+            this.gpZ.addFooterView(view);
+            this.gpZ.setOnScrollListener(this.dvn);
+            this.gpZ.setOnSrollToBottomListener(this.pageContext.getOrignalPage());
+            this.gpZ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.5
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view2, MotionEvent motionEvent) {
-                    if (view2 == HotTopicView.this.gpX && HotTopicView.this.kgM != null) {
-                        HotTopicView.this.kgM.onTouch(motionEvent);
+                    if (view2 == HotTopicView.this.gpZ && HotTopicView.this.kgO != null) {
+                        HotTopicView.this.kgO.onTouch(motionEvent);
                         return false;
                     }
                     return false;
                 }
             });
-            this.kgL = new com.baidu.tieba.hottopic.adapter.e(this.pageContext.getOrignalPage(), this.gpX);
-            addView(this.gpX);
-            ((FrameLayout.LayoutParams) this.gpX.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
-            this.kgM = new com.baidu.tieba.hottopic.controller.d(this.pageContext, this.gpX);
+            this.kgN = new com.baidu.tieba.hottopic.adapter.e(this.pageContext.getOrignalPage(), this.gpZ);
+            addView(this.gpZ);
+            ((FrameLayout.LayoutParams) this.gpZ.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
+            this.kgO = new com.baidu.tieba.hottopic.controller.d(this.pageContext, this.gpZ);
             this.pageContext.registerListener(this.fLl);
             this.pageContext.registerListener(this.fLk);
-            cSt();
-            this.gre = new PbListView(context);
-            this.gre.createView();
-            this.gre.setContainerBackgroundColorResId(R.color.CAM_X0205);
-            this.gre.setLineGone();
-            this.gre.setTextColor(ap.getColor(R.color.CAM_X0109));
-            this.gre.setNoMoreTextColorId(R.color.CAM_X0110);
+            cSu();
+            this.grg = new PbListView(context);
+            this.grg.createView();
+            this.grg.setContainerBackgroundColorResId(R.color.CAM_X0205);
+            this.grg.setLineGone();
+            this.grg.setTextColor(ap.getColor(R.color.CAM_X0109));
+            this.grg.setNoMoreTextColorId(R.color.CAM_X0110);
         }
     }
 
-    private void cSt() {
-        this.kgP = new View(getContext());
-        this.kgP.setId(R.id.view_header);
-        this.kgP.setLayoutParams(new AbsListView.LayoutParams(-1, 0));
-        this.gpX.addHeaderView(this.kgP, 0);
+    private void cSu() {
+        this.kgR = new View(getContext());
+        this.kgR.setId(R.id.view_header);
+        this.kgR.setLayoutParams(new AbsListView.LayoutParams(-1, 0));
+        this.gpZ.addHeaderView(this.kgR, 0);
     }
 
     public BdTypeListView getListView() {
-        return this.gpX;
+        return this.gpZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelateForumItemData gF(long j) {
-        if (this.kgN != null && this.kgN.cRX() != null && this.kgN.cRX().keo != null) {
-            for (q qVar : this.kgN.cRX().keo) {
+        if (this.kgP != null && this.kgP.cRY() != null && this.kgP.cRY().keq != null) {
+            for (q qVar : this.kgP.cRY().keq) {
                 if (qVar != null && (qVar instanceof RelateForumItemData) && ((RelateForumItemData) qVar).forumId == j) {
                     return (RelateForumItemData) qVar;
                 }
@@ -351,63 +351,63 @@ public class HotTopicView extends FrameLayout {
     }
 
     public void d(com.baidu.tieba.hottopic.data.e eVar) {
-        if (this.kgL != null) {
+        if (this.kgN != null) {
             if (eVar == null) {
                 eVar = new com.baidu.tieba.hottopic.data.e();
             }
-            this.kgN = eVar;
-            this.kgL.setFromCDN(eVar.cwQ());
-            this.kgL.a(eVar);
-            this.gpX.setVisibility(0);
-            if (!y.isEmpty(eVar.cRZ())) {
-                ap.setBackgroundColor(this.gpX, R.color.CAM_X0204);
+            this.kgP = eVar;
+            this.kgN.setFromCDN(eVar.cwR());
+            this.kgN.a(eVar);
+            this.gpZ.setVisibility(0);
+            if (!y.isEmpty(eVar.cSa())) {
+                ap.setBackgroundColor(this.gpZ, R.color.CAM_X0204);
             }
         }
     }
 
     public void rR(boolean z) {
-        if (this.gpX != null) {
-            this.kgM.rS(true);
+        if (this.gpZ != null) {
+            this.kgO.rS(true);
             if (z) {
-                this.gpX.completePullRefresh();
+                this.gpZ.completePullRefresh();
             } else {
-                this.gpX.completePullRefreshPostDelayed(0L);
+                this.gpZ.completePullRefreshPostDelayed(0L);
             }
         }
     }
 
     public void ib(boolean z) {
-        if (!cqy()) {
-            if (this.gAe == null) {
-                this.gAe = new g(getContext());
-                this.gAe.setTopMargin(getLoadingViewTopMargin());
-                this.gAe.bDY();
-                this.gAe.onChangeSkinType();
+        if (!cqz()) {
+            if (this.gAg == null) {
+                this.gAg = new g(getContext());
+                this.gAg.setTopMargin(getLoadingViewTopMargin());
+                this.gAg.bDY();
+                this.gAg.onChangeSkinType();
             }
-            this.gAe.attachView(this, z);
-            this.gpX.setVisibility(8);
+            this.gAg.attachView(this, z);
+            this.gpZ.setVisibility(8);
         }
     }
 
     public void hideLoadingView() {
-        if (this.gAe != null) {
-            this.gAe.dettachView(this);
-            this.gAe = null;
+        if (this.gAg != null) {
+            this.gAg.dettachView(this);
+            this.gAg = null;
         }
-        if (!cSx() && this.kbO != null && this.kbO.cSq() != null) {
-            this.gpX.smoothScrollBy((int) (-this.kbO.cSq().getY()), 1);
+        if (!cSy() && this.kbQ != null && this.kbQ.cSr() != null) {
+            this.gpZ.smoothScrollBy((int) (-this.kbQ.cSr().getY()), 1);
         }
     }
 
-    public boolean cqy() {
-        if (this.gAe != null) {
-            return this.gAe.isViewAttached();
+    public boolean cqz() {
+        if (this.gAg != null) {
+            return this.gAg.isViewAttached();
         }
         return false;
     }
 
     public void aR(String str, boolean z) {
-        if (!cqz()) {
+        if (!cqA()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotTopicView.6
                     @Override // android.view.View.OnClickListener
@@ -415,7 +415,7 @@ public class HotTopicView extends FrameLayout {
                         if (j.isNetworkAvailableForImmediately()) {
                             HotTopicView.this.Yb();
                             HotTopicView.this.ib(true);
-                            ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).cRz();
+                            ((HotTopicActivity) HotTopicView.this.pageContext.getOrignalPage()).cRA();
                         }
                     }
                 });
@@ -423,7 +423,7 @@ public class HotTopicView extends FrameLayout {
             this.mRefreshView.setLayoutMargin(getTopMargin());
             this.mRefreshView.attachView(this, z);
             this.mRefreshView.showRefreshButton();
-            this.gpX.setVisibility(8);
+            this.gpZ.setVisibility(8);
         }
     }
 
@@ -434,7 +434,7 @@ public class HotTopicView extends FrameLayout {
         }
     }
 
-    public boolean cqz() {
+    public boolean cqA() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -445,20 +445,20 @@ public class HotTopicView extends FrameLayout {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.gAe != null) {
-            this.gAe.onChangeSkinType();
+        if (this.gAg != null) {
+            this.gAg.onChangeSkinType();
         }
         if (this.mRefreshView != null) {
             this.mRefreshView.onChangeSkinType();
         }
-        if (this.gre != null) {
-            this.gre.setTextColor(ap.getColor(R.color.CAM_X0109));
-            this.gre.changeSkin(i);
+        if (this.grg != null) {
+            this.grg.setTextColor(ap.getColor(R.color.CAM_X0109));
+            this.grg.changeSkin(i);
         }
-        if (this.kgL != null) {
-            this.kgL.notifyDataSetChanged();
+        if (this.kgN != null) {
+            this.kgN.notifyDataSetChanged();
         }
-        ap.setBackgroundColor(this.gpX, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.gpZ, R.color.CAM_X0204);
         ap.setBackgroundColor(this, R.color.CAM_X0201);
     }
 
@@ -472,149 +472,149 @@ public class HotTopicView extends FrameLayout {
         if (this.mPullView != null) {
             this.mPullView.setListPullRefreshListener(null);
         }
-        if (this.kgM != null) {
-            this.kgM.destroy();
+        if (this.kgO != null) {
+            this.kgO.destroy();
         }
-        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.kgS);
+        com.baidu.adp.lib.f.e.mY().removeCallbacks(this.kgU);
     }
 
     public void resume() {
-        if (this.kgM != null) {
-            this.kgM.rT(false);
+        if (this.kgO != null) {
+            this.kgO.rT(false);
         }
     }
 
     public void pause() {
-        if (this.kgM != null) {
-            this.kgM.rT(true);
+        if (this.kgO != null) {
+            this.kgO.rT(true);
         }
     }
 
     public void setScrollCallback(c.a aVar) {
-        this.kbN = aVar;
+        this.kbP = aVar;
     }
 
     public void Dx(int i) {
-        ViewGroup.LayoutParams layoutParams = this.kgP.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.kgR.getLayoutParams();
         layoutParams.height = i;
-        this.kgP.setLayoutParams(layoutParams);
-        cSu();
+        this.kgR.setLayoutParams(layoutParams);
+        cSv();
     }
 
     public void XZ() {
-        if (this.gpX != null && this.gre != null) {
-            this.gpX.setNextPage(this.gre);
-            this.gre.setTextSize(R.dimen.tbfontsize33);
-            this.gre.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-            this.gre.startLoadData();
+        if (this.gpZ != null && this.grg != null) {
+            this.gpZ.setNextPage(this.grg);
+            this.grg.setTextSize(R.dimen.tbfontsize33);
+            this.grg.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
+            this.grg.startLoadData();
         }
     }
 
     public void Ya() {
-        if (this.gpX != null && this.gre != null) {
-            if (this.iVL > 0) {
-                this.gre.showEmptyView(this.iVL);
+        if (this.gpZ != null && this.grg != null) {
+            if (this.iVN > 0) {
+                this.grg.showEmptyView(this.iVN);
             }
-            this.gpX.setNextPage(this.gre);
-            this.gre.endLoadData();
-            this.gre.setText(getContext().getResources().getString(R.string.list_no_more));
+            this.gpZ.setNextPage(this.grg);
+            this.grg.endLoadData();
+            this.grg.setText(getContext().getResources().getString(R.string.list_no_more));
         }
     }
 
-    public void bTa() {
-        if (this.gpX != null && this.gre != null) {
-            this.gpX.setNextPage(null);
-            this.gre.hideEmptyView();
+    public void bTb() {
+        if (this.gpZ != null && this.grg != null) {
+            this.gpZ.setNextPage(null);
+            this.grg.hideEmptyView();
         }
     }
 
     public void Dy(int i) {
-        if (this.gpX != null) {
-            this.gpX.smoothScrollBy(i, 1);
-            cSu();
+        if (this.gpZ != null) {
+            this.gpZ.smoothScrollBy(i, 1);
+            cSv();
         }
     }
 
     public void setMainView(c cVar) {
-        this.kbO = cVar;
+        this.kbQ = cVar;
     }
 
     public void aL(float f) {
-        if (this.gpX != null && this.kgN != null && this.kgN.cRX() != null) {
-            this.gpX.setSelection(0);
-            this.kgS = new a((int) f);
-            com.baidu.adp.lib.f.e.mY().post(this.kgS);
+        if (this.gpZ != null && this.kgP != null && this.kgP.cRY() != null) {
+            this.gpZ.setSelection(0);
+            this.kgU = new a((int) f);
+            com.baidu.adp.lib.f.e.mY().post(this.kgU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes21.dex */
     public class a implements Runnable {
-        int kgU;
+        int kgW;
 
         public a(int i) {
-            this.kgU = i;
+            this.kgW = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            HotTopicView.this.gpX.smoothScrollBy(Math.abs(this.kgU), 1);
-            HotTopicView.this.cSu();
+            HotTopicView.this.gpZ.smoothScrollBy(Math.abs(this.kgW), 1);
+            HotTopicView.this.cSv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSu() {
-        if (cqz()) {
+    public void cSv() {
+        if (cqA()) {
             this.mRefreshView.setLayoutMargin(getTopMargin());
         }
-        if (cqy()) {
-            this.gAe.setTopMargin(getLoadingViewTopMargin());
+        if (cqz()) {
+            this.gAg.setTopMargin(getLoadingViewTopMargin());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AbsListView absListView, int i) {
-        if (this.kbO != null) {
+        if (this.kbQ != null) {
             if (absListView != null && absListView.getChildCount() > 0 && absListView.getChildAt(0) != null && i == 0) {
-                this.kgO = Math.abs(absListView.getChildAt(0).getTop());
-                if (this.kgO > this.kgR && this.kgQ <= 1) {
-                    cSv();
-                } else if (this.kgO < this.kgR) {
+                this.kgQ = Math.abs(absListView.getChildAt(0).getTop());
+                if (this.kgQ > this.kgT && this.kgS <= 1) {
                     cSw();
+                } else if (this.kgQ < this.kgT) {
+                    cSx();
                 }
-                this.kgR = this.kgO;
+                this.kgT = this.kgQ;
             }
-            this.kgQ = i;
+            this.kgS = i;
         }
-    }
-
-    private void cSv() {
-        this.kbO.a(this.gpX, Math.min(this.kgO, this.kbO.cSo()));
     }
 
     private void cSw() {
-        if (!cSx()) {
-            this.kbO.a(this.gpX, Math.min(this.kgO, this.kbO.cSo()));
+        this.kbQ.a(this.gpZ, Math.min(this.kgQ, this.kbQ.cSp()));
+    }
+
+    private void cSx() {
+        if (!cSy()) {
+            this.kbQ.a(this.gpZ, Math.min(this.kgQ, this.kbQ.cSp()));
         }
     }
 
-    private boolean cSx() {
-        return this.kbO.cSq() != null && this.kbO.cSq().getY() == 0.0f;
+    private boolean cSy() {
+        return this.kbQ.cSr() != null && this.kbQ.cSr().getY() == 0.0f;
     }
 
     private int getTopMargin() {
-        if (this.kbO == null || this.kbO.cSq() == null) {
+        if (this.kbQ == null || this.kbQ.cSr() == null) {
             return 0;
         }
-        return (int) Math.abs(this.kbO.cSr() + this.kbO.cSq().getY());
+        return (int) Math.abs(this.kbQ.cSs() + this.kbQ.cSr().getY());
     }
 
     private int getLoadingViewTopMargin() {
-        if (this.kbO == null || this.kbO.cSq() == null) {
+        if (this.kbQ == null || this.kbQ.cSr() == null) {
             return 0;
         }
-        int height = getHeight() - this.kbO.cSr();
-        return ((height - l.getDimens(getContext(), R.dimen.tbds304)) / 2) + this.kbO.cSr();
+        int height = getHeight() - this.kbQ.cSs();
+        return ((height - l.getDimens(getContext(), R.dimen.tbds304)) / 2) + this.kbQ.cSs();
     }
 }

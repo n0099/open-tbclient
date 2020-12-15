@@ -18,15 +18,15 @@ import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
     private boolean mIsFromSchema = false;
-    private PersonPolymericFragment mpl;
+    private PersonPolymericFragment mpn;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_new_fragment_view);
-        this.mpl = new PersonPolymericFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.mpl).commit();
+        this.mpn = new PersonPolymericFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.mpn).commit();
         if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.a.lg().bt("MainTabActivity")) {
             this.mIsFromSchema = true;
         }
@@ -44,8 +44,8 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.mpl != null) {
-            this.mpl.onChangeSkinType(i);
+        if (this.mpn != null) {
+            this.mpn.onChangeSkinType(i);
         }
     }
 
@@ -58,15 +58,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.mpl != null) {
-            this.mpl.onActivityResult(i, i2, intent);
+        if (this.mpn != null) {
+            this.mpn.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.mpl != null) {
-            return this.mpl.getVoiceManager();
+        if (this.mpn != null) {
+            return this.mpn.getVoiceManager();
         }
         return null;
     }

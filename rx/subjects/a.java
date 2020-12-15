@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes12.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] pJm = new Object[0];
-    private final SubjectSubscriptionManager<T> pVI;
+    private static final Object[] pJo = new Object[0];
+    private final SubjectSubscriptionManager<T> pVK;
 
-    public static <T> a<T> eGO() {
+    public static <T> a<T> eGP() {
         return e(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.pVI = subjectSubscriptionManager;
+        this.pVK = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.pVI.getLatest() == null || this.pVI.active) {
-            Object eFF = NotificationLite.eFF();
-            for (SubjectSubscriptionManager.b<T> bVar : this.pVI.terminate(eFF)) {
-                bVar.ch(eFF);
+        if (this.pVK.getLatest() == null || this.pVK.active) {
+            Object eFG = NotificationLite.eFG();
+            for (SubjectSubscriptionManager.b<T> bVar : this.pVK.terminate(eFG)) {
+                bVar.ch(eFG);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.pVI.getLatest() == null || this.pVI.active) {
+        if (this.pVK.getLatest() == null || this.pVK.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.pVI.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.pVK.terminate(error)) {
                 try {
                     bVar.ch(error);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.pVI.getLatest() == null || this.pVI.active) {
+        if (this.pVK.getLatest() == null || this.pVK.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.pVI.next(next)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.pVK.next(next)) {
                 bVar.ch(next);
             }
         }

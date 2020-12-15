@@ -17,8 +17,8 @@ import com.baidu.tieba.tbadkCore.d.a;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo lyL;
-    private a.C0870a lyM;
+    private SkinInfo lyN;
+    private a.C0870a lyO;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -46,16 +46,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.lyL != skinInfo && c0870a != null) {
-            this.lyM = c0870a;
-            this.lyM.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.lyM.gw("obj_id", skinInfo.obj_id);
-            this.lyM.gw(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
-            this.lyM.gw("obj_name", skinInfo.monitor_id);
-            this.lyM.gw(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.lyM.save();
+        if (this.lyN != skinInfo && c0870a != null) {
+            this.lyO = c0870a;
+            this.lyO.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.lyO.gw("obj_id", skinInfo.obj_id);
+            this.lyO.gw(TiebaInitialize.Params.OBJ_URL, skinInfo.url);
+            this.lyO.gw("obj_name", skinInfo.monitor_id);
+            this.lyO.gw(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.lyO.save();
         }
-        this.lyL = skinInfo;
+        this.lyN = skinInfo;
         int equipmentWidth = l.getEquipmentWidth(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = equipmentWidth;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.lyL != null && !StringUtils.isNull(this.lyL.url)) {
-            if (this.lyM != null) {
-                this.lyM.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.lyM.gw(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.lyM.save();
+        if (this.lyN != null && !StringUtils.isNull(this.lyN.url)) {
+            if (this.lyO != null) {
+                this.lyO.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.lyO.gw(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.lyO.save();
             }
-            bf.bua().b(this.mTbPageContext, new String[]{this.lyL.url});
+            bf.bua().b(this.mTbPageContext, new String[]{this.lyN.url});
         }
     }
 }

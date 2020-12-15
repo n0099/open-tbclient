@@ -37,18 +37,18 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes21.dex */
 public class a implements a.InterfaceC0876a {
-    private String iqp;
-    private String iqq;
     private String iqr;
-    private boolean iqm = false;
-    private boolean iqn = false;
+    private String iqs;
+    private String iqt;
     private boolean iqo = false;
+    private boolean iqp = false;
+    private boolean iqq = false;
     private CustomMessageListener mAccountChangeListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.e.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                a.this.cty();
+                a.this.ctz();
             }
         }
     };
@@ -66,7 +66,7 @@ public class a implements a.InterfaceC0876a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                a.this.ctz();
+                a.this.ctA();
             }
         }
     };
@@ -76,7 +76,7 @@ public class a implements a.InterfaceC0876a {
         MessageManager.getInstance().registerListener(this.mSyncFinishListener);
         MessageManager.getInstance().registerListener(this.mAccountChangeListener);
         MessageManager.getInstance().registerListener(this.PN);
-        if (!this.iqm) {
+        if (!this.iqo) {
             h(application);
         }
     }
@@ -99,10 +99,10 @@ public class a implements a.InterfaceC0876a {
             } else {
                 CrabSDK.init(application, "b14ed41a92769403");
             }
-            this.iqm = true;
-            cty();
-            p(null);
+            this.iqo = true;
             ctz();
+            p(null);
+            ctA();
             CrabSDK.setChannel(TbConfig.getCurrentFrom());
             CrabSDK.setEnableLog(isDebugMode);
             if (isDebugMode) {
@@ -115,9 +115,9 @@ public class a implements a.InterfaceC0876a {
                 CrabSDK.setUploadLimitOfAnrInOneday(-1);
                 CrabSDK.setUrlRecordLimit(10);
             } else {
-                if (ctt()) {
+                if (ctu()) {
                     CrabSDK.disableBlockCatch();
-                } else if (ctv()) {
+                } else if (ctw()) {
                     CrabSDK.disableBlockCatch();
                 } else {
                     CrabSDK.disableBlockCatch();
@@ -140,69 +140,69 @@ public class a implements a.InterfaceC0876a {
             CrabSDK.setOnAnrCrashListener(new OnAnrCrashListener() { // from class: com.baidu.tieba.e.a.5
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onAnrStarted(Map map) {
-                    a.this.cty();
+                    a.this.ctz();
                     a.this.p(null);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onCrashStarted(Thread thread, Throwable th) {
-                    a.this.cty();
+                    a.this.ctz();
                     a.this.p(th);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onNativeCrashStarted(String str) {
-                    a.this.cty();
+                    a.this.ctz();
                     a.this.p(null);
                 }
             });
-            ctw();
             ctx();
+            cty();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            this.iqm = false;
+            this.iqo = false;
             return false;
         }
     }
 
-    private boolean ctt() {
+    private boolean ctu() {
         return TbConfig.getVersionType() == 2;
     }
 
-    private boolean ctu() {
+    private boolean ctv() {
         return TbConfig.getVersionType() == 1;
     }
 
-    private boolean ctv() {
+    private boolean ctw() {
         return TbConfig.getVersionType() == 3;
     }
 
-    private void ctw() {
-        if (this.iqm && this.iqn) {
+    private void ctx() {
+        if (this.iqo && this.iqp) {
             CrabSDK.disableBlockCatch();
         }
     }
 
-    private void ctx() {
-        if (this.iqm && this.iqo) {
+    private void cty() {
+        if (this.iqo && this.iqq) {
             CrabSDK.closeAnrHandler();
         }
     }
 
-    public void cty() {
+    public void ctz() {
         eK(TbadkCoreApplication.getInst().getCuidGalaxy2(), TbadkCoreApplication.getCurrentAccount());
     }
 
     public void eK(String str, String str2) {
-        if (this.iqm) {
+        if (this.iqo) {
             CrabSDK.setUid(str);
             CrabSDK.setUserName(str2);
         }
     }
 
-    public void ctz() {
-        if (this.iqm) {
+    public void ctA() {
+        if (this.iqo) {
             if (j.isWifiNet()) {
                 CrabSDK.setCollectScreenshot(true);
             } else {
@@ -213,15 +213,15 @@ public class a implements a.InterfaceC0876a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(Throwable th) {
-        if (this.iqm) {
+        if (this.iqo) {
             HashMap hashMap = new HashMap();
-            hashMap.put("version_type", ctA());
+            hashMap.put("version_type", ctB());
             hashMap.put("version", TbConfig.getVersion());
             hashMap.put("sub_version", TbConfig.getSubVersion());
             hashMap.put("plugin_info", q(th));
-            hashMap.put("lastFlutterPage", this.iqp);
-            hashMap.put("openFlutterPage", this.iqq);
-            hashMap.put("flutterPath", this.iqr);
+            hashMap.put("lastFlutterPage", this.iqr);
+            hashMap.put("openFlutterPage", this.iqs);
+            hashMap.put("flutterPath", this.iqt);
             hashMap.put("customTime", String.valueOf(System.currentTimeMillis()));
             hashMap.put("isBackground", String.valueOf(TbadkCoreApplication.getInst().isInBackground()));
             hashMap.put("pid", String.valueOf(Process.myPid()));
@@ -231,17 +231,17 @@ public class a implements a.InterfaceC0876a {
 
     @Override // com.baidu.tieba.u.a.InterfaceC0876a
     public void setLastFlutterPage(String str) {
-        this.iqp = str;
+        this.iqr = str;
     }
 
     @Override // com.baidu.tieba.u.a.InterfaceC0876a
     public void setOpenFlutterPage(String str) {
-        this.iqq = str;
+        this.iqs = str;
     }
 
     @Override // com.baidu.tieba.u.a.InterfaceC0876a
     public void setFlutterPath(String str) {
-        this.iqr = str;
+        this.iqt = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00e5, code lost:
@@ -344,17 +344,17 @@ public class a implements a.InterfaceC0876a {
         }
     }
 
-    private String ctA() {
+    private String ctB() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             return "DebugBuild";
         }
-        if (ctv()) {
+        if (ctw()) {
             return "ReleasedBuild";
         }
-        if (ctt()) {
+        if (ctu()) {
             return "GrayBuild";
         }
-        if (!ctu()) {
+        if (!ctv()) {
             return "DefaultBuild";
         }
         return "DailyBuild";
@@ -362,28 +362,28 @@ public class a implements a.InterfaceC0876a {
 
     @Override // com.baidu.tieba.u.a.InterfaceC0876a
     public void onPause(Activity activity) {
-        if (this.iqm && activity != null) {
+        if (this.iqo && activity != null) {
             CrabSDK.onPause(activity);
         }
     }
 
     @Override // com.baidu.tieba.u.a.InterfaceC0876a
     public void onResume(Activity activity) {
-        if (this.iqm && activity != null) {
+        if (this.iqo && activity != null) {
             CrabSDK.onResume(activity);
         }
     }
 
     @Override // com.baidu.tieba.u.a.InterfaceC0876a
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.iqm && activity != null && motionEvent != null) {
+        if (this.iqo && activity != null && motionEvent != null) {
             CrabSDK.behaviorRecordEvent(motionEvent, activity);
         }
     }
 
     @Override // com.baidu.tieba.u.a.InterfaceC0876a
     public void uploadException(Exception exc) {
-        if (this.iqm && exc != null) {
+        if (this.iqo && exc != null) {
             CrabSDK.uploadException(exc);
         }
     }

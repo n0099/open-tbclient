@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public File gCh = null;
+    public File gCj = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -21,12 +21,12 @@ public class d {
         return acr() != null && acr().exists();
     }
 
-    public void bTA() {
+    public void bTB() {
         File file = new File(act());
         if (file != null) {
             com.baidu.tieba.ala.b.b.a.deleteDir(file);
         }
-        this.gCh = null;
+        this.gCj = null;
         act();
         acr();
     }
@@ -36,10 +36,10 @@ public class d {
     }
 
     public File acr() {
-        if (this.gCh == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.gCh = new File(act(), getName());
+        if (this.gCj == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.gCj = new File(act(), getName());
         }
-        return this.gCh;
+        return this.gCj;
     }
 
     public String getFilePath() {
@@ -47,7 +47,7 @@ public class d {
     }
 
     public String act() {
-        return TextUtils.equals(this.mType, "so") ? c.bTy().getAbsolutePath() : c.bTz().getAbsolutePath();
+        return TextUtils.equals(this.mType, "so") ? c.bTz().getAbsolutePath() : c.bTA().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -85,7 +85,7 @@ public class d {
             e = e3;
         }
         if (isLoaded()) {
-            if (bTB()) {
+            if (bTC()) {
                 z = true;
                 if (!z) {
                     try {
@@ -108,7 +108,7 @@ public class d {
         return z;
     }
 
-    public boolean bTB() {
+    public boolean bTC() {
         JSONArray optJSONArray;
         try {
             File file = new File(acr(), "files.json");

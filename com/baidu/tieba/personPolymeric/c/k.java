@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes24.dex */
 public class k extends BaseCardInfo {
-    public static final BdUniqueId mrY = BdUniqueId.gen();
+    public static final BdUniqueId msa = BdUniqueId.gen();
     public int paddingBottom;
     public int paddingLeft;
     public int paddingTop;
@@ -12,6 +12,6 @@ public class k extends BaseCardInfo {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return mrY;
+        return msa;
     }
 }

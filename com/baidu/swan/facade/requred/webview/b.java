@@ -16,7 +16,7 @@ public final class b {
     }
 
     public static a aSd() {
-        return com.baidu.tieba.aiapps.apps.j.b.bOF();
+        return com.baidu.tieba.aiapps.apps.j.b.bOG();
     }
 
     public static void aSe() {

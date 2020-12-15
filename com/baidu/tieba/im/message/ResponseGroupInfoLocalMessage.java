@@ -34,83 +34,83 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes23.dex */
     public static class a {
         private boolean isMemGroup;
-        private GroupData kAk;
-        private List<MemberData> kAl;
-        private List<PhotoUrlData> kAm;
-        private int kAn;
-        private int kAo;
-        private boolean kAp;
-        private boolean kAq;
-        private GroupActivityData kAr;
-        private boolean kxX;
-        private boolean kxY;
+        private GroupData kAm;
+        private List<MemberData> kAn;
+        private List<PhotoUrlData> kAo;
+        private int kAp;
+        private int kAq;
+        private boolean kAr;
+        private boolean kAs;
+        private GroupActivityData kAt;
+        private boolean kxZ;
+        private boolean kya;
 
-        public GroupActivityData cYR() {
-            return this.kAr;
+        public GroupActivityData cYS() {
+            return this.kAt;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.kAr = groupActivityData;
+            this.kAt = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.kAk;
-        }
-
-        public void setGroup(GroupData groupData) {
-            this.kAk = groupData;
-        }
-
-        public List<MemberData> cYS() {
-            return this.kAl;
-        }
-
-        public void eB(List<MemberData> list) {
-            this.kAl = list;
-        }
-
-        public List<PhotoUrlData> cYT() {
             return this.kAm;
         }
 
-        public void eC(List<PhotoUrlData> list) {
-            this.kAm = list;
+        public void setGroup(GroupData groupData) {
+            this.kAm = groupData;
         }
 
-        public int cYU() {
+        public List<MemberData> cYT() {
             return this.kAn;
         }
 
-        public void Ex(int i) {
-            this.kAn = i;
+        public void eB(List<MemberData> list) {
+            this.kAn = list;
         }
 
-        public int cYV() {
+        public List<PhotoUrlData> cYU() {
             return this.kAo;
         }
 
+        public void eC(List<PhotoUrlData> list) {
+            this.kAo = list;
+        }
+
+        public int cYV() {
+            return this.kAp;
+        }
+
+        public void Ex(int i) {
+            this.kAp = i;
+        }
+
+        public int cYW() {
+            return this.kAq;
+        }
+
         public void Ey(int i) {
-            this.kAo = i;
-        }
-
-        public boolean cYW() {
-            return this.kxX;
-        }
-
-        public void sM(boolean z) {
-            this.kxX = z;
+            this.kAq = i;
         }
 
         public boolean cYX() {
-            return this.kxY;
+            return this.kxZ;
+        }
+
+        public void sM(boolean z) {
+            this.kxZ = z;
+        }
+
+        public boolean cYY() {
+            return this.kya;
         }
 
         public void sN(boolean z) {
-            this.kxY = z;
+            this.kya = z;
         }
 
         public void sO(boolean z) {
-            this.kAp = z;
+            this.kAr = z;
         }
 
         public boolean isMemGroup() {
@@ -121,12 +121,12 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean cYY() {
-            return this.kAq;
+        public boolean cYZ() {
+            return this.kAs;
         }
 
         public void sP(boolean z) {
-            this.kAq = z;
+            this.kAs = z;
         }
     }
 

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetAnchorCategoryResponseMessagge extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.ala.category.b.a hxD;
+    private com.baidu.tieba.ala.category.b.a hxF;
 
     public AlaGetAnchorCategoryResponseMessagge() {
         super(1021188);
@@ -14,11 +14,11 @@ public class AlaGetAnchorCategoryResponseMessagge extends JsonHttpResponsedMessa
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("data").optJSONObject("categroy_info");
-        this.hxD = new com.baidu.tieba.ala.category.b.a();
-        this.hxD.parse(optJSONObject);
+        this.hxF = new com.baidu.tieba.ala.category.b.a();
+        this.hxF.parse(optJSONObject);
     }
 
-    public com.baidu.tieba.ala.category.b.a ciW() {
-        return this.hxD;
+    public com.baidu.tieba.ala.category.b.a ciX() {
+        return this.hxF;
     }
 }

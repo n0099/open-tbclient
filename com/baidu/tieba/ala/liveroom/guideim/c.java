@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 class c {
-    boolean htq = false;
+    boolean hts = false;
     String date = "";
     int dMd = 0;
 
@@ -12,7 +12,7 @@ class c {
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("hasInput", this.htq);
+            jSONObject.put("hasInput", this.hts);
             jSONObject.put("date", this.date);
             jSONObject.put("times", this.dMd);
             return jSONObject.toString();

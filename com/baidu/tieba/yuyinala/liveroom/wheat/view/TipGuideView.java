@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class TipGuideView extends LinearLayout implements View.OnClickListener {
-    private TextView oyA;
-    private View oyB;
+    private TextView oyC;
+    private View oyD;
 
     public TipGuideView(Context context) {
         this(context, null);
@@ -32,8 +32,8 @@ public class TipGuideView extends LinearLayout implements View.OnClickListener {
     private void initView() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.layout_tip_guide_view, (ViewGroup) this, false);
         inflate.findViewById(a.f.rl_root).setOnClickListener(this);
-        this.oyB = inflate.findViewById(a.f.iv_top_arrows);
-        this.oyA = (TextView) inflate.findViewById(a.f.tv_guide_text);
+        this.oyD = inflate.findViewById(a.f.iv_top_arrows);
+        this.oyC = (TextView) inflate.findViewById(a.f.tv_guide_text);
         addView(inflate);
     }
 
@@ -45,8 +45,8 @@ public class TipGuideView extends LinearLayout implements View.OnClickListener {
     }
 
     public void setText(String str) {
-        if (this.oyA != null && !TextUtils.isEmpty(str)) {
-            this.oyA.setText(str);
+        if (this.oyC != null && !TextUtils.isEmpty(str)) {
+            this.oyC.setText(str);
         }
     }
 }

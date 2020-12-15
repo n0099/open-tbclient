@@ -9,10 +9,10 @@ import com.baidu.tieba.ala.d.h;
 /* loaded from: classes4.dex */
 public class AlaSeriesGiftInitialize {
     static {
-        bPi();
+        bPj();
     }
 
-    private static void bPi() {
+    private static void bPj() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913239, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaSeriesGiftInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {

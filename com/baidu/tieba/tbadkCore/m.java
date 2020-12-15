@@ -347,7 +347,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new g();
-                    this.mFrsInsertLiveData.njy = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.njA = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i4 = 0; i4 < dataRes.ala_live_insert.ala_live_list.size(); i4++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i4) != null) {
@@ -357,7 +357,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             arrayList.add(byVar);
                         }
                     }
-                    this.mFrsInsertLiveData.njx = arrayList;
+                    this.mFrsInsertLiveData.njz = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new h();
@@ -370,7 +370,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             arrayList2.add(byVar2);
                         }
                     }
-                    this.mFrsStageLiveData.njA = arrayList2;
+                    this.mFrsStageLiveData.njC = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -387,7 +387,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.dFX().Sk(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.dFY().Sk(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i6 = 0; i6 < dataRes.card_shipin_new.size(); i6++) {
@@ -459,11 +459,11 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                             abVar.link = serviceArea.serviceurl;
                             abVar.version = serviceArea.version;
                             String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString("frs_service_version_" + this.forum.getName() + abVar.name, "");
-                            abVar.ivV = TextUtils.isEmpty(string) || !string.equals(serviceArea.version);
+                            abVar.ivX = TextUtils.isEmpty(string) || !string.equals(serviceArea.version);
                             if (serviceArea.area_smart_app != null) {
                                 ac acVar = new ac();
                                 acVar.c(serviceArea.area_smart_app);
-                                abVar.nkO = acVar;
+                                abVar.nkQ = acVar;
                             }
                             if (this.forum != null) {
                                 abVar.forumName = this.forum.getName();
@@ -477,7 +477,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                         }
                         i7 = i;
                     }
-                    this.serviceAreaData.nkN = arrayList3.size();
+                    this.serviceAreaData.nkP = arrayList3.size();
                     this.serviceAreaData.dataList = arrayList3;
                 }
                 this.itemInfo = dataRes.item_info;
@@ -558,7 +558,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                     }
                 }
             }
-            com.baidu.tieba.recapp.report.b.dGe().q("tag_frs_tab", arrayList);
+            com.baidu.tieba.recapp.report.b.dGf().q("tag_frs_tab", arrayList);
         }
     }
 

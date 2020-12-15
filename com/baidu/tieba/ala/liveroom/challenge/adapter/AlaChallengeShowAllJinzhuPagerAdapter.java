@@ -10,45 +10,45 @@ import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class AlaChallengeShowAllJinzhuPagerAdapter extends PagerAdapter {
     private long brr;
-    private ArrayList<d> gSI = new ArrayList<>();
-    private long ggj;
-    private long hiF;
+    private ArrayList<d> gSK = new ArrayList<>();
+    private long ggl;
+    private long hiH;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
 
     public AlaChallengeShowAllJinzhuPagerAdapter(TbPageContext tbPageContext, long j, long j2, long j3, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.hiF = j;
+        this.hiH = j;
         this.brr = j2;
-        this.ggj = j3;
-        bWU();
+        this.ggl = j3;
+        bWV();
     }
 
-    private void bWU() {
+    private void bWV() {
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 1, this.mIsHost);
-        bVar.e(this.hiF, this.brr, this.ggj);
-        this.gSI.add(bVar);
+        bVar.e(this.hiH, this.brr, this.ggl);
+        this.gSK.add(bVar);
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar2 = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 2, this.mIsHost);
-        bVar2.e(this.hiF, this.brr, this.ggj);
-        this.gSI.add(bVar2);
+        bVar2.e(this.hiH, this.brr, this.ggl);
+        this.gSK.add(bVar2);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.gSI != null) {
-            return this.gSI.size();
+        if (this.gSK != null) {
+            return this.gSK.size();
         }
         return 0;
     }
 
     public ArrayList<d> getDataList() {
-        return this.gSI;
+        return this.gSK;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.gSI, i);
+        d dVar = (d) ListUtils.getItem(this.gSK, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {

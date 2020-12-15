@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaArGradingQualityConfigResponseMessage extends JsonHttpResponsedMessage {
-    private JSONObject gjO;
+    private JSONObject gjQ;
 
     public AlaArGradingQualityConfigResponseMessage() {
         super(1021204);
@@ -26,12 +26,12 @@ public class AlaArGradingQualityConfigResponseMessage extends JsonHttpResponsedM
                 if (isDebug()) {
                     Log.e("GradingQualityConfig", "onResponse data >>>> " + optJSONObject.toString());
                 }
-                JSONObject dv = com.baidu.tieba.ala.alaar.a.b.bQp().dv(optJSONObject);
+                JSONObject dv = com.baidu.tieba.ala.alaar.a.b.bQq().dv(optJSONObject);
                 if (isDebug() && dv != null) {
                     Log.e("GradingQualityConfig", "reStructData >>>> " + dv.toString());
                 }
-                this.gjO = dv;
-                com.baidu.tieba.ala.alaar.a.b.bQp().d(dv, true);
+                this.gjQ = dv;
+                com.baidu.tieba.ala.alaar.a.b.bQq().d(dv, true);
             }
         }
     }

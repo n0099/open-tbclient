@@ -19,7 +19,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     private TextView bTi;
     public CustomMessageListener bgy;
     private TextView mTitle;
-    private a owg;
+    private a owi;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -85,7 +85,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void efz() {
+    public void efA() {
         if (this.bTi != null) {
             this.bTi.getPaint().setFakeBoldText(true);
         }
@@ -140,13 +140,13 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     public void onClick(View view) {
         if (view == this.bTh) {
             dismiss();
-            if (this.owg != null) {
-                this.owg.onCancel();
+            if (this.owi != null) {
+                this.owi.onCancel();
             }
         } else if (view == this.bTi) {
             dismiss();
-            if (this.owg != null) {
-                this.owg.onConfirm();
+            if (this.owi != null) {
+                this.owi.onConfirm();
             }
         }
     }
@@ -157,6 +157,6 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     }
 
     public void a(a aVar) {
-        this.owg = aVar;
+        this.owi = aVar;
     }
 }

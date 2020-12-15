@@ -7,14 +7,14 @@ import kotlin.text.l;
 @e
 /* loaded from: classes17.dex */
 public final class c {
-    public static final b pKr;
+    public static final b pKt;
 
     static {
         b bVar;
         Object newInstance;
         Object newInstance2;
-        int eDW = eDW();
-        if (eDW >= 65544) {
+        int eDX = eDX();
+        if (eDX >= 65544) {
             try {
                 newInstance = Class.forName("kotlin.internal.jdk8.JDK8PlatformImplementations").newInstance();
             } catch (ClassNotFoundException e) {
@@ -31,9 +31,9 @@ public final class c {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             bVar = (b) newInstance;
-            pKr = bVar;
+            pKt = bVar;
         }
-        if (eDW >= 65543) {
+        if (eDX >= 65543) {
             try {
                 newInstance2 = Class.forName("kotlin.internal.a.a").newInstance();
             } catch (ClassNotFoundException e3) {
@@ -50,13 +50,13 @@ public final class c {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             bVar = (b) newInstance2;
-            pKr = bVar;
+            pKt = bVar;
         }
         bVar = new b();
-        pKr = bVar;
+        pKt = bVar;
     }
 
-    private static final int eDW() {
+    private static final int eDX() {
         int i;
         String property = System.getProperty("java.specification.version");
         if (property == null) {

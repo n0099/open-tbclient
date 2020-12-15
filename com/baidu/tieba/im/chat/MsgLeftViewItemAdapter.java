@@ -33,17 +33,17 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        MsgleftView cTL = aVar.cTL();
-        cTL.DK(this.kke);
-        cTL.sb(this.mNeedShowName);
+        MsgleftView cTM = aVar.cTM();
+        cTM.DK(this.kkg);
+        cTM.sb(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        cTL.a(this.kjV);
-        cTL.setOnItemViewLongClickListener(this.kjW);
-        cTL.setPosition(i);
-        cTL.gJ(this.gik);
-        cTL.gI(chatMessage.getCacheData().getLastMsgTime());
-        cTL.a(viewGroup, chatMessage);
-        cTL.b(viewGroup, chatMessage);
+        cTM.a(this.kjX);
+        cTM.setOnItemViewLongClickListener(this.kjY);
+        cTM.setPosition(i);
+        cTM.gJ(this.gim);
+        cTM.gI(chatMessage.getCacheData().getLastMsgTime());
+        cTM.a(viewGroup, chatMessage);
+        cTM.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

@@ -11,7 +11,7 @@ import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes22.dex */
 public class a extends bq {
-    public static final Integer jLk = 6;
+    public static final Integer jLm = 6;
     private boolean eIe;
     private List<MetaData> eIf = new ArrayList();
 
@@ -31,7 +31,7 @@ public class a extends bq {
         if (concernData == null) {
             return false;
         }
-        return concernData.recom_type.equals(jLk);
+        return concernData.recom_type.equals(jLm);
     }
 
     @Override // com.baidu.tbadk.core.data.bq, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q

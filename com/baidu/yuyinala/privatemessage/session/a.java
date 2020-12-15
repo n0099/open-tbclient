@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes4.dex */
 public class a {
-    private static HandlerThread oWD = new HandlerThread("ChatCoreDataLoader");
+    private static HandlerThread oWF = new HandlerThread("ChatCoreDataLoader");
     private Context mContext;
-    private Handler mSchedulerHandler = new Handler(oWD.getLooper());
+    private Handler mSchedulerHandler = new Handler(oWF.getLooper());
     private Handler mMainHandler = new Handler(Looper.getMainLooper());
-    private com.baidu.yuyinala.privatemessage.model.b oWE = new com.baidu.yuyinala.privatemessage.model.b();
+    private com.baidu.yuyinala.privatemessage.model.b oWG = new com.baidu.yuyinala.privatemessage.model.b();
 
     /* renamed from: com.baidu.yuyinala.privatemessage.session.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -33,12 +33,12 @@ public class a {
     }
 
     static {
-        oWD.start();
+        oWF.start();
     }
 
     public void destory() {
-        if (this.oWE != null) {
-            this.oWE.destory();
+        if (this.oWG != null) {
+            this.oWG.destory();
         }
     }
 
@@ -97,7 +97,7 @@ public class a {
             }
         });
         if (bVar != null && ((b) bVar).mList != null) {
-            this.oWE.a(gL(((b) bVar).mList), new b.a() { // from class: com.baidu.yuyinala.privatemessage.session.a.4
+            this.oWG.a(gL(((b) bVar).mList), new b.a() { // from class: com.baidu.yuyinala.privatemessage.session.a.4
                 @Override // com.baidu.yuyinala.privatemessage.model.b.a
                 public void gK(List<f> list) {
                     a.this.F(bVar.mList, list);
@@ -163,10 +163,10 @@ public class a {
     /* renamed from: com.baidu.yuyinala.privatemessage.session.a$5  reason: invalid class name */
     /* loaded from: classes4.dex */
     public class AnonymousClass5 implements Runnable {
-        final /* synthetic */ InterfaceC0975a oWH;
+        final /* synthetic */ InterfaceC0975a oWJ;
 
         AnonymousClass5(InterfaceC0975a interfaceC0975a) {
-            this.oWH = interfaceC0975a;
+            this.oWJ = interfaceC0975a;
         }
 
         @Override // java.lang.Runnable
@@ -186,7 +186,7 @@ public class a {
                         a.this.mMainHandler.post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.a.5.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AnonymousClass5.this.oWH.a(bVar);
+                                AnonymousClass5.this.oWJ.a(bVar);
                             }
                         });
                     }

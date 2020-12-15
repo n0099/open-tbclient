@@ -23,14 +23,14 @@ public class g implements d, j, a.InterfaceC1019a {
     private final com.tb.airbnb.lottie.g lottieDrawable;
     @NonNull
     private final String name;
-    private final com.tb.airbnb.lottie.model.layer.a pAO;
-    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> pAQ;
+    private final com.tb.airbnb.lottie.model.layer.a pAQ;
+    private final com.tb.airbnb.lottie.a.b.a<Integer, Integer> pAS;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pAS;
-    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> pAY;
-    private final GradientType pAZ;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pBa;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pBb;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> pAU;
+    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> pBa;
+    private final GradientType pBb;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pBc;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pBd;
     private final LongSparseArray<LinearGradient> Ea = new LongSparseArray<>();
     private final LongSparseArray<RadialGradient> Eb = new LongSparseArray<>();
     private final Matrix Ec = new Matrix();
@@ -40,24 +40,24 @@ public class g implements d, j, a.InterfaceC1019a {
     private final List<l> DR = new ArrayList();
 
     public g(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.d dVar) {
-        this.pAO = aVar;
+        this.pAQ = aVar;
         this.name = dVar.getName();
         this.lottieDrawable = gVar;
-        this.pAZ = dVar.eBt();
+        this.pBb = dVar.eBu();
         this.path.setFillType(dVar.jQ());
         this.Eh = (int) (gVar.getComposition().iv() / 32.0f);
-        this.pAY = dVar.eBu().eBi();
-        this.pAY.b(this);
-        aVar.a(this.pAY);
-        this.pAQ = dVar.eBo().eBi();
-        this.pAQ.b(this);
-        aVar.a(this.pAQ);
-        this.pBa = dVar.eBv().eBi();
+        this.pBa = dVar.eBv().eBj();
         this.pBa.b(this);
         aVar.a(this.pBa);
-        this.pBb = dVar.eBw().eBi();
-        this.pBb.b(this);
-        aVar.a(this.pBb);
+        this.pAS = dVar.eBp().eBj();
+        this.pAS.b(this);
+        aVar.a(this.pAS);
+        this.pBc = dVar.eBw().eBj();
+        this.pBc.b(this);
+        aVar.a(this.pBc);
+        this.pBd = dVar.eBx().eBj();
+        this.pBd.b(this);
+        aVar.a(this.pBd);
     }
 
     @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC1019a
@@ -91,7 +91,7 @@ public class g implements d, j, a.InterfaceC1019a {
             this.path.addPath(this.DR.get(i2).iW(), matrix);
         }
         this.path.computeBounds(this.Ed, false);
-        if (this.pAZ == GradientType.Linear) {
+        if (this.pBb == GradientType.Linear) {
             iY = iX();
         } else {
             iY = iY();
@@ -99,10 +99,10 @@ public class g implements d, j, a.InterfaceC1019a {
         this.Ec.set(matrix);
         iY.setLocalMatrix(this.Ec);
         this.paint.setShader(iY);
-        if (this.pAS != null) {
-            this.paint.setColorFilter(this.pAS.getValue());
+        if (this.pAU != null) {
+            this.paint.setColorFilter(this.pAU.getValue());
         }
-        this.paint.setAlpha(com.tb.airbnb.lottie.d.e.clamp((int) (((this.pAQ.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
+        this.paint.setAlpha(com.tb.airbnb.lottie.d.e.clamp((int) (((this.pAS.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
         canvas.drawPath(this.path, this.paint);
         com.tb.airbnb.lottie.d.be("GradientFillContent#draw");
     }
@@ -126,9 +126,9 @@ public class g implements d, j, a.InterfaceC1019a {
         int iZ = iZ();
         LinearGradient linearGradient = this.Ea.get(iZ);
         if (linearGradient == null) {
-            PointF value = this.pBa.getValue();
-            PointF value2 = this.pBb.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.pAY.getValue();
+            PointF value = this.pBc.getValue();
+            PointF value2 = this.pBd.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.pBa.getValue();
             LinearGradient linearGradient2 = new LinearGradient(value.x, value.y, value2.x, value2.y, value3.getColors(), value3.jO(), Shader.TileMode.CLAMP);
             this.Ea.put(iZ, linearGradient2);
             return linearGradient2;
@@ -140,9 +140,9 @@ public class g implements d, j, a.InterfaceC1019a {
         int iZ = iZ();
         RadialGradient radialGradient = this.Eb.get(iZ);
         if (radialGradient == null) {
-            PointF value = this.pBa.getValue();
-            PointF value2 = this.pBb.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.pAY.getValue();
+            PointF value = this.pBc.getValue();
+            PointF value2 = this.pBd.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.pBa.getValue();
             int[] colors = value3.getColors();
             float[] jO = value3.jO();
             float f = value.x;
@@ -155,9 +155,9 @@ public class g implements d, j, a.InterfaceC1019a {
     }
 
     private int iZ() {
-        int round = Math.round(this.pBa.getProgress() * this.Eh);
-        int round2 = Math.round(this.pBb.getProgress() * this.Eh);
-        int round3 = Math.round(this.pAY.getProgress() * this.Eh);
+        int round = Math.round(this.pBc.getProgress() * this.Eh);
+        int round2 = Math.round(this.pBd.getProgress() * this.Eh);
+        int round3 = Math.round(this.pBa.getProgress() * this.Eh);
         int i = 17;
         if (round != 0) {
             i = round * 527;
@@ -180,12 +180,12 @@ public class g implements d, j, a.InterfaceC1019a {
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         if (t == com.tb.airbnb.lottie.k.Do) {
             if (cVar == null) {
-                this.pAS = null;
+                this.pAU = null;
                 return;
             }
-            this.pAS = new com.tb.airbnb.lottie.a.b.p(cVar);
-            this.pAS.b(this);
-            this.pAO.a(this.pAS);
+            this.pAU = new com.tb.airbnb.lottie.a.b.p(cVar);
+            this.pAU.b(this);
+            this.pAQ.a(this.pAU);
         }
     }
 }

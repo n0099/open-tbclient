@@ -39,7 +39,7 @@ public class e {
         }
     }
 
-    public static ArrayList<String> cAO() {
+    public static ArrayList<String> cAP() {
         ArrayList<String> arrayList = null;
         String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.SEARCH_FORUM_HISTORY), "");
         if (StringUtils.isNull(string)) {

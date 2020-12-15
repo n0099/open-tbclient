@@ -12,7 +12,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.h.hNw);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.h.hNy);
         this.mPageContext = tbPageContext;
     }
 
@@ -28,17 +28,17 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.csM() == null) {
+        if (aVar.csN() == null) {
             return null;
         }
-        a(hVar, aVar.csM());
-        aVar.csM().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.f.1
+        a(hVar, aVar.csN());
+        aVar.csN().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 f.this.click();
             }
         });
-        return aVar.csM().getView();
+        return aVar.csN().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.h hVar, com.baidu.tieba.ala.personcenter.e.a aVar) {

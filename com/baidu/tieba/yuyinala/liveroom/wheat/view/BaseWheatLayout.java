@@ -23,14 +23,14 @@ import java.util.List;
 public class BaseWheatLayout extends SafeFrameLayout {
     public View dlk;
     public TbPageContext mTbPageContext;
-    public List<AlaWheatInfoData> oxf;
-    public List<AlaWheatInfoData> oxg;
-    public a oyc;
-    public List<WheatItemView> oyd;
-    public List<WheatItemView> oye;
-    private AlaWheatInfoData oyf;
-    public int oyg;
-    public int oyh;
+    public List<AlaWheatInfoData> oxh;
+    public List<AlaWheatInfoData> oxi;
+    public a oye;
+    public List<WheatItemView> oyf;
+    public List<WheatItemView> oyg;
+    private AlaWheatInfoData oyh;
+    public int oyi;
+    public int oyj;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -51,10 +51,10 @@ public class BaseWheatLayout extends SafeFrameLayout {
     }
 
     private void init() {
-        this.oyg = e.c(90.0f, getContext());
-        this.oyh = e.c(98.0f, getContext());
-        this.oyd = new ArrayList();
-        this.oye = new ArrayList();
+        this.oyi = e.c(90.0f, getContext());
+        this.oyj = e.c(98.0f, getContext());
+        this.oyf = new ArrayList();
+        this.oyg = new ArrayList();
     }
 
     public void setTbPageContext(TbPageContext tbPageContext) {
@@ -64,17 +64,17 @@ public class BaseWheatLayout extends SafeFrameLayout {
     public AlaWheatInfoData ao(int i, boolean z) {
         AlaWheatInfoData alaWheatInfoData = null;
         if (z) {
-            if (!ListUtils.isEmpty(this.oxf) && i >= 0 && i < this.oxf.size() && (alaWheatInfoData = this.oxf.get(i)) != null) {
+            if (!ListUtils.isEmpty(this.oxh) && i >= 0 && i < this.oxh.size() && (alaWheatInfoData = this.oxh.get(i)) != null) {
                 alaWheatInfoData.isHost = true;
             }
-        } else if (!ListUtils.isEmpty(this.oxg) && i >= 0 && i < this.oxg.size() && (alaWheatInfoData = this.oxg.get(i)) != null) {
+        } else if (!ListUtils.isEmpty(this.oxi) && i >= 0 && i < this.oxi.size() && (alaWheatInfoData = this.oxi.get(i)) != null) {
             alaWheatInfoData.isHost = false;
         }
         return alaWheatInfoData;
     }
 
     public void setOnItemClickListener(a aVar) {
-        this.oyc = aVar;
+        this.oye = aVar;
     }
 
     public void WY(String str) {
@@ -139,25 +139,25 @@ public class BaseWheatLayout extends SafeFrameLayout {
         View view;
         View view2 = null;
         synchronized (this) {
-            this.oyf = null;
+            this.oyh = null;
             int i = 0;
             while (true) {
-                if (i >= ListUtils.getCount(this.oxf)) {
+                if (i >= ListUtils.getCount(this.oxh)) {
                     break;
                 }
-                this.oyf = this.oxf.get(i);
-                if (str == null || this.oyf == null || !str.equals(this.oyf.uk)) {
+                this.oyh = this.oxh.get(i);
+                if (str == null || this.oyh == null || !str.equals(this.oyh.uk)) {
                     i++;
                 } else {
-                    view2 = (View) ListUtils.getItem(this.oyd, i);
+                    view2 = (View) ListUtils.getItem(this.oyf, i);
                     break;
                 }
             }
             if (view2 == null) {
-                for (int i2 = 0; i2 < ListUtils.getCount(this.oxg); i2++) {
-                    this.oyf = this.oxg.get(i2);
-                    if (str != null && this.oyf != null && str.equals(this.oyf.uk)) {
-                        view = (View) ListUtils.getItem(this.oye, i2);
+                for (int i2 = 0; i2 < ListUtils.getCount(this.oxi); i2++) {
+                    this.oyh = this.oxi.get(i2);
+                    if (str != null && this.oyh != null && str.equals(this.oyh.uk)) {
+                        view = (View) ListUtils.getItem(this.oyg, i2);
                         break;
                     }
                 }
@@ -176,7 +176,7 @@ public class BaseWheatLayout extends SafeFrameLayout {
     public AlaWheatInfoData jw(String str) {
         View Xc = Xc(str);
         if (Xc != null) {
-            AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) this.oyf.clone();
+            AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) this.oyh.clone();
             int[] iArr = new int[2];
             Xc.getLocationOnScreen(iArr);
             alaWheatInfoData.locationCenterX = iArr[0] + (Xc.getWidth() / 2);
@@ -194,14 +194,14 @@ public class BaseWheatLayout extends SafeFrameLayout {
         }
     }
 
-    public void efZ() {
+    public void ega() {
         int[] screenFullSize;
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && (screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity())) != null && screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] < e.c(360.0f, getContext())) {
-            this.oyg = screenFullSize[0] / 4;
+            this.oyi = screenFullSize[0] / 4;
         }
     }
 
-    public boolean ega() {
+    public boolean egb() {
         int[] screenFullSize;
         return this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null && (screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity())) != null && screenFullSize.length > 0 && screenFullSize[0] > 0 && screenFullSize[0] < e.c(360.0f, getContext());
     }

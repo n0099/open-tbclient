@@ -8,15 +8,15 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements CookieManager {
-    private static String nXc;
-    private boolean nRG;
-    private boolean nXd;
+    private static String nXe;
+    private boolean nRI;
+    private boolean nXf;
 
     public c(boolean z, boolean z2) {
-        this.nRG = true;
-        this.nXd = false;
-        this.nRG = z;
-        this.nXd = z2;
+        this.nRI = true;
+        this.nXf = false;
+        this.nRI = z;
+        this.nXf = z2;
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -24,7 +24,7 @@ public class c implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.nXd || !VK(str2);
+        return this.nXf || !VK(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -41,7 +41,7 @@ public class c implements CookieManager {
                 for (String str2 : list) {
                     cookieManager.setCookie(str, str2);
                 }
-                if (this.nRG && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
+                if (this.nRI && (cookieSyncManager = CookieSyncManager.getInstance()) != null) {
                     cookieSyncManager.sync();
                 }
             } catch (Exception e) {
@@ -52,15 +52,15 @@ public class c implements CookieManager {
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
-        return nXc;
+        return nXe;
     }
 
     public static void bS(String str) {
-        nXc = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
+        nXe = "BAIDUCUID=" + AppCuidRuntime.getAppCuidManager().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "BDUSS=" + str;
     }
 
-    public static void dZi() {
-        nXc = "";
+    public static void dZj() {
+        nXe = "";
     }
 
     public static boolean VK(String str) {

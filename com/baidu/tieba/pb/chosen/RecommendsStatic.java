@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.bf;
 public class RecommendsStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
-        cRJ();
+        cRK();
     }
 
-    private static void cRJ() {
+    private static void cRK() {
         bf.bua().a(new bf.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

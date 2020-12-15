@@ -19,11 +19,11 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel<ALaCharmCardActivity> {
-    private q gEW;
-    private a gEX;
-    private InterfaceC0651b gEY;
-    private NetMessageListener gEZ;
-    private HttpMessageListener gFa;
+    private q gEY;
+    private a gEZ;
+    private InterfaceC0651b gFa;
+    private NetMessageListener gFb;
+    private HttpMessageListener gFc;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -42,7 +42,7 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
 
     public b(TbPageContext<ALaCharmCardActivity> tbPageContext, a aVar, InterfaceC0651b interfaceC0651b) {
         super(tbPageContext);
-        this.gEZ = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
+        this.gFb = new NetMessageListener(1021008, 602004) { // from class: com.baidu.tieba.ala.charm.model.b.1
             @Override // com.baidu.live.adp.framework.listener.NetMessageListener
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 q qVar;
@@ -53,50 +53,50 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
                     int error = responsedMessage.getError();
                     if (responsedMessage instanceof OnlineListHttpResponseMessage) {
                         OnlineListHttpResponseMessage onlineListHttpResponseMessage = (OnlineListHttpResponseMessage) responsedMessage;
-                        j = onlineListHttpResponseMessage.bUs();
-                        q bUt = onlineListHttpResponseMessage.bUt();
-                        alaLiveUserInfoData = onlineListHttpResponseMessage.bUu();
-                        j2 = onlineListHttpResponseMessage.bUv();
-                        qVar = bUt;
+                        j = onlineListHttpResponseMessage.bUt();
+                        q bUu = onlineListHttpResponseMessage.bUu();
+                        alaLiveUserInfoData = onlineListHttpResponseMessage.bUv();
+                        j2 = onlineListHttpResponseMessage.bUw();
+                        qVar = bUu;
                     } else {
                         qVar = null;
                         j = 0;
                     }
                     if (error == 0) {
-                        b.this.gEW = qVar;
-                        if (b.this.gEX != null) {
-                            b.this.gEX.a(j, b.this.gEW, alaLiveUserInfoData, j2);
+                        b.this.gEY = qVar;
+                        if (b.this.gEZ != null) {
+                            b.this.gEZ.a(j, b.this.gEY, alaLiveUserInfoData, j2);
                         }
-                    } else if (b.this.gEX != null) {
-                        b.this.gEX.t(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (b.this.gEZ != null) {
+                        b.this.gEZ.t(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.gFa = new HttpMessageListener(1021227) { // from class: com.baidu.tieba.ala.charm.model.b.2
+        this.gFc = new HttpMessageListener(1021227) { // from class: com.baidu.tieba.ala.charm.model.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021227 && (httpResponsedMessage instanceof AlaPokeResponseMessage)) {
                     AlaPokeResponseMessage alaPokeResponseMessage = (AlaPokeResponseMessage) httpResponsedMessage;
                     if (alaPokeResponseMessage.getError() != 0 || !alaPokeResponseMessage.isSuccess()) {
-                        if (b.this.gEX != null) {
-                            b.this.gEY.t(alaPokeResponseMessage.getError(), alaPokeResponseMessage.getErrorString());
+                        if (b.this.gEZ != null) {
+                            b.this.gFa.t(alaPokeResponseMessage.getError(), alaPokeResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    if (b.this.gEX != null) {
-                        b.this.gEY.s(alaPokeResponseMessage.userId, alaPokeResponseMessage.brw);
+                    if (b.this.gEZ != null) {
+                        b.this.gFa.s(alaPokeResponseMessage.userId, alaPokeResponseMessage.brw);
                     }
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_HOST_POKE_SUCCESS));
                 }
             }
         };
-        this.gEX = aVar;
-        this.gEY = interfaceC0651b;
-        MessageManager.getInstance().registerListener(this.gEZ);
-        MessageManager.getInstance().registerListener(this.gFa);
+        this.gEZ = aVar;
+        this.gFa = interfaceC0651b;
+        MessageManager.getInstance().registerListener(this.gFb);
+        MessageManager.getInstance().registerListener(this.gFc);
         com.baidu.live.tieba.f.a.a.a(1021008, "ala/live/getAudienceInfo", OnlineListHttpResponseMessage.class, false, true, true, true);
     }
 
@@ -117,8 +117,8 @@ public class b extends BdBaseModel<ALaCharmCardActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gEZ);
-        MessageManager.getInstance().unRegisterListener(this.gFa);
+        MessageManager.getInstance().unRegisterListener(this.gFb);
+        MessageManager.getInstance().unRegisterListener(this.gFc);
         MessageManager.getInstance().unRegisterTask(1021008);
         cancelMessage();
     }

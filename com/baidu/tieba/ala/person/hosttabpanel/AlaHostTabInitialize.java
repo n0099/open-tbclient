@@ -13,7 +13,7 @@ import com.baidu.tieba.ala.person.hosttabpanel.message.AlaNewHostTabHttpResponse
 public class AlaHostTabInitialize {
     static {
         registerTask();
-        cmA();
+        cmB();
     }
 
     private static void registerTask() {
@@ -27,7 +27,7 @@ public class AlaHostTabInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cmA() {
+    private static void cmB() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.person.hosttabpanel.AlaHostTabInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

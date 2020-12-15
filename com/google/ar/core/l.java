@@ -7,19 +7,19 @@ final class l extends Thread {
     /* renamed from: a  reason: collision with root package name */
     private final Context f4045a;
     private volatile boolean c;
-    private final y ptn;
+    private final y ptp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Context context, y yVar) {
         this.f4045a = context;
-        this.ptn = yVar;
+        this.ptp = yVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         while (!this.c) {
-            if (o.eyc().b(this.f4045a)) {
-                this.ptn.a(p.COMPLETED);
+            if (o.eyd().b(this.f4045a)) {
+                this.ptp.a(p.COMPLETED);
                 return;
             }
             try {

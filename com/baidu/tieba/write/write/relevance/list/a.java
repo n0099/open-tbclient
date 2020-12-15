@@ -27,12 +27,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class a implements BdListView.e, BdRecyclerView.a, b.a {
-    private PbListView gre;
-    private BdRecyclerView icn;
+    private PbListView grg;
+    private BdRecyclerView icp;
     private final View mRoot;
-    private final RelevanceItemListFragment ofY;
-    private final b ofZ;
-    private Editable oga;
+    private final RelevanceItemListFragment oga;
+    private final b ogb;
+    private Editable ogc;
     private List<ReleavanceItemListData.ItemListBean> mDataList = new ArrayList();
     private boolean hasMore = true;
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter<C0906a>() { // from class: com.baidu.tieba.write.write.relevance.list.a.1
@@ -47,7 +47,7 @@ public class a implements BdListView.e, BdRecyclerView.a, b.a {
         @Override // android.support.v7.widget.RecyclerView.Adapter
         /* renamed from: a */
         public void onBindViewHolder(C0906a c0906a, int i) {
-            c0906a.a((ReleavanceItemListData.ItemListBean) a.this.mDataList.get(i), a.this.oga);
+            c0906a.a((ReleavanceItemListData.ItemListBean) a.this.mDataList.get(i), a.this.ogc);
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -58,42 +58,42 @@ public class a implements BdListView.e, BdRecyclerView.a, b.a {
 
     public a(RelevanceItemListFragment relevanceItemListFragment, View view, String str, BdUniqueId bdUniqueId) {
         this.mRoot = view;
-        this.ofY = relevanceItemListFragment;
-        this.ofZ = new b(bdUniqueId, str);
+        this.oga = relevanceItemListFragment;
+        this.ogb = new b(bdUniqueId, str);
         initUI();
     }
 
     private void initUI() {
-        this.icn = (BdRecyclerView) this.mRoot.findViewById(R.id.item_list);
-        this.icn.setLayoutManager(new c(this.mRoot.getContext()));
-        this.icn.setAdapter(this.mAdapter);
-        this.gre = new PbListView(this.mRoot.getContext());
-        this.gre.createView();
-        this.gre.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.gre.setLineGone();
-        this.gre.setTextColor(ap.getColor(R.color.CAM_X0107));
-        this.gre.setTextSize(R.dimen.tbfontsize33);
-        this.gre.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.icn.setNextPage(this.gre);
-        this.icn.setOnItemClickListener(this);
-        this.icn.setOnSrollToBottomListener(this);
-        this.ofZ.a(this);
+        this.icp = (BdRecyclerView) this.mRoot.findViewById(R.id.item_list);
+        this.icp.setLayoutManager(new c(this.mRoot.getContext()));
+        this.icp.setAdapter(this.mAdapter);
+        this.grg = new PbListView(this.mRoot.getContext());
+        this.grg.createView();
+        this.grg.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.grg.setLineGone();
+        this.grg.setTextColor(ap.getColor(R.color.CAM_X0107));
+        this.grg.setTextSize(R.dimen.tbfontsize33);
+        this.grg.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.icp.setNextPage(this.grg);
+        this.icp.setOnItemClickListener(this);
+        this.icp.setOnSrollToBottomListener(this);
+        this.ogb.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void eco() {
-        this.ofZ.ecr();
+    public void ecp() {
+        this.ogb.ecs();
     }
 
     @Override // com.baidu.tieba.write.write.relevance.list.b.a
     public void a(RelevanceItemSearchData relevanceItemSearchData) {
-        this.ofY.dlw();
+        this.oga.dlx();
         if (relevanceItemSearchData != null && !y.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
             this.mDataList.addAll(relevanceItemSearchData.getData().getItem_list());
             this.mAdapter.notifyDataSetChanged();
         }
-        if (this.icn.getVisibility() == 8) {
-            this.icn.setVisibility(0);
+        if (this.icp.getVisibility() == 8) {
+            this.icp.setVisibility(0);
         }
     }
 
@@ -101,22 +101,22 @@ public class a implements BdListView.e, BdRecyclerView.a, b.a {
     public void onError(int i, String str) {
         this.mDataList.clear();
         this.mAdapter.notifyDataSetChanged();
-        this.icn.setVisibility(8);
-        this.ofY.onError(str);
-    }
-
-    @Override // com.baidu.tieba.write.write.relevance.list.b.a
-    public void ecp() {
-        this.ofY.cND();
+        this.icp.setVisibility(8);
+        this.oga.onError(str);
     }
 
     @Override // com.baidu.tieba.write.write.relevance.list.b.a
     public void ecq() {
+        this.oga.cNE();
+    }
+
+    @Override // com.baidu.tieba.write.write.relevance.list.b.a
+    public void ecr() {
         this.hasMore = false;
-        this.icn.setNextPage(this.gre);
-        this.gre.setText(this.ofY.getResources().getString(R.string.list_no_more));
-        this.gre.endLoadData();
-        this.gre.showEmptyView(l.getDimens(this.icn.getContext(), R.dimen.tbds44));
+        this.icp.setNextPage(this.grg);
+        this.grg.setText(this.oga.getResources().getString(R.string.list_no_more));
+        this.grg.endLoadData();
+        this.grg.showEmptyView(l.getDimens(this.icp.getContext(), R.dimen.tbds44));
     }
 
     @Override // com.baidu.adp.widget.ListView.BdRecyclerView.a
@@ -134,54 +134,54 @@ public class a implements BdListView.e, BdRecyclerView.a, b.a {
                 e.printStackTrace();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemSelectedMessage(itemListBean.getItem_id(), itemListBean.getItem_name(), itemListBean.getIcon_url(), d, d2, i2, itemListBean.getTags()));
-            this.ofY.getActivity().finish();
+            this.oga.getActivity().finish();
         }
     }
 
     public void onDestroy() {
-        this.ofZ.onDestroy();
+        this.ogb.onDestroy();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.hasMore) {
-            this.ofZ.ecr();
+            this.ogb.ecs();
             XZ();
         }
     }
 
     public void XZ() {
-        this.gre.setTopExtraViewGone();
-        this.gre.startLoadData();
-        this.gre.setText(this.icn.getContext().getString(R.string.list_loading));
-        this.gre.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.grg.setTopExtraViewGone();
+        this.grg.startLoadData();
+        this.grg.setText(this.icp.getContext().getString(R.string.list_loading));
+        this.grg.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
     public void g(Editable editable) {
         this.mDataList.clear();
         this.hasMore = true;
-        this.oga = editable;
+        this.ogc = editable;
         this.mAdapter.notifyDataSetChanged();
-        this.ofZ.g(editable);
+        this.ogb.g(editable);
     }
 
     public BdRecyclerView getListView() {
-        return this.icn;
+        return this.icp;
     }
 
     /* renamed from: com.baidu.tieba.write.write.relevance.list.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0906a extends RecyclerView.ViewHolder {
-        private final View ogc;
-        ItemCardView ogd;
+        private final View oge;
+        ItemCardView ogf;
 
         public C0906a(View view) {
             super(view);
-            this.ogd = (ItemCardView) view.findViewById(R.id.item_rate_info);
-            this.ogd.setBackGroundColor(R.color.transparent_1);
-            this.ogd.setSizeStyle(1);
-            this.ogc = view.findViewById(R.id.bottom_divider);
-            ap.setBackgroundColor(this.ogc, R.color.CAM_X0203);
+            this.ogf = (ItemCardView) view.findViewById(R.id.item_rate_info);
+            this.ogf.setBackGroundColor(R.color.transparent_1);
+            this.ogf.setSizeStyle(1);
+            this.oge = view.findViewById(R.id.bottom_divider);
+            ap.setBackgroundColor(this.oge, R.color.CAM_X0203);
         }
 
         public void a(ReleavanceItemListData.ItemListBean itemListBean, Editable editable) {
@@ -197,8 +197,8 @@ public class a implements BdListView.e, BdRecyclerView.a, b.a {
                     e.printStackTrace();
                 }
                 tbRichTextEvaluateItemInfo.setTags(itemListBean.getTags());
-                this.ogd.setHighLightText(((Object) editable) + "");
-                this.ogd.setData(tbRichTextEvaluateItemInfo, 10);
+                this.ogf.setHighLightText(((Object) editable) + "");
+                this.ogf.setData(tbRichTextEvaluateItemInfo, 10);
             }
         }
     }

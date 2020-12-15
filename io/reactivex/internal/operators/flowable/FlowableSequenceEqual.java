@@ -14,8 +14,8 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class FlowableSequenceEqual<T> extends g<Boolean> {
     final d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> pFT;
-    final org.a.b<? extends T> pFU;
+    final org.a.b<? extends T> pFV;
+    final org.a.b<? extends T> pFW;
     final int prefetch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,7 +30,7 @@ public final class FlowableSequenceEqual<T> extends g<Boolean> {
     public void a(org.a.c<? super Boolean> cVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(cVar, this.prefetch, this.comparer);
         cVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.pFT, this.pFU);
+        equalCoordinator.subscribe(this.pFV, this.pFW);
     }
 
     /* loaded from: classes9.dex */

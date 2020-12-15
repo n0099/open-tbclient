@@ -51,25 +51,25 @@ public class PersonCardActivity extends BaseFragmentActivity {
     private b bUW;
     private String bcY;
     private String groupId;
-    private String hIC;
-    private PersonUserData hID;
-    private boolean hII;
+    private String hIE;
+    private PersonUserData hIF;
     private boolean hIK;
-    private boolean hIL;
+    private boolean hIM;
+    private boolean hIN;
     private String liveId;
     private String metaKey;
     private String otherParams;
-    private PersonCardViewNew ozl;
-    private Intent ozm;
-    private String ozn;
-    private bt ozo;
-    private bt ozp;
+    private PersonCardViewNew ozn;
+    private Intent ozo;
+    private String ozp;
+    private bt ozq;
+    private bt ozr;
     private String portrait;
     private String roomId;
     private String userId;
     private String vid;
-    private boolean hIJ = false;
-    CustomMessageListener gDE = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.3
+    private boolean hIL = false;
+    CustomMessageListener gDG = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -79,13 +79,13 @@ public class PersonCardActivity extends BaseFragmentActivity {
                     str = "";
                 }
                 PersonCardActivity.this.otherParams = str;
-                if (PersonCardActivity.this.ozl != null) {
-                    PersonCardActivity.this.ozl.setOtherParams(PersonCardActivity.this.otherParams);
+                if (PersonCardActivity.this.ozn != null) {
+                    PersonCardActivity.this.ozn.setOtherParams(PersonCardActivity.this.otherParams);
                 }
             }
         }
     };
-    private CustomMessageListener gDs = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.4
+    private CustomMessageListener gDu = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -93,7 +93,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && TextUtils.equals(updateAttentionMessage.getData().toUid, ExtraParamsManager.getEncryptionUserId(PersonCardActivity.this.userId))) {
                     if (updateAttentionMessage.getData().isSucc) {
-                        PersonCardActivity.this.edC();
+                        PersonCardActivity.this.edD();
                         Message<?> message = updateAttentionMessage.getmOrginalMessage();
                         if (message != null && message.getTag() != null && message.getTag().equals(PersonCardActivity.this.getUniqueId())) {
                             if (updateAttentionMessage.getData().isAttention) {
@@ -111,9 +111,9 @@ public class PersonCardActivity extends BaseFragmentActivity {
                         return;
                     }
                     if (!updateAttentionMessage.isAttention()) {
-                        PersonCardActivity.this.ozl.xx(0);
+                        PersonCardActivity.this.ozn.xx(0);
                     } else {
-                        PersonCardActivity.this.ozl.xx(1);
+                        PersonCardActivity.this.ozn.xx(1);
                     }
                     Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                     if (message2 != null && message2.getTag() != null && message2.getTag().equals(PersonCardActivity.this.getUniqueId()) && !g.YG().a(updateAttentionMessage.getData(), (BdPageContext<?>) PersonCardActivity.this.getPageContext(), false) && updateAttentionMessage.getData().errorString != null) {
@@ -130,18 +130,18 @@ public class PersonCardActivity extends BaseFragmentActivity {
             PersonCardActivity.this.closeActivity();
         }
     };
-    CustomMessageListener hIM = new CustomMessageListener(2913186) { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.6
+    CustomMessageListener hIO = new CustomMessageListener(2913186) { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PersonCardActivity.this.closeActivity();
         }
     };
-    CustomMessageListener hIN = new CustomMessageListener(2913203) { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.7
+    CustomMessageListener hIP = new CustomMessageListener(2913203) { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PersonCardActivity.this.j(PersonCardActivity.this.userId, PersonCardActivity.this.liveId, PersonCardActivity.this.groupId, "", PersonCardActivity.this.hIC);
+            PersonCardActivity.this.j(PersonCardActivity.this.userId, PersonCardActivity.this.liveId, PersonCardActivity.this.groupId, "", PersonCardActivity.this.hIE);
         }
     };
 
@@ -155,16 +155,16 @@ public class PersonCardActivity extends BaseFragmentActivity {
             if (str != null && str.contains("Flyme")) {
                 getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.c.sdk_transparent)));
             }
-            cml();
+            cmm();
             initView();
-            this.ozl.a(this.hID, true);
-            setContentView(this.ozl.getRootView());
+            this.ozn.a(this.hIF, true);
+            setContentView(this.ozn.getRootView());
             initListener();
             KR();
-            if (!cmm()) {
-                j(this.userId, this.liveId, this.groupId, "", this.hIC);
+            if (!cmn()) {
+                j(this.userId, this.liveId, this.groupId, "", this.hIE);
             }
-            i.af(this.ozl.getRootView());
+            i.af(this.ozn.getRootView());
             TiebaInitialize.log("c11899");
         }
     }
@@ -172,18 +172,18 @@ public class PersonCardActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (!this.hIJ) {
-            this.ozl.getRootView().setVisibility(0);
-            setContentView(this.ozl.getRootView());
-            i.af(this.ozl.getRootView());
+        if (!this.hIL) {
+            this.ozn.getRootView().setVisibility(0);
+            setContentView(this.ozn.getRootView());
+            i.af(this.ozn.getRootView());
         }
     }
 
-    private void cml() {
+    private void cmm() {
         this.userId = getIntent().getStringExtra("PERSON_USER_ID");
-        this.ozn = getIntent().getStringExtra(YuyinAlaPersonCardActivityConfig.PERSON_USER_KEY);
+        this.ozp = getIntent().getStringExtra(YuyinAlaPersonCardActivityConfig.PERSON_USER_KEY);
         this.portrait = getIntent().getStringExtra("PERSON_PORTRAIT_URL");
-        this.hIC = getIntent().getStringExtra(AlaPersonCardActivityConfig.PERSON_SHOW_NAME);
+        this.hIE = getIntent().getStringExtra(AlaPersonCardActivityConfig.PERSON_SHOW_NAME);
         this.groupId = getIntent().getStringExtra("PERSON_GROUP_ID");
         this.liveId = getIntent().getStringExtra("PERSON_LIVE_ID");
         this.vid = getIntent().getStringExtra("vid");
@@ -191,8 +191,8 @@ public class PersonCardActivity extends BaseFragmentActivity {
         this.aLj = getIntent().getBooleanExtra("PERSON_LIVE_OWNER_FLAG", false);
         this.appId = getIntent().getStringExtra("PERSON_APP_ID");
         this.otherParams = getIntent().getStringExtra("other_params");
-        this.hIK = getIntent().getBooleanExtra(AlaPersonCardActivityConfig.PERSON_IS_FROM_GUARD_CLUB, false);
-        this.hIL = getIntent().getBooleanExtra(AlaPersonCardActivityConfig.PERSON_NAV_LIVEROOM_ENABLED, false);
+        this.hIM = getIntent().getBooleanExtra(AlaPersonCardActivityConfig.PERSON_IS_FROM_GUARD_CLUB, false);
+        this.hIN = getIntent().getBooleanExtra(AlaPersonCardActivityConfig.PERSON_NAV_LIVEROOM_ENABLED, false);
         String stringExtra = getIntent().getStringExtra("PERSON_USER_NAME");
         String stringExtra2 = getIntent().getStringExtra("PERSON_PORTRAIT_URL");
         int intExtra = getIntent().getIntExtra("PERSON_SEX", 0);
@@ -203,50 +203,50 @@ public class PersonCardActivity extends BaseFragmentActivity {
         long longExtra2 = getIntent().getLongExtra("PERSON_FANS_COUNT", 0L);
         long longExtra3 = getIntent().getLongExtra("PERSON_FOLLOWS_COUNT", 0L);
         getIntent().getIntExtra("PERSON_FOLLOW_STATUS", 0);
-        this.ozm = (Intent) getIntent().getParcelableExtra(YuyinAlaPersonCardActivityConfig.PERSON_REENTER_GIFTCARD);
-        this.hID = new PersonUserData();
-        this.hID.user_info = new ar();
-        this.hID.location_info = new AlaLocationData();
-        this.hID.relation_info = new AlaRelationData();
-        this.hID.user_info.user_id = this.userId;
-        this.hID.user_info.user_name = stringExtra;
-        this.hID.user_info.user_nickname = this.hIC;
-        this.hID.user_info.sex = intExtra;
-        this.hID.user_info.level_id = intExtra2;
-        this.hID.user_info.description = stringExtra4;
-        this.hID.user_info.send_count = longExtra;
-        this.hID.user_info.fans_count = longExtra2;
-        this.hID.user_info.follow_count = longExtra3;
-        this.hID.user_info.portrait = stringExtra2;
-        this.hID.user_info.third_app_id = this.appId;
-        this.hID.location_info.location = stringExtra3;
+        this.ozo = (Intent) getIntent().getParcelableExtra(YuyinAlaPersonCardActivityConfig.PERSON_REENTER_GIFTCARD);
+        this.hIF = new PersonUserData();
+        this.hIF.user_info = new ar();
+        this.hIF.location_info = new AlaLocationData();
+        this.hIF.relation_info = new AlaRelationData();
+        this.hIF.user_info.user_id = this.userId;
+        this.hIF.user_info.user_name = stringExtra;
+        this.hIF.user_info.user_nickname = this.hIE;
+        this.hIF.user_info.sex = intExtra;
+        this.hIF.user_info.level_id = intExtra2;
+        this.hIF.user_info.description = stringExtra4;
+        this.hIF.user_info.send_count = longExtra;
+        this.hIF.user_info.fans_count = longExtra2;
+        this.hIF.user_info.follow_count = longExtra3;
+        this.hIF.user_info.portrait = stringExtra2;
+        this.hIF.user_info.third_app_id = this.appId;
+        this.hIF.location_info.location = stringExtra3;
     }
 
     private void initView() {
-        if (this.hIL && TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.hIL = com.baidu.live.ae.a.RB().brA.aNV;
+        if (this.hIN && TbadkCoreApplication.getInst().isMobileBaidu()) {
+            this.hIN = com.baidu.live.ae.a.RB().brA.aNV;
         }
-        this.ozl = new PersonCardViewNew(this, false);
-        this.ozl.aT(this.liveId, this.bcY);
-        this.ozl.setOtherParams(this.otherParams);
-        this.ozl.os(this.hIK);
-        this.ozl.ot(this.hIL);
-        this.ozl.av(this.ozm);
-        this.ozl.getRootView().setVisibility(0);
-        this.ozl.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.1
+        this.ozn = new PersonCardViewNew(this, false);
+        this.ozn.aT(this.liveId, this.bcY);
+        this.ozn.setOtherParams(this.otherParams);
+        this.ozn.os(this.hIM);
+        this.ozn.ot(this.hIN);
+        this.ozn.av(this.ozo);
+        this.ozn.getRootView().setVisibility(0);
+        this.ozn.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.1
             @Override // com.baidu.tieba.yuyinala.person.view.PersonCardViewNew.a
-            public void cms() {
-                PersonCardActivity.this.cmr();
+            public void cmt() {
+                PersonCardActivity.this.cms();
             }
         });
     }
 
     private void initListener() {
         registerListener(this.aWM);
-        registerListener(this.gDs);
-        registerListener(this.gDE);
-        registerListener(this.hIM);
-        registerListener(this.hIN);
+        registerListener(this.gDu);
+        registerListener(this.gDG);
+        registerListener(this.hIO);
+        registerListener(this.hIP);
     }
 
     private void KR() {
@@ -263,18 +263,18 @@ public class PersonCardActivity extends BaseFragmentActivity {
                     if (personUserData.mYuyinAlaSdkData != null) {
                         PersonCardActivity.this.roomId = personUserData.mYuyinAlaSdkData.roomId;
                     }
-                    PersonCardActivity.this.ozl.a(personUserData, false);
+                    PersonCardActivity.this.ozn.a(personUserData, false);
                 }
             }
 
             @Override // com.baidu.live.personmanager.b.a
             public void b(bt btVar) {
-                PersonCardActivity.this.ozo = btVar;
+                PersonCardActivity.this.ozq = btVar;
             }
 
             @Override // com.baidu.live.personmanager.b.a
             public void c(bt btVar) {
-                PersonCardActivity.this.ozp = btVar;
+                PersonCardActivity.this.ozr = btVar;
             }
 
             @Override // com.baidu.live.personmanager.b.a
@@ -285,12 +285,12 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     public void j(String str, String str2, String str3, String str4, String str5) {
-        this.ozo = null;
-        this.ozp = null;
-        this.bUW.b(str, this.ozn, str2, str3, str4, str5);
+        this.ozq = null;
+        this.ozr = null;
+        this.bUW.b(str, this.ozp, str2, str3, str4, str5);
     }
 
-    public boolean cmm() {
+    public boolean cmn() {
         return (TextUtils.isEmpty(this.appId) || this.userId == null || this.userId.equals(this.bcY)) ? false : true;
     }
 
@@ -298,7 +298,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
         return (TextUtils.isEmpty(this.bcY) || TextUtils.isEmpty(str) || !str.equals(this.bcY)) ? false : true;
     }
 
-    public String cmn() {
+    public String cmo() {
         return this.bcY;
     }
 
@@ -306,43 +306,43 @@ public class PersonCardActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.hII = true;
+        this.hIK = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!this.hII) {
-            this.ozl.onResume();
+        if (!this.hIK) {
+            this.ozn.onResume();
         }
-        this.hII = false;
+        this.hIK = false;
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i != 4 || this.ozl == null) {
+        if (i != 4 || this.ozn == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        this.ozl.egu();
+        this.ozn.egv();
         finish();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edC() {
+    public void edD() {
         MessageManager.getInstance().dispatchResponsedMessage(new FollowPersonSuccMessage(new FollowPersonSucc()));
     }
 
-    public void cmo() {
+    public void cmp() {
         g.YG().a(ExtraParamsManager.getEncryptionUserId(this.userId), new cw(ExtraParamsManager.getEncryptionUserId(this.userId), this.liveId, true, getUniqueId()));
     }
 
-    public void cmp() {
+    public void cmq() {
         g.YG().a(ExtraParamsManager.getEncryptionUserId(this.userId), new cw(ExtraParamsManager.getEncryptionUserId(this.userId), this.liveId, false, getUniqueId()));
     }
 
-    public void cmq() {
+    public void cmr() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
             return;
@@ -355,7 +355,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmr() {
+    public void cms() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new x(this, this.userId, this.groupId, this.liveId, this.aLj, this.bcY, this.otherParams)));
     }
 
@@ -383,24 +383,24 @@ public class PersonCardActivity extends BaseFragmentActivity {
         if (this.bUW != null) {
             this.bUW.onDestroy();
         }
-        if (this.ozl != null) {
-            this.ozl.onDestroy();
+        if (this.ozn != null) {
+            this.ozn.onDestroy();
         }
-        if (this.hIM != null) {
-            MessageManager.getInstance().unRegisterListener(this.hIM);
+        if (this.hIO != null) {
+            MessageManager.getInstance().unRegisterListener(this.hIO);
         }
-        if (this.hIN != null) {
-            MessageManager.getInstance().unRegisterListener(this.hIN);
+        if (this.hIP != null) {
+            MessageManager.getInstance().unRegisterListener(this.hIP);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        if (!this.hIJ) {
-            this.hIJ = true;
+        if (!this.hIL) {
+            this.hIL = true;
             Animation animation = null;
-            if (this.ozl != null) {
-                animation = this.ozl.bXh();
+            if (this.ozn != null) {
+                animation = this.ozn.bXi();
             }
             if (animation == null) {
                 super.finish();

@@ -18,10 +18,10 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
     private static long eCo = 604800000;
-    private List<q> gtu = new ArrayList();
-    private List<q> gtv = new ArrayList();
     private List<q> gtw = new ArrayList();
     private List<q> gtx = new ArrayList();
+    private List<q> gty = new ArrayList();
+    private List<q> gtz = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext) {
@@ -38,20 +38,20 @@ public class b {
         if (!y.isEmpty(b2)) {
             arrayList.addAll(b2);
         }
-        List<q> bSp = bSp();
-        if (!y.isEmpty(bSp)) {
-            arrayList.addAll(bSp);
+        List<q> bSq = bSq();
+        if (!y.isEmpty(bSq)) {
+            arrayList.addAll(bSq);
         }
         return arrayList;
     }
 
-    private List<q> bSp() {
+    private List<q> bSq() {
         ArrayList arrayList = new ArrayList();
-        if (!y.isEmpty(this.gtx)) {
+        if (!y.isEmpty(this.gtz)) {
             g gVar = new g();
-            gVar.gxD = this.mTbPageContext.getResources().getString(R.string.live_tab_recommend_title_txt);
+            gVar.gxF = this.mTbPageContext.getResources().getString(R.string.live_tab_recommend_title_txt);
             arrayList.add(gVar);
-            arrayList.addAll(cd(this.gtx));
+            arrayList.addAll(cd(this.gtz));
         }
         return arrayList;
     }
@@ -61,11 +61,11 @@ public class b {
         if (alaLiveTabMyConcernResponse != null) {
             if (alaLiveTabMyConcernResponse.followStatus != 1) {
                 g gVar = new g();
-                gVar.gxD = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
+                gVar.gxF = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
                 arrayList.add(gVar);
             }
-            if (!y.isEmpty(this.gtv)) {
-                arrayList.addAll(bSq());
+            if (!y.isEmpty(this.gtx)) {
+                arrayList.addAll(bSr());
             } else if (z) {
                 e eVar = new e();
                 eVar.followStatus = alaLiveTabMyConcernResponse.followStatus;
@@ -88,16 +88,16 @@ public class b {
             return arrayList;
         }
         if (alaLiveTabMyConcernResponse.followStatus != 1) {
-            if (!y.isEmpty(this.gtw) && a(alaLiveTabMyConcernResponse)) {
+            if (!y.isEmpty(this.gty) && a(alaLiveTabMyConcernResponse)) {
                 arrayList.add(new com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a());
             }
-            if (!y.isEmpty(this.gtw)) {
+            if (!y.isEmpty(this.gty)) {
                 g gVar = new g();
-                gVar.gxD = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
+                gVar.gxF = this.mTbPageContext.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
                 arrayList.add(gVar);
             }
-            if (!y.isEmpty(this.gtw)) {
-                for (q qVar : this.gtw) {
+            if (!y.isEmpty(this.gty)) {
+                for (q qVar : this.gty) {
                     arrayList.add(qVar);
                 }
             }
@@ -105,27 +105,27 @@ public class b {
         return arrayList;
     }
 
-    private List<q> bSq() {
+    private List<q> bSr() {
         ArrayList arrayList = new ArrayList();
-        if (!y.isEmpty(this.gtv)) {
-            int size = this.gtv.size();
+        if (!y.isEmpty(this.gtx)) {
+            int size = this.gtx.size();
             for (int i = 0; i < size; i += 2) {
                 k kVar = new k();
                 c cVar = new c();
-                cVar.gpF = (by) this.gtv.get(i);
+                cVar.gpH = (by) this.gtx.get(i);
                 cVar.isLeft = true;
-                kVar.grU = cVar;
+                kVar.grW = cVar;
                 if (i + 1 < size) {
                     c cVar2 = new c();
-                    cVar2.gpF = (by) this.gtv.get(i + 1);
-                    kVar.grV = cVar2;
+                    cVar2.gpH = (by) this.gtx.get(i + 1);
+                    kVar.grX = cVar2;
                     cVar2.isRight = true;
                 } else {
                     cVar.isLeft = false;
-                    cVar.gpD = true;
+                    cVar.gpF = true;
                 }
                 if ((size % 2 == 0 && i == size - 2) || (size % 2 != 0 && i == size - 1)) {
-                    kVar.grW = true;
+                    kVar.grY = true;
                 }
                 arrayList.add(kVar);
             }
@@ -140,20 +140,20 @@ public class b {
             for (int i = 0; i < size; i += 3) {
                 com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c();
                 c cVar2 = new c();
-                cVar2.gpF = (by) list.get(i);
-                cVar2.gpH = false;
-                cVar.grU = cVar2;
+                cVar2.gpH = (by) list.get(i);
+                cVar2.gpJ = false;
+                cVar.grW = cVar2;
                 if (i + 1 < size) {
                     c cVar3 = new c();
-                    cVar3.gpF = (by) list.get(i + 1);
-                    cVar3.gpH = false;
-                    cVar.gtp = cVar3;
+                    cVar3.gpH = (by) list.get(i + 1);
+                    cVar3.gpJ = false;
+                    cVar.gtr = cVar3;
                 }
                 if (i + 2 < size) {
                     c cVar4 = new c();
-                    cVar4.gpF = (by) list.get(i + 2);
-                    cVar4.gpH = false;
-                    cVar.grV = cVar4;
+                    cVar4.gpH = (by) list.get(i + 2);
+                    cVar4.gpJ = false;
+                    cVar.grX = cVar4;
                 }
                 arrayList.add(cVar);
             }
@@ -162,11 +162,11 @@ public class b {
     }
 
     public void x(Class<? extends BaseCardInfo> cls) {
-        if (!y.isEmpty(this.gtu)) {
-            for (int size = this.gtu.size() - 1; size >= 0; size--) {
-                q qVar = (q) y.getItem(this.gtu, size);
+        if (!y.isEmpty(this.gtw)) {
+            for (int size = this.gtw.size() - 1; size >= 0; size--) {
+                q qVar = (q) y.getItem(this.gtw, size);
                 if (qVar != null && qVar.getClass().equals(cls)) {
-                    this.gtu.remove(size);
+                    this.gtw.remove(size);
                 }
             }
         }
@@ -175,37 +175,37 @@ public class b {
     public void c(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
         if (alaLiveTabMyConcernResponse != null) {
             if (z) {
-                this.gtu.clear();
+                this.gtw.clear();
             }
             if (!y.isEmpty(alaLiveTabMyConcernResponse.followList)) {
-                this.gtv.addAll(alaLiveTabMyConcernResponse.followList);
+                this.gtx.addAll(alaLiveTabMyConcernResponse.followList);
             }
             if (!y.isEmpty(alaLiveTabMyConcernResponse.followCloseList)) {
-                this.gtw.addAll(alaLiveTabMyConcernResponse.followCloseList);
+                this.gty.addAll(alaLiveTabMyConcernResponse.followCloseList);
             }
             if (!y.isEmpty(alaLiveTabMyConcernResponse.recommendList)) {
-                this.gtx.addAll(alaLiveTabMyConcernResponse.recommendList);
+                this.gtz.addAll(alaLiveTabMyConcernResponse.recommendList);
             }
-            this.gtu = a(alaLiveTabMyConcernResponse, z);
+            this.gtw = a(alaLiveTabMyConcernResponse, z);
         }
     }
 
-    public List<q> bSr() {
-        return this.gtu;
+    public List<q> bSs() {
+        return this.gtw;
     }
 
     public void clearData() {
-        if (this.gtv != null) {
-            this.gtv.clear();
-        }
-        if (this.gtw != null) {
-            this.gtw.clear();
-        }
         if (this.gtx != null) {
             this.gtx.clear();
         }
-        if (this.gtu != null) {
-            this.gtu.clear();
+        if (this.gty != null) {
+            this.gty.clear();
+        }
+        if (this.gtz != null) {
+            this.gtz.clear();
+        }
+        if (this.gtw != null) {
+            this.gtw.clear();
         }
     }
 }

@@ -4,12 +4,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes6.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId gzw = BdUniqueId.gen();
-    public com.baidu.tieba.ala.alasquare.a.c grU;
-    public com.baidu.tieba.ala.alasquare.a.c grV;
+    public static final BdUniqueId gzy = BdUniqueId.gen();
+    public com.baidu.tieba.ala.alasquare.a.c grW;
+    public com.baidu.tieba.ala.alasquare.a.c grX;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return gzw;
+        return gzy;
     }
 }

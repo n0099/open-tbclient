@@ -6,7 +6,7 @@ import android.util.JsonToken;
 import java.io.IOException;
 /* loaded from: classes20.dex */
 public class y implements aj<PointF> {
-    public static final y pCZ = new y();
+    public static final y pDb = new y();
 
     private y() {
     }

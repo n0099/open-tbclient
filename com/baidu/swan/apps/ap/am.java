@@ -17,8 +17,9 @@ public class am implements com.baidu.swan.pms.utils.a {
         return file.exists() && file.isDirectory();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes25.dex */
-    private static class a {
+    public static class a {
         private static final am dJo = new am();
     }
 }

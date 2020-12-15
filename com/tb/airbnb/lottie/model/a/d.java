@@ -17,7 +17,7 @@ public class d extends n<Integer, Integer> {
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<Integer, Integer> eBi() {
+    public com.tb.airbnb.lottie.a.b.a<Integer, Integer> eBj() {
         return new com.tb.airbnb.lottie.a.b.e(this.EF);
     }
 }

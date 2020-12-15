@@ -4,24 +4,24 @@ import rx.g;
 import rx.internal.operators.CompletableOnSubscribeConcatIterable;
 /* loaded from: classes12.dex */
 public class b {
-    static final b pOO = new b(new a() { // from class: rx.b.1
+    static final b pOQ = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.eHa());
+            cVar.onSubscribe(rx.subscriptions.e.eHb());
             cVar.onCompleted();
         }
     }, false);
-    static final b pOP = new b(new a() { // from class: rx.b.2
+    static final b pOR = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.eHa());
+            cVar.onSubscribe(rx.subscriptions.e.eHb());
         }
     }, false);
-    private final a pON;
+    private final a pOP;
 
     /* loaded from: classes12.dex */
     public interface a extends rx.functions.b<c> {
@@ -63,11 +63,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.pON = rx.c.c.b(aVar);
+        this.pOP = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.pON = z ? rx.c.c.b(aVar) : aVar;
+        this.pOP = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final b a(final g gVar) {
@@ -119,7 +119,7 @@ public class b {
         });
     }
 
-    public final k eFh() {
+    public final k eFi() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         b(new c() { // from class: rx.b.4
             @Override // rx.c
@@ -150,7 +150,7 @@ public class b {
     public final void b(c cVar) {
         bS(cVar);
         try {
-            rx.c.c.b(this, this.pON).call(cVar);
+            rx.c.c.b(this, this.pOP).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

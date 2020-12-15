@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class MaskView extends View {
     private int fHR;
-    private Paint ieI;
-    private Paint ife;
-    private Rect iff;
-    private Drawable ifg;
+    private Paint ieK;
+    private Paint ifg;
+    private Rect ifh;
+    private Drawable ifi;
     private int lineColor;
     private int maskType;
     private Path path;
@@ -34,13 +34,13 @@ public class MaskView extends View {
     }
 
     public Rect getFrameRect() {
-        return this.maskType == 0 ? new Rect(0, 0, getWidth(), getHeight()) : new Rect(this.iff);
+        return this.maskType == 0 ? new Rect(0, 0, getWidth(), getHeight()) : new Rect(this.ifh);
     }
 
     public Rect getFrameRectExtend() {
-        Rect rect = new Rect(this.iff);
-        int i = (int) ((this.iff.right - this.iff.left) * 0.02f);
-        int i2 = (int) ((this.iff.bottom - this.iff.top) * 0.02f);
+        Rect rect = new Rect(this.ifh);
+        int i = (int) ((this.ifh.right - this.ifh.left) * 0.02f);
+        int i2 = (int) ((this.ifh.bottom - this.ifh.top) * 0.02f);
         rect.left -= i;
         rect.right = i + rect.right;
         rect.top -= i2;
@@ -52,10 +52,10 @@ public class MaskView extends View {
         this.maskType = i;
         switch (i) {
             case 1:
-                this.ifg = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+                this.ifi = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
                 break;
             case 2:
-                this.ifg = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
+                this.ifi = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
                 break;
         }
         invalidate();
@@ -73,15 +73,15 @@ public class MaskView extends View {
         this.lineColor = -1;
         this.maskType = 1;
         this.fHR = Color.argb(100, 0, 0, 0);
-        this.ieI = new Paint(1);
-        this.ife = new Paint(1);
-        this.iff = new Rect();
+        this.ieK = new Paint(1);
+        this.ifg = new Paint(1);
+        this.ifh = new Rect();
         this.path = new Path();
         setLayerType(1, null);
-        this.ife.setColor(-1);
-        this.ife.setStyle(Paint.Style.STROKE);
-        this.ife.setStrokeWidth(6.0f);
-        this.ieI.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.ifg.setColor(-1);
+        this.ifg.setStyle(Paint.Style.STROKE);
+        this.ifg.setStrokeWidth(6.0f);
+        this.ieK.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
@@ -90,15 +90,15 @@ public class MaskView extends View {
         this.lineColor = -1;
         this.maskType = 1;
         this.fHR = Color.argb(100, 0, 0, 0);
-        this.ieI = new Paint(1);
-        this.ife = new Paint(1);
-        this.iff = new Rect();
+        this.ieK = new Paint(1);
+        this.ifg = new Paint(1);
+        this.ifh = new Rect();
         this.path = new Path();
         setLayerType(1, null);
-        this.ife.setColor(-1);
-        this.ife.setStyle(Paint.Style.STROKE);
-        this.ife.setStrokeWidth(6.0f);
-        this.ieI.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.ifg.setColor(-1);
+        this.ifg.setStyle(Paint.Style.STROKE);
+        this.ifg.setStrokeWidth(6.0f);
+        this.ieK.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
@@ -107,20 +107,20 @@ public class MaskView extends View {
         this.lineColor = -1;
         this.maskType = 1;
         this.fHR = Color.argb(100, 0, 0, 0);
-        this.ieI = new Paint(1);
-        this.ife = new Paint(1);
-        this.iff = new Rect();
+        this.ieK = new Paint(1);
+        this.ifg = new Paint(1);
+        this.ifh = new Rect();
         this.path = new Path();
         setLayerType(1, null);
-        this.ife.setColor(-1);
-        this.ife.setStyle(Paint.Style.STROKE);
-        this.ife.setStrokeWidth(6.0f);
-        this.ieI.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.ifg.setColor(-1);
+        this.ifg.setStyle(Paint.Style.STROKE);
+        this.ifg.setStrokeWidth(6.0f);
+        this.ieK.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
     private void init() {
-        this.ifg = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+        this.ifi = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
     }
 
     @Override // android.view.View
@@ -131,10 +131,10 @@ public class MaskView extends View {
             int i6 = (i5 * 400) / 620;
             int i7 = (i - i5) / 2;
             int i8 = (i2 - i6) / 2;
-            this.iff.left = i7;
-            this.iff.top = i8;
-            this.iff.right = i5 + i7;
-            this.iff.bottom = i6 + i8;
+            this.ifh.left = i7;
+            this.ifh.top = i8;
+            this.ifh.right = i5 + i7;
+            this.ifh.bottom = i6 + i8;
         }
     }
 
@@ -142,7 +142,7 @@ public class MaskView extends View {
     @RequiresApi(api = 21)
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Rect rect = this.iff;
+        Rect rect = this.ifh;
         int width = rect.width();
         int height = rect.height();
         int i = rect.left;
@@ -151,15 +151,15 @@ public class MaskView extends View {
         int i4 = rect.bottom;
         canvas.drawColor(this.fHR);
         a(i, i2, i3, i4, 30.0f, 30.0f, false);
-        canvas.drawPath(this.path, this.ife);
-        canvas.drawPath(this.path, this.ieI);
+        canvas.drawPath(this.path, this.ifg);
+        canvas.drawPath(this.path, this.ieK);
         if (this.maskType == 1) {
-            this.ifg.setBounds((int) (i + (0.5974155f * width)), (int) (i2 + (0.17405063f * height)), (int) (i + (0.95725644f * width)), (int) (i2 + (0.7531645f * height)));
+            this.ifi.setBounds((int) (i + (0.5974155f * width)), (int) (i2 + (0.17405063f * height)), (int) (i + (0.95725644f * width)), (int) (i2 + (0.7531645f * height)));
         } else if (this.maskType == 2) {
-            this.ifg.setBounds((int) (i + (0.050695825f * width)), (int) (i2 + (0.07594936f * height)), (int) (i + (0.24850895f * width)), (int) (i2 + (0.41455695f * height)));
+            this.ifi.setBounds((int) (i + (0.050695825f * width)), (int) (i2 + (0.07594936f * height)), (int) (i + (0.24850895f * width)), (int) (i2 + (0.41455695f * height)));
         }
-        if (this.ifg != null) {
-            this.ifg.draw(canvas);
+        if (this.ifi != null) {
+            this.ifi.draw(canvas);
         }
     }
 

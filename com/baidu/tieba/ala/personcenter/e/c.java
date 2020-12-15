@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c.b> {
-    private TextView hRk;
-    private TextView hRl;
-    private String hRm;
+    private TextView hRm;
+    private TextView hRn;
+    private String hRo;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -20,9 +20,9 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
     }
 
     private void an(View view) {
-        this.hRk = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_number_txt);
-        this.hRl = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_copy_txt);
-        this.hRl.setOnClickListener(this);
+        this.hRm = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_number_txt);
+        this.hRn = (TextView) view.findViewById(R.id.ala_person_center_qq_group_item_copy_txt);
+        this.hRn.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -36,22 +36,22 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.personcenter.c
     }
 
     public void Jc(String str) {
-        this.hRm = str;
-        if (this.hRk != null) {
-            this.hRk.setText(getContext().getResources().getString(R.string.ala_person_center_qq_group) + str);
+        this.hRo = str;
+        if (this.hRm != null) {
+            this.hRm.setText(getContext().getResources().getString(R.string.ala_person_center_qq_group) + str);
         }
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.hRk, (int) R.color.common_color_10106);
-        ap.setViewTextColor(this.hRl, (int) R.color.CAM_X0302);
+        ap.setViewTextColor(this.hRm, (int) R.color.common_color_10106);
+        ap.setViewTextColor(this.hRn, (int) R.color.CAM_X0302);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.hRm)) {
-            UtilHelper.copyToClipBoard(this.hRm);
+        if (!TextUtils.isEmpty(this.hRo)) {
+            UtilHelper.copyToClipBoard(this.hRo);
         }
         BdToast.b(getContext(), getContext().getResources().getString(R.string.ala_person_center_copy_to_clipboard)).pa(17).brB();
     }

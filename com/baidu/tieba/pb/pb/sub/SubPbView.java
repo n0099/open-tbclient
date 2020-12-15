@@ -26,10 +26,10 @@ public class SubPbView extends LinearLayout {
     private int fED;
     private LinearLayout fEy;
     private boolean fqY;
-    private BdTypeListView gpX;
-    private View iDw;
-    private BlankView lXf;
-    private boolean lYm;
+    private BdTypeListView gpZ;
+    private View iDy;
+    private BlankView lXh;
+    private boolean lYo;
     private boolean mIsFinish;
     private float mRatio;
 
@@ -68,11 +68,11 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setBlankView(BlankView blankView) {
-        this.lXf = blankView;
+        this.lXh = blankView;
     }
 
     public void setTopView(View view) {
-        this.iDw = view;
+        this.iDy = view;
     }
 
     public void setNavigationView(LinearLayout linearLayout) {
@@ -80,14 +80,14 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setListView(BdTypeListView bdTypeListView) {
-        this.gpX = bdTypeListView;
+        this.gpZ = bdTypeListView;
     }
 
     public void setContentView(RelativeLayout relativeLayout) {
         this.aWF = relativeLayout;
     }
 
-    public boolean duw() {
+    public boolean dux() {
         return this.fqY;
     }
 
@@ -99,7 +99,7 @@ public class SubPbView extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.lXf == null) {
+        if (this.lXh == null) {
             super.onLayout(z, i, i2, i3, i4);
         } else if (this.fEC == 0) {
             super.onLayout(z, i, i2, i3, i4);
@@ -115,7 +115,7 @@ public class SubPbView extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.mRatio >= 0.0f && this.lXf != null) {
+        if (this.mRatio >= 0.0f && this.lXh != null) {
             canvas.drawColor(Color.argb((int) (168.0f * this.mRatio), 0, 0, 0), PorterDuff.Mode.SRC);
         }
         super.onDraw(canvas);
@@ -124,7 +124,7 @@ public class SubPbView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        if (this.lXf == null || !this.lYm) {
+        if (this.lXh == null || !this.lYo) {
             return super.dispatchTouchEvent(motionEvent);
         }
         if (this.fEB.isRunning()) {
@@ -139,8 +139,8 @@ public class SubPbView extends LinearLayout {
                 break;
             case 1:
             case 3:
-                z = this.bDj > this.bDl && this.iDw.getTop() == 0 && this.gpX.getFirstVisiblePosition() == 0;
-                this.mIsFinish = this.bDj - this.bDl > ((float) this.fED) && this.iDw.getTop() == 0 && this.gpX.getFirstVisiblePosition() == 0;
+                z = this.bDj > this.bDl && this.iDy.getTop() == 0 && this.gpZ.getFirstVisiblePosition() == 0;
+                this.mIsFinish = this.bDj - this.bDl > ((float) this.fED) && this.iDy.getTop() == 0 && this.gpZ.getFirstVisiblePosition() == 0;
                 if (this.mIsFinish) {
                     this.fEB.setIntValues((int) (this.bDj - this.bDl), l.getEquipmentHeight(getContext()));
                     this.fEB.start();
@@ -161,7 +161,7 @@ public class SubPbView extends LinearLayout {
                 z = false;
                 break;
         }
-        if (this.bDj > this.bDl && this.iDw.getTop() == 0 && this.gpX.getFirstVisiblePosition() == 0) {
+        if (this.bDj > this.bDl && this.iDy.getTop() == 0 && this.gpZ.getFirstVisiblePosition() == 0) {
             this.fqY = true;
             requestLayout();
             return true;
@@ -187,6 +187,6 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setEnableDragExit(boolean z) {
-        this.lYm = z;
+        this.lYo = z;
     }
 }

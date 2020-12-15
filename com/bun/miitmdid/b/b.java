@@ -18,11 +18,11 @@ import org.json.JSONObject;
 public class b {
     private static boolean j = false;
     private Context b;
-    private AsyncTask oYI;
+    private AsyncTask oYK;
 
     /* renamed from: a  reason: collision with root package name */
     private String f3980a = null;
-    private a oYH = null;
+    private a oYJ = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
     private Map<String, String> f = new HashMap();
@@ -40,11 +40,11 @@ public class b {
     public class C0980b {
         private String b;
         private int c;
-        private Exception oYL;
+        private Exception oYN;
 
         public C0980b(String str, Exception exc, int i) {
             this.b = str;
-            this.oYL = exc;
+            this.oYN = exc;
             this.c = i;
         }
     }
@@ -91,7 +91,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0980b eor() {
+    public C0980b eos() {
         try {
             String b = b();
             if (j) {
@@ -128,7 +128,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0980b eos() {
+    public C0980b eot() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -205,7 +205,7 @@ public class b {
     }
 
     public b a(a aVar) {
-        this.oYH = aVar;
+        this.oYJ = aVar;
         return this;
     }
 
@@ -215,12 +215,12 @@ public class b {
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b eoq() {
-        this.oYI = new AsyncTask<Void, Void, C0980b>() { // from class: com.bun.miitmdid.b.b.1
-            b oYJ;
+    public b eor() {
+        this.oYK = new AsyncTask<Void, Void, C0980b>() { // from class: com.bun.miitmdid.b.b.1
+            b oYL;
 
             {
-                this.oYJ = b.this;
+                this.oYL = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -229,16 +229,16 @@ public class b {
             /* renamed from: a */
             public void onPostExecute(C0980b c0980b) {
                 super.onPostExecute(c0980b);
-                if (b.this.oYH != null) {
+                if (b.this.oYJ != null) {
                     if (c0980b == null) {
-                        b.this.oYH.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0980b.oYL != null) {
-                        b.this.oYH.a(c0980b.oYL, -1, null);
+                        b.this.oYJ.a(new Exception("Unknown Error"), -1, null);
+                    } else if (c0980b.oYN != null) {
+                        b.this.oYJ.a(c0980b.oYN, -1, null);
                     } else {
                         try {
-                            b.this.oYH.a(null, c0980b.c, c0980b.b);
+                            b.this.oYJ.a(null, c0980b.c, c0980b.b);
                         } catch (Exception e) {
-                            b.this.oYH.a(e, -1, null);
+                            b.this.oYJ.a(e, -1, null);
                         }
                     }
                 }
@@ -249,7 +249,7 @@ public class b {
             @Override // android.os.AsyncTask
             /* renamed from: r */
             public C0980b doInBackground(Void... voidArr) {
-                return this.oYJ.h.equalsIgnoreCase("GET") ? b.this.eor() : b.this.eos();
+                return this.oYL.h.equalsIgnoreCase("GET") ? b.this.eos() : b.this.eot();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;

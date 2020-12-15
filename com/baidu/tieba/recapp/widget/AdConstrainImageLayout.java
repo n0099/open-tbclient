@@ -17,11 +17,11 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class AdConstrainImageLayout extends ConstrainImageLayout {
-    private TbImageView.b mPv;
+    private TbImageView.b mPx;
 
     public AdConstrainImageLayout(Context context) {
         super(context);
-        this.mPv = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.mPx = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -83,7 +83,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
 
     public AdConstrainImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mPv = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.mPx = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -145,7 +145,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
 
     public AdConstrainImageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mPv = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.mPx = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i2;
@@ -239,7 +239,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                     }
                     tbImageView.setScaleType(ImageView.ScaleType.MATRIX);
                     tbImageView.setForegroundColor(0);
-                    tbImageView.setOnDrawListener(this.mPv);
+                    tbImageView.setOnDrawListener(this.mPx);
                     tbImageView.startLoad(thumbnails_url, 17, false);
                 }
                 i2++;

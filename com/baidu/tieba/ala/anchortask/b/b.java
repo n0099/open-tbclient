@@ -8,34 +8,34 @@ public class b {
     public int gBB;
     public int gBC;
     public int gBD;
-    public long gBE;
-    public long gBF;
+    public int gBE;
+    public int gBF;
     public long gBG;
     public long gBH;
-    public int gBI;
-    public int gBJ;
+    public long gBI;
+    public long gBJ;
     public int gBK;
     public int gBL;
-    public int gBy;
-    public int gBz;
+    public int gBM;
+    public int gBN;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gBy = jSONObject.optInt("last_identity");
-                this.gBz = jSONObject.optInt("last_class");
-                this.gBA = jSONObject.optInt("now_identity");
-                this.gBB = jSONObject.optInt("now_class");
-                this.gBC = jSONObject.optInt("cur_share_proportion");
-                this.gBD = jSONObject.optInt("will_share_proportion");
-                this.gBE = jSONObject.optLong("task_begin_time");
-                this.gBF = jSONObject.optLong("task_end_time");
-                this.gBG = jSONObject.optLong("valid_live_time");
-                this.gBH = jSONObject.optLong("charm_income");
-                this.gBI = jSONObject.optInt("valid_live_day");
-                this.gBJ = jSONObject.optInt("task_type");
-                this.gBK = jSONObject.optInt("task_finish_ratio");
-                this.gBL = jSONObject.optInt("task_status");
+                this.gBA = jSONObject.optInt("last_identity");
+                this.gBB = jSONObject.optInt("last_class");
+                this.gBC = jSONObject.optInt("now_identity");
+                this.gBD = jSONObject.optInt("now_class");
+                this.gBE = jSONObject.optInt("cur_share_proportion");
+                this.gBF = jSONObject.optInt("will_share_proportion");
+                this.gBG = jSONObject.optLong("task_begin_time");
+                this.gBH = jSONObject.optLong("task_end_time");
+                this.gBI = jSONObject.optLong("valid_live_time");
+                this.gBJ = jSONObject.optLong("charm_income");
+                this.gBK = jSONObject.optInt("valid_live_day");
+                this.gBL = jSONObject.optInt("task_type");
+                this.gBM = jSONObject.optInt("task_finish_ratio");
+                this.gBN = jSONObject.optInt("task_status");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

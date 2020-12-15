@@ -8,13 +8,13 @@ public class a {
     private String mIconUrl;
     private int mMode;
     private String mTitle;
-    private boolean oKF;
+    private boolean oKH;
 
     public void parse(JSONObject jSONObject) {
         this.mMode = jSONObject.optInt(UbcStatConstant.KEY_CONTENT_EXT_MODE);
         this.mTitle = jSONObject.optString("text");
         this.mIconUrl = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-        this.oKF = jSONObject.optInt("is_chosen", 0) == 1;
+        this.oKH = jSONObject.optInt("is_chosen", 0) == 1;
     }
 
     public int getMode() {
@@ -29,11 +29,11 @@ public class a {
         return this.mIconUrl;
     }
 
-    public boolean ekl() {
-        return this.oKF;
+    public boolean ekm() {
+        return this.oKH;
     }
 
     public void Aq(boolean z) {
-        this.oKF = z;
+        this.oKH = z;
     }
 }

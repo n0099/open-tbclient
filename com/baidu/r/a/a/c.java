@@ -13,9 +13,9 @@ public interface c {
 
     void Yp(String str);
 
-    c ejX();
+    c ejY();
 
-    boolean ejY();
+    boolean ejZ();
 
     String getAAID();
 

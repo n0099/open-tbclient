@@ -6,11 +6,11 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class a extends af.a {
     public int aku;
-    public View miW;
+    public View miY;
 
     public a(View view) {
         super(view);
         this.aku = -1;
-        this.miW = view.findViewById(R.id.person_center_interval_item);
+        this.miY = view.findViewById(R.id.person_center_interval_item);
     }
 }

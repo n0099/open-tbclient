@@ -1,26 +1,26 @@
 package com.baidu.tieba.personPolymeric;
 /* loaded from: classes24.dex */
 public class b {
-    private static b mpq = new b();
+    private static b mps = new b();
     private long creatTime = 0;
-    private long mpr = 0;
-    private long mps = 0;
-    private long fCl = 0;
-    private long beginTime = 0;
     private long mpt = 0;
     private long mpu = 0;
+    private long fCl = 0;
+    private long beginTime = 0;
+    private long mpv = 0;
+    private long mpw = 0;
 
     private b() {
     }
 
     public void reset() {
         this.creatTime = 0L;
-        this.mpr = 0L;
-        this.mps = 0L;
-        this.fCl = 0L;
-        this.beginTime = 0L;
         this.mpt = 0L;
         this.mpu = 0L;
+        this.fCl = 0L;
+        this.beginTime = 0L;
+        this.mpv = 0L;
+        this.mpw = 0L;
     }
 
     public String toString() {
@@ -30,18 +30,18 @@ public class b {
         stringBuffer.append(" creatTime:");
         stringBuffer.append(this.creatTime);
         stringBuffer.append(" refreshStartTime:");
-        stringBuffer.append(this.mpu);
+        stringBuffer.append(this.mpw);
         stringBuffer.append(" refrehTime:");
-        stringBuffer.append(this.mpt);
+        stringBuffer.append(this.mpv);
         stringBuffer.append(" drawTime:");
         stringBuffer.append(this.fCl);
         stringBuffer.append(" profileTime:");
-        stringBuffer.append(this.mps);
+        stringBuffer.append(this.mpu);
         return stringBuffer.toString();
     }
 
-    public static b dzV() {
-        return mpq;
+    public static b dzW() {
+        return mps;
     }
 
     public long getCreateTime() {
@@ -60,7 +60,7 @@ public class b {
         this.beginTime = j;
     }
 
-    public long dym() {
+    public long dyn() {
         return this.fCl;
     }
 
@@ -69,38 +69,38 @@ public class b {
     }
 
     public long getRefreshTime() {
-        return this.mpt;
+        return this.mpv;
     }
 
     public void setRefreshTime(long j) {
-        this.mpt = j;
+        this.mpv = j;
     }
 
-    public long dyn() {
-        return this.mpu;
+    public long dyo() {
+        return this.mpw;
     }
 
     public void hu(long j) {
-        if (this.mpu == 0) {
-            this.mpu = j;
-        }
-    }
-
-    public long dzW() {
-        return this.mpr;
-    }
-
-    public void hw(long j) {
-        if (this.mpr == 0) {
-            this.mpr = j;
+        if (this.mpw == 0) {
+            this.mpw = j;
         }
     }
 
     public long dzX() {
-        return this.mps;
+        return this.mpt;
+    }
+
+    public void hw(long j) {
+        if (this.mpt == 0) {
+            this.mpt = j;
+        }
+    }
+
+    public long dzY() {
+        return this.mpu;
     }
 
     public void hx(long j) {
-        this.mps = j;
+        this.mpu = j;
     }
 }

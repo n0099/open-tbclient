@@ -14,8 +14,8 @@ import com.baidu.adp.BdUniqueId;
 /* loaded from: classes21.dex */
 public class IrregularImageView extends AppCompatImageView {
     protected final com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a> eRb;
-    private int nPZ;
-    private int nQa;
+    private int nQb;
+    private int nQc;
 
     public IrregularImageView(Context context) {
         super(context);
@@ -26,22 +26,22 @@ public class IrregularImageView extends AppCompatImageView {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 Bitmap bitmap;
                 if (aVar == null) {
-                    if (IrregularImageView.this.nQa != 0) {
+                    if (IrregularImageView.this.nQc != 0) {
                         try {
-                            bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.nQa);
+                            bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.nQc);
                         } catch (Throwable th) {
                             th.printStackTrace();
                             bitmap = null;
                         }
                         if (bitmap != null) {
-                            IrregularImageView.this.setImage(bitmap, IrregularImageView.this.nPZ);
+                            IrregularImageView.this.setImage(bitmap, IrregularImageView.this.nQb);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                IrregularImageView.this.setImage(aVar.getRawBitmap(), IrregularImageView.this.nPZ);
+                IrregularImageView.this.setImage(aVar.getRawBitmap(), IrregularImageView.this.nQb);
             }
         };
     }
@@ -55,22 +55,22 @@ public class IrregularImageView extends AppCompatImageView {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 Bitmap bitmap;
                 if (aVar == null) {
-                    if (IrregularImageView.this.nQa != 0) {
+                    if (IrregularImageView.this.nQc != 0) {
                         try {
-                            bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.nQa);
+                            bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.nQc);
                         } catch (Throwable th) {
                             th.printStackTrace();
                             bitmap = null;
                         }
                         if (bitmap != null) {
-                            IrregularImageView.this.setImage(bitmap, IrregularImageView.this.nPZ);
+                            IrregularImageView.this.setImage(bitmap, IrregularImageView.this.nQb);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                IrregularImageView.this.setImage(aVar.getRawBitmap(), IrregularImageView.this.nPZ);
+                IrregularImageView.this.setImage(aVar.getRawBitmap(), IrregularImageView.this.nQb);
             }
         };
     }
@@ -84,28 +84,28 @@ public class IrregularImageView extends AppCompatImageView {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i2) {
                 Bitmap bitmap;
                 if (aVar == null) {
-                    if (IrregularImageView.this.nQa != 0) {
+                    if (IrregularImageView.this.nQc != 0) {
                         try {
-                            bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.nQa);
+                            bitmap = BitmapFactory.decodeResource(IrregularImageView.this.getResources(), IrregularImageView.this.nQc);
                         } catch (Throwable th) {
                             th.printStackTrace();
                             bitmap = null;
                         }
                         if (bitmap != null) {
-                            IrregularImageView.this.setImage(bitmap, IrregularImageView.this.nPZ);
+                            IrregularImageView.this.setImage(bitmap, IrregularImageView.this.nQb);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                IrregularImageView.this.setImage(aVar.getRawBitmap(), IrregularImageView.this.nPZ);
+                IrregularImageView.this.setImage(aVar.getRawBitmap(), IrregularImageView.this.nQb);
             }
         };
     }
 
     public void setImage(String str, BdUniqueId bdUniqueId, int i) {
-        this.nPZ = i;
+        this.nQb = i;
         com.baidu.adp.lib.e.c.mS().a(str, 10, this.eRb, 0, 0, bdUniqueId, new Object[0]);
     }
 
@@ -181,6 +181,6 @@ public class IrregularImageView extends AppCompatImageView {
     }
 
     public void setErrorRes(int i) {
-        this.nQa = i;
+        this.nQc = i;
     }
 }

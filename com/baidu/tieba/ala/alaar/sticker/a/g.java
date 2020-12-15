@@ -6,8 +6,8 @@ import com.baidu.live.data.AlaLiveStickerInfo;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes4.dex */
 public class g {
-    private static int gkI = 0;
-    private static volatile boolean gkJ = false;
+    private static int gkK = 0;
+    private static volatile boolean gkL = false;
 
     public static void a(BdUniqueId bdUniqueId, String str, int i, int i2) {
         com.baidu.tieba.ala.alaar.messages.c cVar = new com.baidu.tieba.ala.alaar.messages.c(bdUniqueId, str, i, i2);
@@ -32,18 +32,18 @@ public class g {
     }
 
     public static void a(long j, int i, AlaLiveStickerInfo alaLiveStickerInfo) {
-        gkI = i;
-        gkJ = true;
+        gkK = i;
+        gkL = true;
         com.baidu.tieba.ala.alaar.messages.d dVar = new com.baidu.tieba.ala.alaar.messages.d(j, i, alaLiveStickerInfo);
         dVar.setParams();
         MessageManager.getInstance().sendMessage(dVar);
     }
 
-    public static void bQL() {
-        gkJ = false;
+    public static void bQM() {
+        gkL = false;
     }
 
-    public static boolean bQM() {
-        return gkJ;
+    public static boolean bQN() {
+        return gkL;
     }
 }

@@ -13,25 +13,25 @@ import org.json.JSONObject;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int iRA;
-    private List<FrsTabInfo> iRB;
-    private SparseArray<FrsTabInfo> iRC;
-    private ay iRD;
-    private final List<by> iRy;
-    private boolean iRz;
+    private final List<by> iRA;
+    private boolean iRB;
+    private int iRC;
+    private List<FrsTabInfo> iRD;
+    private SparseArray<FrsTabInfo> iRE;
+    private ay iRF;
     private String mForumId;
 
     private a() {
-        this.iRA = -1;
-        this.iRy = new ArrayList();
+        this.iRC = -1;
+        this.iRA = new ArrayList();
     }
 
-    public static a cAW() {
-        return C0739a.iRE;
+    public static a cAX() {
+        return C0739a.iRG;
     }
 
-    public boolean cAX() {
-        return this.iRz;
+    public boolean cAY() {
+        return this.iRB;
     }
 
     public void setForumId(String str) {
@@ -43,43 +43,43 @@ public class a {
     }
 
     public void zB(int i) {
-        this.iRA = i;
+        this.iRC = i;
     }
 
-    public int cAY() {
-        return this.iRA;
+    public int cAZ() {
+        return this.iRC;
     }
 
     public void df(List<FrsTabInfo> list) {
-        this.iRB = new ArrayList(list);
-        this.iRC = new SparseArray<>();
-        for (FrsTabInfo frsTabInfo : this.iRB) {
+        this.iRD = new ArrayList(list);
+        this.iRE = new SparseArray<>();
+        for (FrsTabInfo frsTabInfo : this.iRD) {
             if (frsTabInfo != null) {
-                this.iRC.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
+                this.iRE.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
             }
         }
     }
 
-    public List<FrsTabInfo> cAZ() {
-        return this.iRB;
+    public List<FrsTabInfo> cBa() {
+        return this.iRD;
     }
 
-    public List<by> cBa() {
-        return this.iRy;
+    public List<by> cBb() {
+        return this.iRA;
     }
 
     public boolean zC(int i) {
-        return this.iRC.get(i) != null && this.iRC.get(i).is_general_tab.intValue() == 1;
+        return this.iRE.get(i) != null && this.iRE.get(i).is_general_tab.intValue() == 1;
     }
 
     public void a(ay ayVar) {
-        this.iRD = ayVar;
+        this.iRF = ayVar;
     }
 
     public void V(boolean z, boolean z2) {
-        this.iRz = z;
-        if (this.iRD != null) {
-            this.iRD.d(this.iRz, z2, 2);
+        this.iRB = z;
+        if (this.iRF != null) {
+            this.iRF.d(this.iRB, z2, 2);
         }
     }
 
@@ -87,24 +87,24 @@ public class a {
         if (byVar == null) {
             return false;
         }
-        if (this.iRy.size() > 29) {
-            if (this.iRD != null) {
-                this.iRD.zK(2);
+        if (this.iRA.size() > 29) {
+            if (this.iRF != null) {
+                this.iRF.zK(2);
                 return false;
             }
             return false;
         }
-        this.iRy.add(byVar);
-        if (this.iRD != null) {
-            this.iRD.cq(this.iRy.size(), 2);
+        this.iRA.add(byVar);
+        if (this.iRF != null) {
+            this.iRF.cq(this.iRA.size(), 2);
         }
         return true;
     }
 
     public void am(by byVar) {
-        this.iRy.remove(byVar);
-        if (this.iRD != null) {
-            this.iRD.cq(this.iRy.size(), 2);
+        this.iRA.remove(byVar);
+        if (this.iRF != null) {
+            this.iRF.cq(this.iRA.size(), 2);
         }
     }
 
@@ -112,7 +112,7 @@ public class a {
         try {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
             JSONArray jSONArray = new JSONArray();
-            for (by byVar : cAW().cBa()) {
+            for (by byVar : cAX().cBb()) {
                 if (byVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("thread_id", byVar.getId());
@@ -122,31 +122,31 @@ public class a {
                 }
             }
             httpMessage.addParam("threads", jSONArray.toString());
-            httpMessage.addParam("forum_id", cAW().getForumId());
+            httpMessage.addParam("forum_id", cAX().getForumId());
             MessageManager.getInstance().sendMessage(httpMessage);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void cBb() {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.iRy)) {
-            this.iRy.clear();
-            if (this.iRD != null) {
-                this.iRD.cq(this.iRy.size(), 2);
+    public void cBc() {
+        if (!com.baidu.tbadk.core.util.y.isEmpty(this.iRA)) {
+            this.iRA.clear();
+            if (this.iRF != null) {
+                this.iRF.cq(this.iRA.size(), 2);
             }
         }
     }
 
     public void clearData() {
-        for (by byVar : this.iRy) {
+        for (by byVar : this.iRA) {
             if (byVar != null) {
                 byVar.jh(false);
             }
         }
-        this.iRy.clear();
-        if (this.iRD != null) {
-            this.iRD.cq(0, 2);
+        this.iRA.clear();
+        if (this.iRF != null) {
+            this.iRF.cq(0, 2);
         }
     }
 
@@ -157,12 +157,12 @@ public class a {
 
     public void destory() {
         this.mForumId = null;
-        this.iRA = -1;
-        if (this.iRB != null) {
-            this.iRB.clear();
+        this.iRC = -1;
+        if (this.iRD != null) {
+            this.iRD.clear();
         }
-        if (this.iRC != null) {
-            this.iRC.clear();
+        if (this.iRE != null) {
+            this.iRE.clear();
         }
     }
 
@@ -170,6 +170,6 @@ public class a {
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0739a {
-        private static a iRE = new a();
+        private static a iRG = new a();
     }
 }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /* loaded from: classes26.dex */
 public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<com.baidu.tbadk.mvc.b.a> ajO = new ArrayList<>();
-    private c kmn;
+    private c kmp;
     private TbPageContext<?> mPageContext;
 
     /* loaded from: classes26.dex */
@@ -28,7 +28,7 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(TbPageContext<?> tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.kmn = cVar;
+        this.kmp = cVar;
     }
 
     public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
@@ -70,47 +70,47 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /* loaded from: classes26.dex */
     class b extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView jAw;
-        private BarImageView kmp;
-        private View kmq;
-        private a kmr;
+        private TextView jAy;
+        private BarImageView kmr;
+        private View kms;
+        private a kmt;
 
         b(View view) {
             super(view);
-            this.kmp = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.jAw = (TextView) view.findViewById(R.id.official_bar_name);
-            this.kmq = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.kmp.setShowOval(true);
-            this.kmp.setPlaceHolder(2);
-            this.kmp.setShowOuterBorder(false);
-            this.kmp.setShowInnerBorder(true);
-            this.kmp.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.kmr = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.jAy = (TextView) view.findViewById(R.id.official_bar_name);
+            this.kms = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.kmr.setShowOval(true);
+            this.kmr.setPlaceHolder(2);
+            this.kmr.setShowOuterBorder(false);
+            this.kmr.setShowInnerBorder(true);
+            this.kmr.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
         void b(com.baidu.tbadk.mvc.b.a aVar) {
-            this.kmr = (a) aVar;
-            ap.setViewTextColor(this.jAw, R.color.CAM_X0105);
-            ap.setBackgroundResource(this.kmq, R.drawable.icon_official_bar_red_dot);
-            this.kmp.setStrokeColorResId(R.color.CAM_X0401);
-            this.kmp.startLoad(this.kmr.cTX(), 10, false);
-            if (au.getChineseAndEnglishLength(this.kmr.cNU()) <= 10) {
-                this.jAw.setText(this.kmr.cNU());
+            this.kmt = (a) aVar;
+            ap.setViewTextColor(this.jAy, R.color.CAM_X0105);
+            ap.setBackgroundResource(this.kms, R.drawable.icon_official_bar_red_dot);
+            this.kmr.setStrokeColorResId(R.color.CAM_X0401);
+            this.kmr.startLoad(this.kmt.cTY(), 10, false);
+            if (au.getChineseAndEnglishLength(this.kmt.cNV()) <= 10) {
+                this.jAy.setText(this.kmt.cNV());
             } else {
-                this.jAw.setText(au.cutChineseAndEnglishWithSuffix(this.kmr.cNU(), 8, StringHelper.STRING_MORE));
+                this.jAy.setText(au.cutChineseAndEnglishWithSuffix(this.kmt.cNV(), 8, StringHelper.STRING_MORE));
             }
-            this.kmp.setOnClickListener(this);
-            if (this.kmr.getUnReadCount() > 0 && (this.kmr.cTY() <= 0 || System.currentTimeMillis() - this.kmr.cTY() < 864000000)) {
-                this.kmq.setVisibility(0);
+            this.kmr.setOnClickListener(this);
+            if (this.kmt.getUnReadCount() > 0 && (this.kmt.cTZ() <= 0 || System.currentTimeMillis() - this.kmt.cTZ() < 864000000)) {
+                this.kms.setVisibility(0);
             } else {
-                this.kmq.setVisibility(8);
+                this.kms.setVisibility(8);
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.kmq.setVisibility(8);
-            if (d.this.kmn != null) {
-                d.this.kmn.a(view, this.kmr, getAdapterPosition(), getItemId());
+            this.kms.setVisibility(8);
+            if (d.this.kmp != null) {
+                d.this.kmp.a(view, this.kmt, getAdapterPosition(), getItemId());
             }
         }
     }
@@ -120,18 +120,18 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static class a implements com.baidu.tbadk.mvc.b.a {
         private long cWM;
         private long groupId;
-        private String jLw;
-        private String kmo;
+        private String jLy;
+        private String kmq;
         private int unReadCount;
         private int userType;
 
-        String cTX() {
-            return this.kmo;
+        String cTY() {
+            return this.kmq;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String cNU() {
-            return this.jLw;
+        public String cNV() {
+            return this.jLy;
         }
 
         int getUnReadCount() {
@@ -140,12 +140,12 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void MM(String str) {
-            this.kmo = str;
+            this.kmq = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void MN(String str) {
-            this.jLw = str;
+            this.jLy = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,7 +165,7 @@ public class d extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return this.groupId;
         }
 
-        public long cTY() {
+        public long cTZ() {
             return this.cWM;
         }
 

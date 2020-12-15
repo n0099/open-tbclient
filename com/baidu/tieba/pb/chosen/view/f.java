@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public class f {
-    private RelativeLayout lAs;
-    private TextView lAt;
-    private TextView lAu;
-    private ImageView lAv;
+    private RelativeLayout lAu;
+    private TextView lAv;
+    private TextView lAw;
+    private ImageView lAx;
     private View rootView;
 
     public f(View view) {
         this.rootView = view;
-        this.lAs = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
-        this.lAt = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
-        this.lAu = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
-        this.lAv = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
+        this.lAu = (RelativeLayout) view.findViewById(R.id.chosen_pb_reply_text);
+        this.lAv = (TextView) view.findViewById(R.id.chosen_pb_reply_comment);
+        this.lAw = (TextView) view.findViewById(R.id.chosen_pb_reply_number);
+        this.lAx = (ImageView) view.findViewById(R.id.chosen_pb_reply_share);
     }
 
     public void Q(View.OnClickListener onClickListener) {
-        this.lAs.setOnClickListener(onClickListener);
+        this.lAu.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
@@ -31,18 +31,18 @@ public class f {
     }
 
     public void R(View.OnClickListener onClickListener) {
-        this.lAv.setOnClickListener(onClickListener);
+        this.lAx.setOnClickListener(onClickListener);
     }
 
     public void PU(String str) {
-        this.lAu.setText(str);
+        this.lAw.setText(str);
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundResource(this.rootView, R.drawable.bg_rec_lick);
-        ap.setBackgroundResource(this.lAs, R.drawable.bg_rec_comment);
-        ap.setViewTextColor(this.lAt, R.color.CAM_X0108, 1);
-        ap.setViewTextColor(this.lAu, R.color.CAM_X0110, 1);
-        ap.setImageResource(this.lAv, R.drawable.recommend_pb_share_selector);
+        ap.setBackgroundResource(this.lAu, R.drawable.bg_rec_comment);
+        ap.setViewTextColor(this.lAv, R.color.CAM_X0108, 1);
+        ap.setViewTextColor(this.lAw, R.color.CAM_X0110, 1);
+        ap.setImageResource(this.lAx, R.drawable.recommend_pb_share_selector);
     }
 }

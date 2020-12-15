@@ -29,88 +29,88 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     private int mCurrentIndex;
     private boolean mIsFromIm;
     private ViewPager mViewPager;
-    private WriteMultiImgsActivity obB;
-    private ImageFileInfo[] obC;
-    private a obD;
-    private b[] obE;
-    private int obF;
-    private LinkedList<ImageFileInfo> obG = new LinkedList<>();
+    private WriteMultiImgsActivity obD;
+    private ImageFileInfo[] obE;
+    private a obF;
+    private b[] obG;
     private int obH;
-    private int obI;
-    private j obJ;
-    private com.baidu.tbadk.core.dialog.a obK;
+    private LinkedList<ImageFileInfo> obI = new LinkedList<>();
+    private int obJ;
+    private int obK;
+    private j obL;
+    private com.baidu.tbadk.core.dialog.a obM;
 
     /* loaded from: classes3.dex */
     public interface a {
         void am(int i, boolean z);
 
-        void eap();
+        void eaq();
 
-        void ear();
+        void eas();
 
-        boolean eas();
+        boolean eat();
     }
 
     public MultiImagePagerAdapter(WriteMultiImgsActivity writeMultiImgsActivity, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, a aVar, j jVar, boolean z) {
-        this.obB = null;
-        this.obC = null;
-        this.mViewPager = null;
         this.obD = null;
+        this.obE = null;
+        this.mViewPager = null;
+        this.obF = null;
         this.mCount = 0;
         this.mCurrentIndex = 0;
-        this.obE = null;
-        this.obH = 120;
-        this.obI = 120;
+        this.obG = null;
+        this.obJ = 120;
+        this.obK = 120;
         this.mIsFromIm = z;
-        this.obB = writeMultiImgsActivity;
-        this.obJ = jVar;
-        this.obH = (int) writeMultiImgsActivity.getResources().getDimension(R.dimen.ds720);
-        this.obI = (int) writeMultiImgsActivity.getResources().getDimension(R.dimen.ds1280);
+        this.obD = writeMultiImgsActivity;
+        this.obL = jVar;
+        this.obJ = (int) writeMultiImgsActivity.getResources().getDimension(R.dimen.ds720);
+        this.obK = (int) writeMultiImgsActivity.getResources().getDimension(R.dimen.ds1280);
         this.mCurrentIndex = b(linkedList, i);
-        this.mCount = this.obG.size();
-        this.obC = new ImageFileInfo[this.mCount];
-        this.obE = new b[this.mCount];
+        this.mCount = this.obI.size();
+        this.obE = new ImageFileInfo[this.mCount];
+        this.obG = new b[this.mCount];
         for (int i2 = 0; i2 < this.mCount; i2++) {
-            this.obC[i2] = this.obG.get(i2).cloneWithoutFilterAction(true);
-            this.obC[i2].addPageAction(com.baidu.tbadk.img.effect.d.bi(this.obH, this.obI));
-            linkedList.set(linkedList.indexOf(this.obG.get(i2)), this.obC[i2]);
-            this.obC[i2].mCount = 0;
+            this.obE[i2] = this.obI.get(i2).cloneWithoutFilterAction(true);
+            this.obE[i2].addPageAction(com.baidu.tbadk.img.effect.d.bi(this.obJ, this.obK));
+            linkedList.set(linkedList.indexOf(this.obI.get(i2)), this.obE[i2]);
+            this.obE[i2].mCount = 0;
         }
         this.mViewPager = viewPager;
-        this.obD = aVar;
+        this.obF = aVar;
         this.mViewPager.setOffscreenPageLimit(1);
         this.mViewPager.setOnPageChangeListener(this);
     }
 
     private int b(LinkedList<ImageFileInfo> linkedList, int i) {
         if (linkedList != null && i >= 0 && i < linkedList.size()) {
-            this.obG.clear();
+            this.obI.clear();
             ImageFileInfo imageFileInfo = linkedList.get(i);
             Iterator<ImageFileInfo> it = linkedList.iterator();
             while (it.hasNext()) {
                 ImageFileInfo next = it.next();
                 if (next != null && next.getImageType() == 0) {
-                    this.obG.add(next);
+                    this.obI.add(next);
                 }
             }
-            return this.obG.indexOf(imageFileInfo);
+            return this.obI.indexOf(imageFileInfo);
         }
         return i;
     }
 
-    public int eal() {
+    public int eam() {
         return this.mCurrentIndex;
     }
 
     private boolean atE() {
-        return (this.obE == null || this.mCurrentIndex >= this.obE.length || this.obE[this.mCurrentIndex] == null || this.obC == null || this.mCurrentIndex >= this.obC.length || this.obC[this.mCurrentIndex] == null) ? false : true;
+        return (this.obG == null || this.mCurrentIndex >= this.obG.length || this.obG[this.mCurrentIndex] == null || this.obE == null || this.mCurrentIndex >= this.obE.length || this.obE[this.mCurrentIndex] == null) ? false : true;
     }
 
-    public boolean eam() {
-        if (this.mCurrentIndex >= this.obC.length || this.obC[this.mCurrentIndex] == null || !this.obC[this.mCurrentIndex].isGif() || this.obC[this.mCurrentIndex].mCount > 0) {
+    public boolean ean() {
+        if (this.mCurrentIndex >= this.obE.length || this.obE[this.mCurrentIndex] == null || !this.obE[this.mCurrentIndex].isGif() || this.obE[this.mCurrentIndex].mCount > 0) {
             return false;
         }
-        this.obC[this.mCurrentIndex].mCount++;
+        this.obE[this.mCurrentIndex].mCount++;
         return true;
     }
 
@@ -118,38 +118,38 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public void al(int i, boolean z) {
         b bVar;
         ImageFileInfo imageFileInfo;
-        if (eam()) {
-            if (this.obD != null) {
-                this.obD.am(i, z);
+        if (ean()) {
+            if (this.obF != null) {
+                this.obF.am(i, z);
             }
         } else if (z) {
             MZ(i);
-        } else if (atE() && (bVar = this.obE[this.mCurrentIndex]) != null && (imageFileInfo = this.obC[this.mCurrentIndex]) != null && bVar.eat()) {
+        } else if (atE() && (bVar = this.obG[this.mCurrentIndex]) != null && (imageFileInfo = this.obE[this.mCurrentIndex]) != null && bVar.eau()) {
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.e.sA(i));
-            this.obB.ebN();
+            this.obD.ebO();
             bVar.m(imageFileInfo);
         }
     }
 
     private void MZ(int i) {
-        this.obF = i;
-        if (this.obK == null) {
-            this.obK = new com.baidu.tbadk.core.dialog.a(this.obB);
-            this.obK.oQ(R.string.rorate_tip);
-            this.obK.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.1
+        this.obH = i;
+        if (this.obM == null) {
+            this.obM = new com.baidu.tbadk.core.dialog.a(this.obD);
+            this.obM.oQ(R.string.rorate_tip);
+            this.obM.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    if (MultiImagePagerAdapter.this.obK != null) {
-                        MultiImagePagerAdapter.this.obK.dismiss();
+                    if (MultiImagePagerAdapter.this.obM != null) {
+                        MultiImagePagerAdapter.this.obM.dismiss();
                     }
-                    MultiImagePagerAdapter.this.obJ.oeO.a(new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.1.1
+                    MultiImagePagerAdapter.this.obL.oeQ.a(new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.1.1
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void eao() {
+                        public void eap() {
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void eap() {
-                            MultiImagePagerAdapter.this.obD.eap();
+                        public void eaq() {
+                            MultiImagePagerAdapter.this.obF.eaq();
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
@@ -158,56 +158,56 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                         }
 
                         @Override // com.baidu.tieba.write.write.sticker.a.c
-                        public void eaq() {
+                        public void ear() {
                         }
                     });
-                    MultiImagePagerAdapter.this.al(MultiImagePagerAdapter.this.obF, false);
+                    MultiImagePagerAdapter.this.al(MultiImagePagerAdapter.this.obH, false);
                 }
             });
-            this.obK.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.2
+            this.obM.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    if (MultiImagePagerAdapter.this.obK != null) {
-                        MultiImagePagerAdapter.this.obK.dismiss();
+                    if (MultiImagePagerAdapter.this.obM != null) {
+                        MultiImagePagerAdapter.this.obM.dismiss();
                     }
                 }
             });
-            this.obK.b(this.obB.getPageContext());
+            this.obM.b(this.obD.getPageContext());
         }
-        this.obK.brv();
+        this.obM.brv();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.obE[i] == null) {
-            this.obE[i] = new b(i);
+        if (this.obG[i] == null) {
+            this.obG[i] = new b(i);
         }
-        this.mViewPager.addView(this.obE[i].getView());
-        return this.obE[i].getView();
+        this.mViewPager.addView(this.obG[i].getView());
+        return this.obG[i].getView();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        this.mViewPager.removeView(this.obE[i].getView());
+        this.mViewPager.removeView(this.obG[i].getView());
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         this.mCurrentIndex = i;
-        ean();
+        eao();
     }
 
-    private void ean() {
-        if (this.mCurrentIndex >= 0 && this.obE != null && this.mCurrentIndex < this.obE.length && this.mCurrentIndex < this.obC.length && this.obC[this.mCurrentIndex] != null) {
-            for (int i = 0; i < this.obE.length; i++) {
-                if (this.obE[i] != null) {
-                    this.obE[i].dQF();
+    private void eao() {
+        if (this.mCurrentIndex >= 0 && this.obG != null && this.mCurrentIndex < this.obG.length && this.mCurrentIndex < this.obE.length && this.obE[this.mCurrentIndex] != null) {
+            for (int i = 0; i < this.obG.length; i++) {
+                if (this.obG[i] != null) {
+                    this.obG[i].dQG();
                 }
             }
-            if (this.obE[this.mCurrentIndex] == null) {
-                this.obE[this.mCurrentIndex] = new b(this.mCurrentIndex);
+            if (this.obG[this.mCurrentIndex] == null) {
+                this.obG[this.mCurrentIndex] = new b(this.mCurrentIndex);
             }
-            this.obE[this.mCurrentIndex].m(this.obC[this.mCurrentIndex]);
+            this.obG[this.mCurrentIndex].m(this.obE[this.mCurrentIndex]);
         }
     }
 
@@ -247,22 +247,22 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         Bitmap bitmap2;
         Bitmap bitmap3;
         Bitmap a2;
-        if (this.obC != null) {
-            for (int i = 0; i < this.obC.length; i++) {
-                ImageFileInfo imageFileInfo = this.obC[i];
+        if (this.obE != null) {
+            for (int i = 0; i < this.obE.length; i++) {
+                ImageFileInfo imageFileInfo = this.obE[i];
                 if (imageFileInfo != null) {
-                    this.obC[i].applayRotatePageActionToPersistAction(imageFileInfo);
+                    this.obE[i].applayRotatePageActionToPersistAction(imageFileInfo);
                 }
             }
             if (!atE()) {
                 if (!z && this.mIsFromIm) {
                     T(this.mBitmap);
                 }
-            } else if (this.obD != null && this.obD.eas() && this.obJ != null && this.obJ.oeO != null) {
-                this.obJ.oeO.dkY();
-                TbImageView tbImageView = this.obE[this.mCurrentIndex].aaX;
+            } else if (this.obF != null && this.obF.eat() && this.obL != null && this.obL.oeQ != null) {
+                this.obL.oeQ.dkZ();
+                TbImageView tbImageView = this.obG[this.mCurrentIndex].aaX;
                 try {
-                    bitmap = this.obJ.oeO.ecw();
+                    bitmap = this.obL.oeQ.ecx();
                 } catch (OutOfMemoryError e) {
                     bitmap = null;
                 }
@@ -281,11 +281,11 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                         return;
                     }
                     if (bitmap2 == null && bitmap3 != null && (a2 = com.baidu.tbadk.util.h.a(bitmap3, bitmap2, bitmap3.getWidth(), bitmap3.getHeight())) != null) {
-                        this.obC[this.mCurrentIndex].setFilePath(n.saveFileAsPNG(n.getCacheDir(), String.valueOf(System.currentTimeMillis() + "_sticker.png"), a2, 100));
-                        this.obC[this.mCurrentIndex].setContentUriStr(null);
-                        this.obC[this.mCurrentIndex].clearAllActions();
-                        this.obC[this.mCurrentIndex].clearPageActions();
-                        this.obC[this.mCurrentIndex].setIsGif(false);
+                        this.obE[this.mCurrentIndex].setFilePath(n.saveFileAsPNG(n.getCacheDir(), String.valueOf(System.currentTimeMillis() + "_sticker.png"), a2, 100));
+                        this.obE[this.mCurrentIndex].setContentUriStr(null);
+                        this.obE[this.mCurrentIndex].clearAllActions();
+                        this.obE[this.mCurrentIndex].clearPageActions();
+                        this.obE[this.mCurrentIndex].setIsGif(false);
                         if (!z && this.mIsFromIm) {
                             T(a2);
                         }
@@ -301,7 +301,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         if (bitmap != null && !bitmap.isRecycled()) {
             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
             if (c(str, bitmap)) {
-                this.obC[0].extra = str;
+                this.obE[0].extra = str;
             }
         }
     }
@@ -311,55 +311,55 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public class b {
         private TbImageView aaX;
         private int index;
-        private ProgressBar ngZ;
-        private FrameLayout obN;
-        private com.baidu.tbadk.img.b obO;
+        private ProgressBar nhb;
+        private FrameLayout obP;
+        private com.baidu.tbadk.img.b obQ;
 
         public b(int i) {
-            this.ngZ = null;
+            this.nhb = null;
             this.index = -1;
             this.index = i;
-            this.obN = (FrameLayout) LayoutInflater.from(MultiImagePagerAdapter.this.obB.getPageContext().getContext()).inflate(R.layout.progress_tb_imageview, (ViewGroup) null);
-            this.aaX = (TbImageView) this.obN.findViewById(R.id.progress_tb_imageview);
+            this.obP = (FrameLayout) LayoutInflater.from(MultiImagePagerAdapter.this.obD.getPageContext().getContext()).inflate(R.layout.progress_tb_imageview, (ViewGroup) null);
+            this.aaX = (TbImageView) this.obP.findViewById(R.id.progress_tb_imageview);
             this.aaX.setClickable(true);
             this.aaX.setDefaultResource(0);
             this.aaX.setDefaultErrorResource(0);
             this.aaX.setDefaultBgResource(0);
             this.aaX.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.aaX.setPadding(0, 0, 0, 0);
-            this.obO = new com.baidu.tbadk.img.b();
+            this.obQ = new com.baidu.tbadk.img.b();
             this.aaX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (MultiImagePagerAdapter.this.obD != null) {
-                        MultiImagePagerAdapter.this.obD.ear();
+                    if (MultiImagePagerAdapter.this.obF != null) {
+                        MultiImagePagerAdapter.this.obF.eas();
                     }
                 }
             });
-            this.ngZ = (ProgressBar) this.obN.findViewById(R.id.progress_tb_imageview_progress);
-            this.ngZ.setVisibility(8);
+            this.nhb = (ProgressBar) this.obP.findViewById(R.id.progress_tb_imageview_progress);
+            this.nhb.setVisibility(8);
         }
 
         public View getView() {
-            return this.obN;
+            return this.obP;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(ImageFileInfo imageFileInfo, com.baidu.adp.widget.ImageView.a aVar) {
             if (aVar != null && this.aaX != null) {
-                int[] imageResize = com.baidu.adp.lib.util.l.getImageResize(aVar.getWidth(), aVar.getHeight(), com.baidu.adp.lib.util.l.getEquipmentWidth(MultiImagePagerAdapter.this.obB), (com.baidu.adp.lib.util.l.getEquipmentHeight(MultiImagePagerAdapter.this.obB) - com.baidu.adp.lib.util.l.getDimens(MultiImagePagerAdapter.this.obB, R.dimen.ds418)) - UtilHelper.getStatusBarHeight());
+                int[] imageResize = com.baidu.adp.lib.util.l.getImageResize(aVar.getWidth(), aVar.getHeight(), com.baidu.adp.lib.util.l.getEquipmentWidth(MultiImagePagerAdapter.this.obD), (com.baidu.adp.lib.util.l.getEquipmentHeight(MultiImagePagerAdapter.this.obD) - com.baidu.adp.lib.util.l.getDimens(MultiImagePagerAdapter.this.obD, R.dimen.ds418)) - UtilHelper.getStatusBarHeight());
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.aaX.getLayoutParams();
                 layoutParams.gravity = 17;
                 layoutParams.width = imageResize[0];
                 layoutParams.height = imageResize[1];
                 this.aaX.setLayoutParams(layoutParams);
                 aVar.drawImageTo(this.aaX);
-                if (MultiImagePagerAdapter.this.obJ != null && MultiImagePagerAdapter.this.obJ.oeO != null && imageFileInfo != null) {
-                    FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) MultiImagePagerAdapter.this.obJ.oeO.getLayoutParams();
+                if (MultiImagePagerAdapter.this.obL != null && MultiImagePagerAdapter.this.obL.oeQ != null && imageFileInfo != null) {
+                    FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) MultiImagePagerAdapter.this.obL.oeQ.getLayoutParams();
                     layoutParams2.gravity = 17;
                     layoutParams2.width = imageResize[0];
                     layoutParams2.height = imageResize[1];
-                    MultiImagePagerAdapter.this.obJ.oeO.setLayoutParams(layoutParams2);
+                    MultiImagePagerAdapter.this.obL.oeQ.setLayoutParams(layoutParams2);
                 }
                 if (aVar.getRawBitmap() != null && !aVar.getRawBitmap().isRecycled()) {
                     MultiImagePagerAdapter.this.mBitmap = aVar.getRawBitmap();
@@ -369,37 +369,37 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
 
         public void m(final ImageFileInfo imageFileInfo) {
             if (imageFileInfo != null) {
-                dQF();
-                this.ngZ.setVisibility(0);
-                com.baidu.adp.widget.ImageView.a a2 = this.obO.a(imageFileInfo, false);
+                dQG();
+                this.nhb.setVisibility(0);
+                com.baidu.adp.widget.ImageView.a a2 = this.obQ.a(imageFileInfo, false);
                 if (a2 != null) {
                     a(imageFileInfo, a2);
-                    this.ngZ.setVisibility(8);
+                    this.nhb.setVisibility(8);
                     return;
                 }
-                this.obO.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.b.2
+                this.obQ.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.MultiImagePagerAdapter.b.2
                     @Override // com.baidu.tbadk.imageManager.b
                     public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                         b.this.a(imageFileInfo, aVar);
-                        b.this.ngZ.setVisibility(8);
-                        if (MultiImagePagerAdapter.this.obJ != null) {
-                            MultiImagePagerAdapter.this.obJ.bWH();
+                        b.this.nhb.setVisibility(8);
+                        if (MultiImagePagerAdapter.this.obL != null) {
+                            MultiImagePagerAdapter.this.obL.bWI();
                         }
                     }
                 }, false);
             }
         }
 
-        public void dQF() {
-            if (this.obO != null) {
-                this.obO.cancelAllAsyncTask();
+        public void dQG() {
+            if (this.obQ != null) {
+                this.obQ.cancelAllAsyncTask();
             }
             if (this.aaX != null) {
             }
         }
 
-        public boolean eat() {
-            return this.ngZ.getVisibility() != 0;
+        public boolean eau() {
+            return this.nhb.getVisibility() != 0;
         }
     }
 

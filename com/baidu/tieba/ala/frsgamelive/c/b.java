@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.b> {
-    private View gMq;
-    private TextView gMr;
     private View gMs;
+    private TextView gMt;
+    private View gMu;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,18 +19,18 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.gMq = view.findViewById(R.id.frs_game_live_recommand_line1);
-        this.gMr = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
-        this.gMs = view.findViewById(R.id.frs_game_live_recommand_line2);
+        this.gMs = view.findViewById(R.id.frs_game_live_recommand_line1);
+        this.gMt = (TextView) view.findViewById(R.id.frs_game_live_recommand3);
+        this.gMu = view.findViewById(R.id.frs_game_live_recommand_line2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.gMq, R.color.CAM_X0204);
-            ap.setViewTextColor(this.gMr, (int) R.color.CAM_X0109);
             ap.setBackgroundResource(this.gMs, R.color.CAM_X0204);
+            ap.setViewTextColor(this.gMt, (int) R.color.CAM_X0109);
+            ap.setBackgroundResource(this.gMu, R.color.CAM_X0204);
             this.mSkinType = i;
         }
     }
@@ -52,11 +52,11 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
 
     /* loaded from: classes6.dex */
     public static class a extends af.a {
-        public b gMt;
+        public b gMv;
 
         public a(b bVar) {
             super(bVar.getView());
-            this.gMt = bVar;
+            this.gMv = bVar;
         }
     }
 }

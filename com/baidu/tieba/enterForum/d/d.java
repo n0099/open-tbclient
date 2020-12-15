@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 /* loaded from: classes22.dex */
 public class d {
-    private RecommendForumLayout iEm;
+    private RecommendForumLayout iEo;
     private TbPageContext<?> mPageContext;
-    private View.OnClickListener iBW = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.d.1
+    private View.OnClickListener iBY = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tieba.enterForum.b.d(d.this.mPageContext, null);
@@ -48,21 +48,21 @@ public class d {
 
     public d(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.iEm = new RecommendForumLayout(tbPageContext);
-        this.iEm.setShowMore(true);
-        this.iEm.setSquareEntranceAtStart(true);
-        this.iEm.setTabName(null);
-        this.iEm.setFrom(0);
-        this.iEm.setOnClickRightArrowListener(this.iBW);
-        this.iEm.setOnRullOkCallbackr(this.amx);
-        this.iEm.setOnItemCoverListener(this.ajQ);
+        this.iEo = new RecommendForumLayout(tbPageContext);
+        this.iEo.setShowMore(true);
+        this.iEo.setSquareEntranceAtStart(true);
+        this.iEo.setTabName(null);
+        this.iEo.setFrom(0);
+        this.iEo.setOnClickRightArrowListener(this.iBY);
+        this.iEo.setOnRullOkCallbackr(this.amx);
+        this.iEo.setOnItemCoverListener(this.ajQ);
     }
 
-    public RecommendForumLayout cxE() {
-        return this.iEm;
+    public RecommendForumLayout cxF() {
+        return this.iEo;
     }
 
     public void d(bl blVar) {
-        this.iEm.b(blVar);
+        this.iEo.b(blVar);
     }
 }

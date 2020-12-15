@@ -16,30 +16,30 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class AlaLiveFocusCircleView extends View {
     private Paint ftT;
-    private AnimatorSet gOY;
-    private ObjectAnimator hEs;
-    private boolean hEt;
-    private Bitmap hEu;
+    private AnimatorSet gPa;
+    private ObjectAnimator hEu;
+    private boolean hEv;
+    private Bitmap hEw;
     private int mBorderWidth;
 
     public AlaLiveFocusCircleView(Context context) {
         super(context);
         this.mBorderWidth = 4;
-        this.hEt = false;
+        this.hEv = false;
         init(context);
     }
 
     public AlaLiveFocusCircleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mBorderWidth = 4;
-        this.hEt = false;
+        this.hEv = false;
         init(context);
     }
 
     public AlaLiveFocusCircleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mBorderWidth = 4;
-        this.hEt = false;
+        this.hEv = false;
         init(context);
     }
 
@@ -50,24 +50,24 @@ public class AlaLiveFocusCircleView extends View {
         this.ftT.setColor(Color.parseColor("#ffffffff"));
         this.ftT.setStrokeWidth(this.mBorderWidth);
         setAlpha(0.0f);
-        this.hEu = BitmapFactory.decodeResource(context.getResources(), a.e.camera_focus);
+        this.hEw = BitmapFactory.decodeResource(context.getResources(), a.e.camera_focus);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawBitmap(this.hEu, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.ftT);
+        canvas.drawBitmap(this.hEw, (getWidth() / 2) - 80, (getHeight() / 2) - 80, this.ftT);
     }
 
-    public void clb() {
-        this.hEt = true;
-        if (this.gOY == null) {
+    public void clc() {
+        this.hEv = true;
+        if (this.gPa == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "scaleX", 3.0f, 2.0f, 1.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, "scaleY", 3.0f, 2.0f, 1.0f);
-            this.gOY = new AnimatorSet();
-            this.gOY.play(ofFloat).with(ofFloat2);
-            this.gOY.setInterpolator(new LinearInterpolator());
-            this.gOY.setDuration(500L);
-            this.gOY.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFocusCircleView.1
+            this.gPa = new AnimatorSet();
+            this.gPa.play(ofFloat).with(ofFloat2);
+            this.gPa.setInterpolator(new LinearInterpolator());
+            this.gPa.setDuration(500L);
+            this.gPa.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFocusCircleView.1
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     AlaLiveFocusCircleView.this.setAlpha(1.0f);
@@ -79,17 +79,17 @@ public class AlaLiveFocusCircleView extends View {
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (AlaLiveFocusCircleView.this.hEs == null) {
-                        AlaLiveFocusCircleView.this.hEs = ObjectAnimator.ofFloat(AlaLiveFocusCircleView.this, "alpha", 1.0f, 0.0f);
-                        AlaLiveFocusCircleView.this.hEs.setDuration(960L);
-                        AlaLiveFocusCircleView.this.hEs.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFocusCircleView.1.1
+                    if (AlaLiveFocusCircleView.this.hEu == null) {
+                        AlaLiveFocusCircleView.this.hEu = ObjectAnimator.ofFloat(AlaLiveFocusCircleView.this, "alpha", 1.0f, 0.0f);
+                        AlaLiveFocusCircleView.this.hEu.setDuration(960L);
+                        AlaLiveFocusCircleView.this.hEu.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFocusCircleView.1.1
                             @Override // android.animation.Animator.AnimatorListener
                             public void onAnimationStart(Animator animator2) {
                             }
 
                             @Override // android.animation.Animator.AnimatorListener
                             public void onAnimationEnd(Animator animator2) {
-                                AlaLiveFocusCircleView.this.hEt = false;
+                                AlaLiveFocusCircleView.this.hEv = false;
                             }
 
                             @Override // android.animation.Animator.AnimatorListener
@@ -101,7 +101,7 @@ public class AlaLiveFocusCircleView extends View {
                             }
                         });
                     }
-                    AlaLiveFocusCircleView.this.hEs.start();
+                    AlaLiveFocusCircleView.this.hEu.start();
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -109,13 +109,13 @@ public class AlaLiveFocusCircleView extends View {
                 }
             });
         } else {
-            if (this.gOY.isRunning()) {
-                this.gOY.cancel();
+            if (this.gPa.isRunning()) {
+                this.gPa.cancel();
             }
-            if (this.hEs != null && this.hEs.isRunning()) {
-                this.hEs.cancel();
+            if (this.hEu != null && this.hEu.isRunning()) {
+                this.hEu.cancel();
             }
         }
-        this.gOY.start();
+        this.gPa.start();
     }
 }

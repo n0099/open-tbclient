@@ -18,8 +18,8 @@ import java.util.List;
 public class a extends RecyclerView.Adapter<b> {
     private Context mContext;
     private List<String> mDataList;
-    private InterfaceC0864a neL = null;
-    private int neM = 0;
+    private InterfaceC0864a neN = null;
+    private int neO = 0;
 
     /* renamed from: com.baidu.tieba.square.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
@@ -45,18 +45,18 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull final b bVar, final int i) {
         final String str = this.mDataList.get(i);
         bVar.itemView.setTag(Integer.valueOf(i));
-        bVar.neP.setText(str);
-        if (this.neM == i) {
-            bVar.neQ.setVisibility(0);
-            ap.setBackgroundColor(bVar.neQ, R.color.CAM_X0302);
+        bVar.neR.setText(str);
+        if (this.neO == i) {
+            bVar.neS.setVisibility(0);
+            ap.setBackgroundColor(bVar.neS, R.color.CAM_X0302);
             ap.setBackgroundColor(bVar.itemView, R.color.CAM_X0205);
-            ap.setViewTextColor(bVar.neP, (int) R.color.CAM_X0105);
+            ap.setViewTextColor(bVar.neR, (int) R.color.CAM_X0105);
         } else {
-            bVar.neQ.setVisibility(8);
+            bVar.neS.setVisibility(8);
             ap.setBackgroundColor(bVar.itemView, R.color.CAM_X0204);
-            ap.setViewTextColor(bVar.neP, (int) R.color.CAM_X0107);
+            ap.setViewTextColor(bVar.neR, (int) R.color.CAM_X0107);
         }
-        if ("推荐".equals(dNr())) {
+        if ("推荐".equals(dNs())) {
             ar arVar = new ar("c13641");
             arVar.w("uid", TbadkApplication.getCurrentAccountId());
             arVar.al("obj_locate", 3);
@@ -66,8 +66,8 @@ public class a extends RecyclerView.Adapter<b> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.vT(i);
-                if (a.this.neL != null) {
-                    a.this.neL.a(bVar.itemView, i, str);
+                if (a.this.neN != null) {
+                    a.this.neN.a(bVar.itemView, i, str);
                 }
                 ar arVar2 = new ar("c13649");
                 arVar2.dY("resource_id", str);
@@ -85,22 +85,22 @@ public class a extends RecyclerView.Adapter<b> {
     }
 
     public void b(InterfaceC0864a interfaceC0864a) {
-        this.neL = interfaceC0864a;
+        this.neN = interfaceC0864a;
     }
 
     public void p(int i, List<String> list) {
-        this.neM = i;
+        this.neO = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
     public void vT(int i) {
-        this.neM = i;
+        this.neO = i;
         notifyDataSetChanged();
     }
 
-    public String dNr() {
-        return KF(this.neM);
+    public String dNs() {
+        return KF(this.neO);
     }
 
     public String KF(int i) {
@@ -113,13 +113,13 @@ public class a extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes22.dex */
     public class b extends RecyclerView.ViewHolder {
-        private TextView neP;
-        private View neQ;
+        private TextView neR;
+        private View neS;
 
         public b(@NonNull View view) {
             super(view);
-            this.neP = (TextView) view.findViewById(R.id.tv_class_name);
-            this.neQ = view.findViewById(R.id.tv_line);
+            this.neR = (TextView) view.findViewById(R.id.tv_class_name);
+            this.neS = view.findViewById(R.id.tv_line);
         }
     }
 }

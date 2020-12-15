@@ -8,7 +8,7 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItemView;
 /* loaded from: classes22.dex */
 public class k extends a<com.baidu.tieba.homepage.hotTopic.tab.b.f, com.baidu.adp.widget.ListView.b<HotTopicTabThreadItemView>> {
     public k(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jQo);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.jQq);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

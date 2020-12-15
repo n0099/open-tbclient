@@ -13,12 +13,12 @@ import com.baidu.tieba.R;
 public class ShareFromFrsView extends LinearLayout {
     private Context context;
     private TextView egV;
-    private HeadImageView jCs;
-    private ShareFromFrsMsgData jCv;
-    private TextView kEp;
-    private TextView kEq;
+    private HeadImageView jCu;
+    private ShareFromFrsMsgData jCx;
     private TextView kEr;
     private TextView kEs;
+    private TextView kEt;
+    private TextView kEu;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -35,41 +35,41 @@ public class ShareFromFrsView extends LinearLayout {
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
         this.egV = (TextView) findViewById(R.id.frs_name);
-        this.jCs = (HeadImageView) findViewById(R.id.frs_img);
-        this.kEq = (TextView) findViewById(R.id.frs_member_num);
-        this.kEs = (TextView) findViewById(R.id.frs_post_num);
-        this.kEp = (TextView) findViewById(R.id.frs_member_num_label);
-        this.kEr = (TextView) findViewById(R.id.frs_post_num_label);
+        this.jCu = (HeadImageView) findViewById(R.id.frs_img);
+        this.kEs = (TextView) findViewById(R.id.frs_member_num);
+        this.kEu = (TextView) findViewById(R.id.frs_post_num);
+        this.kEr = (TextView) findViewById(R.id.frs_member_num_label);
+        this.kEt = (TextView) findViewById(R.id.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.egV.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-            this.kEq.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             this.kEs.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-            this.kEp.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+            this.kEu.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             this.kEr.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+            this.kEt.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             return;
         }
         this.egV.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-        this.kEq.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         this.kEs.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-        this.kEp.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.kEu.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         this.kEr.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.kEt.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.jCv = shareFromFrsMsgData;
+        this.jCx = shareFromFrsMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.egV.setText(getShortName(this.jCv.getName()));
-        this.jCs.setPlaceHolder(1);
-        this.jCs.setAutoChangeStyle(false);
-        this.jCs.startLoad(this.jCv.getImageUrl(), 10, false);
-        this.kEq.setText(au.numFormatOver10000(this.jCv.getMemberNum()));
-        this.kEs.setText(au.numFormatOver10000(this.jCv.getPostNum()));
+        this.egV.setText(getShortName(this.jCx.getName()));
+        this.jCu.setPlaceHolder(1);
+        this.jCu.setAutoChangeStyle(false);
+        this.jCu.startLoad(this.jCx.getImageUrl(), 10, false);
+        this.kEs.setText(au.numFormatOver10000(this.jCx.getMemberNum()));
+        this.kEu.setText(au.numFormatOver10000(this.jCx.getPostNum()));
     }
 
     private String getShortName(String str) {

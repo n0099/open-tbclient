@@ -5,52 +5,52 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes17.dex */
 public class a implements Iterable<Character> {
-    public static final C1053a pKI = new C1053a(null);
-    private final char pKG;
-    private final char pKH;
+    public static final C1053a pKK = new C1053a(null);
+    private final char pKI;
+    private final char pKJ;
     private final int step;
 
     public a(char c, char c2, int i) {
         if (i == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.pKG = c;
-        this.pKH = (char) kotlin.internal.d.al(c, c2, i);
+        this.pKI = c;
+        this.pKJ = (char) kotlin.internal.d.al(c, c2, i);
         this.step = i;
     }
 
-    public final char eEd() {
-        return this.pKG;
+    public final char eEe() {
+        return this.pKI;
     }
 
-    public final char eEe() {
-        return this.pKH;
+    public final char eEf() {
+        return this.pKJ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eEf */
+    /* renamed from: eEg */
     public kotlin.collections.m iterator() {
-        return new b(this.pKG, this.pKH, this.step);
+        return new b(this.pKI, this.pKJ, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.pKG > this.pKH : this.pKG < this.pKH;
+        return this.step > 0 ? this.pKI > this.pKJ : this.pKI < this.pKJ;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.pKG == ((a) obj).pKG && this.pKH == ((a) obj).pKH && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.pKI == ((a) obj).pKI && this.pKJ == ((a) obj).pKJ && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.pKG * 31) + this.pKH) * 31) + this.step;
+        return (((this.pKI * 31) + this.pKJ) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? "" + this.pKG + IStringUtil.TOP_PATH + this.pKH + " step " + this.step : "" + this.pKG + " downTo " + this.pKH + " step " + (-this.step);
+        return this.step > 0 ? "" + this.pKI + IStringUtil.TOP_PATH + this.pKJ + " step " + this.step : "" + this.pKI + " downTo " + this.pKJ + " step " + (-this.step);
     }
 
     @kotlin.e

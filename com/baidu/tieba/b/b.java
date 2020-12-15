@@ -23,14 +23,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class b extends RecyclerView.Adapter<a> {
-    private d gaS;
+    private d gaU;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.b.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             j jVar = (j) view.getTag();
             if (jVar != null) {
                 if (!jVar.fsU) {
-                    b.this.gaS.Ff(jVar.fsV);
+                    b.this.gaU.Ff(jVar.fsV);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, jVar.fsV));
                     return;
                 }
@@ -44,7 +44,7 @@ public class b extends RecyclerView.Adapter<a> {
     private int mType;
 
     public b(d dVar) {
-        this.gaS = dVar;
+        this.gaU = dVar;
     }
 
     public void setType(int i) {
@@ -69,23 +69,23 @@ public class b extends RecyclerView.Adapter<a> {
     public void onBindViewHolder(@NonNull a aVar, int i) {
         j jVar = (j) y.getItem(this.mDataList, i);
         if (jVar != null) {
-            aVar.gaU.setPlaceHolder(1);
-            aVar.gaU.setShowOval(true);
-            aVar.gaU.setShowOuterBorder(true);
-            aVar.gaU.setShowInnerBorder(false);
-            aVar.gaU.setStrokeColorResId(R.color.CAM_X0401);
-            aVar.gaU.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            aVar.gaU.startLoad(jVar.bjs, 10, false);
-            aVar.gaV.setText(jVar.forumName);
-            ap.setViewTextColor(aVar.gaV, R.color.CAM_X0105);
+            aVar.gaW.setPlaceHolder(1);
+            aVar.gaW.setShowOval(true);
+            aVar.gaW.setShowOuterBorder(true);
+            aVar.gaW.setShowInnerBorder(false);
+            aVar.gaW.setStrokeColorResId(R.color.CAM_X0401);
+            aVar.gaW.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            aVar.gaW.startLoad(jVar.bjs, 10, false);
+            aVar.gaX.setText(jVar.forumName);
+            ap.setViewTextColor(aVar.gaX, R.color.CAM_X0105);
             if (jVar.level <= 0) {
-                aVar.gaW.setVisibility(8);
+                aVar.gaY.setVisibility(8);
             } else {
-                aVar.gaW.setVisibility(0);
-                ap.setImageResource(aVar.gaW, BitmapHelper.getGradeResourceIdInEnterForum(jVar.level));
+                aVar.gaY.setVisibility(0);
+                ap.setImageResource(aVar.gaY, BitmapHelper.getGradeResourceIdInEnterForum(jVar.level));
             }
-            aVar.gaX.setVisibility(jVar.fsT ? 0 : 8);
-            ap.setViewTextColor(aVar.gaX, R.color.CAM_X0302);
+            aVar.gaZ.setVisibility(jVar.fsT ? 0 : 8);
+            ap.setViewTextColor(aVar.gaZ, R.color.CAM_X0302);
             aVar.itemView.setTag(jVar);
             ap.setBackgroundResource(aVar.itemView, R.drawable.forum_selected_view_bg);
             aVar.itemView.setOnClickListener(this.mClickListener);
@@ -100,17 +100,17 @@ public class b extends RecyclerView.Adapter<a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes22.dex */
     public class a extends RecyclerView.ViewHolder {
-        BarImageView gaU;
-        TextView gaV;
-        ImageView gaW;
+        BarImageView gaW;
         TextView gaX;
+        ImageView gaY;
+        TextView gaZ;
 
         public a(View view) {
             super(view);
-            this.gaU = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
-            this.gaV = (TextView) view.findViewById(R.id.cell_select_forum_name);
-            this.gaW = (ImageView) view.findViewById(R.id.cell_select_forum_level);
-            this.gaX = (TextView) view.findViewById(R.id.cell_select_forum_lately);
+            this.gaW = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
+            this.gaX = (TextView) view.findViewById(R.id.cell_select_forum_name);
+            this.gaY = (ImageView) view.findViewById(R.id.cell_select_forum_level);
+            this.gaZ = (TextView) view.findViewById(R.id.cell_select_forum_lately);
         }
     }
 }

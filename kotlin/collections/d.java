@@ -9,7 +9,7 @@ import java.util.RandomAccess;
 @kotlin.e
 /* loaded from: classes17.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a pKb = new a(null);
+    public static final a pKd = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -57,29 +57,29 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes17.dex */
     private static final class C1054d<E> extends d<E> implements RandomAccess {
-        private int pKd;
-        private final d<E> pKe;
-        private final int pKf;
+        private int pKf;
+        private final d<E> pKg;
+        private final int pKh;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
         public C1054d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.p.o(dVar, "list");
-            this.pKe = dVar;
-            this.pKf = i;
-            d.pKb.aj(this.pKf, i2, this.pKe.size());
-            this.pKd = i2 - this.pKf;
+            this.pKg = dVar;
+            this.pKh = i;
+            d.pKd.aj(this.pKh, i2, this.pKg.size());
+            this.pKf = i2 - this.pKh;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.pKb.ek(i, this.pKd);
-            return this.pKe.get(this.pKf + i);
+            d.pKd.ek(i, this.pKf);
+            return this.pKg.get(this.pKh + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.pKd;
+            return this.pKf;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return pKb.a(this, (Collection) obj);
+            return pKd.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return pKb.n(this);
+        return pKd.n(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.pKb.el(i, d.this.size());
+            d.pKd.el(i, d.this.size());
             setIndex(i);
         }
 

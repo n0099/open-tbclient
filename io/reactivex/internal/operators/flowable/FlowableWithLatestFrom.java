@@ -8,15 +8,15 @@ import org.a.d;
 /* loaded from: classes9.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.b.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> pFA;
+    final org.a.b<? extends U> pFC;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.pFA.subscribe(new a(withLatestFromSubscriber));
-        this.pFg.a((j) withLatestFromSubscriber);
+        this.pFC.subscribe(new a(withLatestFromSubscriber));
+        this.pFi.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes9.dex */
@@ -97,27 +97,27 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
 
     /* loaded from: classes9.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> pGb;
+        private final WithLatestFromSubscriber<T, U, R> pGd;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.pGb = withLatestFromSubscriber;
+            this.pGd = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            if (this.pGb.setOther(dVar)) {
+            if (this.pGd.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.pGb.lazySet(u);
+            this.pGd.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.pGb.otherError(th);
+            this.pGd.otherError(th);
         }
 
         @Override // org.a.c

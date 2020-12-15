@@ -17,44 +17,44 @@ import java.util.List;
 /* loaded from: classes24.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private ArrayList<q> ghw = new ArrayList<>();
-    private BdTypeListView gpX;
-    public j mCx;
-    private c mCy;
-    public i mpB;
+    private ArrayList<q> ghy = new ArrayList<>();
+    private BdTypeListView gpZ;
+    private c mCA;
+    public j mCz;
+    public i mpD;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.gpX = bdTypeListView;
+        this.gpZ = bdTypeListView;
         x(tbPageContext);
     }
 
     private void x(TbPageContext<?> tbPageContext) {
-        this.mpB = new i(tbPageContext);
-        this.mCx = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mrX);
-        this.mCy = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.mCx.a(this.mCy);
-        this.bnf.add(this.mpB);
-        this.bnf.add(this.mCx);
-        this.gpX.addAdapters(this.bnf);
+        this.mpD = new i(tbPageContext);
+        this.mCz = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mrZ);
+        this.mCA = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.mCz.a(this.mCA);
+        this.bnf.add(this.mpD);
+        this.bnf.add(this.mCz);
+        this.gpZ.addAdapters(this.bnf);
     }
 
     public void ab(ArrayList<q> arrayList) {
-        if (arrayList != null && this.gpX != null) {
-            this.ghw.clear();
-            this.ghw.addAll(arrayList);
-            this.gpX.setData(this.ghw);
+        if (arrayList != null && this.gpZ != null) {
+            this.ghy.clear();
+            this.ghy.addAll(arrayList);
+            this.gpZ.setData(this.ghy);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.gpX.getAdapter() instanceof f) {
-            this.gpX.getAdapter().notifyDataSetChanged();
+        if (this.gpZ.getAdapter() instanceof f) {
+            this.gpZ.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.gpX != null) {
-            this.gpX.startPullRefresh();
+        if (this.gpZ != null) {
+            this.gpZ.startPullRefresh();
         }
     }
 
@@ -63,10 +63,10 @@ public class a {
         if (au.isEmpty(str)) {
             return false;
         }
-        if (this.gpX == null || this.ghw == null) {
+        if (this.gpZ == null || this.ghy == null) {
             return false;
         }
-        Iterator<q> it = this.ghw.iterator();
+        Iterator<q> it = this.ghy.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -80,8 +80,8 @@ public class a {
             }
         }
         if (z) {
-            this.ghw = PersonPostModel.mergeDynamicThreadByTime(this.ghw);
-            this.gpX.setData(this.ghw);
+            this.ghy = PersonPostModel.mergeDynamicThreadByTime(this.ghy);
+            this.gpZ.setData(this.ghy);
             notifyDataSetChanged();
             return z;
         }

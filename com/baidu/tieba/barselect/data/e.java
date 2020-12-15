@@ -4,26 +4,22 @@ import tbclient.ElectionInfo.Basic;
 import tbclient.ElectionInfo.NoticeContent;
 /* loaded from: classes21.dex */
 public class e {
-    private long icT;
-    private long icU;
     private long icV;
     private long icW;
-    private int icX;
-    private int icY;
-    private boolean icZ;
-    private NoticeContent ida;
+    private long icX;
+    private long icY;
+    private int icZ;
+    private int ida;
+    private boolean idb;
+    private NoticeContent idc;
     private int status = 0;
 
-    public int cqT() {
-        return this.icX;
+    public int cqU() {
+        return this.icZ;
     }
 
     public int getStatus() {
         return this.status;
-    }
-
-    public long cqU() {
-        return this.icT;
     }
 
     public long cqV() {
@@ -31,23 +27,27 @@ public class e {
     }
 
     public long cqW() {
-        return this.icW;
+        return this.icX;
     }
 
     public long cqX() {
-        return this.icU;
+        return this.icY;
     }
 
-    public boolean cqY() {
-        return this.icZ;
+    public long cqY() {
+        return this.icW;
     }
 
-    public NoticeContent cqZ() {
-        return this.ida;
+    public boolean cqZ() {
+        return this.idb;
+    }
+
+    public NoticeContent cra() {
+        return this.idc;
     }
 
     public void a(NoticeContent noticeContent) {
-        this.ida = noticeContent;
+        this.idc = noticeContent;
     }
 
     public static e a(Basic basic) {
@@ -77,19 +77,19 @@ public class e {
     }
 
     public void xX(int i) {
-        this.icX = i;
+        this.icZ = i;
     }
 
     public void fW(long j) {
-        this.icT = j;
-    }
-
-    public void fX(long j) {
         this.icV = j;
     }
 
+    public void fX(long j) {
+        this.icX = j;
+    }
+
     public void fY(long j) {
-        this.icW = j;
+        this.icY = j;
     }
 
     public void setStatus(int i) {
@@ -97,14 +97,14 @@ public class e {
     }
 
     public void xY(int i) {
-        this.icY = i;
+        this.ida = i;
     }
 
     public void fZ(long j) {
-        this.icU = j;
+        this.icW = j;
     }
 
     public void oL(boolean z) {
-        this.icZ = z;
+        this.idb = z;
     }
 }

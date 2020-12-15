@@ -28,11 +28,11 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
             }
-            i.jUG = false;
+            i.jUI = false;
             if (i.g(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
-                this.resultData = i.cQp();
-                i.jUG = true;
-                i.cQq();
+                this.resultData = i.cQq();
+                i.jUI = true;
+                i.cQr();
                 return;
             }
             this.resultData = personalizedResIdl.data;

@@ -15,23 +15,23 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     AppBarLayout.OnOffsetChangedListener Zk;
     private boolean Zl;
     private boolean Zm;
-    private StickyAppBarLayout.a jOi;
-    private NestedScrollHeader jOk;
-    private HomeTabBarView jOl;
-    private float jOm;
+    private StickyAppBarLayout.a jOk;
+    private NestedScrollHeader jOm;
+    private HomeTabBarView jOn;
+    private float jOo;
     private View mLine;
 
     public void setOnHeaderStickyListener(StickyAppBarLayout.a aVar) {
-        this.jOi = aVar;
+        this.jOk = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aJ(float f) {
-        if (this.jOl != null) {
-            this.jOl.aI(f);
+        if (this.jOn != null) {
+            this.jOn.aI(f);
         }
-        if (this.jOk != null) {
-            this.jOk.aI(1.0f - f);
+        if (this.jOm != null) {
+            this.jOm.aI(1.0f - f);
         }
         if (this.mLine != null && f <= 1.0f && f >= 0.0f) {
             if (f == 0.0f) {
@@ -46,7 +46,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     public StickyAppBarLayoutBehavior() {
         this.Zl = false;
         this.Zm = false;
-        this.jOm = -1.0f;
+        this.jOo = -1.0f;
         this.Zk = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayoutBehavior.1
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
@@ -56,18 +56,18 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
                 if (abs >= totalScrollRange) {
                     if (!StickyAppBarLayoutBehavior.this.Zl) {
                         StickyAppBarLayoutBehavior.this.Zl = true;
-                        if (StickyAppBarLayoutBehavior.this.jOi != null) {
-                            StickyAppBarLayoutBehavior.this.jOi.ry(StickyAppBarLayoutBehavior.this.Zl);
+                        if (StickyAppBarLayoutBehavior.this.jOk != null) {
+                            StickyAppBarLayoutBehavior.this.jOk.ry(StickyAppBarLayoutBehavior.this.Zl);
                         }
                     }
                 } else if (StickyAppBarLayoutBehavior.this.Zl) {
                     StickyAppBarLayoutBehavior.this.Zl = false;
-                    if (StickyAppBarLayoutBehavior.this.jOi != null) {
-                        StickyAppBarLayoutBehavior.this.jOi.ry(StickyAppBarLayoutBehavior.this.Zl);
+                    if (StickyAppBarLayoutBehavior.this.jOk != null) {
+                        StickyAppBarLayoutBehavior.this.jOk.ry(StickyAppBarLayoutBehavior.this.Zl);
                     }
                 }
-                if (StickyAppBarLayoutBehavior.this.jOm != abs) {
-                    StickyAppBarLayoutBehavior.this.jOm = abs;
+                if (StickyAppBarLayoutBehavior.this.jOo != abs) {
+                    StickyAppBarLayoutBehavior.this.jOo = abs;
                     if (totalScrollRange > 0.0f) {
                         if (abs != 0.0f) {
                             if (abs >= totalScrollRange) {
@@ -88,7 +88,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         super(context, attributeSet);
         this.Zl = false;
         this.Zm = false;
-        this.jOm = -1.0f;
+        this.jOo = -1.0f;
         this.Zk = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayoutBehavior.1
             @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
@@ -98,18 +98,18 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
                 if (abs >= totalScrollRange) {
                     if (!StickyAppBarLayoutBehavior.this.Zl) {
                         StickyAppBarLayoutBehavior.this.Zl = true;
-                        if (StickyAppBarLayoutBehavior.this.jOi != null) {
-                            StickyAppBarLayoutBehavior.this.jOi.ry(StickyAppBarLayoutBehavior.this.Zl);
+                        if (StickyAppBarLayoutBehavior.this.jOk != null) {
+                            StickyAppBarLayoutBehavior.this.jOk.ry(StickyAppBarLayoutBehavior.this.Zl);
                         }
                     }
                 } else if (StickyAppBarLayoutBehavior.this.Zl) {
                     StickyAppBarLayoutBehavior.this.Zl = false;
-                    if (StickyAppBarLayoutBehavior.this.jOi != null) {
-                        StickyAppBarLayoutBehavior.this.jOi.ry(StickyAppBarLayoutBehavior.this.Zl);
+                    if (StickyAppBarLayoutBehavior.this.jOk != null) {
+                        StickyAppBarLayoutBehavior.this.jOk.ry(StickyAppBarLayoutBehavior.this.Zl);
                     }
                 }
-                if (StickyAppBarLayoutBehavior.this.jOm != abs) {
-                    StickyAppBarLayoutBehavior.this.jOm = abs;
+                if (StickyAppBarLayoutBehavior.this.jOo != abs) {
+                    StickyAppBarLayoutBehavior.this.jOo = abs;
                     if (totalScrollRange > 0.0f) {
                         if (abs != 0.0f) {
                             if (abs >= totalScrollRange) {
@@ -135,13 +135,13 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         });
     }
 
-    public void cOL() {
+    public void cOM() {
         if (this.Zj != null) {
             this.Zj.setExpanded(true, true);
         }
     }
 
-    public void cOM() {
+    public void cON() {
         if (this.Zj != null) {
             this.Zj.setExpanded(false, true);
         }
@@ -151,8 +151,8 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         return this.Zl;
     }
 
-    public NestedScrollHeader cON() {
-        return this.jOk;
+    public NestedScrollHeader cOO() {
+        return this.jOm;
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
@@ -180,14 +180,14 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
             this.Zj = appBarLayout;
             View findViewById = this.Zj.findViewById(R.id.home_nested_header);
             if (findViewById instanceof NestedScrollHeader) {
-                this.jOk = (NestedScrollHeader) findViewById;
+                this.jOm = (NestedScrollHeader) findViewById;
             }
             View findViewById2 = this.Zj.findViewById(R.id.home_tab_bar_view);
             if (findViewById2 instanceof HomeTabBarView) {
-                this.jOl = (HomeTabBarView) findViewById2;
+                this.jOn = (HomeTabBarView) findViewById2;
             }
             this.mLine = this.Zj.findViewById(R.id.divider_line);
-            cOO();
+            cOP();
         }
         if (this.Zj != null && !this.Zm) {
             this.Zj.addOnOffsetChangedListener(this.Zk);
@@ -196,7 +196,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
 
-    public void cOO() {
+    public void cOP() {
         StickyAppBarLayout.a onHeaderStickyListener;
         if ((this.Zj instanceof StickyAppBarLayout) && (onHeaderStickyListener = ((StickyAppBarLayout) this.Zj).getOnHeaderStickyListener()) != null) {
             setOnHeaderStickyListener(onHeaderStickyListener);

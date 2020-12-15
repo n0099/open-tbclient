@@ -13,15 +13,15 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes22.dex */
 public class e {
-    private PopupWindow iwt;
+    private PopupWindow iwv;
     private TbPageContext<?> mPageContext;
     private View mRootView;
     private Handler mHandler = new Handler();
-    private Runnable iwu = new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.1
+    private Runnable iww = new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.iwt != null) {
-                g.dismissPopupWindow(e.this.iwt);
+            if (e.this.iwv != null) {
+                g.dismissPopupWindow(e.this.iwv);
             }
         }
     };
@@ -62,28 +62,28 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void cl(int i, int i2) {
         com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
-        if (this.iwt == null || !this.iwt.isShowing()) {
+        if (this.iwv == null || !this.iwv.isShowing()) {
             if (this.mRootView == null) {
                 this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.enter_forum_ufan_item_tip, (ViewGroup) null);
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.cwd();
+                        e.this.cwe();
                     }
                 });
             }
-            if (this.iwt == null) {
-                this.iwt = new PopupWindow(this.mRootView, -2, -2);
-                this.iwt.setOutsideTouchable(true);
+            if (this.iwv == null) {
+                this.iwv = new PopupWindow(this.mRootView, -2, -2);
+                this.iwv.setOutsideTouchable(true);
             }
-            g.showPopupWindowAtLocation(this.iwt, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds220) * i2), i);
-            this.mHandler.postDelayed(this.iwu, 5000L);
+            g.showPopupWindowAtLocation(this.iwv, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds220) * i2), i);
+            this.mHandler.postDelayed(this.iww, 5000L);
         }
     }
 
-    public void cwd() {
-        if (this.iwt != null) {
-            g.dismissPopupWindow(this.iwt);
+    public void cwe() {
+        if (this.iwv != null) {
+            g.dismissPopupWindow(this.iwv);
         }
     }
 

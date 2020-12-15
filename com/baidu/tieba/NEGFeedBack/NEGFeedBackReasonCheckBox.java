@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class NEGFeedBackReasonCheckBox extends CheckBox {
     private CustomMessageListener eOd;
-    private GradientDrawable fVZ;
-    private GradientDrawable fWa;
     private GradientDrawable fWb;
-    private StateListDrawable fWc;
+    private GradientDrawable fWc;
+    private GradientDrawable fWd;
+    private StateListDrawable fWe;
     private Context mContext;
     private int mSkinType;
 
@@ -104,22 +104,22 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
 
     private void e(int i, int i2, int i3, int i4, int i5) {
         int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
-        this.fVZ = new GradientDrawable();
-        this.fVZ.setShape(0);
-        this.fVZ.setCornerRadius(parseInt);
-        this.fVZ.setStroke(i2, ap.getColor(i3));
-        this.fWa = new GradientDrawable();
-        this.fWa.setShape(0);
-        this.fWa.setCornerRadius(parseInt);
-        this.fWa.setStroke(i2, com.baidu.tieba.tbadkCore.c.m(ap.getColor(i4), ap.eTK));
         this.fWb = new GradientDrawable();
         this.fWb.setShape(0);
         this.fWb.setCornerRadius(parseInt);
-        this.fWb.setStroke(i2, com.baidu.tieba.tbadkCore.c.m(ap.getColor(i5), ap.eTL));
-        this.fWc = new StateListDrawable();
-        this.fWc.addState(new int[]{16842912}, this.fWa);
-        this.fWc.addState(new int[]{-16842910}, this.fWb);
-        this.fWc.addState(new int[0], this.fVZ);
-        setBackgroundDrawable(this.fWc);
+        this.fWb.setStroke(i2, ap.getColor(i3));
+        this.fWc = new GradientDrawable();
+        this.fWc.setShape(0);
+        this.fWc.setCornerRadius(parseInt);
+        this.fWc.setStroke(i2, com.baidu.tieba.tbadkCore.c.m(ap.getColor(i4), ap.eTK));
+        this.fWd = new GradientDrawable();
+        this.fWd.setShape(0);
+        this.fWd.setCornerRadius(parseInt);
+        this.fWd.setStroke(i2, com.baidu.tieba.tbadkCore.c.m(ap.getColor(i5), ap.eTL));
+        this.fWe = new StateListDrawable();
+        this.fWe.addState(new int[]{16842912}, this.fWc);
+        this.fWe.addState(new int[]{-16842910}, this.fWd);
+        this.fWe.addState(new int[0], this.fWb);
+        setBackgroundDrawable(this.fWe);
     }
 }

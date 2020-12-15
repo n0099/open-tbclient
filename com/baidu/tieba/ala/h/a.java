@@ -21,28 +21,28 @@ import java.util.Set;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.live.t.c {
     private MediaMetadataRetriever bek;
-    private long ggj;
-    private CustomMessageListener hTj;
-    private PkRankStartAnimView hUj;
-    private Set<Long> hUk;
+    private long ggl;
+    private CustomMessageListener hTl;
+    private PkRankStartAnimView hUl;
+    private Set<Long> hUm;
     private ViewGroup mParentView;
 
     @Override // com.baidu.live.t.c
     public void setParentView(ViewGroup viewGroup) {
         this.mParentView = viewGroup;
-        cou();
+        cov();
     }
 
     @Override // com.baidu.live.t.c
     public void bd(long j) {
         reset();
-        this.ggj = j;
-        cos();
+        this.ggl = j;
+        cot();
     }
 
     @Override // com.baidu.live.t.c
     public void IB() {
-        cot();
+        cou();
         reset();
     }
 
@@ -53,12 +53,12 @@ public class a implements com.baidu.live.t.c {
             this.bek.release();
             this.bek = null;
         }
-        if (this.hUj != null) {
-            this.hUj.setCallback(null);
-            this.hUj.release();
+        if (this.hUl != null) {
+            this.hUl.setCallback(null);
+            this.hUl.release();
         }
-        if (this.hUj != null && (this.hUj.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.hUj.getParent()).removeView(this.hUj);
+        if (this.hUl != null && (this.hUl.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.hUl.getParent()).removeView(this.hUl);
         }
         this.mParentView = null;
     }
@@ -74,9 +74,9 @@ public class a implements com.baidu.live.t.c {
         return this.mParentView;
     }
 
-    private void cos() {
-        if (this.hTj == null) {
-            this.hTj = new CustomMessageListener(2913231) { // from class: com.baidu.tieba.ala.h.a.1
+    private void cot() {
+        if (this.hTl == null) {
+            this.hTl = new CustomMessageListener(2913231) { // from class: com.baidu.tieba.ala.h.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -86,12 +86,12 @@ public class a implements com.baidu.live.t.c {
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.hTj);
+        MessageManager.getInstance().registerListener(this.hTl);
     }
 
-    private void cot() {
-        if (this.hTj != null) {
-            MessageManager.getInstance().unRegisterListener(this.hTj);
+    private void cou() {
+        if (this.hTl != null) {
+            MessageManager.getInstance().unRegisterListener(this.hTl);
         }
     }
 
@@ -106,23 +106,23 @@ public class a implements com.baidu.live.t.c {
         int i2;
         int i3 = 0;
         if (c(pkInfoData)) {
-            if (this.hUk == null) {
-                this.hUk = new HashSet();
+            if (this.hUm == null) {
+                this.hUm = new HashSet();
             }
-            this.hUk.add(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
+            this.hUm.add(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
             q a2 = a(pkInfoData.myPkData);
             q a3 = a(pkInfoData.otherPkData);
-            cou();
-            this.hUj.setVisibility(0);
-            String cow = c.coL().cow();
-            if (TextUtils.isEmpty(cow)) {
+            cov();
+            this.hUl.setVisibility(0);
+            String cox = c.coM().cox();
+            if (TextUtils.isEmpty(cox)) {
                 i = 0;
             } else {
                 if (this.bek == null) {
                     this.bek = new MediaMetadataRetriever();
                 }
                 try {
-                    this.bek.setDataSource(cow);
+                    this.bek.setDataSource(cox);
                     i2 = Integer.valueOf(this.bek.extractMetadata(18)).intValue();
                     try {
                         i3 = Integer.valueOf(this.bek.extractMetadata(19)).intValue();
@@ -131,14 +131,14 @@ public class a implements com.baidu.live.t.c {
                         th = th;
                         th.printStackTrace();
                         i = i2;
-                        cow = null;
+                        cox = null;
                         if (i > 0) {
                         }
-                        cow = null;
+                        cox = null;
                         int realScreenWidth = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-                        this.hUj.ca(realScreenWidth, TextUtils.isEmpty(cow) ? (realScreenWidth * i3) / (i / 2) : realScreenWidth);
-                        this.hUj.setData(a2, a3);
-                        this.hUj.Je(cow);
+                        this.hUl.ca(realScreenWidth, TextUtils.isEmpty(cox) ? (realScreenWidth * i3) / (i / 2) : realScreenWidth);
+                        this.hUl.setData(a2, a3);
+                        this.hUl.Je(cox);
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -146,49 +146,49 @@ public class a implements com.baidu.live.t.c {
                 }
             }
             if (i > 0 || i3 <= 0) {
-                cow = null;
+                cox = null;
             }
             int realScreenWidth2 = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-            this.hUj.ca(realScreenWidth2, TextUtils.isEmpty(cow) ? (realScreenWidth2 * i3) / (i / 2) : realScreenWidth2);
-            this.hUj.setData(a2, a3);
-            this.hUj.Je(cow);
+            this.hUl.ca(realScreenWidth2, TextUtils.isEmpty(cox) ? (realScreenWidth2 * i3) / (i / 2) : realScreenWidth2);
+            this.hUl.setData(a2, a3);
+            this.hUl.Je(cox);
         }
     }
 
-    private void cou() {
-        if (this.hUj == null) {
-            this.hUj = new PkRankStartAnimView(getContext());
+    private void cov() {
+        if (this.hUl == null) {
+            this.hUl = new PkRankStartAnimView(getContext());
         }
-        if (bls().indexOfChild(this.hUj) < 0) {
-            bls().addView(this.hUj, new ViewGroup.LayoutParams(-1, -1));
+        if (bls().indexOfChild(this.hUl) < 0) {
+            bls().addView(this.hUl, new ViewGroup.LayoutParams(-1, -1));
         }
-        this.hUj.setVisibility(8);
-        this.hUj.setCallback(new PkRankStartAnimView.a() { // from class: com.baidu.tieba.ala.h.a.2
+        this.hUl.setVisibility(8);
+        this.hUl.setCallback(new PkRankStartAnimView.a() { // from class: com.baidu.tieba.ala.h.a.2
             @Override // com.baidu.tieba.ala.view.PkRankStartAnimView.a
             public void onAnimEnd() {
-                if (a.this.hUj != null) {
-                    a.this.hUj.setVisibility(8);
+                if (a.this.hUl != null) {
+                    a.this.hUl.setVisibility(8);
                 }
             }
         });
     }
 
     private void reset() {
-        this.ggj = 0L;
-        if (this.hUk != null) {
-            this.hUk.clear();
+        this.ggl = 0L;
+        if (this.hUm != null) {
+            this.hUm.clear();
         }
-        if (this.hUj != null) {
-            this.hUj.stopAnim();
-            this.hUj.setVisibility(8);
+        if (this.hUl != null) {
+            this.hUl.stopAnim();
+            this.hUl.setVisibility(8);
         }
     }
 
     private boolean c(PkInfoData pkInfoData) {
-        if (getContext() == null || pkInfoData == null || pkInfoData.pkStatusInfoData == null || pkInfoData.pkStatusInfoData.pkID <= 0 || pkInfoData.myPkData == null || pkInfoData.otherPkData == null || this.ggj <= 0 || this.ggj != pkInfoData.myPkData.userID) {
+        if (getContext() == null || pkInfoData == null || pkInfoData.pkStatusInfoData == null || pkInfoData.pkStatusInfoData.pkID <= 0 || pkInfoData.myPkData == null || pkInfoData.otherPkData == null || this.ggl <= 0 || this.ggl != pkInfoData.myPkData.userID) {
             return false;
         }
-        return this.hUk == null || !this.hUk.contains(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
+        return this.hUm == null || !this.hUm.contains(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
     }
 
     private q a(PkUserInfoData pkUserInfoData) {
@@ -198,13 +198,13 @@ public class a implements com.baidu.live.t.c {
         q qVar = new q();
         qVar.bjs = pkUserInfoData.bdPortrait;
         qVar.nickname = pkUserInfoData.userNickName;
-        qVar.gJk = pkUserInfoData.divisionIcon;
+        qVar.gJm = pkUserInfoData.divisionIcon;
         String str = pkUserInfoData.winningStreak > 1 ? pkUserInfoData.winningStreak + "连胜" : null;
         if (!TextUtils.isEmpty(str)) {
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new AbsoluteSizeSpan(getContext().getResources().getDimensionPixelSize(a.d.sdk_fontsize26)), 0, String.valueOf(pkUserInfoData.winningStreak).length(), 33);
             spannableString.setSpan(new StyleSpan(3), 0, String.valueOf(pkUserInfoData.winningStreak).length(), 33);
-            qVar.gJj = spannableString;
+            qVar.gJl = spannableString;
         }
         return qVar;
     }

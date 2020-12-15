@@ -19,10 +19,10 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     private String eFW;
     private final com.baidu.tbadk.h.g fAt;
-    private View iXZ;
+    private View iYb;
     private Activity mActivity;
-    private View.OnClickListener nOh;
-    private NavigationBarCoverTip.a nOi;
+    private View.OnClickListener nOj;
+    private NavigationBarCoverTip.a nOk;
 
     public static DefaultNavigationBarCoverTip d(Activity activity, String str, String str2) {
         if (activity == null) {
@@ -33,7 +33,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
 
     private DefaultNavigationBarCoverTip(Activity activity) {
         super(activity);
-        this.nOh = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
+        this.nOj = new View.OnClickListener() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TbPageContext<?> tbPageContext;
@@ -52,26 +52,26 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
                 }
             }
         };
-        this.nOi = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
+        this.nOk = new NavigationBarCoverTip.a() { // from class: com.baidu.tieba.view.DefaultNavigationBarCoverTip.3
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
             public void QM() {
             }
 
             @Override // com.baidu.tieba.view.NavigationBarCoverTip.a
-            public void dXS() {
+            public void dXT() {
                 DefaultNavigationBarCoverTip.this.detach();
             }
         };
         this.mActivity = activity;
-        bOJ();
-        setCoverTipListener(this.nOi);
+        bOK();
+        setCoverTipListener(this.nOk);
     }
 
     public void show() {
         ViewGroup viewGroup;
-        if (this.mActivity != null && this.iXZ != null && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null) {
+        if (this.mActivity != null && this.iYb != null && (viewGroup = (ViewGroup) this.mActivity.findViewById(16908290)) != null) {
             viewGroup.addView(this, new ViewGroup.LayoutParams(-1, -2));
-            e(this.mActivity, this.iXZ);
+            e(this.mActivity, this.iYb);
         }
     }
 
@@ -79,9 +79,9 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         if (!TextUtils.isEmpty(str)) {
             Context context = getContext();
             this.eFW = str2;
-            this.iXZ = View.inflate(context, R.layout.write_thread_share_guide, null);
-            TextView textView = (TextView) this.iXZ.findViewById(R.id.write_thread_success_tips);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.iXZ.findViewById(R.id.share_icon);
+            this.iYb = View.inflate(context, R.layout.write_thread_share_guide, null);
+            TextView textView = (TextView) this.iYb.findViewById(R.id.write_thread_success_tips);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.iYb.findViewById(R.id.share_icon);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
             cVar.bwd();
@@ -89,7 +89,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);
-            tBSpecificationBtn.setOnClickListener(this.nOh);
+            tBSpecificationBtn.setOnClickListener(this.nOj);
             if (TextUtils.isEmpty(str2)) {
                 tBSpecificationBtn.setVisibility(8);
             } else {
@@ -103,7 +103,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         return this;
     }
 
-    private void bOJ() {
+    private void bOK() {
         try {
             TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(this.fAt);
         } catch (Exception e) {

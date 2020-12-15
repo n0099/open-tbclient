@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes18.dex */
     static class C0009a {
-        private static Object pyk;
-        private static Method pyl;
-        private static Method pym;
+        private static Object pym;
         private static Method pyn;
         private static Method pyo;
+        private static Method pyp;
+        private static Method pyq;
         private static Class<?> sClass;
 
         static {
-            pyl = null;
-            pym = null;
             pyn = null;
             pyo = null;
+            pyp = null;
+            pyq = null;
             try {
                 sClass = Class.forName("com.android.id.impl.IdProviderImpl");
-                pyk = sClass.newInstance();
-                pyl = sClass.getMethod("getUDID", Context.class);
-                pym = sClass.getMethod("getOAID", Context.class);
-                pyn = sClass.getMethod("getVAID", Context.class);
-                pyo = sClass.getMethod("getAAID", Context.class);
+                pym = sClass.newInstance();
+                pyn = sClass.getMethod("getUDID", Context.class);
+                pyo = sClass.getMethod("getOAID", Context.class);
+                pyp = sClass.getMethod("getVAID", Context.class);
+                pyq = sClass.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (sClass == null || pyk == null) ? false : true;
+            return (sClass == null || pym == null) ? false : true;
         }
 
         public static String bZ(Context context) {
-            return b(context, pym);
+            return b(context, pyo);
         }
 
         private static String b(Context context, Method method) {
-            if (pyk != null && method != null) {
+            if (pym != null && method != null) {
                 try {
-                    Object invoke = method.invoke(pyk, context);
+                    Object invoke = method.invoke(pym, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

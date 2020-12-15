@@ -13,13 +13,13 @@ import com.baidu.tieba.recapp.report.g;
 import java.util.HashMap;
 /* loaded from: classes26.dex */
 public class c implements h {
-    private AdvertAppInfo kKY;
+    private AdvertAppInfo kLa;
     private String mForumId;
-    private j mMC;
+    private j mME;
     private String mPostId;
 
     public c(@NonNull TbPageContext<?> tbPageContext, @NonNull final AdvertAppInfo.ILegoAdvert iLegoAdvert, int i, boolean z, String str, String str2) {
-        this.kKY = iLegoAdvert.getAdvertAppInfo();
+        this.kLa = iLegoAdvert.getAdvertAppInfo();
         this.mForumId = str;
         this.mPostId = str2;
         b bVar = new b(tbPageContext);
@@ -41,7 +41,7 @@ public class c implements h {
                 }
                 c.this.Sh(str3);
                 if (i2 == 1) {
-                    c.this.Si(c.this.kKY.bmH() ? "image" : "video");
+                    c.this.Si(c.this.kLa.bmH() ? "image" : "video");
                 }
             }
 
@@ -49,50 +49,50 @@ public class c implements h {
             public void a(String str3, String str4, HashMap<String, Object> hashMap) {
             }
         });
-        this.mMC = bVar;
+        this.mME = bVar;
     }
 
     @Override // com.baidu.tieba.recapp.h
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.mMC.setDragToExitListener(dVar);
+        this.mME.setDragToExitListener(dVar);
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public View deE() {
-        return this.mMC.deE();
+    public View deF() {
+        return this.mME.deF();
     }
 
     @Override // com.baidu.tieba.recapp.h
     public void onAdShow() {
-        com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.c(this.kKY));
+        com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.c(this.kLa));
         apv();
     }
 
     @Override // com.baidu.tieba.recapp.h
     public void onDestroy() {
-        this.mMC.onDestroy();
+        this.mME.onDestroy();
     }
 
     public void Sh(String str) {
         Sj("click");
-        com.baidu.tieba.recapp.report.c c = g.c(this.kKY, 2, 0);
+        com.baidu.tieba.recapp.report.c c = g.c(this.kLa, 2, 0);
         c.Sx(str);
-        d.dGf().a(c);
+        d.dGg().a(c);
     }
 
     public void Si(String str) {
         Sj("click");
-        com.baidu.tieba.recapp.report.c c = g.c(this.kKY, 706, 0);
+        com.baidu.tieba.recapp.report.c c = g.c(this.kLa, 706, 0);
         c.Sx(str);
-        d.dGf().a(c);
+        d.dGg().a(c);
     }
 
     public void apv() {
         Sj("show");
-        d.dGf().a(g.c(this.kKY, 3, 0));
+        d.dGg().a(g.c(this.kLa, 3, 0));
     }
 
     public void Sj(String str) {
-        com.baidu.tbadk.distribute.a.bCa().a(this.kKY, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
+        com.baidu.tbadk.distribute.a.bCa().a(this.kLa, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
     }
 }

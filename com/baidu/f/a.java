@@ -52,9 +52,9 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             this.aow = String.valueOf(map.get("persistentViewId"));
             if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
                 this.aox = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
-                this.aox.dNc();
+                this.aox.dNd();
                 this.aox.startLoadData();
-                this.aov = this.aox.f5new.getRootLayout();
+                this.aov = this.aox.ney.getRootLayout();
             }
         }
     }

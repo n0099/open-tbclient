@@ -11,70 +11,70 @@ import tbclient.Tabfeedlist.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes22.dex */
 public class a {
-    private ArrayList<q> iBr;
-    private ArrayList<bs> iBs;
-    private bl iBt;
-    private c iBu;
-    private boolean iBv;
+    private ArrayList<q> iBt;
+    private ArrayList<bs> iBu;
+    private bl iBv;
+    private c iBw;
+    private boolean iBx;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.iBr = new ArrayList<>(y.getCount(dataRes.thread_list));
+            this.iBt = new ArrayList<>(y.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
                 by byVar = new by();
                 byVar.a(threadInfo);
                 byVar.bor();
-                this.iBr.add(byVar);
+                this.iBt.add(byVar);
             }
-            this.iBs = new ArrayList<>();
+            this.iBu = new ArrayList<>();
             if (!y.isEmpty(dataRes.resource_list)) {
                 for (GeneralResource generalResource : dataRes.resource_list) {
                     bs bsVar = new bs();
                     bsVar.a(generalResource);
-                    this.iBs.add(bsVar);
+                    this.iBu.add(bsVar);
                 }
             }
-            this.iBt = new bl();
-            this.iBt.bm(dataRes.recommend_forum_info);
+            this.iBv = new bl();
+            this.iBv.bm(dataRes.recommend_forum_info);
             if (dataRes.hot_userrank_entry != null) {
-                this.iBu = new c();
-                this.iBu.hot_user = dataRes.hot_userrank_entry.hot_user;
-                this.iBu.module_name = dataRes.hot_userrank_entry.module_name;
-                this.iBu.module_icon = dataRes.hot_userrank_entry.module_icon;
+                this.iBw = new c();
+                this.iBw.hot_user = dataRes.hot_userrank_entry.hot_user;
+                this.iBw.module_name = dataRes.hot_userrank_entry.module_name;
+                this.iBw.module_icon = dataRes.hot_userrank_entry.module_icon;
             }
-            this.iBv = dataRes.is_new_url.intValue() == 1;
+            this.iBx = dataRes.is_new_url.intValue() == 1;
         }
     }
 
-    public ArrayList<q> cwM() {
-        return this.iBr;
-    }
-
-    public ArrayList<bs> cwN() {
-        return this.iBs;
-    }
-
-    public bl cwO() {
+    public ArrayList<q> cwN() {
         return this.iBt;
     }
 
-    public c cwP() {
+    public ArrayList<bs> cwO() {
         return this.iBu;
     }
 
-    public boolean cwQ() {
+    public bl cwP() {
         return this.iBv;
     }
 
+    public c cwQ() {
+        return this.iBw;
+    }
+
+    public boolean cwR() {
+        return this.iBx;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: cwR */
+    /* renamed from: cwS */
     public a clone() {
         a aVar = new a();
-        aVar.iBr = this.iBr;
-        aVar.iBs = this.iBs;
         aVar.iBt = this.iBt;
         aVar.iBu = this.iBu;
         aVar.iBv = this.iBv;
+        aVar.iBw = this.iBw;
+        aVar.iBx = this.iBx;
         return aVar;
     }
 }
