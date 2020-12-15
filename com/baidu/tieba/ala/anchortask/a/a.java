@@ -29,124 +29,124 @@ import org.json.JSONObject;
 public class a implements com.baidu.live.b.a {
     private w alaLiveShowData;
     private Context context;
-    private com.baidu.tieba.ala.anchortask.c.a gAR;
-    private com.baidu.tieba.ala.anchortask.b.c gAS;
-    private String gAT;
-    private int gAW;
-    private int gAX;
-    private d gAY;
-    private AlaAnchorBannerViewPager gAZ;
-    private MyPagerAdapter gBb;
-    private AlaAnchorViewPagerDot gBc;
-    private int gBd;
+    private com.baidu.tieba.ala.anchortask.c.a gAT;
+    private com.baidu.tieba.ala.anchortask.b.c gAU;
+    private String gAV;
+    private int gAY;
+    private int gAZ;
+    private d gBa;
+    private AlaAnchorBannerViewPager gBb;
+    private MyPagerAdapter gBd;
+    private AlaAnchorViewPagerDot gBe;
+    private int gBf;
     private Activity mActivity;
     private View mView;
     private Handler handler = new Handler();
-    private Handler gAU = new Handler();
-    private boolean gAV = false;
-    private ArrayList<View> gBa = new ArrayList<>();
+    private Handler gAW = new Handler();
+    private boolean gAX = false;
+    private ArrayList<View> gBc = new ArrayList<>();
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bTl();
+            a.this.bTm();
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private Runnable gBe = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
+    private Runnable gBg = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.gAY.gBo.setCanVisible(true);
+            a.this.gBa.gBq.setCanVisible(true);
         }
     };
     private View.OnClickListener foP = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(a.this.gAT)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gAT));
+            if (!TextUtils.isEmpty(a.this.gAV)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913141, a.this.gAV));
             }
-            a.this.bTl();
+            a.this.bTm();
             a.this.handler.removeCallbacksAndMessages(null);
             a.this.handler.postDelayed(a.this.runnable, 60000L);
         }
     };
-    private SlideRatioViewPager.OnPageChangeListener gBf = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.4
+    private SlideRatioViewPager.OnPageChangeListener gBh = new SlideRatioViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.anchortask.a.a.4
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
         }
 
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            a.this.gBc.vq(i);
+            a.this.gBe.vq(i);
         }
 
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
         }
     };
-    private HttpMessageListener gBg = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.5
+    private HttpMessageListener gBi = new HttpMessageListener(1021172) { // from class: com.baidu.tieba.ala.anchortask.a.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gAR != null) {
-                a.this.gAS = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gAS;
-                if (a.this.gAS != null && a.this.gAS.gBM != null) {
-                    a.this.gAT = a.this.gAS.gAT;
-                    a.this.bTm();
-                    boolean a2 = a.this.gAR.a(a.this.gAS.gBM);
-                    if (a.this.gBd == 1) {
-                        a.this.gAY.gBo.setCanVisible(true);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetAnchorTaskInfoHttpResponseMessage) && a.this.gAT != null) {
+                a.this.gAU = ((GetAnchorTaskInfoHttpResponseMessage) httpResponsedMessage).gAU;
+                if (a.this.gAU != null && a.this.gAU.gBO != null) {
+                    a.this.gAV = a.this.gAU.gAV;
+                    a.this.bTn();
+                    boolean a2 = a.this.gAT.a(a.this.gAU.gBO);
+                    if (a.this.gBf == 1) {
+                        a.this.gBa.gBq.setCanVisible(true);
                         if (a2) {
-                            if (a.this.gBa.size() <= 1 && a.this.gAR != null) {
-                                a.this.gBa.add(a.this.gAR.getView());
-                                a.this.gAZ.setAdapter(new MyPagerAdapter(a.this.context, a.this.gBa));
-                                a.this.gBc.vr(a.this.gBa.size());
+                            if (a.this.gBc.size() <= 1 && a.this.gAT != null) {
+                                a.this.gBc.add(a.this.gAT.getView());
+                                a.this.gBb.setAdapter(new MyPagerAdapter(a.this.context, a.this.gBc));
+                                a.this.gBe.vr(a.this.gBc.size());
                             }
-                        } else if (a.this.gBa.size() == 2) {
-                            a.this.gBa.remove(1);
-                            a.this.gAZ.setAdapter(new MyPagerAdapter(a.this.context, a.this.gBa));
-                            a.this.gBc.vr(a.this.gBa.size());
+                        } else if (a.this.gBc.size() == 2) {
+                            a.this.gBc.remove(1);
+                            a.this.gBb.setAdapter(new MyPagerAdapter(a.this.context, a.this.gBc));
+                            a.this.gBe.vr(a.this.gBc.size());
                         }
                     } else if (!a2) {
-                        a.this.gBa.clear();
+                        a.this.gBc.clear();
                         a.this.mView.setVisibility(8);
-                    } else if (a.this.gAR != null) {
-                        a.this.gBa.clear();
-                        a.this.gBa.add(a.this.gAR.getView());
-                        a.this.gAZ.setAdapter(new MyPagerAdapter(a.this.context, a.this.gBa));
-                        a.this.gBc.vr(a.this.gBa.size());
+                    } else if (a.this.gAT != null) {
+                        a.this.gBc.clear();
+                        a.this.gBc.add(a.this.gAT.getView());
+                        a.this.gBb.setAdapter(new MyPagerAdapter(a.this.context, a.this.gBc));
+                        a.this.gBe.vr(a.this.gBc.size());
                     }
-                    if (a.this.gAS.gBM.gBA == 2) {
+                    if (a.this.gAU.gBO.gBC == 2) {
                         a.this.handler.removeCallbacksAndMessages(null);
                     }
                 }
             }
         }
     };
-    private Runnable gBh = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6
+    private Runnable gBj = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6
         @Override // java.lang.Runnable
         public void run() {
             a.this.mActivity.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.a.6.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    int currentItem = a.this.gAZ.getCurrentItem() + 1;
-                    if (a.this.gBa.size() > 0) {
-                        a.this.gAZ.setCurrentItem(currentItem % a.this.gBa.size());
-                        a.this.gBc.vq(currentItem % a.this.gBa.size());
+                    int currentItem = a.this.gBb.getCurrentItem() + 1;
+                    if (a.this.gBc.size() > 0) {
+                        a.this.gBb.setCurrentItem(currentItem % a.this.gBc.size());
+                        a.this.gBe.vq(currentItem % a.this.gBc.size());
                     }
                 }
             });
-            a.this.gAU.postDelayed(a.this.gBh, 10000L);
+            a.this.gAW.postDelayed(a.this.gBj, 10000L);
         }
     };
 
     public a(Context context) {
         this.context = context;
         initTasks();
-        this.gAR = new com.baidu.tieba.ala.anchortask.c.a(context);
-        this.gAY = new d(context);
-        this.gAR.getView().setId(a.f.ala_main_anthor_task_entry_id);
-        if (this.gAR.getView() != null) {
-            this.gAR.getView().setOnClickListener(this.foP);
+        this.gAT = new com.baidu.tieba.ala.anchortask.c.a(context);
+        this.gBa = new d(context);
+        this.gAT.getView().setId(a.f.ala_main_anthor_task_entry_id);
+        if (this.gAT.getView() != null) {
+            this.gAT.getView().setOnClickListener(this.foP);
         }
     }
 
@@ -155,8 +155,8 @@ public class a implements com.baidu.live.b.a {
         boolean z;
         ca caVar = com.baidu.live.ae.a.RB().bxq.aQW;
         this.mActivity = activity;
-        if (caVar != null && this.gAY != null) {
-            this.gAY.vp(i);
+        if (caVar != null && this.gBa != null) {
+            this.gBa.vp(i);
             if (TbadkCoreApplication.getInst().isHaokan()) {
                 z = caVar.aRP == 1;
             } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
@@ -169,25 +169,25 @@ public class a implements com.baidu.live.b.a {
                 z = false;
             }
             if (z) {
-                if (this.gAR != null) {
+                if (this.gAT != null) {
                     this.mView = LayoutInflater.from(this.context).inflate(a.g.layout_anchor_viewpager, (ViewGroup) null);
-                    this.gBc = (AlaAnchorViewPagerDot) this.mView.findViewById(a.f.anchor_task_dot);
+                    this.gBe = (AlaAnchorViewPagerDot) this.mView.findViewById(a.f.anchor_task_dot);
                     this.mView.setId(a.f.anthor_task_viewpager_id);
-                    this.gAZ = (AlaAnchorBannerViewPager) this.mView.findViewById(a.f.anchor_view_pager);
-                    this.gAZ.requestDisallowInterceptTouchEvent(true);
-                    this.gBd = i;
+                    this.gBb = (AlaAnchorBannerViewPager) this.mView.findViewById(a.f.anchor_view_pager);
+                    this.gBb.requestDisallowInterceptTouchEvent(true);
+                    this.gBf = i;
                     if (i == 1) {
-                        this.gBa.add(this.gAY.gBo.getView());
-                        this.gAY.gBo.setCanVisible(false);
-                        this.gAU.postDelayed(this.gBe, 10000L);
+                        this.gBc.add(this.gBa.gBq.getView());
+                        this.gBa.gBq.setCanVisible(false);
+                        this.gAW.postDelayed(this.gBg, 10000L);
                     }
-                    this.gAR.Z(this.gBa);
-                    this.gBb = new MyPagerAdapter(this.context, this.gBa);
-                    this.gAZ.setAdapter(this.gBb);
-                    this.gBc.vr(this.gBa.size());
+                    this.gAT.Z(this.gBc);
+                    this.gBd = new MyPagerAdapter(this.context, this.gBc);
+                    this.gBb.setAdapter(this.gBd);
+                    this.gBe.vr(this.gBc.size());
                     viewGroup.addView(this.mView, layoutParams);
-                    this.gAU.postDelayed(this.gBh, 10000L);
-                    this.gAZ.addOnPageChangeListener(this.gBf);
+                    this.gAW.postDelayed(this.gBj, 10000L);
+                    this.gBb.addOnPageChangeListener(this.gBh);
                 }
                 this.handler.postDelayed(this.runnable, 10000L);
             }
@@ -197,7 +197,7 @@ public class a implements com.baidu.live.b.a {
     @Override // com.baidu.live.b.a
     public void a(w wVar) {
         this.alaLiveShowData = wVar;
-        this.gAY.a(wVar);
+        this.gBa.a(wVar);
     }
 
     private void initTasks() {
@@ -207,10 +207,10 @@ public class a implements com.baidu.live.b.a {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetAnchorTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gBg);
+        MessageManager.getInstance().registerListener(this.gBi);
     }
 
-    public void bTl() {
+    public void bTm() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
@@ -223,25 +223,25 @@ public class a implements com.baidu.live.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTm() {
-        if (this.gAS != null && this.gAS.gBM != null) {
-            if (!this.gAV) {
-                this.gAV = true;
-                this.gAW = this.gAS.gBM.gBy;
-                this.gAX = this.gAS.gBM.gBz;
+    public void bTn() {
+        if (this.gAU != null && this.gAU.gBO != null) {
+            if (!this.gAX) {
+                this.gAX = true;
+                this.gAY = this.gAU.gBO.gBA;
+                this.gAZ = this.gAU.gBO.gBB;
             }
-            int i = this.gAS.gBM.gBA;
-            int i2 = this.gAS.gBM.gBB;
-            int i3 = this.gAS.gBM.gBC;
+            int i = this.gAU.gBO.gBC;
+            int i2 = this.gAU.gBO.gBD;
+            int i3 = this.gAU.gBO.gBE;
             String str = null;
-            if (this.gAW == 1 && i == 2) {
+            if (this.gAY == 1 && i == 2) {
                 str = this.context.getString(a.h.txt_im_identity_is_mcn);
-            } else if (this.gAW == 2 && i == 1) {
+            } else if (this.gAY == 2 && i == 1) {
                 str = String.format(this.context.getString(a.h.txt_im_identity_is_ugc), Integer.valueOf(i3)) + "%";
-            } else if (this.gAW == 1 && i == 1) {
-                if (i2 > this.gAX) {
+            } else if (this.gAY == 1 && i == 1) {
+                if (i2 > this.gAZ) {
                     str = String.format(this.context.getString(a.h.txt_im_identity_advance), Integer.valueOf(i3)) + "%";
-                } else if (i2 < this.gAX) {
+                } else if (i2 < this.gAZ) {
                     str = String.format(this.context.getString(a.h.txt_im_identity_reduce), Integer.valueOf(i3)) + "%";
                 }
             }
@@ -255,35 +255,35 @@ public class a implements com.baidu.live.b.a {
                     e.printStackTrace();
                 }
             }
-            this.gAW = i;
-            this.gAX = i2;
+            this.gAY = i;
+            this.gAZ = i2;
         }
     }
 
     @Override // com.baidu.live.b.a
     public void setCanVisible(boolean z) {
-        if (this.gAR != null) {
-            this.gAR.setCanVisible(z);
+        if (this.gAT != null) {
+            this.gAT.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.b.a
     public void refreshUI() {
-        if (this.gAR != null) {
-            this.gAR.refreshUI();
+        if (this.gAT != null) {
+            this.gAT.refreshUI();
         }
     }
 
     @Override // com.baidu.live.b.a
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        this.gAU.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.gBg);
-        if (this.gAR != null) {
-            this.gAR.onDestroy();
+        this.gAW.removeCallbacksAndMessages(null);
+        MessageManager.getInstance().unRegisterListener(this.gBi);
+        if (this.gAT != null) {
+            this.gAT.onDestroy();
         }
-        if (this.gAY != null) {
-            this.gAY.onDestory();
+        if (this.gBa != null) {
+            this.gBa.onDestory();
         }
     }
 }

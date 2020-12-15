@@ -17,16 +17,16 @@ import java.util.LinkedList;
 public class c extends o<com.baidu.tieba.pb.data.o, a> {
     private static int aLC;
     private View.OnClickListener fbo;
-    private e lRQ;
-    private final LinkedList<a> lRR;
+    private e lRS;
+    private final LinkedList<a> lRT;
 
     public c(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
-        this.lRR = new LinkedList<>();
-        if (bVar != null && bVar.dok() != null) {
-            aLC = bVar.dok().dqU();
+        this.lRT = new LinkedList<>();
+        if (bVar != null && bVar.dol() != null) {
+            aLC = bVar.dol().dqV();
         }
-        this.lRQ = new e(bVar);
+        this.lRS = new e(bVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
     /* renamed from: cr */
     public a c(ViewGroup viewGroup) {
         a aVar = new a(LayoutInflater.from(this.mContext).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
-        this.lRR.add(aVar);
+        this.lRT.add(aVar);
         return aVar;
     }
 
@@ -43,59 +43,59 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.o oVar, a aVar) {
         super.a(i, view, viewGroup, (ViewGroup) oVar, (com.baidu.tieba.pb.data.o) aVar);
         if (oVar != null && aVar != null) {
-            aVar.lRS.setOnClickOutListener(this.fbo);
-            aVar.lRS.setPostId(getPostId());
-            aVar.lRS.setForumId(getForumId());
+            aVar.lRU.setOnClickOutListener(this.fbo);
+            aVar.lRU.setPostId(getPostId());
+            aVar.lRU.setForumId(getForumId());
             aVar.b(oVar);
         }
         return view;
     }
 
     public void onDestroy() {
-        dty();
-        if (this.lRQ != null) {
-            this.lRQ.onDestroy();
+        dtz();
+        if (this.lRS != null) {
+            this.lRS.onDestroy();
         }
     }
 
-    private void dty() {
-        Iterator<a> it = this.lRR.iterator();
+    private void dtz() {
+        Iterator<a> it = this.lRT.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.lRS != null) {
-                next.lRS.onDestroy();
+            if (next != null && next.lRU != null) {
+                next.lRU.onDestroy();
             }
         }
     }
 
     public void CB(String str) {
-        if (this.lRR.size() > 0) {
-            Iterator<a> it = this.lRR.iterator();
+        if (this.lRT.size() > 0) {
+            Iterator<a> it = this.lRT.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.lRS != null) {
-                    next.lRS.CB(str);
+                if (next != null && next.lRU != null) {
+                    next.lRU.CB(str);
                 }
             }
-        } else if (dtz() != null) {
-            this.lRQ.e(dtz().bqI());
+        } else if (dtA() != null) {
+            this.lRS.e(dtA().bqI());
         }
     }
 
     private String getPostId() {
-        by dtz = dtz();
-        return dtz != null ? dtz.bpg() : "";
+        by dtA = dtA();
+        return dtA != null ? dtA.bpg() : "";
     }
 
     private String getForumId() {
-        return this.lGo.dok() != null ? this.lGo.dok().getForumId() : "";
+        return this.lGq.dol() != null ? this.lGq.dol().getForumId() : "";
     }
 
-    private by dtz() {
-        if (this.lGo.dok() == null || this.lGo.dok().getPbData() == null) {
+    private by dtA() {
+        if (this.lGq.dol() == null || this.lGq.dol().getPbData() == null) {
             return null;
         }
-        return this.lGo.dok().getPbData().dmT();
+        return this.lGq.dol().getPbData().dmU();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -104,22 +104,22 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
 
     /* loaded from: classes22.dex */
     public static class a extends af.a {
-        public PbThreadCommentAndPraiseInfoLayout lRS;
-        public View lRT;
-        private int lRU;
+        public PbThreadCommentAndPraiseInfoLayout lRU;
+        public View lRV;
+        private int lRW;
 
         public a(View view) {
             super(view);
             if (view != null) {
-                this.lRS = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
+                this.lRU = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);
                 com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
                 dVar.eEJ = 4;
                 dVar.eEP = 7;
-                dVar.eEK = this.lRU;
+                dVar.eEK = this.lRW;
                 dVar.eEN = c.aLC;
-                this.lRS.setAgreeStatisticData(dVar);
-                this.lRT = view.findViewById(R.id.bottom_divider_line);
-                this.lRT.setVisibility(0);
+                this.lRU.setAgreeStatisticData(dVar);
+                this.lRV = view.findViewById(R.id.bottom_divider_line);
+                this.lRV.setVisibility(0);
             }
         }
 
@@ -129,14 +129,14 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
                 if (bmn.bqI() != null) {
                     bmn.bqI().postId = bmn.bpg();
                 }
-                this.lRS.a(bmn, oVar.getAnti());
-                this.lRT.setVisibility(oVar.dnP() ? 0 : 8);
+                this.lRU.a(bmn, oVar.getAnti());
+                this.lRV.setVisibility(oVar.dnQ() ? 0 : 8);
                 if (bmn.bnv() && bmn.bph() != null) {
-                    this.lRU = 2;
+                    this.lRW = 2;
                 } else {
-                    this.lRU = 1;
+                    this.lRW = 1;
                 }
-                if (oVar.lCj) {
+                if (oVar.lCl) {
                     getView().setPadding(0, 0, 0, l.getDimens(getView().getContext(), R.dimen.tbds32));
                 }
             }
@@ -144,8 +144,8 @@ public class c extends o<com.baidu.tieba.pb.data.o, a> {
         }
 
         public void onChangeSkinType() {
-            ap.setBackgroundColor(this.lRT, R.color.CAM_X0203);
-            this.lRS.onChangeSkinType();
+            ap.setBackgroundColor(this.lRV, R.color.CAM_X0203);
+            this.lRU.onChangeSkinType();
         }
     }
 }

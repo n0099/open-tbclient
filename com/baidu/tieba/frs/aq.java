@@ -5,7 +5,7 @@ public interface aq {
 
     void a(au auVar);
 
-    void bYY();
+    void bYZ();
 
     void init();
 }

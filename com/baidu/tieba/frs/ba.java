@@ -4,7 +4,7 @@ public class ba {
     public Object ext;
     public String forumId;
     public String forumName;
-    public boolean iXR = false;
+    public boolean iXT = false;
     public int pn;
     public String stType;
 }

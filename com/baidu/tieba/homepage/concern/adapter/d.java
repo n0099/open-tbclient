@@ -41,8 +41,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.e eVar) {
-                com.baidu.tieba.card.t.csg().mj(true);
-                com.baidu.tieba.a.d.bLT().dS("page_recommend", "show_");
+                com.baidu.tieba.card.t.csh().mj(true);
+                com.baidu.tieba.a.d.bLU().dS("page_recommend", "show_");
                 if (view != null && eVar != null && eVar.bmn() != null && !StringUtils.isNull(eVar.bmn().getTid())) {
                     d.this.a(view, eVar);
                 }
@@ -99,7 +99,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         amVar.a(true, Align.ALIGN_RIGHT_TOP);
         amVar.uc();
         amVar.b((am<com.baidu.tieba.card.data.e>) eVar);
-        com.baidu.tieba.card.t.csg().e(eVar.Jv("c12351"));
+        com.baidu.tieba.card.t.csh().e(eVar.Jv("c12351"));
         amVar.tZ().a(this.agG);
         amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return amVar.getView();

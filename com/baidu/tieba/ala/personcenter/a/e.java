@@ -15,7 +15,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.g.hNv);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.g.hNx);
         this.mPageContext = tbPageContext;
     }
 
@@ -31,17 +31,17 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.csM() == null) {
+        if (aVar.csN() == null) {
             return null;
         }
-        a(gVar, aVar.csM());
-        aVar.csM().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.e.1
+        a(gVar, aVar.csN());
+        aVar.csN().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 e.this.a(gVar);
             }
         });
-        return aVar.csM().getView();
+        return aVar.csN().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.g gVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
@@ -57,8 +57,8 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
         if (gVar != null && gVar.getPersonCenterData() != null) {
             com.baidu.tieba.ala.personcenter.c.c personCenterData = gVar.getPersonCenterData();
             String str = "";
-            if (personCenterData.cmP() != null && personCenterData.isHost()) {
-                str = personCenterData.cmP().live_id;
+            if (personCenterData.cmQ() != null && personCenterData.isHost()) {
+                str = personCenterData.cmQ().live_id;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaAdminListActivityConfig(this.mPageContext.getPageActivity(), str)));
         }

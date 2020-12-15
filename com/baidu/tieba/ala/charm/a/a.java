@@ -21,22 +21,22 @@ import com.baidu.tieba.ala.charm.model.a;
 public class a implements d {
     private String aGk;
     private boolean bns;
-    private com.baidu.tieba.ala.charm.model.a gDB;
-    private String gDw;
-    private b gEz;
+    private com.baidu.tieba.ala.charm.model.a gDD;
+    private String gDy;
+    private b gEB;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private BdUniqueId mPageId;
     private String mUid;
-    private boolean gEA = true;
-    a.InterfaceC0650a gDF = new a.InterfaceC0650a() { // from class: com.baidu.tieba.ala.charm.a.a.1
+    private boolean gEC = true;
+    a.InterfaceC0650a gDH = new a.InterfaceC0650a() { // from class: com.baidu.tieba.ala.charm.a.a.1
         @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0650a
         public void a(ALaCharmDataList aLaCharmDataList) {
-            a.this.gEz.hideLoadingView();
-            a.this.gEz.completePullRefresh();
-            a.this.gEz.ab(aLaCharmDataList.data);
-            a.this.gEA = false;
+            a.this.gEB.hideLoadingView();
+            a.this.gEB.completePullRefresh();
+            a.this.gEB.ab(aLaCharmDataList.data);
+            a.this.gEC = false;
         }
 
         @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0650a
@@ -44,17 +44,17 @@ public class a implements d {
             if (str != null) {
                 CustomToast.newInstance().showToast(str);
             }
-            a.this.gEz.completePullRefresh();
-            a.this.gEz.hideLoadingView();
-            a.this.gEz.bUr();
-            a.this.gEA = true;
+            a.this.gEB.completePullRefresh();
+            a.this.gEB.hideLoadingView();
+            a.this.gEB.bUs();
+            a.this.gEC = true;
         }
     };
-    private TbListCommonPullView.ListPullRefreshListener gEB = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.charm.a.a.2
+    private TbListCommonPullView.ListPullRefreshListener gED = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.charm.a.a.2
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.gDB != null) {
-                a.this.gDB.bH(1, 10);
+            if (a.this.gDD != null) {
+                a.this.gDD.bH(1, 10);
             }
         }
     };
@@ -65,8 +65,8 @@ public class a implements d {
             UpdateAttentionMessage updateAttentionMessage;
             if ((customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                 if (!updateAttentionMessage.getData().isSucc) {
-                    if (a.this.gEz != null) {
-                        a.this.gEz.aA(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
+                    if (a.this.gEB != null) {
+                        a.this.gEB.aA(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
                     }
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
                     if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.Yo().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
@@ -77,8 +77,8 @@ public class a implements d {
                 }
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                 if (message2 == null || message2.getTag() == null || !message2.getTag().equals(a.this.mPageId)) {
-                    if (a.this.gEz != null) {
-                        a.this.gEz.aA(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
+                    if (a.this.gEB != null) {
+                        a.this.gEB.aA(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
                     }
                 } else if (updateAttentionMessage.getData().isAttention) {
                     com.baidu.live.view.a.Yo().a(a.this.mPageContext, true);
@@ -94,15 +94,15 @@ public class a implements d {
     }
 
     public void createView() {
-        if (this.gEz == null) {
-            this.gEz = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.bns, this.aGk);
-            this.gEz.setCharmValue(this.gDw);
-            this.gEz.a(this.gEB);
+        if (this.gEB == null) {
+            this.gEB = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.bns, this.aGk);
+            this.gEB.setCharmValue(this.gDy);
+            this.gEB.a(this.gED);
         }
-        this.gDB = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.gDF);
+        this.gDD = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.gDH);
         if (!StringUtils.isNull(this.mUid) && !this.mUid.equals("0")) {
-            this.gEz.showLoadingView();
-            this.gDB.bH(1, 10);
+            this.gEB.showLoadingView();
+            this.gDD.bH(1, 10);
         }
     }
 
@@ -122,19 +122,19 @@ public class a implements d {
     }
 
     public a Hl(String str) {
-        this.gDw = str;
+        this.gDy = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.gEz == null) {
+        if (this.gEB == null) {
             createView();
         }
-        if (this.gEz == null) {
+        if (this.gEB == null) {
             return null;
         }
-        return this.gEz.getView();
+        return this.gEB.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -163,18 +163,18 @@ public class a implements d {
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.blx);
-        if (this.gDB != null) {
-            this.gDB.onDestroy();
+        if (this.gDD != null) {
+            this.gDD.onDestroy();
         }
-        if (this.gEz != null) {
-            this.gEz.hideLoadingView();
+        if (this.gEB != null) {
+            this.gEB.hideLoadingView();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.gEz != null) {
-            this.gEz.onSkinTypeChanged(i);
+        if (this.gEB != null) {
+            this.gEB.onSkinTypeChanged(i);
         }
     }
 }

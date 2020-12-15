@@ -24,7 +24,7 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class c {
-    public a lUB = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
+    public a lUD = new a() { // from class: com.baidu.tieba.pb.pb.main.b.c.1
         @Override // com.baidu.tieba.pb.pb.main.b.c.a
         public void a(f fVar, by byVar, PostData postData, com.baidu.tbadk.widget.richText.a aVar) {
             String shareImageUrl;
@@ -38,7 +38,7 @@ public class c {
                     if (!StringUtils.isNull(shareImageUrl) && shareImageUrl.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
                         shareImageUrl = shareImageUrl.substring(TbConfig.URL_IMAGE_PREFIX.length());
                     }
-                    byVar = fVar.dmT();
+                    byVar = fVar.dmU();
                     if (byVar == null) {
                         return;
                     }

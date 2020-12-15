@@ -5,15 +5,15 @@ import java.nio.CharBuffer;
 import java.nio.FloatBuffer;
 /* loaded from: classes17.dex */
 public class AugmentedFace extends TrackableBase {
-    private FloatBuffer psY;
-    private FloatBuffer psZ;
     private FloatBuffer pta;
-    private CharBuffer ptb;
+    private FloatBuffer ptb;
+    private FloatBuffer ptc;
+    private CharBuffer ptd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AugmentedFace(long j, Session session) {
         super(j, session);
-        exV();
+        exW();
     }
 
     private native h nativeGetCenterPose(long j, long j2);
@@ -45,11 +45,11 @@ public class AugmentedFace extends TrackableBase {
         super(0L, null);
     }
 
-    void exV() {
-        this.psY = Session.r(nativeGetMeshVerticesByteBuffer(this.psW.psX, this.psX)).asFloatBuffer().asReadOnlyBuffer();
-        this.psZ = Session.r(nativeGetMeshNormalsByteBuffer(this.psW.psX, this.psX)).asFloatBuffer().asReadOnlyBuffer();
-        this.pta = Session.r(nativeGetMeshTextureCoordinatesByteBuffer(this.psW.psX, this.psX)).asFloatBuffer().asReadOnlyBuffer();
-        this.ptb = Session.r(nativeGetMeshTriangleIndicesByteBuffer(this.psW.psX, this.psX)).asCharBuffer().asReadOnlyBuffer();
+    void exW() {
+        this.pta = Session.r(nativeGetMeshVerticesByteBuffer(this.psY.psZ, this.psZ)).asFloatBuffer().asReadOnlyBuffer();
+        this.ptb = Session.r(nativeGetMeshNormalsByteBuffer(this.psY.psZ, this.psZ)).asFloatBuffer().asReadOnlyBuffer();
+        this.ptc = Session.r(nativeGetMeshTextureCoordinatesByteBuffer(this.psY.psZ, this.psZ)).asFloatBuffer().asReadOnlyBuffer();
+        this.ptd = Session.r(nativeGetMeshTriangleIndicesByteBuffer(this.psY.psZ, this.psZ)).asCharBuffer().asReadOnlyBuffer();
     }
 
     @Override // com.google.ar.core.TrackableBase

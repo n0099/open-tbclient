@@ -274,7 +274,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements p<com.baidu.t
         if (voiceModel != null) {
             this.alB.EM(voiceModel.voice_status.intValue());
         }
-        this.alB.ccz();
+        this.alB.ccA();
         this.alE = true;
     }
 

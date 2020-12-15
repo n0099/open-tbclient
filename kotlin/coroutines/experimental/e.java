@@ -5,7 +5,7 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes17.dex */
 public final class e implements d {
-    public static final e pKp = new e();
+    public static final e pKr = new e();
 
     private e() {
     }

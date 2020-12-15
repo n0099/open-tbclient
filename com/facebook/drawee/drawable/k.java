@@ -16,7 +16,7 @@ public class k extends m {
     private final Bitmap mBitmap;
     private final Paint mBorderPaint;
     private final Paint mPaint;
-    private WeakReference<Bitmap> pfO;
+    private WeakReference<Bitmap> pfQ;
 
     public k(Resources resources, @Nullable Bitmap bitmap, @Nullable Paint paint) {
         super(new BitmapDrawable(resources, bitmap));
@@ -32,15 +32,15 @@ public class k extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!erI()) {
+        if (!erJ()) {
             super.draw(canvas);
             return;
         }
+        erL();
         erK();
-        erJ();
         updatePaint();
         int save = canvas.save();
-        canvas.concat(this.pgl);
+        canvas.concat(this.pgn);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
@@ -51,21 +51,21 @@ public class k extends m {
     }
 
     private void updatePaint() {
-        if (this.pfO == null || this.pfO.get() != this.mBitmap) {
-            this.pfO = new WeakReference<>(this.mBitmap);
+        if (this.pfQ == null || this.pfQ.get() != this.mBitmap) {
+            this.pfQ = new WeakReference<>(this.mBitmap);
             this.mPaint.setShader(new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.pgb = true;
+            this.pgd = true;
         }
-        if (this.pgb) {
-            this.mPaint.getShader().setLocalMatrix(this.pgn);
-            this.pgb = false;
+        if (this.pgd) {
+            this.mPaint.getShader().setLocalMatrix(this.pgp);
+            this.pgd = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.facebook.drawee.drawable.m
-    public boolean erI() {
-        return super.erI() && this.mBitmap != null;
+    public boolean erJ() {
+        return super.erJ() && this.mBitmap != null;
     }
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable

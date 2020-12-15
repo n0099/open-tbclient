@@ -717,9 +717,9 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ServiceConne
 
     public void q(String... strArr) {
         ain();
-        HashSet epP = strArr == null ? com.facebook.common.internal.i.epP() : com.facebook.common.internal.i.N(strArr);
-        if (epP.contains("flag_finish_activity")) {
-            if (epP.contains("flag_remove_task")) {
+        HashSet epQ = strArr == null ? com.facebook.common.internal.i.epQ() : com.facebook.common.internal.i.N(strArr);
+        if (epQ.contains("flag_finish_activity")) {
+            if (epQ.contains("flag_remove_task")) {
                 aiw();
             } else {
                 finish();

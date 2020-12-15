@@ -21,10 +21,10 @@ public class a extends g {
     private String k;
     private long l;
     private String m;
-    private JSONObject oZK;
+    private JSONObject oZM;
 
     public void a(JSONObject jSONObject) {
-        this.oZK = jSONObject;
+        this.oZM = jSONObject;
     }
 
     public void a(long j) {
@@ -103,7 +103,7 @@ public class a extends g {
             jSONObject.put(UgcConstant.SOURCE_ID, this.i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.oZK);
+            jSONObject.put("rcData", this.oZM);
         } catch (JSONException e) {
             e.printStackTrace();
         }

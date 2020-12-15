@@ -5,7 +5,7 @@ import com.baidu.tieba.ala.data.l;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSnatchRedPacketResponseMessage extends JsonHttpResponsedMessage {
-    private l hHE;
+    private l hHG;
 
     public AlaSnatchRedPacketResponseMessage() {
         super(1021161);
@@ -16,12 +16,12 @@ public class AlaSnatchRedPacketResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hHE = new l();
-            this.hHE.parserJson(optJSONObject);
+            this.hHG = new l();
+            this.hHG.parserJson(optJSONObject);
         }
     }
 
-    public l clR() {
-        return this.hHE;
+    public l clS() {
+        return this.hHG;
     }
 }

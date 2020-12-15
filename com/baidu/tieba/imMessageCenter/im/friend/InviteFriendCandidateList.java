@@ -14,10 +14,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     private View.OnClickListener aGQ;
-    private LinearLayout kGg;
-    private int kGh;
-    private HeadImageView kGi;
-    private a kGj;
+    private LinearLayout kGi;
+    private int kGj;
+    private HeadImageView kGk;
+    private a kGl;
     private Context mContext;
     private int mItemHeight;
     private int mItemWidth;
@@ -32,17 +32,17 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         super(context, attributeSet);
         this.mItemWidth = -1;
         this.mItemHeight = -1;
-        this.kGh = -1;
+        this.kGj = -1;
         this.mMaxCount = 4;
         this.aGQ = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.InviteFriendCandidateList.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                InviteFriendCandidateList.this.kGg.removeView(view);
-                if (!InviteFriendCandidateList.this.daP()) {
-                    InviteFriendCandidateList.this.daN();
+                InviteFriendCandidateList.this.kGi.removeView(view);
+                if (!InviteFriendCandidateList.this.daQ()) {
+                    InviteFriendCandidateList.this.daO();
                 }
-                if (InviteFriendCandidateList.this.kGj != null) {
-                    InviteFriendCandidateList.this.kGj.a(view, view.getTag());
+                if (InviteFriendCandidateList.this.kGl != null) {
+                    InviteFriendCandidateList.this.kGl.a(view, view.getTag());
                 }
             }
         };
@@ -55,70 +55,70 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     }
 
     public void a(a aVar) {
-        this.kGj = aVar;
+        this.kGl = aVar;
     }
 
     private void initialize() {
         this.mItemWidth = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds80);
         this.mItemHeight = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds80);
-        this.kGh = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12);
-        this.kGg = new LinearLayout(this.mContext);
+        this.kGj = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12);
+        this.kGi = new LinearLayout(this.mContext);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
         layoutParams.height = -2;
-        this.kGg.setLayoutParams(layoutParams);
-        this.kGg.setHorizontalScrollBarEnabled(true);
-        this.kGg.setOrientation(0);
-        daN();
-        addView(this.kGg);
+        this.kGi.setLayoutParams(layoutParams);
+        this.kGi.setHorizontalScrollBarEnabled(true);
+        this.kGi.setOrientation(0);
+        daO();
+        addView(this.kGi);
         setSmoothScrollingEnabled(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void daN() {
-        if (this.kGi == null) {
-            this.kGi = daQ();
-            this.kGi.setDrawBorder(false);
+    public void daO() {
+        if (this.kGk == null) {
+            this.kGk = daR();
+            this.kGk.setDrawBorder(false);
         }
-        this.kGi.setImageBitmap(ap.getBitmap(R.drawable.icon_add_pop));
-        this.kGg.addView(this.kGi);
+        this.kGk.setImageBitmap(ap.getBitmap(R.drawable.icon_add_pop));
+        this.kGi.addView(this.kGk);
     }
 
-    private void daO() {
-        if (daP()) {
-            this.kGg.removeView(this.kGi);
+    private void daP() {
+        if (daQ()) {
+            this.kGi.removeView(this.kGk);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean daP() {
-        int childCount = this.kGg.getChildCount();
-        return childCount > 0 && this.kGg.getChildAt(childCount + (-1)) == this.kGi;
+    public boolean daQ() {
+        int childCount = this.kGi.getChildCount();
+        return childCount > 0 && this.kGi.getChildAt(childCount + (-1)) == this.kGk;
     }
 
     public void d(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (getItemLength() < this.mMaxCount) {
-            HeadImageView daQ = daQ();
-            daQ.setIsRound(false);
-            daQ.startLoad(aVar.getUserPortrait(), 12, false);
-            if (daP()) {
-                daQ.setTag(aVar);
-                daQ.setOnClickListener(this.aGQ);
-                this.kGg.addView(daQ, getItemLength());
-                scrollTo(getItemLength() * (this.mItemWidth + this.kGh), 0);
+            HeadImageView daR = daR();
+            daR.setIsRound(false);
+            daR.startLoad(aVar.getUserPortrait(), 12, false);
+            if (daQ()) {
+                daR.setTag(aVar);
+                daR.setOnClickListener(this.aGQ);
+                this.kGi.addView(daR, getItemLength());
+                scrollTo(getItemLength() * (this.mItemWidth + this.kGj), 0);
             }
             if (getItemLength() >= this.mMaxCount) {
-                daO();
+                daP();
             }
         }
     }
 
     public boolean e(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         Object tag;
-        int childCount = this.kGg.getChildCount();
+        int childCount = this.kGi.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.kGg.getChildAt(i);
-            if (childAt != this.kGi && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a) && ((com.baidu.tbadk.coreExtra.relationship.a) tag).equals(aVar)) {
+            View childAt = this.kGi.getChildAt(i);
+            if (childAt != this.kGk && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a) && ((com.baidu.tbadk.coreExtra.relationship.a) tag).equals(aVar)) {
                 aVar.setChecked(true);
                 childAt.setTag(aVar);
                 return true;
@@ -129,11 +129,11 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
 
     public String getDataList() {
         Object tag;
-        int childCount = this.kGg.getChildCount();
+        int childCount = this.kGi.getChildCount();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.kGg.getChildAt(i);
-            if (childAt != this.kGi && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
+            View childAt = this.kGi.getChildAt(i);
+            if (childAt != this.kGk && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
                 if (i > 0) {
                     sb.append(",");
                 }
@@ -144,26 +144,26 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     }
 
     public void f(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        View findViewWithTag = this.kGg.findViewWithTag(aVar);
+        View findViewWithTag = this.kGi.findViewWithTag(aVar);
         if (findViewWithTag != null) {
-            this.kGg.removeView(findViewWithTag);
-            if (!daP()) {
-                daN();
+            this.kGi.removeView(findViewWithTag);
+            if (!daQ()) {
+                daO();
             }
         }
     }
 
-    private HeadImageView daQ() {
+    private HeadImageView daR() {
         HeadImageView headImageView = new HeadImageView(this.mContext);
         headImageView.setIsRound(false);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mItemWidth, this.mItemHeight);
-        layoutParams.setMargins(this.kGh, 0, 0, 0);
+        layoutParams.setMargins(this.kGj, 0, 0, 0);
         headImageView.setLayoutParams(layoutParams);
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         return headImageView;
     }
 
     public int getItemLength() {
-        return daP() ? this.kGg.getChildCount() - 1 : this.kGg.getChildCount();
+        return daQ() ? this.kGi.getChildCount() - 1 : this.kGi.getChildCount();
     }
 }

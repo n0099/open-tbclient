@@ -11,8 +11,8 @@ import org.json.JSONObject;
 class aj {
     private static final boolean DEBUG = AppConfig.isDebug();
     private boolean ess = false;
-    private int oHF = 0;
-    private int oHG = 614400;
+    private int oHH = 0;
+    private int oHI = 614400;
     private JSONArray dsz = new JSONArray();
     private SparseArray<Integer> eso = new SparseArray<>();
     private ArrayList<String> esp = new ArrayList<>();
@@ -53,18 +53,18 @@ class aj {
 
     public void OI(int i) {
         if (i >= 0) {
-            this.oHG = i;
+            this.oHI = i;
         }
     }
 
     public void OJ(int i) {
         if (i > 0) {
-            this.oHF += i;
+            this.oHH += i;
         }
     }
 
-    public boolean ejj() {
-        return this.oHF >= this.oHG;
+    public boolean ejk() {
+        return this.oHH >= this.oHI;
     }
 
     public boolean nJ(int i) {
@@ -75,7 +75,7 @@ class aj {
         return this.dsz.length() == 0;
     }
 
-    public JSONObject ejk() {
+    public JSONObject ejl() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {

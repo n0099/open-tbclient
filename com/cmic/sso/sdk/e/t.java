@@ -12,12 +12,12 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 /* loaded from: classes10.dex */
 public class t {
-    private static t pag = null;
+    private static t pai = null;
     private ConnectivityManager b;
     private ConnectivityManager.NetworkCallback d;
     private boolean e;
     private volatile boolean f = false;
-    private Network pah;
+    private Network paj;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -30,29 +30,29 @@ public class t {
 
     public boolean a() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.pah != null;
+            return this.paj != null;
         }
         return this.f;
     }
 
     public static t hD(Context context) {
-        if (pag == null) {
+        if (pai == null) {
             synchronized (t.class) {
-                if (pag == null) {
-                    pag = new t(context);
+                if (pai == null) {
+                    pai = new t(context);
                 }
             }
         }
-        return pag;
+        return pai;
     }
 
     @TargetApi(21)
     public void a(final a aVar) {
         NetworkInfo networkInfo;
         if (Build.VERSION.SDK_INT >= 21) {
-            if (this.pah != null && !this.e && (networkInfo = this.b.getNetworkInfo(this.pah)) != null && networkInfo.isAvailable()) {
+            if (this.paj != null && !this.e && (networkInfo = this.b.getNetworkInfo(this.paj)) != null && networkInfo.isAvailable()) {
                 Log.e("HttpUtils", "reuse network: ");
-                aVar.f(this.pah);
+                aVar.f(this.paj);
                 return;
             }
             if (this.d != null) {
@@ -68,7 +68,7 @@ public class t {
             this.d = new ConnectivityManager.NetworkCallback() { // from class: com.cmic.sso.sdk.e.t.1
                 @Override // android.net.ConnectivityManager.NetworkCallback
                 public void onAvailable(Network network) {
-                    t.this.pah = network;
+                    t.this.paj = network;
                     aVar.f(network);
                     t.this.e = false;
                 }
@@ -90,7 +90,7 @@ public class t {
             } else if (this.b != null && this.d != null) {
                 this.b.unregisterNetworkCallback(this.d);
                 this.d = null;
-                this.pah = null;
+                this.paj = null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,7 +139,7 @@ public class t {
                 }
                 Thread.sleep(1000L);
             } catch (InterruptedException e) {
-                com.cmic.sso.sdk.d.a.oZV.add(e);
+                com.cmic.sso.sdk.d.a.oZX.add(e);
                 c.a("WifiNetworkUtils", "check hipri failed");
             }
         }

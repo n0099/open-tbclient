@@ -37,15 +37,15 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     private String brl;
     private FrameLayout cBi;
     private TextView eBQ;
-    private View gfM;
-    private LinearLayout gfN;
-    private TextView ghn;
-    private TextView gho;
+    private View gfO;
+    private LinearLayout gfP;
     private TextView ghp;
-    private BdListView ghq;
-    private a ghr;
-    private com.baidu.tieba.ala.data.e ghs;
-    private com.baidu.tieba.ala.g.g ght;
+    private TextView ghq;
+    private TextView ghr;
+    private BdListView ghs;
+    private a ght;
+    private com.baidu.tieba.ala.data.e ghu;
+    private com.baidu.tieba.ala.g.g ghv;
     private ImageView mCloseBtn;
     private String mLiveId;
     private String mRedPacketId;
@@ -56,7 +56,7 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
             AlaRedPacketSnatchResultActivity.this.finish();
         }
     };
-    private o ghu = new o() { // from class: com.baidu.tieba.ala.AlaRedPacketSnatchResultActivity.2
+    private o ghw = new o() { // from class: com.baidu.tieba.ala.AlaRedPacketSnatchResultActivity.2
         @Override // com.baidu.tieba.ala.g.o
         public void b(com.baidu.tieba.ala.data.e eVar) {
             AlaRedPacketSnatchResultActivity.this.a(eVar);
@@ -90,8 +90,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
             }
             setContentView(a.g.ala_red_packet_snatch_result_view);
             initView();
-            this.ght = new com.baidu.tieba.ala.g.g(getPageContext(), this.ghu);
-            this.ght.av(this.mRedPacketId, this.mLiveId, this.brl);
+            this.ghv = new com.baidu.tieba.ala.g.g(getPageContext(), this.ghw);
+            this.ghv.av(this.mRedPacketId, this.mLiveId, this.brl);
             MessageManager.getInstance().registerListener(this.aAS);
             lL(UtilHelper.getRealScreenOrientation(this) == 2);
         }
@@ -104,8 +104,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     }
 
     private void initView() {
-        this.gfM = findViewById(a.f.rp_result_root_bg);
-        this.gfM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaRedPacketSnatchResultActivity.3
+        this.gfO = findViewById(a.f.rp_result_root_bg);
+        this.gfO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaRedPacketSnatchResultActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
@@ -133,25 +133,25 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
         this.bli.setDefaultResource(a.e.sdk_icon_default_avatar100_bg);
         this.bli.setAutoChangeStyle(true);
         this.bli.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ghn = (TextView) findViewById(a.f.p_result_top10_desc);
+        this.ghp = (TextView) findViewById(a.f.p_result_top10_desc);
         this.eBQ = (TextView) findViewById(a.f.p_result_user_name);
-        this.gho = (TextView) findViewById(a.f.p_result_loot_amount);
-        this.gfN = (LinearLayout) findViewById(a.f.rp_result_content);
-        this.ghp = (TextView) findViewById(a.f.p_result_send_gift);
-        this.ghq = (BdListView) findViewById(a.f.p_result_listview);
-        this.ghp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaRedPacketSnatchResultActivity.5
+        this.ghq = (TextView) findViewById(a.f.p_result_loot_amount);
+        this.gfP = (LinearLayout) findViewById(a.f.rp_result_content);
+        this.ghr = (TextView) findViewById(a.f.p_result_send_gift);
+        this.ghs = (BdListView) findViewById(a.f.p_result_listview);
+        this.ghr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaRedPacketSnatchResultActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaRedPacketSnatchResultActivity.this.finish();
-                AlaRedPacketSnatchResultActivity.this.bPh();
+                AlaRedPacketSnatchResultActivity.this.bPi();
             }
         });
-        this.gfN.setVisibility(8);
-        this.ghp.setVisibility(8);
+        this.gfP.setVisibility(8);
+        this.ghr.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bPh() {
+    public void bPi() {
         ai aiVar = new ai();
         aiVar.aLA = -1;
         aiVar.aLB = -1;
@@ -161,36 +161,36 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
 
     public void a(com.baidu.tieba.ala.data.e eVar) {
         String str;
-        this.ghs = eVar;
-        this.gfN.setVisibility(0);
-        this.ghp.setVisibility(0);
+        this.ghu = eVar;
+        this.gfP.setVisibility(0);
+        this.ghr.setVisibility(0);
         if (!StringUtils.isNullObject(eVar.portrait)) {
             l.a(this.bli, eVar.portrait, true, false);
         }
         this.eBQ.setText(eVar.userName);
-        if (eVar.gIH) {
-            String format = String.format(getPageContext().getResources().getString(a.h.snatch_red_packet_amount_desc), Long.valueOf(eVar.gIp));
-            this.ghp.setVisibility(0);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gfN.getLayoutParams();
+        if (eVar.gIJ) {
+            String format = String.format(getPageContext().getResources().getString(a.h.snatch_red_packet_amount_desc), Long.valueOf(eVar.gIr));
+            this.ghr.setVisibility(0);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gfP.getLayoutParams();
             layoutParams.bottomMargin = getPageContext().getResources().getDimensionPixelSize(a.d.sdk_ds184);
-            this.gfN.setLayoutParams(layoutParams);
+            this.gfP.setLayoutParams(layoutParams);
             str = format;
         } else {
             String string = getPageContext().getResources().getString(a.h.snatch_red_packet_failed_1);
-            this.ghp.setVisibility(8);
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.gfN.getLayoutParams();
+            this.ghr.setVisibility(8);
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.gfP.getLayoutParams();
             layoutParams2.bottomMargin = getPageContext().getResources().getDimensionPixelSize(a.d.sdk_ds50);
-            this.gfN.setLayoutParams(layoutParams2);
+            this.gfP.setLayoutParams(layoutParams2);
             str = string;
         }
-        this.gho.setText(str);
-        W(eVar.gII);
+        this.ghq.setText(str);
+        W(eVar.gIK);
     }
 
     private void W(ArrayList<e.a> arrayList) {
-        this.ghr = new a(getPageContext().getPageActivity(), arrayList);
-        this.ghq.setAdapter((ListAdapter) this.ghr);
-        this.ghr.notifyDataSetChanged();
+        this.ght = new a(getPageContext().getPageActivity(), arrayList);
+        this.ghs.setAdapter((ListAdapter) this.ght);
+        this.ght.notifyDataSetChanged();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
@@ -228,8 +228,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.ght != null) {
-            this.ght.onDestroy();
+        if (this.ghv != null) {
+            this.ghv.onDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.aAS);
         super.onDestroy();
@@ -238,18 +238,18 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a extends BaseAdapter {
-        private ArrayList<e.a> ghw;
+        private ArrayList<e.a> ghy;
         private Context mContext;
 
         public a(Context context, ArrayList<e.a> arrayList) {
             this.mContext = context;
-            this.ghw = arrayList;
+            this.ghy = arrayList;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.ghw != null) {
-                return this.ghw.size();
+            if (this.ghy != null) {
+                return this.ghy.size();
             }
             return 0;
         }
@@ -258,8 +258,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
         @Override // android.widget.Adapter
         /* renamed from: uA */
         public e.a getItem(int i) {
-            if (this.ghw != null) {
-                return this.ghw.get(i);
+            if (this.ghy != null) {
+                return this.ghy.get(i);
             }
             return null;
         }
@@ -280,8 +280,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
                 bVar2.bki.setDefaultResource(a.e.sdk_icon_default_avatar100_bg);
                 bVar2.bki.setAutoChangeStyle(true);
                 bVar2.bki.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                bVar2.ghx = (TextView) view.findViewById(a.f.rp_user_list_name);
-                bVar2.ghy = (TextView) view.findViewById(a.f.rp_user_list_amount);
+                bVar2.ghz = (TextView) view.findViewById(a.f.rp_user_list_name);
+                bVar2.ghA = (TextView) view.findViewById(a.f.rp_user_list_amount);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
@@ -292,8 +292,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
                 if (!StringUtils.isNullObject(item.portrait)) {
                     l.a(bVar.bki, item.portrait, true, false);
                 }
-                bVar.ghx.setText(item.userName);
-                bVar.ghy.setText(String.format(this.mContext.getResources().getString(a.h.snatch_red_packet_t_dou_suffix), Long.valueOf(item.amount)));
+                bVar.ghz.setText(item.userName);
+                bVar.ghA.setText(String.format(this.mContext.getResources().getString(a.h.snatch_red_packet_t_dou_suffix), Long.valueOf(item.amount)));
             }
             return view;
         }
@@ -302,8 +302,8 @@ public class AlaRedPacketSnatchResultActivity extends BaseFragmentActivity {
     /* loaded from: classes4.dex */
     private static class b {
         public HeadImageView bki;
-        public TextView ghx;
-        public TextView ghy;
+        public TextView ghA;
+        public TextView ghz;
 
         private b() {
         }

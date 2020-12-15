@@ -69,43 +69,43 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     public class a extends af.a implements View.OnClickListener {
         View bNf;
         View eOv;
-        ImageView jAz;
-        CardForumHeadLayout lRV;
-        private h lRW;
+        ImageView jAB;
+        CardForumHeadLayout lRX;
+        private h lRY;
 
         public a(View view) {
             super(view);
-            this.lRV = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.lRV != null) {
-                this.lRV.setOnClickListener(this.lRV);
-                this.lRV.setAfterClickListener(this);
+            this.lRX = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.lRX != null) {
+                this.lRX.setOnClickListener(this.lRX);
+                this.lRX.setAfterClickListener(this);
             }
             this.eOv = ((ViewGroup) view).getChildAt(1);
-            this.jAz = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.jAB = (ImageView) ((ViewGroup) view).getChildAt(2);
             this.bNf = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.lRW = hVar;
-                this.bNf.setVisibility(hVar.lBG ? 0 : 8);
+                this.lRY = hVar;
+                this.bNf.setVisibility(hVar.lBI ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.lBG ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.lBI ? l.getDimens(d.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.lRV.setData(hVar.forumName, hVar.lBF, hVar.postNum, hVar.memberNum);
+                this.lRX.setData(hVar.forumName, hVar.lBH, hVar.postNum, hVar.memberNum);
             }
         }
 
         public void bvt() {
-            WebPManager.a(this.jAz, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
+            WebPManager.a(this.jAB, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
             ap.setBackgroundColor(this.eOv, R.color.CAM_X0203);
             ap.setBackgroundColor(this.bNf, R.color.CAM_X0203);
-            this.lRV.onChangeSkinType();
+            this.lRX.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new ar("c13698").dY("tid", this.lRW.tid).dY("fid", this.lRW.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new ar("c13698").dY("tid", this.lRY.tid).dY("fid", this.lRY.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

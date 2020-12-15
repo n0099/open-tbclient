@@ -90,7 +90,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.ym(kVar.position + 1);
-        com.baidu.tieba.card.t.csg().e(kVar.Jv("c12351"));
+        com.baidu.tieba.card.t.csh().e(kVar.Jv("c12351"));
         amVar.tZ().setPosition(i);
         if (amVar.tZ() instanceof com.baidu.tieba.a.e) {
             amVar.tZ().setPage(this.aiw);

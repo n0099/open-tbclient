@@ -233,9 +233,9 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.hG(longExtra);
         j.a(LG, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (by.eJG.get() && r.dFf().dEZ() != null) {
-            int ba = r.dFf().dEZ().ba(stringExtra, false);
-            int bb = r.dFf().dEZ().bb(stringExtra, false);
+        if (by.eJG.get() && r.dFg().dFa() != null) {
+            int ba = r.dFg().dFa().ba(stringExtra, false);
+            int bb = r.dFg().dFa().bb(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 ba++;
             } else if (frsRequestData.getLoadType() == 2) {

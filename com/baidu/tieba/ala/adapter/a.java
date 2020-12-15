@@ -17,7 +17,7 @@ import com.baidu.live.tbadk.util.TextHelper;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.ala.data.a> giC;
+    private ArrayList<com.baidu.tieba.ala.data.a> giE;
     private Context mContext;
 
     public a(Context context) {
@@ -25,26 +25,26 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<com.baidu.tieba.ala.data.a> arrayList) {
-        if (this.giC == null) {
-            this.giC = new ArrayList<>();
+        if (this.giE == null) {
+            this.giE = new ArrayList<>();
         } else {
-            this.giC.clear();
+            this.giE.clear();
         }
-        this.giC.addAll(arrayList);
+        this.giE.addAll(arrayList);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return ListUtils.getCount(this.giC);
+        return ListUtils.getCount(this.giE);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.giC == null || i < 0 || i >= this.giC.size()) {
+        if (this.giE == null || i < 0 || i >= this.giE.size()) {
             return null;
         }
-        return this.giC.get(i);
+        return this.giE.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,52 +73,52 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     protected class C0635a {
-        private LinearLayout giD;
-        private HeadImageView giE;
-        private TextView giF;
-        private RelativeLayout giG;
+        private LinearLayout giF;
+        private HeadImageView giG;
         private TextView giH;
-        private ImageView giI;
+        private RelativeLayout giI;
         private TextView giJ;
-        private LinearLayout giK;
-        private HeadImageView giL;
-        private TextView giM;
+        private ImageView giK;
+        private TextView giL;
+        private LinearLayout giM;
+        private HeadImageView giN;
+        private TextView giO;
 
         public C0635a(View view) {
-            this.giD = (LinearLayout) view.findViewById(a.f.item_challenge_history_left);
-            this.giE = (HeadImageView) view.findViewById(a.f.img_challenge_history_left);
-            this.giF = (TextView) view.findViewById(a.f.text_challenge_history_left);
-            this.giG = (RelativeLayout) view.findViewById(a.f.challenge_center_layout);
-            this.giH = (TextView) view.findViewById(a.f.pk_history_anchor_score);
-            this.giI = (ImageView) view.findViewById(a.f.pk_history_icon);
-            this.giJ = (TextView) view.findViewById(a.f.pk_history_rival_score);
-            this.giK = (LinearLayout) view.findViewById(a.f.item_challenge_history_right);
-            this.giL = (HeadImageView) view.findViewById(a.f.img_challenge_history_right);
-            this.giM = (TextView) view.findViewById(a.f.text_challenge_history_right);
-            this.giE.setIsRound(true);
-            this.giE.setAutoChangeStyle(false);
-            this.giL.setIsRound(true);
-            this.giL.setAutoChangeStyle(false);
+            this.giF = (LinearLayout) view.findViewById(a.f.item_challenge_history_left);
+            this.giG = (HeadImageView) view.findViewById(a.f.img_challenge_history_left);
+            this.giH = (TextView) view.findViewById(a.f.text_challenge_history_left);
+            this.giI = (RelativeLayout) view.findViewById(a.f.challenge_center_layout);
+            this.giJ = (TextView) view.findViewById(a.f.pk_history_anchor_score);
+            this.giK = (ImageView) view.findViewById(a.f.pk_history_icon);
+            this.giL = (TextView) view.findViewById(a.f.pk_history_rival_score);
+            this.giM = (LinearLayout) view.findViewById(a.f.item_challenge_history_right);
+            this.giN = (HeadImageView) view.findViewById(a.f.img_challenge_history_right);
+            this.giO = (TextView) view.findViewById(a.f.text_challenge_history_right);
+            this.giG.setIsRound(true);
+            this.giG.setAutoChangeStyle(false);
+            this.giN.setIsRound(true);
+            this.giN.setAutoChangeStyle(false);
         }
 
         public void a(com.baidu.tieba.ala.data.a aVar) {
             if (aVar != null) {
-                this.giE.startLoad(aVar.gIb.portrait, 12, false);
-                String name_show = aVar.gIb.getName_show();
+                this.giG.startLoad(aVar.gId.portrait, 12, false);
+                String name_show = aVar.gId.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show) > 8) {
                     name_show = TextHelper.subStringWithEmoji(name_show, 8) + StringHelper.STRING_MORE;
                 }
-                this.giF.setText(name_show);
-                this.giL.startLoad(aVar.gIc.portrait, 12, false);
-                String name_show2 = aVar.gIc.getName_show();
+                this.giH.setText(name_show);
+                this.giN.startLoad(aVar.gIe.portrait, 12, false);
+                String name_show2 = aVar.gIe.getName_show();
                 if (TextHelper.getTextLengthWithEmoji(name_show2) > 8) {
                     name_show2 = TextHelper.subStringWithEmoji(name_show2, 8) + StringHelper.STRING_MORE;
                 }
-                this.giM.setText(name_show2);
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.gIa.gIg);
-                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.gIa.gIh);
-                this.giH.setText(numberUniformFormatExtra);
-                this.giJ.setText(numberUniformFormatExtra2);
+                this.giO.setText(name_show2);
+                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(aVar.gIc.gIi);
+                String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(aVar.gIc.gIj);
+                this.giJ.setText(numberUniformFormatExtra);
+                this.giL.setText(numberUniformFormatExtra2);
             }
         }
     }

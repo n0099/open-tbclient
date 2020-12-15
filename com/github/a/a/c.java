@@ -11,89 +11,89 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class c {
-    private static c psg;
-    private static b psh;
-    g psd;
-    private List<d> psi = new LinkedList();
-    i pse = new i(Looper.getMainLooper().getThread(), psh.provideDumpInterval());
-    h psf = new h(psh.provideDumpInterval());
+    private static c psi;
+    private static b psj;
+    g psf;
+    private List<d> psk = new LinkedList();
+    i psg = new i(Looper.getMainLooper().getThread(), psj.provideDumpInterval());
+    h psh = new h(psj.provideDumpInterval());
 
     public c() {
         a(new g(new g.a() { // from class: com.github.a.a.c.1
             @Override // com.github.a.a.g.a
             public void d(long j, long j2, long j3, long j4) {
-                ArrayList<String> L = c.this.pse.L(j, j2);
+                ArrayList<String> L = c.this.psg.L(j, j2);
                 if (!L.isEmpty()) {
-                    com.github.a.a.a.a exS = com.github.a.a.a.a.exR().e(j, j2, j3, j4).ZA(c.this.psf.getCpuRateInfo()).bu(L).exS();
-                    if (c.exJ().displayNotification()) {
-                        f.Zz(exS.toString());
+                    com.github.a.a.a.a exT = com.github.a.a.a.a.exS().e(j, j2, j3, j4).ZA(c.this.psh.getCpuRateInfo()).bu(L).exT();
+                    if (c.exK().displayNotification()) {
+                        f.Zz(exT.toString());
                     }
-                    if (c.this.psi.size() != 0) {
-                        for (d dVar : c.this.psi) {
-                            dVar.onBlock(c.exJ().provideContext(), exS);
+                    if (c.this.psk.size() != 0) {
+                        for (d dVar : c.this.psk) {
+                            dVar.onBlock(c.exK().provideContext(), exT);
                         }
                     }
                 }
             }
-        }, exJ().provideBlockThreshold(), exJ().stopWhenDebugging()));
-        f.exO();
+        }, exK().provideBlockThreshold(), exK().stopWhenDebugging()));
+        f.exP();
     }
 
-    public g exF() {
-        return this.psd;
-    }
-
-    public i exG() {
-        return this.pse;
-    }
-
-    public h exH() {
+    public g exG() {
         return this.psf;
     }
 
-    public static c exI() {
-        if (psg == null) {
+    public i exH() {
+        return this.psg;
+    }
+
+    public h exI() {
+        return this.psh;
+    }
+
+    public static c exJ() {
+        if (psi == null) {
             synchronized (c.class) {
-                if (psg == null) {
-                    psg = new c();
+                if (psi == null) {
+                    psi = new c();
                 }
             }
         }
-        return psg;
+        return psi;
     }
 
     public static void a(b bVar) {
-        psh = bVar;
+        psj = bVar;
     }
 
-    public static b exJ() {
-        return psh;
+    public static b exK() {
+        return psj;
     }
 
     public void addBlockInterceptor(d dVar) {
-        this.psi.add(dVar);
+        this.psk.add(dVar);
     }
 
     private void a(g gVar) {
-        this.psd = gVar;
+        this.psf = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long exK() {
-        return exJ().provideBlockThreshold() * 0.8f;
+    public long exL() {
+        return exK().provideBlockThreshold() * 0.8f;
     }
 
     static String getPath() {
         String externalStorageState = Environment.getExternalStorageState();
-        String providePath = exJ() == null ? "" : exJ().providePath();
+        String providePath = exK() == null ? "" : exK().providePath();
         if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
             return Environment.getExternalStorageDirectory().getPath() + providePath;
         }
-        return exJ().provideContext().getFilesDir() + exJ().providePath();
+        return exK().provideContext().getFilesDir() + exK().providePath();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File exL() {
+    public static File exM() {
         File file = new File(getPath());
         if (!file.exists()) {
             file.mkdirs();
@@ -102,9 +102,9 @@ public final class c {
     }
 
     public static File[] apr() {
-        File exL = exL();
-        if (exL.exists() && exL.isDirectory()) {
-            return exL.listFiles(new a());
+        File exM = exM();
+        if (exM.exists() && exM.isDirectory()) {
+            return exM.listFiles(new a());
         }
         return null;
     }

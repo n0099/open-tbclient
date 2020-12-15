@@ -26,46 +26,46 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout;
 /* loaded from: classes22.dex */
 public class b {
-    private View jJn;
-    private LinearLayout jJo;
-    private FrameLayout jJp;
-    private FrameLayout jJq;
-    private TBSpecificationBtn jJr;
-    private TBSpecificationBtn jJs;
-    private com.baidu.tbadk.core.view.commonBtn.c jJt;
-    private com.baidu.tbadk.core.view.commonBtn.c jJu;
-    private PopupWindow jJw;
+    private View jJp;
+    private LinearLayout jJq;
+    private FrameLayout jJr;
+    private FrameLayout jJs;
+    private TBSpecificationBtn jJt;
+    private TBSpecificationBtn jJu;
+    private com.baidu.tbadk.core.view.commonBtn.c jJv;
+    private com.baidu.tbadk.core.view.commonBtn.c jJw;
+    private PopupWindow jJy;
     private Context mContext;
     private LinearLayout mRootView;
     private View rootView;
-    private boolean jJv = true;
-    private float jJx = 1.0f;
-    public View.OnClickListener jJy = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.1
+    private boolean jJx = true;
+    private float jJz = 1.0f;
+    public View.OnClickListener jJA = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b.this.Wg();
         }
     };
-    public View.OnClickListener jJz = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.3
+    public View.OnClickListener jJB = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b.this.Wg();
-            if (!b.this.jJv) {
+            if (!b.this.jJx) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921502, 0));
-                b.this.jJv = true;
-                b.this.cNs();
+                b.this.jJx = true;
+                b.this.cNt();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
         }
     };
-    public View.OnClickListener jJA = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.4
+    public View.OnClickListener jJC = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b.this.Wg();
-            if (b.this.jJv) {
+            if (b.this.jJx) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921502, 1));
-                b.this.jJv = false;
-                b.this.cNs();
+                b.this.jJx = false;
+                b.this.cNt();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
         }
@@ -79,25 +79,25 @@ public class b {
     private void init() {
         this.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.home_page_concern_dialog_thread, (ViewGroup) null);
         this.mRootView = (LinearLayout) this.rootView.findViewById(R.id.root_main);
-        this.jJp = (FrameLayout) this.rootView.findViewById(R.id.type_container);
-        this.jJo = (LinearLayout) this.rootView.findViewById(R.id.ll_btn);
-        this.jJn = this.rootView.findViewById(R.id.mask_view);
-        this.jJq = (FrameLayout) this.rootView.findViewById(R.id.bottom_background_view);
-        this.jJr = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_all_concern);
-        this.jJs = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_person_concern);
-        this.jJr.setTextSize(R.dimen.tbds34);
-        this.jJr.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
-        this.jJs.setTextSize(R.dimen.tbds34);
-        this.jJs.setText(TbadkCoreApplication.getInst().getString(R.string.attention_person));
-        this.jJs.setOnClickListener(this.jJA);
-        this.jJr.setOnClickListener(this.jJz);
-        this.jJp.setOnClickListener(this.jJy);
-        this.jJt = new com.baidu.tbadk.core.view.commonBtn.c();
-        this.jJt.rh(R.color.CAM_X0304);
-        this.jJu = new com.baidu.tbadk.core.view.commonBtn.c();
-        this.jJu.rj(R.color.CAM_X0108);
-        this.jJv = com.baidu.tbadk.core.sharedPref.b.bsO().getInt("key_home_concern_all_status", 0) != 1;
-        cNs();
+        this.jJr = (FrameLayout) this.rootView.findViewById(R.id.type_container);
+        this.jJq = (LinearLayout) this.rootView.findViewById(R.id.ll_btn);
+        this.jJp = this.rootView.findViewById(R.id.mask_view);
+        this.jJs = (FrameLayout) this.rootView.findViewById(R.id.bottom_background_view);
+        this.jJt = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_all_concern);
+        this.jJu = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_person_concern);
+        this.jJt.setTextSize(R.dimen.tbds34);
+        this.jJt.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
+        this.jJu.setTextSize(R.dimen.tbds34);
+        this.jJu.setText(TbadkCoreApplication.getInst().getString(R.string.attention_person));
+        this.jJu.setOnClickListener(this.jJC);
+        this.jJt.setOnClickListener(this.jJB);
+        this.jJr.setOnClickListener(this.jJA);
+        this.jJv = new com.baidu.tbadk.core.view.commonBtn.c();
+        this.jJv.rh(R.color.CAM_X0304);
+        this.jJw = new com.baidu.tbadk.core.view.commonBtn.c();
+        this.jJw.rj(R.color.CAM_X0108);
+        this.jJx = com.baidu.tbadk.core.sharedPref.b.bsO().getInt("key_home_concern_all_status", 0) != 1;
+        cNt();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -107,13 +107,13 @@ public class b {
 
     private void b(StickyAppBarLayout stickyAppBarLayout) {
         int i;
-        if (this.jJw == null) {
-            this.jJw = new PopupWindow(this.rootView, -1, -1, true);
-            this.jJw.setContentView(this.rootView);
-            this.jJw.setOutsideTouchable(true);
-            this.jJw.setBackgroundDrawable(new ColorDrawable(0));
-            this.jJw.setFocusable(true);
-            this.jJw.setTouchInterceptor(new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.b.5
+        if (this.jJy == null) {
+            this.jJy = new PopupWindow(this.rootView, -1, -1, true);
+            this.jJy.setContentView(this.rootView);
+            this.jJy.setOutsideTouchable(true);
+            this.jJy.setBackgroundDrawable(new ColorDrawable(0));
+            this.jJy.setFocusable(true);
+            this.jJy.setTouchInterceptor(new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.b.5
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent != null && motionEvent.getAction() == 0) {
@@ -123,13 +123,13 @@ public class b {
                     return false;
                 }
             });
-            this.jJw.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.concern.b.6
+            this.jJy.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.concern.b.6
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921501, 0));
                 }
             });
-            this.jJw.setAnimationStyle(0);
+            this.jJy.setAnimationStyle(0);
         }
         int[] iArr = new int[2];
         stickyAppBarLayout.getLocationInWindow(iArr);
@@ -146,17 +146,17 @@ public class b {
                 b.this.Wg();
             }
         });
-        this.jJo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.8
+        this.jJq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jJp.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jJr.getLayoutParams();
         if (!"Meizu".equalsIgnoreCase(Build.BRAND) || Build.VERSION.SDK_INT > 24) {
             layoutParams.topMargin = i;
         }
-        this.jJp.setLayoutParams(layoutParams);
-        if (g.showPopupWindowAtLocation(this.jJw, stickyAppBarLayout, 0, dimensionPixelOffset, i)) {
+        this.jJr.setLayoutParams(layoutParams);
+        if (g.showPopupWindowAtLocation(this.jJy, stickyAppBarLayout, 0, dimensionPixelOffset, i)) {
             aEx();
         }
     }
@@ -169,11 +169,11 @@ public class b {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                b.this.jJq.setAlpha(floatValue);
-                if (b.this.jJq.getMeasuredHeight() > 0) {
-                    b.this.jJq.setTranslationY(b.this.jJq.getMeasuredHeight() * (floatValue - 1.0f));
+                b.this.jJs.setAlpha(floatValue);
+                if (b.this.jJs.getMeasuredHeight() > 0) {
+                    b.this.jJs.setTranslationY(b.this.jJs.getMeasuredHeight() * (floatValue - 1.0f));
                 }
-                b.this.jJn.setAlpha(floatValue);
+                b.this.jJp.setAlpha(floatValue);
             }
         });
         ofFloat.start();
@@ -189,11 +189,11 @@ public class b {
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    b.this.jJq.setAlpha(floatValue);
-                    if (b.this.jJq.getMeasuredHeight() > 0) {
-                        b.this.jJq.setTranslationY(b.this.jJq.getMeasuredHeight() * (floatValue - 1.0f));
+                    b.this.jJs.setAlpha(floatValue);
+                    if (b.this.jJs.getMeasuredHeight() > 0) {
+                        b.this.jJs.setTranslationY(b.this.jJs.getMeasuredHeight() * (floatValue - 1.0f));
                     }
-                    b.this.jJn.setAlpha(floatValue);
+                    b.this.jJp.setAlpha(floatValue);
                 }
             });
             ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.homepage.concern.b.2
@@ -204,15 +204,15 @@ public class b {
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (b.this.jJw != null && b.this.jJw.isShowing()) {
-                        b.this.jJw.dismiss();
+                    if (b.this.jJy != null && b.this.jJy.isShowing()) {
+                        b.this.jJy.dismiss();
                     }
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    if (b.this.jJw != null && b.this.jJw.isShowing()) {
-                        b.this.jJw.dismiss();
+                    if (b.this.jJy != null && b.this.jJy.isShowing()) {
+                        b.this.jJy.dismiss();
                     }
                 }
 
@@ -225,34 +225,34 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cNs() {
-        if (this.jJr != null && this.jJs != null) {
-            if (this.jJv) {
-                this.jJr.setConfig(this.jJt);
-                this.jJs.setConfig(this.jJu);
+    public void cNt() {
+        if (this.jJt != null && this.jJu != null) {
+            if (this.jJx) {
+                this.jJt.setConfig(this.jJv);
+                this.jJu.setConfig(this.jJw);
                 return;
             }
-            this.jJr.setConfig(this.jJu);
-            this.jJs.setConfig(this.jJt);
+            this.jJt.setConfig(this.jJw);
+            this.jJu.setConfig(this.jJv);
         }
     }
 
     public void setBackgroundAlpha(float f) {
-        this.jJx = f;
+        this.jJz = f;
     }
 
     public void onChangeSkinType(int i) {
         if (this.rootView != null) {
-            this.jJr.changeSkinType(i);
-            this.jJs.changeSkinType(i);
+            this.jJt.changeSkinType(i);
+            this.jJu.changeSkinType(i);
             if (com.baidu.tbadk.a.d.bkA()) {
-                ap.a((View) this.jJo, R.color.CAM_X0208, 0.0f, i);
-                ap.setBackgroundColor(this.jJq, R.color.CAM_X0208);
+                ap.a((View) this.jJq, R.color.CAM_X0208, 0.0f, i);
+                ap.setBackgroundColor(this.jJs, R.color.CAM_X0208);
             } else {
-                ap.a(this.jJo, R.color.CAM_X0208, this.jJx, i);
-                ap.setBackgroundColor(this.jJq, R.color.CAM_X0202);
+                ap.a(this.jJq, R.color.CAM_X0208, this.jJz, i);
+                ap.setBackgroundColor(this.jJs, R.color.CAM_X0202);
             }
-            ap.setBackgroundColor(this.jJn, R.color.CAM_X0605);
+            ap.setBackgroundColor(this.jJp, R.color.CAM_X0605);
         }
     }
 }

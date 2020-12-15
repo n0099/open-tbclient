@@ -25,12 +25,12 @@ public class e extends com.baidu.tieba.frs.k<bx, com.baidu.card.am<by>> implemen
     private boolean alo;
     private com.baidu.adp.lib.d.b<ImageView> fMZ;
     private com.baidu.adp.lib.d.b<GifView> fNa;
-    private int jcO;
+    private int jcQ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.jcO = 3;
+        this.jcQ = 3;
         this.alo = true;
         this.fMZ = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -107,7 +107,7 @@ public class e extends com.baidu.tieba.frs.k<bx, com.baidu.card.am<by>> implemen
         this.fNa = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.frs.entelechy.a.e.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cwK */
+            /* renamed from: cwL */
             public GifView makeObject() {
                 GifView gifView = new GifView(e.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.blV().isShowImages();
@@ -172,7 +172,7 @@ public class e extends com.baidu.tieba.frs.k<bx, com.baidu.card.am<by>> implemen
             /* renamed from: b */
             public void a(View view, by byVar) {
                 if (view != null && byVar != null) {
-                    com.baidu.tieba.a.d.bLT().dS("page_frs", "show_");
+                    com.baidu.tieba.a.d.bLU().dS("page_frs", "show_");
                 }
             }
         };
@@ -192,13 +192,13 @@ public class e extends com.baidu.tieba.frs.k<bx, com.baidu.card.am<by>> implemen
         oVar.e(0, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44), 0, 0);
         oVar.setFromCDN(this.alo);
         oVar.setCornerStyle(1);
-        if (this.jcO == 502) {
+        if (this.jcQ == 502) {
             oVar.setNeedFrsTabName(false);
         } else {
             oVar.setNeedFrsTabName(true);
         }
         aVar.c(oVar);
-        com.baidu.card.ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.iyt);
+        com.baidu.card.ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.iyv);
         a2.setSourceForPb(3);
         com.baidu.card.am<by> amVar = new com.baidu.card.am<>(a2);
         amVar.setPageId(this.mPageId);
@@ -213,7 +213,7 @@ public class e extends com.baidu.tieba.frs.k<bx, com.baidu.card.am<by>> implemen
                     if (e.this.agG != null) {
                         e.this.agG.a(amVar2.getView(), byVar);
                     }
-                    az.a((com.baidu.tbadk.core.data.a) byVar, view.getContext(), e.this.jcO, false);
+                    az.a((com.baidu.tbadk.core.data.a) byVar, view.getContext(), e.this.jcQ, false);
                     amVar2.tZ().b(new a.C0097a(1));
                 }
             }
@@ -231,9 +231,9 @@ public class e extends com.baidu.tieba.frs.k<bx, com.baidu.card.am<by>> implemen
         }
         amVar.tZ().setPage(this.aiw);
         amVar.tZ().setPosition(i);
-        com.baidu.tieba.frs.j.a(amVar.tZ().tT(), this.iSt);
-        if (this.iSt != null && this.iSt.getForum() != null && !StringUtils.isNull(this.iSt.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.iSt.getForum().getTopic_special_icon_right())) {
-            bxVar.eCR.dL(this.iSt.getForum().getTopic_special_icon(), this.iSt.getForum().getTopic_special_icon_right());
+        com.baidu.tieba.frs.j.a(amVar.tZ().tT(), this.iSv);
+        if (this.iSv != null && this.iSv.getForum() != null && !StringUtils.isNull(this.iSv.getForum().getTopic_special_icon()) && !StringUtils.isNull(this.iSv.getForum().getTopic_special_icon_right())) {
+            bxVar.eCR.dL(this.iSv.getForum().getTopic_special_icon(), this.iSv.getForum().getTopic_special_icon_right());
         }
         amVar.b((com.baidu.card.am<by>) bxVar.eCR);
         amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -258,11 +258,11 @@ public class e extends com.baidu.tieba.frs.k<bx, com.baidu.card.am<by>> implemen
 
     @Override // com.baidu.tieba.card.z
     public void wi(int i) {
-        this.jcO = i;
+        this.jcQ = i;
     }
 
     @Override // com.baidu.tieba.frs.d.d
     public com.baidu.tieba.frs.d.b getStatisticMetaData() {
-        return jcS;
+        return jcU;
     }
 }

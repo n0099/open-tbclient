@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes19.dex */
 public class b extends FilterInputStream {
-    private int pcA;
-    private final byte[] pcy;
-    private int pcz;
+    private final byte[] pcA;
+    private int pcB;
+    private int pcC;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.pcy = bArr;
+        this.pcA = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : eqk();
+        return read != -1 ? read : eql();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int eqk = eqk();
-                if (eqk == -1) {
+                int eql = eql();
+                if (eql == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) eqk;
+                bArr[i + i3] = (byte) eql;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.pcz = this.pcA;
+            this.pcB = this.pcC;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.pcA = this.pcz;
+            this.pcC = this.pcB;
         }
     }
 
-    private int eqk() {
-        if (this.pcz >= this.pcy.length) {
+    private int eql() {
+        if (this.pcB >= this.pcA.length) {
             return -1;
         }
-        byte[] bArr = this.pcy;
-        int i = this.pcz;
-        this.pcz = i + 1;
+        byte[] bArr = this.pcA;
+        int i = this.pcB;
+        this.pcB = i + 1;
         return bArr[i] & 255;
     }
 }

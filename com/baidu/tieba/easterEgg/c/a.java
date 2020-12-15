@@ -11,8 +11,8 @@ import java.util.HashMap;
 /* loaded from: classes24.dex */
 public class a extends d {
     private Gson eBJ;
-    private c isc;
-    private HashMap<String, String> isd;
+    private c ise;
+    private HashMap<String, String> isf;
 
     public a(int i) {
         super(i);
@@ -25,7 +25,7 @@ public class a extends d {
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
         String JF = JF(httpMessageTask.getUrl());
-        if (JF != null && this.isc != null) {
+        if (JF != null && this.ise != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
@@ -36,7 +36,7 @@ public class a extends d {
             } else {
                 json = this.eBJ.toJson(httpMessage.getParams());
             }
-            this.isc.aB(httpMessageTask.getUrl(), this.eBJ.toJson(JF), this.eBJ.toJson(json));
+            this.ise.aB(httpMessageTask.getUrl(), this.eBJ.toJson(JF), this.eBJ.toJson(json));
         }
         return httpMessage;
     }
@@ -46,17 +46,17 @@ public class a extends d {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.isd != null) {
-            return this.isd.get(replace);
+        if (this.isf != null) {
+            return this.isf.get(replace);
         }
         return null;
     }
 
     public void F(HashMap<String, String> hashMap) {
-        this.isd = hashMap;
+        this.isf = hashMap;
     }
 
     public void a(c cVar) {
-        this.isc = cVar;
+        this.ise = cVar;
     }
 }

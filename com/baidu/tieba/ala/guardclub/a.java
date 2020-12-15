@@ -5,7 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.live.j.a {
-    private com.baidu.tieba.ala.guardclub.view.e gNy;
+    private com.baidu.tieba.ala.guardclub.view.e gNA;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -14,7 +14,7 @@ public class a implements com.baidu.live.j.a {
     }
 
     private void initView() {
-        this.gNy = new com.baidu.tieba.ala.guardclub.view.e();
+        this.gNA = new com.baidu.tieba.ala.guardclub.view.e();
     }
 
     @Override // com.baidu.live.j.a
@@ -38,7 +38,7 @@ public class a implements com.baidu.live.j.a {
     private void dC(JSONObject jSONObject) {
         String optString;
         String optString2;
-        if (this.gNy != null) {
+        if (this.gNA != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
             if (optJSONObject != null) {
                 optString = optJSONObject.optString("tips1");
@@ -47,7 +47,7 @@ public class a implements com.baidu.live.j.a {
                 optString = jSONObject.optString("tips1");
                 optString2 = jSONObject.optString("tips2");
             }
-            this.gNy.v(this.mTbPageContext.getPageActivity(), optString, optString2);
+            this.gNA.v(this.mTbPageContext.getPageActivity(), optString, optString2);
         }
     }
 }

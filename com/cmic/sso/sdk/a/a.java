@@ -14,7 +14,7 @@ public class a {
         HUAWEI
     }
 
-    private static EnumC0981a eox() {
+    private static EnumC0981a eoy() {
         String str = Build.BRAND;
         if (str.equalsIgnoreCase("samsung")) {
             return EnumC0981a.SAMSUNG;
@@ -27,7 +27,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a() {
-        return a(eox());
+        return a(eoy());
     }
 
     private static int a(EnumC0981a enumC0981a) {

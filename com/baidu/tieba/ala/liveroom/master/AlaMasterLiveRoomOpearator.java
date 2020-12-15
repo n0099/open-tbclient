@@ -128,9 +128,9 @@ import com.baidu.tieba.ala.liveroom.AlaLiveEndActivity;
 import com.baidu.tieba.ala.liveroom.activeview.AlaActiveRootView;
 import com.baidu.tieba.ala.liveroom.audiencelist.c;
 import com.baidu.tieba.ala.liveroom.data.AlaLiveRecorderPerfData;
-import com.baidu.tieba.ala.liveroom.data.d;
 import com.baidu.tieba.ala.liveroom.data.e;
 import com.baidu.tieba.ala.liveroom.data.f;
+import com.baidu.tieba.ala.liveroom.h.d;
 import com.baidu.tieba.ala.liveroom.master.panel.b;
 import com.baidu.tieba.ala.liveroom.messages.GuardClubInfoRenameResponseMessage;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveCountDownView;
@@ -146,149 +146,149 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaMasterLiveRoomOpearator {
-    private static final String hvi;
+    private static final String hvk;
     private BdUniqueId bAQ;
     private boolean bAR;
     private boolean bAS;
     private com.baidu.live.guardclub.a bja;
     private boolean bqg;
     private PendantParentView buZ;
-    private boolean gGE;
-    private Dialog gOF;
-    private String gOb;
-    private View gOc;
-    private com.baidu.live.ao.a gTR;
-    private String hdc;
-    private c heJ;
-    private com.baidu.tieba.ala.liveroom.o.a heK;
-    private com.baidu.tieba.ala.liveroom.audiencelist.b heN;
-    private com.baidu.tieba.ala.liveroom.activeview.b heP;
-    protected com.baidu.live.ad.a heW;
-    private com.baidu.live.i.a heh;
-    private com.baidu.live.j.b hfF;
-    private com.baidu.tieba.ala.liveroom.share.c hfH;
-    private com.baidu.tieba.ala.liveroom.r.b hfI;
-    private m hfT;
-    private k hfU;
-    private com.baidu.live.im.b.a hfV;
-    private ad hfW;
-    private ab hfX;
-    protected com.baidu.live.s.a hgB;
-    private boolean hgO;
-    protected ag hgi;
-    protected com.baidu.live.l.a hgo;
-    protected com.baidu.live.v.a hgp;
-    protected com.baidu.live.t.a hgq;
-    protected com.baidu.live.a.a hgr;
-    protected com.baidu.live.k.a hgs;
-    protected com.baidu.live.t.b hgt;
-    private com.baidu.live.aa.a hgx;
-    private e hja;
-    private ImageView hjh;
-    private f hji;
-    private boolean huS;
-    private RelativeLayout hvA;
-    private RelativeLayout hvB;
+    private boolean gGG;
+    private Dialog gOH;
+    private String gOd;
+    private View gOe;
+    private com.baidu.live.ao.a gTT;
+    private String hde;
+    private c heL;
+    private com.baidu.tieba.ala.liveroom.o.a heM;
+    private com.baidu.tieba.ala.liveroom.audiencelist.b heP;
+    private com.baidu.tieba.ala.liveroom.activeview.b heR;
+    protected com.baidu.live.ad.a heY;
+    private com.baidu.live.i.a hej;
+    private com.baidu.live.j.b hfH;
+    private com.baidu.tieba.ala.liveroom.share.c hfJ;
+    private com.baidu.tieba.ala.liveroom.r.b hfK;
+    private m hfV;
+    private k hfW;
+    private com.baidu.live.im.b.a hfX;
+    private ad hfY;
+    private ab hfZ;
+    protected com.baidu.live.s.a hgD;
+    private boolean hgQ;
+    protected ag hgk;
+    protected com.baidu.live.l.a hgq;
+    protected com.baidu.live.v.a hgr;
+    protected com.baidu.live.t.a hgs;
+    protected com.baidu.live.a.a hgt;
+    protected com.baidu.live.k.a hgu;
+    protected com.baidu.live.t.b hgv;
+    private com.baidu.live.aa.a hgz;
+    private e hjc;
+    private ImageView hjj;
+    private f hjk;
+    private boolean huU;
+    private AlaLiveCountDownView hvA;
+    private AlaLiveStreamStatusView hvB;
     private RelativeLayout hvC;
     private RelativeLayout hvD;
     private RelativeLayout hvE;
-    private FrameLayout hvF;
-    private FrameLayout hvG;
-    private View hvH;
-    private boolean hvI;
-    private AlaLiveFaceVerifyView hvJ;
-    private ImageView hvK;
-    private ImageView hvL;
+    private RelativeLayout hvF;
+    private RelativeLayout hvG;
+    private FrameLayout hvH;
+    private FrameLayout hvI;
+    private View hvJ;
+    private boolean hvK;
+    private AlaLiveFaceVerifyView hvL;
     private ImageView hvM;
     private ImageView hvN;
     private ImageView hvO;
     private ImageView hvP;
     private ImageView hvQ;
-    private TextView hvR;
-    private ar hvS;
-    private com.baidu.live.n.b hvU;
-    private com.baidu.live.ah.a hvV;
-    private com.baidu.tieba.ala.liveroom.master.panel.b hvW;
-    private com.baidu.live.af.a hvX;
-    private ImageView hvY;
-    private d hvZ;
-    private boolean hvj;
-    private com.baidu.tieba.ala.liveroom.h.d hvl;
-    private com.baidu.tieba.ala.liveroom.o.a hvm;
-    private com.baidu.tieba.ala.liveroom.b.a hvn;
-    private com.baidu.tieba.ala.liveroom.u.a hvo;
-    private com.baidu.tieba.ala.liveroom.w.a hvp;
-    private b hvq;
-    private com.baidu.tieba.ala.liveroom.tippop.a hvr;
-    private com.baidu.live.t.d hvs;
-    private com.baidu.live.t.c hvt;
-    private com.baidu.live.v.c hvu;
-    private com.baidu.live.v.b hvv;
-    protected com.baidu.live.m.a hvw;
-    protected com.baidu.live.an.b hvx;
-    private AlaLiveCountDownView hvy;
-    private AlaLiveStreamStatusView hvz;
-    private boolean hwA;
-    private short hwj;
-    private com.baidu.tieba.ala.liveroom.h.b hwo;
-    private com.baidu.tieba.ala.liveroom.challenge.e hwp;
-    private com.baidu.live.am.a hwq;
-    private com.baidu.live.b.a hwr;
-    private com.baidu.live.b.b hws;
-    private com.baidu.tieba.ala.liveroom.q.a hwt;
-    private boolean hwu;
-    private WindowManager.LayoutParams hww;
-    private Window hwx;
-    private View hwy;
-    private FrameLayout hwz;
-    private boolean hvk = false;
-    private boolean hgJ = false;
+    private ImageView hvR;
+    private ImageView hvS;
+    private TextView hvT;
+    private ar hvU;
+    private com.baidu.live.n.b hvW;
+    private com.baidu.live.ah.a hvX;
+    private com.baidu.tieba.ala.liveroom.master.panel.b hvY;
+    private com.baidu.live.af.a hvZ;
+    private boolean hvl;
+    private d hvn;
+    private com.baidu.tieba.ala.liveroom.o.a hvo;
+    private com.baidu.tieba.ala.liveroom.b.a hvp;
+    private com.baidu.tieba.ala.liveroom.u.a hvq;
+    private com.baidu.tieba.ala.liveroom.w.a hvr;
+    private b hvs;
+    private com.baidu.tieba.ala.liveroom.tippop.a hvt;
+    private com.baidu.live.t.d hvu;
+    private com.baidu.live.t.c hvv;
+    private com.baidu.live.v.c hvw;
+    private com.baidu.live.v.b hvx;
+    protected com.baidu.live.m.a hvy;
+    protected com.baidu.live.an.b hvz;
+    private View hwA;
+    private FrameLayout hwB;
+    private boolean hwC;
+    private ImageView hwa;
+    private com.baidu.tieba.ala.liveroom.data.d hwb;
+    private short hwl;
+    private com.baidu.tieba.ala.liveroom.h.b hwq;
+    private com.baidu.tieba.ala.liveroom.challenge.e hwr;
+    private com.baidu.live.am.a hws;
+    private com.baidu.live.b.a hwt;
+    private com.baidu.live.b.b hwu;
+    private com.baidu.tieba.ala.liveroom.q.a hwv;
+    private boolean hww;
+    private WindowManager.LayoutParams hwy;
+    private Window hwz;
+    private boolean hvm = false;
+    private boolean hgL = false;
     private Handler mHandler = new Handler();
-    private Handler hvT = new Handler();
-    private boolean hwa = false;
-    private long lastClickTime = 0;
-    private PerfBroadcastReceiver hwb = null;
+    private Handler hvV = new Handler();
     private boolean hwc = false;
-    private int hwd = 0;
-    private int hwe = 0;
+    private long lastClickTime = 0;
+    private PerfBroadcastReceiver hwd = null;
+    private boolean hwe = false;
     private int hwf = 0;
-    private long hwg = 0;
-    private long hwh = 0;
+    private int hwg = 0;
+    private int hwh = 0;
+    private long hwi = 0;
+    private long hwj = 0;
     private volatile boolean isBackground = false;
-    private Intent hwi = null;
+    private Intent hwk = null;
     private int mOrientation = 1;
-    private boolean hqf = false;
-    private boolean hwk = false;
-    private boolean hwl = true;
-    private boolean hjf = false;
-    private boolean hwm = true;
+    private boolean hqh = false;
+    private boolean hwm = false;
     private boolean hwn = true;
+    private boolean hjh = false;
+    private boolean hwo = true;
+    private boolean hwp = true;
     private int dFt = 0;
     private String otherParams = "";
-    private Handler hwv = new Handler();
-    private BdUniqueId gEP = BdUniqueId.gen();
+    private Handler hwx = new Handler();
+    private BdUniqueId gER = BdUniqueId.gen();
     private boolean mIsKeyboardOpen = false;
     private int bqj = 0;
-    private Runnable hwB = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.1
+    private Runnable hwD = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.1
         @Override // java.lang.Runnable
         public void run() {
-            if (AlaMasterLiveRoomOpearator.this.heh != null) {
-                AlaMasterLiveRoomOpearator.this.heh.Gh();
+            if (AlaMasterLiveRoomOpearator.this.hej != null) {
+                AlaMasterLiveRoomOpearator.this.hej.Gh();
             }
         }
     };
     private com.baidu.live.am.b bKs = new com.baidu.live.am.b() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.12
         @Override // com.baidu.live.am.b
         public boolean WI() {
-            if (AlaMasterLiveRoomOpearator.this.hwp != null) {
-                if (AlaMasterLiveRoomOpearator.this.hgq != null) {
-                    if (!AlaMasterLiveRoomOpearator.this.hwp.ccL() && !AlaMasterLiveRoomOpearator.this.hwp.ccM() && !AlaMasterLiveRoomOpearator.this.hgq.Qx() && !AlaMasterLiveRoomOpearator.this.hgq.Em()) {
+            if (AlaMasterLiveRoomOpearator.this.hwr != null) {
+                if (AlaMasterLiveRoomOpearator.this.hgs != null) {
+                    if (!AlaMasterLiveRoomOpearator.this.hwr.ccM() && !AlaMasterLiveRoomOpearator.this.hwr.ccN() && !AlaMasterLiveRoomOpearator.this.hgs.Qx() && !AlaMasterLiveRoomOpearator.this.hgs.Em()) {
                         return true;
                     }
-                } else if (!AlaMasterLiveRoomOpearator.this.hwp.ccL() && !AlaMasterLiveRoomOpearator.this.hwp.ccM()) {
+                } else if (!AlaMasterLiveRoomOpearator.this.hwr.ccM() && !AlaMasterLiveRoomOpearator.this.hwr.ccN()) {
                     return true;
                 }
-            } else if (AlaMasterLiveRoomOpearator.this.hgq == null || AlaMasterLiveRoomOpearator.this.hgq.Qx() || AlaMasterLiveRoomOpearator.this.hgq.Em()) {
+            } else if (AlaMasterLiveRoomOpearator.this.hgs == null || AlaMasterLiveRoomOpearator.this.hgs.Qx() || AlaMasterLiveRoomOpearator.this.hgs.Em()) {
                 return true;
             }
             return false;
@@ -296,8 +296,8 @@ public class AlaMasterLiveRoomOpearator {
 
         @Override // com.baidu.live.am.b
         public void WJ() {
-            if (AlaMasterLiveRoomOpearator.this.hwp != null) {
-                AlaMasterLiveRoomOpearator.this.hwp.ccO();
+            if (AlaMasterLiveRoomOpearator.this.hwr != null) {
+                AlaMasterLiveRoomOpearator.this.hwr.ccP();
             }
         }
     };
@@ -307,8 +307,8 @@ public class AlaMasterLiveRoomOpearator {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
                 List<com.baidu.live.im.data.b> list = (List) customResponsedMessage.getData();
-                if (AlaMasterLiveRoomOpearator.this.hja.hqq != null && !ListUtils.isEmpty(list)) {
-                    AlaMasterLiveRoomOpearator.this.hja.hqq.f(list, false);
+                if (AlaMasterLiveRoomOpearator.this.hjc.hqs != null && !ListUtils.isEmpty(list)) {
+                    AlaMasterLiveRoomOpearator.this.hjc.hqs.f(list, false);
                 }
                 for (com.baidu.live.im.data.b bVar : list) {
                     if (bVar != null) {
@@ -324,13 +324,13 @@ public class AlaMasterLiveRoomOpearator {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
                 List<com.baidu.live.im.data.b> list = (List) customResponsedMessage.getData();
-                if (AlaMasterLiveRoomOpearator.this.hja.hqq != null && !ListUtils.isEmpty(list)) {
-                    AlaMasterLiveRoomOpearator.this.hja.hqq.f(list, true);
+                if (AlaMasterLiveRoomOpearator.this.hjc.hqs != null && !ListUtils.isEmpty(list)) {
+                    AlaMasterLiveRoomOpearator.this.hjc.hqs.f(list, true);
                 }
             }
         }
     };
-    private CustomMessageListener hhi = new CustomMessageListener(2913025) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.44
+    private CustomMessageListener hhk = new CustomMessageListener(2913025) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.44
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -339,29 +339,29 @@ public class AlaMasterLiveRoomOpearator {
                 if (objArr != null && objArr.length >= 2) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) objArr[0];
                     Object obj = objArr[1];
-                    String valueOf = String.valueOf(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.group_id);
-                    String valueOf2 = String.valueOf(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.live_id);
-                    String valueOf3 = String.valueOf(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.user_id);
-                    if (AlaMasterLiveRoomOpearator.this.hfI == null) {
-                        AlaMasterLiveRoomOpearator.this.hfI = new com.baidu.tieba.ala.liveroom.r.b();
+                    String valueOf = String.valueOf(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.group_id);
+                    String valueOf2 = String.valueOf(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.live_id);
+                    String valueOf3 = String.valueOf(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.user_id);
+                    if (AlaMasterLiveRoomOpearator.this.hfK == null) {
+                        AlaMasterLiveRoomOpearator.this.hfK = new com.baidu.tieba.ala.liveroom.r.b();
                     }
-                    AlaMasterLiveRoomOpearator.this.hfI.a(baseFragmentActivity.getPageContext(), valueOf, valueOf2, valueOf3, true, obj);
+                    AlaMasterLiveRoomOpearator.this.hfK.a(baseFragmentActivity.getPageContext(), valueOf, valueOf2, valueOf3, true, obj);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     };
-    private CustomMessageListener hho = new CustomMessageListener(2913154) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.55
+    private CustomMessageListener hhq = new CustomMessageListener(2913154) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.55
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (AlaMasterLiveRoomOpearator.this.hgo != null) {
-                AlaMasterLiveRoomOpearator.this.hgo.Mq();
+            if (AlaMasterLiveRoomOpearator.this.hgq != null) {
+                AlaMasterLiveRoomOpearator.this.hgq.Mq();
             }
         }
     };
-    private CustomMessageListener hwC = new CustomMessageListener(2913037) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.66
+    private CustomMessageListener hwE = new CustomMessageListener(2913037) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.66
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -370,98 +370,98 @@ public class AlaMasterLiveRoomOpearator {
             }
         }
     };
-    private CustomMessageListener hhg = new CustomMessageListener(2913070) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.69
+    private CustomMessageListener hhi = new CustomMessageListener(2913070) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.69
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (TextUtils.isEmpty(str)) {
-                    str = AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.ala_forbid_send_msg_txt);
+                    str = AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.ala_forbid_send_msg_txt);
                 }
                 AlaMasterLiveRoomOpearator.this.Ig(str);
             }
         }
     };
-    private CustomMessageListener gDr = new CustomMessageListener(2913062) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.70
+    private CustomMessageListener gDt = new CustomMessageListener(2913062) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.70
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity());
+                ViewHelper.skipToLoginActivity(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity());
             }
             AlaMasterLiveRoomOpearator.this.bvJ();
         }
     };
-    private CustomMessageListener hfp = new CustomMessageListener(2913103) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.2
+    private CustomMessageListener hfr = new CustomMessageListener(2913103) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof AlaBroadcastGiftToastData)) {
-                AlaMasterLiveRoomOpearator.this.hfX.a((AlaBroadcastGiftToastData) customResponsedMessage.getData());
+                AlaMasterLiveRoomOpearator.this.hfZ.a((AlaBroadcastGiftToastData) customResponsedMessage.getData());
             }
         }
     };
-    private CustomMessageListener hhm = new CustomMessageListener(2913134) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.3
+    private CustomMessageListener hho = new CustomMessageListener(2913134) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), a.h.sdk_redpacket_snatch_host_alert);
+            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), a.h.sdk_redpacket_snatch_host_alert);
         }
     };
-    private CustomMessageListener hwD = new CustomMessageListener(2913141) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.4
+    private CustomMessageListener hwF = new CustomMessageListener(2913141) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (AlaMasterLiveRoomOpearator.this.hws != null) {
-                w Iq = AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq();
+            if (AlaMasterLiveRoomOpearator.this.hwu != null) {
+                w Iq = AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq();
                 long j = Iq.mLiveInfo.live_id;
                 long j2 = Iq.mLiveInfo.user_id;
-                AlaMasterLiveRoomOpearator.this.hws.c((String) customResponsedMessage.getData(), j, j2);
+                AlaMasterLiveRoomOpearator.this.hwu.c((String) customResponsedMessage.getData(), j, j2);
             }
         }
     };
-    private CustomMessageListener hwE = new CustomMessageListener(2913147) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.5
+    private CustomMessageListener hwG = new CustomMessageListener(2913147) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            BdUtilHelper.hideSoftKeyPad(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.ccJ().hpS);
-            if (AlaMasterLiveRoomOpearator.this.hvl == null || AlaMasterLiveRoomOpearator.this.hvl.getView().getParent() == null) {
+            BdUtilHelper.hideSoftKeyPad(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.ccK().hpU);
+            if (AlaMasterLiveRoomOpearator.this.hvn == null || AlaMasterLiveRoomOpearator.this.hvn.getView().getParent() == null) {
                 AlaMasterLiveRoomOpearator.this.xa(0);
             }
-            if (AlaMasterLiveRoomOpearator.this.hfU != null) {
-                AlaMasterLiveRoomOpearator.this.hfU.Nd().getView().setVisibility(0);
-                AlaMasterLiveRoomOpearator.this.hfU.Ne().hide();
+            if (AlaMasterLiveRoomOpearator.this.hfW != null) {
+                AlaMasterLiveRoomOpearator.this.hfW.Nd().getView().setVisibility(0);
+                AlaMasterLiveRoomOpearator.this.hfW.Ne().hide();
             }
         }
     };
-    private CustomMessageListener hhn = new CustomMessageListener(2913153) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.6
+    private CustomMessageListener hhp = new CustomMessageListener(2913153) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            AlaMasterLiveRoomOpearator.this.H(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq());
+            AlaMasterLiveRoomOpearator.this.H(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq());
         }
     };
-    private CustomMessageListener hhr = new CustomMessageListener(2913171) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.7
+    private CustomMessageListener hht = new CustomMessageListener(2913171) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof OfficialNoticeData) {
                 OfficialNoticeData officialNoticeData = (OfficialNoticeData) customResponsedMessage.getData();
-                if (AlaMasterLiveRoomOpearator.this.hgi != null) {
-                    ((com.baidu.tieba.ala.liveroom.q.b) AlaMasterLiveRoomOpearator.this.hgi).a(officialNoticeData);
+                if (AlaMasterLiveRoomOpearator.this.hgk != null) {
+                    ((com.baidu.tieba.ala.liveroom.q.b) AlaMasterLiveRoomOpearator.this.hgk).a(officialNoticeData);
                 }
             }
         }
     };
-    private CustomMessageListener hwF = new CustomMessageListener(2913172) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.8
+    private CustomMessageListener hwH = new CustomMessageListener(2913172) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (AlaMasterLiveRoomOpearator.this.hwt != null) {
-                    AlaMasterLiveRoomOpearator.this.hwt.ir(str);
+                if (AlaMasterLiveRoomOpearator.this.hwv != null) {
+                    AlaMasterLiveRoomOpearator.this.hwv.ir(str);
                 }
             }
         }
@@ -473,31 +473,31 @@ public class AlaMasterLiveRoomOpearator {
             if (customResponsedMessage != null && (customResponsedMessage instanceof AlaFilterBeautyDataMessage)) {
                 AlaFilterAndBeautyData data = ((AlaFilterBeautyDataMessage) customResponsedMessage).getData();
                 if (data != null) {
-                    if (AlaMasterLiveRoomOpearator.this.hwo != null) {
-                        if (!data.aFa || AlaMasterLiveRoomOpearator.this.bAQ == null || !AlaMasterLiveRoomOpearator.this.hwu) {
+                    if (AlaMasterLiveRoomOpearator.this.hwq != null) {
+                        if (!data.aFa || AlaMasterLiveRoomOpearator.this.bAQ == null || !AlaMasterLiveRoomOpearator.this.hww) {
                             if (AlaMasterLiveRoomOpearator.this.bAQ != null && AlaMasterLiveRoomOpearator.this.bAQ == data.aEZ) {
                                 if (data.aET != null && data.aET.size() > 0) {
-                                    if (!AlaMasterLiveRoomOpearator.this.hwu || AlaMasterLiveRoomOpearator.this.hvl.getVisibility() == 0) {
-                                        AlaMasterLiveRoomOpearator.this.hwo.c(AlaMasterLiveRoomOpearator.this.ccJ().hqi.getVideoConfig());
+                                    if (!AlaMasterLiveRoomOpearator.this.hww || AlaMasterLiveRoomOpearator.this.hvn.getVisibility() == 0) {
+                                        AlaMasterLiveRoomOpearator.this.hwq.c(AlaMasterLiveRoomOpearator.this.ccK().hqk.getVideoConfig());
                                         AlaMasterLiveRoomOpearator.this.bAS = false;
                                     }
                                 } else {
                                     Log.d("ArUpdate", "网络数据 滤镜为空");
-                                    AlaMasterLiveRoomOpearator.this.ccJ().pageContext.showToast(a.h.sdk_filter_beauty_no_data);
+                                    AlaMasterLiveRoomOpearator.this.ccK().pageContext.showToast(a.h.sdk_filter_beauty_no_data);
                                 }
                                 AlaMasterLiveRoomOpearator.this.bAQ = null;
                             }
                         } else {
                             Log.d("ArUpdate", "点击请求——>返回本地数据 不弹面板");
-                            AlaMasterLiveRoomOpearator.this.ccJ().pageContext.showToast(a.h.sdk_filter_beauty_no_data);
+                            AlaMasterLiveRoomOpearator.this.ccK().pageContext.showToast(a.h.sdk_filter_beauty_no_data);
                         }
-                        AlaMasterLiveRoomOpearator.this.hwo.a(AlaMasterLiveRoomOpearator.this.ccJ().hqi.getVideoConfig(), AlaMasterLiveRoomOpearator.this.bAS);
+                        AlaMasterLiveRoomOpearator.this.hwq.a(AlaMasterLiveRoomOpearator.this.ccK().hqk.getVideoConfig(), AlaMasterLiveRoomOpearator.this.bAS);
                         if (!AlaMasterLiveRoomOpearator.this.bAS) {
                             AlaMasterLiveRoomOpearator.this.bAS = true;
                         }
                     }
                 } else if (AlaMasterLiveRoomOpearator.this.bAR) {
-                    AlaMasterLiveRoomOpearator.this.ccJ().pageContext.showToast(a.h.sdk_filter_beauty_no_data);
+                    AlaMasterLiveRoomOpearator.this.ccK().pageContext.showToast(a.h.sdk_filter_beauty_no_data);
                 }
                 AlaMasterLiveRoomOpearator.this.bAR = false;
             }
@@ -509,8 +509,8 @@ public class AlaMasterLiveRoomOpearator {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2913196 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (AlaMasterLiveRoomOpearator.this.ccJ().hqi != null && !TextUtils.isEmpty(str)) {
-                    AlaMasterLiveRoomOpearator.this.ccJ().hqi.setBeautyJsonPath(str);
+                if (AlaMasterLiveRoomOpearator.this.ccK().hqk != null && !TextUtils.isEmpty(str)) {
+                    AlaMasterLiveRoomOpearator.this.ccK().hqk.setBeautyJsonPath(str);
                     Log.d("ArUpdate", "mUpdateFaceFileListener filePath:" + str);
                     com.baidu.live.d.BM().putString("beauty_face_feature", str);
                 }
@@ -525,11 +525,11 @@ public class AlaMasterLiveRoomOpearator {
                 if (customResponsedMessage.getData() instanceof ImForbiddenStateData) {
                     ImForbiddenStateData imForbiddenStateData = (ImForbiddenStateData) customResponsedMessage.getData();
                     if (imForbiddenStateData.errno != 0) {
-                        BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.ala_im_ban_no_net_tips));
+                        BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.ala_im_ban_no_net_tips));
                         return;
                     } else if (imForbiddenStateData.banState == 0) {
                         if (AlaMasterLiveRoomOpearator.this.bqj == 6) {
-                            AlaMasterLiveRoomOpearator.this.chn();
+                            AlaMasterLiveRoomOpearator.this.cho();
                         }
                     } else {
                         AlaMasterLiveRoomOpearator.this.a(imForbiddenStateData);
@@ -539,69 +539,69 @@ public class AlaMasterLiveRoomOpearator {
             }
         }
     };
-    private View.OnClickListener hwG = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.17
+    private View.OnClickListener hwI = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.17
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
             String str2 = null;
             if (System.currentTimeMillis() - AlaMasterLiveRoomOpearator.this.lastClickTime >= 300) {
                 AlaMasterLiveRoomOpearator.this.lastClickTime = System.currentTimeMillis();
-                if (view == AlaMasterLiveRoomOpearator.this.hvL) {
-                    AlaMasterLiveRoomOpearator.this.chs();
-                    AlaMasterLiveRoomOpearator.this.hvW.show();
-                } else if (view != AlaMasterLiveRoomOpearator.this.hvK) {
-                    if (view == AlaMasterLiveRoomOpearator.this.hvM) {
+                if (view == AlaMasterLiveRoomOpearator.this.hvN) {
+                    AlaMasterLiveRoomOpearator.this.cht();
+                    AlaMasterLiveRoomOpearator.this.hvY.show();
+                } else if (view != AlaMasterLiveRoomOpearator.this.hvM) {
+                    if (view == AlaMasterLiveRoomOpearator.this.hvO) {
                         AlaMasterLiveRoomOpearator.this.bvJ();
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "share_clk"));
-                    } else if (view != AlaMasterLiveRoomOpearator.this.hvN) {
-                        if (view != AlaMasterLiveRoomOpearator.this.hvP) {
-                            if (view == AlaMasterLiveRoomOpearator.this.hjh) {
-                                if (AlaMasterLiveRoomOpearator.this.chm()) {
+                    } else if (view != AlaMasterLiveRoomOpearator.this.hvP) {
+                        if (view != AlaMasterLiveRoomOpearator.this.hvR) {
+                            if (view == AlaMasterLiveRoomOpearator.this.hjj) {
+                                if (AlaMasterLiveRoomOpearator.this.chn()) {
                                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "pk_clk"));
-                                    if (AlaMasterLiveRoomOpearator.this.hwp != null) {
-                                        if ((AlaMasterLiveRoomOpearator.this.hgq != null) && AlaMasterLiveRoomOpearator.this.hgq.Em()) {
-                                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_pking_repeated_initiation_tips));
+                                    if (AlaMasterLiveRoomOpearator.this.hwr != null) {
+                                        if ((AlaMasterLiveRoomOpearator.this.hgs != null) && AlaMasterLiveRoomOpearator.this.hgs.Em()) {
+                                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_pking_repeated_initiation_tips));
                                             return;
                                         }
-                                        if (AlaMasterLiveRoomOpearator.this.hgq.Qx() & (AlaMasterLiveRoomOpearator.this.hgq != null)) {
-                                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_matching_repeated_initiation_tips));
+                                        if (AlaMasterLiveRoomOpearator.this.hgs.Qx() & (AlaMasterLiveRoomOpearator.this.hgs != null)) {
+                                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_matching_repeated_initiation_tips));
                                             return;
-                                        } else if (AlaMasterLiveRoomOpearator.this.hwp.ccL()) {
-                                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_challenge_pking_repeated_initiation_tips));
+                                        } else if (AlaMasterLiveRoomOpearator.this.hwr.ccM()) {
+                                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_challenge_pking_repeated_initiation_tips));
                                             return;
-                                        } else if (AlaMasterLiveRoomOpearator.this.hwp.ccM()) {
-                                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_challenge_pking_repeated_initiation_tips));
+                                        } else if (AlaMasterLiveRoomOpearator.this.hwr.ccN()) {
+                                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_challenge_pking_repeated_initiation_tips));
                                             return;
                                         } else {
-                                            AlaMasterLiveRoomOpearator.this.hwp.ccN();
+                                            AlaMasterLiveRoomOpearator.this.hwr.ccO();
                                             return;
                                         }
                                     }
-                                    return;
-                                }
-                                return;
-                            } else if (view == AlaMasterLiveRoomOpearator.this.hvO) {
-                                if (AlaMasterLiveRoomOpearator.this.hvp != null) {
-                                    aq cjz = AlaMasterLiveRoomOpearator.this.ccJ().hpR.cjz();
-                                    if (cjz == null || cjz.mLiveSdkInfo == null) {
-                                        str = null;
-                                    } else {
-                                        str = String.valueOf(cjz.mLiveSdkInfo.mRoomId);
-                                        if (cjz.mLiveSdkInfo.mCastIds != null) {
-                                            str2 = cjz.mLiveSdkInfo.mCastIds.chatMCastId;
-                                        }
-                                    }
-                                    AlaMasterLiveRoomOpearator.this.hvp.au("", str, str2);
                                     return;
                                 }
                                 return;
                             } else if (view == AlaMasterLiveRoomOpearator.this.hvQ) {
-                                UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", UbcStatConstant.Value.VALUE_CHAT_LINK_CLICK));
-                                if (AlaMasterLiveRoomOpearator.this.hwp.ccL() || AlaMasterLiveRoomOpearator.this.hwp.ccM() || AlaMasterLiveRoomOpearator.this.hgq.Qx() || AlaMasterLiveRoomOpearator.this.hgq.Em()) {
-                                    BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_video_chat_no_chat_tip));
+                                if (AlaMasterLiveRoomOpearator.this.hvr != null) {
+                                    aq cjA = AlaMasterLiveRoomOpearator.this.ccK().hpT.cjA();
+                                    if (cjA == null || cjA.mLiveSdkInfo == null) {
+                                        str = null;
+                                    } else {
+                                        str = String.valueOf(cjA.mLiveSdkInfo.mRoomId);
+                                        if (cjA.mLiveSdkInfo.mCastIds != null) {
+                                            str2 = cjA.mLiveSdkInfo.mCastIds.chatMCastId;
+                                        }
+                                    }
+                                    AlaMasterLiveRoomOpearator.this.hvr.au("", str, str2);
                                     return;
-                                } else if (AlaMasterLiveRoomOpearator.this.hwq != null) {
-                                    AlaMasterLiveRoomOpearator.this.hwq.WD();
+                                }
+                                return;
+                            } else if (view == AlaMasterLiveRoomOpearator.this.hvS) {
+                                UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", UbcStatConstant.Value.VALUE_CHAT_LINK_CLICK));
+                                if (AlaMasterLiveRoomOpearator.this.hwr.ccM() || AlaMasterLiveRoomOpearator.this.hwr.ccN() || AlaMasterLiveRoomOpearator.this.hgs.Qx() || AlaMasterLiveRoomOpearator.this.hgs.Em()) {
+                                    BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_video_chat_no_chat_tip));
+                                    return;
+                                } else if (AlaMasterLiveRoomOpearator.this.hws != null) {
+                                    AlaMasterLiveRoomOpearator.this.hws.WD();
                                     return;
                                 } else {
                                     return;
@@ -611,62 +611,62 @@ public class AlaMasterLiveRoomOpearator {
                             }
                         }
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "sticker"));
-                        if (AlaMasterLiveRoomOpearator.this.hvX != null) {
-                            AlaMasterLiveRoomOpearator.this.hvX.RU();
-                            AlaMasterLiveRoomOpearator.this.hvX.cN(AlaMasterLiveRoomOpearator.this.chA());
+                        if (AlaMasterLiveRoomOpearator.this.hvZ != null) {
+                            AlaMasterLiveRoomOpearator.this.hvZ.RU();
+                            AlaMasterLiveRoomOpearator.this.hvZ.cN(AlaMasterLiveRoomOpearator.this.chB());
                         }
                     } else {
                         TiebaInitialize.log(new StatisticItem("c11984"));
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "beauty"));
-                        AlaMasterLiveRoomOpearator.this.hwu = false;
+                        AlaMasterLiveRoomOpearator.this.hww = false;
                         AlaMasterLiveRoomOpearator.this.nT(true);
-                        AlaMasterLiveRoomOpearator.this.hvR.setVisibility(4);
+                        AlaMasterLiveRoomOpearator.this.hvT.setVisibility(4);
                         com.baidu.live.d.BM().putInt("beauty_new_bubble", 0);
                     }
-                } else if (com.baidu.live.ae.a.RB().brA.aOy == 1 && !LoginManager.getInstance(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity()).isIMLogined()) {
-                    BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.ala_forbidden_words_im_link_disconnect));
+                } else if (com.baidu.live.ae.a.RB().brA.aOy == 1 && !LoginManager.getInstance(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity()).isIMLogined()) {
+                    BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.ala_forbidden_words_im_link_disconnect));
                 } else if (com.baidu.live.ae.a.RB().brA.aOx == 1) {
                     if (!AlaMasterLiveRoomOpearator.this.bqg) {
-                        AlaMasterLiveRoomOpearator.this.chn();
+                        AlaMasterLiveRoomOpearator.this.cho();
                         return;
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913192));
                     AlaMasterLiveRoomOpearator.this.bqj = 6;
                 } else {
-                    AlaMasterLiveRoomOpearator.this.chn();
+                    AlaMasterLiveRoomOpearator.this.cho();
                 }
             }
         }
     };
-    private CustomMessageListener hhh = new CustomMessageListener(2913012) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.18
+    private CustomMessageListener hhj = new CustomMessageListener(2913012) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.18
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data = customResponsedMessage.getData();
             if (data != null) {
                 if (data instanceof ar) {
-                    AlaMasterLiveRoomOpearator.this.hgJ = true;
-                    AlaMasterLiveRoomOpearator.this.hvS = (ar) data;
+                    AlaMasterLiveRoomOpearator.this.hgL = true;
+                    AlaMasterLiveRoomOpearator.this.hvU = (ar) data;
                 } else if (data instanceof com.baidu.live.data.a) {
                     com.baidu.live.data.a aVar = (com.baidu.live.data.a) data;
-                    if (AlaMasterLiveRoomOpearator.this.hfU != null) {
-                        AlaMasterLiveRoomOpearator.this.hfU.Nd().getView().setVisibility(0);
+                    if (AlaMasterLiveRoomOpearator.this.hfW != null) {
+                        AlaMasterLiveRoomOpearator.this.hfW.Nd().getView().setVisibility(0);
                     }
-                    if (AlaMasterLiveRoomOpearator.this.hfU != null) {
-                        AlaMasterLiveRoomOpearator.this.hfU.Ne().show();
-                        AlaMasterLiveRoomOpearator.this.hfU.Ne().setEditText(" @" + aVar.userName + " ");
+                    if (AlaMasterLiveRoomOpearator.this.hfW != null) {
+                        AlaMasterLiveRoomOpearator.this.hfW.Ne().show();
+                        AlaMasterLiveRoomOpearator.this.hfW.Ne().setEditText(" @" + aVar.userName + " ");
                     }
                     AlaMasterLiveRoomOpearator.this.xa(8);
                 }
             }
         }
     };
-    private CustomMessageListener hwH = new CustomMessageListener(2913019) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.19
+    private CustomMessageListener hwJ = new CustomMessageListener(2913019) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.19
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (AlaMasterLiveRoomOpearator.this.ccJ() != null && AlaMasterLiveRoomOpearator.this.ccJ().hqo != null) {
-                AlaMasterLiveRoomOpearator.this.ccJ().hqo.sampleMemAndCPU();
+            if (AlaMasterLiveRoomOpearator.this.ccK() != null && AlaMasterLiveRoomOpearator.this.ccK().hqq != null) {
+                AlaMasterLiveRoomOpearator.this.ccK().hqq.sampleMemAndCPU();
             }
         }
     };
@@ -677,38 +677,38 @@ public class AlaMasterLiveRoomOpearator {
             if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                 AlaMasterLiveRoomOpearator.this.isBackground = ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue();
                 if (!AlaMasterLiveRoomOpearator.this.isBackground) {
-                    AlaMasterLiveRoomOpearator.this.cik();
+                    AlaMasterLiveRoomOpearator.this.cil();
                 }
                 int i = 0;
                 if (AlaMasterLiveRoomOpearator.this.isBackground) {
                     i = 1;
                 }
-                AlaMasterLiveRoomOpearator.this.ccJ().hpR.xh(i);
+                AlaMasterLiveRoomOpearator.this.ccK().hpT.xh(i);
             }
         }
     };
-    private CustomMessageListener hdn = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.21
+    private CustomMessageListener hdp = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.21
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            AlaMasterLiveRoomOpearator.this.cid();
+            AlaMasterLiveRoomOpearator.this.cie();
         }
     };
-    private CustomMessageListener gTS = new CustomMessageListener(2913232) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.22
+    private CustomMessageListener gTU = new CustomMessageListener(2913232) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.22
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.live.ao.c)) {
-                if (AlaMasterLiveRoomOpearator.this.gTR == null) {
-                    AlaMasterLiveRoomOpearator.this.gTR = new com.baidu.live.ao.a(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity());
+                if (AlaMasterLiveRoomOpearator.this.gTT == null) {
+                    AlaMasterLiveRoomOpearator.this.gTT = new com.baidu.live.ao.a(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity());
                 }
-                AlaMasterLiveRoomOpearator.this.gTR.a((com.baidu.live.ao.c) customResponsedMessage.getData());
+                AlaMasterLiveRoomOpearator.this.gTT.a((com.baidu.live.ao.c) customResponsedMessage.getData());
                 return;
             }
             Log.e("commonWebPopListener", "@@ scheduler displayStandardWebPopListener data is error");
         }
     };
-    public final HttpMessageListener hwI = new HttpMessageListener(1021047) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.24
+    public final HttpMessageListener hwK = new HttpMessageListener(1021047) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.24
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -716,45 +716,45 @@ public class AlaMasterLiveRoomOpearator {
                 AlaSetPrivateResponseMessage alaSetPrivateResponseMessage = (AlaSetPrivateResponseMessage) httpResponsedMessage;
                 if (alaSetPrivateResponseMessage.PQ()) {
                     if (alaSetPrivateResponseMessage.hasError()) {
-                        if (AlaMasterLiveRoomOpearator.this.hvW != null) {
-                            AlaMasterLiveRoomOpearator.this.hvW.oa(alaSetPrivateResponseMessage.isSwitchOpen() ? false : true);
-                            AlaMasterLiveRoomOpearator.this.hvW.ciK();
+                        if (AlaMasterLiveRoomOpearator.this.hvY != null) {
+                            AlaMasterLiveRoomOpearator.this.hvY.oa(alaSetPrivateResponseMessage.isSwitchOpen() ? false : true);
+                            AlaMasterLiveRoomOpearator.this.hvY.ciL();
                             return;
                         }
                         return;
                     }
-                    AlaMasterLiveRoomOpearator.this.ccJ().hqi.setMute(alaSetPrivateResponseMessage.isSwitchOpen());
-                    if (AlaMasterLiveRoomOpearator.this.hwq != null) {
-                        AlaMasterLiveRoomOpearator.this.hwq.setMute(AlaMasterLiveRoomOpearator.this.ccJ().hqi.isMute());
+                    AlaMasterLiveRoomOpearator.this.ccK().hqk.setMute(alaSetPrivateResponseMessage.isSwitchOpen());
+                    if (AlaMasterLiveRoomOpearator.this.hws != null) {
+                        AlaMasterLiveRoomOpearator.this.hws.setMute(AlaMasterLiveRoomOpearator.this.ccK().hqk.isMute());
                     }
-                    if (AlaMasterLiveRoomOpearator.this.hvx != null) {
-                        AlaMasterLiveRoomOpearator.this.hvx.setMute(AlaMasterLiveRoomOpearator.this.ccJ().hqi.isMute());
+                    if (AlaMasterLiveRoomOpearator.this.hvz != null) {
+                        AlaMasterLiveRoomOpearator.this.hvz.setMute(AlaMasterLiveRoomOpearator.this.ccK().hqk.isMute());
                     }
-                    if (AlaMasterLiveRoomOpearator.this.hvr != null) {
+                    if (AlaMasterLiveRoomOpearator.this.hvt != null) {
                         if (alaSetPrivateResponseMessage.isSwitchOpen()) {
-                            AlaMasterLiveRoomOpearator.this.hvr.a(AlaMasterLiveRoomOpearator.this.ccJ().hql, AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getString(a.h.ala_master_live_mute_open_tip), 2, true);
+                            AlaMasterLiveRoomOpearator.this.hvt.a(AlaMasterLiveRoomOpearator.this.ccK().hqn, AlaMasterLiveRoomOpearator.this.ccK().pageContext.getString(a.h.ala_master_live_mute_open_tip), 2, true);
                             return;
                         }
-                        String string = AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getString(a.h.ala_master_live_mute_close_tip);
-                        AlaMasterLiveRoomOpearator.this.hvr.xp(2);
-                        AlaMasterLiveRoomOpearator.this.hvr.a(AlaMasterLiveRoomOpearator.this.ccJ().hql, string, 3);
+                        String string = AlaMasterLiveRoomOpearator.this.ccK().pageContext.getString(a.h.ala_master_live_mute_close_tip);
+                        AlaMasterLiveRoomOpearator.this.hvt.xp(2);
+                        AlaMasterLiveRoomOpearator.this.hvt.a(AlaMasterLiveRoomOpearator.this.ccK().hqn, string, 3);
                     }
                 }
             }
         }
     };
-    private e.a hwJ = new e.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.25
+    private e.a hwL = new e.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.25
         @Override // com.baidu.tieba.ala.liveroom.views.e.a
-        public void cir() {
+        public void cis() {
             AlaMasterLiveRoomOpearator.this.wZ(a.h.camera_open_failed_dialog_msg);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.views.e.a
-        public void cis() {
+        public void cit() {
             AlaMasterLiveRoomOpearator.this.wZ(a.h.audio_open_failed_dialog_msg);
         }
     };
-    com.baidu.live.liveroom.a.a hwK = new com.baidu.live.liveroom.a.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.26
+    com.baidu.live.liveroom.a.a hwM = new com.baidu.live.liveroom.a.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.26
         @Override // com.baidu.live.liveroom.a.a
         public boolean fh(int i) {
             return false;
@@ -762,66 +762,66 @@ public class AlaMasterLiveRoomOpearator {
 
         @Override // com.baidu.live.liveroom.a.a
         public void fi(int i) {
-            if (1 == i && AlaMasterLiveRoomOpearator.this.ccJ().ceF() == 1) {
-                AlaMasterLiveRoomOpearator.this.ccJ().hqi.stopRecord();
+            if (1 == i && AlaMasterLiveRoomOpearator.this.ccK().ceG() == 1) {
+                AlaMasterLiveRoomOpearator.this.ccK().hqk.stopRecord();
             }
         }
     };
-    private IShareCallback hwL = new IShareCallback() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.27
+    private IShareCallback hwN = new IShareCallback() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.27
         @Override // com.baidu.live.tbadk.share.single.interfaces.IShareCallback
         public void onShare(int i, int i2, String str) {
-            if (AlaMasterLiveRoomOpearator.this.hwa && AlaMasterLiveRoomOpearator.this.hvZ != null) {
-                AlaMasterLiveRoomOpearator.this.hwa = false;
-                AlaMasterLiveRoomOpearator.this.c(AlaMasterLiveRoomOpearator.this.hvZ);
+            if (AlaMasterLiveRoomOpearator.this.hwc && AlaMasterLiveRoomOpearator.this.hwb != null) {
+                AlaMasterLiveRoomOpearator.this.hwc = false;
+                AlaMasterLiveRoomOpearator.this.c(AlaMasterLiveRoomOpearator.this.hwb);
             }
         }
     };
-    private View.OnTouchListener hwM = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.28
+    private View.OnTouchListener hwO = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.28
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            AlaMasterLiveRoomOpearator.this.ccJ().hqo.sampleMemAndCPU();
-            BdUtilHelper.hideSoftKeyPad(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.ccJ().hpS);
+            AlaMasterLiveRoomOpearator.this.ccK().hqq.sampleMemAndCPU();
+            BdUtilHelper.hideSoftKeyPad(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.ccK().hpU);
             AlaMasterLiveRoomOpearator.this.xa(0);
-            if (AlaMasterLiveRoomOpearator.this.hfU != null) {
-                AlaMasterLiveRoomOpearator.this.hfU.Nd().getView().setVisibility(0);
+            if (AlaMasterLiveRoomOpearator.this.hfW != null) {
+                AlaMasterLiveRoomOpearator.this.hfW.Nd().getView().setVisibility(0);
                 if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                    AlaMasterLiveRoomOpearator.this.hfU.Ne().getView().setVisibility(8);
+                    AlaMasterLiveRoomOpearator.this.hfW.Ne().getView().setVisibility(8);
                 }
             }
             return false;
         }
     };
-    private e.b hwN = new e.b() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.29
+    private e.b hwP = new e.b() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.29
         @Override // com.baidu.tieba.ala.liveroom.views.e.b
-        public void cit() {
-            AlaMasterLiveRoomOpearator.this.cho();
+        public void ciu() {
+            AlaMasterLiveRoomOpearator.this.chp();
         }
 
         @Override // com.baidu.tieba.ala.liveroom.views.e.b
-        public void ciu() {
-            AlaMasterLiveRoomOpearator.this.huS = AlaMasterLiveRoomOpearator.this.hvl.cex();
-            AlaMasterLiveRoomOpearator.this.ccJ().hqo.startTime = System.currentTimeMillis();
-            AlaMasterLiveRoomOpearator.this.ccJ().hqo.liveTotalTime = System.currentTimeMillis();
-            AlaMasterLiveRoomOpearator.this.ccJ().hqo.sampleMemAndCPU();
-            d dVar = new d();
-            dVar.hqc = false;
+        public void civ() {
+            AlaMasterLiveRoomOpearator.this.huU = AlaMasterLiveRoomOpearator.this.hvn.cey();
+            AlaMasterLiveRoomOpearator.this.ccK().hqq.startTime = System.currentTimeMillis();
+            AlaMasterLiveRoomOpearator.this.ccK().hqq.liveTotalTime = System.currentTimeMillis();
+            AlaMasterLiveRoomOpearator.this.ccK().hqq.sampleMemAndCPU();
+            com.baidu.tieba.ala.liveroom.data.d dVar = new com.baidu.tieba.ala.liveroom.data.d();
+            dVar.hqe = false;
             dVar.forumId = null;
             dVar.forumName = null;
-            dVar.liveType = AlaMasterLiveRoomOpearator.this.ccJ().ceF();
-            dVar.title = AlaMasterLiveRoomOpearator.this.hvl.getLiveTitle();
+            dVar.liveType = AlaMasterLiveRoomOpearator.this.ccK().ceG();
+            dVar.title = AlaMasterLiveRoomOpearator.this.hvn.getLiveTitle();
             dVar.clarity = 0;
             dVar.gameId = null;
             dVar.gameName = null;
-            dVar.hqd = AlaMasterLiveRoomOpearator.this.hvl.cey();
-            dVar.hqg = AlaMasterLiveRoomOpearator.this.huS;
-            dVar.hqf = AlaMasterLiveRoomOpearator.this.hvl.cev();
-            dVar.hqe = AlaMasterLiveRoomOpearator.this.hvl.ceA();
-            dVar.hqh = AlaMasterLiveRoomOpearator.this.hvl.cew();
-            if (dVar.hqh) {
-                if (AlaMasterLiveRoomOpearator.this.hvl.ceB()) {
-                    AlaMasterLiveRoomOpearator.this.hwa = true;
-                    AlaMasterLiveRoomOpearator.this.hvZ = dVar;
-                    AlaMasterLiveRoomOpearator.this.hvl.ceC();
+            dVar.hqf = AlaMasterLiveRoomOpearator.this.hvn.cez();
+            dVar.hqi = AlaMasterLiveRoomOpearator.this.huU;
+            dVar.hqh = AlaMasterLiveRoomOpearator.this.hvn.cew();
+            dVar.hqg = AlaMasterLiveRoomOpearator.this.hvn.ceB();
+            dVar.hqj = AlaMasterLiveRoomOpearator.this.hvn.cex();
+            if (dVar.hqj) {
+                if (AlaMasterLiveRoomOpearator.this.hvn.ceC()) {
+                    AlaMasterLiveRoomOpearator.this.hwc = true;
+                    AlaMasterLiveRoomOpearator.this.hwb = dVar;
+                    AlaMasterLiveRoomOpearator.this.hvn.ceD();
                 } else {
                     AlaMasterLiveRoomOpearator.this.c(dVar);
                 }
@@ -836,28 +836,28 @@ public class AlaMasterLiveRoomOpearator {
                 }
                 return;
             }
-            AlaMasterLiveRoomOpearator.this.ccJ().pageContext.showToast(a.h.ala_live_not_agree_licence_toast);
+            AlaMasterLiveRoomOpearator.this.ccK().pageContext.showToast(a.h.ala_live_not_agree_licence_toast);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.views.e.b
         public void onCloseClicked() {
-            AlaMasterLiveRoomOpearator.this.ccJ().g((short) 2);
+            AlaMasterLiveRoomOpearator.this.ccK().g((short) 2);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.views.e.b
-        public void civ() {
-            AlaMasterLiveRoomOpearator.this.hwu = true;
+        public void ciw() {
+            AlaMasterLiveRoomOpearator.this.hww = true;
             AlaMasterLiveRoomOpearator.this.nT(false);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.views.e.b
-        public boolean ciw() {
+        public boolean cix() {
             return false;
         }
 
         @Override // com.baidu.tieba.ala.liveroom.views.e.b
-        public void cix() {
-            BrowserHelper.startWebActivity(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol");
+        public void ciy() {
+            BrowserHelper.startWebActivity(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), "https://sv.baidu.com/cashliveui/statictHtml.html#/protocol");
         }
 
         @Override // com.baidu.tieba.ala.liveroom.views.e.b
@@ -870,17 +870,17 @@ public class AlaMasterLiveRoomOpearator {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (!customResponsedMessage.hasError() && customResponsedMessage.getError() == 0) {
-                AlaMasterLiveRoomOpearator.this.caI();
+                AlaMasterLiveRoomOpearator.this.caJ();
             }
         }
     };
-    private com.baidu.live.liveroom.g.c hwO = new com.baidu.live.liveroom.g.c() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.37
+    private com.baidu.live.liveroom.g.c hwQ = new com.baidu.live.liveroom.g.c() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.37
         boolean isShow = true;
 
         @Override // com.baidu.live.liveroom.g.c
         public void PL() {
-            if (AlaMasterLiveRoomOpearator.this.hvp != null) {
-                AlaMasterLiveRoomOpearator.this.hvp.on(false);
+            if (AlaMasterLiveRoomOpearator.this.hvr != null) {
+                AlaMasterLiveRoomOpearator.this.hvr.on(false);
             }
         }
 
@@ -888,65 +888,65 @@ public class AlaMasterLiveRoomOpearator {
         public void cA(boolean z) {
             if (this.isShow != z) {
                 if (z) {
-                    if (AlaMasterLiveRoomOpearator.this.hvX != null) {
-                        AlaMasterLiveRoomOpearator.this.hvX.setStickerCanOperate(true);
+                    if (AlaMasterLiveRoomOpearator.this.hvZ != null) {
+                        AlaMasterLiveRoomOpearator.this.hvZ.setStickerCanOperate(true);
                     }
-                } else if (AlaMasterLiveRoomOpearator.this.hvX != null) {
-                    AlaMasterLiveRoomOpearator.this.hvX.setStickerCanOperate(false);
+                } else if (AlaMasterLiveRoomOpearator.this.hvZ != null) {
+                    AlaMasterLiveRoomOpearator.this.hvZ.setStickerCanOperate(false);
                 }
-                if (AlaMasterLiveRoomOpearator.this.hvp != null) {
-                    AlaMasterLiveRoomOpearator.this.hvp.on(z);
+                if (AlaMasterLiveRoomOpearator.this.hvr != null) {
+                    AlaMasterLiveRoomOpearator.this.hvr.on(z);
                 }
                 this.isShow = z;
-                if (AlaMasterLiveRoomOpearator.this.hgi != null) {
-                    AlaMasterLiveRoomOpearator.this.hgi.bE(z);
+                if (AlaMasterLiveRoomOpearator.this.hgk != null) {
+                    AlaMasterLiveRoomOpearator.this.hgk.bE(z);
                 }
             }
         }
     };
-    private AlaLiveFaceVerifyView.a hwP = new AlaLiveFaceVerifyView.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.48
+    private AlaLiveFaceVerifyView.a hwR = new AlaLiveFaceVerifyView.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.48
         @Override // com.baidu.tieba.ala.liveroom.views.AlaLiveFaceVerifyView.a
         public void aia() {
-            if (AlaMasterLiveRoomOpearator.this.hvJ != null && AlaMasterLiveRoomOpearator.this.ccJ().hql.indexOfChild(AlaMasterLiveRoomOpearator.this.hvJ) >= 0) {
-                AlaMasterLiveRoomOpearator.this.ccJ().hql.removeView(AlaMasterLiveRoomOpearator.this.hvJ);
-                AlaMasterLiveRoomOpearator.this.hvJ.setVisibility(8);
-                AlaMasterLiveRoomOpearator.this.hvJ = null;
+            if (AlaMasterLiveRoomOpearator.this.hvL != null && AlaMasterLiveRoomOpearator.this.ccK().hqn.indexOfChild(AlaMasterLiveRoomOpearator.this.hvL) >= 0) {
+                AlaMasterLiveRoomOpearator.this.ccK().hqn.removeView(AlaMasterLiveRoomOpearator.this.hvL);
+                AlaMasterLiveRoomOpearator.this.hvL.setVisibility(8);
+                AlaMasterLiveRoomOpearator.this.hvL = null;
             }
         }
     };
-    private com.baidu.tieba.ala.liveroom.operation.b hfu = new com.baidu.tieba.ala.liveroom.operation.b() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.54
+    private com.baidu.tieba.ala.liveroom.operation.b hfw = new com.baidu.tieba.ala.liveroom.operation.b() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.54
         @Override // com.baidu.tieba.ala.liveroom.operation.b
         public void s(View view, int i) {
             w Iq;
             if (i == 8) {
-                AlaMasterLiveRoomOpearator.this.cij();
-            } else if (i == 14 && (Iq = AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq()) != null && Iq.aJV != null && Iq.mLiveInfo != null && Iq.aKr != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaCharmCardActivityConfig(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), Iq.aJV.userName, Long.toString(Iq.aJV.userId), Long.toString(Iq.aJV.charmCount), String.valueOf(Iq.mLiveInfo.group_id), String.valueOf(Iq.mLiveInfo.live_id), true, String.valueOf(Iq.aJV.userId), Long.toString(Iq.aKr.userId), Iq.aKr.userName, Iq.aKr.portrait, AlaMasterLiveRoomOpearator.this.heN.getCount(), AlaMasterLiveRoomOpearator.this.otherParams)));
-                LogManager.getCommonLogger().doClickGusetNumLog(Iq.mLiveInfo.feed_id, AlaMasterLiveRoomOpearator.this.heN.getCount() + "", AlaMasterLiveRoomOpearator.this.otherParams);
+                AlaMasterLiveRoomOpearator.this.cik();
+            } else if (i == 14 && (Iq = AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq()) != null && Iq.aJV != null && Iq.mLiveInfo != null && Iq.aKr != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaCharmCardActivityConfig(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), Iq.aJV.userName, Long.toString(Iq.aJV.userId), Long.toString(Iq.aJV.charmCount), String.valueOf(Iq.mLiveInfo.group_id), String.valueOf(Iq.mLiveInfo.live_id), true, String.valueOf(Iq.aJV.userId), Long.toString(Iq.aKr.userId), Iq.aKr.userName, Iq.aKr.portrait, AlaMasterLiveRoomOpearator.this.heP.getCount(), AlaMasterLiveRoomOpearator.this.otherParams)));
+                LogManager.getCommonLogger().doClickGusetNumLog(Iq.mLiveInfo.feed_id, AlaMasterLiveRoomOpearator.this.heP.getCount() + "", AlaMasterLiveRoomOpearator.this.otherParams);
             }
         }
     };
-    private com.baidu.live.liveroom.middleware.b.a hwQ = new com.baidu.live.liveroom.middleware.b.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.56
+    private com.baidu.live.liveroom.middleware.b.a hwS = new com.baidu.live.liveroom.middleware.b.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.56
     };
-    private g hwR = new g() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.57
+    private g hwT = new g() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.57
     };
-    private Runnable hwS = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.61
+    private Runnable hwU = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.61
         @Override // java.lang.Runnable
         public void run() {
-            AlaMasterLiveRoomOpearator.this.ciq();
+            AlaMasterLiveRoomOpearator.this.cir();
         }
     };
-    private HttpMessageListener gND = new HttpMessageListener(1021137) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.62
+    private HttpMessageListener gNF = new HttpMessageListener(1021137) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.62
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             GuardClubInfoHttpResponseMessage guardClubInfoHttpResponseMessage;
-            if (httpResponsedMessage != null && !httpResponsedMessage.hasError() && (httpResponsedMessage instanceof GuardClubInfoHttpResponseMessage) && (guardClubInfoHttpResponseMessage = (GuardClubInfoHttpResponseMessage) httpResponsedMessage) != null && guardClubInfoHttpResponseMessage.getOrginalMessage().getTag() == AlaMasterLiveRoomOpearator.this.gEP && guardClubInfoHttpResponseMessage != null && guardClubInfoHttpResponseMessage.bja != null) {
+            if (httpResponsedMessage != null && !httpResponsedMessage.hasError() && (httpResponsedMessage instanceof GuardClubInfoHttpResponseMessage) && (guardClubInfoHttpResponseMessage = (GuardClubInfoHttpResponseMessage) httpResponsedMessage) != null && guardClubInfoHttpResponseMessage.getOrginalMessage().getTag() == AlaMasterLiveRoomOpearator.this.gER && guardClubInfoHttpResponseMessage != null && guardClubInfoHttpResponseMessage.bja != null) {
                 AlaMasterLiveRoomOpearator.this.bja = guardClubInfoHttpResponseMessage.bja;
             }
         }
     };
-    HttpMessageListener gNV = new HttpMessageListener(1021231) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.63
+    HttpMessageListener gNX = new HttpMessageListener(1021231) { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.63
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -976,22 +976,22 @@ public class AlaMasterLiveRoomOpearator {
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Rect rect = new Rect();
-            AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-            int statusBarHeight = BdUtilHelper.getStatusBarHeight(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity());
-            int[] screenFullSize = ViewCommonUtil.getScreenFullSize(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity());
+            AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+            int statusBarHeight = BdUtilHelper.getStatusBarHeight(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity());
+            int[] screenFullSize = ViewCommonUtil.getScreenFullSize(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity());
             if (screenFullSize[1] - rect.bottom > screenFullSize[1] / 4 && !AlaMasterLiveRoomOpearator.this.mIsKeyboardOpen) {
                 AlaMasterLiveRoomOpearator.this.mIsKeyboardOpen = true;
                 TbadkCoreApplication.getInst().setKeyboardHeight(screenFullSize[1] - rect.bottom);
-                AlaMasterLiveRoomOpearator.this.hww.gravity = 80;
-                AlaMasterLiveRoomOpearator.this.hww.x = 0;
-                AlaMasterLiveRoomOpearator.this.hww.y = 50;
-                AlaMasterLiveRoomOpearator.this.hwx.setAttributes(AlaMasterLiveRoomOpearator.this.hww);
+                AlaMasterLiveRoomOpearator.this.hwy.gravity = 80;
+                AlaMasterLiveRoomOpearator.this.hwy.x = 0;
+                AlaMasterLiveRoomOpearator.this.hwy.y = 50;
+                AlaMasterLiveRoomOpearator.this.hwz.setAttributes(AlaMasterLiveRoomOpearator.this.hwy);
             } else if (screenFullSize[1] - rect.height() <= statusBarHeight && AlaMasterLiveRoomOpearator.this.mIsKeyboardOpen) {
                 AlaMasterLiveRoomOpearator.this.mIsKeyboardOpen = false;
-                AlaMasterLiveRoomOpearator.this.hww.gravity = 17;
-                AlaMasterLiveRoomOpearator.this.hww.x = 0;
-                AlaMasterLiveRoomOpearator.this.hww.y = 0;
-                AlaMasterLiveRoomOpearator.this.hwx.setAttributes(AlaMasterLiveRoomOpearator.this.hww);
+                AlaMasterLiveRoomOpearator.this.hwy.gravity = 17;
+                AlaMasterLiveRoomOpearator.this.hwy.x = 0;
+                AlaMasterLiveRoomOpearator.this.hwy.y = 0;
+                AlaMasterLiveRoomOpearator.this.hwz.setAttributes(AlaMasterLiveRoomOpearator.this.hwy);
             }
         }
     };
@@ -1001,20 +1001,20 @@ public class AlaMasterLiveRoomOpearator {
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setResponsedClass(AlaSetPrivateResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        hvi = SharedPrefHelper.getSharedPrefKeyWithAccount("PrefKeyIsShowedAllowFollowDialogAttention");
+        hvk = SharedPrefHelper.getSharedPrefKeyWithAccount("PrefKeyIsShowedAllowFollowDialogAttention");
     }
 
     private void Ix(String str) {
-        if (!TextUtils.isEmpty(str) && this.hvU != null) {
-            View NT = this.hvU.NT();
+        if (!TextUtils.isEmpty(str) && this.hvW != null) {
+            View NT = this.hvW.NT();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(2, a.f.ala_liveroom_msg_list);
             NT.setLayoutParams(layoutParams);
-            if (ccJ().hpS.indexOfChild(NT) >= 0) {
-                ccJ().hpS.removeView(NT);
+            if (ccK().hpU.indexOfChild(NT) >= 0) {
+                ccK().hpU.removeView(NT);
             }
-            ccJ().hpS.addView(NT);
-            this.hvU.ih(str);
+            ccK().hpU.addView(NT);
+            this.hvW.ih(str);
             NT.bringToFront();
         }
     }
@@ -1022,16 +1022,16 @@ public class AlaMasterLiveRoomOpearator {
     /* JADX INFO: Access modifiers changed from: private */
     public void H(w wVar) {
         if (wVar != null && wVar.mLiveInfo != null && com.baidu.live.ae.a.RB().brA != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaGuardThroneActivityConfig(ccJ().pageContext.getPageActivity(), String.valueOf(wVar.mLiveInfo.live_id), String.valueOf(wVar.mLiveInfo.user_id), com.baidu.live.ae.a.RB().brA.aOt, 1, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaGuardThroneActivityConfig(ccK().pageContext.getPageActivity(), String.valueOf(wVar.mLiveInfo.live_id), String.valueOf(wVar.mLiveInfo.user_id), com.baidu.live.ae.a.RB().brA.aOt, 1, true)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ig(String str) {
-        BdAlertDialog bdAlertDialog = new BdAlertDialog(ccJ().pageContext.getPageActivity());
+        BdAlertDialog bdAlertDialog = new BdAlertDialog(ccK().pageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setMessage(str);
-        bdAlertDialog.setNegativeButton(ccJ().pageContext.getString(a.h.sdk_dialog_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.11
+        bdAlertDialog.setNegativeButton(ccK().pageContext.getString(a.h.sdk_dialog_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.11
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
@@ -1039,47 +1039,47 @@ public class AlaMasterLiveRoomOpearator {
         });
         final String str2 = com.baidu.live.ae.a.RB().brA.aNR;
         final boolean z = !TextUtils.isEmpty(str2);
-        bdAlertDialog.setPositiveButton(z ? ccJ().pageContext.getPageActivity().getString(a.h.ala_go_feedback_txt) : ccJ().pageContext.getPageActivity().getString(a.h.sdk_dialog_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.13
+        bdAlertDialog.setPositiveButton(z ? ccK().pageContext.getPageActivity().getString(a.h.ala_go_feedback_txt) : ccK().pageContext.getPageActivity().getString(a.h.sdk_dialog_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.13
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
                 if (z) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity()), new String[]{str2}, true);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) IScrollableHelper.getBbPageContext(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity()), new String[]{str2}, true);
                 }
             }
         });
         bdAlertDialog.setCancelable(false);
         bdAlertDialog.setCanceledOnTouchOutside(false);
         bdAlertDialog.isShowTitleAndMessage();
-        bdAlertDialog.create(ccJ().pageContext);
+        bdAlertDialog.create(ccK().pageContext);
         bdAlertDialog.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caI() {
-        int i = ccJ().hpR.Iq().aJV.isUegBlock;
-        int i2 = ccJ().hpR.Iq().aJV.isBlock;
-        String str = ccJ().hpR.Iq().aJV.userName;
+    public void caJ() {
+        int i = ccK().hpT.Iq().aJV.isUegBlock;
+        int i2 = ccK().hpT.Iq().aJV.isBlock;
+        String str = ccK().hpT.Iq().aJV.userName;
         if (i > 0 || i2 > 0) {
             this.bqg = true;
-            this.hfU.a(true, i, i2, str);
+            this.hfW.a(true, i, i2, str);
             return;
         }
         this.bqg = false;
-        this.hfU.a(false, i, i2, str);
+        this.hfW.a(false, i, i2, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImForbiddenStateData imForbiddenStateData) {
         String format;
-        final Activity pageActivity = this.hja.pageContext.getPageActivity();
+        final Activity pageActivity = this.hjc.pageContext.getPageActivity();
         if (imForbiddenStateData.globalBan == 1) {
             if (imForbiddenStateData.foreverInfo != null && imForbiddenStateData.foreverInfo.bpe == 1) {
                 format = pageActivity.getResources().getString(a.h.ala_forbidden_words_ueg_block);
             } else {
                 format = String.format(pageActivity.getResources().getString(a.h.ala_forbidden_words_ueg_forever), imForbiddenStateData.foreverInfo.bpf);
             }
-            BdAlertDialog bdAlertDialog = new BdAlertDialog(this.hja.pageContext.getPageActivity());
+            BdAlertDialog bdAlertDialog = new BdAlertDialog(this.hjc.pageContext.getPageActivity());
             bdAlertDialog.setMessage(format);
             bdAlertDialog.setPositiveButton(pageActivity.getResources().getString(a.h.ala_forbidden_words_btn_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.15
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
@@ -1105,19 +1105,19 @@ public class AlaMasterLiveRoomOpearator {
                 bdAlertDialog.setPositiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
                 bdAlertDialog.setNagetiveButtonTextColor(ViewCompat.MEASURED_STATE_MASK);
             }
-            bdAlertDialog.create(this.hja.pageContext);
+            bdAlertDialog.create(this.hjc.pageContext);
             bdAlertDialog.setCanceledOnTouchOutside(false);
             bdAlertDialog.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean chm() {
-        if (this.hwq != null && this.hwq.WE()) {
-            BdUtilHelper.showToast(this.hja.pageContext.getPageActivity(), this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_video_chat_no_pk_tip));
+    public boolean chn() {
+        if (this.hws != null && this.hws.WE()) {
+            BdUtilHelper.showToast(this.hjc.pageContext.getPageActivity(), this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_video_chat_no_pk_tip));
             return false;
-        } else if (this.hvx != null && this.hvx.St()) {
-            BdUtilHelper.showToast(this.hja.pageContext.getPageActivity(), this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_video_chat_no_pk_tip));
+        } else if (this.hvz != null && this.hvz.St()) {
+            BdUtilHelper.showToast(this.hjc.pageContext.getPageActivity(), this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_video_chat_no_pk_tip));
             return false;
         } else {
             return true;
@@ -1125,36 +1125,36 @@ public class AlaMasterLiveRoomOpearator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chn() {
-        if (this.hfU != null) {
-            this.hfU.Ne().show();
+    public void cho() {
+        if (this.hfW != null) {
+            this.hfW.Ne().show();
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "msg_clk"));
     }
 
     public void onPKPlayerFirstFrame() {
-        if (this.hwp != null) {
-            this.hwp.onPKPlayerFirstFrame();
+        if (this.hwr != null) {
+            this.hwr.onPKPlayerFirstFrame();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cho() {
-        if (ccJ() != null && ccJ().hpR != null) {
-            ccJ().hpR.cjs();
+    public void chp() {
+        if (ccK() != null && ccK().hpT != null) {
+            ccK().hpT.cjt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tieba.ala.category.b.a aVar) {
-        if (aVar != null && aVar.bTT() != null && aVar.bTU() != null) {
-            ccJ().hpR.eB(aVar.bTT().getId(), aVar.bTU().getId());
+        if (aVar != null && aVar.bTU() != null && aVar.bTV() != null) {
+            ccK().hpT.eB(aVar.bTU().getId(), aVar.bTV().getId());
         }
     }
 
     public void b(short s) {
-        if (this.hwo != null) {
-            this.hwo.b(s);
+        if (this.hwq != null) {
+            this.hwq.b(s);
         }
     }
 
@@ -1168,166 +1168,166 @@ public class AlaMasterLiveRoomOpearator {
             if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
                 int intExtra = intent.getIntExtra("status", 1);
                 if (intExtra == 2 || intExtra == 5) {
-                    AlaMasterLiveRoomOpearator.this.hwc = true;
+                    AlaMasterLiveRoomOpearator.this.hwe = true;
                 } else {
-                    AlaMasterLiveRoomOpearator.this.hwc = false;
+                    AlaMasterLiveRoomOpearator.this.hwe = false;
                 }
-                if (AlaMasterLiveRoomOpearator.this.hwd == 0) {
-                    AlaMasterLiveRoomOpearator.this.hwd = intent.getIntExtra("scale", 100);
+                if (AlaMasterLiveRoomOpearator.this.hwf == 0) {
+                    AlaMasterLiveRoomOpearator.this.hwf = intent.getIntExtra("scale", 100);
                 }
-                if (AlaMasterLiveRoomOpearator.this.hwe == 0) {
-                    AlaMasterLiveRoomOpearator.this.hwe = intent.getIntExtra("level", 0);
+                if (AlaMasterLiveRoomOpearator.this.hwg == 0) {
+                    AlaMasterLiveRoomOpearator.this.hwg = intent.getIntExtra("level", 0);
                 }
-                AlaMasterLiveRoomOpearator.this.hwf = intent.getIntExtra("level", 0);
+                AlaMasterLiveRoomOpearator.this.hwh = intent.getIntExtra("level", 0);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(d dVar) {
-        if (ccJ() != null && ccJ().hqm != null) {
-            ccJ().hqm.c(dVar);
+    public void c(com.baidu.tieba.ala.liveroom.data.d dVar) {
+        if (ccK() != null && ccK().hqo != null) {
+            ccK().hqo.c(dVar);
         }
     }
 
     public AlaMasterLiveRoomOpearator(com.baidu.tieba.ala.liveroom.data.e eVar, String str) {
-        this.hja = eVar;
-        this.hdc = str;
+        this.hjc = eVar;
+        this.hde = str;
     }
 
-    protected com.baidu.tieba.ala.liveroom.data.e ccJ() {
-        return this.hja;
+    protected com.baidu.tieba.ala.liveroom.data.e ccK() {
+        return this.hjc;
     }
 
     public int a(f fVar) {
-        this.hji = fVar;
-        this.hwb = new PerfBroadcastReceiver();
-        BdBaseApplication.getInst().registerReceiver(this.hwb, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (this.hvr == null) {
-            this.hvr = new com.baidu.tieba.ala.liveroom.tippop.a(this.hja.pageContext, null);
+        this.hjk = fVar;
+        this.hwd = new PerfBroadcastReceiver();
+        BdBaseApplication.getInst().registerReceiver(this.hwd, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        if (this.hvt == null) {
+            this.hvt = new com.baidu.tieba.ala.liveroom.tippop.a(this.hjc.pageContext, null);
         }
         registerListener();
-        this.heh = new com.baidu.live.i.a();
-        chK();
-        chp();
-        chr();
+        this.hej = new com.baidu.live.i.a();
+        chL();
+        chq();
+        chs();
         Long[] lArr = new Long[1];
-        this.hwg = lArr[0] == null ? 0L : lArr[0].longValue();
-        this.hwh = lArr[0] != null ? lArr[0].longValue() : 0L;
-        ccJ().hpS.setOnTouchListener(this.hwM);
-        this.hvj = SharedPrefHelper.getInstance().getBoolean(hvi, false);
-        this.hvy = new AlaLiveCountDownView(ccJ().pageContext.getPageActivity());
-        this.hvy.setCount(3);
-        this.hvy.setTextColor(ccJ().pageContext.getPageActivity().getResources().getColor(a.c.sdk_white_alpha60));
-        this.hvy.setTextSize(ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds128));
-        this.hvy.setTypeface(Typeface.DEFAULT_BOLD);
-        this.hvy.setIncludeFontPadding(false);
-        this.hvy.setOnCountDownListener(new AlaLiveCountDownView.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.30
+        this.hwi = lArr[0] == null ? 0L : lArr[0].longValue();
+        this.hwj = lArr[0] != null ? lArr[0].longValue() : 0L;
+        ccK().hpU.setOnTouchListener(this.hwO);
+        this.hvl = SharedPrefHelper.getInstance().getBoolean(hvk, false);
+        this.hvA = new AlaLiveCountDownView(ccK().pageContext.getPageActivity());
+        this.hvA.setCount(3);
+        this.hvA.setTextColor(ccK().pageContext.getPageActivity().getResources().getColor(a.c.sdk_white_alpha60));
+        this.hvA.setTextSize(ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds128));
+        this.hvA.setTypeface(Typeface.DEFAULT_BOLD);
+        this.hvA.setIncludeFontPadding(false);
+        this.hvA.setOnCountDownListener(new AlaLiveCountDownView.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.30
             @Override // com.baidu.tieba.ala.liveroom.views.AlaLiveCountDownView.a
-            public void ciy() {
-                if (AlaMasterLiveRoomOpearator.this.ccJ().hpS != null) {
-                    AlaMasterLiveRoomOpearator.this.ccJ().hpS.removeView(AlaMasterLiveRoomOpearator.this.hvy);
+            public void ciz() {
+                if (AlaMasterLiveRoomOpearator.this.ccK().hpU != null) {
+                    AlaMasterLiveRoomOpearator.this.ccK().hpU.removeView(AlaMasterLiveRoomOpearator.this.hvA);
                 }
             }
         });
         return 1;
     }
 
-    private void chp() {
-        CustomResponsedMessage runTask;
-        if (this.hvw == null && (runTask = MessageManager.getInstance().runTask(2913207, com.baidu.live.m.a.class, ccJ().pageContext)) != null && runTask.getData() != null) {
-            this.hvw = (com.baidu.live.m.a) runTask.getData();
-            this.hvw.c(ccJ().pageContext);
-        }
-    }
-
     private void chq() {
         CustomResponsedMessage runTask;
-        if (chx() && this.hvx == null && (runTask = MessageManager.getInstance().runTask(2913254, com.baidu.live.an.b.class, ccJ().pageContext)) != null && runTask.getData() != null) {
-            this.hvx = (com.baidu.live.an.b) runTask.getData();
-            if (ccJ() != null && ccJ().hpR != null && ccJ().hpR.Iq() != null) {
-                this.hvx.setLiveShowData(ccJ().hpR.Iq());
-            }
-            if (ccJ() != null && ccJ().hqi != null) {
-                this.hvx.L(ccJ().hqi);
-                this.hvx.setMute(ccJ().hqi.isMute());
-            }
-            if (this.hvx != null && this.hvG != null) {
-                this.hvx.a(new com.baidu.live.an.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.31
-                    @Override // com.baidu.live.an.a
-                    public boolean Sv() {
-                        if ((AlaMasterLiveRoomOpearator.this.hgq != null) && AlaMasterLiveRoomOpearator.this.hgq.Em()) {
-                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_pking_repeated_initiation_tips));
-                            return false;
-                        }
-                        if ((AlaMasterLiveRoomOpearator.this.hgq != null) & AlaMasterLiveRoomOpearator.this.hgq.Qx()) {
-                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_matching_repeated_initiation_tips));
-                            return false;
-                        } else if (AlaMasterLiveRoomOpearator.this.hwp == null || !AlaMasterLiveRoomOpearator.this.hwp.ccL()) {
-                            if (AlaMasterLiveRoomOpearator.this.hwp == null || !AlaMasterLiveRoomOpearator.this.hwp.ccM()) {
-                                return true;
-                            }
-                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_challenge_pking_repeated_initiation_tips));
-                            return false;
-                        } else {
-                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity().getResources().getString(a.h.sdk_challenge_pking_repeated_initiation_tips));
-                            return false;
-                        }
-                    }
-                });
-                View enterView = this.hvx.getEnterView();
-                if (enterView != null) {
-                    if (enterView.getParent() != null) {
-                        ((ViewGroup) enterView.getParent()).removeView(enterView);
-                    }
-                    this.hvG.setVisibility(0);
-                    this.hvG.addView(enterView);
-                }
-            }
-            if (this.hvx != null) {
-                this.hvx.Y(ccJ().hqj);
-            }
-            if (this.hvx != null && ccJ().hqk != null) {
-                this.hvx.a(ccJ().hqk);
-            }
+        if (this.hvy == null && (runTask = MessageManager.getInstance().runTask(2913207, com.baidu.live.m.a.class, ccK().pageContext)) != null && runTask.getData() != null) {
+            this.hvy = (com.baidu.live.m.a) runTask.getData();
+            this.hvy.c(ccK().pageContext);
         }
     }
 
     private void chr() {
+        CustomResponsedMessage runTask;
+        if (chy() && this.hvz == null && (runTask = MessageManager.getInstance().runTask(2913254, com.baidu.live.an.b.class, ccK().pageContext)) != null && runTask.getData() != null) {
+            this.hvz = (com.baidu.live.an.b) runTask.getData();
+            if (ccK() != null && ccK().hpT != null && ccK().hpT.Iq() != null) {
+                this.hvz.setLiveShowData(ccK().hpT.Iq());
+            }
+            if (ccK() != null && ccK().hqk != null) {
+                this.hvz.L(ccK().hqk);
+                this.hvz.setMute(ccK().hqk.isMute());
+            }
+            if (this.hvz != null && this.hvI != null) {
+                this.hvz.a(new com.baidu.live.an.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.31
+                    @Override // com.baidu.live.an.a
+                    public boolean Sv() {
+                        if ((AlaMasterLiveRoomOpearator.this.hgs != null) && AlaMasterLiveRoomOpearator.this.hgs.Em()) {
+                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_pking_repeated_initiation_tips));
+                            return false;
+                        }
+                        if ((AlaMasterLiveRoomOpearator.this.hgs != null) & AlaMasterLiveRoomOpearator.this.hgs.Qx()) {
+                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_matching_repeated_initiation_tips));
+                            return false;
+                        } else if (AlaMasterLiveRoomOpearator.this.hwr == null || !AlaMasterLiveRoomOpearator.this.hwr.ccM()) {
+                            if (AlaMasterLiveRoomOpearator.this.hwr == null || !AlaMasterLiveRoomOpearator.this.hwr.ccN()) {
+                                return true;
+                            }
+                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_challenge_pking_repeated_initiation_tips));
+                            return false;
+                        } else {
+                            BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity().getResources().getString(a.h.sdk_challenge_pking_repeated_initiation_tips));
+                            return false;
+                        }
+                    }
+                });
+                View enterView = this.hvz.getEnterView();
+                if (enterView != null) {
+                    if (enterView.getParent() != null) {
+                        ((ViewGroup) enterView.getParent()).removeView(enterView);
+                    }
+                    this.hvI.setVisibility(0);
+                    this.hvI.addView(enterView);
+                }
+            }
+            if (this.hvz != null) {
+                this.hvz.Y(ccK().hql);
+            }
+            if (this.hvz != null && ccK().hqm != null) {
+                this.hvz.a(ccK().hqm);
+            }
+        }
+    }
+
+    private void chs() {
         View rootLayout;
-        if (this.hvw != null && this.hvF != null && (rootLayout = this.hvw.ct(false).getRootLayout()) != null) {
+        if (this.hvy != null && this.hvH != null && (rootLayout = this.hvy.ct(false).getRootLayout()) != null) {
             if (rootLayout.getParent() != null) {
                 ((ViewGroup) rootLayout.getParent()).removeView(rootLayout);
             }
-            this.hvF.addView(rootLayout);
+            this.hvH.addView(rootLayout);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chs() {
-        if (this.hvW == null) {
-            this.hvW = new com.baidu.tieba.ala.liveroom.master.panel.b(ccJ().pageContext.getPageActivity(), ccJ().ceF() == 2);
-            this.hvW.a(new b.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.32
+    public void cht() {
+        if (this.hvY == null) {
+            this.hvY = new com.baidu.tieba.ala.liveroom.master.panel.b(ccK().pageContext.getPageActivity(), ccK().ceG() == 2);
+            this.hvY.a(new b.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.32
                 @Override // com.baidu.tieba.ala.liveroom.master.panel.b.a
                 public void nV(boolean z) {
-                    AlaMasterLiveRoomOpearator.this.ccJ().hqi.switchCamera();
+                    AlaMasterLiveRoomOpearator.this.ccK().hqk.switchCamera();
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.master.panel.b.a
                 public void nW(boolean z) {
-                    AlaMasterLiveRoomOpearator.this.ccJ().hqi.switchFlashingLight();
+                    AlaMasterLiveRoomOpearator.this.ccK().hqk.switchFlashingLight();
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.master.panel.b.a
                 public void nX(boolean z) {
-                    AlaMasterLiveRoomOpearator.this.ccJ().hqi.setPushMirror(z);
-                    AlaMasterLiveRoomOpearator.this.cii();
-                    if (AlaMasterLiveRoomOpearator.this.hvr != null) {
+                    AlaMasterLiveRoomOpearator.this.ccK().hqk.setPushMirror(z);
+                    AlaMasterLiveRoomOpearator.this.cij();
+                    if (AlaMasterLiveRoomOpearator.this.hvt != null) {
                         if (z) {
-                            AlaMasterLiveRoomOpearator.this.hvr.a(AlaMasterLiveRoomOpearator.this.ccJ().hql, AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getString(a.h.ala_master_live_mirror_open_tip), 4);
+                            AlaMasterLiveRoomOpearator.this.hvt.a(AlaMasterLiveRoomOpearator.this.ccK().hqn, AlaMasterLiveRoomOpearator.this.ccK().pageContext.getString(a.h.ala_master_live_mirror_open_tip), 4);
                             return;
                         }
-                        AlaMasterLiveRoomOpearator.this.hvr.a(AlaMasterLiveRoomOpearator.this.ccJ().hql, AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getString(a.h.ala_master_live_mirror_close_tip), 4);
+                        AlaMasterLiveRoomOpearator.this.hvt.a(AlaMasterLiveRoomOpearator.this.ccK().hqn, AlaMasterLiveRoomOpearator.this.ccK().pageContext.getString(a.h.ala_master_live_mirror_close_tip), 4);
                     }
                 }
 
@@ -1337,222 +1337,222 @@ public class AlaMasterLiveRoomOpearator {
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.master.panel.b.a
-                public void ciz() {
-                    String str = "";
-                    if (AlaMasterLiveRoomOpearator.this.ccJ().hpR != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq() != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo != null) {
-                        str = String.valueOf(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.getLiveID());
-                    }
-                    if (AlaMasterLiveRoomOpearator.this.hvW != null) {
-                        AlaMasterLiveRoomOpearator.this.hvW.dismiss();
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.d.a(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), str)));
-                }
-
-                @Override // com.baidu.tieba.ala.liveroom.master.panel.b.a
                 public void ciA() {
-                    if (AlaMasterLiveRoomOpearator.this.hvW != null) {
-                        AlaMasterLiveRoomOpearator.this.hvW.dismiss();
+                    String str = "";
+                    if (AlaMasterLiveRoomOpearator.this.ccK().hpT != null && AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq() != null && AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo != null) {
+                        str = String.valueOf(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.getLiveID());
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new i(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity())));
+                    if (AlaMasterLiveRoomOpearator.this.hvY != null) {
+                        AlaMasterLiveRoomOpearator.this.hvY.dismiss();
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.d.a(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), str)));
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.master.panel.b.a
                 public void ciB() {
+                    if (AlaMasterLiveRoomOpearator.this.hvY != null) {
+                        AlaMasterLiveRoomOpearator.this.hvY.dismiss();
+                    }
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new i(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity())));
+                }
+
+                @Override // com.baidu.tieba.ala.liveroom.master.panel.b.a
+                public void ciC() {
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "redenvelope"));
-                    if (AlaMasterLiveRoomOpearator.this.ccJ() != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq() != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new u(AlaMasterLiveRoomOpearator.this.ccJ().pageContext, String.valueOf(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.live_id), String.valueOf(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.room_id))));
-                        if (AlaMasterLiveRoomOpearator.this.hvW != null) {
-                            AlaMasterLiveRoomOpearator.this.hvW.dismiss();
+                    if (AlaMasterLiveRoomOpearator.this.ccK() != null && AlaMasterLiveRoomOpearator.this.ccK().hpT != null && AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq() != null && AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo != null) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new u(AlaMasterLiveRoomOpearator.this.ccK().pageContext, String.valueOf(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.live_id), String.valueOf(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.room_id))));
+                        if (AlaMasterLiveRoomOpearator.this.hvY != null) {
+                            AlaMasterLiveRoomOpearator.this.hvY.dismiss();
                         }
                     }
                 }
 
                 @Override // com.baidu.tieba.ala.liveroom.master.panel.b.a
-                public void ciC() {
+                public void ciD() {
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "wishlist"));
-                    long j = (AlaMasterLiveRoomOpearator.this.ccJ() == null || AlaMasterLiveRoomOpearator.this.ccJ().hpR == null || AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq() == null || AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo == null) ? 0L : AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.live_id;
+                    long j = (AlaMasterLiveRoomOpearator.this.ccK() == null || AlaMasterLiveRoomOpearator.this.ccK().hpT == null || AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq() == null || AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo == null) ? 0L : AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.live_id;
                     if (j == 0) {
                         AlaMasterLiveRoomOpearator.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.32.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AlaMasterLiveRoomOpearator.this.ccJ() != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq() != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo != null) {
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new p(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.live_id)));
-                                    if (AlaMasterLiveRoomOpearator.this.hvW != null) {
-                                        AlaMasterLiveRoomOpearator.this.hvW.dismiss();
+                                if (AlaMasterLiveRoomOpearator.this.ccK() != null && AlaMasterLiveRoomOpearator.this.ccK().hpT != null && AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq() != null && AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo != null) {
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new p(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.live_id)));
+                                    if (AlaMasterLiveRoomOpearator.this.hvY != null) {
+                                        AlaMasterLiveRoomOpearator.this.hvY.dismiss();
                                     }
                                 }
                             }
                         }, 2000L);
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new p(AlaMasterLiveRoomOpearator.this.hja.pageContext.getPageActivity(), j)));
-                    if (AlaMasterLiveRoomOpearator.this.hvW != null) {
-                        AlaMasterLiveRoomOpearator.this.hvW.dismiss();
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new p(AlaMasterLiveRoomOpearator.this.hjc.pageContext.getPageActivity(), j)));
+                    if (AlaMasterLiveRoomOpearator.this.hvY != null) {
+                        AlaMasterLiveRoomOpearator.this.hvY.dismiss();
                     }
                 }
             });
         }
-        cht();
+        chu();
     }
 
-    private void cht() {
-        if (this.hvW != null) {
-            boolean isBackCamera = ccJ().hqi.isBackCamera();
-            this.hvW.nZ(ccJ().hqi.isBackCamera());
-            this.hvW.Q(ccJ().hqi.isFlashingLightOpen(), isBackCamera);
-            boolean isPushMirror = ccJ().hqi.isPushMirror();
-            if (this.hwl) {
-                isPushMirror = cih() || isPushMirror;
-                this.hwl = false;
+    private void chu() {
+        if (this.hvY != null) {
+            boolean isBackCamera = ccK().hqk.isBackCamera();
+            this.hvY.nZ(ccK().hqk.isBackCamera());
+            this.hvY.Q(ccK().hqk.isFlashingLightOpen(), isBackCamera);
+            boolean isPushMirror = ccK().hqk.isPushMirror();
+            if (this.hwn) {
+                isPushMirror = cii() || isPushMirror;
+                this.hwn = false;
             }
-            this.hvW.R(isPushMirror, isBackCamera ? false : true);
-            this.hvW.oa(ccJ().hqi.isMute());
-            this.hvW.ciK();
-        }
-    }
-
-    public void chu() {
-        if (this.hji != null) {
-            if (this.hji.hqr == null || this.hji.hqr.mLiveInfo == null) {
-                if (TbadkCoreApplication.getInst().isOther()) {
-                    if (this.hvH == null) {
-                        this.hvH = this.hja.hqq.Pm();
-                        this.hja.hql.addView(this.hvH, new FrameLayout.LayoutParams(-1, -1));
-                        return;
-                    }
-                    return;
-                }
-                if (this.hvl == null) {
-                    TiebaInitialize.log("c11856");
-                    if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                        AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_RECORD_ACCESS);
-                        if (ccJ().hpR != null && ccJ().hpR.Iq() != null && ccJ().hpR.Iq().mLiveInfo != null) {
-                            alaStaticItem.addParams("live_id", ccJ().hpR.Iq().mLiveInfo.live_id + "");
-                            alaStaticItem.addParams("room_id", ccJ().hpR.Iq().mLiveInfo.room_id + "");
-                        }
-                        AlaStaticsManager.getInst().onStatic(alaStaticItem);
-                    }
-                    this.hvl = new com.baidu.tieba.ala.liveroom.h.d(ccJ().pageContext);
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                    ccJ().hqo.prepareTime = System.currentTimeMillis();
-                    ccJ().hql.addView(this.hvl.getView(), layoutParams);
-                    this.hvl.a(this.hwL);
-                }
-                this.hvl.nB(this.hqf);
-                this.hvl.a(this.hwN);
-                this.hvl.a(this.hwJ);
-                this.hvl.a(ccJ().hqi, ccJ().ceF());
-                this.hvl.a(this.hvw);
-                return;
-            }
-            this.huS = this.hji.hqr.mLiveInfo.screen_direction == 2;
-            if (this.hji.hqr.mLiveInfo.isAudioOnPrivate == 1) {
-                ccJ().hqi.setMute(true);
-                if (this.hwq != null) {
-                    this.hwq.setMute(ccJ().hqi.isMute());
-                }
-                if (this.hvx != null) {
-                    this.hvx.setMute(ccJ().hqi.isMute());
-                }
-                if (this.hvr == null) {
-                    this.hvr = new com.baidu.tieba.ala.liveroom.tippop.a(this.hja.pageContext, null);
-                }
-                if (!this.hvr.xo(2)) {
-                    this.hvr.a(ccJ().hql, ccJ().pageContext.getString(a.h.ala_master_live_mute_open_tip), 2, true);
-                }
-            }
-            d dVar = new d();
-            dVar.hqc = true;
-            dVar.forumId = String.valueOf(this.hji.hqr.mLiveInfo.forum_id);
-            dVar.forumName = this.hji.hqr.mLiveInfo.forum_name;
-            dVar.liveType = this.hji.hqr.mLiveInfo.live_type;
-            dVar.title = this.hji.hqr.mLiveInfo.getLiveTitle();
-            dVar.clarity = this.hji.hqr.mLiveInfo.clarity;
-            dVar.gameId = this.hji.hqr.mLiveInfo.game_id;
-            dVar.gameName = this.hji.hqr.mLiveInfo.game_label;
-            dVar.hqg = this.hji.hqr.mLiveInfo.screen_direction == 2;
-            c(dVar);
+            this.hvY.R(isPushMirror, isBackCamera ? false : true);
+            this.hvY.oa(ccK().hqk.isMute());
+            this.hvY.ciL();
         }
     }
 
     public void chv() {
-        if (this.hwo != null) {
-            this.hwo.a(ccJ().hqi.getVideoConfig(), false);
+        if (this.hjk != null) {
+            if (this.hjk.hqt == null || this.hjk.hqt.mLiveInfo == null) {
+                if (TbadkCoreApplication.getInst().isOther()) {
+                    if (this.hvJ == null) {
+                        this.hvJ = this.hjc.hqs.Pm();
+                        this.hjc.hqn.addView(this.hvJ, new FrameLayout.LayoutParams(-1, -1));
+                        return;
+                    }
+                    return;
+                }
+                if (this.hvn == null) {
+                    TiebaInitialize.log("c11856");
+                    if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
+                        AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_RECORD_ACCESS);
+                        if (ccK().hpT != null && ccK().hpT.Iq() != null && ccK().hpT.Iq().mLiveInfo != null) {
+                            alaStaticItem.addParams("live_id", ccK().hpT.Iq().mLiveInfo.live_id + "");
+                            alaStaticItem.addParams("room_id", ccK().hpT.Iq().mLiveInfo.room_id + "");
+                        }
+                        AlaStaticsManager.getInst().onStatic(alaStaticItem);
+                    }
+                    this.hvn = new d(ccK().pageContext);
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                    ccK().hqq.prepareTime = System.currentTimeMillis();
+                    ccK().hqn.addView(this.hvn.getView(), layoutParams);
+                    this.hvn.a(this.hwN);
+                }
+                this.hvn.nB(this.hqh);
+                this.hvn.a(this.hwP);
+                this.hvn.a(this.hwL);
+                this.hvn.a(ccK().hqk, ccK().ceG());
+                this.hvn.a(this.hvy);
+                return;
+            }
+            this.huU = this.hjk.hqt.mLiveInfo.screen_direction == 2;
+            if (this.hjk.hqt.mLiveInfo.isAudioOnPrivate == 1) {
+                ccK().hqk.setMute(true);
+                if (this.hws != null) {
+                    this.hws.setMute(ccK().hqk.isMute());
+                }
+                if (this.hvz != null) {
+                    this.hvz.setMute(ccK().hqk.isMute());
+                }
+                if (this.hvt == null) {
+                    this.hvt = new com.baidu.tieba.ala.liveroom.tippop.a(this.hjc.pageContext, null);
+                }
+                if (!this.hvt.xo(2)) {
+                    this.hvt.a(ccK().hqn, ccK().pageContext.getString(a.h.ala_master_live_mute_open_tip), 2, true);
+                }
+            }
+            com.baidu.tieba.ala.liveroom.data.d dVar = new com.baidu.tieba.ala.liveroom.data.d();
+            dVar.hqe = true;
+            dVar.forumId = String.valueOf(this.hjk.hqt.mLiveInfo.forum_id);
+            dVar.forumName = this.hjk.hqt.mLiveInfo.forum_name;
+            dVar.liveType = this.hjk.hqt.mLiveInfo.live_type;
+            dVar.title = this.hjk.hqt.mLiveInfo.getLiveTitle();
+            dVar.clarity = this.hjk.hqt.mLiveInfo.clarity;
+            dVar.gameId = this.hjk.hqt.mLiveInfo.game_id;
+            dVar.gameName = this.hjk.hqt.mLiveInfo.game_label;
+            dVar.hqi = this.hjk.hqt.mLiveInfo.screen_direction == 2;
+            c(dVar);
         }
-        if (this.hvl != null) {
-            this.hvl.nA(true);
-        }
-        if (ccJ().hqi.hasBeauty() >= 0) {
-            ccJ().hqi.setBeauty(com.baidu.live.d.BM().getInt("live_beauty_level", 3));
-        }
-        if (TbadkCoreApplication.getInst().isOther()) {
-            ccJ().hqq.I(this.hja.hqi);
-        } else if (this.hvl != null) {
-            this.hvl.nA(true);
-        }
-        chJ();
     }
 
-    public void d(d dVar) {
+    public void chw() {
+        if (this.hwq != null) {
+            this.hwq.a(ccK().hqk.getVideoConfig(), false);
+        }
+        if (this.hvn != null) {
+            this.hvn.nA(true);
+        }
+        if (ccK().hqk.hasBeauty() >= 0) {
+            ccK().hqk.setBeauty(com.baidu.live.d.BM().getInt("live_beauty_level", 3));
+        }
         if (TbadkCoreApplication.getInst().isOther()) {
-            if (this.hvH != null && this.hvH.getParent() != null) {
-                ((ViewGroup) this.hvH.getParent()).removeView(this.hvH);
-                this.hvH = null;
+            ccK().hqs.I(this.hjc.hqk);
+        } else if (this.hvn != null) {
+            this.hvn.nA(true);
+        }
+        chK();
+    }
+
+    public void d(com.baidu.tieba.ala.liveroom.data.d dVar) {
+        if (TbadkCoreApplication.getInst().isOther()) {
+            if (this.hvJ != null && this.hvJ.getParent() != null) {
+                ((ViewGroup) this.hvJ.getParent()).removeView(this.hvJ);
+                this.hvJ = null;
             }
-            ccJ().hpS.setVisibility(0);
-            this.hja.hqq.a(ccJ().hpS);
+            ccK().hpU.setVisibility(0);
+            this.hjc.hqs.a(ccK().hpU);
         } else {
-            chR();
-            cig();
-            if (this.hwz != null) {
-                this.hwz.setVisibility(0);
+            chS();
+            cih();
+            if (this.hwB != null) {
+                this.hwB.setVisibility(0);
             }
-            this.hvp = new com.baidu.tieba.ala.liveroom.w.a(ccJ().pageContext, this.hwK);
-            this.hvp.c(ccJ().hpS, true);
-            this.hvp.on(true);
-            if (this.hfU != null && this.hfU.Nd() != null) {
-                this.hfU.Nd().setNeedTopAlphaShade(true);
+            this.hvr = new com.baidu.tieba.ala.liveroom.w.a(ccK().pageContext, this.hwM);
+            this.hvr.c(ccK().hpU, true);
+            this.hvr.on(true);
+            if (this.hfW != null && this.hfW.Nd() != null) {
+                this.hfW.Nd().setNeedTopAlphaShade(true);
             }
         }
-        ccJ().hqi.setPushMirror(cih());
+        ccK().hqk.setPushMirror(cii());
     }
 
     public void b(aq aqVar) {
         boolean z;
         boolean z2 = false;
         if (TbadkCoreApplication.getInst().isOther()) {
-            this.hja.hqq.k(ccJ().hpR.Iq());
+            this.hjc.hqs.k(ccK().hpT.Iq());
         }
-        if (!ccJ().hqi.isBackground() && ccJ().hpR.Iq() != null && ccJ().hpR.Iq().mLiveInfo != null) {
-            int startPush = ccJ().hqi.startPush(ccJ().hpR.Iq().mLiveInfo.getPushUrl());
+        if (!ccK().hqk.isBackground() && ccK().hpT.Iq() != null && ccK().hpT.Iq().mLiveInfo != null) {
+            int startPush = ccK().hqk.startPush(ccK().hpT.Iq().mLiveInfo.getPushUrl());
             if (TbadkCoreApplication.getInst().isOther()) {
-                this.hja.hqq.Pn();
+                this.hjc.hqs.Pn();
             }
-            if (startPush != 0 && ccJ().hqo != null) {
-                ccJ().hqo.errCode = 4;
-                ccJ().hqo.errSubReason = startPush;
+            if (startPush != 0 && ccK().hqq != null) {
+                ccK().hqq.errCode = 4;
+                ccK().hqq.errSubReason = startPush;
             }
         }
         if (!TbadkCoreApplication.getInst().isOther()) {
-            if (aqVar != null && !aqVar.FM() && !cie()) {
+            if (aqVar != null && !aqVar.FM() && !cif()) {
                 nU(true);
-                cif();
+                cig();
             }
-            if (this.heK != null) {
-                this.heK.M(ccJ().hpR.Iq());
+            if (this.heM != null) {
+                this.heM.M(ccK().hpT.Iq());
             }
-            if (this.hfF != null) {
-                this.hfF.a(ccJ().hpR.Iq());
+            if (this.hfH != null) {
+                this.hfH.a(ccK().hpT.Iq());
             }
-            if (this.hvw != null) {
-                this.hvw.e(ccJ().hpR.Iq());
-                this.hvw.ik(this.otherParams);
+            if (this.hvy != null) {
+                this.hvy.e(ccK().hpT.Iq());
+                this.hvy.ik(this.otherParams);
             }
-            if (this.heK != null) {
-                this.heK.nO(true);
+            if (this.heM != null) {
+                this.heM.nO(true);
             }
-            if (this.hvm != null) {
-                this.hvm.M(ccJ().hpR.Iq());
+            if (this.hvo != null) {
+                this.hvo.M(ccK().hpT.Iq());
             }
             if (aqVar == null || aqVar.aJV == null) {
                 z = com.baidu.live.d.BM().getBoolean("ala_master_can_use_challenge", false);
@@ -1560,503 +1560,503 @@ public class AlaMasterLiveRoomOpearator {
                 z = aqVar.aJV.canUseChallenge;
                 com.baidu.live.d.BM().putBoolean("ala_master_can_use_challenge", z);
             }
-            cbF();
-            chS();
-            chC();
-            nS(z);
-            cas();
+            cbG();
             chT();
-            chZ();
-            N(ccJ().hpR.Iq());
-            f(ccJ().hpR.Iq());
+            chD();
+            nS(z);
+            cat();
+            chU();
             cia();
+            N(ccK().hpT.Iq());
+            f(ccK().hpT.Iq());
             cib();
-            chw();
-            chW();
-            cbB();
-            car();
-            cbD();
-            caq();
+            cic();
+            chx();
             chX();
-            cbn();
-            cbw();
-            cbx();
-            chP();
-            chQ();
-            O(ccJ().hpR.Iq());
+            cbC();
+            cas();
+            cbE();
+            car();
             chY();
-            cbA();
             cbo();
-            MessageManager.getInstance().registerListener(this.gND);
-            MessageManager.getInstance().registerListener(this.gNV);
-            bVZ();
-            this.hwv.postDelayed(this.hwS, IMConnection.RETRY_DELAY_TIMES);
-            if (this.hfT != null) {
-                this.hfT.g(ccJ().hpR.Iq());
+            cbx();
+            cby();
+            chQ();
+            chR();
+            O(ccK().hpT.Iq());
+            chZ();
+            cbB();
+            cbp();
+            MessageManager.getInstance().registerListener(this.gNF);
+            MessageManager.getInstance().registerListener(this.gNX);
+            bWa();
+            this.hwx.postDelayed(this.hwU, IMConnection.RETRY_DELAY_TIMES);
+            if (this.hfV != null) {
+                this.hfV.g(ccK().hpT.Iq());
             }
-            if (this.hfU != null) {
-                if (ccJ().hpR.Iq() != null && ccJ().hpR.Iq().aKI != null && ccJ().hpR.Iq().aKI.Fb()) {
+            if (this.hfW != null) {
+                if (ccK().hpT.Iq() != null && ccK().hpT.Iq().aKI != null && ccK().hpT.Iq().aKI.Fb()) {
                     z2 = true;
                 }
-                this.hfU.a(String.valueOf(ccJ().hpR.Iq().mLiveInfo.group_id), String.valueOf(ccJ().hpR.Iq().mLiveInfo.last_msg_id), String.valueOf(ccJ().hpR.Iq().aJV.userId), String.valueOf(ccJ().hpR.Iq().mLiveInfo.live_id), ccJ().hpR.Iq().aJV.appId, z2, ccJ().hpR.Iq().getGuardName());
+                this.hfW.a(String.valueOf(ccK().hpT.Iq().mLiveInfo.group_id), String.valueOf(ccK().hpT.Iq().mLiveInfo.last_msg_id), String.valueOf(ccK().hpT.Iq().aJV.userId), String.valueOf(ccK().hpT.Iq().mLiveInfo.live_id), ccK().hpT.Iq().aJV.appId, z2, ccK().hpT.Iq().getGuardName());
             }
-            if (this.hfV != null) {
-                this.hfV.a(ccJ().hpR.Iq(), true);
+            if (this.hfX != null) {
+                this.hfX.a(ccK().hpT.Iq(), true);
             }
-            chy();
-            chq();
-            cbJ();
-            this.mHandler.post(this.hwB);
+            chz();
+            chr();
+            cbK();
+            this.mHandler.post(this.hwD);
         }
     }
 
-    protected void cbJ() {
-        if (this.hgB == null && ccJ() != null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913256, com.baidu.live.s.a.class, ccJ().pageContext.getPageActivity());
+    protected void cbK() {
+        if (this.hgD == null && ccK() != null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913256, com.baidu.live.s.a.class, ccK().pageContext.getPageActivity());
             if (runTask.getData() != null) {
-                this.hgB = (com.baidu.live.s.a) runTask.getData();
-                this.hgB.m(ccJ().hpS);
+                this.hgD = (com.baidu.live.s.a) runTask.getData();
+                this.hgD.m(ccK().hpU);
             }
         }
     }
 
-    private void chw() {
-        if (this.hvn != null && ccJ() != null && ccJ().hpR != null) {
-            if (this.hvn.au(this.hvC)) {
-                this.hvn.C(ccJ().hpR.Iq());
+    private void chx() {
+        if (this.hvp != null && ccK() != null && ccK().hpT != null) {
+            if (this.hvp.au(this.hvE)) {
+                this.hvp.C(ccK().hpT.Iq());
             } else {
-                this.hvn.d(this.hvC, ccJ().hpR.Iq());
+                this.hvp.d(this.hvE, ccK().hpT.Iq());
             }
         }
     }
 
-    private void cas() {
+    private void cat() {
         if (this.buZ == null) {
-            this.buZ = new PendantParentView(ccJ().pageContext.getPageActivity(), this.gGE ? PendantParentView.Model.VERTICAL_PK : PendantParentView.Model.VERTICAL);
+            this.buZ = new PendantParentView(ccK().pageContext.getPageActivity(), this.gGG ? PendantParentView.Model.VERTICAL_PK : PendantParentView.Model.VERTICAL);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(12);
-            ccJ().hpS.addView(this.buZ, layoutParams);
-            this.buZ.setDefaultItemMargin(ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds20));
-            this.buZ.setPadding(ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds20), 0, ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds6), 0);
-            ccl();
-        }
-    }
-
-    private void ccl() {
-        if (this.buZ != null) {
-            int dimensionPixelSize = ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds278);
-            int dimensionPixelSize2 = ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds102);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.buZ.getLayoutParams();
-            if (this.gGE) {
-                this.buZ.setPosition(0, 0, this.hwp.ccr(), dimensionPixelSize2);
-            } else {
-                this.buZ.setPosition(dimensionPixelSize, 0, ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds278), dimensionPixelSize2);
-            }
-            this.buZ.setLayoutParams(layoutParams);
-            this.buZ.setModel(this.gGE ? PendantParentView.Model.VERTICAL_PK : PendantParentView.Model.VERTICAL);
+            ccK().hpU.addView(this.buZ, layoutParams);
+            this.buZ.setDefaultItemMargin(ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds20));
+            this.buZ.setPadding(ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds20), 0, ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds6), 0);
+            ccm();
         }
     }
 
     private void ccm() {
-        if (this.hfU != null && this.hfU.Nd() != null && this.hfU.Nd().getView() != null) {
-            if (this.gGE && !this.hvk && ccJ().hpS != null && ccJ().hpS.getHeight() > 0) {
-                int bu = this.hwp != null ? this.hwp.bu(true) : 0;
-                ViewGroup.LayoutParams layoutParams = this.hfU.Nd().getView().getLayoutParams();
-                int height = ccJ().hpS.getHeight() - bu;
-                int i = layoutParams instanceof ViewGroup.MarginLayoutParams ? height - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin : height;
-                if (layoutParams != null) {
-                    layoutParams.height = i;
-                    this.hfU.Nd().getView().setLayoutParams(layoutParams);
-                    return;
-                }
-                return;
+        if (this.buZ != null) {
+            int dimensionPixelSize = ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds278);
+            int dimensionPixelSize2 = ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds102);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.buZ.getLayoutParams();
+            if (this.gGG) {
+                this.buZ.setPosition(0, 0, this.hwr.ccs(), dimensionPixelSize2);
+            } else {
+                this.buZ.setPosition(dimensionPixelSize, 0, ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds278), dimensionPixelSize2);
             }
-            int i2 = com.baidu.live.ak.c.i(false, this.hvk);
-            if (ccJ().hpS.indexOfChild(this.hfU.Nd().getView()) != -1 && this.hfU.Nd().getView().getLayoutParams() != null) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.hfU.Nd().getView().getLayoutParams();
-                layoutParams2.height = i2;
-                this.hfU.Nd().getView().setLayoutParams(layoutParams2);
-            }
-            this.hfU.Nd().Nc();
+            this.buZ.setLayoutParams(layoutParams);
+            this.buZ.setModel(this.gGG ? PendantParentView.Model.VERTICAL_PK : PendantParentView.Model.VERTICAL);
         }
     }
 
     private void ccn() {
-        if (this.hfW != null) {
-            if (this.gGE && !this.hvk && ccJ().hpS != null && ccJ().hpS.getHeight() > 0) {
-                this.hfW.ek((ccJ().hpS.getHeight() - (this.hwp != null ? h.o(ccJ().pageContext.getPageActivity(), true) : 0)) + ccJ().pageContext.getResources().getDimensionPixelOffset(a.d.sdk_im_entereffect_height));
-            } else {
-                this.hfW.ek(com.baidu.live.ak.a.a(ccJ().pageContext.getPageActivity(), true, false, this.hvk));
+        if (this.hfW != null && this.hfW.Nd() != null && this.hfW.Nd().getView() != null) {
+            if (this.gGG && !this.hvm && ccK().hpU != null && ccK().hpU.getHeight() > 0) {
+                int bu = this.hwr != null ? this.hwr.bu(true) : 0;
+                ViewGroup.LayoutParams layoutParams = this.hfW.Nd().getView().getLayoutParams();
+                int height = ccK().hpU.getHeight() - bu;
+                int i = layoutParams instanceof ViewGroup.MarginLayoutParams ? height - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin : height;
+                if (layoutParams != null) {
+                    layoutParams.height = i;
+                    this.hfW.Nd().getView().setLayoutParams(layoutParams);
+                    return;
+                }
+                return;
             }
+            int i2 = com.baidu.live.ak.c.i(false, this.hvm);
+            if (ccK().hpU.indexOfChild(this.hfW.Nd().getView()) != -1 && this.hfW.Nd().getView().getLayoutParams() != null) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.hfW.Nd().getView().getLayoutParams();
+                layoutParams2.height = i2;
+                this.hfW.Nd().getView().setLayoutParams(layoutParams2);
+            }
+            this.hfW.Nd().Nc();
         }
     }
 
     private void cco() {
-        int i;
-        if (this.hfW != null) {
-            int h = com.baidu.live.ak.a.h(true, false);
-            if (!this.gGE || ccJ().hpS == null || ccJ().hpS.getHeight() <= 0) {
-                i = h;
+        if (this.hfY != null) {
+            if (this.gGG && !this.hvm && ccK().hpU != null && ccK().hpU.getHeight() > 0) {
+                this.hfY.ek((ccK().hpU.getHeight() - (this.hwr != null ? h.o(ccK().pageContext.getPageActivity(), true) : 0)) + ccK().pageContext.getResources().getDimensionPixelOffset(a.d.sdk_im_entereffect_height));
             } else {
-                i = (ccJ().hpS.getHeight() - (this.hwp != null ? this.hwp.bu(false) : 0)) + ccJ().pageContext.getResources().getDimensionPixelOffset(a.d.sdk_im_entereffect_height);
+                this.hfY.ek(com.baidu.live.ak.a.a(ccK().pageContext.getPageActivity(), true, false, this.hvm));
             }
-            this.hfW.el(i);
         }
     }
 
     private void ccp() {
-        if (this.hfV != null && this.hfV.DL() != null) {
-            ViewGroup.LayoutParams layoutParams = this.hfV.DL().getLayoutParams();
+        int i;
+        if (this.hfY != null) {
+            int h = com.baidu.live.ak.a.h(true, false);
+            if (!this.gGG || ccK().hpU == null || ccK().hpU.getHeight() <= 0) {
+                i = h;
+            } else {
+                i = (ccK().hpU.getHeight() - (this.hwr != null ? this.hwr.bu(false) : 0)) + ccK().pageContext.getResources().getDimensionPixelOffset(a.d.sdk_im_entereffect_height);
+            }
+            this.hfY.el(i);
+        }
+    }
+
+    private void ccq() {
+        if (this.hfX != null && this.hfX.DL() != null) {
+            ViewGroup.LayoutParams layoutParams = this.hfX.DL().getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = ccJ().pageContext.getResources().getDimensionPixelOffset(this.gGE ? a.d.sdk_ds100 : a.d.sdk_ds20);
-                this.hfV.DL().setLayoutParams(layoutParams);
+                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = ccK().pageContext.getResources().getDimensionPixelOffset(this.gGG ? a.d.sdk_ds100 : a.d.sdk_ds20);
+                this.hfX.DL().setLayoutParams(layoutParams);
             }
         }
     }
 
-    private boolean chx() {
+    private boolean chy() {
         AlaVideoBCChatData alaVideoBCChatData;
-        AlaLiveInfoData alaLiveInfoData = ccJ().hpR.Iq().mLiveInfo;
+        AlaLiveInfoData alaLiveInfoData = ccK().hpT.Iq().mLiveInfo;
         if (alaLiveInfoData == null || (alaVideoBCChatData = alaLiveInfoData.videoBCEnterData) == null) {
             return false;
         }
         return alaVideoBCChatData.isShowEnter();
     }
 
-    private void chy() {
-        if (this.hvx == null && !chx()) {
-            boolean z = (ccJ().hpR == null || ccJ().hpR.cjz() == null || ccJ().hpR.cjz().mLiveInfo.videoBBChatData == null || !ccJ().hpR.cjz().mLiveInfo.videoBBChatData.videoBBChatSwitch) ? false : true;
-            if (!z && ccJ().hpR != null && ccJ().hpR.Iq() != null && ccJ().hpR.Iq().mLiveInfo != null && ccJ().hpR.Iq().mLiveInfo.videoBBChatData != null && ccJ().hpR.Iq().aKE) {
-                z = ccJ().hpR.Iq().mLiveInfo.videoBBChatData.videoBBChatSwitch;
+    private void chz() {
+        if (this.hvz == null && !chy()) {
+            boolean z = (ccK().hpT == null || ccK().hpT.cjA() == null || ccK().hpT.cjA().mLiveInfo.videoBBChatData == null || !ccK().hpT.cjA().mLiveInfo.videoBBChatData.videoBBChatSwitch) ? false : true;
+            if (!z && ccK().hpT != null && ccK().hpT.Iq() != null && ccK().hpT.Iq().mLiveInfo != null && ccK().hpT.Iq().mLiveInfo.videoBBChatData != null && ccK().hpT.Iq().aKE) {
+                z = ccK().hpT.Iq().mLiveInfo.videoBBChatData.videoBBChatSwitch;
             }
-            if (this.hvQ != null) {
-                this.hvQ.setVisibility(z ? 0 : 8);
+            if (this.hvS != null) {
+                this.hvS.setVisibility(z ? 0 : 8);
             }
-            chz();
+            chA();
         }
     }
 
-    private void chz() {
+    private void chA() {
         CustomResponsedMessage runTask;
-        if (this.hwq == null && (runTask = MessageManager.getInstance().runTask(2913249, com.baidu.live.am.a.class, ccJ().pageContext)) != null && runTask.getData() != null) {
-            this.hwq = (com.baidu.live.am.a) runTask.getData();
+        if (this.hws == null && (runTask = MessageManager.getInstance().runTask(2913249, com.baidu.live.am.a.class, ccK().pageContext)) != null && runTask.getData() != null) {
+            this.hws = (com.baidu.live.am.a) runTask.getData();
         }
-        if (this.hwq != null) {
-            this.hwq.v((ViewGroup) ccJ().rootView.findViewById(a.f.ala_live_video_chat_pendant));
-            this.hwq.u(ccJ().hql);
-            this.hwq.s(ccJ().hpR.Iq());
-            this.hwq.L(ccJ().hqi);
-            this.hwq.a(ccJ().hqk);
-            this.hwq.a(this.bKs);
-            if (ccJ().hqi != null) {
-                this.hwq.setMute(ccJ().hqi.isMute());
+        if (this.hws != null) {
+            this.hws.v((ViewGroup) ccK().rootView.findViewById(a.f.ala_live_video_chat_pendant));
+            this.hws.u(ccK().hqn);
+            this.hws.s(ccK().hpT.Iq());
+            this.hws.L(ccK().hqk);
+            this.hws.a(ccK().hqm);
+            this.hws.a(this.bKs);
+            if (ccK().hqk != null) {
+                this.hws.setMute(ccK().hqk.isMute());
             }
         }
     }
 
     private void nS(boolean z) {
-        if (this.hwp == null) {
-            this.hwp = new com.baidu.tieba.ala.liveroom.challenge.e(ccJ());
+        if (this.hwr == null) {
+            this.hwr = new com.baidu.tieba.ala.liveroom.challenge.e(ccK());
         }
-        this.hwp.a(this.hjh, this.hji, z);
-        this.hwp.a(new com.baidu.tieba.ala.liveroom.challenge.d() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.35
+        this.hwr.a(this.hjj, this.hjk, z);
+        this.hwr.a(new com.baidu.tieba.ala.liveroom.challenge.d() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.35
             @Override // com.baidu.tieba.ala.liveroom.challenge.d
             public void a(ba baVar, be beVar, be beVar2) {
-                AlaMasterLiveRoomOpearator.this.gGE = true;
-                AlaMasterLiveRoomOpearator.this.ccJ().hpS.hFs = false;
-                if (AlaMasterLiveRoomOpearator.this.hvX != null) {
-                    AlaMasterLiveRoomOpearator.this.hvX.fz(4);
-                    AlaMasterLiveRoomOpearator.this.hvX.cN(true);
+                AlaMasterLiveRoomOpearator.this.gGG = true;
+                AlaMasterLiveRoomOpearator.this.ccK().hpU.hFu = false;
+                if (AlaMasterLiveRoomOpearator.this.hvZ != null) {
+                    AlaMasterLiveRoomOpearator.this.hvZ.fz(4);
+                    AlaMasterLiveRoomOpearator.this.hvZ.cN(true);
                 }
                 AlaMasterLiveRoomOpearator.this.Yg();
             }
 
             @Override // com.baidu.tieba.ala.liveroom.challenge.d
             public void Es() {
-                AlaMasterLiveRoomOpearator.this.mHandler.post(AlaMasterLiveRoomOpearator.this.hwB);
-            }
-
-            @Override // com.baidu.tieba.ala.liveroom.challenge.d
-            public void ccH() {
-                AlaMasterLiveRoomOpearator.this.gGE = false;
-                AlaMasterLiveRoomOpearator.this.ccJ().hpS.hFs = false;
-                if (AlaMasterLiveRoomOpearator.this.hvX != null) {
-                    AlaMasterLiveRoomOpearator.this.hvX.fz(0);
-                    AlaMasterLiveRoomOpearator.this.hvX.cN(false);
-                }
-                AlaMasterLiveRoomOpearator.this.chB();
+                AlaMasterLiveRoomOpearator.this.mHandler.post(AlaMasterLiveRoomOpearator.this.hwD);
             }
 
             @Override // com.baidu.tieba.ala.liveroom.challenge.d
             public void ccI() {
-                AlaMasterLiveRoomOpearator.this.mHandler.post(AlaMasterLiveRoomOpearator.this.hwB);
+                AlaMasterLiveRoomOpearator.this.gGG = false;
+                AlaMasterLiveRoomOpearator.this.ccK().hpU.hFu = false;
+                if (AlaMasterLiveRoomOpearator.this.hvZ != null) {
+                    AlaMasterLiveRoomOpearator.this.hvZ.fz(0);
+                    AlaMasterLiveRoomOpearator.this.hvZ.cN(false);
+                }
+                AlaMasterLiveRoomOpearator.this.chC();
+            }
+
+            @Override // com.baidu.tieba.ala.liveroom.challenge.d
+            public void ccJ() {
+                AlaMasterLiveRoomOpearator.this.mHandler.post(AlaMasterLiveRoomOpearator.this.hwD);
             }
         });
-        this.hwp.N(this.huS, z);
-        this.hwp.j(this.huS, z, (this.hji == null || this.hji.hqr == null || this.hji.hqr.mChallengeData == null) ? false : true);
+        this.hwr.N(this.huU, z);
+        this.hwr.j(this.huU, z, (this.hjk == null || this.hjk.hqt == null || this.hjk.hqt.mChallengeData == null) ? false : true);
     }
 
-    public boolean chA() {
-        return this.hwp != null && this.hwp.ccQ();
+    public boolean chB() {
+        return this.hwr != null && this.hwr.ccR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Yg() {
-        if (this.hvq != null) {
-            this.hvq.setVisible(8);
-            this.hvq.setCanVisible(false);
+        if (this.hvs != null) {
+            this.hvs.setVisible(8);
+            this.hvs.setCanVisible(false);
         }
-        if (this.heP != null) {
-            this.heP.bd(true);
+        if (this.heR != null) {
+            this.heR.bd(true);
         }
-        if (this.hvz != null) {
-            this.hvz.setCanVisible(false);
-            this.hvz.setVisibility(4);
+        if (this.hvB != null) {
+            this.hvB.setCanVisible(false);
+            this.hvB.setVisibility(4);
         }
-        if (this.hvp != null) {
-            this.hvI = this.hvp.clM();
-            this.hvp.om(false);
+        if (this.hvr != null) {
+            this.hvK = this.hvr.clN();
+            this.hvr.om(false);
         }
-        if (this.hgq != null) {
-            this.hgq.setCanVisible(false);
+        if (this.hgs != null) {
+            this.hgs.setCanVisible(false);
         }
-        if (this.heW != null) {
-            this.heW.setCanVisible(false);
+        if (this.heY != null) {
+            this.heY.setCanVisible(false);
         }
-        if (this.hgr != null) {
-            this.hgr.bd(true);
-            this.hgr.be(true);
+        if (this.hgt != null) {
+            this.hgt.bd(true);
+            this.hgt.be(true);
         }
-        ccl();
         ccm();
         ccn();
         cco();
         ccp();
+        ccq();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void chB() {
-        if (this.hvq != null) {
-            this.hvq.setCanVisible(true);
+    public void chC() {
+        if (this.hvs != null) {
+            this.hvs.setCanVisible(true);
         }
-        if (this.heP != null) {
-            this.heP.bd(false);
+        if (this.heR != null) {
+            this.heR.bd(false);
         }
-        if (this.hvz != null) {
-            this.hvz.setCanVisible(true);
-            if (this.hvz.clj()) {
-                this.hvz.setVisibility(0);
+        if (this.hvB != null) {
+            this.hvB.setCanVisible(true);
+            if (this.hvB.clk()) {
+                this.hvB.setVisibility(0);
             }
         }
-        if (this.hvp != null) {
-            this.hvp.om(this.hvI);
+        if (this.hvr != null) {
+            this.hvr.om(this.hvK);
         }
-        if (this.hgq != null) {
-            this.hgq.setCanVisible(true);
+        if (this.hgs != null) {
+            this.hgs.setCanVisible(true);
         }
-        if (this.heW != null) {
-            this.heW.cL(true);
+        if (this.heY != null) {
+            this.heY.cL(true);
         }
-        if (this.hgr != null) {
-            this.hgr.bd(false);
-            this.hgr.be(false);
+        if (this.hgt != null) {
+            this.hgt.bd(false);
+            this.hgt.be(false);
         }
-        ccl();
         ccm();
         ccn();
         cco();
         ccp();
+        ccq();
     }
 
-    private void chC() {
+    private void chD() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+        layoutParams.topMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
         layoutParams.addRule(3, a.f.ala_liveroom_ranklist);
-        layoutParams.leftMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
-        if (this.hvz == null) {
-            this.hvz = new AlaLiveStreamStatusView(ccJ().pageContext.getPageActivity());
-            this.hvz.setVisibility(4);
+        layoutParams.leftMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+        if (this.hvB == null) {
+            this.hvB = new AlaLiveStreamStatusView(ccK().pageContext.getPageActivity());
+            this.hvB.setVisibility(4);
         }
-        this.hvz.setId(a.f.ala_live_room_stream_view);
-        this.hvz.setLayoutParams(layoutParams);
-        if (this.hvz.getParent() == null && this.hvC != null) {
-            this.hvC.addView(this.hvz, layoutParams);
-        }
-    }
-
-    public void chD() {
-        if (this.hvl != null && this.hvl.getVisibility() != 8 && ccJ().hqi.getPreview() != null) {
-            ccJ().hqi.stopRecord();
+        this.hvB.setId(a.f.ala_live_room_stream_view);
+        this.hvB.setLayoutParams(layoutParams);
+        if (this.hvB.getParent() == null && this.hvE != null) {
+            this.hvE.addView(this.hvB, layoutParams);
         }
     }
 
     public void chE() {
-        if (ccJ().hqi.getPreview() != null) {
-            ccJ().hqi.stopRecord();
+        if (this.hvn != null && this.hvn.getVisibility() != 8 && ccK().hqk.getPreview() != null) {
+            ccK().hqk.stopRecord();
+        }
+    }
+
+    public void chF() {
+        if (ccK().hqk.getPreview() != null) {
+            ccK().hqk.stopRecord();
         }
     }
 
     public void l(int i, int i2, int i3) {
         if (this.mOrientation != i3) {
-            if (this.hwo != null) {
-                this.hwo.nz(false);
+            if (this.hwq != null) {
+                this.hwq.nz(false);
             }
-            this.hwo = new com.baidu.tieba.ala.liveroom.h.b(ccJ().hql, ccJ(), ccJ().hqi);
-            this.hwo.a(ccJ().hqi.getVideoConfig(), false);
+            this.hwq = new com.baidu.tieba.ala.liveroom.h.b(ccK().hqn, ccK(), ccK().hqk);
+            this.hwq.a(ccK().hqk.getVideoConfig(), false);
         }
-        if (this.hvr != null) {
-            this.hvr.ckF();
+        if (this.hvt != null) {
+            this.hvt.ckG();
         }
-        this.mHandler.post(this.hwB);
+        this.mHandler.post(this.hwD);
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.hvk = z;
+        this.hvm = z;
         if (z) {
-            if (this.hwn) {
-                this.hwn = false;
-                if (this.hfU != null && this.hfU.Nd() != null) {
-                    this.hfU.Nd().getView().setBottom(0);
+            if (this.hwp) {
+                this.hwp = false;
+                if (this.hfW != null && this.hfW.Nd() != null) {
+                    this.hfW.Nd().getView().setBottom(0);
                 }
-                if (this.hfU != null && this.hfU.Ne() != null) {
-                    this.hfU.Ne().getView().setBottom(0);
+                if (this.hfW != null && this.hfW.Ne() != null) {
+                    this.hfW.Ne().getView().setBottom(0);
                 }
             }
-            if (this.hfW != null && this.hfW.HN() != null) {
-                this.hfW.HN().setVisibility(8);
+            if (this.hfY != null && this.hfY.HN() != null) {
+                this.hfY.HN().setVisibility(8);
             }
-            if (this.hfU != null && this.hfU.Nd() != null) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hfU.Nd().getView().getLayoutParams();
-                layoutParams.bottomMargin = TbadkCoreApplication.getInst().getKeyboardHeight() + ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds132);
-                this.hfU.Nd().getView().setLayoutParams(layoutParams);
+            if (this.hfW != null && this.hfW.Nd() != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hfW.Nd().getView().getLayoutParams();
+                layoutParams.bottomMargin = TbadkCoreApplication.getInst().getKeyboardHeight() + ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds132);
+                this.hfW.Nd().getView().setLayoutParams(layoutParams);
             }
-            if (this.hfU != null && this.hfU.Ne() != null && this.hfU.Ne().getView() != null && this.hfU.Ne().getView().getVisibility() == 0) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.hfU.Ne().getView().getLayoutParams();
+            if (this.hfW != null && this.hfW.Ne() != null && this.hfW.Ne().getView() != null && this.hfW.Ne().getView().getVisibility() == 0) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.hfW.Ne().getView().getLayoutParams();
                 layoutParams2.bottomMargin = TbadkCoreApplication.getInst().getKeyboardHeight();
-                this.hfU.Ne().getView().setLayoutParams(layoutParams2);
-                this.hfU.Ne().getView().setVisibility(0);
-                this.hfU.Ne().OX();
+                this.hfW.Ne().getView().setLayoutParams(layoutParams2);
+                this.hfW.Ne().getView().setVisibility(0);
+                this.hfW.Ne().OX();
             }
             xa(8);
             wY(8);
-            if (this.hfX != null && this.hfX.Ip() != null) {
-                this.hfX.Ip().setVisibility(8);
+            if (this.hfZ != null && this.hfZ.Ip() != null) {
+                this.hfZ.Ip().setVisibility(8);
             }
-            if (this.hvU != null && this.hvU.NT() != null) {
-                this.hvU.NT().setVisibility(8);
+            if (this.hvW != null && this.hvW.NT() != null) {
+                this.hvW.NT().setVisibility(8);
             }
-            if (this.hgr != null) {
-                this.hgr.setCanVisible(false);
+            if (this.hgt != null) {
+                this.hgt.setCanVisible(false);
             }
         } else {
-            if (this.hfW != null && this.hfW.HN() != null) {
-                this.hfW.HN().setVisibility(0);
+            if (this.hfY != null && this.hfY.HN() != null) {
+                this.hfY.HN().setVisibility(0);
             }
-            if (this.hfU != null && this.hfU.Nd() != null) {
-                RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.hfU.Nd().getView().getLayoutParams();
-                layoutParams3.bottomMargin = ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds132) - ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds16);
-                this.hfU.Nd().getView().setLayoutParams(layoutParams3);
+            if (this.hfW != null && this.hfW.Nd() != null) {
+                RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.hfW.Nd().getView().getLayoutParams();
+                layoutParams3.bottomMargin = ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds132) - ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds16);
+                this.hfW.Nd().getView().setLayoutParams(layoutParams3);
             }
-            if (this.hfU != null && this.hfU.Ne() != null) {
-                this.hfU.Ne().hide();
+            if (this.hfW != null && this.hfW.Ne() != null) {
+                this.hfW.Ne().hide();
             }
             xa(0);
             wY(0);
-            if (this.hfX != null && this.hfX.Ip() != null) {
-                this.hfX.Ip().setVisibility(0);
+            if (this.hfZ != null && this.hfZ.Ip() != null) {
+                this.hfZ.Ip().setVisibility(0);
             }
-            if (this.hvU != null && this.hvU.NT() != null) {
-                this.hvU.NT().setVisibility(0);
+            if (this.hvW != null && this.hvW.NT() != null) {
+                this.hvW.NT().setVisibility(0);
             }
-            if (this.hgr != null) {
-                this.hgr.setCanVisible(true);
+            if (this.hgt != null) {
+                this.hgt.setCanVisible(true);
             }
         }
-        if (this.hvl != null) {
-            this.hvl.P(false, z);
+        if (this.hvn != null) {
+            this.hvn.P(false, z);
         }
-        if (this.hfV != null) {
-            this.hfV.DM();
+        if (this.hfX != null) {
+            this.hfX.DM();
         }
-        if (this.hvX != null) {
-            this.hvX.onKeyboardVisibilityChanged(z);
+        if (this.hvZ != null) {
+            this.hvZ.onKeyboardVisibilityChanged(z);
         }
-        if (this.hgB != null) {
-            this.hgB.onKeyboardVisibilityChanged(z);
+        if (this.hgD != null) {
+            this.hgD.onKeyboardVisibilityChanged(z);
         }
-        ccm();
-        this.mHandler.post(this.hwB);
+        ccn();
+        this.mHandler.post(this.hwD);
     }
 
     private void wY(int i) {
-        if (this.heK != null) {
-            this.heK.wM(i);
+        if (this.heM != null) {
+            this.heM.wM(i);
         }
-        if (this.hvB != null) {
-            this.hvB.setVisibility(i);
+        if (this.hvD != null) {
+            this.hvD.setVisibility(i);
         }
-        if (this.hfF != null) {
-            this.hfF.getView().setVisibility(i);
+        if (this.hfH != null) {
+            this.hfH.getView().setVisibility(i);
         }
-        if (this.hvo != null) {
-            this.hvo.setVisible(i);
+        if (this.hvq != null) {
+            this.hvq.setVisible(i);
         }
-        if (this.hvn != null) {
-            this.hvn.setVisibility(i);
+        if (this.hvp != null) {
+            this.hvp.setVisibility(i);
         }
-        if (this.heP != null) {
-            this.heP.setVisible(i);
+        if (this.heR != null) {
+            this.heR.setVisible(i);
         }
-        if (this.hgx != null) {
-            this.hgx.setCanVisible(i == 0);
+        if (this.hgz != null) {
+            this.hgz.setCanVisible(i == 0);
         }
-        if (this.hgt != null) {
-            this.hgt.setVisible(i);
-        }
-        if (this.hgo != null) {
-            this.hgo.setCanVisible(i == 0);
+        if (this.hgv != null) {
+            this.hgv.setVisible(i);
         }
         if (this.hgq != null) {
-            this.hgq.setCanVisible(i == 0 && !this.gGE);
+            this.hgq.setCanVisible(i == 0);
         }
-        if (this.heW != null) {
-            this.heW.cL(i == 0);
+        if (this.hgs != null) {
+            this.hgs.setCanVisible(i == 0 && !this.gGG);
         }
-        if (this.hwr != null) {
-            this.hwr.setCanVisible(i == 0);
-            this.hwr.refreshUI();
+        if (this.heY != null) {
+            this.heY.cL(i == 0);
         }
-        if (this.hvC != null) {
-            this.hvC.setVisibility(i);
+        if (this.hwt != null) {
+            this.hwt.setCanVisible(i == 0);
+            this.hwt.refreshUI();
+        }
+        if (this.hvE != null) {
+            this.hvE.setVisibility(i);
         }
     }
 
     public void onError(int i, String str) {
         if (i == -1) {
-            ccJ().hqo.errCode = 1;
+            ccK().hqq.errCode = 1;
             wZ(a.h.camera_open_failed_dialog_msg);
         } else if (i == -5) {
             wZ(a.h.camera_open_failed_dialog_msg);
         } else if (i == -6) {
             wZ(a.h.stream_upload_exception);
         } else if (i == -2) {
-            Iy(ccJ().pageContext.getResources().getString(a.h.preview_init_failed_dialog_msg));
-            ccJ().hqi.stopRecord();
-        } else if (i == -3 && this.hvl != null) {
-            this.hvl.nA(false);
+            Iy(ccK().pageContext.getResources().getString(a.h.preview_init_failed_dialog_msg));
+            ccK().hqk.stopRecord();
+        } else if (i == -3 && this.hvn != null) {
+            this.hvn.nA(false);
         }
         if (i == -4) {
-            if (this.hvl == null || this.hvl.getView().getParent() == null) {
-                ccJ().g((short) 1);
+            if (this.hvn == null || this.hvn.getView().getParent() == null) {
+                ccK().g((short) 1);
                 return;
             }
-            this.hvl.cez();
-            this.hvN.setVisibility(0);
-            if (this.hvp != null) {
-                this.hvp.on(true);
+            this.hvn.ceA();
+            this.hvP.setVisibility(0);
+            if (this.hvr != null) {
+                this.hvr.on(true);
             }
-            ccJ().hpS.setBackgroundColor(ccJ().pageContext.getResources().getColor(17170445));
-            cin();
+            ccK().hpU.setBackgroundColor(ccK().pageContext.getResources().getColor(17170445));
+            cio();
             return;
         }
         AlaStatManager.getInstance().newDebug("liverecorder", 0L, null, "msg", "code " + i + " --- " + str);
@@ -2080,311 +2080,311 @@ public class AlaMasterLiveRoomOpearator {
     public void onResume() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("status", this.hvl == null || this.hvl.getView().getParent() == null || this.hvl.getVisibility() != 0 ? "live" : "action");
+            jSONObject.put("status", this.hvn == null || this.hvn.getView().getParent() == null || this.hvn.getVisibility() != 0 ? "live" : "action");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1429, "access", UbcStatConstant.Page.LIVE_ACTION, "").setContentExt(jSONObject));
-        if (this.hvl != null) {
-            this.hvl.onResume();
+        if (this.hvn != null) {
+            this.hvn.onResume();
         }
-        if (this.hwa && this.hvZ != null) {
-            this.hwa = false;
-            c(this.hvZ);
+        if (this.hwc && this.hwb != null) {
+            this.hwc = false;
+            c(this.hwb);
         }
-        if (this.hgi != null) {
-            this.hgi.onResume();
+        if (this.hgk != null) {
+            this.hgk.onResume();
         }
     }
 
     public void h(short s) {
-        if (this.hfT != null) {
-            this.hfT.IB();
-        }
-        if (this.hfU != null) {
-            this.hfU.a(null);
-            this.hfU.DN();
-        }
         if (this.hfV != null) {
-            this.hfV.DN();
+            this.hfV.IB();
         }
-        if (this.hwp != null) {
-            this.hwp.ccP();
+        if (this.hfW != null) {
+            this.hfW.a(null);
+            this.hfW.DN();
+        }
+        if (this.hfX != null) {
+            this.hfX.DN();
+        }
+        if (this.hwr != null) {
+            this.hwr.ccQ();
         }
     }
 
-    public boolean chF() {
-        w Iq = ccJ().hpR.Iq();
+    public boolean chG() {
+        w Iq = ccK().hpT.Iq();
         if (TbadkCoreApplication.getInst().isOther()) {
-            this.hja.hqq.j(Iq);
+            this.hjc.hqs.j(Iq);
             if (Iq != null && Iq.mLiveInfo.live_status != 1) {
-                cil();
-                ccJ().pageContext.getPageActivity().finish();
-                if (ccJ().hpR == null || ccJ().hpR.Iq() == null) {
+                cim();
+                ccK().pageContext.getPageActivity().finish();
+                if (ccK().hpT == null || ccK().hpT.Iq() == null) {
                     return true;
                 }
-                a(Iq, 1, ccJ().hpR.cjI() != 1 ? ccJ().pageContext.getString(a.h.ala_live_end_authen_msg) : null);
+                a(Iq, 1, ccK().hpT.cjJ() != 1 ? ccK().pageContext.getString(a.h.ala_live_end_authen_msg) : null);
                 return true;
             }
         } else {
-            if (this.hfU != null) {
-                this.hfU.Nd().a(String.valueOf(Iq.mLiveInfo.group_id), String.valueOf(Iq.mLiveInfo.live_id), true, String.valueOf(Iq.aJV.userId), Iq.getGuardName());
+            if (this.hfW != null) {
+                this.hfW.Nd().a(String.valueOf(Iq.mLiveInfo.group_id), String.valueOf(Iq.mLiveInfo.live_id), true, String.valueOf(Iq.aJV.userId), Iq.getGuardName());
             }
-            if (this.hfV != null) {
-                this.hfV.a(Iq);
+            if (this.hfX != null) {
+                this.hfX.a(Iq);
             }
-            if (this.hfF != null) {
-                this.hfF.a(ccJ().hpR.Iq());
+            if (this.hfH != null) {
+                this.hfH.a(ccK().hpT.Iq());
             }
-            if (this.heK != null) {
-                this.heK.M(Iq);
+            if (this.heM != null) {
+                this.heM.M(Iq);
             }
             if (Iq != null) {
-                if (this.hwp != null) {
-                    this.hwp.a(Iq);
+                if (this.hwr != null) {
+                    this.hwr.a(Iq);
                 }
-                if (this.hfX != null && Iq.mLiveInfo != null) {
-                    this.hfX.a(Iq.mLiveInfo, Iq.aJV);
+                if (this.hfZ != null && Iq.mLiveInfo != null) {
+                    this.hfZ.a(Iq.mLiveInfo, Iq.aJV);
                 }
-                if (this.hgx != null) {
-                    this.hgO = this.hgx.o(Iq);
+                if (this.hgz != null) {
+                    this.hgQ = this.hgz.o(Iq);
                 }
-                if (this.heP != null) {
-                    this.heP.nc(this.hgO);
-                    this.heP.i(Iq);
-                    this.heP.updateView();
-                }
-                if (this.hgo != null) {
-                    this.hgo.a(Iq);
+                if (this.heR != null) {
+                    this.heR.nc(this.hgQ);
+                    this.heR.i(Iq);
+                    this.heR.updateView();
                 }
                 if (this.hgq != null) {
                     this.hgq.a(Iq);
                 }
-                if (this.hgp != null) {
-                    this.hgp.a(Iq);
-                }
-                if (this.hvv != null) {
-                    this.hvv.a(Iq);
+                if (this.hgs != null) {
+                    this.hgs.a(Iq);
                 }
                 if (this.hgr != null) {
                     this.hgr.a(Iq);
                 }
-                if (this.hgs != null) {
-                    this.hgs.a(Iq);
+                if (this.hvx != null) {
+                    this.hvx.a(Iq);
                 }
                 if (this.hgt != null) {
                     this.hgt.a(Iq);
                 }
+                if (this.hgu != null) {
+                    this.hgu.a(Iq);
+                }
+                if (this.hgv != null) {
+                    this.hgv.a(Iq);
+                }
                 if (Iq.mLiveInfo.live_status != 1) {
-                    cil();
-                    ccJ().pageContext.getPageActivity().finish();
-                    if (ccJ().hpR == null || ccJ().hpR.Iq() == null) {
+                    cim();
+                    ccK().pageContext.getPageActivity().finish();
+                    if (ccK().hpT == null || ccK().hpT.Iq() == null) {
                         return true;
                     }
-                    a(Iq, 1, ccJ().hpR.cjI() != 1 ? ccJ().pageContext.getString(a.h.ala_live_end_authen_msg) : null);
+                    a(Iq, 1, ccK().hpT.cjJ() != 1 ? ccK().pageContext.getString(a.h.ala_live_end_authen_msg) : null);
                     return true;
-                } else if (this.hvw != null) {
-                    this.hvw.h(Iq);
+                } else if (this.hvy != null) {
+                    this.hvy.h(Iq);
                 }
             }
         }
         return false;
     }
 
-    public void chG() {
-        cht();
-    }
-
     public void chH() {
-        if (this.hwo != null) {
-            this.hwo.cet();
-        }
-        if (this.hwq != null) {
-            this.hwq.WG();
-        }
+        chu();
     }
 
     public void chI() {
-        if (this.hvl != null && this.hvl.getVisibility() != 8) {
-            if (ccJ().ceF() == 2) {
-                cin();
+        if (this.hwq != null) {
+            this.hwq.ceu();
+        }
+        if (this.hws != null) {
+            this.hws.WG();
+        }
+    }
+
+    public void chJ() {
+        if (this.hvn != null && this.hvn.getVisibility() != 8) {
+            if (ccK().ceG() == 2) {
+                cio();
             } else {
-                cim();
+                cin();
             }
         }
-        if (this.hvl != null && this.hvl.getVisibility() != 8) {
-            if (ccJ().ceF() == 1) {
-                this.hvl.onResume();
+        if (this.hvn != null && this.hvn.getVisibility() != 8) {
+            if (ccK().ceG() == 1) {
+                this.hvn.onResume();
             }
-            this.hvl.onRefresh();
+            this.hvn.onRefresh();
         }
-        if (this.hvw != null) {
-            this.hvw.onResume();
+        if (this.hvy != null) {
+            this.hvy.onResume();
         }
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.36
             @Override // java.lang.Runnable
             public void run() {
             }
         });
-        if (this.hgJ && this.hvS != null) {
-            if (this.hfU != null) {
-                this.hfU.Nd().getView().setVisibility(0);
+        if (this.hgL && this.hvU != null) {
+            if (this.hfW != null) {
+                this.hfW.Nd().getView().setVisibility(0);
             }
-            if (this.hfU != null) {
-                this.hfU.Ne().show();
-                this.hfU.Ne().setEditText(" @" + this.hvS.getNameShow() + " ");
+            if (this.hfW != null) {
+                this.hfW.Ne().show();
+                this.hfW.Ne().setEditText(" @" + this.hvU.getNameShow() + " ");
             }
             xa(8);
-            this.hgJ = false;
+            this.hgL = false;
+        }
+        if (this.hwu != null) {
+            this.hwu.resume();
+        }
+        if (this.hwv != null) {
+            this.hwv.resume();
+        }
+        if (this.gTT != null) {
+            this.gTT.resume();
         }
         if (this.hws != null) {
-            this.hws.resume();
-        }
-        if (this.hwt != null) {
-            this.hwt.resume();
-        }
-        if (this.gTR != null) {
-            this.gTR.resume();
-        }
-        if (this.hwq != null) {
-            this.hwq.WH();
+            this.hws.WH();
         }
     }
 
     public void onPause() {
-        if (this.hvw != null) {
-            this.hvw.onPause();
+        if (this.hvy != null) {
+            this.hvy.onPause();
         }
-        if (this.hws != null) {
-            this.hws.pause();
+        if (this.hwu != null) {
+            this.hwu.pause();
         }
-        if (this.hgi != null) {
-            this.hgi.onPause();
+        if (this.hgk != null) {
+            this.hgk.onPause();
         }
-        if (this.hwt != null) {
-            this.hwt.pause();
+        if (this.hwv != null) {
+            this.hwv.pause();
         }
-        if (this.gTR != null) {
-            this.gTR.pause();
-        }
-    }
-
-    private void chJ() {
-        if (bm.c(com.baidu.live.ae.a.RB().bxq)) {
-            this.hvN.setVisibility(0);
-            this.hvN.setAlpha(0.2f);
-        } else if (ccJ().hqi.hasBeauty() < 0) {
-            this.hvN.setVisibility(8);
-        } else {
-            this.hvN.setVisibility(0);
+        if (this.gTT != null) {
+            this.gTT.pause();
         }
     }
 
     private void chK() {
-        this.hvA = (RelativeLayout) ccJ().rootView.findViewById(a.f.ala_live_unremovable_container);
-        this.hvD = (RelativeLayout) ccJ().rootView.findViewById(a.f.under_live_view_panel);
-        this.hvE = (RelativeLayout) ccJ().rootView.findViewById(a.f.over_live_view_panel);
-        this.hvF = (FrameLayout) ccJ().rootView.findViewById(a.f.goods_parent);
-        this.hvG = (FrameLayout) ccJ().rootView.findViewById(a.f.ala_live_bc_chat_container);
-        this.hja.hpS.setOnLiveViewScrollListener(this.hwO);
-        if (TbadkCoreApplication.getInst().isOther()) {
-            this.hvD.setVisibility(8);
-            this.hvE.setVisibility(8);
-            ccJ().hpS.removeAllViews();
-            return;
-        }
-        this.hvB = (RelativeLayout) ccJ().rootView.findViewById(a.f.ala_live_removeable_top_container);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hvB.getLayoutParams();
-        layoutParams.topMargin = this.hja.pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds12);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            layoutParams.topMargin = UtilHelper.getStatusBarHeight();
-        }
-        this.hvB.setLayoutParams(layoutParams);
-        this.hvC = (RelativeLayout) ccJ().rootView.findViewById(a.f.ala_live_top_pendant_container);
-        if (this.heN == null) {
-            this.heN = new com.baidu.tieba.ala.liveroom.audiencelist.b(this.hja.pageContext.getPageActivity(), true);
-        }
-        this.heN.a(this.hfu);
-        this.heN.a(this.hvB, a.f.ala_live_room_host_header_stub, 1L);
-        this.heN.setVisible(0);
-        chL();
-        this.hvN = (ImageView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_beauty_btn);
-        this.hvR = (TextView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_beauty_btn_num);
-        this.hvN.setOnClickListener(this.hwG);
-        this.hvP = (ImageView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_paster);
-        this.hvP.setOnClickListener(this.hwG);
-        if (com.baidu.live.ae.a.RB().bxq != null && com.baidu.live.ae.a.RB().bxq.aQK != null && com.baidu.live.ae.a.RB().bxq.aQK.FR() && bm.b(com.baidu.live.ae.a.RB().bxq)) {
+        if (bm.c(com.baidu.live.ae.a.RB().bxq)) {
             this.hvP.setVisibility(0);
-        } else {
+            this.hvP.setAlpha(0.2f);
+        } else if (ccK().hqk.hasBeauty() < 0) {
             this.hvP.setVisibility(8);
-        }
-        chJ();
-        this.hvM = (ImageView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_share_btn);
-        this.hvM.setOnClickListener(this.hwG);
-        this.hvK = (ImageView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_message_btn);
-        this.hvK.setOnClickListener(this.hwG);
-        this.hjh = (ImageView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_pk_btn);
-        this.hjh.setOnClickListener(this.hwG);
-        this.hvQ = (ImageView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_vedio_chat);
-        this.hvQ.setOnClickListener(this.hwG);
-        this.hvL = (ImageView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_more);
-        this.hvL.setOnClickListener(this.hwG);
-        this.hvO = (ImageView) ccJ().rootView.findViewById(a.f.ala_liveroom_host_zan_btn);
-        this.hvO.setOnClickListener(this.hwG);
-        chO();
-        if (bm.b(com.baidu.live.ae.a.RB().bxq)) {
-            this.hwo = new com.baidu.tieba.ala.liveroom.h.b(ccJ().hql, ccJ(), ccJ().hqi);
-        }
-        this.hfT = new m();
-        chM();
-        chN();
-        if (com.baidu.live.d.BM().getInt("beauty_new_bubble", 1) == 1) {
-            this.hvR.setVisibility(0);
+        } else {
+            this.hvP.setVisibility(0);
         }
     }
 
     private void chL() {
-        this.hwz = (FrameLayout) View.inflate(ccJ().pageContext.getPageActivity(), a.g.ala_live_room_top_pure_layout_hk, null);
-        if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) && this.hwz != null) {
+        this.hvC = (RelativeLayout) ccK().rootView.findViewById(a.f.ala_live_unremovable_container);
+        this.hvF = (RelativeLayout) ccK().rootView.findViewById(a.f.under_live_view_panel);
+        this.hvG = (RelativeLayout) ccK().rootView.findViewById(a.f.over_live_view_panel);
+        this.hvH = (FrameLayout) ccK().rootView.findViewById(a.f.goods_parent);
+        this.hvI = (FrameLayout) ccK().rootView.findViewById(a.f.ala_live_bc_chat_container);
+        this.hjc.hpU.setOnLiveViewScrollListener(this.hwQ);
+        if (TbadkCoreApplication.getInst().isOther()) {
+            this.hvF.setVisibility(8);
+            this.hvG.setVisibility(8);
+            ccK().hpU.removeAllViews();
+            return;
+        }
+        this.hvD = (RelativeLayout) ccK().rootView.findViewById(a.f.ala_live_removeable_top_container);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hvD.getLayoutParams();
+        layoutParams.topMargin = this.hjc.pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds12);
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            layoutParams.topMargin = UtilHelper.getStatusBarHeight();
+        }
+        this.hvD.setLayoutParams(layoutParams);
+        this.hvE = (RelativeLayout) ccK().rootView.findViewById(a.f.ala_live_top_pendant_container);
+        if (this.heP == null) {
+            this.heP = new com.baidu.tieba.ala.liveroom.audiencelist.b(this.hjc.pageContext.getPageActivity(), true);
+        }
+        this.heP.a(this.hfw);
+        this.heP.a(this.hvD, a.f.ala_live_room_host_header_stub, 1L);
+        this.heP.setVisible(0);
+        chM();
+        this.hvP = (ImageView) ccK().rootView.findViewById(a.f.ala_liveroom_host_beauty_btn);
+        this.hvT = (TextView) ccK().rootView.findViewById(a.f.ala_liveroom_host_beauty_btn_num);
+        this.hvP.setOnClickListener(this.hwI);
+        this.hvR = (ImageView) ccK().rootView.findViewById(a.f.ala_liveroom_host_paster);
+        this.hvR.setOnClickListener(this.hwI);
+        if (com.baidu.live.ae.a.RB().bxq != null && com.baidu.live.ae.a.RB().bxq.aQK != null && com.baidu.live.ae.a.RB().bxq.aQK.FR() && bm.b(com.baidu.live.ae.a.RB().bxq)) {
+            this.hvR.setVisibility(0);
+        } else {
+            this.hvR.setVisibility(8);
+        }
+        chK();
+        this.hvO = (ImageView) ccK().rootView.findViewById(a.f.ala_liveroom_host_share_btn);
+        this.hvO.setOnClickListener(this.hwI);
+        this.hvM = (ImageView) ccK().rootView.findViewById(a.f.ala_liveroom_host_message_btn);
+        this.hvM.setOnClickListener(this.hwI);
+        this.hjj = (ImageView) ccK().rootView.findViewById(a.f.ala_liveroom_host_pk_btn);
+        this.hjj.setOnClickListener(this.hwI);
+        this.hvS = (ImageView) ccK().rootView.findViewById(a.f.ala_liveroom_host_vedio_chat);
+        this.hvS.setOnClickListener(this.hwI);
+        this.hvN = (ImageView) ccK().rootView.findViewById(a.f.ala_liveroom_host_more);
+        this.hvN.setOnClickListener(this.hwI);
+        this.hvQ = (ImageView) ccK().rootView.findViewById(a.f.ala_liveroom_host_zan_btn);
+        this.hvQ.setOnClickListener(this.hwI);
+        chP();
+        if (bm.b(com.baidu.live.ae.a.RB().bxq)) {
+            this.hwq = new com.baidu.tieba.ala.liveroom.h.b(ccK().hqn, ccK(), ccK().hqk);
+        }
+        this.hfV = new m();
+        chN();
+        chO();
+        if (com.baidu.live.d.BM().getInt("beauty_new_bubble", 1) == 1) {
+            this.hvT.setVisibility(0);
+        }
+    }
+
+    private void chM() {
+        this.hwB = (FrameLayout) View.inflate(ccK().pageContext.getPageActivity(), a.g.ala_live_room_top_pure_layout_hk, null);
+        if ((TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) && this.hwB != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.rightMargin = ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds8);
+            layoutParams.rightMargin = ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds8);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                layoutParams.topMargin = ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds12) + UtilHelper.getStatusBarHeight();
+                layoutParams.topMargin = ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds12) + UtilHelper.getStatusBarHeight();
             } else {
-                layoutParams.topMargin = ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds25);
+                layoutParams.topMargin = ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds25);
             }
             layoutParams.addRule(11);
-            this.hwz.setVisibility(8);
-            if (this.hwz.getParent() != null && (this.hwz.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) this.hwz.getParent()).removeView(this.hwz);
+            this.hwB.setVisibility(8);
+            if (this.hwB.getParent() != null && (this.hwB.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) this.hwB.getParent()).removeView(this.hwB);
             }
-            this.hvA.addView(this.hwz, layoutParams);
-            if (this.hwz != null) {
-                this.hwz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.38
+            this.hvC.addView(this.hwB, layoutParams);
+            if (this.hwB != null) {
+                this.hwB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.38
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        AlaMasterLiveRoomOpearator.this.hfu.s(AlaMasterLiveRoomOpearator.this.hwz, 8);
+                        AlaMasterLiveRoomOpearator.this.hfw.s(AlaMasterLiveRoomOpearator.this.hwB, 8);
                     }
                 });
             }
         }
     }
 
-    private void chM() {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913039, k.class, ccJ().pageContext);
+    private void chN() {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913039, k.class, ccK().pageContext);
         if (runTask != null && runTask.getData() != null) {
-            this.hfU = (k) runTask.getData();
-            this.hfU.setFromMaster(true);
-            this.hfU.Nd().getView().setId(a.f.ala_liveroom_msg_list);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (BdUtilHelper.getEquipmentWidth(ccJ().pageContext.getPageActivity()) * 0.75f), com.baidu.live.ak.c.i(false, false));
+            this.hfW = (k) runTask.getData();
+            this.hfW.setFromMaster(true);
+            this.hfW.Nd().getView().setId(a.f.ala_liveroom_msg_list);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (BdUtilHelper.getEquipmentWidth(ccK().pageContext.getPageActivity()) * 0.75f), com.baidu.live.ak.c.i(false, false));
             layoutParams.addRule(12);
             layoutParams.bottomMargin = com.baidu.live.ak.c.dk(true);
-            ccJ().hpS.addView(this.hfU.Nd().getView(), layoutParams);
-            this.hfU.Ne().hide();
+            ccK().hpU.addView(this.hfW.Nd().getView(), layoutParams);
+            this.hfW.Ne().hide();
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams2.addRule(12);
-            ccJ().hpS.addView(this.hfU.Ne().getView(), layoutParams2);
-            this.hfU.a(new k.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.39
+            ccK().hpU.addView(this.hfW.Ne().getView(), layoutParams2);
+            this.hfW.a(new k.a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.39
                 @Override // com.baidu.live.im.k.a
                 public boolean Nh() {
                     return true;
@@ -2419,153 +2419,153 @@ public class AlaMasterLiveRoomOpearator {
         }
     }
 
-    private void chN() {
-        View DL;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913099, com.baidu.live.im.b.a.class, ccJ().pageContext);
-        if (runTask != null) {
-            this.hfV = (com.baidu.live.im.b.a) runTask.getData();
-        }
-        if (this.hfV != null && (DL = this.hfV.DL()) != null && this.hja.hpS.indexOfChild(DL) < 0) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.hja.pageContext.getResources().getDimensionPixelOffset(a.d.sdk_ds98));
-            layoutParams.addRule(2, a.f.ala_liveroom_msg_list);
-            layoutParams.bottomMargin = ccJ().pageContext.getResources().getDimensionPixelOffset(a.d.sdk_ds20);
-            ccJ().hpS.addView(DL, layoutParams);
-        }
-    }
-
     private void chO() {
-        CustomResponsedMessage runTask;
-        if (this.hvV == null && (runTask = MessageManager.getInstance().runTask(2913045, com.baidu.live.ah.a.class, ccJ().pageContext.getPageActivity())) != null && runTask.getData() != null) {
-            this.hvV = (com.baidu.live.ah.a) runTask.getData();
+        View DL;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913099, com.baidu.live.im.b.a.class, ccK().pageContext);
+        if (runTask != null) {
+            this.hfX = (com.baidu.live.im.b.a) runTask.getData();
+        }
+        if (this.hfX != null && (DL = this.hfX.DL()) != null && this.hjc.hpU.indexOfChild(DL) < 0) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.hjc.pageContext.getResources().getDimensionPixelOffset(a.d.sdk_ds98));
+            layoutParams.addRule(2, a.f.ala_liveroom_msg_list);
+            layoutParams.bottomMargin = ccK().pageContext.getResources().getDimensionPixelOffset(a.d.sdk_ds20);
+            ccK().hpU.addView(DL, layoutParams);
         }
     }
 
     private void chP() {
-        View HM;
-        ac.d(ccJ().hpR.Iq());
-        ac.b(ccJ().pageContext, true);
-        ac.Ix();
-        if (this.hfW == null) {
-            com.baidu.live.gift.f fVar = new com.baidu.live.gift.f();
-            fVar.aVr = true;
-            fVar.context = ccJ().pageContext.getPageActivity();
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913028, ad.class, fVar);
-            if (runTask != null && runTask.getData() != null) {
-                this.hfW = (ad) runTask.getData();
-                if (this.hfW != null && (HM = this.hfW.HM()) != null && ccJ().hpS.indexOfChild(HM) < 0) {
-                    if (HM.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) HM.getParent()).removeView(HM);
-                    }
-                    ccJ().hpS.addView(HM, ccJ().hpS.getLayoutParams());
-                }
-            }
+        CustomResponsedMessage runTask;
+        if (this.hvX == null && (runTask = MessageManager.getInstance().runTask(2913045, com.baidu.live.ah.a.class, ccK().pageContext.getPageActivity())) != null && runTask.getData() != null) {
+            this.hvX = (com.baidu.live.ah.a) runTask.getData();
         }
     }
 
     private void chQ() {
-        if (!this.hwA) {
-            this.hwA = true;
+        View HM;
+        ac.d(ccK().hpT.Iq());
+        ac.b(ccK().pageContext, true);
+        ac.Ix();
+        if (this.hfY == null) {
+            com.baidu.live.gift.f fVar = new com.baidu.live.gift.f();
+            fVar.aVr = true;
+            fVar.context = ccK().pageContext.getPageActivity();
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913028, ad.class, fVar);
+            if (runTask != null && runTask.getData() != null) {
+                this.hfY = (ad) runTask.getData();
+                if (this.hfY != null && (HM = this.hfY.HM()) != null && ccK().hpU.indexOfChild(HM) < 0) {
+                    if (HM.getParent() instanceof ViewGroup) {
+                        ((ViewGroup) HM.getParent()).removeView(HM);
+                    }
+                    ccK().hpU.addView(HM, ccK().hpU.getLayoutParams());
+                }
+            }
+        }
+    }
+
+    private void chR() {
+        if (!this.hwC) {
+            this.hwC = true;
             com.baidu.live.entereffect.a.Gi().bA(true);
         }
     }
 
-    protected void cbx() {
+    protected void cby() {
         View Ip;
-        if (this.hfX == null) {
+        if (this.hfZ == null) {
             com.baidu.live.gift.a aVar = new com.baidu.live.gift.a();
             aVar.aVr = true;
-            aVar.context = ccJ().pageContext.getPageActivity();
+            aVar.context = ccK().pageContext.getPageActivity();
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913071, ab.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.hfX = (ab) runTask.getData();
+                this.hfZ = (ab) runTask.getData();
             }
         }
-        if (this.hfX != null && (Ip = this.hfX.Ip()) != null && this.hvC != null) {
-            if (this.hvC.indexOfChild(Ip) < 0) {
+        if (this.hfZ != null && (Ip = this.hfZ.Ip()) != null && this.hvE != null) {
+            if (this.hvE.indexOfChild(Ip) < 0) {
                 if (Ip.getParent() instanceof ViewGroup) {
                     ((ViewGroup) Ip.getParent()).removeView(Ip);
                 }
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-                if (this.hvo != null && this.hvo.isShowing()) {
+                if (this.hvq != null && this.hvq.isShowing()) {
                     layoutParams.addRule(3, a.f.ala_liveroom_ranklist);
-                    layoutParams.topMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
-                } else if (this.hgt != null && this.hgt.isShowing()) {
+                    layoutParams.topMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
+                } else if (this.hgv != null && this.hgv.isShowing()) {
                     layoutParams.addRule(3, a.f.ala_rank_level_entry);
-                    layoutParams.topMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
-                } else if (this.hgs != null && this.hgs.isShowing()) {
+                    layoutParams.topMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
+                } else if (this.hgu != null && this.hgu.isShowing()) {
                     layoutParams.addRule(3, a.f.ala_rank_level_entry);
-                    layoutParams.topMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
+                    layoutParams.topMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
                 } else {
-                    layoutParams.topMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds66);
+                    layoutParams.topMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds66);
                 }
-                this.hvC.addView(Ip, layoutParams);
+                this.hvE.addView(Ip, layoutParams);
             }
             Ip.bringToFront();
         }
     }
 
-    protected void cbw() {
+    protected void cbx() {
         View IC;
-        if (this.hgi == null) {
+        if (this.hgk == null) {
             ak akVar = new ak();
             akVar.aVr = true;
-            akVar.pageContext = ccJ().pageContext;
+            akVar.pageContext = ccK().pageContext;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913170, ag.class, akVar);
             if (runTask != null && runTask.getData() != null) {
-                this.hgi = (ag) runTask.getData();
+                this.hgk = (ag) runTask.getData();
             }
         }
-        if (this.hgi != null && (IC = this.hgi.IC()) != null && ccJ().hpS.indexOfChild(IC) < 0) {
+        if (this.hgk != null && (IC = this.hgk.IC()) != null && ccK().hpU.indexOfChild(IC) < 0) {
             if (IC.getParent() instanceof ViewGroup) {
                 ((ViewGroup) IC.getParent()).removeView(IC);
             }
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds110);
+            layoutParams.bottomMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds110);
             layoutParams.addRule(12);
             layoutParams.addRule(2, a.f.ala_live_footer_view);
-            ccJ().hpS.addView(IC, layoutParams);
+            ccK().hpU.addView(IC, layoutParams);
         }
-    }
-
-    private void chR() {
-        chV();
-        cbC();
-        chU();
-        ccJ().hpS.setVisibility(0);
-        xa(0);
     }
 
     private void chS() {
-        if (this.hvo == null) {
-            this.hvo = new com.baidu.tieba.ala.liveroom.u.a(ccJ().pageContext);
-        }
-        long j = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-        this.hvo.a(ccJ().ceF(), j, TbadkCoreApplication.getCurrentAccountName(), true, ccJ().hpR.Iq().aJV.portrait, this.otherParams, "", -1L);
-        this.hvo.at(this.hvC);
+        chW();
+        cbD();
+        chV();
+        ccK().hpU.setVisibility(0);
+        xa(0);
     }
 
     private void chT() {
-        if (this.hvX == null) {
-            ccJ().hpS.hFs = false;
-            com.baidu.live.af.a fI = fI(ccJ().pageContext.getPageActivity());
+        if (this.hvq == null) {
+            this.hvq = new com.baidu.tieba.ala.liveroom.u.a(ccK().pageContext);
+        }
+        long j = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
+        this.hvq.a(ccK().ceG(), j, TbadkCoreApplication.getCurrentAccountName(), true, ccK().hpT.Iq().aJV.portrait, this.otherParams, "", -1L);
+        this.hvq.at(this.hvE);
+    }
+
+    private void chU() {
+        if (this.hvZ == null) {
+            ccK().hpU.hFu = false;
+            com.baidu.live.af.a fI = fI(ccK().pageContext.getPageActivity());
             if (fI != null) {
-                this.hvX = fI;
+                this.hvZ = fI;
             } else {
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913125, com.baidu.live.af.a.class, ccJ().pageContext.getPageActivity());
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913125, com.baidu.live.af.a.class, ccK().pageContext.getPageActivity());
                 if (runTask != null) {
-                    this.hvX = (com.baidu.live.af.a) runTask.getData();
+                    this.hvZ = (com.baidu.live.af.a) runTask.getData();
                 }
             }
-            if (this.hvX != null) {
-                this.hvX.q(this.hvD);
-                this.hvX.r(this.hvE);
-                this.hvX.fy((ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds330) + ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds96)) - ccJ().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds300));
-                this.hvX.s(ccJ().hpS);
-                this.hvX.a(this.heh);
-                this.hvX.setLiveShowInfo(ccJ().hpR.Iq());
-                this.hvX.a(this.heP);
-                this.hvX.RV();
-                this.hvX.a(new a.InterfaceC0172a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.40
+            if (this.hvZ != null) {
+                this.hvZ.q(this.hvF);
+                this.hvZ.r(this.hvG);
+                this.hvZ.fy((ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds330) + ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds96)) - ccK().pageContext.getResources().getDimensionPixelSize(a.d.sdk_ds300));
+                this.hvZ.s(ccK().hpU);
+                this.hvZ.a(this.hej);
+                this.hvZ.setLiveShowInfo(ccK().hpT.Iq());
+                this.hvZ.a(this.heR);
+                this.hvZ.RV();
+                this.hvZ.a(new a.InterfaceC0172a() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.40
                     @Override // com.baidu.live.af.a.InterfaceC0172a
                     public void RW() {
                     }
@@ -2576,29 +2576,29 @@ public class AlaMasterLiveRoomOpearator {
 
                     @Override // com.baidu.live.af.a.InterfaceC0172a
                     public void J(Object obj) {
-                        if (AlaMasterLiveRoomOpearator.this.ccJ().hqi != null) {
-                            AlaMasterLiveRoomOpearator.this.ccJ().hqi.onStickerItemSelected(obj);
+                        if (AlaMasterLiveRoomOpearator.this.ccK().hqk != null) {
+                            AlaMasterLiveRoomOpearator.this.ccK().hqk.onStickerItemSelected(obj);
                         }
                     }
 
                     @Override // com.baidu.live.af.a.InterfaceC0172a
                     public int RY() {
-                        return AlaMasterLiveRoomOpearator.this.hvB.getBottom();
+                        return AlaMasterLiveRoomOpearator.this.hvD.getBottom();
                     }
 
                     @Override // com.baidu.live.af.a.InterfaceC0172a
                     public int RZ() {
-                        return AlaMasterLiveRoomOpearator.this.hja.hpS.getHeight() - (AlaMasterLiveRoomOpearator.this.hfU.getImMsgListViewTop() + AlaMasterLiveRoomOpearator.this.hfU.getImMsgListViewHeight());
+                        return AlaMasterLiveRoomOpearator.this.hjc.hpU.getHeight() - (AlaMasterLiveRoomOpearator.this.hfW.getImMsgListViewTop() + AlaMasterLiveRoomOpearator.this.hfW.getImMsgListViewHeight());
                     }
 
                     @Override // com.baidu.live.af.a.InterfaceC0172a
                     public int getImMsgListViewHeight() {
-                        return AlaMasterLiveRoomOpearator.this.hfU.getImMsgListViewHeight();
+                        return AlaMasterLiveRoomOpearator.this.hfW.getImMsgListViewHeight();
                     }
 
                     @Override // com.baidu.live.af.a.InterfaceC0172a
                     public int Sa() {
-                        return AlaMasterLiveRoomOpearator.this.hfU.Ng();
+                        return AlaMasterLiveRoomOpearator.this.hfW.Ng();
                     }
                 });
             }
@@ -2613,51 +2613,51 @@ public class AlaMasterLiveRoomOpearator {
         return null;
     }
 
-    private void chU() {
-        if (this.hvq == null) {
-            this.hvq = new b(ccJ().pageContext, ccJ().hpS);
-        }
-    }
-
     private void chV() {
-        if (this.heK == null) {
-            this.heK = new com.baidu.tieba.ala.liveroom.o.a(ccJ().pageContext, true, this.hwK);
-            this.heK.e(this.hvB, null);
-            this.heK.a(this.hfu);
-            this.heK.nO(false);
-        }
-        if (this.hvm == null) {
-            this.hvm = new com.baidu.tieba.ala.liveroom.o.a(ccJ().pageContext, true, null);
-            this.hvm.a(this.hvB, null, a.f.ala_live_room_host_header_stub);
-            this.hvm.cgn();
+        if (this.hvs == null) {
+            this.hvs = new b(ccK().pageContext, ccK().hpU);
         }
     }
 
-    protected void cbe() {
+    private void chW() {
+        if (this.heM == null) {
+            this.heM = new com.baidu.tieba.ala.liveroom.o.a(ccK().pageContext, true, this.hwM);
+            this.heM.e(this.hvD, null);
+            this.heM.a(this.hfw);
+            this.heM.nO(false);
+        }
+        if (this.hvo == null) {
+            this.hvo = new com.baidu.tieba.ala.liveroom.o.a(ccK().pageContext, true, null);
+            this.hvo.a(this.hvD, null, a.f.ala_live_room_host_header_stub);
+            this.hvo.cgo();
+        }
+    }
+
+    protected void cbf() {
         CustomResponsedMessage runTask;
         boolean z = false;
-        aq cjz = ccJ().hpR.cjz();
+        aq cjA = ccK().hpT.cjA();
         boolean z2 = com.baidu.live.ae.a.RB().brA.aOs;
-        if (cjz == null || cjz.aKG) {
+        if (cjA == null || cjA.aKG) {
             z = z2;
         }
-        if (z && this.hfF == null && (runTask = MessageManager.getInstance().runTask(2913152, com.baidu.live.j.b.class, ccJ().pageContext)) != null) {
-            this.hfF = (com.baidu.live.j.b) runTask.getData();
-            if (this.hfF != null) {
-                this.hfF.setIsHost(true);
-                this.hfF.eX(1);
-                View view = this.hfF.getView();
+        if (z && this.hfH == null && (runTask = MessageManager.getInstance().runTask(2913152, com.baidu.live.j.b.class, ccK().pageContext)) != null) {
+            this.hfH = (com.baidu.live.j.b) runTask.getData();
+            if (this.hfH != null) {
+                this.hfH.setIsHost(true);
+                this.hfH.eX(1);
+                View view = this.hfH.getView();
                 if (view != null) {
                     if (view.getParent() != null) {
                         ((ViewGroup) view.getParent()).removeView(view);
                     }
                     view.setId(a.f.ala_liveroom_guardthrone);
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                    layoutParams.leftMargin = BdUtilHelper.dip2px(ccJ().pageContext.getPageActivity(), 4.0f);
-                    layoutParams.rightMargin = BdUtilHelper.dip2px(ccJ().pageContext.getPageActivity(), -5.0f);
+                    layoutParams.leftMargin = BdUtilHelper.dip2px(ccK().pageContext.getPageActivity(), 4.0f);
+                    layoutParams.rightMargin = BdUtilHelper.dip2px(ccK().pageContext.getPageActivity(), -5.0f);
                     layoutParams.addRule(8, a.f.ala_live_room_host_header_stub);
                     layoutParams.addRule(1, a.f.ala_live_room_host_header_stub);
-                    this.hvB.addView(view, layoutParams);
+                    this.hvD.addView(view, layoutParams);
                 }
             }
         }
@@ -2666,224 +2666,224 @@ public class AlaMasterLiveRoomOpearator {
     private void f(w wVar) {
         AlaActiveRootView alaActiveRootView;
         AlaActiveRootView alaActiveRootView2 = null;
-        if (this.heP == null) {
-            this.heP = new com.baidu.tieba.ala.liveroom.activeview.b(ccJ().pageContext);
+        if (this.heR == null) {
+            this.heR = new com.baidu.tieba.ala.liveroom.activeview.b(ccK().pageContext);
         }
-        this.heP.setOtherParams(this.otherParams);
-        this.heP.b(wVar, false);
-        this.heP.setHost(true);
-        this.heP.a(1, this.buZ);
-        this.heP.a(2, this.buZ);
-        this.heP.nc(this.hgO);
-        this.heP.setVisible(this.hvk ? 8 : 0);
-        this.heP.a(this.heh);
-        if (this.heh != null) {
-            if (this.heP != null) {
-                alaActiveRootView2 = this.heP.ws(1);
-                alaActiveRootView = this.heP.ws(2);
+        this.heR.setOtherParams(this.otherParams);
+        this.heR.b(wVar, false);
+        this.heR.setHost(true);
+        this.heR.a(1, this.buZ);
+        this.heR.a(2, this.buZ);
+        this.heR.nc(this.hgQ);
+        this.heR.setVisible(this.hvm ? 8 : 0);
+        this.heR.a(this.hej);
+        if (this.hej != null) {
+            if (this.heR != null) {
+                alaActiveRootView2 = this.heR.ws(1);
+                alaActiveRootView = this.heR.ws(2);
             } else {
                 alaActiveRootView = null;
             }
             if (alaActiveRootView2 != null && alaActiveRootView2.getVisibility() == 0 && alaActiveRootView2.getChildCount() > 0) {
-                this.heh.a(alaActiveRootView2);
+                this.hej.a(alaActiveRootView2);
             }
             if (alaActiveRootView != null && alaActiveRootView.getVisibility() == 0 && alaActiveRootView.getChildCount() > 0) {
-                this.heh.a(alaActiveRootView);
+                this.hej.a(alaActiveRootView);
             }
         }
     }
 
     private void N(w wVar) {
         CustomResponsedMessage runTask;
-        if (this.hgx == null && (runTask = MessageManager.getInstance().runTask(2913130, k.class, ccJ().pageContext.getPageActivity())) != null && (runTask.getData() instanceof com.baidu.live.aa.a)) {
-            this.hgx = (com.baidu.live.aa.a) runTask.getData();
-            if (this.hgx != null) {
-                this.hgx.p(this.buZ);
+        if (this.hgz == null && (runTask = MessageManager.getInstance().runTask(2913130, k.class, ccK().pageContext.getPageActivity())) != null && (runTask.getData() instanceof com.baidu.live.aa.a)) {
+            this.hgz = (com.baidu.live.aa.a) runTask.getData();
+            if (this.hgz != null) {
+                this.hgz.p(this.buZ);
             }
         }
-        if (this.hgx != null) {
-            this.hgO = this.hgx.o(wVar);
-            this.hgx.setCanVisible(!this.hvk);
-        }
-    }
-
-    protected void chW() {
-        CustomResponsedMessage runTask;
-        if (ccJ() != null && (runTask = MessageManager.getInstance().runTask(2913149, com.baidu.live.l.a.class, ccJ().pageContext.getPageActivity())) != null && runTask.getData() != null && this.hgo == null) {
-            this.hgo = (com.baidu.live.l.a) runTask.getData();
-            this.hgo.c(this.hvC, cbP());
-            if (ccJ().hpR != null) {
-                this.hgo.a(ccJ().hpR.Iq());
-            }
-            this.hgo.setCanVisible(true);
-            this.hgo.cd(false);
-            this.hgo.a(ccJ().hpR.bUt());
-        }
-    }
-
-    protected void cbB() {
-        CustomResponsedMessage runTask;
-        if (ccJ() != null && this.hgq == null && (runTask = MessageManager.getInstance().runTask(2913225, com.baidu.live.t.a.class, ccJ().pageContext.getPageActivity())) != null && runTask.getData() != null) {
-            this.hgq = (com.baidu.live.t.a) runTask.getData();
-            this.hgq.setIsHost(true);
-            this.hgq.a(this.buZ, ccJ().hpR.Iq());
-        }
-    }
-
-    protected void car() {
-        if (ccJ() != null) {
-            if (this.hgr == null) {
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913271, com.baidu.live.a.a.class, ccJ().pageContext);
-                if (runTask != null && runTask.getData() != null) {
-                    this.hgr = (com.baidu.live.a.a) runTask.getData();
-                } else {
-                    return;
-                }
-            }
-            this.hgr.bd(this.gGE);
-            this.hgr.bf(false);
-            this.hgr.a(this.buZ, ccJ().hpR.Iq());
-        }
-    }
-
-    protected void cbA() {
-        if (ccJ() != null) {
-            if (this.hgp == null) {
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913262, com.baidu.live.v.a.class, ccJ().pageContext.getPageActivity());
-                if (runTask != null && runTask.getData() != null) {
-                    this.hgp = (com.baidu.live.v.a) runTask.getData();
-                } else {
-                    return;
-                }
-            }
-            if (ccJ().hpR != null) {
-                this.hgp.b(ccJ().hpR.Iq(), this.otherParams);
-            }
-        }
-    }
-
-    protected void caq() {
-        if (ccJ() != null) {
-            if (this.heW == null) {
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913239, com.baidu.live.ad.a.class, ccJ().pageContext.getPageActivity());
-                if (runTask != null && runTask.getData() != null) {
-                    this.heW = (com.baidu.live.ad.a) runTask.getData();
-                } else {
-                    return;
-                }
-            }
-            this.heW.setIsHost(true);
-            this.heW.a(this.buZ, ccJ().hpR.Iq().aKU);
+        if (this.hgz != null) {
+            this.hgQ = this.hgz.o(wVar);
+            this.hgz.setCanVisible(!this.hvm);
         }
     }
 
     protected void chX() {
         CustomResponsedMessage runTask;
-        if (ccJ() != null && this.hvU == null && (runTask = MessageManager.getInstance().runTask(2913269, com.baidu.live.n.b.class, ccJ().pageContext.getPageActivity())) != null && runTask.getData() != null) {
-            this.hvU = (com.baidu.live.n.b) runTask.getData();
+        if (ccK() != null && (runTask = MessageManager.getInstance().runTask(2913149, com.baidu.live.l.a.class, ccK().pageContext.getPageActivity())) != null && runTask.getData() != null && this.hgq == null) {
+            this.hgq = (com.baidu.live.l.a) runTask.getData();
+            this.hgq.c(this.hvE, cbQ());
+            if (ccK().hpT != null) {
+                this.hgq.a(ccK().hpT.Iq());
+            }
+            this.hgq.setCanVisible(true);
+            this.hgq.cd(false);
+            this.hgq.a(ccK().hpT.bUu());
         }
     }
 
-    protected void cbD() {
+    protected void cbC() {
         CustomResponsedMessage runTask;
-        if (ccJ() != null && this.hgs == null && (runTask = MessageManager.getInstance().runTask(2913240, com.baidu.live.k.a.class, ccJ().pageContext)) != null && runTask.getData() != null) {
-            this.hgs = (com.baidu.live.k.a) runTask.getData();
+        if (ccK() != null && this.hgs == null && (runTask = MessageManager.getInstance().runTask(2913225, com.baidu.live.t.a.class, ccK().pageContext.getPageActivity())) != null && runTask.getData() != null) {
+            this.hgs = (com.baidu.live.t.a) runTask.getData();
+            this.hgs.setIsHost(true);
+            this.hgs.a(this.buZ, ccK().hpT.Iq());
+        }
+    }
+
+    protected void cas() {
+        if (ccK() != null) {
+            if (this.hgt == null) {
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913271, com.baidu.live.a.a.class, ccK().pageContext);
+                if (runTask != null && runTask.getData() != null) {
+                    this.hgt = (com.baidu.live.a.a) runTask.getData();
+                } else {
+                    return;
+                }
+            }
+            this.hgt.bd(this.gGG);
+            this.hgt.bf(false);
+            this.hgt.a(this.buZ, ccK().hpT.Iq());
+        }
+    }
+
+    protected void cbB() {
+        if (ccK() != null) {
+            if (this.hgr == null) {
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913262, com.baidu.live.v.a.class, ccK().pageContext.getPageActivity());
+                if (runTask != null && runTask.getData() != null) {
+                    this.hgr = (com.baidu.live.v.a) runTask.getData();
+                } else {
+                    return;
+                }
+            }
+            if (ccK().hpT != null) {
+                this.hgr.b(ccK().hpT.Iq(), this.otherParams);
+            }
+        }
+    }
+
+    protected void car() {
+        if (ccK() != null) {
+            if (this.heY == null) {
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913239, com.baidu.live.ad.a.class, ccK().pageContext.getPageActivity());
+                if (runTask != null && runTask.getData() != null) {
+                    this.heY = (com.baidu.live.ad.a) runTask.getData();
+                } else {
+                    return;
+                }
+            }
+            this.heY.setIsHost(true);
+            this.heY.a(this.buZ, ccK().hpT.Iq().aKU);
+        }
+    }
+
+    protected void chY() {
+        CustomResponsedMessage runTask;
+        if (ccK() != null && this.hvW == null && (runTask = MessageManager.getInstance().runTask(2913269, com.baidu.live.n.b.class, ccK().pageContext.getPageActivity())) != null && runTask.getData() != null) {
+            this.hvW = (com.baidu.live.n.b) runTask.getData();
+        }
+    }
+
+    protected void cbE() {
+        CustomResponsedMessage runTask;
+        if (ccK() != null && this.hgu == null && (runTask = MessageManager.getInstance().runTask(2913240, com.baidu.live.k.a.class, ccK().pageContext)) != null && runTask.getData() != null) {
+            this.hgu = (com.baidu.live.k.a) runTask.getData();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
-            this.hgs.a(this.hvC, ccJ().hpR.Iq(), layoutParams, this.otherParams);
+            this.hgu.a(this.hvE, ccK().hpT.Iq(), layoutParams, this.otherParams);
         }
     }
 
     private void O(w wVar) {
         CustomResponsedMessage runTask;
-        if (ccJ() != null) {
-            if (this.hvs == null && (runTask = MessageManager.getInstance().runTask(2913229, com.baidu.live.t.d.class)) != null) {
-                this.hvs = (com.baidu.live.t.d) runTask.getData();
+        if (ccK() != null) {
+            if (this.hvu == null && (runTask = MessageManager.getInstance().runTask(2913229, com.baidu.live.t.d.class)) != null) {
+                this.hvu = (com.baidu.live.t.d) runTask.getData();
             }
-            if (this.hvs != null) {
-                this.hvs.Qy();
+            if (this.hvu != null) {
+                this.hvu.Qy();
             }
-            if (this.hvt == null) {
+            if (this.hvv == null) {
                 CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2913230, com.baidu.live.t.c.class);
                 if (runTask2 != null) {
-                    this.hvt = (com.baidu.live.t.c) runTask2.getData();
+                    this.hvv = (com.baidu.live.t.c) runTask2.getData();
                 }
-                if (this.hvt != null) {
-                    this.hvt.setParentView(this.hja.hpS);
+                if (this.hvv != null) {
+                    this.hvv.setParentView(this.hjc.hpU);
                     if (wVar != null && wVar.aJV != null) {
-                        this.hvt.bd(wVar.aJV.userId);
+                        this.hvv.bd(wVar.aJV.userId);
                     }
                 }
             }
         }
     }
 
-    private void chY() {
+    private void chZ() {
         CustomResponsedMessage runTask;
-        if (ccJ() != null) {
-            if (this.hvu == null && (runTask = MessageManager.getInstance().runTask(2913265, com.baidu.live.v.c.class)) != null) {
-                this.hvu = (com.baidu.live.v.c) runTask.getData();
+        if (ccK() != null) {
+            if (this.hvw == null && (runTask = MessageManager.getInstance().runTask(2913265, com.baidu.live.v.c.class)) != null) {
+                this.hvw = (com.baidu.live.v.c) runTask.getData();
             }
-            if (this.hvu != null) {
-                this.hvu.Qy();
+            if (this.hvw != null) {
+                this.hvw.Qy();
             }
-            if (this.hvv == null) {
+            if (this.hvx == null) {
                 CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2913266, com.baidu.live.v.b.class);
                 if (runTask2 != null) {
-                    this.hvv = (com.baidu.live.v.b) runTask2.getData();
+                    this.hvx = (com.baidu.live.v.b) runTask2.getData();
                 }
-                if (this.hvv != null) {
-                    this.hvv.setParentView(this.hja.hpS);
-                    this.hvv.b(ccJ().hpR.Iq(), this.otherParams);
+                if (this.hvx != null) {
+                    this.hvx.setParentView(this.hjc.hpU);
+                    this.hvx.b(ccK().hpT.Iq(), this.otherParams);
                 }
             }
         }
     }
 
-    private void cbn() {
-        if (this.hwt == null) {
-            this.hwt = new com.baidu.tieba.ala.liveroom.q.c(ccJ().pageContext.getPageActivity());
+    private void cbo() {
+        if (this.hwv == null) {
+            this.hwv = new com.baidu.tieba.ala.liveroom.q.c(ccK().pageContext.getPageActivity());
         }
     }
 
-    private ViewGroup.LayoutParams cbP() {
+    private ViewGroup.LayoutParams cbQ() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        if (UtilHelper.getRealScreenOrientation(ccJ().pageContext.getPageActivity()) == 1) {
+        if (UtilHelper.getRealScreenOrientation(ccK().pageContext.getPageActivity()) == 1) {
             layoutParams.addRule(9);
             layoutParams.addRule(5, a.f.ala_live_room_stream_view);
-            layoutParams.leftMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
+            layoutParams.leftMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
         } else {
             layoutParams.addRule(5, a.f.ala_liveroom_charmview);
         }
-        if (this.hgt != null && this.hgt.isShowing()) {
+        if (this.hgv != null && this.hgv.isShowing()) {
             layoutParams.addRule(3, a.f.ala_rank_level_entry);
-            layoutParams.topMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
-        } else if (this.hvo != null && this.hvo.isShowing()) {
+            layoutParams.topMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
+        } else if (this.hvq != null && this.hvq.isShowing()) {
             layoutParams.addRule(3, a.f.ala_liveroom_ranklist);
-            layoutParams.topMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
+            layoutParams.topMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
         }
         return layoutParams;
     }
 
-    private void cbC() {
-        if (this.hvn == null) {
-            this.hvn = new com.baidu.tieba.ala.liveroom.b.a(ccJ().pageContext, true);
+    private void cbD() {
+        if (this.hvp == null) {
+            this.hvp = new com.baidu.tieba.ala.liveroom.b.a(ccK().pageContext, true);
         }
     }
 
-    private void chZ() {
+    private void cia() {
         if (TbadkCoreApplication.getInst().isNotMobileBaidu()) {
-            Activity pageActivity = ccJ().pageContext.getPageActivity();
-            if (this.hvY == null) {
-                this.hvY = new ImageView(pageActivity);
-                this.hvY.setId(a.f.master_close_btn);
-                this.hvY.setTag("master_close_btn");
-                this.hvY.setImageResource(a.e.sdk_icon_bar_live_close_n);
-                this.hvY.setBackgroundResource(a.e.sdk_round_btn_close_bg);
-                this.hvY.setPadding(pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds4), 0, pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds4), 0);
+            Activity pageActivity = ccK().pageContext.getPageActivity();
+            if (this.hwa == null) {
+                this.hwa = new ImageView(pageActivity);
+                this.hwa.setId(a.f.master_close_btn);
+                this.hwa.setTag("master_close_btn");
+                this.hwa.setImageResource(a.e.sdk_icon_bar_live_close_n);
+                this.hwa.setBackgroundResource(a.e.sdk_round_btn_close_bg);
+                this.hwa.setPadding(pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds4), 0, pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds4), 0);
             }
-            if (this.hvY.getParent() != null) {
-                ((ViewGroup) this.hvY.getParent()).removeView(this.hvY);
+            if (this.hwa.getParent() != null) {
+                ((ViewGroup) this.hwa.getParent()).removeView(this.hwa);
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
@@ -2894,124 +2894,124 @@ public class AlaMasterLiveRoomOpearator {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 layoutParams.topMargin += UtilHelper.getStatusBarHeight();
             }
-            ccJ().hql.addView(this.hvY, layoutParams);
-            this.hvY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.41
+            ccK().hqn.addView(this.hwa, layoutParams);
+            this.hwa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.41
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AlaMasterLiveRoomOpearator.this.cij();
+                    AlaMasterLiveRoomOpearator.this.cik();
                 }
             });
-            this.hvY.setVisibility(8);
+            this.hwa.setVisibility(8);
         }
     }
 
-    protected void cbF() {
-        if (this.hgt == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913226, com.baidu.live.t.b.class, ccJ().pageContext.getPageActivity());
+    protected void cbG() {
+        if (this.hgv == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913226, com.baidu.live.t.b.class, ccK().pageContext.getPageActivity());
             if (runTask != null && runTask.getData() != null) {
-                this.hgt = (com.baidu.live.t.b) runTask.getData();
+                this.hgv = (com.baidu.live.t.b) runTask.getData();
             } else {
                 return;
             }
         }
-        if (ccJ().hpR.Iq() != null && ccJ().hpR.Iq().aJV != null && ccJ().hpR.Iq().mLiveInfo != null) {
+        if (ccK().hpT.Iq() != null && ccK().hpT.Iq().aJV != null && ccK().hpT.Iq().mLiveInfo != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.height = BdUtilHelper.getDimens(ccJ().pageContext.getPageActivity(), a.d.sdk_ds44);
-            layoutParams.leftMargin = BdUtilHelper.getDimens(ccJ().pageContext.getPageActivity(), a.d.sdk_ds20);
-            this.hgt.b(this.hvC, layoutParams, ccJ().hpR.Iq());
-        }
-    }
-
-    private void cia() {
-        CustomResponsedMessage runTask;
-        if (this.hwr == null && (runTask = MessageManager.getInstance().runTask(2913139, com.baidu.live.b.a.class, ccJ().pageContext.getPageActivity())) != null && (runTask.getData() instanceof com.baidu.live.b.a)) {
-            this.hwr = (com.baidu.live.b.a) runTask.getData();
-            if (this.hwr != null) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams.addRule(3, a.f.ala_head_line_entry_id);
-                layoutParams.addRule(11);
-                layoutParams.topMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-                layoutParams.rightMargin = ccJ().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds22);
-                aq cjz = ccJ().hpR.cjz();
-                if (cjz != null) {
-                    this.hwr.a(this.hvC, layoutParams, ccJ().pageContext.getPageActivity(), cjz.aPl);
-                } else {
-                    return;
-                }
-            }
-        }
-        if (this.hwr != null) {
-            this.hwr.a(ccJ().hpR.Iq());
+            layoutParams.height = BdUtilHelper.getDimens(ccK().pageContext.getPageActivity(), a.d.sdk_ds44);
+            layoutParams.leftMargin = BdUtilHelper.getDimens(ccK().pageContext.getPageActivity(), a.d.sdk_ds20);
+            this.hgv.b(this.hvE, layoutParams, ccK().hpT.Iq());
         }
     }
 
     private void cib() {
         CustomResponsedMessage runTask;
-        if (this.hws == null && (runTask = MessageManager.getInstance().runTask(2913140, com.baidu.live.b.b.class, ccJ().pageContext.getPageActivity())) != null && (runTask.getData() instanceof com.baidu.live.b.b)) {
-            this.hws = (com.baidu.live.b.b) runTask.getData();
+        if (this.hwt == null && (runTask = MessageManager.getInstance().runTask(2913139, com.baidu.live.b.a.class, ccK().pageContext.getPageActivity())) != null && (runTask.getData() instanceof com.baidu.live.b.a)) {
+            this.hwt = (com.baidu.live.b.a) runTask.getData();
+            if (this.hwt != null) {
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams.addRule(3, a.f.ala_head_line_entry_id);
+                layoutParams.addRule(11);
+                layoutParams.topMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
+                layoutParams.rightMargin = ccK().pageContext.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds22);
+                aq cjA = ccK().hpT.cjA();
+                if (cjA != null) {
+                    this.hwt.a(this.hvE, layoutParams, ccK().pageContext.getPageActivity(), cjA.aPl);
+                } else {
+                    return;
+                }
+            }
+        }
+        if (this.hwt != null) {
+            this.hwt.a(ccK().hpT.Iq());
         }
     }
 
-    private void cbo() {
-        if (this.gTR == null) {
-            this.gTR = new com.baidu.live.ao.a(ccJ().pageContext.getPageActivity());
+    private void cic() {
+        CustomResponsedMessage runTask;
+        if (this.hwu == null && (runTask = MessageManager.getInstance().runTask(2913140, com.baidu.live.b.b.class, ccK().pageContext.getPageActivity())) != null && (runTask.getData() instanceof com.baidu.live.b.b)) {
+            this.hwu = (com.baidu.live.b.b) runTask.getData();
+        }
+    }
+
+    private void cbp() {
+        if (this.gTT == null) {
+            this.gTT = new com.baidu.live.ao.a(ccK().pageContext.getPageActivity());
         }
     }
 
     public void onRtcConnected(int i) {
-        if (this.hwp != null) {
-            this.hwp.onRtcConnected(i);
+        if (this.hwr != null) {
+            this.hwr.onRtcConnected(i);
         }
     }
 
     private void registerListener() {
-        ccJ().pageContext.registerListener(this.hhg);
-        ccJ().pageContext.registerListener(this.hwC);
-        ccJ().pageContext.registerListener(this.hhh);
-        ccJ().pageContext.registerListener(this.hhi);
-        ccJ().pageContext.registerListener(this.hwH);
-        ccJ().pageContext.registerListener(this.byv);
-        ccJ().pageContext.registerListener(this.hdn);
-        ccJ().pageContext.registerListener(this.hwI);
-        ccJ().pageContext.registerListener(this.gDr);
-        ccJ().pageContext.registerListener(this.hfp);
-        ccJ().pageContext.registerListener(this.hhm);
-        ccJ().pageContext.registerListener(this.bAT);
-        ccJ().pageContext.registerListener(this.bAU);
-        ccJ().pageContext.registerListener(this.hwD);
-        ccJ().pageContext.registerListener(this.brg);
-        ccJ().pageContext.registerListener(this.brh);
-        ccJ().pageContext.registerListener(this.hwE);
-        ccJ().pageContext.registerListener(this.hho);
-        ccJ().pageContext.registerListener(this.hhn);
-        ccJ().pageContext.registerListener(this.hhr);
-        ccJ().pageContext.registerListener(this.hwF);
-        ccJ().pageContext.registerListener(this.hwE);
-        ccJ().pageContext.registerListener(this.bon);
-        ccJ().pageContext.registerListener(this.blO);
-        ccJ().pageContext.registerListener(this.gTS);
+        ccK().pageContext.registerListener(this.hhi);
+        ccK().pageContext.registerListener(this.hwE);
+        ccK().pageContext.registerListener(this.hhj);
+        ccK().pageContext.registerListener(this.hhk);
+        ccK().pageContext.registerListener(this.hwJ);
+        ccK().pageContext.registerListener(this.byv);
+        ccK().pageContext.registerListener(this.hdp);
+        ccK().pageContext.registerListener(this.hwK);
+        ccK().pageContext.registerListener(this.gDt);
+        ccK().pageContext.registerListener(this.hfr);
+        ccK().pageContext.registerListener(this.hho);
+        ccK().pageContext.registerListener(this.bAT);
+        ccK().pageContext.registerListener(this.bAU);
+        ccK().pageContext.registerListener(this.hwF);
+        ccK().pageContext.registerListener(this.brg);
+        ccK().pageContext.registerListener(this.brh);
+        ccK().pageContext.registerListener(this.hwG);
+        ccK().pageContext.registerListener(this.hhq);
+        ccK().pageContext.registerListener(this.hhp);
+        ccK().pageContext.registerListener(this.hht);
+        ccK().pageContext.registerListener(this.hwH);
+        ccK().pageContext.registerListener(this.hwG);
+        ccK().pageContext.registerListener(this.bon);
+        ccK().pageContext.registerListener(this.blO);
+        ccK().pageContext.registerListener(this.gTU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nT(boolean z) {
         if (bm.c(com.baidu.live.ae.a.RB().bxq)) {
-            ccJ().pageContext.showToast(a.h.sdk_filter_beauty_grey_tip);
-        } else if (ccJ().hqn.Dz() == null || ListUtils.isEmpty(ccJ().hqn.Dz().aET)) {
+            ccK().pageContext.showToast(a.h.sdk_filter_beauty_grey_tip);
+        } else if (ccK().hqp.Dz() == null || ListUtils.isEmpty(ccK().hqp.Dz().aET)) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ccJ().pageContext.showToast(a.h.sdk_filter_beauty_no_net);
+                ccK().pageContext.showToast(a.h.sdk_filter_beauty_no_net);
             } else if (!this.bAR) {
                 this.bAQ = BdUniqueId.gen();
-                ccJ().hqn.a(this.bAQ);
+                ccK().hqp.a(this.bAQ);
                 this.bAR = true;
             }
         } else {
-            BdUtilHelper.hideSoftKeyPad(ccJ().pageContext.getPageActivity(), ccJ().rootView);
+            BdUtilHelper.hideSoftKeyPad(ccK().pageContext.getPageActivity(), ccK().rootView);
             xa(8);
-            if (ccJ().hqi.hasAdvancedBeauty() && this.hwo != null) {
-                if (!this.hwu || this.hvl.getVisibility() == 0) {
-                    this.hwo.c(ccJ().hqi.getVideoConfig());
+            if (ccK().hqk.hasAdvancedBeauty() && this.hwq != null) {
+                if (!this.hww || this.hvn.getVisibility() == 0) {
+                    this.hwq.c(ccK().hqk.getVideoConfig());
                 }
-                this.hwo.a(ccJ().hqi.getVideoConfig(), this.bAS);
+                this.hwq.a(ccK().hqk.getVideoConfig(), this.bAS);
                 if (!this.bAS) {
                     this.bAS = true;
                 }
@@ -3043,24 +3043,24 @@ public class AlaMasterLiveRoomOpearator {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void wZ(int i) {
-        BdAlertDialog bdAlertDialog = new BdAlertDialog(ccJ().pageContext.getPageActivity());
+        BdAlertDialog bdAlertDialog = new BdAlertDialog(ccK().pageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle(a.h.sdk_prompt);
-        bdAlertDialog.setMessageId(i, currentAppType(ccJ().pageContext.getPageActivity()));
+        bdAlertDialog.setMessageId(i, currentAppType(ccK().pageContext.getPageActivity()));
         bdAlertDialog.setTitleShowCenter(true);
         bdAlertDialog.setMessageShowCenter(true);
         bdAlertDialog.setPositiveButton(a.h.sdk_know, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.42
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
-                AlaMasterLiveRoomOpearator.this.ccJ().g((short) 1);
+                AlaMasterLiveRoomOpearator.this.ccK().g((short) 1);
             }
         });
-        bdAlertDialog.create(ccJ().pageContext).show();
+        bdAlertDialog.create(ccK().pageContext).show();
     }
 
     private void Iy(String str) {
-        BdAlertDialog bdAlertDialog = new BdAlertDialog(ccJ().pageContext.getPageActivity());
+        BdAlertDialog bdAlertDialog = new BdAlertDialog(ccK().pageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle(a.h.sdk_prompt);
         bdAlertDialog.setMessage(str);
@@ -3070,76 +3070,76 @@ public class AlaMasterLiveRoomOpearator {
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
                 bdAlertDialog2.dismiss();
-                AlaMasterLiveRoomOpearator.this.ccJ().g((short) 1);
+                AlaMasterLiveRoomOpearator.this.ccK().g((short) 1);
             }
         });
-        bdAlertDialog.create(ccJ().pageContext).show();
+        bdAlertDialog.create(ccK().pageContext).show();
     }
 
-    public void cic() {
-        cbe();
-        q bUt = ccJ().hpR.bUt();
+    public void cid() {
+        cbf();
+        q bUu = ccK().hpT.bUu();
         int i = 5;
-        if (bUt != null) {
-            i = (int) bUt.getInterval();
+        if (bUu != null) {
+            i = (int) bUu.getInterval();
         }
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.45
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq() != null && AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo != null) {
-                    AlaMasterLiveRoomOpearator.this.ccJ().hpR.h(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq().mLiveInfo.live_id, false);
+                if (AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq() != null && AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo != null) {
+                    AlaMasterLiveRoomOpearator.this.ccK().hpT.h(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq().mLiveInfo.live_id, false);
                 }
             }
         }, i);
-        if (bUt != null) {
+        if (bUu != null) {
             if (TbadkCoreApplication.getInst().isOther()) {
-                this.hja.hqq.b(bUt);
+                this.hjc.hqs.b(bUu);
                 return;
             }
-            if (this.heJ == null) {
-                this.heJ = new c(ccJ().pageContext, this.hwK, true);
+            if (this.heL == null) {
+                this.heL = new c(ccK().pageContext, this.hwM, true);
             }
-            if (this.hwm) {
-                this.hwm = false;
-                this.heJ.a(String.valueOf(ccJ().hpR.Iq().mLiveInfo.group_id), String.valueOf(ccJ().hpR.Iq().mLiveInfo.live_id), String.valueOf(ccJ().hpR.Iq().aJV.userId), ccJ().hpR.Iq());
+            if (this.hwo) {
+                this.hwo = false;
+                this.heL.a(String.valueOf(ccK().hpT.Iq().mLiveInfo.group_id), String.valueOf(ccK().hpT.Iq().mLiveInfo.live_id), String.valueOf(ccK().hpT.Iq().aJV.userId), ccK().hpT.Iq());
                 int i2 = a.f.ala_live_room_host_header_stub;
-                if (this.hfF != null) {
+                if (this.hfH != null) {
                     i2 = a.f.ala_liveroom_guardthrone;
                 }
-                this.heJ.c(this.hvB, i2, a.f.ala_liveroom_audience_count_layout);
+                this.heL.c(this.hvD, i2, a.f.ala_liveroom_audience_count_layout);
             }
-            this.heJ.e(bUt);
-            this.heN.setVisible(0);
-            this.heN.eZ(bUt.getCount());
+            this.heL.e(bUu);
+            this.heP.setVisible(0);
+            this.heP.eZ(bUu.getCount());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cid() {
+    public void cie() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bvJ() {
-        if (ccJ().hpR != null) {
-            if (this.hfH == null) {
-                this.hfH = new com.baidu.tieba.ala.liveroom.share.c(ccJ().pageContext);
+        if (ccK().hpT != null) {
+            if (this.hfJ == null) {
+                this.hfJ = new com.baidu.tieba.ala.liveroom.share.c(ccK().pageContext);
             }
-            this.hfH.c(ccJ().hpR.Iq(), true);
+            this.hfJ.c(ccK().hpT.Iq(), true);
             if (TbadkCoreApplication.getInst().isHaokan()) {
                 AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_SHARE_CLICK);
-                if (ccJ().hpR != null && ccJ().hpR.Iq() != null && ccJ().hpR.Iq().mLiveInfo != null) {
-                    alaStaticItem.addParams("live_id", ccJ().hpR.Iq().mLiveInfo.live_id + "");
-                    alaStaticItem.addParams("room_id", ccJ().hpR.Iq().mLiveInfo.room_id + "");
-                    alaStaticItem.addParams("feed_id", ccJ().hpR.Iq().mLiveInfo.feed_id + "");
+                if (ccK().hpT != null && ccK().hpT.Iq() != null && ccK().hpT.Iq().mLiveInfo != null) {
+                    alaStaticItem.addParams("live_id", ccK().hpT.Iq().mLiveInfo.live_id + "");
+                    alaStaticItem.addParams("room_id", ccK().hpT.Iq().mLiveInfo.room_id + "");
+                    alaStaticItem.addParams("feed_id", ccK().hpT.Iq().mLiveInfo.feed_id + "");
                 }
                 alaStaticItem.addParams("other_params", this.otherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
             } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                 AlaStaticItem alaStaticItem2 = new AlaStaticItem(QMStaticKeys.QM_STATIC_SHARE_CLICK);
-                if (ccJ().hpR != null && ccJ().hpR.Iq() != null && ccJ().hpR.Iq().mLiveInfo != null) {
-                    alaStaticItem2.addParams("live_id", ccJ().hpR.Iq().mLiveInfo.live_id + "");
-                    alaStaticItem2.addParams("room_id", ccJ().hpR.Iq().mLiveInfo.room_id + "");
-                    alaStaticItem2.addParams("feed_id", ccJ().hpR.Iq().mLiveInfo.feed_id + "");
+                if (ccK().hpT != null && ccK().hpT.Iq() != null && ccK().hpT.Iq().mLiveInfo != null) {
+                    alaStaticItem2.addParams("live_id", ccK().hpT.Iq().mLiveInfo.live_id + "");
+                    alaStaticItem2.addParams("room_id", ccK().hpT.Iq().mLiveInfo.room_id + "");
+                    alaStaticItem2.addParams("feed_id", ccK().hpT.Iq().mLiveInfo.feed_id + "");
                 }
                 alaStaticItem2.addParams("other_params", this.otherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem2);
@@ -3147,24 +3147,24 @@ public class AlaMasterLiveRoomOpearator {
         }
     }
 
-    private boolean cie() {
-        return this.hvj;
+    private boolean cif() {
+        return this.hvl;
     }
 
     private void nU(boolean z) {
-        SharedPrefHelper.getInstance().putBoolean(hvi, z);
-        this.hvj = z;
+        SharedPrefHelper.getInstance().putBoolean(hvk, z);
+        this.hvl = z;
     }
 
-    private void cif() {
-        BdAlertDialog bdAlertDialog = new BdAlertDialog(ccJ().pageContext.getPageActivity());
+    private void cig() {
+        BdAlertDialog bdAlertDialog = new BdAlertDialog(ccK().pageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
         bdAlertDialog.setMessageId(a.h.is_allow_follow_confirm);
         bdAlertDialog.setPositiveButton(a.h.is_allow_follow_confirm_ok, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.46
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog2) {
-                new com.baidu.tieba.ala.liveroom.p.b(AlaMasterLiveRoomOpearator.this.ccJ().pageContext).cjh();
+                new com.baidu.tieba.ala.liveroom.p.b(AlaMasterLiveRoomOpearator.this.ccK().pageContext).cji();
                 bdAlertDialog2.dismiss();
             }
         });
@@ -3174,42 +3174,42 @@ public class AlaMasterLiveRoomOpearator {
                 bdAlertDialog2.dismiss();
             }
         });
-        bdAlertDialog.create(ccJ().pageContext).show();
+        bdAlertDialog.create(ccK().pageContext).show();
     }
 
-    private void cig() {
-        if (this.huS && ccJ().pageContext.getPageActivity().getRequestedOrientation() != 0) {
-            ccJ().hqp.Vh();
+    private void cih() {
+        if (this.huU && ccK().pageContext.getPageActivity().getRequestedOrientation() != 0) {
+            ccK().hqr.Vh();
         }
-        ccJ().hqo.prepareTime = System.currentTimeMillis() - ccJ().hqo.prepareTime;
+        ccK().hqq.prepareTime = System.currentTimeMillis() - ccK().hqq.prepareTime;
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(QMStaticKeys.QM_STATIC_RECORD_STAYTIME);
-            if (ccJ().hpR != null && ccJ().hpR.Iq() != null && ccJ().hpR.Iq().mLiveInfo != null) {
-                alaStaticItem.addParams("live_id", ccJ().hpR.Iq().mLiveInfo.live_id + "");
-                alaStaticItem.addParams("room_id", ccJ().hpR.Iq().mLiveInfo.room_id + "");
+            if (ccK().hpT != null && ccK().hpT.Iq() != null && ccK().hpT.Iq().mLiveInfo != null) {
+                alaStaticItem.addParams("live_id", ccK().hpT.Iq().mLiveInfo.live_id + "");
+                alaStaticItem.addParams("room_id", ccK().hpT.Iq().mLiveInfo.room_id + "");
             }
-            alaStaticItem.addParams("time", ccJ().hqo.prepareTime / 1000);
+            alaStaticItem.addParams("time", ccK().hqq.prepareTime / 1000);
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
-        if (this.hvl != null && this.hvl.getView().getParent() != null) {
-            this.hvl.setVisibility(8);
-            ccJ().hql.removeView(this.hvl.getView());
-            this.hvl.release();
+        if (this.hvn != null && this.hvn.getView().getParent() != null) {
+            this.hvn.setVisibility(8);
+            ccK().hqn.removeView(this.hvn.getView());
+            this.hvn.release();
         }
-        if (this.hwo != null) {
-            this.hwo.setVisible(8);
+        if (this.hwq != null) {
+            this.hwq.setVisible(8);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        if (ccJ().hpS.indexOfChild(this.hvy) < 0) {
-            ccJ().hpS.addView(this.hvy, layoutParams);
+        if (ccK().hpU.indexOfChild(this.hvA) < 0) {
+            ccK().hpU.addView(this.hvA, layoutParams);
         }
-        this.hvy.xq(1000);
+        this.hvA.xq(1000);
     }
 
     private void ays() {
-        if (ccJ().ceF() == 1) {
-            ccJ().hqi.startRecord();
+        if (ccK().ceG() == 1) {
+            ccK().hqk.startRecord();
         }
     }
 
@@ -3219,7 +3219,7 @@ public class AlaMasterLiveRoomOpearator {
 
     private void IA(String str) {
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ccJ().pageContext.getPageActivity(), (int) RequestResponseCode.REQUEST_ALBUM_IMAGE, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
+            EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) ccK().pageContext.getPageActivity(), (int) RequestResponseCode.REQUEST_ALBUM_IMAGE, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
             editHeadActivityConfig.setPreviewImageHeightScale(1.0f);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editHeadActivityConfig));
         }
@@ -3244,31 +3244,31 @@ public class AlaMasterLiveRoomOpearator {
 
     private void P(Intent intent) {
         PhotoUrlData fromJson;
-        if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.hvl != null) {
-            this.hvl.In(fromJson.getSmallurl());
+        if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.hvn != null) {
+            this.hvn.In(fromJson.getSmallurl());
         }
     }
 
-    private boolean cih() {
+    private boolean cii() {
         return com.baidu.live.d.BM().getBoolean(com.baidu.live.d.getSharedPrefKeyWithAccount("key_mirror_status"), false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cii() {
-        com.baidu.live.d.BM().putBoolean(com.baidu.live.d.getSharedPrefKeyWithAccount("key_mirror_status"), this.hja.hqi.isPushMirror());
+    public void cij() {
+        com.baidu.live.d.BM().putBoolean(com.baidu.live.d.getSharedPrefKeyWithAccount("key_mirror_status"), this.hjc.hqk.isPushMirror());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cij() {
-        if (this.hwq == null || !this.hwq.Su()) {
-            if (this.hvx == null || !this.hvx.Su()) {
+    public void cik() {
+        if (this.hws == null || !this.hws.Su()) {
+            if (this.hvz == null || !this.hvz.Su()) {
                 int i = a.h.live_close_confirm;
-                if (this.hwp != null && this.hwp.ccR()) {
+                if (this.hwr != null && this.hwr.ccS()) {
                     i = a.h.ala_pk_pking_close_live_roon_tip;
-                } else if (this.hwp != null && this.hwp.ccQ()) {
+                } else if (this.hwr != null && this.hwr.ccR()) {
                     i = a.h.ala_challenge_challenging_close_live_room_tip;
                 }
-                BdAlertDialog bdAlertDialog = new BdAlertDialog(ccJ().pageContext.getPageActivity());
+                BdAlertDialog bdAlertDialog = new BdAlertDialog(ccK().pageContext.getPageActivity());
                 bdAlertDialog.setAutoNight(false);
                 bdAlertDialog.setTitle((String) null);
                 bdAlertDialog.setMessageId(i);
@@ -3279,8 +3279,8 @@ public class AlaMasterLiveRoomOpearator {
                             AlaStaticsManager.getInst().onStatic(new AlaStaticItem(SdkStaticKeys.CLICK_MASTERLIVE_CLOSEBTN));
                         }
                         bdAlertDialog2.dismiss();
-                        if (AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq() != null) {
-                            AlaMasterLiveRoomOpearator.this.a(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq(), 0, AlaMasterLiveRoomOpearator.this.ccJ().hpR.cjI() != 1 ? AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getString(a.h.ala_live_end_authen_msg) : null);
+                        if (AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq() != null) {
+                            AlaMasterLiveRoomOpearator.this.a(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq(), 0, AlaMasterLiveRoomOpearator.this.ccK().hpT.cjJ() != 1 ? AlaMasterLiveRoomOpearator.this.ccK().pageContext.getString(a.h.ala_live_end_authen_msg) : null);
                         } else {
                             AlaMasterLiveRoomOpearator.this.a((Intent) null, (short) 1);
                         }
@@ -3292,7 +3292,7 @@ public class AlaMasterLiveRoomOpearator {
                         bdAlertDialog2.dismiss();
                     }
                 });
-                bdAlertDialog.create(ccJ().pageContext).show();
+                bdAlertDialog.create(ccK().pageContext).show();
             }
         }
     }
@@ -3312,17 +3312,17 @@ public class AlaMasterLiveRoomOpearator {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                ccJ().hpR.eD(Long.toString(alaLiveInfoData2.live_id), str2);
+                ccK().hpT.eD(Long.toString(alaLiveInfoData2.live_id), str2);
             }
             alaLiveUserInfoData = alaLiveUserInfoData2;
             alaLiveInfoData = alaLiveInfoData2;
         } else {
             alaLiveInfoData = null;
         }
-        if (!this.hwk) {
-            AlaLiveRecorderPerfData alaLiveRecorderPerfData = ccJ().hqo;
+        if (!this.hwm) {
+            AlaLiveRecorderPerfData alaLiveRecorderPerfData = ccK().hqq;
             alaLiveRecorderPerfData.liveTotalTime = System.currentTimeMillis() - alaLiveRecorderPerfData.liveTotalTime;
-            AlaLiveDebugInfo recorderDebugInfo = ccJ().hqi.getRecorderDebugInfo();
+            AlaLiveDebugInfo recorderDebugInfo = ccK().hqk.getRecorderDebugInfo();
             if (recorderDebugInfo != null) {
                 alaLiveRecorderPerfData.dropACount = recorderDebugInfo.totalDropA;
                 alaLiveRecorderPerfData.dropCount = recorderDebugInfo.totalDropCount;
@@ -3332,23 +3332,23 @@ public class AlaMasterLiveRoomOpearator {
             alaLiveRecorderPerfData.showTime = System.currentTimeMillis() - alaLiveRecorderPerfData.startLiveTime;
             alaLiveRecorderPerfData.waitTime = alaLiveRecorderPerfData.linkTime + alaLiveRecorderPerfData.prepareTime + alaLiveRecorderPerfData.updateTime;
             Long[] lArr = new Long[1];
-            alaLiveRecorderPerfData.prictureFlow = (lArr[0] == null ? 0L : lArr[0].longValue()) - this.hwg;
-            alaLiveRecorderPerfData.IMFlow = (lArr[0] != null ? lArr[0].longValue() : 0L) - this.hwh;
+            alaLiveRecorderPerfData.prictureFlow = (lArr[0] == null ? 0L : lArr[0].longValue()) - this.hwi;
+            alaLiveRecorderPerfData.IMFlow = (lArr[0] != null ? lArr[0].longValue() : 0L) - this.hwj;
             alaLiveRecorderPerfData.dataFlow = alaLiveRecorderPerfData.prictureFlow + alaLiveRecorderPerfData.IMFlow;
-            alaLiveRecorderPerfData.isCharging = this.hwc;
-            if (this.hwd != 0) {
-                alaLiveRecorderPerfData.energyUsage = ((this.hwe - this.hwf) / this.hwd) * 100.0f;
+            alaLiveRecorderPerfData.isCharging = this.hwe;
+            if (this.hwf != 0) {
+                alaLiveRecorderPerfData.energyUsage = ((this.hwg - this.hwh) / this.hwf) * 100.0f;
             }
-            Intent intent = new Intent(ccJ().pageContext.getPageActivity(), AlaLiveEndActivity.class);
+            Intent intent = new Intent(ccK().pageContext.getPageActivity(), AlaLiveEndActivity.class);
             if (alaLiveInfoData != null) {
                 intent.putExtra("liveInfoData", alaLiveInfoData.getJsonString());
             }
             if (alaLiveUserInfoData != null) {
                 intent.putExtra("liveUserData", alaLiveUserInfoData.getJsonString());
             }
-            if (ccJ().hpR != null && ccJ().hpR.Iq() != null && ccJ().hpR.Iq().aJV != null) {
-                String str3 = ccJ().hpR.Iq().aJV.nickName;
-                String str4 = ccJ().hpR.Iq().aJV.userName;
+            if (ccK().hpT != null && ccK().hpT.Iq() != null && ccK().hpT.Iq().aJV != null) {
+                String str3 = ccK().hpT.Iq().aJV.nickName;
+                String str4 = ccK().hpT.Iq().aJV.userName;
                 if (!TextUtils.isEmpty(str3)) {
                     str4 = str3;
                 }
@@ -3357,22 +3357,22 @@ public class AlaMasterLiveRoomOpearator {
             intent.putExtra("fromType", i);
             intent.putExtra("authen_msg", str);
             intent.putExtra("live_perf_data", alaLiveRecorderPerfData.getJsonString());
-            w Iq = ccJ().hpR.Iq();
+            w Iq = ccK().hpT.Iq();
             if (Iq != null && Iq.aJV != null && !TextUtils.isEmpty(Iq.aJV.portrait)) {
                 intent.putExtra("host_portrait", Iq.aJV.portrait);
             }
-            if (this.hwq != null) {
-                this.hwq.WF();
+            if (this.hws != null) {
+                this.hws.WF();
             }
-            if (this.hvx != null) {
-                this.hvx.Ss();
+            if (this.hvz != null) {
+                this.hvz.Ss();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913129));
             short s = i == 1 ? (short) 3 : (short) 2;
             if (this.isBackground) {
-                this.hwi = intent;
-                this.hwj = s;
-                ccJ().pageContext.showToast(a.h.ala_live_background_close_tip);
+                this.hwk = intent;
+                this.hwl = s;
+                ccK().pageContext.showToast(a.h.ala_live_background_close_tip);
             } else {
                 a(intent, s);
             }
@@ -3389,52 +3389,52 @@ public class AlaMasterLiveRoomOpearator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cik() {
-        if (this.hwi != null) {
-            a(this.hwi, this.hwj);
-            this.hwi = null;
+    public void cil() {
+        if (this.hwk != null) {
+            a(this.hwk, this.hwl);
+            this.hwk = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Intent intent, short s) {
-        this.hwk = true;
-        if (this.hwp != null) {
-            this.hwp.onDestroy();
+        this.hwm = true;
+        if (this.hwr != null) {
+            this.hwr.onDestroy();
         }
         if (intent != null) {
-            intent.putExtra("live_back_scheme", this.hdc);
-            ccJ().pageContext.getPageActivity().startActivity(intent);
+            intent.putExtra("live_back_scheme", this.hde);
+            ccK().pageContext.getPageActivity().startActivity(intent);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913178));
-        ccJ().g(s);
+        ccK().g(s);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cil() {
+    public void cim() {
         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913004));
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.hja.hqq != null && this.hja.hqq.onKeyDown(i, keyEvent)) {
+            if (this.hjc.hqs != null && this.hjc.hqs.onKeyDown(i, keyEvent)) {
                 return true;
             }
-            if (this.hwp != null && this.hwp.onKeyDown(i, keyEvent)) {
+            if (this.hwr != null && this.hwr.onKeyDown(i, keyEvent)) {
+                return true;
+            }
+            if (this.hws != null && this.hws.onKeyDown(i, keyEvent)) {
                 return true;
             }
             if (this.hwq != null && this.hwq.onKeyDown(i, keyEvent)) {
                 return true;
             }
-            if (this.hwo != null && this.hwo.onKeyDown(i, keyEvent)) {
+            if (this.hvz != null && this.hvz.onKeyDown(i, keyEvent)) {
                 return true;
             }
-            if (this.hvx != null && this.hvx.onKeyDown(i, keyEvent)) {
-                return true;
-            }
-            if (ccJ().hqm.ciQ()) {
-                cij();
+            if (ccK().hqo.ciR()) {
+                cik();
                 return true;
             }
         }
@@ -3442,14 +3442,14 @@ public class AlaMasterLiveRoomOpearator {
     }
 
     public void sendBufferChanged(int i) {
-        if (this.hvz != null) {
-            this.hvz.fK(i);
+        if (this.hvB != null) {
+            this.hvB.fK(i);
         }
     }
 
     public void streamStateReceived(int i, boolean z, int i2, boolean z2) {
         int i3 = 0;
-        if (this.hja != null && this.hja.hpR != null) {
+        if (this.hjc != null && this.hjc.hpT != null) {
             if (i2 != 1) {
                 if (i2 == 2 || i2 == 3) {
                     i3 = 1;
@@ -3459,21 +3459,21 @@ public class AlaMasterLiveRoomOpearator {
             }
             if (this.dFt != i3) {
                 this.dFt = i3;
-                if (this.hvr == null) {
-                    this.hvr = new com.baidu.tieba.ala.liveroom.tippop.a(this.hja.pageContext, null);
+                if (this.hvt == null) {
+                    this.hvt = new com.baidu.tieba.ala.liveroom.tippop.a(this.hjc.pageContext, null);
                 }
                 switch (this.dFt) {
                     case 0:
-                        this.hvr.a(this.hja.hql, this.hja.pageContext.getString(a.h.ala_master_live_net_tip_1), 1);
+                        this.hvt.a(this.hjc.hqn, this.hjc.pageContext.getString(a.h.ala_master_live_net_tip_1), 1);
                         break;
                     case 1:
-                        this.hvr.a(this.hja.hql, this.hja.pageContext.getString(a.h.ala_master_live_net_tip_2), 1);
+                        this.hvt.a(this.hjc.hqn, this.hjc.pageContext.getString(a.h.ala_master_live_net_tip_2), 1);
                         break;
                     case 2:
-                        this.hvr.a(this.hja.hql, this.hja.pageContext.getString(a.h.ala_master_live_net_tip_3), 1);
+                        this.hvt.a(this.hjc.hqn, this.hjc.pageContext.getString(a.h.ala_master_live_net_tip_3), 1);
                         break;
                 }
-                this.hja.hpR.x(this.hja.hpR.Iq().mLiveInfo.live_id, i3);
+                this.hjc.hpT.x(this.hjc.hpT.Iq().mLiveInfo.live_id, i3);
             }
         }
     }
@@ -3514,8 +3514,8 @@ public class AlaMasterLiveRoomOpearator {
                 this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.51
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlaMasterLiveRoomOpearator.this.cil();
-                        AlaMasterLiveRoomOpearator.this.a(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq(), 1, str3);
+                        AlaMasterLiveRoomOpearator.this.cim();
+                        AlaMasterLiveRoomOpearator.this.a(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq(), 1, str3);
                     }
                 });
             }
@@ -3554,12 +3554,12 @@ public class AlaMasterLiveRoomOpearator {
         if (TbConfig.IM_LOG) {
             Log.i("imlog", "@.@ IM消息 接收: liveSingleMessageReceived 消息分发 msgType " + bVar.getMsgType());
         }
-        if (this.heP != null) {
-            this.heP.G(bVar);
+        if (this.heR != null) {
+            this.heR.G(bVar);
         }
         if (bVar.getMsgType() == 125) {
-            if (this.hvp != null) {
-                this.hvp.K(bVar);
+            if (this.hvr != null) {
+                this.hvr.K(bVar);
             }
         } else if (bVar.getMsgType() == 13 || bVar.getMsgType() == 12) {
             try {
@@ -3595,16 +3595,16 @@ public class AlaMasterLiveRoomOpearator {
                         str2 = optString2;
                         jSONObject2 = jSONObject;
                         jSONObject3 = null;
-                        if (this.hwp != null) {
+                        if (this.hwr != null) {
                         }
                         if (!"close_live".equals(str2)) {
                         }
                         if (!(bVar.getObjContent() instanceof JSONObject)) {
                         }
                         jSONObject6.put("log_id", bVar.getMsgId());
-                        if (this.hgs != null) {
+                        if (this.hgu != null) {
                         }
-                        if (this.hgq != null) {
+                        if (this.hgs != null) {
                         }
                     }
                 } catch (JSONException e3) {
@@ -3617,63 +3617,63 @@ public class AlaMasterLiveRoomOpearator {
                 str = null;
                 str2 = null;
             }
-            if (this.hwp != null) {
-                this.hwp.gx(str2);
+            if (this.hwr != null) {
+                this.hwr.gx(str2);
             }
             if (!"close_live".equals(str2)) {
                 this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.52
                     @Override // java.lang.Runnable
                     public void run() {
-                        AlaMasterLiveRoomOpearator.this.cil();
-                        AlaMasterLiveRoomOpearator.this.a(AlaMasterLiveRoomOpearator.this.ccJ().hpR.Iq(), 1, str);
+                        AlaMasterLiveRoomOpearator.this.cim();
+                        AlaMasterLiveRoomOpearator.this.a(AlaMasterLiveRoomOpearator.this.ccK().hpT.Iq(), 1, str);
                     }
                 });
             } else if ("live_admin".equals(str2)) {
-                if (ccJ().hpR.Iq() != null && jSONObject2 != null) {
+                if (ccK().hpT.Iq() != null && jSONObject2 != null) {
                     long optLong = jSONObject2.optLong("user_id");
                     int optInt = jSONObject2.optInt("opt_type");
                     if (optInt == 1) {
                         if (optLong == JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-                            ccJ().hpR.Iq().aKr.isAdmin = 1;
+                            ccK().hpT.Iq().aKr.isAdmin = 1;
                         }
                     } else if (optInt == 2) {
                         if (optLong == JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-                            ccJ().hpR.Iq().aKr.isAdmin = 0;
+                            ccK().hpT.Iq().aKr.isAdmin = 0;
                         }
                     } else if (optInt == 3 && optLong == JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-                        ccJ().hpR.Iq().aKr.isAdmin = 0;
+                        ccK().hpT.Iq().aKr.isAdmin = 0;
                     }
                 }
             } else if ("live_talk_admin_ban".equals(str2)) {
-                if (ccJ().hpR.Iq() != null && jSONObject2 != null) {
+                if (ccK().hpT.Iq() != null && jSONObject2 != null) {
                     long optLong2 = jSONObject2.optLong("user_id");
-                    if (ccJ().hpR.Iq() != null && ccJ().hpR.Iq().aJV != null && ccJ().hpR.Iq().aJV.userId == optLong2) {
-                        ccJ().hpR.Iq().aJV.isUegBlock = 1;
-                        caI();
+                    if (ccK().hpT.Iq() != null && ccK().hpT.Iq().aJV != null && ccK().hpT.Iq().aJV.userId == optLong2) {
+                        ccK().hpT.Iq().aJV.isUegBlock = 1;
+                        caJ();
                     }
                 }
             } else if ("live_talk_admin_remove_ban".equals(str2)) {
-                if (ccJ().hpR.Iq() != null && jSONObject2 != null) {
+                if (ccK().hpT.Iq() != null && jSONObject2 != null) {
                     long optLong3 = jSONObject2.optLong("user_id");
-                    if (ccJ().hpR.Iq() != null && ccJ().hpR.Iq().aJV != null && ccJ().hpR.Iq().aJV.userId == optLong3) {
-                        ccJ().hpR.Iq().aJV.isUegBlock = 0;
-                        caI();
+                    if (ccK().hpT.Iq() != null && ccK().hpT.Iq().aJV != null && ccK().hpT.Iq().aJV.userId == optLong3) {
+                        ccK().hpT.Iq().aJV.isUegBlock = 0;
+                        caJ();
                     }
                 }
             } else if ("task".equals(str2)) {
-                if (this.hvV != null) {
-                    this.hvV.R(jSONObject2);
+                if (this.hvX != null) {
+                    this.hvX.R(jSONObject2);
                 }
             } else if ("enter_live".equals(str2)) {
                 if (jSONObject2 != null) {
                     String optString4 = jSONObject2.optString("share_enter_msg");
                     int optInt2 = jSONObject2.optInt("share_enter_interval");
                     if (!TextUtils.isEmpty(optString4)) {
-                        this.hvq.aJ(optString4, optInt2);
+                        this.hvs.aJ(optString4, optInt2);
                     }
-                    if (this.heN.getCount() > 20) {
-                        this.heN.eZ(this.heN.getCount() + 1);
-                    } else if (this.heJ != null) {
+                    if (this.heP.getCount() > 20) {
+                        this.heP.eZ(this.heP.getCount() + 1);
+                    } else if (this.heL != null) {
                         com.baidu.live.data.a NU = bVar.NU();
                         com.baidu.live.data.p pVar = new com.baidu.live.data.p();
                         pVar.aJW = new AlaLocationData();
@@ -3682,14 +3682,14 @@ public class AlaMasterLiveRoomOpearator {
                         pVar.aJV.userId = JavaTypesHelper.toLong(NU.userId, 0L);
                         pVar.aJV.userName = NU.userName;
                         pVar.aJV.portrait = NU.portrait;
-                        if (this.heJ.c(pVar)) {
-                            this.heN.eZ(this.heN.getCount() + 1);
+                        if (this.heL.c(pVar)) {
+                            this.heP.eZ(this.heP.getCount() + 1);
                         }
                     }
                 }
             } else if ("need_update_live_mark_info".equals(str2)) {
-                if (jSONObject2 != null && ccJ() != null && ccJ().hpR != null && ccJ().hpR.Iq() != null && ccJ().hpR.Iq().aKr != null && ccJ().hpR.Iq().aKr.userId == jSONObject2.optLong("user_id")) {
-                    ccJ().hpR.cjy();
+                if (jSONObject2 != null && ccK() != null && ccK().hpT != null && ccK().hpT.Iq() != null && ccK().hpT.Iq().aKr != null && ccK().hpT.Iq().aKr.userId == jSONObject2.optLong("user_id")) {
+                    ccK().hpT.cjz();
                 }
             } else if ("official_notice".equals(str2)) {
                 if (jSONObject2 != null) {
@@ -3728,14 +3728,14 @@ public class AlaMasterLiveRoomOpearator {
                     if (TextUtils.equals(optString5, "start")) {
                         IB(jSONObject2.optString("challenge_user_name"));
                     } else if (TextUtils.equals(optString5, "cancel")) {
-                        BdUtilHelper.showToast(ccJ().pageContext.getPageActivity(), a.h.ala_challenge_cancel_tip);
+                        BdUtilHelper.showToast(ccK().pageContext.getPageActivity(), a.h.ala_challenge_cancel_tip);
                     }
                 }
             } else if ("challenge_random_cancel".equals(str2)) {
-                BdUtilHelper.showToast(ccJ().pageContext.getPageActivity(), a.h.ala_challenge_cancel_tip);
+                BdUtilHelper.showToast(ccK().pageContext.getPageActivity(), a.h.ala_challenge_cancel_tip);
             } else if ("connect_apply_show_pub".equals(str2)) {
-                if (this.hvx != null) {
-                    this.hvx.Q(jSONObject2);
+                if (this.hvz != null) {
+                    this.hvz.Q(jSONObject2);
                 }
             } else if ("remove_video".equals(str2)) {
                 String optString6 = jSONObject2.optString("text");
@@ -3763,7 +3763,7 @@ public class AlaMasterLiveRoomOpearator {
                 boolean z3 = jSONObject5.optInt("from_gongyanfang_2") == 1;
                 boolean z4 = jSONObject5.optInt("from_gongyanfang_page") == 1;
                 String str7 = null;
-                if (ccJ().hpR == null || ccJ().hpR.Iq() == null || ccJ().hpR.Iq().mLiveInfo == null) {
+                if (ccK().hpT == null || ccK().hpT.Iq() == null || ccK().hpT.Iq().mLiveInfo == null) {
                     j = 0;
                     j2 = 0;
                     j3 = 0;
@@ -3771,12 +3771,12 @@ public class AlaMasterLiveRoomOpearator {
                     str4 = "";
                     z = false;
                 } else {
-                    long j4 = ccJ().hpR.Iq().mLiveInfo.live_id;
-                    long j5 = ccJ().hpR.Iq().mLiveInfo.group_id;
-                    long j6 = ccJ().hpR.Iq().aJV.userId;
-                    str7 = ccJ().hpR.Iq().mLiveInfo.appId;
-                    boolean z5 = ccJ().hpR.Iq().mLiveInfo.isPubShow;
-                    if (ccJ().hpR.Iq().mLiveSdkInfo.mCastIds == null) {
+                    long j4 = ccK().hpT.Iq().mLiveInfo.live_id;
+                    long j5 = ccK().hpT.Iq().mLiveInfo.group_id;
+                    long j6 = ccK().hpT.Iq().aJV.userId;
+                    str7 = ccK().hpT.Iq().mLiveInfo.appId;
+                    boolean z5 = ccK().hpT.Iq().mLiveInfo.isPubShow;
+                    if (ccK().hpT.Iq().mLiveSdkInfo.mCastIds == null) {
                         j = j6;
                         j2 = j4;
                         j3 = j5;
@@ -3784,18 +3784,18 @@ public class AlaMasterLiveRoomOpearator {
                         str4 = "";
                         z = z5;
                     } else {
-                        String str8 = ccJ().hpR.Iq().mLiveSdkInfo.mCastIds.chatMCastId;
+                        String str8 = ccK().hpT.Iq().mLiveSdkInfo.mCastIds.chatMCastId;
                         j = j6;
                         j2 = j4;
                         j3 = j5;
-                        str3 = ccJ().hpR.Iq().mLiveSdkInfo.mCastIds.ensureMCastId;
+                        str3 = ccK().hpT.Iq().mLiveSdkInfo.mCastIds.ensureMCastId;
                         str4 = str8;
                         z = z5;
                     }
                 }
                 if (!z3 || z2) {
                     LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_RECEIVE, str4, str3, optString8, "");
-                    if (!this.isBackground || ccJ().ceF() != 2) {
+                    if (!this.isBackground || ccK().ceG() != 2) {
                         if (!TextUtils.isEmpty(optString11) && !TextUtils.isEmpty(optString12)) {
                             if (jSONObject5.optInt("flag_show") == 1) {
                                 ac.b(cVar, NU3, String.valueOf(j2), String.valueOf(j3), true, String.valueOf(j), str7, "", "", bVar.getMsgId());
@@ -3862,276 +3862,276 @@ public class AlaMasterLiveRoomOpearator {
         } catch (JSONException e9) {
             jSONObject6 = null;
         }
-        if (this.hgs != null) {
-            this.hgs.l(bVar);
+        if (this.hgu != null) {
+            this.hgu.l(bVar);
         }
-        if ((this.hgq != null || !this.hgq.N(jSONObject6)) && this.heW != null && this.heW.N(jSONObject6)) {
+        if ((this.hgs != null || !this.hgs.N(jSONObject6)) && this.heY != null && this.heY.N(jSONObject6)) {
         }
     }
 
     private void Ic(String str) {
-        if (this.heP != null) {
-            this.heP.Ic(str);
+        if (this.heR != null) {
+            this.heR.Ic(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void xa(int i) {
-        View findViewById = ccJ().rootView.findViewById(a.f.ala_live_host_bottom);
+        View findViewById = ccK().rootView.findViewById(a.f.ala_live_host_bottom);
         if (findViewById != null) {
             findViewById.setVisibility(i);
         }
-        if (this.heP != null) {
-            this.heP.bQ(2, i);
+        if (this.heR != null) {
+            this.heR.bQ(2, i);
         }
     }
 
-    private void cim() {
+    private void cin() {
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.53
             @Override // java.lang.Runnable
             public void run() {
-                if (AlaMasterLiveRoomOpearator.this.ccJ().hqi != null && AlaMasterLiveRoomOpearator.this.ccJ().hqi.getPreview() != null) {
-                    AlaMasterLiveRoomOpearator.this.ccJ().hqi.getPreview().setVisibility(0);
-                    AlaMasterLiveRoomOpearator.this.ccJ().hqi.startRecord();
+                if (AlaMasterLiveRoomOpearator.this.ccK().hqk != null && AlaMasterLiveRoomOpearator.this.ccK().hqk.getPreview() != null) {
+                    AlaMasterLiveRoomOpearator.this.ccK().hqk.getPreview().setVisibility(0);
+                    AlaMasterLiveRoomOpearator.this.ccK().hqk.startRecord();
                 }
             }
         });
     }
 
-    private void cin() {
-        if (ccJ().hqi != null && ccJ().hqi.getPreview() != null) {
-            ccJ().hqi.getPreview().setVisibility(8);
-            ccJ().hqi.stopRecord();
+    private void cio() {
+        if (ccK().hqk != null && ccK().hqk.getPreview() != null) {
+            ccK().hqk.getPreview().setVisibility(8);
+            ccK().hqk.stopRecord();
         }
     }
 
-    public void cio() {
-        this.hqf = ccJ().hpR.cjJ();
-        if (this.hvl != null) {
-            this.hvl.nB(this.hqf);
+    public void cip() {
+        this.hqh = ccK().hpT.cjK();
+        if (this.hvn != null) {
+            this.hvn.nB(this.hqh);
         }
     }
 
-    public void ceD() {
+    public void ceE() {
         if (TbadkCoreApplication.getInst().isOther()) {
-            cip();
-        } else if (this.hvl != null) {
-            this.hvl.ceD();
+            ciq();
+        } else if (this.hvn != null) {
+            this.hvn.ceE();
         }
     }
 
     public void nC(boolean z) {
-        if (this.hvl != null) {
-            this.hvl.nC(z);
+        if (this.hvn != null) {
+            this.hvn.nC(z);
         }
     }
 
     public void onDestroy() {
-        if (this.hwb != null) {
-            BdBaseApplication.getInst().unregisterReceiver(this.hwb);
+        if (this.hwd != null) {
+            BdBaseApplication.getInst().unregisterReceiver(this.hwd);
         }
-        this.hwb = null;
+        this.hwd = null;
         this.mHandler.removeCallbacksAndMessages(null);
-        this.hvT.removeCallbacksAndMessages(null);
-        if (this.hwo != null) {
-            this.hwo.nz(true);
+        this.hvV.removeCallbacksAndMessages(null);
+        if (this.hwq != null) {
+            this.hwq.nz(true);
         }
-        this.hwo = null;
-        if (this.hvl != null) {
-            this.hvl.destroy();
-            ccJ().hql.removeView(this.hvl.getView());
-            this.hvl.release();
-            this.hvl = null;
+        this.hwq = null;
+        if (this.hvn != null) {
+            this.hvn.destroy();
+            ccK().hqn.removeView(this.hvn.getView());
+            this.hvn.release();
+            this.hvn = null;
         }
-        if (this.hwp != null) {
-            this.hwp.onDestroy();
+        if (this.hwr != null) {
+            this.hwr.onDestroy();
         }
-        if (this.hfH != null) {
-            this.hfH.onDestroy();
+        if (this.hfJ != null) {
+            this.hfJ.onDestroy();
         }
-        if (this.heK != null) {
-            this.heK.onDestroy();
-            this.heK = null;
-        }
-        if (this.hvm != null) {
-            this.hvm.onDestroy();
-        }
-        if (this.hgi != null) {
-            this.hgi.onDestroy();
-            this.hgi = null;
-        }
-        if (this.hvy != null) {
-            this.hvy.stopCountDown();
+        if (this.heM != null) {
+            this.heM.onDestroy();
+            this.heM = null;
         }
         if (this.hvo != null) {
             this.hvo.onDestroy();
         }
+        if (this.hgk != null) {
+            this.hgk.onDestroy();
+            this.hgk = null;
+        }
+        if (this.hvA != null) {
+            this.hvA.stopCountDown();
+        }
         if (this.hvq != null) {
             this.hvq.onDestroy();
         }
-        if (this.hvV != null) {
-            this.hvV.onDestroy();
-            this.hvV = null;
-        }
-        if (this.hfW != null) {
-            this.hfW.onDestroy();
-            this.hfW = null;
-        }
         if (this.hvs != null) {
-            this.hvs.release();
+            this.hvs.onDestroy();
+        }
+        if (this.hvX != null) {
+            this.hvX.onDestroy();
+            this.hvX = null;
+        }
+        if (this.hfY != null) {
+            this.hfY.onDestroy();
+            this.hfY = null;
         }
         if (this.hvu != null) {
             this.hvu.release();
         }
+        if (this.hvw != null) {
+            this.hvw.release();
+        }
         com.baidu.live.ag.a.b.Sm().release();
         ac.Iy();
         com.baidu.live.entereffect.a.Gi().release();
-        this.hwA = false;
-        if (this.hfX != null) {
-            this.hfX.onDestroy();
-            this.hfX = null;
+        this.hwC = false;
+        if (this.hfZ != null) {
+            this.hfZ.onDestroy();
+            this.hfZ = null;
+        }
+        if (this.hvt != null) {
+            this.hvt.onDestroy();
+        }
+        if (this.hvr != null) {
+            this.hvr.clM();
+            this.hvr.release();
+        }
+        if (this.heP != null) {
+            this.heP = null;
+        }
+        if (this.heR != null) {
+            this.heR.release();
         }
         if (this.hvr != null) {
             this.hvr.onDestroy();
         }
-        if (this.hvp != null) {
-            this.hvp.clL();
-            this.hvp.release();
+        if (this.hfX != null) {
+            this.hfX.release();
         }
-        if (this.heN != null) {
-            this.heN = null;
+        if (this.hvy != null) {
+            this.hvy.release();
         }
-        if (this.heP != null) {
-            this.heP.release();
+        if (this.hvZ != null) {
+            this.hvZ.onDestroy();
         }
-        if (this.hvp != null) {
-            this.hvp.onDestroy();
+        if (this.hgz != null) {
+            this.hgz.release();
         }
-        if (this.hfV != null) {
-            this.hfV.release();
+        if (this.hwt != null) {
+            this.hwt.onDestory();
         }
-        if (this.hvw != null) {
-            this.hvw.release();
-        }
-        if (this.hvX != null) {
-            this.hvX.onDestroy();
-        }
-        if (this.hgx != null) {
-            this.hgx.release();
-        }
-        if (this.hwr != null) {
-            this.hwr.onDestory();
-        }
-        if (this.hws != null) {
-            this.hws.release();
-        }
-        if (this.hgo != null) {
-            this.hgo.onDestroy();
+        if (this.hwu != null) {
+            this.hwu.release();
         }
         if (this.hgq != null) {
             this.hgq.onDestroy();
         }
-        if (this.hgp != null) {
-            this.hgp.onDestroy();
+        if (this.hgs != null) {
+            this.hgs.onDestroy();
         }
-        if (this.heW != null) {
-            this.heW.onDestroy();
+        if (this.hgr != null) {
+            this.hgr.onDestroy();
         }
-        if (this.hvt != null) {
-            this.hvt.release();
-            this.hvt = null;
+        if (this.heY != null) {
+            this.heY.onDestroy();
         }
         if (this.hvv != null) {
             this.hvv.release();
             this.hvv = null;
         }
-        if (this.hwt != null) {
-            this.hwt.release();
-        }
-        if (this.gTR != null) {
-            this.gTR.release();
-        }
-        if (this.hgt != null) {
-            this.hgt.onDestroy();
-        }
-        if (this.hwq != null) {
-            this.hwq.onDestroy();
-        }
         if (this.hvx != null) {
-            this.hvx.onDestroy();
+            this.hvx.release();
+            this.hvx = null;
         }
-        this.hwv.removeCallbacksAndMessages(this.hwS);
-        MessageManager.getInstance().unRegisterListener(this.hhg);
-        MessageManager.getInstance().unRegisterListener(this.hwC);
-        MessageManager.getInstance().unRegisterListener(this.hhh);
+        if (this.hwv != null) {
+            this.hwv.release();
+        }
+        if (this.gTT != null) {
+            this.gTT.release();
+        }
+        if (this.hgv != null) {
+            this.hgv.onDestroy();
+        }
+        if (this.hws != null) {
+            this.hws.onDestroy();
+        }
+        if (this.hvz != null) {
+            this.hvz.onDestroy();
+        }
+        this.hwx.removeCallbacksAndMessages(this.hwU);
         MessageManager.getInstance().unRegisterListener(this.hhi);
-        MessageManager.getInstance().unRegisterListener(this.hwH);
+        MessageManager.getInstance().unRegisterListener(this.hwE);
+        MessageManager.getInstance().unRegisterListener(this.hhj);
+        MessageManager.getInstance().unRegisterListener(this.hhk);
+        MessageManager.getInstance().unRegisterListener(this.hwJ);
         MessageManager.getInstance().unRegisterListener(this.byv);
-        MessageManager.getInstance().unRegisterListener(this.hdn);
-        MessageManager.getInstance().unRegisterListener(this.hwI);
-        MessageManager.getInstance().unRegisterListener(this.gDr);
-        MessageManager.getInstance().unRegisterListener(this.hfp);
-        MessageManager.getInstance().unRegisterListener(this.hhm);
+        MessageManager.getInstance().unRegisterListener(this.hdp);
+        MessageManager.getInstance().unRegisterListener(this.hwK);
+        MessageManager.getInstance().unRegisterListener(this.gDt);
+        MessageManager.getInstance().unRegisterListener(this.hfr);
+        MessageManager.getInstance().unRegisterListener(this.hho);
         MessageManager.getInstance().unRegisterListener(this.bAT);
         MessageManager.getInstance().unRegisterListener(this.bAU);
-        MessageManager.getInstance().unRegisterListener(this.hwD);
+        MessageManager.getInstance().unRegisterListener(this.hwF);
         MessageManager.getInstance().unRegisterListener(this.brg);
         MessageManager.getInstance().unRegisterListener(this.brh);
-        MessageManager.getInstance().unRegisterListener(this.hwE);
-        MessageManager.getInstance().unRegisterListener(this.hho);
-        MessageManager.getInstance().unRegisterListener(this.hhn);
-        MessageManager.getInstance().unRegisterListener(this.hhr);
-        MessageManager.getInstance().unRegisterListener(this.hwF);
-        MessageManager.getInstance().unRegisterListener(this.hwE);
+        MessageManager.getInstance().unRegisterListener(this.hwG);
+        MessageManager.getInstance().unRegisterListener(this.hhq);
+        MessageManager.getInstance().unRegisterListener(this.hhp);
+        MessageManager.getInstance().unRegisterListener(this.hht);
+        MessageManager.getInstance().unRegisterListener(this.hwH);
+        MessageManager.getInstance().unRegisterListener(this.hwG);
         MessageManager.getInstance().unRegisterListener(this.bon);
         MessageManager.getInstance().unRegisterListener(this.blO);
-        MessageManager.getInstance().unRegisterListener(this.gTS);
-        MessageManager.getInstance().unRegisterListener(this.gND);
-        MessageManager.getInstance().unRegisterListener(this.gNV);
-        ccJ().pageContext.getPageActivity().getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.globalListener);
+        MessageManager.getInstance().unRegisterListener(this.gTU);
+        MessageManager.getInstance().unRegisterListener(this.gNF);
+        MessageManager.getInstance().unRegisterListener(this.gNX);
+        ccK().pageContext.getPageActivity().getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.globalListener);
     }
 
     public void g(AlaLivePersonData alaLivePersonData) {
         if (TbadkCoreApplication.getInst().isOther()) {
-            this.hja.hqq.a(this.hwR, this.hja.hqk, this.hvA, alaLivePersonData);
+            this.hjc.hqs.a(this.hwT, this.hjc.hqm, this.hvC, alaLivePersonData);
         }
     }
 
-    private void cip() {
-        if (this.hvZ != null) {
-            this.hja.hqo.startTime = System.currentTimeMillis();
-            this.hja.hqo.liveTotalTime = System.currentTimeMillis();
-            this.hja.hqo.sampleMemAndCPU();
-            this.hja.hqm.a((short) 4, this.hvZ);
+    private void ciq() {
+        if (this.hwb != null) {
+            this.hjc.hqq.startTime = System.currentTimeMillis();
+            this.hjc.hqq.liveTotalTime = System.currentTimeMillis();
+            this.hjc.hqq.sampleMemAndCPU();
+            this.hjc.hqo.a((short) 4, this.hwb);
         }
     }
 
     private void IB(String str) {
         String str2;
         int i;
-        if (ccJ() != null && ccJ().pageContext != null) {
-            this.hvT.removeCallbacksAndMessages(null);
+        if (ccK() != null && ccK().pageContext != null) {
+            this.hvV.removeCallbacksAndMessages(null);
             try {
-                final Activity pageActivity = ccJ().pageContext.getPageActivity();
+                final Activity pageActivity = ccK().pageContext.getPageActivity();
                 LayoutInflater layoutInflater = pageActivity.getLayoutInflater();
-                if (this.hwy == null) {
-                    this.hwy = layoutInflater.inflate(a.g.layout_challenge_entry_toast, (ViewGroup) null);
-                    this.hwy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.58
+                if (this.hwA == null) {
+                    this.hwA = layoutInflater.inflate(a.g.layout_challenge_entry_toast, (ViewGroup) null);
+                    this.hwA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.58
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (AlaMasterLiveRoomOpearator.this.chm()) {
-                                AlaMasterLiveRoomOpearator.this.hvT.removeCallbacksAndMessages(null);
-                                if (AlaMasterLiveRoomOpearator.this.hwy != null) {
-                                    AlaMasterLiveRoomOpearator.this.ccJ().hpS.removeView(AlaMasterLiveRoomOpearator.this.hwy);
+                            if (AlaMasterLiveRoomOpearator.this.chn()) {
+                                AlaMasterLiveRoomOpearator.this.hvV.removeCallbacksAndMessages(null);
+                                if (AlaMasterLiveRoomOpearator.this.hwA != null) {
+                                    AlaMasterLiveRoomOpearator.this.ccK().hpU.removeView(AlaMasterLiveRoomOpearator.this.hwA);
                                 }
-                                if (AlaMasterLiveRoomOpearator.this.hwp != null) {
-                                    AlaMasterLiveRoomOpearator.this.hwp.ccN();
+                                if (AlaMasterLiveRoomOpearator.this.hwr != null) {
+                                    AlaMasterLiveRoomOpearator.this.hwr.ccO();
                                 }
                             }
                         }
                     });
                 }
-                TextView textView = (TextView) this.hwy.findViewById(a.f.challengerName_textView);
+                TextView textView = (TextView) this.hwA.findViewById(a.f.challengerName_textView);
                 if (TextUtils.isEmpty(str)) {
                     str2 = pageActivity.getResources().getString(a.h.txt_has_anchor);
                     textView.setTextColor(pageActivity.getResources().getColor(a.c.sdk_white_alpha100));
@@ -4140,35 +4140,35 @@ public class AlaMasterLiveRoomOpearator {
                     textView.setTextColor(pageActivity.getResources().getColor(a.c.sdk_color_ffeaaa));
                 }
                 textView.setText(str2);
-                this.hvT.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.59
+                this.hvV.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.59
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (AlaMasterLiveRoomOpearator.this.ccJ().hpS != null && AlaMasterLiveRoomOpearator.this.hjh != null && AlaMasterLiveRoomOpearator.this.hwy != null && !pageActivity.isFinishing()) {
-                            BubbleLayout bubbleLayout = (BubbleLayout) AlaMasterLiveRoomOpearator.this.hwy.findViewById(a.f.challenger_layout);
-                            LinearLayout linearLayout = (LinearLayout) AlaMasterLiveRoomOpearator.this.hwy.findViewById(a.f.content_layout);
+                        if (AlaMasterLiveRoomOpearator.this.ccK().hpU != null && AlaMasterLiveRoomOpearator.this.hjj != null && AlaMasterLiveRoomOpearator.this.hwA != null && !pageActivity.isFinishing()) {
+                            BubbleLayout bubbleLayout = (BubbleLayout) AlaMasterLiveRoomOpearator.this.hwA.findViewById(a.f.challenger_layout);
+                            LinearLayout linearLayout = (LinearLayout) AlaMasterLiveRoomOpearator.this.hwA.findViewById(a.f.content_layout);
                             linearLayout.measure(0, 0);
                             int measuredWidth = linearLayout.getMeasuredWidth();
                             bubbleLayout.getLayoutParams().width = measuredWidth;
                             bubbleLayout.v((measuredWidth / 2.0f) - (pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds20) / 2.0f));
-                            AlaMasterLiveRoomOpearator.this.hwy.measure(0, 0);
+                            AlaMasterLiveRoomOpearator.this.hwA.measure(0, 0);
                             int[] iArr = new int[2];
-                            AlaMasterLiveRoomOpearator.this.hjh.getLocationOnScreen(iArr);
-                            int width = AlaMasterLiveRoomOpearator.this.hjh.getWidth();
+                            AlaMasterLiveRoomOpearator.this.hjj.getLocationOnScreen(iArr);
+                            int width = AlaMasterLiveRoomOpearator.this.hjj.getWidth();
                             if (width <= 0) {
-                                AlaMasterLiveRoomOpearator.this.hjh.measure(0, 0);
-                                width = AlaMasterLiveRoomOpearator.this.hjh.getMeasuredWidth();
+                                AlaMasterLiveRoomOpearator.this.hjj.measure(0, 0);
+                                width = AlaMasterLiveRoomOpearator.this.hjj.getMeasuredWidth();
                             }
-                            int measuredWidth2 = ((width / 2) + iArr[0]) - (AlaMasterLiveRoomOpearator.this.hwy.getMeasuredWidth() / 2);
-                            int measuredHeight = iArr[1] - AlaMasterLiveRoomOpearator.this.hwy.getMeasuredHeight();
+                            int measuredWidth2 = ((width / 2) + iArr[0]) - (AlaMasterLiveRoomOpearator.this.hwA.getMeasuredWidth() / 2);
+                            int measuredHeight = iArr[1] - AlaMasterLiveRoomOpearator.this.hwA.getMeasuredHeight();
                             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                             layoutParams.addRule(10);
                             layoutParams.addRule(9);
                             layoutParams.leftMargin = measuredWidth2;
                             layoutParams.topMargin = measuredHeight - pageActivity.getResources().getDimensionPixelSize(a.d.sdk_ds14);
-                            if (AlaMasterLiveRoomOpearator.this.hwy != null) {
-                                AlaMasterLiveRoomOpearator.this.ccJ().hpS.removeView(AlaMasterLiveRoomOpearator.this.hwy);
+                            if (AlaMasterLiveRoomOpearator.this.hwA != null) {
+                                AlaMasterLiveRoomOpearator.this.ccK().hpU.removeView(AlaMasterLiveRoomOpearator.this.hwA);
                             }
-                            AlaMasterLiveRoomOpearator.this.ccJ().hpS.addView(AlaMasterLiveRoomOpearator.this.hwy, layoutParams);
+                            AlaMasterLiveRoomOpearator.this.ccK().hpU.addView(AlaMasterLiveRoomOpearator.this.hwA, layoutParams);
                         }
                     }
                 });
@@ -4180,11 +4180,11 @@ public class AlaMasterLiveRoomOpearator {
                 } else {
                     i = 5;
                 }
-                this.hvT.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.60
+                this.hvV.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.60
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (AlaMasterLiveRoomOpearator.this.ccJ().hpS != null && AlaMasterLiveRoomOpearator.this.hwy != null) {
-                            AlaMasterLiveRoomOpearator.this.ccJ().hpS.removeView(AlaMasterLiveRoomOpearator.this.hwy);
+                        if (AlaMasterLiveRoomOpearator.this.ccK().hpU != null && AlaMasterLiveRoomOpearator.this.hwA != null) {
+                            AlaMasterLiveRoomOpearator.this.ccK().hpU.removeView(AlaMasterLiveRoomOpearator.this.hwA);
                         }
                     }
                 }, i * 1000);
@@ -4194,55 +4194,55 @@ public class AlaMasterLiveRoomOpearator {
         }
     }
 
-    public void bVZ() {
+    public void bWa() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             com.baidu.live.guardclub.b bVar = new com.baidu.live.guardclub.b();
-            w Iq = ccJ().hpR.Iq();
+            w Iq = ccK().hpT.Iq();
             if (Iq != null) {
                 bVar.setAnchorId(Iq.mLiveInfo.user_id);
                 bVar.setParams();
-                bVar.setTag(this.gEP);
+                bVar.setTag(this.gER);
                 MessageManager.getInstance().sendMessage(bVar);
             }
         }
     }
 
-    public void ciq() {
+    public void cir() {
         boolean z = com.baidu.live.d.BM().getBoolean("new_anchor_club_rename", true);
-        aq cjz = ccJ().hpR.cjz();
-        if (cjz != null && this.bja != null && cjz.aPm == 1 && z) {
-            ccJ().pageContext.getPageActivity().getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
+        aq cjA = ccK().hpT.cjA();
+        if (cjA != null && this.bja != null && cjA.aPm == 1 && z) {
+            ccK().pageContext.getPageActivity().getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
             com.baidu.live.d.BM().putBoolean("new_anchor_club_rename", false);
-            this.gOc = View.inflate(ccJ().pageContext.getPageActivity(), a.g.dialog_help_guard_club_rename, null);
-            this.gOF = new Dialog(ccJ().pageContext.getPageActivity(), a.i.RegimentRenameDiolog);
-            final Button button = (Button) this.gOc.findViewById(a.f.rename_confirm);
+            this.gOe = View.inflate(ccK().pageContext.getPageActivity(), a.g.dialog_help_guard_club_rename, null);
+            this.gOH = new Dialog(ccK().pageContext.getPageActivity(), a.i.RegimentRenameDiolog);
+            final Button button = (Button) this.gOe.findViewById(a.f.rename_confirm);
             button.setEnabled(false);
-            button.setTextColor(ccJ().pageContext.getPageActivity().getResources().getColor(a.c.sdk_black_alpha40));
-            final EditText editText = (EditText) this.gOc.findViewById(a.f.guard_club_rename_edittext);
-            final TextView textView = (TextView) this.gOc.findViewById(a.f.hint_num);
-            ((Button) this.gOc.findViewById(a.f.rename_cancel)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.64
+            button.setTextColor(ccK().pageContext.getPageActivity().getResources().getColor(a.c.sdk_black_alpha40));
+            final EditText editText = (EditText) this.gOe.findViewById(a.f.guard_club_rename_edittext);
+            final TextView textView = (TextView) this.gOe.findViewById(a.f.hint_num);
+            ((Button) this.gOe.findViewById(a.f.rename_cancel)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.64
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AlaMasterLiveRoomOpearator.this.gOb = null;
-                    AlaMasterLiveRoomOpearator.this.gOF.dismiss();
+                    AlaMasterLiveRoomOpearator.this.gOd = null;
+                    AlaMasterLiveRoomOpearator.this.gOH.dismiss();
                 }
             });
             button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.65
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (editText.getText().toString() != null) {
-                        AlaMasterLiveRoomOpearator.this.gOb = editText.getText().toString();
-                        if (AlaMasterLiveRoomOpearator.this.bja != null && AlaMasterLiveRoomOpearator.this.gOb != null) {
+                        AlaMasterLiveRoomOpearator.this.gOd = editText.getText().toString();
+                        if (AlaMasterLiveRoomOpearator.this.bja != null && AlaMasterLiveRoomOpearator.this.gOd != null) {
                             if (BdNetTypeUtil.isNetWorkAvailable()) {
-                                AlaMasterLiveRoomOpearator.this.k(AlaMasterLiveRoomOpearator.this.bja.id, AlaMasterLiveRoomOpearator.this.gOb, "");
+                                AlaMasterLiveRoomOpearator.this.k(AlaMasterLiveRoomOpearator.this.bja.id, AlaMasterLiveRoomOpearator.this.gOd, "");
                             } else {
-                                BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), "网络故障，请刷新重试");
+                                BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), "网络故障，请刷新重试");
                             }
                         } else {
                             return;
                         }
                     }
-                    AlaMasterLiveRoomOpearator.this.gOF.dismiss();
+                    AlaMasterLiveRoomOpearator.this.gOH.dismiss();
                 }
             });
             editText.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.liveroom.master.AlaMasterLiveRoomOpearator.67
@@ -4254,13 +4254,13 @@ public class AlaMasterLiveRoomOpearator {
                 public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                     String obj = editText.getText().toString();
                     if (obj.length() == 0) {
-                        textView.setTextColor(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity().getResources().getColor(a.c.sdk_black_alpha40));
+                        textView.setTextColor(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity().getResources().getColor(a.c.sdk_black_alpha40));
                         textView.setText("0");
-                        button.setTextColor(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity().getResources().getColor(a.c.sdk_black_alpha40));
+                        button.setTextColor(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity().getResources().getColor(a.c.sdk_black_alpha40));
                         button.setEnabled(false);
                     } else {
                         button.setEnabled(true);
-                        button.setTextColor(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity().getResources().getColor(a.c.rename_hint_color));
+                        button.setTextColor(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity().getResources().getColor(a.c.rename_hint_color));
                     }
                     if (obj.length() > 0) {
                         int i4 = 0;
@@ -4268,7 +4268,7 @@ public class AlaMasterLiveRoomOpearator {
                         for (int i6 = 0; i6 < obj.length(); i6++) {
                             String substring = obj.substring(i6, i6 + 1);
                             if (!Pattern.compile("[0-9]*").matcher(substring).matches() && !Pattern.compile("[a-zA-Z]").matcher(substring).matches() && !Pattern.compile("[一-龥]").matcher(substring).matches()) {
-                                BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), "仅支持中英文及数字");
+                                BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), "仅支持中英文及数字");
                                 editText.setText(editText.getText().subSequence(0, i6));
                                 editText.setSelection(editText.getText().length());
                                 textView.setText((i4 + i5) + "");
@@ -4284,7 +4284,7 @@ public class AlaMasterLiveRoomOpearator {
                                 i4++;
                             }
                             if (i5 + i4 > 3) {
-                                BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity(), "不能超过3个字符");
+                                BdUtilHelper.showToast(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity(), "不能超过3个字符");
                                 editText.setText(editText.getText().subSequence(0, (i4 + i5) - 1));
                                 editText.setSelection(editText.getText().length());
                                 if (Pattern.compile("[0-9]*").matcher(substring).matches()) {
@@ -4302,9 +4302,9 @@ public class AlaMasterLiveRoomOpearator {
                             int i7 = i4 + i5;
                             textView.setText(i7 + "");
                             if (i7 == 3) {
-                                textView.setTextColor(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity().getResources().getColor(a.c.rename_hint_color));
+                                textView.setTextColor(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity().getResources().getColor(a.c.rename_hint_color));
                             } else {
-                                textView.setTextColor(AlaMasterLiveRoomOpearator.this.ccJ().pageContext.getPageActivity().getResources().getColor(a.c.sdk_black_alpha40));
+                                textView.setTextColor(AlaMasterLiveRoomOpearator.this.ccK().pageContext.getPageActivity().getResources().getColor(a.c.sdk_black_alpha40));
                             }
                         }
                     }
@@ -4314,16 +4314,16 @@ public class AlaMasterLiveRoomOpearator {
                 public void afterTextChanged(Editable editable) {
                 }
             });
-            this.gOF.setContentView(this.gOc);
-            this.gOF.setCanceledOnTouchOutside(true);
-            this.gOc.setMinimumHeight((int) (com.baidu.tieba.ala.liveroom.h.f.getScreenHeight(ccJ().pageContext.getPageActivity()) * 0.22f));
-            this.hwx = this.gOF.getWindow();
-            this.hww = this.hwx.getAttributes();
-            this.hww.width = (int) (com.baidu.tieba.ala.liveroom.h.f.getScreenWidth(ccJ().pageContext.getPageActivity()) * 0.74f);
-            this.hww.height = -2;
-            this.hww.gravity = 17;
-            this.hwx.setAttributes(this.hww);
-            this.gOF.show();
+            this.gOH.setContentView(this.gOe);
+            this.gOH.setCanceledOnTouchOutside(true);
+            this.gOe.setMinimumHeight((int) (com.baidu.tieba.ala.liveroom.h.f.getScreenHeight(ccK().pageContext.getPageActivity()) * 0.22f));
+            this.hwz = this.gOH.getWindow();
+            this.hwy = this.hwz.getAttributes();
+            this.hwy.width = (int) (com.baidu.tieba.ala.liveroom.h.f.getScreenWidth(ccK().pageContext.getPageActivity()) * 0.74f);
+            this.hwy.height = -2;
+            this.hwy.gravity = 17;
+            this.hwz.setAttributes(this.hwy);
+            this.gOH.show();
         }
     }
 

@@ -11,19 +11,19 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class f extends BdBaseModel {
-    private a oiU;
-    private HttpMessageListener oiV = new HttpMessageListener(1031039) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.f.1
+    private a oiW;
+    private HttpMessageListener oiX = new HttpMessageListener(1031039) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof CancelBlockSpeakHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == f.this.getUniqueId()) {
                 CancelBlockSpeakHttpResponseMessage cancelBlockSpeakHttpResponseMessage = (CancelBlockSpeakHttpResponseMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    if (f.this.oiU != null) {
-                        f.this.oiU.a(null);
+                    if (f.this.oiW != null) {
+                        f.this.oiW.a(null);
                     }
-                } else if (f.this.oiU != null) {
-                    f.this.oiU.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (f.this.oiW != null) {
+                    f.this.oiW.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -38,7 +38,7 @@ public class f extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oiU = aVar;
+        this.oiW = aVar;
     }
 
     public f(Context context) {
@@ -50,7 +50,7 @@ public class f extends BdBaseModel {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(CancelBlockSpeakHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.oiV);
+        MessageManager.getInstance().registerListener(this.oiX);
     }
 
     public void g(String str, String str2, String str3, int i) {

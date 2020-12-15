@@ -7,8 +7,8 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
     private AlaLiveUserInfoData aJV;
-    private q gEU;
-    private long gEV;
+    private q gEW;
+    private long gEX;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.gEU = new q();
-                this.gEU.parserJson(optJSONObject);
+                this.gEW = new q();
+                this.gEW.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
                 this.aJV = new AlaLiveUserInfoData();
                 this.aJV.parserJson(optJSONObject2);
             }
-            this.gEV = optJSONObject.optLong("live_total_price");
+            this.gEX = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bUs() {
+    public long bUt() {
         return this.mAudienceCount;
     }
 
-    public q bUt() {
-        return this.gEU;
+    public q bUu() {
+        return this.gEW;
     }
 
-    public AlaLiveUserInfoData bUu() {
+    public AlaLiveUserInfoData bUv() {
         return this.aJV;
     }
 
-    public long bUv() {
-        return this.gEV;
+    public long bUw() {
+        return this.gEX;
     }
 }

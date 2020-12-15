@@ -27,34 +27,34 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public abstract class BasePersonInfoActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
-    private int[] kAU;
-    private String kAW;
-    private ImageView kAX;
-    protected int kBc;
+    private int[] kAW;
+    private String kAY;
+    private ImageView kAZ;
+    protected int kBe;
     private NavigationBar mNavigationBar;
     private int mSex;
     private FragmentTabHost mTabHost;
     private String mUid;
-    private BasePersonInfoAdapter mlW;
-    private static final int[] kBe = {R.drawable.icon_pop_key_all_bg, R.drawable.icon_pop_key_f_bg, R.drawable.icon_pop_key_d_bg};
-    private static final int[] mlV = {R.drawable.icon_pop_key_all_bg_w, R.drawable.icon_pop_key_f_bg_w, R.drawable.icon_pop_key_d_bg_w};
-    private static final int[] kBg = {R.string.info_privacy_all, R.string.info_privacy_friend, R.string.info_privacy_hide};
-    private static final int[] kBh = {1, 2, 3};
-    private int gMX = -1;
-    private int kAV = 0;
+    private BasePersonInfoAdapter mlY;
+    private static final int[] kBg = {R.drawable.icon_pop_key_all_bg, R.drawable.icon_pop_key_f_bg, R.drawable.icon_pop_key_d_bg};
+    private static final int[] mlX = {R.drawable.icon_pop_key_all_bg_w, R.drawable.icon_pop_key_f_bg_w, R.drawable.icon_pop_key_d_bg_w};
+    private static final int[] kBi = {R.string.info_privacy_all, R.string.info_privacy_friend, R.string.info_privacy_hide};
+    private static final int[] kBj = {1, 2, 3};
+    private int gMZ = -1;
+    private int kAX = 0;
     private boolean mIsHost = false;
-    private int mlS = 0;
-    protected boolean mlT = false;
-    protected String mlU = "";
-    HttpMessageListener mlX = new HttpMessageListener(1001506) { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.3
+    private int mlU = 0;
+    protected boolean mlV = false;
+    protected String mlW = "";
+    HttpMessageListener mlZ = new HttpMessageListener(1001506) { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage.isSuccess()) {
                 if (httpResponsedMessage.getError() == 0) {
-                    com.baidu.tbadk.core.a.e.aO(BasePersonInfoActivity.this.dyS(), BasePersonInfoActivity.kBh[BasePersonInfoActivity.this.kAV]);
-                    ap.setNavbarIconSrc(BasePersonInfoActivity.this.kAX, BasePersonInfoActivity.mlV[BasePersonInfoActivity.this.kAV], BasePersonInfoActivity.kBe[BasePersonInfoActivity.this.kAV]);
-                    BasePersonInfoActivity.this.showToastWithIcon(BasePersonInfoActivity.this.getPageContext().getString(BasePersonInfoActivity.kBg[BasePersonInfoActivity.this.kAV]), R.drawable.icon_toast_info);
+                    com.baidu.tbadk.core.a.e.aO(BasePersonInfoActivity.this.dyT(), BasePersonInfoActivity.kBj[BasePersonInfoActivity.this.kAX]);
+                    ap.setNavbarIconSrc(BasePersonInfoActivity.this.kAZ, BasePersonInfoActivity.mlX[BasePersonInfoActivity.this.kAX], BasePersonInfoActivity.kBg[BasePersonInfoActivity.this.kAX]);
+                    BasePersonInfoActivity.this.showToastWithIcon(BasePersonInfoActivity.this.getPageContext().getString(BasePersonInfoActivity.kBi[BasePersonInfoActivity.this.kAX]), R.drawable.icon_toast_info);
                     return;
                 }
                 BasePersonInfoActivity.this.showToast(httpResponsedMessage.getErrorString());
@@ -66,8 +66,6 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     public abstract BasePersonInfoAdapter a(BasePersonInfoActivity basePersonInfoActivity, boolean z);
 
-    public abstract String dyJ();
-
     public abstract String dyK();
 
     public abstract String dyL();
@@ -76,9 +74,11 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     public abstract String dyN();
 
-    public abstract String dyR();
+    public abstract String dyO();
 
-    public abstract int dyS();
+    public abstract String dyS();
+
+    public abstract int dyT();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
@@ -88,37 +88,37 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (bundle != null) {
             this.mUid = bundle.getString("key_uid");
             this.mSex = bundle.getInt("key_sex", 0);
-            this.mlS = bundle.getInt(PersonBarActivityConfig.LIKE_BARS_COUNT, 0);
-            this.gMX = bundle.getInt("key_current_tab", 0);
-            this.kBc = bundle.getInt("tb_request_code", 0);
-            this.mlT = bundle.getBoolean(PersonBarActivityConfig.IS_CHOOSE_BAR_MODE, false);
-            this.mlU = bundle.getString(PersonBarActivityConfig.BAR_ID);
+            this.mlU = bundle.getInt(PersonBarActivityConfig.LIKE_BARS_COUNT, 0);
+            this.gMZ = bundle.getInt("key_current_tab", 0);
+            this.kBe = bundle.getInt("tb_request_code", 0);
+            this.mlV = bundle.getBoolean(PersonBarActivityConfig.IS_CHOOSE_BAR_MODE, false);
+            this.mlW = bundle.getString(PersonBarActivityConfig.BAR_ID);
         } else if (getIntent() != null) {
             this.mUid = getIntent().getStringExtra("key_uid");
             this.mSex = getIntent().getIntExtra("key_sex", 0);
-            this.gMX = getIntent().getIntExtra("key_current_tab", 0);
-            this.kBc = getIntent().getIntExtra("tb_request_code", 0);
-            this.mlT = getIntent().getBooleanExtra(PersonBarActivityConfig.IS_CHOOSE_BAR_MODE, false);
-            this.mlS = getIntent().getIntExtra(PersonBarActivityConfig.LIKE_BARS_COUNT, 0);
-            this.mlU = getIntent().getStringExtra(PersonBarActivityConfig.BAR_ID);
+            this.gMZ = getIntent().getIntExtra("key_current_tab", 0);
+            this.kBe = getIntent().getIntExtra("tb_request_code", 0);
+            this.mlV = getIntent().getBooleanExtra(PersonBarActivityConfig.IS_CHOOSE_BAR_MODE, false);
+            this.mlU = getIntent().getIntExtra(PersonBarActivityConfig.LIKE_BARS_COUNT, 0);
+            this.mlW = getIntent().getStringExtra(PersonBarActivityConfig.BAR_ID);
         } else {
             finish();
         }
         this.mUid = this.mUid == null ? "" : this.mUid;
         if (this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.kAW = getPageContext().getString(R.string.me);
+            this.kAY = getPageContext().getString(R.string.me);
             this.mIsHost = true;
         } else {
             this.mIsHost = false;
             switch (this.mSex) {
                 case 1:
-                    this.kAW = getPageContext().getString(R.string.he);
+                    this.kAY = getPageContext().getString(R.string.he);
                     break;
                 case 2:
-                    this.kAW = getPageContext().getString(R.string.she);
+                    this.kAY = getPageContext().getString(R.string.she);
                     break;
                 default:
-                    this.kAW = getPageContext().getString(R.string.ta);
+                    this.kAY = getPageContext().getString(R.string.ta);
                     break;
             }
         }
@@ -127,40 +127,40 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             return;
         }
         ax(bundle);
-        registerListener(this.mlX);
+        registerListener(this.mlZ);
     }
 
     private void ax(Bundle bundle) {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.base_person_navigation_bar);
-        if (this.mlT) {
-            if (this.kBc == 23011) {
+        if (this.mlV) {
+            if (this.kBe == 23011) {
                 this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.live_choose_bar));
             } else {
                 this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.share_choose_bar_title));
             }
         } else {
-            this.mNavigationBar.setCenterTextTitle(String.format(dyJ(), this.kAW));
+            this.mNavigationBar.setCenterTextTitle(String.format(dyK(), this.kAY));
         }
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (BasePersonInfoActivity.this.mlT && BasePersonInfoActivity.this.kBc != 23011) {
+                if (BasePersonInfoActivity.this.mlV && BasePersonInfoActivity.this.kBe != 23011) {
                     MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(false));
                     com.baidu.tbadk.core.e.b.d(BasePersonInfoActivity.this.getPageContext().getPageActivity(), 200, false);
                 }
                 BasePersonInfoActivity.this.finish();
             }
         });
-        if (this.mIsHost && this.kBc != 23003 && !this.mlT) {
-            this.kAX = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_privacy, (View.OnClickListener) null);
-            ap.setNavbarIconSrc(this.kAX, mlV[com.baidu.tbadk.core.a.e.oi(dyS()) - 1], kBe[com.baidu.tbadk.core.a.e.oi(dyS()) - 1]);
-            this.kAX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.2
+        if (this.mIsHost && this.kBe != 23003 && !this.mlV) {
+            this.kAZ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_privacy, (View.OnClickListener) null);
+            ap.setNavbarIconSrc(this.kAZ, mlX[com.baidu.tbadk.core.a.e.oi(dyT()) - 1], kBg[com.baidu.tbadk.core.a.e.oi(dyT()) - 1]);
+            this.kAZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.BasePersonInfoActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    BasePersonInfoActivity.this.kAV = com.baidu.tbadk.core.a.e.oi(BasePersonInfoActivity.this.dyS()) % 3;
+                    BasePersonInfoActivity.this.kAX = com.baidu.tbadk.core.a.e.oi(BasePersonInfoActivity.this.dyT()) % 3;
                     String str = "";
-                    switch (BasePersonInfoActivity.this.dyS()) {
+                    switch (BasePersonInfoActivity.this.dyT()) {
                         case 2:
                             str = "like";
                             break;
@@ -176,13 +176,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     }
                     HttpMessage httpMessage = new HttpMessage(1001506);
                     httpMessage.addParam(UgcConstant.UGC_TAG_OPTION, str);
-                    httpMessage.addParam("val", String.valueOf(BasePersonInfoActivity.this.kAV + 1));
+                    httpMessage.addParam("val", String.valueOf(BasePersonInfoActivity.this.kAX + 1));
                     BasePersonInfoActivity.this.sendMessage(httpMessage);
                 }
             });
         }
-        this.kAU = new int[]{0, 1};
-        this.mlW = a(this, this.mIsHost);
+        this.kAW = new int[]{0, 1};
+        this.mlY = a(this, this.mIsHost);
         this.mTabHost = (FragmentTabHost) findViewById(R.id.base_person_tab_host);
         this.mTabHost.setup(getSupportFragmentManager());
         this.mTabHost.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
@@ -192,28 +192,28 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (this.mIsHost) {
             this.mTabHost.getTabWrapper().setVisibility(8);
         }
-        this.mTabHost.setCurrentTab(this.gMX);
+        this.mTabHost.setCurrentTab(this.gMZ);
     }
 
     private void initTabSpec() {
-        if (this.mlW != null) {
+        if (this.mlY != null) {
             int i = this.mIsHost ? 1 : 2;
             for (int i2 = 0; i2 < i; i2++) {
-                Fragment item = this.mlW.getItem(i2);
-                int EF = this.mlW.EF(i2);
-                String dyK = dyK();
+                Fragment item = this.mlY.getItem(i2);
+                int EF = this.mlY.EF(i2);
+                String dyL = dyL();
                 if (EF == 1) {
-                    dyK = dyL();
+                    dyL = dyM();
                 }
                 if (item != null) {
-                    a(item, EF, dyK);
+                    a(item, EF, dyL);
                 }
             }
             this.mTabHost.initViewPager(3);
         }
     }
 
-    public NavigationBar bVK() {
+    public NavigationBar bVL() {
         return this.mNavigationBar;
     }
 
@@ -233,18 +233,18 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     }
 
     public void cY(int i, int i2) {
-        if (!this.mIsHost && this.mlW != null) {
+        if (!this.mIsHost && this.mlY != null) {
             FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.pM(0).eRD;
             if (i <= 0) {
-                fragmentTabIndicator.setText(dyK());
+                fragmentTabIndicator.setText(dyL());
             } else {
-                fragmentTabIndicator.setText(String.format(dyM(), Integer.valueOf(i)));
+                fragmentTabIndicator.setText(String.format(dyN(), Integer.valueOf(i)));
             }
             FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.pM(1).eRD;
             if (i2 <= 0) {
-                fragmentTabIndicator2.setText(dyL());
+                fragmentTabIndicator2.setText(dyM());
             } else {
-                fragmentTabIndicator2.setText(String.format(dyN(), Integer.valueOf(i2)));
+                fragmentTabIndicator2.setText(String.format(dyO(), Integer.valueOf(i2)));
             }
         }
     }
@@ -257,34 +257,34 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         return this.mSex;
     }
 
-    public String cZr() {
-        return this.kAW;
+    public String cZs() {
+        return this.kAY;
     }
 
     public boolean Yh() {
         return this.mIsHost;
     }
 
-    public boolean dyO() {
-        return this.mlT;
+    public boolean dyP() {
+        return this.mlV;
     }
 
-    public int cZq() {
-        return this.gMX == 0 ? 0 : 1;
+    public int cZr() {
+        return this.gMZ == 0 ? 0 : 1;
     }
 
-    public int dyP() {
-        return this.mlS;
-    }
-
-    public String dyQ() {
+    public int dyQ() {
         return this.mlU;
+    }
+
+    public String dyR() {
+        return this.mlW;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getRepeatCount() == 0) {
-            if (this.mlT && this.kBc != 23011) {
+            if (this.mlV && this.kBe != 23011) {
                 com.baidu.tbadk.core.e.b.d(getPageContext().getPageActivity(), 200, false);
             }
             finish();
@@ -295,9 +295,9 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putInt("CurrTabIndex", this.gMX);
-        bundle.putInt(PersonBarActivityConfig.LIKE_BARS_COUNT, this.mlS);
-        if (this.mlT && this.kBc != 23011) {
+        bundle.putInt("CurrTabIndex", this.gMZ);
+        bundle.putInt(PersonBarActivityConfig.LIKE_BARS_COUNT, this.mlU);
+        if (this.mlV && this.kBe != 23011) {
             MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(false));
             finish();
         }
@@ -314,10 +314,10 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (i >= 0 && i < 2 && i != this.gMX) {
-            this.gMX = i;
-            if (!this.mIsHost && this.kAU[i] == 1) {
-                TiebaStatic.eventStat(getPageContext().getContext(), dyR(), "click", 1, new Object[0]);
+        if (i >= 0 && i < 2 && i != this.gMZ) {
+            this.gMZ = i;
+            if (!this.mIsHost && this.kAW[i] == 1) {
+                TiebaStatic.eventStat(getPageContext().getContext(), dyS(), "click", 1, new Object[0]);
             }
         }
     }
@@ -326,12 +326,12 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.mTabHost.onChangeSkinType(i);
-        if (this.mlW != null) {
+        if (this.mlY != null) {
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 < this.mlW.getCount()) {
-                    Fragment item = this.mlW.getItem(i3);
+                if (i3 < this.mlY.getCount()) {
+                    Fragment item = this.mlY.getItem(i3);
                     if (item != null && (item instanceof BaseFragment)) {
                         ((BaseFragment) item).onChangeSkinType(i);
                     }

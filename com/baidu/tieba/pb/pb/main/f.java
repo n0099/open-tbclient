@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.by;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class f extends ba {
-    private TextView lDP;
+    private TextView lDR;
 
     public f(BaseFragmentActivity baseFragmentActivity, View view) {
         super(baseFragmentActivity, view);
-        this.lDP = null;
+        this.lDR = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ba
     protected void a(e eVar) {
-        this.lDP = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.lDP.setVisibility(8);
+        this.lDR = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.lDR.setVisibility(8);
     }
 
     public void uD(boolean z) {
-        if (this.lDP != null) {
+        if (this.lDR != null) {
             if (z) {
-                this.lDP.setText(R.string.push);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lDP, R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lDP, R.drawable.push_bg_selector);
-                this.lDP.setClickable(true);
+                this.lDR.setText(R.string.push);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lDR, R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lDR, R.drawable.push_bg_selector);
+                this.lDR.setClickable(true);
             } else {
-                this.lDP.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lDP, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lDP, R.color.CAM_X0109);
-                this.lDP.setClickable(false);
+                this.lDR.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lDR, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.ap.setViewTextColor(this.lDR, R.color.CAM_X0109);
+                this.lDR.setClickable(false);
             }
-            this.lDP.setVisibility(0);
+            this.lDR.setVisibility(0);
         }
     }
 
@@ -48,7 +48,7 @@ public class f extends ba {
         }
     }
 
-    public TextView dou() {
-        return this.lDP;
+    public TextView dov() {
+        return this.lDR;
     }
 }

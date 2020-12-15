@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 /* loaded from: classes7.dex */
 public class i extends a {
-    private static final LinkedHashMap<Long, String> psA = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> psC = new LinkedHashMap<>();
     private Thread mCurrentThread;
-    private int psB;
+    private int psD;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void start() {
@@ -24,17 +24,17 @@ public class i extends a {
 
     public i(Thread thread, int i, long j) {
         super(j);
-        this.psB = 100;
+        this.psD = 100;
         this.mCurrentThread = thread;
-        this.psB = i;
+        this.psD = i;
     }
 
     public ArrayList<String> L(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (psA) {
-            for (Long l : psA.keySet()) {
+        synchronized (psC) {
+            for (Long l : psC.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(com.github.a.a.a.a.pso.format(l) + "\r\n\r\n" + psA.get(l));
+                    arrayList.add(com.github.a.a.a.a.psq.format(l) + "\r\n\r\n" + psC.get(l));
                 }
             }
         }
@@ -42,16 +42,16 @@ public class i extends a {
     }
 
     @Override // com.github.a.a.a
-    protected void exE() {
+    protected void exF() {
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement stackTraceElement : this.mCurrentThread.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (psA) {
-            if (psA.size() == this.psB && this.psB > 0) {
-                psA.remove(psA.keySet().iterator().next());
+        synchronized (psC) {
+            if (psC.size() == this.psD && this.psD > 0) {
+                psC.remove(psC.keySet().iterator().next());
             }
-            psA.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            psC.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

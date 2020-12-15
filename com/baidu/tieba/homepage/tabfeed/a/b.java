@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bq, am<bq>> implements co
     private com.baidu.tbadk.h.f ajQ;
     private v amH;
     public BdUniqueId fzO;
-    private NEGFeedBackView.a hbY;
+    private NEGFeedBackView.a hca;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -52,7 +52,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bq, am<bq>> implements co
                 }
             }
         };
-        this.hbY = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
+        this.hca = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(at atVar) {
             }

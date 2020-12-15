@@ -10,10 +10,10 @@ import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class CharmRankTotalHeaderView extends RelativeLayout implements View.OnClickListener {
-    private CharmRankMedalItemView gFO;
-    private CharmRankMedalItemView gFP;
     private CharmRankMedalItemView gFQ;
-    private a gFR;
+    private CharmRankMedalItemView gFR;
+    private CharmRankMedalItemView gFS;
+    private a gFT;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -26,7 +26,7 @@ public class CharmRankTotalHeaderView extends RelativeLayout implements View.OnC
     }
 
     public void setCallback(a aVar) {
-        this.gFR = aVar;
+        this.gFT = aVar;
     }
 
     public void setData(List<ALaCharmData> list) {
@@ -44,8 +44,8 @@ public class CharmRankTotalHeaderView extends RelativeLayout implements View.OnC
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gFR != null && (view.getTag() instanceof ALaCharmData)) {
-            this.gFR.a((ALaCharmData) view.getTag());
+        if (this.gFT != null && (view.getTag() instanceof ALaCharmData)) {
+            this.gFT.a((ALaCharmData) view.getTag());
         }
     }
 
@@ -53,41 +53,41 @@ public class CharmRankTotalHeaderView extends RelativeLayout implements View.OnC
         setBackgroundColor(0);
         setPadding(0, 0, 0, getResources().getDimensionPixelOffset(a.d.sdk_ds20));
         LayoutInflater.from(getContext()).inflate(a.g.sdk_charm_rank_total_header, (ViewGroup) this, true);
-        this.gFO = (CharmRankMedalItemView) findViewById(a.f.medal_first);
-        this.gFP = (CharmRankMedalItemView) findViewById(a.f.medal_second);
-        this.gFQ = (CharmRankMedalItemView) findViewById(a.f.medal_third);
-        ViewGroup.LayoutParams layoutParams = this.gFO.gFG.getLayoutParams();
+        this.gFQ = (CharmRankMedalItemView) findViewById(a.f.medal_first);
+        this.gFR = (CharmRankMedalItemView) findViewById(a.f.medal_second);
+        this.gFS = (CharmRankMedalItemView) findViewById(a.f.medal_third);
+        ViewGroup.LayoutParams layoutParams = this.gFQ.gFI.getLayoutParams();
         if (layoutParams != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds144);
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
-            this.gFO.gFG.setLayoutParams(layoutParams);
+            this.gFQ.gFI.setLayoutParams(layoutParams);
         }
-        ViewGroup.LayoutParams layoutParams2 = this.gFO.gFM.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.gFQ.gFO.getLayoutParams();
         if (layoutParams2 != null) {
             int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(a.d.sdk_ds220);
             layoutParams2.width = dimensionPixelOffset2;
             layoutParams2.height = dimensionPixelOffset2;
-            this.gFO.gFM.setLayoutParams(layoutParams2);
+            this.gFQ.gFO.setLayoutParams(layoutParams2);
         }
     }
 
     private void setFirstMedal(ALaCharmData aLaCharmData) {
-        this.gFO.setOnClickListener(this);
-        this.gFO.setTag(aLaCharmData);
-        this.gFO.setData(aLaCharmData);
-        this.gFO.gFN.setVisibility(8);
-    }
-
-    private void setSecondMedal(ALaCharmData aLaCharmData) {
-        this.gFP.setOnClickListener(this);
-        this.gFP.setTag(aLaCharmData);
-        this.gFP.setData(aLaCharmData);
-    }
-
-    private void setThirdMedal(ALaCharmData aLaCharmData) {
         this.gFQ.setOnClickListener(this);
         this.gFQ.setTag(aLaCharmData);
         this.gFQ.setData(aLaCharmData);
+        this.gFQ.gFP.setVisibility(8);
+    }
+
+    private void setSecondMedal(ALaCharmData aLaCharmData) {
+        this.gFR.setOnClickListener(this);
+        this.gFR.setTag(aLaCharmData);
+        this.gFR.setData(aLaCharmData);
+    }
+
+    private void setThirdMedal(ALaCharmData aLaCharmData) {
+        this.gFS.setOnClickListener(this);
+        this.gFS.setTag(aLaCharmData);
+        this.gFS.setData(aLaCharmData);
     }
 }

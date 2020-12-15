@@ -30,7 +30,7 @@ public class c {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            w Zd = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().Zd();
+            w Zd = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Zd();
             if (Zd != null && Zd.aKL != null) {
                 jSONObject.put("live_id", Zd.aKL.live_id);
                 jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, Zd.aKL.croom_id);

@@ -20,26 +20,26 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b> {
     private TextView eBQ;
-    private TextView guj;
-    private ImageView kHG;
-    private TextView kHH;
-    private int kHI;
-    private HeadImageView kjR;
+    private TextView gul;
+    private ImageView kHI;
+    private TextView kHJ;
+    private int kHK;
+    private HeadImageView kjT;
     private View mLine;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.kHI = R.color.CAM_X0108;
-        this.kjR = (HeadImageView) view.findViewById(R.id.photo);
-        this.kjR.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.kjR.setAutoChangeStyle(true);
-        this.kjR.setPlaceHolder(1);
+        this.kHK = R.color.CAM_X0108;
+        this.kjT = (HeadImageView) view.findViewById(R.id.photo);
+        this.kjT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.kjT.setAutoChangeStyle(true);
+        this.kjT.setPlaceHolder(1);
         this.eBQ = (TextView) view.findViewById(R.id.user_name);
-        this.kHG = (ImageView) view.findViewById(R.id.fans_reply);
-        this.guj = (TextView) view.findViewById(R.id.time);
-        this.kHH = (TextView) view.findViewById(R.id.content);
+        this.kHI = (ImageView) view.findViewById(R.id.fans_reply);
+        this.gul = (TextView) view.findViewById(R.id.time);
+        this.kHJ = (TextView) view.findViewById(R.id.content);
         this.mLine = view.findViewById(R.id.line);
-        this.kjR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
+        this.kjT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 a.this.bEP().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
@@ -76,41 +76,41 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
             MetaData replyer = feedData.getReplyer();
             this.eBQ.setText(UtilHelper.getUserName(replyer));
             if (feedData.getReplyer().isBigV()) {
-                this.kHI = R.color.cp_cont_r;
+                this.kHK = R.color.cp_cont_r;
             } else {
-                this.kHI = R.color.CAM_X0108;
+                this.kHK = R.color.CAM_X0108;
             }
-            ap.setViewTextColor(this.eBQ, this.kHI);
-            this.kjR.setIsRound(true);
-            this.kjR.setVisibility(0);
-            UtilHelper.showHeadImageViewBigV(this.kjR, replyer, 0);
-            this.kjR.setTag(null);
+            ap.setViewTextColor(this.eBQ, this.kHK);
+            this.kjT.setIsRound(true);
+            this.kjT.setVisibility(0);
+            UtilHelper.showHeadImageViewBigV(this.kjT, replyer, 0);
+            this.kjT.setTag(null);
             String avater = feedData.getReplyer().getAvater();
             if (avater != null && avater.length() > 0) {
-                this.kjR.startLoad(avater, 12, false);
+                this.kjT.startLoad(avater, 12, false);
             } else {
-                this.kjR.setImageResource(R.drawable.photo);
+                this.kjT.setImageResource(R.drawable.photo);
             }
             if (feedData.getReplyer().getIsMyFans() == 1) {
-                this.kHG.setVisibility(0);
+                this.kHI.setVisibility(0);
             } else {
-                this.kHG.setVisibility(8);
+                this.kHI.setVisibility(8);
             }
         }
-        this.guj.setText(au.getFormatTime(feedData.getTime()));
-        this.kHH.setText(feedData.getContent());
+        this.gul.setText(au.getFormatTime(feedData.getTime()));
+        this.kHJ.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.t
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         getRootView().setBackgroundDrawable(ap.pT(R.color.CAM_X0205));
         ap.setBackgroundColor(this.mLine, R.color.CAM_X0204);
-        ap.setViewTextColor(this.guj, R.color.CAM_X0109);
-        ap.setBackgroundResource(this.kHG, R.drawable.icon_pb_fans);
-        ap.setViewTextColor(this.kHH, R.color.CAM_X0105);
-        ap.setViewTextColor(this.eBQ, this.kHI);
-        this.kjR.invalidate();
-        this.guj.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        ap.setViewTextColor(this.gul, R.color.CAM_X0109);
+        ap.setBackgroundResource(this.kHI, R.drawable.icon_pb_fans);
+        ap.setViewTextColor(this.kHJ, R.color.CAM_X0105);
+        ap.setViewTextColor(this.eBQ, this.kHK);
+        this.kjT.invalidate();
+        this.gul.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

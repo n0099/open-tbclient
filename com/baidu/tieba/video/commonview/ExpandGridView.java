@@ -9,9 +9,9 @@ import android.widget.Scroller;
 /* loaded from: classes23.dex */
 public class ExpandGridView extends GridView {
     private Scroller mScroller;
-    private boolean nCq;
-    private a nCr;
     private boolean nCs;
+    private a nCt;
+    private boolean nCu;
 
     /* loaded from: classes23.dex */
     public interface a {
@@ -20,35 +20,35 @@ public class ExpandGridView extends GridView {
 
     public ExpandGridView(Context context) {
         super(context);
-        this.nCq = false;
         this.nCs = false;
+        this.nCu = false;
         this.mScroller = new Scroller(context);
     }
 
     public ExpandGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nCq = false;
         this.nCs = false;
+        this.nCu = false;
         this.mScroller = new Scroller(context);
     }
 
     public ExpandGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nCq = false;
         this.nCs = false;
+        this.nCu = false;
         this.mScroller = new Scroller(context);
     }
 
     public void setScrollCallBack(a aVar) {
-        this.nCr = aVar;
+        this.nCt = aVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 3 || motionEvent.getAction() == 1) {
-            this.nCq = false;
+            this.nCs = false;
         } else {
-            this.nCq = true;
+            this.nCs = true;
         }
         return super.dispatchTouchEvent(motionEvent);
     }
@@ -61,10 +61,10 @@ public class ExpandGridView extends GridView {
     @Override // android.view.View
     public void computeScroll() {
         if (this.mScroller.computeScrollOffset()) {
-            this.nCs = true;
+            this.nCu = true;
             int currY = this.mScroller.getCurrY();
-            if (this.nCr != null) {
-                this.nCr.aW(currY);
+            if (this.nCt != null) {
+                this.nCt.aW(currY);
             }
             if (getLayoutParams() != null) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -72,7 +72,7 @@ public class ExpandGridView extends GridView {
                 setLayoutParams(layoutParams);
             }
         } else {
-            this.nCs = false;
+            this.nCu = false;
         }
         super.computeScroll();
     }

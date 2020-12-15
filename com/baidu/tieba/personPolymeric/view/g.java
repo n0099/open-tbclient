@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.i> {
     private ImageView ckh;
-    private TextView jLa;
+    private TextView jLc;
     private View mRootView;
-    private String muW;
+    private String muY;
 
     public g(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -22,7 +22,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.card_null_polymeric_rootview);
         this.ckh = (ImageView) view.findViewById(R.id.card_null_polymeric_icon);
-        this.jLa = (TextView) view.findViewById(R.id.card_null_polymeric_txt);
+        this.jLc = (TextView) view.findViewById(R.id.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -30,7 +30,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             ap.setBackgroundResource(this.mRootView, R.color.CAM_X0201);
             ap.setImageResource(this.ckh, R.drawable.new_pic_emotion_07);
-            ap.setViewTextColor(this.jLa, R.color.CAM_X0108, 1);
+            ap.setViewTextColor(this.jLc, R.color.CAM_X0108, 1);
         }
         this.mSkinType = i;
     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.muW)) {
-            TextView textView = this.jLa;
+        if (StringUtils.isNull(this.muY)) {
+            TextView textView = this.jLc;
             String string2 = this.mContext.getString(R.string.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
@@ -66,7 +66,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.jLa.setText(this.muW);
+        this.jLc.setText(this.muY);
     }
 
     @Override // android.view.View.OnClickListener

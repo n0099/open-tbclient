@@ -14,8 +14,8 @@ public class d {
     public String biT;
     public String createTime;
     public String description;
-    public String gQv;
-    public int gQw;
+    public String gQx;
+    public int gQy;
     public int guardLevel;
     public String id;
     public String liveId;
@@ -37,8 +37,8 @@ public class d {
                 this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                 this.status = jSONObject.optString("status");
                 this.createTime = jSONObject.optString("create_time");
-                this.gQv = jSONObject.optString("update_time");
-                this.gQw = jSONObject.optInt("member_counts");
+                this.gQx = jSONObject.optString("update_time");
+                this.gQy = jSONObject.optInt("member_counts");
                 this.biT = jSONObject.optString("guard_club_portrait");
                 this.guardLevel = jSONObject.optInt("guard_level");
                 this.biS = jSONObject.optLong("next_level_need_score");

@@ -9,14 +9,14 @@ import java.util.List;
 /* loaded from: classes26.dex */
 public class a extends BaseAdapter {
     List<ValidateItemData> bVH = new ArrayList();
-    ValidateActivity kDQ;
+    ValidateActivity kDS;
 
     public a(ValidateActivity validateActivity) {
-        this.kDQ = validateActivity;
+        this.kDS = validateActivity;
     }
 
     public void destroy() {
-        this.kDQ = null;
+        this.kDS = null;
     }
 
     public void setData(List<ValidateItemData> list) {
@@ -40,7 +40,7 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.kDQ) : bVar;
+        b bVar2 = bVar == null ? new b(this.kDS) : bVar;
         bVar2.e(this.bVH.get(i));
         return bVar2.getConvertView();
     }

@@ -24,32 +24,32 @@ public class SwipeLayout extends FrameLayout {
     private float lastX;
     private Activity mActivity;
     private Context mContext;
-    private Drawable oPA;
-    public boolean oPB;
-    protected boolean oPC;
-    protected boolean oPD;
-    private boolean oPE;
-    private boolean oPF;
-    private int oPG;
-    private int oPH;
-    private VelocityTracker oPI;
+    private Drawable oPC;
+    public boolean oPD;
+    protected boolean oPE;
+    protected boolean oPF;
+    private boolean oPG;
+    private boolean oPH;
+    private int oPI;
     private int oPJ;
-    private boolean oPK;
-    private ObjectAnimator oPL;
+    private VelocityTracker oPK;
+    private int oPL;
+    private boolean oPM;
+    private ObjectAnimator oPN;
     private int screenWidth;
     private int touchSlop;
 
     public SwipeLayout(Context context) {
         super(context);
-        this.oPB = false;
-        this.oPC = true;
         this.oPD = false;
-        this.oPE = false;
+        this.oPE = true;
         this.oPF = false;
-        this.oPG = 16;
-        this.oPH = 72;
+        this.oPG = false;
+        this.oPH = false;
+        this.oPI = 16;
+        this.oPJ = 72;
         this.screenWidth = 1080;
-        this.oPJ = 30;
+        this.oPL = 30;
         this.touchSlop = 60;
         this.duration = 200;
         this.mContext = context;
@@ -57,15 +57,15 @@ public class SwipeLayout extends FrameLayout {
 
     public SwipeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oPB = false;
-        this.oPC = true;
         this.oPD = false;
-        this.oPE = false;
+        this.oPE = true;
         this.oPF = false;
-        this.oPG = 16;
-        this.oPH = 72;
+        this.oPG = false;
+        this.oPH = false;
+        this.oPI = 16;
+        this.oPJ = 72;
         this.screenWidth = 1080;
-        this.oPJ = 30;
+        this.oPL = 30;
         this.touchSlop = 60;
         this.duration = 200;
         this.mContext = context;
@@ -73,26 +73,26 @@ public class SwipeLayout extends FrameLayout {
 
     public SwipeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oPB = false;
-        this.oPC = true;
         this.oPD = false;
-        this.oPE = false;
+        this.oPE = true;
         this.oPF = false;
-        this.oPG = 16;
-        this.oPH = 72;
+        this.oPG = false;
+        this.oPH = false;
+        this.oPI = 16;
+        this.oPJ = 72;
         this.screenWidth = 1080;
-        this.oPJ = 30;
+        this.oPL = 30;
         this.touchSlop = 60;
         this.duration = 200;
         this.mContext = context;
     }
 
     public void setSwipeAnyWhere(boolean z) {
-        this.oPD = z;
+        this.oPF = z;
     }
 
     public void setSwipeEnabled(boolean z) {
-        this.oPC = z;
+        this.oPE = z;
     }
 
     @Override // android.view.ViewGroup
@@ -100,20 +100,20 @@ public class SwipeLayout extends FrameLayout {
         boolean drawChild = super.drawChild(canvas, view, j);
         int dp2px = f.dp2px(this.mContext, 20.0f);
         int contentX = ((int) getContentX()) - dp2px;
-        this.oPA.setBounds(contentX, view.getTop(), dp2px + contentX, view.getBottom());
-        this.oPA.draw(canvas);
-        this.oPA.setAlpha(76);
+        this.oPC.setBounds(contentX, view.getTop(), dp2px + contentX, view.getBottom());
+        this.oPC.draw(canvas);
+        this.oPC.setAlpha(76);
         return drawChild;
     }
 
     public void setCanSwipe(boolean z) {
-        this.oPE = z;
+        this.oPG = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.oPC && !this.oPE && !this.oPF) {
-            if (this.oPD) {
+        if (this.oPE && !this.oPG && !this.oPH) {
+            if (this.oPF) {
                 switch (motionEvent.getAction()) {
                     case 0:
                         this.bpE = motionEvent.getX();
@@ -132,39 +132,39 @@ public class SwipeLayout extends FrameLayout {
                                 this.currentX = this.bpE;
                                 this.currentY = this.bpF;
                                 this.lastX = this.bpE;
-                                this.oPE = true;
-                                this.oPI = VelocityTracker.obtain();
+                                this.oPG = true;
+                                this.oPK = VelocityTracker.obtain();
                                 return true;
                             }
-                            this.oPF = true;
+                            this.oPH = true;
                             break;
                         }
                         break;
                 }
-            } else if (motionEvent.getAction() == 0 && motionEvent.getX() < this.oPH) {
-                this.oPE = true;
-                this.oPI = VelocityTracker.obtain();
+            } else if (motionEvent.getAction() == 0 && motionEvent.getX() < this.oPJ) {
+                this.oPG = true;
+                this.oPK = VelocityTracker.obtain();
                 return true;
             }
         }
         if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            this.oPF = false;
+            this.oPH = false;
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.oPE || super.onInterceptTouchEvent(motionEvent);
+        return this.oPG || super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.oPE) {
-            if (this.oPI == null) {
-                this.oPI = VelocityTracker.obtain();
+        if (this.oPG) {
+            if (this.oPK == null) {
+                this.oPK = VelocityTracker.obtain();
             }
-            this.oPI.addMovement(motionEvent);
+            this.oPK.addMovement(motionEvent);
             switch (motionEvent.getAction()) {
                 case 0:
                     this.bpE = motionEvent.getX();
@@ -175,12 +175,12 @@ public class SwipeLayout extends FrameLayout {
                     break;
                 case 1:
                 case 3:
-                    this.oPI.computeCurrentVelocity(10000);
-                    this.oPI.computeCurrentVelocity(1000, 20000.0f);
-                    this.oPE = false;
-                    this.oPK = false;
-                    if (Math.abs(this.oPI.getXVelocity()) > (this.screenWidth / 200) * 1000) {
-                        bi(this.oPI.getXVelocity());
+                    this.oPK.computeCurrentVelocity(10000);
+                    this.oPK.computeCurrentVelocity(1000, 20000.0f);
+                    this.oPG = false;
+                    this.oPM = false;
+                    if (Math.abs(this.oPK.getXVelocity()) > (this.screenWidth / 200) * 1000) {
+                        bi(this.oPK.getXVelocity());
                     } else if (getContentX() > this.screenWidth / 3) {
                         Ax(false);
                     } else {
@@ -192,8 +192,8 @@ public class SwipeLayout extends FrameLayout {
                     this.currentX = motionEvent.getX();
                     this.currentY = motionEvent.getY();
                     float f = this.currentX - this.lastX;
-                    if (f != 0.0f && !this.oPK) {
-                        this.oPK = true;
+                    if (f != 0.0f && !this.oPM) {
+                        this.oPM = true;
                         f /= f;
                     }
                     if (getContentX() + f < 0.0f) {
@@ -209,16 +209,16 @@ public class SwipeLayout extends FrameLayout {
     }
 
     private void recycleVelocityTracker() {
-        if (this.oPI != null) {
-            this.oPI.recycle();
-            this.oPI = null;
+        if (this.oPK != null) {
+            this.oPK.recycle();
+            this.oPK = null;
         }
     }
 
-    public void elK() {
-        if (this.oPL != null) {
-            this.oPL.removeAllListeners();
-            this.oPL.cancel();
+    public void elL() {
+        if (this.oPN != null) {
+            this.oPN.removeAllListeners();
+            this.oPN.cancel();
         }
     }
 
@@ -233,30 +233,30 @@ public class SwipeLayout extends FrameLayout {
 
     private void Aw(boolean z) {
         int i;
-        elK();
-        this.oPL = ObjectAnimator.ofFloat(this, "contentX", getContentX(), 0.0f);
+        elL();
+        this.oPN = ObjectAnimator.ofFloat(this, "contentX", getContentX(), 0.0f);
         if (z) {
             i = (int) ((200.0f * getContentX()) / this.screenWidth);
         } else {
             i = 200;
         }
-        this.oPL.setDuration(i >= 100 ? i : 100);
-        this.oPL.setInterpolator(new DecelerateInterpolator());
-        this.oPL.start();
+        this.oPN.setDuration(i >= 100 ? i : 100);
+        this.oPN.setInterpolator(new DecelerateInterpolator());
+        this.oPN.start();
     }
 
     private void Ax(boolean z) {
         int i;
-        elK();
-        this.oPL = ObjectAnimator.ofFloat(this, "contentX", getContentX(), this.screenWidth);
+        elL();
+        this.oPN = ObjectAnimator.ofFloat(this, "contentX", getContentX(), this.screenWidth);
         if (z) {
             i = (int) ((200.0f * (this.screenWidth - getContentX())) / this.screenWidth);
         } else {
             i = 200;
         }
-        this.oPL.setDuration(i >= 100 ? i : 100);
-        this.oPL.setInterpolator(new DecelerateInterpolator());
-        this.oPL.addListener(new Animator.AnimatorListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.SwipeLayout.1
+        this.oPN.setDuration(i >= 100 ? i : 100);
+        this.oPN.setInterpolator(new DecelerateInterpolator());
+        this.oPN.addListener(new Animator.AnimatorListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.SwipeLayout.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
@@ -268,7 +268,7 @@ public class SwipeLayout extends FrameLayout {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (!SwipeLayout.this.mActivity.isFinishing()) {
-                    SwipeLayout.this.oPB = true;
+                    SwipeLayout.this.oPD = true;
                     SwipeLayout.this.mActivity.finish();
                 }
             }
@@ -277,7 +277,7 @@ public class SwipeLayout extends FrameLayout {
             public void onAnimationCancel(Animator animator) {
             }
         });
-        this.oPL.start();
+        this.oPN.start();
     }
 
     private void bi(float f) {

@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes22.dex */
 public class i extends BaseCardInfo {
-    public static BdUniqueId mkw = BdUniqueId.gen();
+    public static BdUniqueId mky = BdUniqueId.gen();
     public UserData userData;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return mkw;
+        return mky;
     }
 }

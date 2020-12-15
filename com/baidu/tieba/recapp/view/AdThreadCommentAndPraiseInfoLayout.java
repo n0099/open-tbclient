@@ -38,11 +38,11 @@ import org.json.JSONObject;
 public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmentWeightLayout {
     public static String URL = "https://afd.baidu.com/afd/updateTiebaAdExt";
     public static int fPv;
-    private int mOA;
-    private int mOB;
-    private a mOC;
-    private final int mOv;
-    private final int mOw;
+    private final int mOA;
+    private final int mOB;
+    private int mOC;
+    private int mOD;
+    private a mOE;
     private final int mOx;
     private final int mOy;
     private final int mOz;
@@ -51,29 +51,29 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public AdThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
-        this.mOv = 446;
-        this.mOw = 5120;
-        this.mOx = 5120;
+        this.mOx = 446;
         this.mOy = 5120;
         this.mOz = 5120;
+        this.mOA = 5120;
+        this.mOB = 5120;
         this.style = 1;
         this.type = 0;
-        this.mOA = R.drawable.selector_comment_and_prise_item_text_color;
-        this.mOB = this.mOA;
+        this.mOC = R.drawable.selector_comment_and_prise_item_text_color;
+        this.mOD = this.mOC;
         initSetting();
     }
 
     public AdThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mOv = 446;
-        this.mOw = 5120;
-        this.mOx = 5120;
+        this.mOx = 446;
         this.mOy = 5120;
         this.mOz = 5120;
+        this.mOA = 5120;
+        this.mOB = 5120;
         this.style = 1;
         this.type = 0;
-        this.mOA = R.drawable.selector_comment_and_prise_item_text_color;
-        this.mOB = this.mOA;
+        this.mOC = R.drawable.selector_comment_and_prise_item_text_color;
+        this.mOD = this.mOC;
         initSetting();
     }
 
@@ -82,7 +82,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         setManageVisible(false);
         setSelectVisible(false);
         setShowFlag(11);
-        dGs();
+        dGt();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -122,7 +122,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         this.fcI.setClickable(false);
     }
 
-    private void dGs() {
+    private void dGt() {
         if (this.fcF != null) {
             View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.1
                 @Override // android.view.View.OnClickListener
@@ -200,28 +200,28 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     /* JADX INFO: Access modifiers changed from: private */
     public void Jy(int i) {
         if (i == 1) {
-            a(this.mOC.getThreadData(), "nozan", 0);
-            a(this.mOC.getThreadData(), "1", "2");
+            a(this.mOE.getThreadData(), "nozan", 0);
+            a(this.mOE.getThreadData(), "1", "2");
             return;
         }
-        a(this.mOC.getThreadData(), FeedData.TYPE_ZAN, 0);
-        a(this.mOC.getThreadData(), "1", "1");
+        a(this.mOE.getThreadData(), FeedData.TYPE_ZAN, 0);
+        a(this.mOE.getThreadData(), "1", "1");
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void bu(View view) {
-        if (this.ahA != null && this.mContext != null && this.mOC != null) {
-            a(this.mOC.getThreadData(), TbConfig.TMP_SHARE_DIR_NAME, 0);
-            a(this.mOC.getThreadData(), "2", "1");
+        if (this.ahA != null && this.mContext != null && this.mOE != null) {
+            a(this.mOE.getThreadData(), TbConfig.TMP_SHARE_DIR_NAME, 0);
+            a(this.mOE.getThreadData(), "2", "1");
             if (ShareSwitch.isOn() || bh.checkUpIsLogin(this.mContext)) {
                 final ShareItem shareItem = new ShareItem();
-                shareItem.title = this.mOC.getTitle();
-                shareItem.content = this.mOC.getAbstract();
-                shareItem.fnC = this.mOC.getTitle();
-                shareItem.linkUrl = this.mOC.getShareLink();
+                shareItem.title = this.mOE.getTitle();
+                shareItem.content = this.mOE.getAbstract();
+                shareItem.fnC = this.mOE.getTitle();
+                shareItem.linkUrl = this.mOE.getShareLink();
                 shareItem.fnF = 3;
                 shareItem.fnr = true;
-                String imageUrl = this.mOC.getImageUrl();
+                String imageUrl = this.mOE.getImageUrl();
                 Uri parse = imageUrl == null ? null : Uri.parse(imageUrl);
                 if (parse != null) {
                     shareItem.imageUri = parse;
@@ -247,14 +247,14 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     public void setShareData(a aVar) {
-        this.mOC = aVar;
-        setData(this.mOC.getThreadData());
+        this.mOE = aVar;
+        setData(this.mOE.getThreadData());
     }
 
     private void a(AdvertAppInfo advertAppInfo, String str, int i) {
         c c = com.baidu.tieba.recapp.report.g.c(advertAppInfo, 8, i);
         c.Sx(str);
-        d.dGf().a(c);
+        d.dGg().a(c);
     }
 
     private void a(AdvertAppInfo advertAppInfo, final String str, final String str2) {
@@ -323,8 +323,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         super.onChangeSkinType();
         this.fcH.setClickable(false);
         this.fcH.setEnabled(false);
-        ap.setViewTextColor(this.fcG, this.mOA);
-        ap.setViewTextColor(this.fcJ, this.mOB);
+        ap.setViewTextColor(this.fcG, this.mOC);
+        ap.setViewTextColor(this.fcJ, this.mOD);
     }
 
     public void setDisPraiseViewVisibility(boolean z) {
@@ -332,9 +332,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public void setReplayContainerBgGray(boolean z) {
         if (z) {
-            this.mOA = R.color.CAM_X0110;
+            this.mOC = R.color.CAM_X0110;
         } else {
-            this.mOA = R.drawable.selector_comment_and_prise_item_text_color;
+            this.mOC = R.drawable.selector_comment_and_prise_item_text_color;
         }
     }
 
@@ -343,9 +343,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public void setShareContainerBgGray(boolean z) {
         if (z) {
-            this.mOB = R.color.CAM_X0110;
+            this.mOD = R.color.CAM_X0110;
         } else {
-            this.mOB = R.drawable.selector_comment_and_prise_item_text_color;
+            this.mOD = R.drawable.selector_comment_and_prise_item_text_color;
         }
     }
 

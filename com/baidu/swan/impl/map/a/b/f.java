@@ -51,7 +51,7 @@ public class f {
                 }
                 String str = dVar.dfK;
                 if (TextUtils.isEmpty(str)) {
-                    str = ImageRequestBuilder.Ro(R.drawable.pin_red).exw().exl().toString();
+                    str = ImageRequestBuilder.Ro(R.drawable.pin_red).exx().exm().toString();
                 }
                 s.a(str, new s.a() { // from class: com.baidu.swan.impl.map.a.b.f.1
                     @Override // com.baidu.swan.apps.ap.s.a

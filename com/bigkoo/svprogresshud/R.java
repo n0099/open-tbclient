@@ -56,11 +56,11 @@ public final class R {
     public static final class id {
         public static final int FILL = 0x7f100193;
         public static final int STROKE = 0x7f100194;
-        public static final int circleProgressBar = 0x7f102859;
-        public static final int ivBigLoading = 0x7f102857;
-        public static final int ivSmallLoading = 0x7f102858;
-        public static final int sv_outmost_container = 0x7f101b22;
-        public static final int tvMsg = 0x7f10285a;
+        public static final int circleProgressBar = 0x7f10285d;
+        public static final int ivBigLoading = 0x7f10285b;
+        public static final int ivSmallLoading = 0x7f10285c;
+        public static final int sv_outmost_container = 0x7f101b26;
+        public static final int tvMsg = 0x7f10285e;
     }
 
     /* loaded from: classes.dex */
@@ -70,8 +70,8 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int layout_svprogresshud = 0x7f0405a2;
-        public static final int view_svprogressdefault = 0x7f040929;
+        public static final int layout_svprogresshud = 0x7f0405a3;
+        public static final int view_svprogressdefault = 0x7f04092a;
     }
 
     /* loaded from: classes.dex */

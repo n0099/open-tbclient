@@ -20,9 +20,9 @@ import com.baidu.tieba.g.a;
 public class PbTopTipView extends TextView {
     private Animation bQk;
     private Runnable bQm;
-    private Animation hCG;
-    private com.baidu.tieba.g.b iXO;
-    private a.InterfaceC0756a irM;
+    private Animation hCI;
+    private com.baidu.tieba.g.b iXQ;
+    private a.InterfaceC0756a irO;
     private int mDuration;
     private boolean mIsShowing;
     private Runnable mRunnable;
@@ -36,7 +36,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.irM = new a.InterfaceC0756a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.irO = new a.InterfaceC0756a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.g.a.InterfaceC0756a
             public void G(int i, int i2) {
                 if (ay(i2) && PbTopTipView.this.mIsShowing) {
@@ -81,7 +81,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.irM = new a.InterfaceC0756a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.irO = new a.InterfaceC0756a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.g.a.InterfaceC0756a
             public void G(int i, int i2) {
                 if (ay(i2) && PbTopTipView.this.mIsShowing) {
@@ -126,7 +126,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.irM = new a.InterfaceC0756a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.irO = new a.InterfaceC0756a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.g.a.InterfaceC0756a
             public void G(int i2, int i22) {
                 if (ay(i22) && PbTopTipView.this.mIsShowing) {
@@ -163,16 +163,16 @@ public class PbTopTipView extends TextView {
     }
 
     private void init() {
-        this.iXO = new com.baidu.tieba.g.b(getContext());
-        this.iXO.a(this.irM);
+        this.iXQ = new com.baidu.tieba.g.b(getContext());
+        this.iXQ.a(this.irO);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return PbTopTipView.this.iXO.onTouchEvent(motionEvent);
+                return PbTopTipView.this.iXQ.onTouchEvent(motionEvent);
             }
         });
         setupPaddings();
-        this.hCG = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
+        this.hCI = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
         this.bQk = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_out);
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.fontsize30));
         this.bQk.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.4
@@ -191,8 +191,8 @@ public class PbTopTipView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.hCG.setDuration(400L);
-        this.hCG.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
+        this.hCI.setDuration(400L);
+        this.hCI.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -247,7 +247,7 @@ public class PbTopTipView extends TextView {
             layoutParams.addRule(10);
             relativeLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.hCG);
+            startAnimation(this.hCI);
             this.mIsShowing = true;
         }
     }

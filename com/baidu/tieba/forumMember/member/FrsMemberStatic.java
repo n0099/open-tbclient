@@ -15,19 +15,19 @@ public class FrsMemberStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        ai.cEi().Aj(3);
+        ai.cEj().Aj(3);
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.forumMember.member.FrsMemberStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new i(null, j.iPh));
-                    absDelegateAdapterList.add(new l(null, m.iPs));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.n.iSE));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.iOK));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.iON));
-                    absDelegateAdapterList.add(new o(null, p.iPJ));
+                    absDelegateAdapterList.add(new i(null, j.iPj));
+                    absDelegateAdapterList.add(new l(null, m.iPu));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.n.iSG));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.iOM));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.iOP));
+                    absDelegateAdapterList.add(new o(null, p.iPL));
                 }
             }
         });

@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes7.dex */
 public class b {
-    private static final b pkO = etr().etz();
-    public final int pkP;
-    public final boolean pkQ;
-    public final boolean pkR;
+    private static final b pkQ = ets().etA();
+    public final int pkR;
     public final boolean pkS;
     public final boolean pkT;
-    public final Bitmap.Config pkU;
+    public final boolean pkU;
+    public final boolean pkV;
+    public final Bitmap.Config pkW;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b pkV;
+    public final com.facebook.imagepipeline.decoder.b pkX;
 
     public b(c cVar) {
-        this.pkP = cVar.ets();
-        this.pkQ = cVar.ett();
-        this.pkR = cVar.etu();
-        this.pkS = cVar.etv();
-        this.pkT = cVar.etx();
-        this.pkU = cVar.ety();
-        this.pkV = cVar.etw();
+        this.pkR = cVar.ett();
+        this.pkS = cVar.etu();
+        this.pkT = cVar.etv();
+        this.pkU = cVar.etw();
+        this.pkV = cVar.ety();
+        this.pkW = cVar.etz();
+        this.pkX = cVar.etx();
     }
 
-    public static b etq() {
-        return pkO;
+    public static b etr() {
+        return pkQ;
     }
 
-    public static c etr() {
+    public static c ets() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.pkQ == bVar.pkQ && this.pkR == bVar.pkR && this.pkS == bVar.pkS && this.pkT == bVar.pkT && this.pkU == bVar.pkU && this.pkV == bVar.pkV;
+        return this.pkS == bVar.pkS && this.pkT == bVar.pkT && this.pkU == bVar.pkU && this.pkV == bVar.pkV && this.pkW == bVar.pkW && this.pkX == bVar.pkX;
     }
 
     public int hashCode() {
-        return (((((((this.pkS ? 1 : 0) + (((this.pkR ? 1 : 0) + (((this.pkQ ? 1 : 0) + (this.pkP * 31)) * 31)) * 31)) * 31) + (this.pkT ? 1 : 0)) * 31) + this.pkU.ordinal()) * 31) + (this.pkV != null ? this.pkV.hashCode() : 0);
+        return (((((((this.pkU ? 1 : 0) + (((this.pkT ? 1 : 0) + (((this.pkS ? 1 : 0) + (this.pkR * 31)) * 31)) * 31)) * 31) + (this.pkV ? 1 : 0)) * 31) + this.pkW.ordinal()) * 31) + (this.pkX != null ? this.pkX.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.pkP), Boolean.valueOf(this.pkQ), Boolean.valueOf(this.pkR), Boolean.valueOf(this.pkS), Boolean.valueOf(this.pkT), this.pkU.name(), this.pkV);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.pkR), Boolean.valueOf(this.pkS), Boolean.valueOf(this.pkT), Boolean.valueOf(this.pkU), Boolean.valueOf(this.pkV), this.pkW.name(), this.pkX);
     }
 }

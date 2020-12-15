@@ -98,11 +98,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.djS().destroy();
+                        com.baidu.tieba.myCollection.a.a.djT().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.djS().start();
+                        com.baidu.tieba.myCollection.a.a.djT().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.djS().destroy();
+                        com.baidu.tieba.myCollection.a.a.djT().destroy();
                     }
                 }
             }
@@ -112,9 +112,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.djS().restart();
+                    com.baidu.tieba.myCollection.a.a.djT().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.djS().destroy();
+                    com.baidu.tieba.myCollection.a.a.djT().destroy();
                 }
             }
         });
@@ -123,8 +123,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.djs().djv();
-                    b.djs().tV(true);
+                    b.djt().djw();
+                    b.djt().tV(true);
                 }
             }
         });

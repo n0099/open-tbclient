@@ -28,7 +28,7 @@ public class a extends e implements f {
     private View buh;
     private float bui;
     private Context mContext;
-    private InterfaceC0935a oqP;
+    private InterfaceC0935a oqR;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.turntable.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -47,7 +47,7 @@ public class a extends e implements f {
     }
 
     public void a(InterfaceC0935a interfaceC0935a) {
-        this.oqP = interfaceC0935a;
+        this.oqR = interfaceC0935a;
     }
 
     public void GD(String str) {
@@ -109,8 +109,8 @@ public class a extends e implements f {
                 if (a.this.bug != null) {
                     a.this.bug.release();
                 }
-                if (a.this.oqP != null) {
-                    a.this.oqP.onDismiss();
+                if (a.this.oqR != null) {
+                    a.this.oqR.onDismiss();
                 }
             }
         });

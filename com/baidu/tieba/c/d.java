@@ -3,72 +3,72 @@ package com.baidu.tieba.c;
 import com.baidu.tieba.c.b;
 /* loaded from: classes.dex */
 public final class d extends b<d> {
-    private e ibl;
-    private float ibm;
-    private boolean ibn;
+    private e ibn;
+    private float ibo;
+    private boolean ibp;
 
     public <K> d(K k, c<K> cVar) {
         super(k, cVar);
-        this.ibl = null;
-        this.ibm = Float.MAX_VALUE;
-        this.ibn = false;
+        this.ibn = null;
+        this.ibo = Float.MAX_VALUE;
+        this.ibp = false;
     }
 
     public d a(e eVar) {
-        this.ibl = eVar;
+        this.ibn = eVar;
         return this;
     }
 
     @Override // com.baidu.tieba.c.b
     public void start() {
-        cqw();
-        this.ibl.B(cqu());
+        cqx();
+        this.ibn.B(cqv());
         super.start();
     }
 
-    private void cqw() {
-        if (this.ibl == null) {
+    private void cqx() {
+        if (this.ibn == null) {
             throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
         }
-        double cqx = this.ibl.cqx();
-        if (cqx > this.ibf) {
+        double cqy = this.ibn.cqy();
+        if (cqy > this.ibh) {
             throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
         }
-        if (cqx < this.ibg) {
+        if (cqy < this.ibi) {
             throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
         }
     }
 
     @Override // com.baidu.tieba.c.b
     boolean fU(long j) {
-        if (this.ibn) {
-            if (this.ibm != Float.MAX_VALUE) {
-                this.ibl.aC(this.ibm);
-                this.ibm = Float.MAX_VALUE;
+        if (this.ibp) {
+            if (this.ibo != Float.MAX_VALUE) {
+                this.ibn.aC(this.ibo);
+                this.ibo = Float.MAX_VALUE;
             }
-            this.mValue = this.ibl.cqx();
-            this.ibb = 0.0f;
-            this.ibn = false;
+            this.mValue = this.ibn.cqy();
+            this.ibd = 0.0f;
+            this.ibp = false;
             return true;
         }
-        if (this.ibm != Float.MAX_VALUE) {
-            this.ibl.cqx();
-            b.a a2 = this.ibl.a(this.mValue, this.ibb, j / 2);
-            this.ibl.aC(this.ibm);
-            this.ibm = Float.MAX_VALUE;
-            b.a a3 = this.ibl.a(a2.mValue, a2.ibb, j / 2);
+        if (this.ibo != Float.MAX_VALUE) {
+            this.ibn.cqy();
+            b.a a2 = this.ibn.a(this.mValue, this.ibd, j / 2);
+            this.ibn.aC(this.ibo);
+            this.ibo = Float.MAX_VALUE;
+            b.a a3 = this.ibn.a(a2.mValue, a2.ibd, j / 2);
             this.mValue = a3.mValue;
-            this.ibb = a3.ibb;
+            this.ibd = a3.ibd;
         } else {
-            b.a a4 = this.ibl.a(this.mValue, this.ibb, j);
+            b.a a4 = this.ibn.a(this.mValue, this.ibd, j);
             this.mValue = a4.mValue;
-            this.ibb = a4.ibb;
+            this.ibd = a4.ibd;
         }
-        this.mValue = Math.max(this.mValue, this.ibg);
-        this.mValue = Math.min(this.mValue, this.ibf);
-        if (C(this.mValue, this.ibb)) {
-            this.mValue = this.ibl.cqx();
-            this.ibb = 0.0f;
+        this.mValue = Math.max(this.mValue, this.ibi);
+        this.mValue = Math.min(this.mValue, this.ibh);
+        if (C(this.mValue, this.ibd)) {
+            this.mValue = this.ibn.cqy();
+            this.ibd = 0.0f;
             return true;
         }
         return false;
@@ -76,6 +76,6 @@ public final class d extends b<d> {
 
     @Override // com.baidu.tieba.c.b
     boolean C(float f, float f2) {
-        return this.ibl.C(f, f2);
+        return this.ibn.C(f, f2);
     }
 }

@@ -12,13 +12,13 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.g.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.g.b iXO;
-    private boolean jot;
+    private com.baidu.tieba.g.b iXQ;
+    private boolean jov;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
     private boolean fGb = false;
-    private a.InterfaceC0756a irM = new a.InterfaceC0756a() { // from class: com.baidu.tieba.frs.gametab.b.1
+    private a.InterfaceC0756a irO = new a.InterfaceC0756a() { // from class: com.baidu.tieba.frs.gametab.b.1
         @Override // com.baidu.tieba.g.a.InterfaceC0756a
         public void G(int i, int i2) {
             if (ay(i2)) {
@@ -49,10 +49,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.jot = z;
-        if (this.jot) {
-            this.iXO = new com.baidu.tieba.g.b(context);
-            this.iXO.a(this.irM);
+        this.jov = z;
+        if (this.jov) {
+            this.iXQ = new com.baidu.tieba.g.b(context);
+            this.iXQ.a(this.irO);
         }
     }
 
@@ -69,15 +69,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.jot = false;
+                    this.jov = false;
                     break;
                 } else {
-                    this.jot = true;
+                    this.jov = true;
                     break;
                 }
         }
-        if (this.jot && this.iXO != null) {
-            this.iXO.onTouchEvent(motionEvent);
+        if (this.jov && this.iXQ != null) {
+            this.iXQ.onTouchEvent(motionEvent);
         }
     }
 
@@ -92,7 +92,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void qn(boolean z) {
         this.fGb = z;
-        if (this.jot) {
+        if (this.jov) {
             J(!this.fGb, true);
         }
     }

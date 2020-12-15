@@ -2,7 +2,7 @@ package kotlin;
 @e
 /* loaded from: classes17.dex */
 public final class h {
-    public static final h pJY = new h();
+    public static final h pKa = new h();
 
     private h() {
     }

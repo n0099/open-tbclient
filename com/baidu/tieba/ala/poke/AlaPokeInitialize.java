@@ -12,17 +12,17 @@ import com.baidu.live.v.c;
 /* loaded from: classes4.dex */
 public class AlaPokeInitialize {
     static {
+        cos();
         cor();
-        coq();
-        bPa();
         bPb();
-    }
-
-    private static void coq() {
-        TbadkCoreApplication.getInst().RegisterIntent(r.class, AlaPokeDialogActivity.class);
+        bPc();
     }
 
     private static void cor() {
+        TbadkCoreApplication.getInst().RegisterIntent(r.class, AlaPokeDialogActivity.class);
+    }
+
+    private static void cos() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913262, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.poke.AlaPokeInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.v.a> run(CustomMessage<Context> customMessage) {
@@ -33,18 +33,18 @@ public class AlaPokeInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bPa() {
+    private static void bPb() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913265, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.poke.AlaPokeInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913265, com.baidu.tieba.ala.poke.startanim.c.cov());
+                return new CustomResponsedMessage<>(2913265, com.baidu.tieba.ala.poke.startanim.c.cow());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bPb() {
+    private static void bPc() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913266, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.poke.AlaPokeInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<b> run(CustomMessage<Context> customMessage) {

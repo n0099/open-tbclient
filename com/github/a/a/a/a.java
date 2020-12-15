@@ -12,45 +12,45 @@ import java.util.Iterator;
 import java.util.Locale;
 /* loaded from: classes7.dex */
 public class a {
-    public static String psD;
-    public static int psE;
+    public static String psF;
+    public static int psG;
     public String model;
     public String network;
-    public long nnl;
+    public long nnn;
     public String processName;
-    public String psF;
-    public String psI;
-    public String psJ;
-    public long psK;
+    public String psH;
+    public String psK;
     public String psL;
-    public String psM;
-    public boolean psN;
+    public long psM;
+    public String psN;
     public String psO;
+    public boolean psP;
+    public String psQ;
     public String uid;
     public int versionCode;
-    public static final SimpleDateFormat pso = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
+    public static final SimpleDateFormat psq = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sModel = Build.MODEL;
-    public static String psC = com.github.a.a.c.exJ().provideQualifier();
-    public String psG = "";
-    public int psH = -1;
+    public static String psE = com.github.a.a.c.exK().provideQualifier();
+    public String psI = "";
+    public int psJ = -1;
     public String versionName = "";
     public String duration = "-1";
-    public ArrayList<String> psP = new ArrayList<>();
-    private StringBuilder psQ = new StringBuilder();
-    private StringBuilder psR = new StringBuilder();
+    public ArrayList<String> psR = new ArrayList<>();
     private StringBuilder psS = new StringBuilder();
-    public StringBuilder psT = new StringBuilder();
+    private StringBuilder psT = new StringBuilder();
+    private StringBuilder psU = new StringBuilder();
+    public StringBuilder psV = new StringBuilder();
 
     static {
-        psD = "";
-        psE = -1;
-        psE = b.getNumCores();
-        psD = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
+        psF = "";
+        psG = -1;
+        psG = b.getNumCores();
+        psF = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
     }
 
-    public static a exR() {
+    public static a exS() {
         a aVar = new a();
-        Context provideContext = com.github.a.a.c.exJ().provideContext();
+        Context provideContext = com.github.a.a.c.exK().provideContext();
         if (aVar.versionName == null || aVar.versionName.length() == 0) {
             try {
                 PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
@@ -60,15 +60,15 @@ public class a {
                 Log.e("BlockInfo", "newInstance: ", th);
             }
         }
-        aVar.psH = psE;
+        aVar.psJ = psG;
         aVar.model = sModel;
-        aVar.psG = psD;
-        aVar.psF = psC;
-        aVar.uid = com.github.a.a.c.exJ().provideUid();
-        aVar.processName = c.exT();
-        aVar.network = com.github.a.a.c.exJ().provideNetworkType();
-        aVar.psI = String.valueOf(b.getFreeMemory());
-        aVar.psJ = String.valueOf(b.getTotalMemory());
+        aVar.psI = psF;
+        aVar.psH = psE;
+        aVar.uid = com.github.a.a.c.exK().provideUid();
+        aVar.processName = c.exU();
+        aVar.network = com.github.a.a.c.exK().provideNetworkType();
+        aVar.psK = String.valueOf(b.getFreeMemory());
+        aVar.psL = String.valueOf(b.getTotalMemory());
         if (Build.VERSION.SDK_INT >= 24) {
             aVar.duration = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
         }
@@ -76,54 +76,54 @@ public class a {
     }
 
     public a ZA(String str) {
-        this.psO = str;
+        this.psQ = str;
         return this;
     }
 
     public a bu(ArrayList<String> arrayList) {
-        this.psP = arrayList;
+        this.psR = arrayList;
         return this;
     }
 
     public a e(long j, long j2, long j3, long j4) {
-        this.nnl = j2 - j;
-        this.psK = j4 - j3;
-        this.psL = Long.toString(j);
-        this.psM = Long.toString(j2);
+        this.nnn = j2 - j;
+        this.psM = j4 - j3;
+        this.psN = Long.toString(j);
+        this.psO = Long.toString(j2);
         return this;
     }
 
-    public a exS() {
-        this.psQ.append("qua").append(" = ").append(this.psF).append("\r\n");
-        this.psQ.append("versionName").append(" = ").append(this.versionName).append("\r\n");
-        this.psQ.append("versionCode").append(" = ").append(this.versionCode).append("\r\n");
-        this.psQ.append("uid").append(" = ").append(this.uid).append("\r\n");
-        this.psQ.append("network").append(" = ").append(this.network).append("\r\n");
-        this.psQ.append("model").append(" = ").append(this.model).append("\r\n");
-        this.psQ.append("api-level").append(" = ").append(this.psG).append("\r\n");
-        this.psQ.append("cpu-core").append(" = ").append(this.psH).append("\r\n");
-        this.psQ.append("process").append(" = ").append(this.processName).append("\r\n");
-        this.psQ.append("freeMemory").append(" = ").append(this.psI).append("\r\n");
-        this.psQ.append("totalMemory").append(" = ").append(this.psJ).append("\r\n");
-        this.psS.append("time").append(" = ").append(this.nnl).append("\r\n");
-        this.psS.append("thread-time").append(" = ").append(this.psK).append("\r\n");
-        this.psS.append("time-start").append(" = ").append(this.psL).append("\r\n");
-        this.psS.append("time-end").append(" = ").append(this.psM).append("\r\n");
-        this.psR.append("cpu-busy").append(" = ").append(this.psN).append("\r\n");
-        this.psR.append("cpu-rate").append(" = ").append(this.psO).append("\r\n");
-        if (this.psP != null && !this.psP.isEmpty()) {
+    public a exT() {
+        this.psS.append("qua").append(" = ").append(this.psH).append("\r\n");
+        this.psS.append("versionName").append(" = ").append(this.versionName).append("\r\n");
+        this.psS.append("versionCode").append(" = ").append(this.versionCode).append("\r\n");
+        this.psS.append("uid").append(" = ").append(this.uid).append("\r\n");
+        this.psS.append("network").append(" = ").append(this.network).append("\r\n");
+        this.psS.append("model").append(" = ").append(this.model).append("\r\n");
+        this.psS.append("api-level").append(" = ").append(this.psI).append("\r\n");
+        this.psS.append("cpu-core").append(" = ").append(this.psJ).append("\r\n");
+        this.psS.append("process").append(" = ").append(this.processName).append("\r\n");
+        this.psS.append("freeMemory").append(" = ").append(this.psK).append("\r\n");
+        this.psS.append("totalMemory").append(" = ").append(this.psL).append("\r\n");
+        this.psU.append("time").append(" = ").append(this.nnn).append("\r\n");
+        this.psU.append("thread-time").append(" = ").append(this.psM).append("\r\n");
+        this.psU.append("time-start").append(" = ").append(this.psN).append("\r\n");
+        this.psU.append("time-end").append(" = ").append(this.psO).append("\r\n");
+        this.psT.append("cpu-busy").append(" = ").append(this.psP).append("\r\n");
+        this.psT.append("cpu-rate").append(" = ").append(this.psQ).append("\r\n");
+        if (this.psR != null && !this.psR.isEmpty()) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.psP.iterator();
+            Iterator<String> it = this.psR.iterator();
             while (it.hasNext()) {
                 sb.append(it.next());
                 sb.append("\r\n");
             }
-            this.psT.append("stack").append(" = ").append(sb.toString()).append("\r\n");
+            this.psV.append("stack").append(" = ").append(sb.toString()).append("\r\n");
         }
         return this;
     }
 
     public String toString() {
-        return String.valueOf(this.psQ) + ((Object) this.psS) + ((Object) this.psR) + ((Object) this.psT);
+        return String.valueOf(this.psS) + ((Object) this.psU) + ((Object) this.psT) + ((Object) this.psV);
     }
 }

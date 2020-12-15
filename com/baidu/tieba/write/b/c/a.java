@@ -13,27 +13,27 @@ import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class a {
     private boolean isOriginalImg;
-    private b nXm;
-    private e nXl = new e(true);
+    private b nXo;
+    private e nXn = new e(true);
     private com.baidu.tbadk.img.b fzm = new com.baidu.tbadk.img.b();
 
     /* renamed from: com.baidu.tieba.write.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0893a {
-        void did();
+        void die();
     }
 
     public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0893a interfaceC0893a) {
         if (linkedList == null || linkedList.size() <= 0) {
             if (interfaceC0893a != null) {
-                interfaceC0893a.did();
+                interfaceC0893a.die();
                 return;
             }
             return;
         }
         this.isOriginalImg = z;
-        if (this.nXm != null) {
-            this.nXm.cancel();
+        if (this.nXo != null) {
+            this.nXo.cancel();
         }
         LinkedList linkedList2 = new LinkedList();
         Iterator<ImageFileInfo> it = linkedList.iterator();
@@ -44,21 +44,21 @@ public class a {
             }
         }
         if (linkedList2.size() > 0) {
-            this.nXm = new b(linkedList, interfaceC0893a);
-            this.nXm.execute(new String[0]);
+            this.nXo = new b(linkedList, interfaceC0893a);
+            this.nXo.execute(new String[0]);
         } else if (interfaceC0893a != null) {
-            interfaceC0893a.did();
+            interfaceC0893a.die();
         }
     }
 
     /* loaded from: classes3.dex */
     public class b extends BdAsyncTask<String, Void, Void> {
-        LinkedList<ImageFileInfo> nXn;
-        InterfaceC0893a nXo;
+        LinkedList<ImageFileInfo> nXp;
+        InterfaceC0893a nXq;
 
         public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0893a interfaceC0893a) {
-            this.nXn = linkedList;
-            this.nXo = interfaceC0893a;
+            this.nXp = linkedList;
+            this.nXq = interfaceC0893a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,8 +66,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(String... strArr) {
             try {
-                if (this.nXn != null) {
-                    Iterator<ImageFileInfo> it = this.nXn.iterator();
+                if (this.nXp != null) {
+                    Iterator<ImageFileInfo> it = this.nXp.iterator();
                     while (it.hasNext()) {
                         ImageFileInfo next = it.next();
                         String j = a.this.j(next);
@@ -85,8 +85,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r2) {
-            if (this.nXo != null) {
-                this.nXo.did();
+            if (this.nXq != null) {
+                this.nXq.die();
             }
         }
     }
@@ -99,7 +99,7 @@ public class a {
         if (imageFileInfo.getImageType() == 1) {
             return k(imageFileInfo);
         }
-        return this.nXl.c(imageFileInfo, this.isOriginalImg);
+        return this.nXn.c(imageFileInfo, this.isOriginalImg);
     }
 
     private String k(ImageFileInfo imageFileInfo) {

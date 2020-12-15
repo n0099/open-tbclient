@@ -102,11 +102,11 @@ public class h extends com.baidu.tbadk.editortools.e {
                     TiebaStatic.log(arVar);
                 }
                 if (z) {
-                    WriteData dcD = h.this.fwu.dcD();
+                    WriteData dcE = h.this.fwu.dcE();
                     h.this.fwu.e((WriteData) null);
                     h.this.fwu.yk(false);
                     h.this.mVoiceModel = null;
-                    if (dcD != null && dcD != null && dcD.getType() == 2) {
+                    if (dcE != null && dcE != null && dcE.getType() == 2) {
                         h.this.fxg.bCO();
                     }
                 } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.bP(i, str)) {
@@ -249,10 +249,10 @@ public class h extends com.baidu.tbadk.editortools.e {
                     }
                     bDt();
                     kE(true);
-                    WriteData dcD = this.fwu.dcD();
+                    WriteData dcE = this.fwu.dcE();
                     this.fwu.e((WriteData) null);
                     this.fwu.yk(false);
-                    if (dcD != null && dcD != null && dcD.getType() == 2) {
+                    if (dcE != null && dcE != null && dcE.getType() == 2) {
                         this.fxg.bCO();
                         return;
                     }
@@ -265,7 +265,7 @@ public class h extends com.baidu.tbadk.editortools.e {
                 case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                     PostWriteCallBackData postWriteCallBackData = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
                     if (this.fxi != null) {
-                        this.fxi.callback(false, postWriteCallBackData, null, this.fwu.dcD(), null);
+                        this.fxi.callback(false, postWriteCallBackData, null, this.fwu.dcE(), null);
                         return;
                     }
                     return;
@@ -276,46 +276,46 @@ public class h extends com.baidu.tbadk.editortools.e {
     }
 
     public void bDr() {
-        if (this.fwu.dcD() == null) {
+        if (this.fwu.dcE() == null) {
             WriteData DR = this.fxg.DR(this.fxg.bCP());
             if (DR != null && this.alu != null) {
                 DR.setBaijiahaoData(this.alu.getBaijiahaoData());
             }
             this.fwu.e(DR);
         }
-        if (this.fwu.dcD() != null) {
+        if (this.fwu.dcE() != null) {
             this.fwu.setSpanGroupManager(this.mSpanGroupManager);
             if (this.fxe != null) {
-                this.fwu.dcD().setContent(this.fxe.mContent);
-                this.fwu.dcD().setSubPbReplyPrefix(this.fxe.fxq);
+                this.fwu.dcE().setContent(this.fxe.mContent);
+                this.fwu.dcE().setSubPbReplyPrefix(this.fxe.fxq);
                 if (this.alu != null) {
-                    this.fwu.dcD().setBaijiahaoData(this.alu.getBaijiahaoData());
+                    this.fwu.dcE().setBaijiahaoData(this.alu.getBaijiahaoData());
                 }
             }
-            this.fwu.dcD().setReplyId(this.fxf);
+            this.fwu.dcE().setReplyId(this.fxf);
             if (this.mPostId != null) {
-                this.fwu.dcD().setRepostId(this.fxg.bCP());
+                this.fwu.dcE().setRepostId(this.fxg.bCP());
             }
             if (this.mVoiceModel != null) {
                 if (this.mVoiceModel.getId() != null) {
-                    this.fwu.dcD().setVoice(this.mVoiceModel.getId());
-                    this.fwu.dcD().setVoiceDuringTime(this.mVoiceModel.duration);
+                    this.fwu.dcE().setVoice(this.mVoiceModel.getId());
+                    this.fwu.dcE().setVoiceDuringTime(this.mVoiceModel.duration);
                 } else {
-                    this.fwu.dcD().setVoice(null);
-                    this.fwu.dcD().setVoiceDuringTime(-1);
+                    this.fwu.dcE().setVoice(null);
+                    this.fwu.dcE().setVoiceDuringTime(-1);
                 }
             } else {
-                this.fwu.dcD().setVoice(null);
-                this.fwu.dcD().setVoiceDuringTime(-1);
+                this.fwu.dcE().setVoice(null);
+                this.fwu.dcE().setVoiceDuringTime(-1);
             }
-            if (!this.fwu.dQG()) {
+            if (!this.fwu.dQH()) {
                 bxs().showToast(R.string.write_img_limit);
             } else if (this.fwC == null || !this.fwC.bCR()) {
                 if (this.fwB != null) {
                     this.fwB.bCS();
                 }
-                c(this.fwu.dcD());
-                if (!this.fwu.dQD()) {
+                c(this.fwu.dcE());
+                if (!this.fwu.dQE()) {
                 }
             }
         }

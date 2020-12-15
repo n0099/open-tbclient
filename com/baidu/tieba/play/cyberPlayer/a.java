@@ -11,26 +11,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private HashMap<String, Integer> myA;
-    private boolean myy;
-    private boolean myz;
+    private boolean myA;
+    private boolean myB;
+    private HashMap<String, Integer> myC;
 
     public void es(JSONObject jSONObject) {
         if (jSONObject != null) {
-            boolean z = this.myy;
-            this.myy = jSONObject.optInt("switch", 0) == 1;
-            this.myz = jSONObject.optInt("p2p_config", 0) == 1;
+            boolean z = this.myA;
+            this.myA = jSONObject.optInt("switch", 0) == 1;
+            this.myB = jSONObject.optInt("p2p_config", 0) == 1;
             JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
             if (optJSONArray != null) {
-                this.myA = new HashMap<>();
+                this.myC = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     String optString = optJSONArray.optString(i);
                     if (!StringUtils.isNull(optString)) {
-                        this.myA.put(optString, 0);
+                        this.myC.put(optString, 0);
                     }
                 }
             }
-            if (this.myy) {
+            if (this.myA) {
                 c.init();
                 if (!z) {
                     Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
@@ -47,21 +47,21 @@ public class a {
         }
     }
 
-    public boolean dCb() {
-        if (this.myy) {
+    public boolean dCc() {
+        if (this.myA) {
             c.init();
         }
-        return this.myy;
+        return this.myA;
     }
 
-    public boolean dCc() {
-        return this.myz;
+    public boolean dCd() {
+        return this.myB;
     }
 
     public boolean z(Uri uri) {
-        if (this.myA == null || uri == null) {
+        if (this.myC == null || uri == null) {
             return false;
         }
-        return this.myA.containsKey(uri.getHost());
+        return this.myC.containsKey(uri.getHost());
     }
 }

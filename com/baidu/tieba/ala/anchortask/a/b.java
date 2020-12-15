@@ -16,8 +16,8 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 public class b implements com.baidu.live.b.b {
     private CustomMessageListener bRw;
     private Activity beD;
-    private c gBk;
-    private PopupWindow.OnDismissListener gBl;
+    private c gBm;
+    private PopupWindow.OnDismissListener gBn;
 
     public b(Activity activity) {
         this.beD = activity;
@@ -26,35 +26,35 @@ public class b implements com.baidu.live.b.b {
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.gBk = new c(this.beD);
-        this.gBk.setOnDismissListener(this.gBl);
-        this.gBk.getWebView().setBackgroundColor(iu(str));
+        this.gBm = new c(this.beD);
+        this.gBm.setOnDismissListener(this.gBn);
+        this.gBm.getWebView().setBackgroundColor(iu(str));
         g gVar = new g();
-        gVar.x(this.beD).a(this.gBk).a(this.gBk.getWebView().getSchemeCallback());
+        gVar.x(this.beD).a(this.gBm).a(this.gBm.getWebView().getSchemeCallback());
         com.baidu.live.view.web.a[] YO = gVar.YO();
         for (com.baidu.live.view.web.a aVar : YO) {
-            this.gBk.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            this.gBm.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.gBk.GD(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.gBm.GD(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.gBk != null && this.gBk.isShowing() && this.gBk.getWebView() != null) {
-            this.gBk.getWebView().onResume();
+        if (this.gBm != null && this.gBm.isShowing() && this.gBm.getWebView() != null) {
+            this.gBm.getWebView().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.gBk != null && this.gBk.isShowing() && this.gBk.getWebView() != null) {
-            this.gBk.getWebView().onPause();
+        if (this.gBm != null && this.gBm.isShowing() && this.gBm.getWebView() != null) {
+            this.gBm.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.gBk != null) {
-            this.gBk.YQ();
+        if (this.gBm != null) {
+            this.gBm.YQ();
         }
     }
 
@@ -73,8 +73,8 @@ public class b implements com.baidu.live.b.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.gBk != null && b.this.gBk.isShowing()) {
-                    b.this.gBk.dismiss();
+                if (b.this.gBm != null && b.this.gBm.isShowing()) {
+                    b.this.gBm.dismiss();
                 }
             }
         };

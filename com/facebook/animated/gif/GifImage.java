@@ -12,7 +12,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @d
 /* loaded from: classes10.dex */
 public class GifImage implements c, b {
-    private static volatile boolean paz;
+    private static volatile boolean paB;
     @d
     private long mNativeContext;
 
@@ -52,17 +52,17 @@ public class GifImage implements c, b {
     @d
     private native int nativeGetWidth();
 
-    private static synchronized void eoW() {
+    private static synchronized void eoX() {
         synchronized (GifImage.class) {
-            if (!paz) {
-                paz = true;
+            if (!paB) {
+                paB = true;
                 a.loadLibrary("gifimage");
             }
         }
     }
 
     public static GifImage L(long j, int i) {
-        eoW();
+        eoX();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
@@ -101,7 +101,7 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] eoX() {
+    public int[] eoY() {
         return nativeGetFrameDurations();
     }
 
@@ -126,7 +126,7 @@ public class GifImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean eoY() {
+    public boolean eoZ() {
         return false;
     }
 
@@ -139,7 +139,7 @@ public class GifImage implements c, b {
     public AnimatedDrawableFrameInfo PM(int i) {
         GifFrame PO = PO(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, PO.getXOffset(), PO.getYOffset(), PO.getWidth(), PO.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, PN(PO.eoV()));
+            return new AnimatedDrawableFrameInfo(i, PO.getXOffset(), PO.getYOffset(), PO.getWidth(), PO.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, PN(PO.eoW()));
         } finally {
             PO.dispose();
         }

@@ -13,30 +13,30 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c implements com.baidu.live.v.c {
-    private static final String hTn = com.baidu.live.ag.b.Sh();
-    private static final String hTo = com.baidu.live.ag.b.Sj();
-    private static final String hTp = com.baidu.live.ag.b.Sl();
-    private boolean hTq;
-    private HttpMessageListener hTr;
-    private d hTs;
-    private String hTt;
+    private static final String hTp = com.baidu.live.ag.b.Sh();
+    private static final String hTq = com.baidu.live.ag.b.Sj();
+    private static final String hTr = com.baidu.live.ag.b.Sl();
+    private boolean hTs;
+    private HttpMessageListener hTt;
+    private d hTu;
+    private String hTv;
 
-    public static c cov() {
-        return a.hTw;
+    public static c cow() {
+        return a.hTy;
     }
 
-    public String cow() {
-        return this.hTt;
+    public String cox() {
+        return this.hTv;
     }
 
     @Override // com.baidu.live.v.c
     public void Qy() {
         final al alVar = com.baidu.live.ae.a.RB().brA;
         if (alVar == null || alVar.aOH == null || TextUtils.isEmpty(alVar.aOH.downloadUrl)) {
-            bXm();
-        } else if (!this.hTq) {
-            this.hTt = "";
-            this.hTq = true;
+            bXn();
+        } else if (!this.hTs) {
+            this.hTv = "";
+            this.hTs = true;
             new BdAsyncTask<bw, Void, bw>() { // from class: com.baidu.tieba.ala.poke.startanim.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -49,8 +49,8 @@ public class c implements com.baidu.live.v.c {
                     }
                     bw bwVar = bwVarArr[0];
                     String string = com.baidu.live.d.BM().getString("live_poke_start_anim", "");
-                    if (TextUtils.isEmpty(string) || (Jd = b.Jd(string)) == null || !bwVar.downloadUrl.equals(Jd.downloadUrl) || !bwVar.aRG.equals(Jd.aRG) || TextUtils.isEmpty(Jd.videoMd5) || !Jd.videoMd5.equals(c.this.cox())) {
-                        c.this.coy();
+                    if (TextUtils.isEmpty(string) || (Jd = b.Jd(string)) == null || !bwVar.downloadUrl.equals(Jd.downloadUrl) || !bwVar.aRG.equals(Jd.aRG) || TextUtils.isEmpty(Jd.videoMd5) || !Jd.videoMd5.equals(c.this.coy())) {
+                        c.this.coz();
                         return null;
                     }
                     return Jd;
@@ -66,7 +66,7 @@ public class c implements com.baidu.live.v.c {
                         c.this.b(alVar.aOH);
                         return;
                     }
-                    c.this.hTt = bwVar.videoPath;
+                    c.this.hTv = bwVar.videoPath;
                 }
             }.execute(alVar.aOH);
         }
@@ -74,12 +74,12 @@ public class c implements com.baidu.live.v.c {
 
     @Override // com.baidu.live.v.c
     public void release() {
-        this.hTq = false;
-        this.hTt = "";
-        MessageManager.getInstance().unRegisterListener(this.hTr);
-        this.hTr = null;
-        if (this.hTs != null) {
-            this.hTs.release();
+        this.hTs = false;
+        this.hTv = "";
+        MessageManager.getInstance().unRegisterListener(this.hTt);
+        this.hTt = null;
+        if (this.hTu != null) {
+            this.hTu.release();
         }
         com.baidu.live.h.b.ei(21);
     }
@@ -88,14 +88,14 @@ public class c implements com.baidu.live.v.c {
     public void cJ(List<bw> list) {
         if (list != null && !list.isEmpty()) {
             bw bwVar = list.get(0);
-            this.hTt = bwVar.videoPath;
+            this.hTv = bwVar.videoPath;
             com.baidu.live.d.BM().putString("live_poke_start_anim", b.a(bwVar));
         }
     }
 
-    private void bXm() {
-        if (this.hTr == null) {
-            this.hTr = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.poke.startanim.c.2
+    private void bXn() {
+        if (this.hTt == null) {
+            this.hTt = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.poke.startanim.c.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -104,13 +104,13 @@ public class c implements com.baidu.live.v.c {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hTr);
+            MessageManager.getInstance().registerListener(this.hTt);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String cox() {
-        File[] listFiles = new File(hTp).listFiles();
+    public String coy() {
+        File[] listFiles = new File(hTr).listFiles();
         if (listFiles == null || listFiles.length == 0) {
             return null;
         }
@@ -125,16 +125,16 @@ public class c implements com.baidu.live.v.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(bw bwVar) {
         if (bwVar != null && !TextUtils.isEmpty(bwVar.downloadUrl)) {
-            this.hTs = new d();
-            this.hTs.z(bwVar.downloadUrl, bwVar.aRG, hTo, hTp);
+            this.hTu = new d();
+            this.hTu.z(bwVar.downloadUrl, bwVar.aRG, hTq, hTr);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void coy() {
-        this.hTt = "";
+    public void coz() {
+        this.hTv = "";
         com.baidu.live.d.BM().putString("live_poke_start_anim", "");
-        com.baidu.live.h.a.cleanDir(new File(hTn));
+        com.baidu.live.h.a.cleanDir(new File(hTp));
     }
 
     private c() {
@@ -143,6 +143,6 @@ public class c implements com.baidu.live.v.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a {
-        private static c hTw = new c();
+        private static c hTy = new c();
     }
 }

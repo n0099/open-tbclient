@@ -5,9 +5,9 @@ public interface b {
 
     c PO(int i);
 
-    int[] eoX();
+    int[] eoY();
 
-    boolean eoY();
+    boolean eoZ();
 
     int getFrameCount();
 

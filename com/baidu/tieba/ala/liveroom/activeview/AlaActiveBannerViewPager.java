@@ -9,21 +9,21 @@ import com.baidu.live.tbadk.widget.SlideRatioViewPager;
 /* loaded from: classes4.dex */
 public class AlaActiveBannerViewPager extends SlideRatioViewPager {
     private View.OnTouchListener fGd;
-    private boolean gBZ;
+    private boolean gCb;
     private Handler mHandler;
     private SlideRatioViewPager.OnPageChangeListener mOnPageChangeListener;
     private Runnable mRunnable;
 
     public AlaActiveBannerViewPager(Context context) {
         super(context);
-        this.gBZ = false;
+        this.gCb = false;
         this.fGd = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaActiveBannerViewPager.this.gBZ = true;
+                    AlaActiveBannerViewPager.this.gCb = true;
                 } else {
-                    AlaActiveBannerViewPager.this.gBZ = false;
+                    AlaActiveBannerViewPager.this.gCb = false;
                 }
                 return false;
             }
@@ -40,16 +40,16 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager {
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    AlaActiveBannerViewPager.this.gBZ = true;
+                    AlaActiveBannerViewPager.this.gCb = true;
                 } else {
-                    AlaActiveBannerViewPager.this.gBZ = false;
+                    AlaActiveBannerViewPager.this.gCb = false;
                 }
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.3
             @Override // java.lang.Runnable
             public void run() {
-                if (!AlaActiveBannerViewPager.this.gBZ && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
+                if (!AlaActiveBannerViewPager.this.gCb && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
                     AlaActiveBannerViewPager.this.setCurrentItem(AlaActiveBannerViewPager.this.getCurrentItem() + 1, false);
                 }
                 AlaActiveBannerViewPager.this.mHandler.postDelayed(AlaActiveBannerViewPager.this.mRunnable, 10000L);
@@ -60,14 +60,14 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager {
 
     public AlaActiveBannerViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gBZ = false;
+        this.gCb = false;
         this.fGd = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaActiveBannerViewPager.this.gBZ = true;
+                    AlaActiveBannerViewPager.this.gCb = true;
                 } else {
-                    AlaActiveBannerViewPager.this.gBZ = false;
+                    AlaActiveBannerViewPager.this.gCb = false;
                 }
                 return false;
             }
@@ -84,16 +84,16 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager {
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    AlaActiveBannerViewPager.this.gBZ = true;
+                    AlaActiveBannerViewPager.this.gCb = true;
                 } else {
-                    AlaActiveBannerViewPager.this.gBZ = false;
+                    AlaActiveBannerViewPager.this.gCb = false;
                 }
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.3
             @Override // java.lang.Runnable
             public void run() {
-                if (!AlaActiveBannerViewPager.this.gBZ && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
+                if (!AlaActiveBannerViewPager.this.gCb && AlaActiveBannerViewPager.this.getAdapter().getCount() > 3) {
                     AlaActiveBannerViewPager.this.setCurrentItem(AlaActiveBannerViewPager.this.getCurrentItem() + 1, false);
                 }
                 AlaActiveBannerViewPager.this.mHandler.postDelayed(AlaActiveBannerViewPager.this.mRunnable, 10000L);
@@ -118,7 +118,7 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager {
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void bZT() {
+    public void bZU() {
         if (getAdapter().getCount() > 1) {
             setCurrentItem(1);
             this.mHandler.removeCallbacks(this.mRunnable);

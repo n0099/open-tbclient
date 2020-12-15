@@ -56,42 +56,42 @@ import java.util.List;
 import java.util.UUID;
 /* loaded from: classes24.dex */
 public class c implements View.OnClickListener {
-    private static final int hwY = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds202);
-    private static final int hwZ = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds239);
+    private static final int hxa = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds202);
+    private static final int hxb = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds239);
     private int hideMode;
     private final Context mContext;
     private AlertDialog mDialog;
     private boolean mIsLandscape;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private PermissionJudgePolicy mPermissionJudgement;
-    private final EMTextView naA;
-    private ShareGridLayout naa;
-    private View.OnClickListener nac;
-    private SparseArray<String> naf;
-    private SparseArray<af> nag;
+    private final EMTextView naC;
+    private ShareGridLayout nac;
+    private View.OnClickListener nae;
+    private SparseArray<String> nah;
+    private SparseArray<af> nai;
     private DialogInterface.OnCancelListener onCancelListener;
     private float eOa = 0.33f;
-    protected final SparseArray<ShareItem> nad = new SparseArray<>(8);
-    private boolean nae = false;
-    private boolean naB = true;
-    private int naC = 0;
-    private int naD = 1;
+    protected final SparseArray<ShareItem> naf = new SparseArray<>(8);
+    private boolean nag = false;
+    private boolean naD = true;
+    private int naE = 0;
+    private int naF = 1;
     private boolean eOc = true;
     private CustomMessageListener eOd = new CustomMessageListener(CmdConfigCustom.CMD_SKIN_TYPE_CHANGE) { // from class: com.baidu.tieba.sharesdk.view.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
+                c.this.dLk();
+                c.this.nac.removeAllViews();
                 c.this.dLj();
-                c.this.naa.removeAllViews();
-                c.this.dLi();
             }
         }
     };
-    private final List<View> nab = new ArrayList();
-    protected final View mRootView = cFA();
-    protected final View kTF = this.mRootView.findViewById(R.id.share_dialog_main_view);
-    private final TextView mZZ = (TextView) this.mRootView.findViewById(R.id.share_dialog_title);
+    private final List<View> nad = new ArrayList();
+    protected final View mRootView = cFB();
+    protected final View kTH = this.mRootView.findViewById(R.id.share_dialog_main_view);
+    private final TextView nab = (TextView) this.mRootView.findViewById(R.id.share_dialog_title);
 
     public c(Context context, boolean z, int i) {
         this.mIsLandscape = false;
@@ -101,26 +101,26 @@ public class c implements View.OnClickListener {
         this.mIsLandscape = z;
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
-            this.mZZ.setText(sharePanelText);
+            this.nab.setText(sharePanelText);
         }
-        this.naa = (ShareGridLayout) this.mRootView.findViewById(R.id.share_grid_layout);
-        ViewGroup.LayoutParams layoutParams = this.naa.getLayoutParams();
+        this.nac = (ShareGridLayout) this.mRootView.findViewById(R.id.share_grid_layout);
+        ViewGroup.LayoutParams layoutParams = this.nac.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.leftMargin = ShareGridLayout.nzH;
-            marginLayoutParams.rightMargin = ShareGridLayout.nzH;
-            this.naa.setLayoutParams(marginLayoutParams);
+            marginLayoutParams.leftMargin = ShareGridLayout.nzJ;
+            marginLayoutParams.rightMargin = ShareGridLayout.nzJ;
+            this.nac.setLayoutParams(marginLayoutParams);
         }
-        this.naa.setItemParams(hwY, hwZ);
-        this.naA = (EMTextView) this.mRootView.findViewById(R.id.btnShareCancel);
-        this.naA.setOnClickListener(this);
+        this.nac.setItemParams(hxa, hxb);
+        this.naC = (EMTextView) this.mRootView.findViewById(R.id.btnShareCancel);
+        this.naC.setOnClickListener(this);
     }
 
-    protected View cFA() {
+    protected View cFB() {
         return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.default_share_dialog_layout, (ViewGroup) null);
     }
 
-    private void bXz() {
+    private void bXA() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sharesdk.view.c.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -135,9 +135,9 @@ public class c implements View.OnClickListener {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private void dLm() {
-        ArrayList arrayList = new ArrayList(this.nab);
-        this.nab.clear();
+    private void dLn() {
+        ArrayList arrayList = new ArrayList(this.nad);
+        this.nad.clear();
         if (!Kn(this.hideMode)) {
             a(R.string.share_weixin, new com.baidu.tbadk.core.util.d.b(R.drawable.icon_mask_share_wechat40_svg));
         }
@@ -157,9 +157,9 @@ public class c implements View.OnClickListener {
             dw(R.string.share_save_pic, R.drawable.icon_pure_share_download40);
         }
         if (arrayList.size() > 0) {
-            this.nab.addAll(arrayList);
+            this.nad.addAll(arrayList);
         }
-        if (this.naB) {
+        if (this.naD) {
             dw(R.string.share_copy, R.drawable.icon_pure_share_copy40);
         }
     }
@@ -170,7 +170,7 @@ public class c implements View.OnClickListener {
             shareDialogItemView.setItemIcon(aVar);
             shareDialogItemView.setItemName(i);
             shareDialogItemView.setOnClickListener(this);
-            this.nab.add(shareDialogItemView.dLp());
+            this.nad.add(shareDialogItemView.dLq());
         }
     }
 
@@ -179,26 +179,26 @@ public class c implements View.OnClickListener {
         shareDialogItemView.setItemIcon(i2, ap.getColor(R.color.CAM_X0107));
         shareDialogItemView.setItemName(i);
         shareDialogItemView.setOnClickListener(this);
-        this.nab.add(shareDialogItemView.dLp());
+        this.nad.add(shareDialogItemView.dLq());
     }
 
     public LinearLayout dv(int i, int i2) {
         ShareDialogItemView shareDialogItemView = new ShareDialogItemView(this.mContext);
         shareDialogItemView.setItemIcon(i2, ap.getColor(R.color.CAM_X0107));
         shareDialogItemView.setItemName(i);
-        return shareDialogItemView.dLp();
+        return shareDialogItemView.dLq();
     }
 
-    public int dLh() {
-        if (this.nab == null) {
+    public int dLi() {
+        if (this.nad == null) {
             return 0;
         }
-        return this.nab.size();
+        return this.nad.size();
     }
 
     public void a(View view, int i, View.OnClickListener onClickListener) {
-        if (i <= this.nab.size() && i >= 0) {
-            this.nab.add(i, view);
+        if (i <= this.nad.size() && i >= 0) {
+            this.nad.add(i, view);
             if (onClickListener != null) {
                 view.setOnClickListener(new a(onClickListener));
             }
@@ -207,53 +207,53 @@ public class c implements View.OnClickListener {
 
     /* loaded from: classes24.dex */
     class a implements View.OnClickListener {
-        private View.OnClickListener nai;
+        private View.OnClickListener nak;
 
         public a(View.OnClickListener onClickListener) {
-            this.nai = onClickListener;
+            this.nak = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c.this.dismiss();
-            if (this.nai != null) {
-                this.nai.onClick(view);
+            if (this.nak != null) {
+                this.nak.onClick(view);
             }
         }
     }
 
     public void setIsCopyLink(boolean z) {
-        this.naB = z;
+        this.naD = z;
     }
 
     public void setCustomCopyTitle(int i) {
-        this.naC = i;
+        this.naE = i;
     }
 
     public void g(SparseArray<String> sparseArray) {
-        this.naf = sparseArray;
+        this.nah = sparseArray;
     }
 
     public void a(ShareItem shareItem, boolean z) {
-        Location ctq;
-        if (z && (ctq = ctq()) != null) {
-            shareItem.location = ctq;
+        Location ctr;
+        if (z && (ctr = ctr()) != null) {
+            shareItem.location = ctr;
         }
-        this.nad.put(1, shareItem);
+        this.naf.put(1, shareItem);
         if (!StringUtils.isNull(shareItem.fnz)) {
-            this.mZZ.setText(shareItem.fnz);
+            this.nab.setText(shareItem.fnz);
         }
     }
 
     public void b(int i, ShareItem shareItem, boolean z) {
-        Location ctq;
-        if (z && (ctq = ctq()) != null) {
-            shareItem.location = ctq;
+        Location ctr;
+        if (z && (ctr = ctr()) != null) {
+            shareItem.location = ctr;
         }
-        this.nad.put(i, shareItem);
+        this.naf.put(i, shareItem);
     }
 
-    private Location ctq() {
+    private Location ctr() {
         if (ae.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService("location");
             Criteria criteria = new Criteria();
@@ -273,20 +273,20 @@ public class c implements View.OnClickListener {
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.nac = onClickListener;
+            this.nae = onClickListener;
         }
     }
 
-    public void dLi() {
-        dLm();
+    public void dLj() {
+        dLn();
         if (!g.bAq()) {
-            this.naa.setVisibility(8);
+            this.nac.setVisibility(8);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.nab.size()) {
-                this.naa.addView(this.nab.get(i2), new ViewGroup.LayoutParams(hwY, hwZ));
+            if (i2 < this.nad.size()) {
+                this.nac.addView(this.nad.get(i2), new ViewGroup.LayoutParams(hxa, hxb));
                 i = i2 + 1;
             } else {
                 return;
@@ -300,7 +300,7 @@ public class c implements View.OnClickListener {
         } else if (!g.bAq()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
-            dLi();
+            dLj();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.view.c.3
@@ -323,7 +323,7 @@ public class c implements View.OnClickListener {
             if (this.mContext instanceof Activity) {
                 com.baidu.adp.lib.f.g.showDialog(this.mDialog, (Activity) this.mContext);
             }
-            com.baidu.tbadk.core.elementsMaven.c.bm(this.kTF).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
+            com.baidu.tbadk.core.elementsMaven.c.bm(this.kTH).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
             Window window = this.mDialog.getWindow();
             if (window != null) {
                 if (this.eOc) {
@@ -339,8 +339,8 @@ public class c implements View.OnClickListener {
                 b(window);
                 window.setContentView(this.mRootView);
                 window.setDimAmount(this.eOa);
-                dLj();
-                bXz();
+                dLk();
+                bXA();
                 i.J(this.mContext).registerListener(this.eOd);
             }
         }
@@ -362,7 +362,7 @@ public class c implements View.OnClickListener {
 
     public void dismiss() {
         if (this.mDialog != null) {
-            this.nae = false;
+            this.nag = false;
             if (this.mContext instanceof Activity) {
                 if (this.mOnDismissListener != null) {
                     this.mOnDismissListener.onDismiss(this.mDialog);
@@ -380,16 +380,16 @@ public class c implements View.OnClickListener {
         if (view.getTag() != null) {
             i = ((Integer) view.getTag()).intValue();
         }
-        if (id != R.id.btnShareCancel && i != R.drawable.icon_pure_share_copy40 && dLn()) {
-            this.nae = false;
+        if (id != R.id.btnShareCancel && i != R.drawable.icon_pure_share_copy40 && dLo()) {
+            this.nag = false;
             return;
         }
         if (i != R.drawable.icon_pure_share_download40) {
             dismiss();
         }
-        if (this.nad.size() != 0) {
-            if (id == R.id.btnShareCancel || !this.nae) {
-                this.nae = true;
+        if (this.naf.size() != 0) {
+            if (id == R.id.btnShareCancel || !this.nag) {
+                this.nag = true;
                 ShareItem Kl = Kl(1);
                 g gVar = new g(this.mContext, null);
                 if (Kl != null && Kl.fnU) {
@@ -545,7 +545,7 @@ public class c implements View.OnClickListener {
                     this.mPermissionJudgement.clearRequestPermissionList();
                     this.mPermissionJudgement.appendRequestPermission((Activity) this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE");
                     if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
-                        this.nae = false;
+                        this.nag = false;
                         return;
                     }
                     dismiss();
@@ -578,8 +578,8 @@ public class c implements View.OnClickListener {
                     arVar.al("obj_type", 1);
                 } else if (i == R.drawable.icon_pure_share_copy40) {
                     a(Kl, 10);
-                    if (this.nac != null) {
-                        this.nac.onClick(view);
+                    if (this.nae != null) {
+                        this.nae.onClick(view);
                     } else {
                         com.baidu.adp.lib.util.a.copyToClipboard(Kl.linkUrl);
                         l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(R.string.copy_pb_url_success));
@@ -645,25 +645,25 @@ public class c implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ShareItem Kl(int i) {
-        ShareItem shareItem = this.nad.get(i);
+        ShareItem shareItem = this.naf.get(i);
         if (shareItem == null) {
-            return this.nad.get(1);
+            return this.naf.get(1);
         }
         return shareItem;
     }
 
     private void Km(int i) {
         if (i <= 8 && i > 0) {
-            this.nae = true;
-            if (this.nag != null) {
-                af afVar = this.nag.get(i);
+            this.nag = true;
+            if (this.nai != null) {
+                af afVar = this.nai.get(i);
                 if (!StringUtils.isNull(afVar.bxI()) && afVar.bxJ() != null && afVar.bxJ().size() > 0) {
                     f(afVar.bxI(), afVar.bxJ());
                     return;
                 }
             }
-            if (this.naf != null) {
-                String str = this.naf.get(i);
+            if (this.nah != null) {
+                String str = this.nah.get(i);
                 if (!au.isEmpty(str)) {
                     f(str, new Object[0]);
                 }
@@ -738,10 +738,10 @@ public class c implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
-    public void dLj() {
-        com.baidu.tbadk.core.elementsMaven.c.bm(this.kTF).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
-        ap.setViewTextColor(this.mZZ, R.color.CAM_X0108, 1);
-        ap.k(this.naA, R.color.CAM_X0107);
+    public void dLk() {
+        com.baidu.tbadk.core.elementsMaven.c.bm(this.kTH).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
+        ap.setViewTextColor(this.nab, R.color.CAM_X0108, 1);
+        ap.k(this.naC, R.color.CAM_X0107);
     }
 
     private String l(ShareItem shareItem) {
@@ -784,12 +784,12 @@ public class c implements View.OnClickListener {
     public void b(ShareDialogConfig.From from) {
         com.baidu.tbadk.coreExtra.data.ae sharePanelConfData = TbSingleton.getInstance().getSharePanelConfData();
         if (sharePanelConfData != null && sharePanelConfData.a(from) && sharePanelConfData.bxG() && !au.isEmpty(sharePanelConfData.getText())) {
-            this.mZZ.setText(sharePanelConfData.getText());
+            this.nab.setText(sharePanelConfData.getText());
         }
     }
 
-    public boolean dLn() {
-        return this.naD == 2 && blP();
+    public boolean dLo() {
+        return this.naF == 2 && blP();
     }
 
     private boolean blP() {
@@ -805,7 +805,7 @@ public class c implements View.OnClickListener {
     }
 
     public void Kt(int i) {
-        this.naD = i;
+        this.naF = i;
     }
 
     public void xH(boolean z) {

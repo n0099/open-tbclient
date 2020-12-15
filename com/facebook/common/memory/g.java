@@ -10,7 +10,7 @@ public interface g {
 
     PooledByteBuffer b(InputStream inputStream, int i) throws IOException;
 
-    i epY();
+    i epZ();
 
     PooledByteBuffer s(InputStream inputStream) throws IOException;
 }

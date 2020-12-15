@@ -110,7 +110,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
             }
             ab abVar = (ab) c.a(ab.SERVICE_REFERENCE);
             if (abVar != null) {
-                Log.d(TAG, "ubc isDebug: " + abVar.ejc());
+                Log.d(TAG, "ubc isDebug: " + abVar.ejd());
                 Log.d(TAG, "content: " + jSONObject.toString());
                 abVar.onEvent(perfExpInfo.getUbcId(), jSONObject);
             }

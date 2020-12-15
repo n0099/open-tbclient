@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.ar;
 @CoordinatorLayout.DefaultBehavior(StickyAppBarLayoutBehavior.class)
 /* loaded from: classes22.dex */
 public class StickyAppBarLayout extends AppBarLayout {
-    private StickyAppBarLayoutBehavior jOh;
-    private a jOi;
+    private StickyAppBarLayoutBehavior jOj;
+    private a jOk;
     CustomMessageListener listener;
     private int mSkinType;
 
@@ -33,9 +33,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cOI();
-                    } else if (!StickyAppBarLayout.this.isSticky()) {
                         StickyAppBarLayout.this.cOJ();
+                    } else if (!StickyAppBarLayout.this.isSticky()) {
+                        StickyAppBarLayout.this.cOK();
                     }
                 }
             }
@@ -52,9 +52,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cOI();
-                    } else if (!StickyAppBarLayout.this.isSticky()) {
                         StickyAppBarLayout.this.cOJ();
+                    } else if (!StickyAppBarLayout.this.isSticky()) {
+                        StickyAppBarLayout.this.cOK();
                     }
                 }
             }
@@ -64,55 +64,55 @@ public class StickyAppBarLayout extends AppBarLayout {
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        cOH();
+        cOI();
     }
 
-    private void cOH() {
+    private void cOI() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.jOh = (StickyAppBarLayoutBehavior) behavior;
+                this.jOj = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
-    public boolean cOI() {
-        if (this.jOh == null) {
-            cOH();
+    public boolean cOJ() {
+        if (this.jOj == null) {
+            cOI();
         }
-        if (this.jOh != null) {
-            if (isSticky() && this.jOh.cON() != null && this.jOh.cON().getVisibility() == 0) {
-                cOK();
+        if (this.jOj != null) {
+            if (isSticky() && this.jOj.cOO() != null && this.jOj.cOO().getVisibility() == 0) {
+                cOL();
             }
-            this.jOh.cOL();
+            this.jOj.cOM();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cOJ() {
-        if (this.jOh == null) {
-            cOH();
+    public boolean cOK() {
+        if (this.jOj == null) {
+            cOI();
         }
-        if (this.jOh != null) {
-            this.jOh.cOM();
+        if (this.jOj != null) {
+            this.jOj.cON();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.jOh == null) {
-            cOH();
+        if (this.jOj == null) {
+            cOI();
         }
-        if (this.jOh != null) {
-            return this.jOh.isSticky();
+        if (this.jOj != null) {
+            return this.jOj.isSticky();
         }
         return false;
     }
 
-    private void cOK() {
+    private void cOL() {
         ar arVar = new ar("c13422");
         arVar.al("obj_type", 1);
         arVar.al("obj_locate", 1);
@@ -122,11 +122,11 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.jOi = aVar;
+        this.jOk = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.jOi;
+        return this.jOk;
     }
 
     @Override // android.view.ViewGroup, android.view.View

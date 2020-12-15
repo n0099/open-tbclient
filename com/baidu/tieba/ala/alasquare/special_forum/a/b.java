@@ -9,7 +9,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.f.gtl);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.f.gtn);
         this.mPageContext = tbPageContext;
     }
 
@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (aVar == null || fVar == null) {
             return null;
         }
-        aVar.gyR.a(fVar);
+        aVar.gyT.a(fVar);
         return aVar.getView();
     }
 }

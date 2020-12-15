@@ -8,26 +8,26 @@ import org.json.JSONObject;
 /* loaded from: classes22.dex */
 public class c {
     public boolean hasMore;
-    public b jnJ;
-    public List<q> jnK;
-    public int jnz;
+    public int jnB;
+    public b jnL;
+    public List<q> jnM;
 
     public c(JSONObject jSONObject) {
         int length;
         if (jSONObject != null) {
-            this.jnz = jSONObject.optInt("current_pn");
+            this.jnB = jSONObject.optInt("current_pn");
             this.hasMore = jSONObject.optInt("has_more", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("main_comment");
             if (optJSONObject != null) {
-                this.jnJ = new b(optJSONObject);
+                this.jnL = new b(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("sub_comment");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
-                this.jnK = new ArrayList(length);
+                this.jnM = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
                     d dVar = new d(optJSONArray.optJSONObject(i));
                     if (dVar != null) {
-                        this.jnK.add(dVar);
+                        this.jnM.add(dVar);
                     }
                 }
             }

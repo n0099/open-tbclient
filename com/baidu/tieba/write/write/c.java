@@ -18,8 +18,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class c {
     private String enb;
-    private ArrayList<String> nTy;
-    private final String obt = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private ArrayList<String> nTA;
+    private final String obv = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !y.isEmpty(this.nTy)) {
+        if (spannable != null && !y.isEmpty(this.nTA)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.nTy.iterator();
+                Iterator<String> it = this.nTA.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (y.isEmpty(dYm())) {
+        if (y.isEmpty(dYn())) {
             return false;
         }
         return i(editText) || i(editText2);
@@ -114,18 +114,18 @@ public class c {
     }
 
     public void bn(ArrayList<String> arrayList) {
-        this.nTy = arrayList;
+        this.nTA = arrayList;
     }
 
-    public ArrayList<String> dYm() {
-        return this.nTy;
+    public ArrayList<String> dYn() {
+        return this.nTA;
     }
 
     public void VA(String str) {
         this.enb = str;
     }
 
-    public String dYq() {
+    public String dYr() {
         return this.enb;
     }
 

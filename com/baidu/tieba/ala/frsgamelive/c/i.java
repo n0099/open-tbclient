@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class i extends com.baidu.adp.widget.ListView.c {
-    private ImageView gMS;
-    private TextView gMT;
+    private ImageView gMU;
+    private TextView gMV;
     private View mBottomLine;
     private View.OnClickListener mClickListener;
     private Context mContext;
@@ -26,8 +26,8 @@ public class i extends com.baidu.adp.widget.ListView.c {
     @Override // com.baidu.adp.widget.ListView.c
     public View createView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-        this.gMT = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
-        this.gMS = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
+        this.gMV = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
+        this.gMU = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
         this.mTopLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_top_line);
         this.mBottomLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_bottom_line);
         vJ(TbadkCoreApplication.getInst().getSkinType());
@@ -38,11 +38,11 @@ public class i extends com.baidu.adp.widget.ListView.c {
         if (this.mRootView != null) {
             ap.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
         }
-        if (this.gMT != null) {
-            ap.setViewTextColor(this.gMT, (int) R.color.CAM_X0304);
+        if (this.gMV != null) {
+            ap.setViewTextColor(this.gMV, (int) R.color.CAM_X0304);
         }
-        if (this.gMS != null) {
-            ap.setImageResource(this.gMS, R.drawable.icon_inf_arrowblue_n);
+        if (this.gMU != null) {
+            ap.setImageResource(this.gMU, R.drawable.icon_inf_arrowblue_n);
         }
         if (this.mTopLine != null) {
             ap.setBackgroundResource(this.mTopLine, R.color.CAM_X0204);

@@ -15,49 +15,49 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class c {
     private List<q> dataList;
-    private List<q> guC;
+    private List<q> guE;
     private com.baidu.tieba.ala.alasquare.live_tab.b.a hotLiveInfo;
     private com.baidu.tieba.ala.alasquare.live_tab.b.d officialRecommendLiveInfo;
     private g stageLiveInfo;
     private j tabAllLiveInfo;
     private boolean hasMore = false;
-    private List<String> guy = new ArrayList();
-    private List<SdkLiveInfoData> guz = new ArrayList();
-    private List<q> guA = new ArrayList();
+    private List<String> guA = new ArrayList();
+    private List<SdkLiveInfoData> guB = new ArrayList();
+    private List<q> guC = new ArrayList();
 
     public c(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         this.stageLiveInfo = alaTabLiveResponsedMessage.stageLiveInfo;
         this.hotLiveInfo = alaTabLiveResponsedMessage.hotLiveInfo;
         this.officialRecommendLiveInfo = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
         this.tabAllLiveInfo = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        bSx();
+        bSy();
     }
 
-    private void bSx() {
-        this.guC = new ArrayList();
+    private void bSy() {
+        this.guE = new ArrayList();
         if (this.stageLiveInfo != null && this.stageLiveInfo.isValid()) {
             f fVar = new f();
-            fVar.grL = this.stageLiveInfo;
-            this.guC.add(fVar);
-            this.guy.add(this.stageLiveInfo.grM.liveId);
+            fVar.grN = this.stageLiveInfo;
+            this.guE.add(fVar);
+            this.guA.add(this.stageLiveInfo.grO.liveId);
         }
         if (this.hotLiveInfo != null) {
-            ArrayList<q> bSy = bSy();
-            if (!y.isEmpty(bSy)) {
-                this.guC.addAll(bSy);
+            ArrayList<q> bSz = bSz();
+            if (!y.isEmpty(bSz)) {
+                this.guE.addAll(bSz);
             }
         }
-        if (this.officialRecommendLiveInfo != null && !y.isEmpty(this.officialRecommendLiveInfo.grE)) {
+        if (this.officialRecommendLiveInfo != null && !y.isEmpty(this.officialRecommendLiveInfo.grG)) {
             com.baidu.tieba.ala.alasquare.live_tab.b.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.b.c();
-            cVar.grG = this.officialRecommendLiveInfo;
-            this.guC.add(cVar);
+            cVar.grI = this.officialRecommendLiveInfo;
+            this.guE.add(cVar);
         }
-        this.dataList = new ArrayList(this.guC);
+        this.dataList = new ArrayList(this.guE);
         a(this.tabAllLiveInfo);
     }
 
-    private ArrayList<q> bSy() {
-        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.grE;
+    private ArrayList<q> bSz() {
+        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.grG;
         if (arrayList == null || arrayList.size() < 2) {
             return null;
         }
@@ -65,9 +65,9 @@ public class c {
         for (SdkLiveInfoData sdkLiveInfoData : arrayList) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.liveId;
-                if (!this.guy.contains(str)) {
+                if (!this.guA.contains(str)) {
                     arrayList2.add(sdkLiveInfoData);
-                    this.guy.add(str);
+                    this.guA.add(str);
                 }
             }
         }
@@ -90,7 +90,7 @@ public class c {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.grE;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.grG;
         if (y.isEmpty(arrayList)) {
             return false;
         }
@@ -100,18 +100,18 @@ public class c {
             SdkLiveInfoData next = it.next();
             if (next != null && (!au.equals(next.source, "jiaoyoufang") || com.baidu.tieba.ala.alasquare.live_tab.c.a(next))) {
                 String str = next.liveId;
-                if (!this.guy.contains(str)) {
+                if (!this.guA.contains(str)) {
                     arrayList2.add(next);
-                    this.guy.add(str);
+                    this.guA.add(str);
                 }
             }
         }
         if (y.isEmpty(arrayList2)) {
             return false;
         }
-        this.guz.addAll(arrayList2);
-        this.guA = ce(this.guz);
-        return !y.isEmpty(this.guA);
+        this.guB.addAll(arrayList2);
+        this.guC = ce(this.guB);
+        return !y.isEmpty(this.guC);
     }
 
     private ArrayList<q> ce(List<SdkLiveInfoData> list) {
@@ -120,17 +120,17 @@ public class c {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.gpC = list.get(i);
+            aVar.gpE = list.get(i);
             aVar.isLeft = true;
-            eVar.grI = aVar;
+            eVar.grK = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.gpC = list.get(i + 1);
-                eVar.grJ = aVar2;
+                aVar2.gpE = list.get(i + 1);
+                eVar.grL = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.gpD = true;
+                aVar.gpF = true;
             }
             arrayList.add(eVar);
         }
@@ -146,8 +146,8 @@ public class c {
         if (!y.isEmpty(this.dataList)) {
             arrayList.addAll(this.dataList);
         }
-        if (!y.isEmpty(this.guA)) {
-            arrayList.addAll(this.guA);
+        if (!y.isEmpty(this.guC)) {
+            arrayList.addAll(this.guC);
         }
         return arrayList;
     }
@@ -157,20 +157,20 @@ public class c {
         this.hotLiveInfo = null;
         this.officialRecommendLiveInfo = null;
         this.hasMore = false;
-        if (this.guC != null) {
-            this.guC.clear();
+        if (this.guE != null) {
+            this.guE.clear();
         }
         if (this.dataList != null) {
             this.dataList.clear();
         }
-        if (this.guy != null) {
-            this.guy.clear();
-        }
-        if (this.guz != null) {
-            this.guz.clear();
-        }
         if (this.guA != null) {
             this.guA.clear();
+        }
+        if (this.guB != null) {
+            this.guB.clear();
+        }
+        if (this.guC != null) {
+            this.guC.clear();
         }
     }
 }

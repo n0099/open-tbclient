@@ -12,11 +12,11 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends BaseAdapter {
     public List<com.baidu.live.ar.g> aEU = new ArrayList();
-    private int gmm = -1;
-    private int gmn = -1;
-    private int gnK = 0;
-    private ViewGroup gnY;
-    private a goh;
+    private int gmo = -1;
+    private int gmp = -1;
+    private int gnM = 0;
+    private ViewGroup goa;
+    private a goj;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,11 +24,11 @@ public class d extends BaseAdapter {
     }
 
     public d(ViewGroup viewGroup) {
-        this.gnY = viewGroup;
+        this.goa = viewGroup;
     }
 
     public void a(a aVar) {
-        this.goh = aVar;
+        this.goj = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -55,7 +55,7 @@ public class d extends BaseAdapter {
         if (!ListUtils.isEmpty(list)) {
             this.aEU.clear();
             this.aEU.addAll(list);
-            this.gmm = i;
+            this.gmo = i;
             notifyDataSetChanged();
         }
     }
@@ -68,7 +68,7 @@ public class d extends BaseAdapter {
     public View getView(final int i, View view, ViewGroup viewGroup) {
         final e eVar;
         if (view == null) {
-            view = LayoutInflater.from(this.gnY.getContext()).inflate(a.g.face_feature_ar_item_layout, (ViewGroup) null);
+            view = LayoutInflater.from(this.goa.getContext()).inflate(a.g.face_feature_ar_item_layout, (ViewGroup) null);
             eVar = new e(view);
             view.setTag(eVar);
         } else {
@@ -86,14 +86,14 @@ public class d extends BaseAdapter {
         });
         if (eVar != null) {
             eVar.a(getItem(i));
-            if (this.gmm == i) {
-                eVar.bRv();
+            if (this.gmo == i) {
+                eVar.bRw();
             } else {
-                eVar.bRu();
+                eVar.bRv();
             }
         }
-        if (i == 0 && this.gnK != 0) {
-            view.setPadding(this.gnK, 0, 0, 0);
+        if (i == 0 && this.gnM != 0) {
+            view.setPadding(this.gnM, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -103,11 +103,11 @@ public class d extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.ar.g gVar, int i, e eVar, int[] iArr, boolean z) {
         if (gVar != null) {
-            this.gmn = i;
-            if (this.goh != null) {
-                this.goh.i(i, eVar.mRootView, z);
+            this.gmp = i;
+            if (this.goj != null) {
+                this.goj.i(i, eVar.mRootView, z);
             }
-            this.gmm = i;
+            this.gmo = i;
             if (com.baidu.live.d.BM().getInt("beauty_subitem_redot", 0) == 1) {
                 com.baidu.live.d.BM().putBoolean(gVar.getType(), false);
             }
@@ -138,6 +138,6 @@ public class d extends BaseAdapter {
     }
 
     public void uK(int i) {
-        this.gnK = i;
+        this.gnM = i;
     }
 }

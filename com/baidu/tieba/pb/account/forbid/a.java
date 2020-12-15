@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.au;
 import java.lang.ref.WeakReference;
 /* loaded from: classes22.dex */
 public class a {
-    private static final String lzb = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String lzd = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes22.dex */
     public interface b {
@@ -29,8 +29,8 @@ public class a {
     private static class C0826a extends BdAsyncTask<String, Object, ForbidResultData> {
         private String fnb;
         private String fnf;
-        private String lzc;
-        private WeakReference<b> lzd;
+        private String lze;
+        private WeakReference<b> lzf;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -43,12 +43,12 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.lzc = str6;
+            this.lze = str6;
             this.fnf = str8;
             this.fnb = str9;
             this.mReason = str7;
             this.mPostId = str5;
-            this.lzd = new WeakReference<>(bVar);
+            this.lzf = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -57,8 +57,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: Q */
         public ForbidResultData doInBackground(String... strArr) {
-            aa aaVar = new aa(a.lzb);
-            aaVar.addPostData("day", this.lzc);
+            aa aaVar = new aa(a.lzd);
+            aaVar.addPostData("day", this.lze);
             aaVar.addPostData("un", this.mUserName);
             aaVar.addPostData("fid", this.mForumId);
             aaVar.addPostData("word", this.mForumName);
@@ -92,7 +92,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.lzd.get();
+            b bVar = this.lzf.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && au.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

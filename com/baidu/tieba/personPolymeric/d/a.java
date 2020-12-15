@@ -24,62 +24,62 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
 /* loaded from: classes24.dex */
 public class a extends af.a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a mtl;
-    private static String mtm;
+    private static com.baidu.adp.widget.ImageView.a mtn;
+    private static String mto;
     public TextView aky;
     public TextView fcE;
     public TextView fdz;
-    private final LinearLayout loa;
+    private final LinearLayout lod;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
-    public ReplyLinearLayout mtg;
-    public TextView mth;
-    protected final LinearLayout mti;
-    protected final ColumnLayout mtj;
-    protected final ColumnLayout mtk;
-    private int mtn;
-    public LinearLayout mto;
-    public HeadImageView mtp;
-    public TextView mtq;
+    public ReplyLinearLayout mti;
+    public TextView mtj;
+    protected final LinearLayout mtk;
+    protected final ColumnLayout mtl;
+    protected final ColumnLayout mtm;
+    private int mtp;
+    public LinearLayout mtq;
+    public HeadImageView mtr;
+    public TextView mts;
 
     public a(View view, TbPageContext<?> tbPageContext, boolean z) {
         super(view);
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.mtg = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-        this.mtg.setIsHost(this.mIsHost);
-        this.mth = (TextView) view.findViewById(R.id.original_post_title);
-        this.mto = (LinearLayout) view.findViewById(R.id.top_line);
-        this.mtp = (HeadImageView) view.findViewById(R.id.portrait);
+        this.mti = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+        this.mti.setIsHost(this.mIsHost);
+        this.mtj = (TextView) view.findViewById(R.id.original_post_title);
+        this.mtq = (LinearLayout) view.findViewById(R.id.top_line);
+        this.mtr = (HeadImageView) view.findViewById(R.id.portrait);
         this.aky = (TextView) view.findViewById(R.id.username);
         this.fcE = (TextView) view.findViewById(R.id.reply_time);
         this.fdz = (TextView) view.findViewById(R.id.forum_name);
-        this.mtq = (TextView) view.findViewById(R.id.reply_count);
-        this.loa = (LinearLayout) view.findViewById(R.id.item_content);
-        this.mtj = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.mtk = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.mti = (LinearLayout) view.findViewById(R.id.person_child);
-        this.mtn = l.dip2px(view.getContext(), 42.0f);
-        if (this.loa != null) {
-            this.loa.setOnClickListener(this);
+        this.mts = (TextView) view.findViewById(R.id.reply_count);
+        this.lod = (LinearLayout) view.findViewById(R.id.item_content);
+        this.mtl = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.mtm = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.mtk = (LinearLayout) view.findViewById(R.id.person_child);
+        this.mtp = l.dip2px(view.getContext(), 42.0f);
+        if (this.lod != null) {
+            this.lod.setOnClickListener(this);
         }
-        this.mtp.setOnClickListener(this);
+        this.mtr.setOnClickListener(this);
         this.aky.setOnClickListener(this);
         this.fdz.setOnClickListener(this);
-        this.mtq.setOnClickListener(this);
+        this.mts.setOnClickListener(this);
+        this.mtl.setOnClickListener(this);
+        this.mtm.setOnClickListener(this);
         this.mtj.setOnClickListener(this);
-        this.mtk.setOnClickListener(this);
-        this.mth.setOnClickListener(this);
     }
 
     public void changeSkin(int i) {
-        ap.setBackgroundResource(this.mth, R.color.CAM_X0205);
+        ap.setBackgroundResource(this.mtj, R.color.CAM_X0205);
         ap.setBackgroundColor(getView(), R.color.CAM_X0204);
-        ap.setBackgroundResource(this.mti, R.drawable.daily_recommend_item_selector);
+        ap.setBackgroundResource(this.mtk, R.drawable.daily_recommend_item_selector);
         ap.setViewTextColor(this.aky, R.color.CAM_X0109, 1);
         ap.setViewTextColor(this.fcE, R.color.CAM_X0109, 1);
         ap.setViewTextColor(this.fdz, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.mtq, R.color.CAM_X0109, 1);
+        ap.setViewTextColor(this.mts, R.color.CAM_X0109, 1);
     }
 
     @Override // android.view.View.OnClickListener
@@ -90,7 +90,7 @@ public class a extends af.a implements View.OnClickListener {
             if (this.mPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view == this.mth && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+        } else if (view == this.mtj && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                 createNormalCfg.setStartFrom(4);
@@ -199,26 +199,26 @@ public class a extends af.a implements View.OnClickListener {
             this.fcE.setText(str3);
             this.fdz.setText(str2);
             this.fdz.setTag(str2);
-            this.mtq.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
+            this.mts.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
             this.fdz.setOnClickListener(this);
             Rl(str);
-            if (this.loa != null) {
-                this.loa.setTag(strArr);
+            if (this.lod != null) {
+                this.lod.setTag(strArr);
             }
-            this.mtj.setTag(strArr);
-            this.mtk.setTag(strArr);
+            this.mtl.setTag(strArr);
+            this.mtm.setTag(strArr);
         }
     }
 
     private void Rl(String str) {
-        if (mtm != null && !mtm.equals(str)) {
-            mtl = null;
+        if (mto != null && !mto.equals(str)) {
+            mtn = null;
         }
-        if (mtl != null) {
-            this.mtp.setImageBitmap(mtl.getRawBitmap());
-            mtm = str;
+        if (mtn != null) {
+            this.mtr.setImageBitmap(mtn.getRawBitmap());
+            mto = str;
             return;
         }
-        this.mtp.a(str, 12, this.mtn, this.mtn, false);
+        this.mtr.a(str, 12, this.mtp, this.mtp, false);
     }
 }

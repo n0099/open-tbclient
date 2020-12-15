@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a iDE;
-    private b iDG;
+    private a iDG;
+    private b iDI;
     private int mScrollState = -1;
-    private int iDF = 0;
+    private int iDH = 0;
 
     /* loaded from: classes22.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.iDF != 0 && this.iDG != null) {
-                    this.iDG.a(absListView, 0, -this.iDF);
+                if (this.iDH != 0 && this.iDI != null) {
+                    this.iDI.a(absListView, 0, -this.iDH);
                 }
-                this.iDF = 0;
-                this.iDE = null;
+                this.iDH = 0;
+                this.iDG = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.iDE == null) {
-                this.iDE = aVar;
-                this.iDF = absListView.getPaddingTop() - childAt.getTop();
-                if (this.iDG != null) {
-                    this.iDG.a(absListView, this.iDF, 0);
+            if (this.iDG == null) {
+                this.iDG = aVar;
+                this.iDH = absListView.getPaddingTop() - childAt.getTop();
+                if (this.iDI != null) {
+                    this.iDI.a(absListView, this.iDH, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.iDE.a(aVar);
-            this.iDE = aVar;
-            this.iDF += a2;
-            if (this.iDG != null) {
-                this.iDG.a(absListView, this.iDF, a2);
+            int a2 = this.iDG.a(aVar);
+            this.iDG = aVar;
+            this.iDH += a2;
+            if (this.iDI != null) {
+                this.iDI.a(absListView, this.iDH, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.iDG = bVar;
+        this.iDI = bVar;
     }
 
     /* loaded from: classes22.dex */

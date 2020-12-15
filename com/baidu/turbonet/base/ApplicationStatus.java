@@ -13,13 +13,13 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes14.dex */
 public class ApplicationStatus {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static Object oAS;
-    private static Integer oAT;
-    private static Activity oAU;
-    private static c oAV;
-    private static final Map<Activity, a> oAW;
-    private static final com.baidu.turbonet.base.b<b> oAX;
-    private static final com.baidu.turbonet.base.b<c> oAY;
+    private static Object oAU;
+    private static Integer oAV;
+    private static Activity oAW;
+    private static c oAX;
+    private static final Map<Activity, a> oAY;
+    private static final com.baidu.turbonet.base.b<b> oAZ;
+    private static final com.baidu.turbonet.base.b<c> oBa;
 
     /* loaded from: classes14.dex */
     public interface b {
@@ -36,21 +36,21 @@ public class ApplicationStatus {
 
     static {
         $assertionsDisabled = !ApplicationStatus.class.desiredAssertionStatus();
-        oAS = new Object();
-        oAW = new ConcurrentHashMap();
-        oAX = new com.baidu.turbonet.base.b<>();
-        oAY = new com.baidu.turbonet.base.b<>();
+        oAU = new Object();
+        oAY = new ConcurrentHashMap();
+        oAZ = new com.baidu.turbonet.base.b<>();
+        oBa = new com.baidu.turbonet.base.b<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes14.dex */
     public static class a {
         private int mStatus;
-        private com.baidu.turbonet.base.b<b> oBa;
+        private com.baidu.turbonet.base.b<b> oBc;
 
         private a() {
             this.mStatus = 6;
-            this.oBa = new com.baidu.turbonet.base.b<>();
+            this.oBc = new com.baidu.turbonet.base.b<>();
         }
 
         public int getStatus() {
@@ -61,8 +61,8 @@ public class ApplicationStatus {
             this.mStatus = i;
         }
 
-        public com.baidu.turbonet.base.b<b> egH() {
-            return this.oBa;
+        public com.baidu.turbonet.base.b<b> egI() {
+            return this.oBc;
         }
     }
 
@@ -74,8 +74,8 @@ public class ApplicationStatus {
             @Override // com.baidu.turbonet.base.BaseChromiumApplication.b
             public void m(Activity activity, boolean z) {
                 int aE;
-                if (z && activity != ApplicationStatus.oAU && (aE = ApplicationStatus.aE(activity)) != 6 && aE != 5) {
-                    Activity unused = ApplicationStatus.oAU = activity;
+                if (z && activity != ApplicationStatus.oAW && (aE = ApplicationStatus.aE(activity)) != 6 && aE != 5) {
+                    Activity unused = ApplicationStatus.oAW = activity;
                 }
             }
         });
@@ -121,46 +121,46 @@ public class ApplicationStatus {
         if (activity == null) {
             throw new IllegalArgumentException("null activity is not supported");
         }
-        if (oAU == null || i == 1 || i == 3 || i == 2) {
-            oAU = activity;
+        if (oAW == null || i == 1 || i == 3 || i == 2) {
+            oAW = activity;
         }
         int stateForApplication = getStateForApplication();
         if (i == 1) {
-            if (!$assertionsDisabled && oAW.containsKey(activity)) {
+            if (!$assertionsDisabled && oAY.containsKey(activity)) {
                 throw new AssertionError();
             }
-            oAW.put(activity, new a());
+            oAY.put(activity, new a());
         }
-        synchronized (oAS) {
-            oAT = null;
+        synchronized (oAU) {
+            oAV = null;
         }
-        a aVar = oAW.get(activity);
+        a aVar = oAY.get(activity);
         aVar.setStatus(i);
-        Iterator<b> it = aVar.egH().iterator();
+        Iterator<b> it = aVar.egI().iterator();
         while (it.hasNext()) {
             it.next().l(activity, i);
         }
-        Iterator<b> it2 = oAX.iterator();
+        Iterator<b> it2 = oAZ.iterator();
         while (it2.hasNext()) {
             it2.next().l(activity, i);
         }
         int stateForApplication2 = getStateForApplication();
         if (stateForApplication2 != stateForApplication) {
-            Iterator<c> it3 = oAY.iterator();
+            Iterator<c> it3 = oBa.iterator();
             while (it3.hasNext()) {
                 it3.next().NZ(stateForApplication2);
             }
         }
         if (i == 6) {
-            oAW.remove(activity);
-            if (activity == oAU) {
-                oAU = null;
+            oAY.remove(activity);
+            if (activity == oAW) {
+                oAW = null;
             }
         }
     }
 
     public static int aE(Activity activity) {
-        a aVar = oAW.get(activity);
+        a aVar = oAY.get(activity);
         if (aVar != null) {
             return aVar.getStatus();
         }
@@ -170,17 +170,17 @@ public class ApplicationStatus {
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (oAS) {
-            if (oAT == null) {
-                oAT = Integer.valueOf(egE());
+        synchronized (oAU) {
+            if (oAV == null) {
+                oAV = Integer.valueOf(egF());
             }
-            intValue = oAT.intValue();
+            intValue = oAV.intValue();
         }
         return intValue;
     }
 
     public static void a(c cVar) {
-        oAY.aT(cVar);
+        oBa.aT(cVar);
     }
 
     @CalledByNative
@@ -188,25 +188,25 @@ public class ApplicationStatus {
         ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.turbonet.base.ApplicationStatus.3
             @Override // java.lang.Runnable
             public void run() {
-                if (ApplicationStatus.oAV == null) {
-                    c unused = ApplicationStatus.oAV = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
+                if (ApplicationStatus.oAX == null) {
+                    c unused = ApplicationStatus.oAX = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
                         @Override // com.baidu.turbonet.base.ApplicationStatus.c
                         public void NZ(int i) {
                             ApplicationStatus.nativeOnApplicationStateChange(i);
                         }
                     };
-                    ApplicationStatus.a(ApplicationStatus.oAV);
+                    ApplicationStatus.a(ApplicationStatus.oAX);
                 }
             }
         });
     }
 
-    private static int egE() {
+    private static int egF() {
         boolean z;
         boolean z2;
         boolean z3 = false;
         boolean z4 = false;
-        for (a aVar : oAW.values()) {
+        for (a aVar : oAY.values()) {
             int status = aVar.getStatus();
             if (status != 4 && status != 5 && status != 6) {
                 return 1;

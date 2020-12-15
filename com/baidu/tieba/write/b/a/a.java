@@ -1,9 +1,10 @@
 package com.baidu.tieba.write.b.a;
 
 import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.e.c.d {
-    private static String nXa = "";
+    private static String nXc = "";
 
     @Override // com.baidu.e.c.d
     public String getDeviceId() {
@@ -17,11 +18,11 @@ public class a implements com.baidu.e.c.d {
 
     @Override // com.baidu.e.c.d
     public String getZid() {
-        return nXa;
+        return nXc;
     }
 
     public static void setZid(String str) {
-        nXa = str;
+        nXc = str;
     }
 
     @Override // com.baidu.e.c.d
@@ -36,12 +37,12 @@ public class a implements com.baidu.e.c.d {
 
     @Override // com.baidu.e.c.d
     public String getFrom() {
-        return null;
+        return TbConfig.getCurrentFrom();
     }
 
     @Override // com.baidu.e.c.d
     public String getCfrom() {
-        return null;
+        return TbConfig.getCurrentFrom();
     }
 
     @Override // com.baidu.e.c.d

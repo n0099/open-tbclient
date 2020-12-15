@@ -85,62 +85,62 @@ public class a extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_live_audience_header_image, (ViewGroup) null);
             C0680a c0680a2 = new C0680a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                c0680a2.hhU.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
+                c0680a2.hhW.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
             } else {
-                c0680a2.hhU.setDefaultResource(a.e.sdk_icon_default_avatar100);
+                c0680a2.hhW.setDefaultResource(a.e.sdk_icon_default_avatar100);
             }
-            c0680a2.hhU.setIsRound(true);
-            c0680a2.hhU.setDrawBorder(true);
-            c0680a2.hhU.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-            c0680a2.hhU.setAutoChangeStyle(false);
-            c0680a2.hhU.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0680a2.hhV.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            c0680a2.hhW.setIsRound(true);
+            c0680a2.hhW.setDrawBorder(true);
+            c0680a2.hhW.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            c0680a2.hhW.setAutoChangeStyle(false);
+            c0680a2.hhW.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0680a2.hhX.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             view.setTag(c0680a2);
             c0680a = c0680a2;
         } else {
             c0680a = (C0680a) view.getTag();
         }
         p pVar = (p) getItem(i);
-        c0680a.hhU.setDrawBorder(true);
+        c0680a.hhW.setDrawBorder(true);
         if (pVar.aJY == 1 && pVar.aJV.totalPrice > 0) {
-            c0680a.hhV.setVisibility(0);
-            c0680a.hhV.setImageResource(a.e.pic_live_top1);
-            c0680a.hhW.setBackgroundResource(a.e.round_header_day_list_bg_1);
+            c0680a.hhX.setVisibility(0);
+            c0680a.hhX.setImageResource(a.e.pic_live_top1);
+            c0680a.hhY.setBackgroundResource(a.e.round_header_day_list_bg_1);
         } else if (pVar.aJY == 2 && pVar.aJV.totalPrice > 0) {
-            c0680a.hhV.setVisibility(0);
-            c0680a.hhV.setImageResource(a.e.pic_live_top2);
-            c0680a.hhW.setBackgroundResource(a.e.round_header_day_list_bg_2);
+            c0680a.hhX.setVisibility(0);
+            c0680a.hhX.setImageResource(a.e.pic_live_top2);
+            c0680a.hhY.setBackgroundResource(a.e.round_header_day_list_bg_2);
         } else if (pVar.aJY == 3 && pVar.aJV.totalPrice > 0) {
-            c0680a.hhV.setVisibility(0);
-            c0680a.hhV.setImageResource(a.e.pic_live_top3);
-            c0680a.hhW.setBackgroundResource(a.e.round_header_day_list_bg_3);
+            c0680a.hhX.setVisibility(0);
+            c0680a.hhX.setImageResource(a.e.pic_live_top3);
+            c0680a.hhY.setBackgroundResource(a.e.round_header_day_list_bg_3);
         } else {
-            c0680a.hhV.setVisibility(8);
-            c0680a.hhW.setBackgroundResource(a.e.round_header_day_list_bg_normal);
+            c0680a.hhX.setVisibility(8);
+            c0680a.hhY.setBackgroundResource(a.e.round_header_day_list_bg_normal);
         }
-        c0680a.hhW.setText(StringHelper.formatForHeaderDayCharmValue(pVar.aJV.totalPrice));
+        c0680a.hhY.setText(StringHelper.formatForHeaderDayCharmValue(pVar.aJV.totalPrice));
         if (pVar.aJV.totalPrice <= 0) {
-            c0680a.hhW.setVisibility(4);
+            c0680a.hhY.setVisibility(4);
         } else {
-            c0680a.hhW.setVisibility(0);
+            c0680a.hhY.setVisibility(0);
         }
-        l.a(c0680a.hhU, pVar.aJV.portrait, true, !StringUtils.isNull(pVar.aJV.appId));
+        l.a(c0680a.hhW, pVar.aJV.portrait, true, !StringUtils.isNull(pVar.aJV.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0680a {
-        public HeadImageView hhU;
-        public ImageView hhV;
-        public TextView hhW;
+        public HeadImageView hhW;
+        public ImageView hhX;
+        public TextView hhY;
         public View rootView;
 
         public C0680a(View view) {
             this.rootView = view;
-            this.hhU = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
-            this.hhV = (ImageView) view.findViewById(a.f.ala_live_room_audience_pendant);
-            this.hhW = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
+            this.hhW = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
+            this.hhX = (ImageView) view.findViewById(a.f.ala_live_room_audience_pendant);
+            this.hhY = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
         }
     }
 }

@@ -29,9 +29,9 @@ public class f {
     private com.baidu.tbadk.core.dialog.a acq;
     private TextView eVD;
     private ForumData fxa;
-    private TbImageView iZC;
-    private RoundLinearLayout iZD;
-    private i iZE;
+    private TbImageView iZE;
+    private RoundLinearLayout iZF;
+    private i iZG;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -40,18 +40,18 @@ public class f {
                 if (f.this.acq != null && f.this.acq.isShowing()) {
                     f.this.acq.dismiss();
                 }
-            } else if (view == f.this.iZC && f.this.iZE != null && !StringUtils.isNull(f.this.iZE.getUrl())) {
-                bf.bua().a(f.this.mPageContext, new String[]{f.this.iZE.getUrl()}, true);
+            } else if (view == f.this.iZE && f.this.iZG != null && !StringUtils.isNull(f.this.iZG.getUrl())) {
+                bf.bua().a(f.this.mPageContext, new String[]{f.this.iZG.getUrl()}, true);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                httpMessage.addParam("id", f.this.iZE.getId());
+                httpMessage.addParam("id", f.this.iZG.getId());
                 MessageManager.getInstance().sendMessage(httpMessage);
                 f.this.acq.dismiss();
                 ar arVar = new ar("common_click");
                 arVar.dY("page_type", PageStayDurationConstants.PageName.FRS);
                 arVar.dY("obj_isad", "1");
-                if (f.this.iZE.getType() != 1) {
-                    if (f.this.iZE.getType() != 2) {
-                        if (f.this.iZE.getType() == 3) {
+                if (f.this.iZG.getType() != 1) {
+                    if (f.this.iZG.getType() != 2) {
+                        if (f.this.iZG.getType() == 3) {
                             i = 13;
                         }
                     } else {
@@ -59,7 +59,7 @@ public class f {
                     }
                 }
                 arVar.al("obj_adlocate", i);
-                arVar.w("obj_id", f.this.iZE.getId());
+                arVar.w("obj_id", f.this.iZG.getId());
                 arVar.al("obj_floor", 1);
                 arVar.al("obj_locate", 3);
                 if (f.this.fxa != null) {
@@ -67,9 +67,9 @@ public class f {
                     arVar.dY("first_dir", f.this.fxa.getFirst_class());
                     arVar.dY("second_dir", f.this.fxa.getSecond_class());
                 }
-                if (f.this.iZE.getType() == 1) {
-                    arVar.dY("tid", f.this.iZE.getThreadId());
-                    arVar.al("thread_type", f.this.iZE.getThreadType());
+                if (f.this.iZG.getType() == 1) {
+                    arVar.dY("tid", f.this.iZG.getThreadId());
+                    arVar.al("thread_type", f.this.iZG.getThreadType());
                 }
                 TiebaStatic.log(arVar);
             }
@@ -87,7 +87,7 @@ public class f {
             return false;
         }
         this.fxa = mVar.getForum();
-        this.iZE = mVar.getBusinessPromot();
+        this.iZG = mVar.getBusinessPromot();
         String str = "key_frs_dialog_ad_last_show_time" + mVar.getForum().getId();
         long j = com.baidu.tbadk.core.sharedPref.b.bsO().getLong(str, 0L);
         if (j < 0 || !be.c(new Date(j), new Date(System.currentTimeMillis()))) {
@@ -121,42 +121,42 @@ public class f {
         ar arVar = new ar("common_exp");
         arVar.dY("page_type", PageStayDurationConstants.PageName.FRS);
         arVar.dY("obj_isad", "1");
-        if (this.iZE.getType() == 1) {
+        if (this.iZG.getType() == 1) {
             i = 11;
-        } else if (this.iZE.getType() == 2) {
+        } else if (this.iZG.getType() == 2) {
             i = 12;
         } else {
-            i = this.iZE.getType() == 3 ? 13 : 11;
+            i = this.iZG.getType() == 3 ? 13 : 11;
         }
         arVar.al("obj_floor", 1);
         arVar.al("obj_adlocate", i);
-        arVar.w("obj_id", this.iZE.getId());
+        arVar.w("obj_id", this.iZG.getId());
         if (this.fxa != null) {
             arVar.dY("fid", this.fxa.getId());
             arVar.dY("first_dir", this.fxa.getFirst_class());
             arVar.dY("second_dir", this.fxa.getSecond_class());
         }
-        if (this.iZE.getType() == 1) {
-            arVar.dY("tid", this.iZE.getThreadId());
-            arVar.al("thread_type", this.iZE.getThreadType());
+        if (this.iZG.getType() == 1) {
+            arVar.dY("tid", this.iZG.getThreadId());
+            arVar.al("thread_type", this.iZG.getThreadType());
         }
         TiebaStatic.log(arVar);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
-        this.iZD = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
-        this.iZD.setRoundCount(8);
-        this.iZC = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
-        this.iZC.setOnClickListener(this.mClickListener);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iZC.getLayoutParams();
+        this.iZF = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
+        this.iZF.setRoundCount(8);
+        this.iZE = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
+        this.iZE.setOnClickListener(this.mClickListener);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iZE.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(this.mPageContext.getPageActivity()) - (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         layoutParams.height = (int) (layoutParams.width * 1.3306452f);
-        this.iZC.setLayoutParams(layoutParams);
+        this.iZE.setLayoutParams(layoutParams);
         this.eVD = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
         this.eVD.setOnClickListener(this.mClickListener);
-        if (this.iZE != null) {
-            this.iZC.startLoad(this.iZE.dOh(), 10, false);
+        if (this.iZG != null) {
+            this.iZE.startLoad(this.iZG.dOi(), 10, false);
         }
     }
 }

@@ -23,21 +23,21 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes22.dex */
 public class a {
-    private b kav;
-    private com.baidu.tieba.homepage.video.d.a kaw;
+    private b kax;
+    private com.baidu.tieba.homepage.video.d.a kay;
     private BdUniqueId mBdUniqueId;
     private TbPageContext mPageContext;
-    private CustomMessageListener iBI = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.video.a.1
+    private CustomMessageListener iBK = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.homepage.video.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a.this.g(customResponsedMessage);
-            if (a.this.kaw != null) {
-                a.this.kaw.cPg();
+            if (a.this.kay != null) {
+                a.this.kay.cPh();
             }
         }
     };
-    private NEGFeedBackView.a jOX = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.video.a.2
+    private NEGFeedBackView.a jOZ = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.video.a.2
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void onNEGFeedbackWindowShow(at atVar) {
             if (atVar == null) {
@@ -61,40 +61,40 @@ public class a {
                 }
                 if (atVar.threadType != 0 && atVar.threadType != 40 && atVar.threadType == 49) {
                 }
-                if (a.this.kaw != null) {
-                    a.this.kaw.Nv();
+                if (a.this.kay != null) {
+                    a.this.kay.Nv();
                 }
             }
         }
     };
-    private f.c gsj = new f.c() { // from class: com.baidu.tieba.homepage.video.a.3
+    private f.c gsl = new f.c() { // from class: com.baidu.tieba.homepage.video.a.3
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                a.this.kaw.rz(false);
-                a.this.kav.cRg();
+                a.this.kay.rz(false);
+                a.this.kax.cRh();
                 TiebaStatic.log(new ar("c13582"));
                 return;
             }
-            a.this.kaw.b((f.e) null);
+            a.this.kay.b((f.e) null);
             a.this.mPageContext.showToast(R.string.neterror);
         }
     };
-    private BdListView.e jOZ = new BdListView.e() { // from class: com.baidu.tieba.homepage.video.a.4
+    private BdListView.e jPb = new BdListView.e() { // from class: com.baidu.tieba.homepage.video.a.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            a.this.kaw.bSb();
-            a.this.kav.cFh();
+            a.this.kay.bSc();
+            a.this.kax.cFi();
         }
     };
-    private b.a kax = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
+    private b.a kaz = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
         @Override // com.baidu.tieba.homepage.video.b.b.a
         public void o(int i, String str, boolean z) {
-            a.this.kaw.b((f.e) null);
-            a.this.kaw.hideLoadingView();
-            a.this.kaw.Yb();
-            if (y.isEmpty(a.this.kaw.getDataList())) {
-                a.this.kaw.m(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.5.1
+            a.this.kay.b((f.e) null);
+            a.this.kay.hideLoadingView();
+            a.this.kay.Yb();
+            if (y.isEmpty(a.this.kay.getDataList())) {
+                a.this.kay.m(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.5.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         a.this.loadData();
@@ -103,7 +103,7 @@ public class a {
                 return;
             }
             if (z) {
-                a.this.kaw.C(a.this.jPb);
+                a.this.kay.C(a.this.jPd);
             }
             if (StringUtils.isNull(str)) {
                 a.this.mPageContext.showToast(R.string.video_tab_load_more_fail);
@@ -114,29 +114,29 @@ public class a {
 
         @Override // com.baidu.tieba.homepage.video.b.b.a
         public void g(int i, boolean z, boolean z2) {
-            a.this.kaw.hideLoadingView();
-            a.this.kaw.Yb();
+            a.this.kay.hideLoadingView();
+            a.this.kay.Yb();
             if (z || z2) {
-                a.this.kaw.b((f.e) null);
+                a.this.kay.b((f.e) null);
             } else {
-                a.this.kaw.b(a.this.CT(i));
+                a.this.kay.b(a.this.CT(i));
             }
             if (i != 0) {
-                a.this.kaw.bl(a.this.kav.getDataList());
-                a.this.kaw.C(a.this.jPb);
-            } else if (y.isEmpty(a.this.kaw.getDataList())) {
-                a.this.kaw.showNoDataView();
+                a.this.kay.bl(a.this.kax.getDataList());
+                a.this.kay.C(a.this.jPd);
+            } else if (y.isEmpty(a.this.kay.getDataList())) {
+                a.this.kay.showNoDataView();
             } else if (z) {
-                a.this.kaw.bSa();
+                a.this.kay.bSb();
             }
         }
     };
-    private View.OnClickListener jPb = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.6
+    private View.OnClickListener jPd = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.kaw != null && a.this.kav != null) {
-                a.this.kaw.bSb();
-                a.this.kav.cFh();
+            if (a.this.kay != null && a.this.kax != null) {
+                a.this.kay.bSc();
+                a.this.kax.cFi();
             }
         }
     };
@@ -144,41 +144,41 @@ public class a {
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.kaw = new com.baidu.tieba.homepage.video.d.a(this.mPageContext, bdUniqueId, this.jOX);
-        this.kav = new b(this.mPageContext, this.kax);
+        this.kay = new com.baidu.tieba.homepage.video.d.a(this.mPageContext, bdUniqueId, this.jOZ);
+        this.kax = new b(this.mPageContext, this.kaz);
     }
 
     public void init() {
-        this.kav.registerListener();
-        this.kaw.init();
-        this.kaw.setListPullRefreshListener(this.gsj);
-        this.kaw.a(this.jOZ);
-        MessageManager.getInstance().registerListener(this.iBI);
+        this.kax.registerListener();
+        this.kay.init();
+        this.kay.setListPullRefreshListener(this.gsl);
+        this.kay.a(this.jPb);
+        MessageManager.getInstance().registerListener(this.iBK);
     }
 
     public View getView() {
-        if (this.kaw != null) {
-            return this.kaw.getRootView();
+        if (this.kay != null) {
+            return this.kay.getRootView();
         }
         return null;
     }
 
     public void loadData() {
-        if (this.kaw != null) {
-            this.kaw.cPj();
-            this.kaw.showLoadingView();
+        if (this.kay != null) {
+            this.kay.cPk();
+            this.kay.showLoadingView();
         }
-        if (this.kav != null) {
-            this.kav.cRg();
+        if (this.kax != null) {
+            this.kax.cRh();
         }
     }
 
     public void VC() {
-        if (this.kaw != null) {
-            this.kaw.rz(false);
-            this.kaw.cPh();
-            this.kaw.cPf();
-            this.kaw.startPullRefresh();
+        if (this.kay != null) {
+            this.kay.rz(false);
+            this.kay.cPi();
+            this.kay.cPg();
+            this.kay.startPullRefresh();
         }
     }
 
@@ -194,47 +194,47 @@ public class a {
     }
 
     public void bvt() {
-        if (this.kaw != null) {
-            this.kaw.bvt();
+        if (this.kay != null) {
+            this.kay.bvt();
         }
     }
 
     public void onPause() {
-        if (this.kaw != null) {
-            this.kaw.onPause();
-            this.kaw.cNA();
-            this.kaw.setTabInForeBackgroundState(true);
+        if (this.kay != null) {
+            this.kay.onPause();
+            this.kay.cNB();
+            this.kay.setTabInForeBackgroundState(true);
         }
     }
 
     public void onDestroy() {
-        if (this.kaw != null) {
-            this.kaw.setListPullRefreshListener(null);
-            this.kaw.a((BdListView.e) null);
-            this.kaw.onDestroy();
+        if (this.kay != null) {
+            this.kay.setListPullRefreshListener(null);
+            this.kay.a((BdListView.e) null);
+            this.kay.onDestroy();
         }
-        if (this.kav != null) {
-            this.kav.onDestroy();
+        if (this.kax != null) {
+            this.kax.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.iBI);
+        MessageManager.getInstance().unRegisterListener(this.iBK);
     }
 
     public void setPrimary(boolean z) {
         if (z) {
-            this.kaw.cRi();
+            this.kay.cRj();
         } else {
-            this.kaw.cNA();
+            this.kay.cNB();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.kav != null && !y.isEmpty(this.kav.getDataList())) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.kax != null && !y.isEmpty(this.kax.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            this.kav.Lx(optString);
-            this.kav.Mt(optString);
-            if (this.kaw != null) {
-                this.kaw.Mv(optString);
+            this.kax.Lx(optString);
+            this.kax.Mt(optString);
+            if (this.kay != null) {
+                this.kay.Mv(optString);
             }
         }
     }

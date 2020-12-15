@@ -6,9 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e {
-    public boolean gIH;
-    public ArrayList<a> gII;
-    public long gIp;
+    public boolean gIJ;
+    public ArrayList<a> gIK;
+    public long gIr;
     public String portrait;
     public String userName;
 
@@ -18,18 +18,18 @@ public class e {
             this.userName = optJSONObject.optString("user_name");
             this.portrait = optJSONObject.optString("bd_portrait");
         }
-        this.gIH = jSONObject.optInt("loot_result") == 1;
-        this.gIp = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+        this.gIJ = jSONObject.optInt("loot_result") == 1;
+        this.gIr = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         JSONArray optJSONArray = jSONObject.optJSONArray("loot_list");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             int length = optJSONArray.length();
-            this.gII = new ArrayList<>(length);
+            this.gIK = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                 if (jSONObject2 != null) {
                     a aVar = new a();
                     aVar.parserJson(jSONObject2);
-                    this.gII.add(aVar);
+                    this.gIK.add(aVar);
                 }
             }
         }

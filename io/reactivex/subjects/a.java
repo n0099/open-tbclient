@@ -8,17 +8,17 @@ import io.reactivex.u;
 public final class a<T> extends b<T> implements a.InterfaceC1052a<Object> {
     volatile boolean done;
     boolean emitting;
-    final b<T> pJS;
+    final b<T> pJU;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b<T> bVar) {
-        this.pJS = bVar;
+        this.pJU = bVar;
     }
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.pJS.subscribe(uVar);
+        this.pJU.subscribe(uVar);
     }
 
     @Override // io.reactivex.u
@@ -45,7 +45,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1052a<Object> {
             bVar.dispose();
             return;
         }
-        this.pJS.onSubscribe(bVar);
+        this.pJU.onSubscribe(bVar);
         emitLoop();
     }
 
@@ -64,7 +64,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1052a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.pJS.onNext(t);
+                    this.pJU.onNext(t);
                     emitLoop();
                 }
             }
@@ -96,7 +96,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1052a<Object> {
             if (z) {
                 io.reactivex.d.a.onError(th);
             } else {
-                this.pJS.onError(th);
+                this.pJU.onError(th);
             }
         }
     }
@@ -117,7 +117,7 @@ public final class a<T> extends b<T> implements a.InterfaceC1052a<Object> {
                         return;
                     }
                     this.emitting = true;
-                    this.pJS.onComplete();
+                    this.pJU.onComplete();
                 }
             }
         }
@@ -140,6 +140,6 @@ public final class a<T> extends b<T> implements a.InterfaceC1052a<Object> {
 
     @Override // io.reactivex.internal.util.a.InterfaceC1052a, io.reactivex.b.j
     public boolean test(Object obj) {
-        return NotificationLite.acceptFull(obj, this.pJS);
+        return NotificationLite.acceptFull(obj, this.pJU);
     }
 }

@@ -40,9 +40,9 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
     private SchemeCallback bRc;
     private h bRm;
     private String eFu;
-    private boolean hbd;
-    private a hdC;
-    private o hdG;
+    private boolean hbf;
+    private a hdE;
+    private o hdI;
 
     public ActiveWebBannerItemView(Context context) {
         super(context);
@@ -64,13 +64,13 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
         this.bRm = new h() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.5
             @Override // com.baidu.live.view.web.h
             public void jr(String str) {
-                if (!TextUtils.isEmpty(str) && ActiveWebBannerItemView.this.hdC != null) {
+                if (!TextUtils.isEmpty(str) && ActiveWebBannerItemView.this.hdE != null) {
                     if (ActiveWebBannerItemView.this.aZ(str, "fullscreen")) {
-                        ActiveWebBannerItemView.this.hdC.HX(str);
+                        ActiveWebBannerItemView.this.hdE.HX(str);
                     } else if (ActiveWebBannerItemView.this.aZ(str, UbcStatConstant.KEY_CONTENT_ROOM)) {
-                        ActiveWebBannerItemView.this.hdC.HW(str);
+                        ActiveWebBannerItemView.this.hdE.HW(str);
                     } else {
-                        ActiveWebBannerItemView.this.hdC.HY(str);
+                        ActiveWebBannerItemView.this.hdE.HY(str);
                     }
                 }
             }
@@ -80,13 +80,13 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setCallback(a aVar) {
-        this.hdC = aVar;
+        this.hdE = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setData(boolean z, w wVar, o oVar) {
         if (this.bQZ != null && oVar != null) {
-            this.hdG = oVar;
+            this.hdI = oVar;
             String a2 = a(z, wVar, oVar.webUrl, oVar.jump_url, oVar.aJM);
             if (!a2.equals(this.bQZ.getOriginalUrl())) {
                 this.bQZ.loadUrl(a2);
@@ -113,8 +113,8 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        this.hdC = null;
-        this.hbd = false;
+        this.hdE = null;
+        this.hbf = false;
         removeAllViews();
         if (this.bQZ != null) {
             if (this.bRa != null) {
@@ -136,8 +136,8 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
         gVar.x(activity).a(new f() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.1
             @Override // com.baidu.live.view.web.f
             public void fr(int i) {
-                if ((ActiveWebBannerItemView.this.hdC != null) & (ActiveWebBannerItemView.this.hdG != null)) {
-                    ActiveWebBannerItemView.this.hdC.bO(ActiveWebBannerItemView.this.hdG.aJO.pos, ActiveWebBannerItemView.this.hdG.activityId);
+                if ((ActiveWebBannerItemView.this.hdE != null) & (ActiveWebBannerItemView.this.hdI != null)) {
+                    ActiveWebBannerItemView.this.hdE.bO(ActiveWebBannerItemView.this.hdI.aJO.pos, ActiveWebBannerItemView.this.hdI.activityId);
                 }
             }
         }).a(getSchemeCallback()).b(this.bRm);
@@ -155,8 +155,8 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
         }
     }
 
-    public boolean bYV() {
-        return this.hbd;
+    public boolean bYW() {
+        return this.hbf;
     }
 
     @RequiresApi(19)
@@ -167,7 +167,7 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
     }
 
     private void init() {
-        this.hbd = false;
+        this.hbf = false;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);
@@ -185,9 +185,9 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
-                            ActiveWebBannerItemView.this.hbd = Boolean.valueOf(str2).booleanValue();
-                            if (ActiveWebBannerItemView.this.hdC != null) {
-                                ActiveWebBannerItemView.this.hdC.na(ActiveWebBannerItemView.this.hbd);
+                            ActiveWebBannerItemView.this.hbf = Boolean.valueOf(str2).booleanValue();
+                            if (ActiveWebBannerItemView.this.hdE != null) {
+                                ActiveWebBannerItemView.this.hdE.na(ActiveWebBannerItemView.this.hbf);
                             }
                         }
                     });

@@ -11,7 +11,7 @@ public interface s {
 
     void a(BasePool basePool);
 
-    void ewa();
-
     void ewb();
+
+    void ewc();
 }

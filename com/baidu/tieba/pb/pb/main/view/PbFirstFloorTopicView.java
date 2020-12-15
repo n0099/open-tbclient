@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int iYk;
     private int iYm;
+    private int iYo;
     private Context mContext;
     private int mWidth;
 
@@ -38,9 +38,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.iYm = l.getDimens(this.mContext, R.dimen.ds8);
+        this.iYo = l.getDimens(this.mContext, R.dimen.ds8);
         this.mWidth = l.getEquipmentWidth(this.mContext);
-        this.iYk = l.getEquipmentWidth(this.mContext) / 2;
+        this.iYm = l.getEquipmentWidth(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
@@ -54,7 +54,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
             int i = 0;
             while (i < count) {
                 if (i % 2 == 0) {
-                    linearLayout = dtU();
+                    linearLayout = dtV();
                 } else {
                     if (linearLayout2 != null) {
                         b(linearLayout2, (String) y.getItem(arrayList, i - 1));
@@ -66,7 +66,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 linearLayout2 = linearLayout;
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.iYk = this.mWidth;
+                this.iYm = this.mWidth;
                 b(linearLayout2, (String) y.getItem(arrayList, count - 1));
             }
         }
@@ -82,15 +82,15 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.iYk);
+        textView.setWidth(this.iYm);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.iYm;
-        layoutParams.rightMargin = this.iYm;
+        layoutParams.leftMargin = this.iYo;
+        layoutParams.rightMargin = this.iYo;
     }
 
-    private LinearLayout dtU() {
+    private LinearLayout dtV() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         ap.setBackgroundColor(linearLayout, R.color.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));

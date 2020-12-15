@@ -12,29 +12,29 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes23.dex */
 public class c {
-    private ax iNQ;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> iNR;
-    private a iNS;
-    private HttpMessageListener iNT = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private ax iNS;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> iNT;
+    private a iNU;
+    private HttpMessageListener iNV = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.iNQ = getForbiddenFansResponse.getPageData();
-                if (c.this.iNR == null) {
-                    c.this.iNR = new ArrayList();
-                }
-                if (c.this.iNQ != null) {
-                    if (c.this.iNQ.bnD() == 1) {
-                        c.this.iNR.clear();
-                    }
-                    if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.iNR.addAll(getForbiddenFansResponse.getFansList());
-                    }
+                c.this.iNS = getForbiddenFansResponse.getPageData();
+                if (c.this.iNT == null) {
+                    c.this.iNT = new ArrayList();
                 }
                 if (c.this.iNS != null) {
-                    c.this.iNS.b(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.iNR);
+                    if (c.this.iNS.bnD() == 1) {
+                        c.this.iNT.clear();
+                    }
+                    if (getForbiddenFansResponse.getFansList() != null) {
+                        c.this.iNT.addAll(getForbiddenFansResponse.getFansList());
+                    }
+                }
+                if (c.this.iNU != null) {
+                    c.this.iNU.b(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.iNT);
                 }
             }
         }
@@ -52,19 +52,19 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.iNT);
+        MessageManager.getInstance().registerListener(this.iNV);
     }
 
-    public void cAl() {
+    public void cAm() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void cAm() {
-        if (this.iNQ == null || this.iNQ.bnF() == 1) {
-            int bnD = this.iNQ != null ? this.iNQ.bnD() + 1 : 1;
+    public void cAn() {
+        if (this.iNS == null || this.iNS.bnF() == 1) {
+            int bnD = this.iNS != null ? this.iNS.bnD() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
             httpMessage.addParam(Config.PACKAGE_NAME, bnD);
@@ -73,14 +73,14 @@ public class c {
     }
 
     public boolean hasMore() {
-        return this.iNQ != null && this.iNQ.bnF() == 1;
+        return this.iNS != null && this.iNS.bnF() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.iNT);
+        MessageManager.getInstance().unRegisterListener(this.iNV);
     }
 
     public void a(a aVar) {
-        this.iNS = aVar;
+        this.iNU = aVar;
     }
 }

@@ -9,9 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes14.dex */
 public class TurbonetConfig {
-    private String oET;
-    private boolean oEU = false;
-    private JSONObject oES = new JSONObject();
+    private String oEV;
+    private boolean oEW = false;
+    private JSONObject oEU = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes14.dex */
@@ -30,16 +30,16 @@ public class TurbonetConfig {
         if (!new File(str).isDirectory()) {
             throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
-        this.oET = str;
+        this.oEV = str;
     }
 
     public void C(int i, long j) {
         if (i == 3 || i == 2) {
-            if (ehM() == null) {
+            if (ehN() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
-            this.oEU = true;
-        } else if (ehM() != null) {
+            this.oEW = true;
+        } else if (ehN() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
         e(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
@@ -80,28 +80,28 @@ public class TurbonetConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject ehL() {
-        return this.oES;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String ehM() {
-        return this.oET;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ehN() {
+    public JSONObject ehM() {
         return this.oEU;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String ehN() {
+        return this.oEV;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean ehO() {
+        return this.oEW;
     }
 
     public void e(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.oES.optJSONObject(str);
+            JSONObject optJSONObject = this.oEU.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.oES.put(str, optJSONObject);
+            this.oEU.put(str, optJSONObject);
         } catch (JSONException e) {
             throw new IllegalStateException("JSON expcetion:", e);
         }

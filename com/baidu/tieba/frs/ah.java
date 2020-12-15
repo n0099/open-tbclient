@@ -46,7 +46,7 @@ public class ah extends SparseArray<aq> {
                 aq valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.bYY();
+                    valueAt.bYZ();
                 }
                 i = i2 + 1;
             } else {

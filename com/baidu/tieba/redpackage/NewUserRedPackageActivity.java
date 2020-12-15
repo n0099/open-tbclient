@@ -26,18 +26,18 @@ import com.baidu.tieba.view.RoundRelativeLayout;
 /* loaded from: classes22.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     private s eyf;
-    private ImageView fXV;
+    private ImageView fXX;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.redpackage.NewUserRedPackageActivity.1
         /* JADX DEBUG: Multi-variable search result rejected for r1v11, resolved type: com.baidu.tieba.redpackage.NewUserRedPackageActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() != NewUserRedPackageActivity.this.fXV.getId()) {
-                if (view.getId() == NewUserRedPackageActivity.this.mQS.getId()) {
+            if (view.getId() != NewUserRedPackageActivity.this.fXX.getId()) {
+                if (view.getId() == NewUserRedPackageActivity.this.mQU.getId()) {
                     TiebaStatic.log(new ar("c13684").al("obj_type", 2));
                     if (TbadkCoreApplication.isLogin()) {
-                        if (NewUserRedPackageActivity.this.mQT != null) {
-                            bf.bua().b(NewUserRedPackageActivity.this.getPageContext(), new String[]{NewUserRedPackageActivity.this.mQT.clickUrl});
+                        if (NewUserRedPackageActivity.this.mQV != null) {
+                            bf.bua().b(NewUserRedPackageActivity.this.getPageContext(), new String[]{NewUserRedPackageActivity.this.mQV.clickUrl});
                             NewUserRedPackageActivity.this.finish();
                             return;
                         }
@@ -52,12 +52,12 @@ public class NewUserRedPackageActivity extends BaseActivity {
             NewUserRedPackageActivity.this.finish();
         }
     };
-    private RoundRelativeLayout mQO;
-    private ImageView mQP;
-    private TextView mQQ;
-    private TextView mQR;
+    private RoundRelativeLayout mQQ;
+    private ImageView mQR;
     private TextView mQS;
-    private NewUserRedPackageData mQT;
+    private TextView mQT;
+    private TextView mQU;
+    private NewUserRedPackageData mQV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -65,15 +65,15 @@ public class NewUserRedPackageActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_new_user_red_package);
-        this.mQO = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
-        this.mQO.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.mQP = (ImageView) findViewById(R.id.top_pic);
-        this.fXV = (ImageView) findViewById(R.id.img_close);
-        this.fXV.setOnClickListener(this.mOnClickListener);
-        this.mQQ = (TextView) findViewById(R.id.money_count);
-        this.mQR = (TextView) findViewById(R.id.money_info);
-        this.mQS = (TextView) findViewById(R.id.btn_receive);
-        this.mQS.setOnClickListener(this.mOnClickListener);
+        this.mQQ = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
+        this.mQQ.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
+        this.mQR = (ImageView) findViewById(R.id.top_pic);
+        this.fXX = (ImageView) findViewById(R.id.img_close);
+        this.fXX.setOnClickListener(this.mOnClickListener);
+        this.mQS = (TextView) findViewById(R.id.money_count);
+        this.mQT = (TextView) findViewById(R.id.money_info);
+        this.mQU = (TextView) findViewById(R.id.btn_receive);
+        this.mQU.setOnClickListener(this.mOnClickListener);
         setData();
         TiebaStatic.log(new ar("c13684").al("obj_type", 1));
         this.eyf = new s();
@@ -81,15 +81,15 @@ public class NewUserRedPackageActivity extends BaseActivity {
 
     private void setData() {
         if (getIntent() != null) {
-            this.mQT = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
-            if (this.mQT != null) {
-                a aVar = (a) c.mS().loadResourceFromMemery(this.mQT.topPicUrl, 10, new Object[0]);
+            this.mQV = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
+            if (this.mQV != null) {
+                a aVar = (a) c.mS().loadResourceFromMemery(this.mQV.topPicUrl, 10, new Object[0]);
                 if (aVar != null) {
-                    this.mQP.setImageBitmap(aVar.getRawBitmap());
+                    this.mQR.setImageBitmap(aVar.getRawBitmap());
                 }
-                this.mQQ.setText(String.format(getString(R.string.new_user_red_package_money_count), this.mQT.money));
-                this.mQR.setText(getString(R.string.new_user_red_package_money_info));
-                this.mQS.setText(getString(R.string.new_user_red_package_receive));
+                this.mQS.setText(String.format(getString(R.string.new_user_red_package_money_count), this.mQV.money));
+                this.mQT.setText(getString(R.string.new_user_red_package_money_info));
+                this.mQU.setText(getString(R.string.new_user_red_package_receive));
             }
         }
     }
@@ -98,10 +98,10 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setBackgroundColor(this.mQO, R.color.CAM_X0201);
-        ap.setViewTextColor(this.mQQ, R.color.CAM_X0105);
-        ap.setViewTextColor(this.mQR, R.color.CAM_X0105);
-        ap.setViewTextColor(this.mQS, R.color.CAM_X0302);
+        ap.setBackgroundColor(this.mQQ, R.color.CAM_X0201);
+        ap.setViewTextColor(this.mQS, R.color.CAM_X0105);
+        ap.setViewTextColor(this.mQT, R.color.CAM_X0105);
+        ap.setViewTextColor(this.mQU, R.color.CAM_X0302);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -118,9 +118,9 @@ public class NewUserRedPackageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == 25046 && this.mQT != null) {
+        if (i == 25046 && this.mQV != null) {
             this.eyf.bjD();
-            bf.bua().b(getPageContext(), new String[]{this.mQT.clickUrl});
+            bf.bua().b(getPageContext(), new String[]{this.mQV.clickUrl});
             finish();
         }
     }

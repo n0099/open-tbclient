@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoList, com.baidu.tieba.personPolymeric.d.a> {
     private TbPageContext<PersonPolymericActivity> eNx;
     private boolean isHost;
-    private String mpW;
+    private String mpY;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.TbPageContext<?> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -40,10 +40,10 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, com.baidu.tieba.personPolymeric.d.a aVar) {
         if (postInfoList != null && aVar != null) {
-            if (this.mpW == null) {
-                this.mpW = postInfoList.user_portrait;
+            if (this.mpY == null) {
+                this.mpY = postInfoList.user_portrait;
             }
-            aVar.a(postInfoList, false, this.mpW);
+            aVar.a(postInfoList, false, this.mpY);
             ArrayList<String[]> arrayList = new ArrayList<>();
             int length = postInfoList.content.length;
             for (int i2 = 0; i2 < length; i2++) {
@@ -59,22 +59,22 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
                     arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), au.getFormatTime(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
                 }
             }
-            aVar.mtg.setContent(arrayList);
+            aVar.mti.setContent(arrayList);
             if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
-                aVar.mth.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                aVar.mtj.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
             } else {
-                aVar.mth.setText(postInfoList.title);
+                aVar.mtj.setText(postInfoList.title);
             }
-            aVar.mth.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
+            aVar.mtj.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
             if (postInfoList.thread_type == 33) {
-                aVar.mth.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                aVar.mtj.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                aVar.mth.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                aVar.mtj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            ap.setBackgroundResource(aVar.mth, R.drawable.person_post_line);
-            ap.setViewTextColor(aVar.mth, R.color.common_color_10039, 1);
+            ap.setBackgroundResource(aVar.mtj, R.drawable.person_post_line);
+            ap.setViewTextColor(aVar.mtj, R.color.common_color_10039, 1);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds20);
-            aVar.mth.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+            aVar.mtj.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
             aVar.changeSkin(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;

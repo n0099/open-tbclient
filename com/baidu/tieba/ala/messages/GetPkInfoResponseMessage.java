@@ -5,7 +5,7 @@ import com.baidu.tieba.ala.data.PkInfoData;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetPkInfoResponseMessage extends JsonHttpResponsedMessage {
-    PkInfoData hHG;
+    PkInfoData hHI;
 
     public GetPkInfoResponseMessage(int i) {
         super(i);
@@ -16,13 +16,13 @@ public class GetPkInfoResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hHG = new PkInfoData();
-            this.hHG.parserJson(optJSONObject);
-            this.hHG.logId = jSONObject.optLong("logid");
+            this.hHI = new PkInfoData();
+            this.hHI.parserJson(optJSONObject);
+            this.hHI.logId = jSONObject.optLong("logid");
         }
     }
 
-    public PkInfoData clU() {
-        return this.hHG;
+    public PkInfoData clV() {
+        return this.hHI;
     }
 }

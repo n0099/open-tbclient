@@ -5,9 +5,9 @@ import android.view.View;
 public interface e {
     void B(int i, int i2, int i3, int i4);
 
-    void bQX();
+    void bQY();
 
-    boolean bQY();
+    boolean bQZ();
 
     void e(View view, int i, int i2, int i3, int i4);
 

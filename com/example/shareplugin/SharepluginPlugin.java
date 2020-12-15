@@ -91,7 +91,7 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             shareItem.ae(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
             if (z) {
-                f.ctk().b(shareDialogConfig);
+                f.ctl().b(shareDialogConfig);
                 return;
             }
             shareDialogConfig.isCopyLink = true;
@@ -199,7 +199,7 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             boolean z2 = false;
             shareDialogConfig.setIsAlaLive((byVar.getThreadType() == 49 || byVar.getThreadType() == 60) ? true : true);
             shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
-            f.ctk().b(shareDialogConfig);
+            f.ctl().b(shareDialogConfig);
         }
     }
 

@@ -7,8 +7,8 @@ import tbclient.NewTopicList.PkModule;
 /* loaded from: classes22.dex */
 public class b {
     public int from;
-    public a jZe;
-    public a jZf;
+    public a jZg;
+    public a jZh;
     public long pkId;
     public long topicId;
     public long userPkId;
@@ -17,22 +17,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.jZe = new a();
-            this.jZe.jZg = pkModule.agree.pk_num.longValue();
-            this.jZe.jZh = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.jZe.jZi = pkModule.agree.last_username;
-            this.jZe.jZj = pkModule.agree.pk_icon;
-            this.jZe.jZk = pkModule.agree.has_clicked.longValue() == 1;
-            this.jZe.jZl = pkModule.agree.pk_index.longValue();
-            this.jZe.jZm = pkModule.agree.pk_icon_after;
-            this.jZf = new a();
-            this.jZf.jZg = pkModule.disagree.pk_num.longValue();
-            this.jZf.jZh = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.jZf.jZi = pkModule.disagree.last_username;
-            this.jZf.jZj = pkModule.disagree.pk_icon;
-            this.jZf.jZk = pkModule.disagree.has_clicked.longValue() == 1;
-            this.jZf.jZl = pkModule.disagree.pk_index.longValue();
-            this.jZf.jZm = pkModule.disagree.pk_icon_after;
+            this.jZg = new a();
+            this.jZg.jZi = pkModule.agree.pk_num.longValue();
+            this.jZg.jZj = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.jZg.jZk = pkModule.agree.last_username;
+            this.jZg.jZl = pkModule.agree.pk_icon;
+            this.jZg.jZm = pkModule.agree.has_clicked.longValue() == 1;
+            this.jZg.jZn = pkModule.agree.pk_index.longValue();
+            this.jZg.jZo = pkModule.agree.pk_icon_after;
+            this.jZh = new a();
+            this.jZh.jZi = pkModule.disagree.pk_num.longValue();
+            this.jZh.jZj = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.jZh.jZk = pkModule.disagree.last_username;
+            this.jZh.jZl = pkModule.disagree.pk_icon;
+            this.jZh.jZm = pkModule.disagree.has_clicked.longValue() == 1;
+            this.jZh.jZn = pkModule.disagree.pk_index.longValue();
+            this.jZh.jZo = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -40,22 +40,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.jZe = new a();
-            this.jZe.jZg = pkModule.agree.pk_num.longValue();
-            this.jZe.jZh = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.jZe.jZi = pkModule.agree.last_username;
-            this.jZe.jZj = pkModule.agree.pk_icon;
-            this.jZe.jZk = pkModule.agree.has_clicked.longValue() == 1;
-            this.jZe.jZl = pkModule.agree.pk_index.longValue();
-            this.jZe.jZm = pkModule.agree.pk_icon_after;
-            this.jZf = new a();
-            this.jZf.jZg = pkModule.disagree.pk_num.longValue();
-            this.jZf.jZh = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.jZf.jZi = pkModule.disagree.last_username;
-            this.jZf.jZj = pkModule.disagree.pk_icon;
-            this.jZf.jZk = pkModule.disagree.has_clicked.longValue() == 1;
-            this.jZf.jZl = pkModule.disagree.pk_index.longValue();
-            this.jZf.jZm = pkModule.disagree.pk_icon_after;
+            this.jZg = new a();
+            this.jZg.jZi = pkModule.agree.pk_num.longValue();
+            this.jZg.jZj = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.jZg.jZk = pkModule.agree.last_username;
+            this.jZg.jZl = pkModule.agree.pk_icon;
+            this.jZg.jZm = pkModule.agree.has_clicked.longValue() == 1;
+            this.jZg.jZn = pkModule.agree.pk_index.longValue();
+            this.jZg.jZo = pkModule.agree.pk_icon_after;
+            this.jZh = new a();
+            this.jZh.jZi = pkModule.disagree.pk_num.longValue();
+            this.jZh.jZj = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.jZh.jZk = pkModule.disagree.last_username;
+            this.jZh.jZl = pkModule.disagree.pk_icon;
+            this.jZh.jZm = pkModule.disagree.has_clicked.longValue() == 1;
+            this.jZh.jZn = pkModule.disagree.pk_index.longValue();
+            this.jZh.jZo = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -63,34 +63,34 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.jZe = new a();
-            this.jZe.jZg = pkModule.agree.pk_num.longValue();
-            this.jZe.jZh = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.jZe.jZi = pkModule.agree.last_username;
-            this.jZe.jZj = pkModule.agree.pk_icon;
-            this.jZe.jZk = pkModule.agree.has_clicked.longValue() == 1;
-            this.jZe.jZl = pkModule.agree.pk_index.longValue();
-            this.jZe.jZm = pkModule.agree.pk_icon_after;
-            this.jZf = new a();
-            this.jZf.jZg = pkModule.disagree.pk_num.longValue();
-            this.jZf.jZh = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.jZf.jZi = pkModule.disagree.last_username;
-            this.jZf.jZj = pkModule.disagree.pk_icon;
-            this.jZf.jZk = pkModule.disagree.has_clicked.longValue() == 1;
-            this.jZf.jZl = pkModule.disagree.pk_index.longValue();
-            this.jZf.jZm = pkModule.disagree.pk_icon_after;
+            this.jZg = new a();
+            this.jZg.jZi = pkModule.agree.pk_num.longValue();
+            this.jZg.jZj = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.jZg.jZk = pkModule.agree.last_username;
+            this.jZg.jZl = pkModule.agree.pk_icon;
+            this.jZg.jZm = pkModule.agree.has_clicked.longValue() == 1;
+            this.jZg.jZn = pkModule.agree.pk_index.longValue();
+            this.jZg.jZo = pkModule.agree.pk_icon_after;
+            this.jZh = new a();
+            this.jZh.jZi = pkModule.disagree.pk_num.longValue();
+            this.jZh.jZj = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.jZh.jZk = pkModule.disagree.last_username;
+            this.jZh.jZl = pkModule.disagree.pk_icon;
+            this.jZh.jZm = pkModule.disagree.has_clicked.longValue() == 1;
+            this.jZh.jZn = pkModule.disagree.pk_index.longValue();
+            this.jZh.jZo = pkModule.disagree.pk_icon_after;
         }
     }
 
     /* loaded from: classes22.dex */
     public class a {
-        public long jZg;
-        public String jZh;
-        public String jZi;
+        public long jZi;
         public String jZj;
-        public boolean jZk;
-        public long jZl;
-        public String jZm;
+        public String jZk;
+        public String jZl;
+        public boolean jZm;
+        public long jZn;
+        public String jZo;
 
         public a() {
         }

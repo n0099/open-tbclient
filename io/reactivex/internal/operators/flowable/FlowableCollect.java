@@ -9,12 +9,12 @@ import org.a.d;
 /* loaded from: classes9.dex */
 public final class FlowableCollect<T, U> extends a<T, U> {
     final io.reactivex.b.b<? super U, ? super T> collector;
-    final Callable<? extends U> pFo;
+    final Callable<? extends U> pFq;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.pFg.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.m(this.pFo.call(), "The initial value supplied is null"), this.collector));
+            this.pFi.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.m(this.pFq.call(), "The initial value supplied is null"), this.collector));
         } catch (Throwable th) {
             EmptySubscription.error(th, cVar);
         }

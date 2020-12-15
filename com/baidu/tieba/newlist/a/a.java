@@ -8,14 +8,14 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bnf;
-    private v iyt;
+    private v iyv;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.iyt = vVar;
+        this.iyv = vVar;
         Nt();
-        this.iyt.addAdapters(this.bnf);
+        this.iyv.addAdapters(this.bnf);
     }
 
     private void Nt() {
@@ -24,12 +24,12 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.iyt != null) {
-            this.iyt.getListAdapter().notifyDataSetChanged();
+        if (this.iyv != null) {
+            this.iyv.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.iyt.setData(list);
+        this.iyv.setData(list);
     }
 }

@@ -20,11 +20,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes21.dex */
 public class AdBaseWebView extends WebView {
-    private e fZA;
-    private b fZw;
-    private b fZx;
-    private d fZy;
-    private c fZz;
+    private d fZA;
+    private c fZB;
+    private e fZC;
+    private b fZy;
+    private b fZz;
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
     private Context mContext;
     private WebViewClient mWebViewClient;
@@ -51,22 +51,22 @@ public class AdBaseWebView extends WebView {
 
     public AdBaseWebView(Context context) {
         super(context);
-        this.fZw = null;
-        this.mContext = null;
-        this.fZx = null;
         this.fZy = null;
+        this.mContext = null;
         this.fZz = null;
         this.fZA = null;
+        this.fZB = null;
+        this.fZC = null;
         this.mContext = context;
         init();
     }
 
     public void setDownloadEnabled(boolean z) {
         if (z) {
-            if (this.fZx == null) {
+            if (this.fZz == null) {
                 initDownload();
             }
-            setOnLoadUrlListener(this.fZx);
+            setOnLoadUrlListener(this.fZz);
             return;
         }
         setOnLoadUrlListener(null);
@@ -74,12 +74,12 @@ public class AdBaseWebView extends WebView {
 
     public AdBaseWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fZw = null;
-        this.mContext = null;
-        this.fZx = null;
         this.fZy = null;
+        this.mContext = null;
         this.fZz = null;
         this.fZA = null;
+        this.fZB = null;
+        this.fZC = null;
         this.mContext = context;
         init();
     }
@@ -169,8 +169,8 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (AdBaseWebView.this.fZy != null) {
-                AdBaseWebView.this.fZy.onPageStarted(webView, str);
+            if (AdBaseWebView.this.fZA != null) {
+                AdBaseWebView.this.fZA.onPageStarted(webView, str);
             }
         }
 
@@ -182,15 +182,15 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (AdBaseWebView.this.fZz != null) {
-                AdBaseWebView.this.fZz.onPageFinished(webView, str);
+            if (AdBaseWebView.this.fZB != null) {
+                AdBaseWebView.this.fZB.onPageFinished(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (AdBaseWebView.this.fZw != null) {
-                return AdBaseWebView.this.fZw.shouldOverrideUrlLoading(webView, str);
+            if (AdBaseWebView.this.fZy != null) {
+                return AdBaseWebView.this.fZy.shouldOverrideUrlLoading(webView, str);
             }
             return super.shouldOverrideUrlLoading(webView, str);
         }
@@ -198,8 +198,8 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
-            if (AdBaseWebView.this.fZA != null) {
-                AdBaseWebView.this.fZA.onReceivedError(webView, i, str, str2);
+            if (AdBaseWebView.this.fZC != null) {
+                AdBaseWebView.this.fZC.onReceivedError(webView, i, str, str2);
             }
         }
 
@@ -213,23 +213,23 @@ public class AdBaseWebView extends WebView {
     }
 
     public void setOnLoadUrlListener(b bVar) {
-        this.fZw = bVar;
+        this.fZy = bVar;
     }
 
     public void setOnPageStartedListener(d dVar) {
-        this.fZy = dVar;
+        this.fZA = dVar;
     }
 
     public void setOnPageFinishedListener(c cVar) {
-        this.fZz = cVar;
+        this.fZB = cVar;
     }
 
     public void setOnReceivedErrorListener(e eVar) {
-        this.fZA = eVar;
+        this.fZC = eVar;
     }
 
     private void initDownload() {
-        this.fZx = new b() { // from class: com.baidu.tieba.ad.browser.AdBaseWebView.1
+        this.fZz = new b() { // from class: com.baidu.tieba.ad.browser.AdBaseWebView.1
             @Override // com.baidu.tieba.ad.browser.AdBaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (str != null) {
@@ -248,12 +248,12 @@ public class AdBaseWebView extends WebView {
     public void destroy() {
         super.destroy();
         this.mWebViewClient = null;
-        this.fZw = null;
-        this.mContext = null;
-        this.fZx = null;
         this.fZy = null;
+        this.mContext = null;
         this.fZz = null;
         this.fZA = null;
+        this.fZB = null;
+        this.fZC = null;
         this.jsCallback = null;
     }
 }

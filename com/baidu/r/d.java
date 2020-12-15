@@ -1,16 +1,16 @@
 package com.baidu.r;
 /* loaded from: classes5.dex */
 public class d {
-    private boolean oJa;
-    private int oJb;
+    private boolean oJc;
+    private int oJd;
 
     public d An(boolean z) {
-        this.oJa = z;
+        this.oJc = z;
         return this;
     }
 
     public d OM(int i) {
-        this.oJb = i;
+        this.oJd = i;
         return this;
     }
 }

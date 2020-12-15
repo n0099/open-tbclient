@@ -23,11 +23,11 @@ import tbclient.FrsPage.AgreeBanner;
 import tbclient.SimpleUser;
 /* loaded from: classes22.dex */
 public class FrsHeaderPraiseView extends RelativeLayout {
-    private View jft;
-    private View jfu;
-    private TextView jfv;
-    private FrameLayout jfw;
-    private ImageView jfx;
+    private View jfv;
+    private View jfw;
+    private TextView jfx;
+    private FrameLayout jfy;
+    private ImageView jfz;
 
     public FrsHeaderPraiseView(Context context) {
         this(context, null);
@@ -44,12 +44,12 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     }
 
     private void initView() {
-        this.jft = findViewById(R.id.divider_top);
-        this.jfu = findViewById(R.id.divider_bottom);
-        this.jfv = (TextView) findViewById(R.id.frs_praise_title);
-        this.jfw = (FrameLayout) findViewById(R.id.frs_praise_portrait);
-        this.jfx = (ImageView) findViewById(R.id.frs_praise_more);
-        ap.setImageResource(this.jfx, R.drawable.icon_arrow_more_gray_n);
+        this.jfv = findViewById(R.id.divider_top);
+        this.jfw = findViewById(R.id.divider_bottom);
+        this.jfx = (TextView) findViewById(R.id.frs_praise_title);
+        this.jfy = (FrameLayout) findViewById(R.id.frs_praise_portrait);
+        this.jfz = (ImageView) findViewById(R.id.frs_praise_more);
+        ap.setImageResource(this.jfz, R.drawable.icon_arrow_more_gray_n);
     }
 
     public void setData(final AgreeBanner agreeBanner) {
@@ -58,9 +58,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        this.jfv.setText(agreeBanner.text);
+        this.jfx.setText(agreeBanner.text);
         List<SimpleUser> list = agreeBanner.top_agree_user;
-        this.jfw.removeAllViews();
+        this.jfy.removeAllViews();
         if (list != null) {
             ArrayList arrayList = new ArrayList();
             if (list.size() > 5) {
@@ -70,7 +70,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             } else {
                 arrayList.addAll(list);
             }
-            for (int size = arrayList.size() - 1; size >= 0 && this.jfw.getChildCount() != 5; size--) {
+            for (int size = arrayList.size() - 1; size >= 0 && this.jfy.getChildCount() != 5; size--) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds40), getResources().getDimensionPixelSize(R.dimen.ds40));
                 HeadImageView headImageView = new HeadImageView(getContext());
                 headImageView.setDefaultResource(17170445);
@@ -84,7 +84,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds8));
                 }
                 layoutParams.gravity = 5;
-                this.jfw.addView(headImageView, layoutParams);
+                this.jfy.addView(headImageView, layoutParams);
             }
         }
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.FrsHeaderPraiseView.1

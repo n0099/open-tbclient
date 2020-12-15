@@ -6,33 +6,33 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaFilterAndBeautyResponseMessage extends JsonHttpResponsedMessage {
-    private String gjP;
-    private AlaFilterAndBeautyData gjQ;
+    private String gjR;
+    private AlaFilterAndBeautyData gjS;
 
     public AlaFilterAndBeautyResponseMessage() {
         super(1021163);
     }
 
-    public AlaFilterAndBeautyData bQm() {
-        return this.gjQ;
+    public AlaFilterAndBeautyData bQn() {
+        return this.gjS;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject == null || hasError()) {
-            if (StringUtils.isNullObject(this.gjP)) {
-                this.gjP = com.baidu.live.d.BM().getString("sp_ar_filter_and_beauty_result", "");
+            if (StringUtils.isNullObject(this.gjR)) {
+                this.gjR = com.baidu.live.d.BM().getString("sp_ar_filter_and_beauty_result", "");
             }
-            jSONObject = new JSONObject(this.gjP);
+            jSONObject = new JSONObject(this.gjR);
         } else {
-            this.gjP = jSONObject.toString();
-            com.baidu.live.d.BM().putString("sp_ar_filter_and_beauty_result", this.gjP);
+            this.gjR = jSONObject.toString();
+            com.baidu.live.d.BM().putString("sp_ar_filter_and_beauty_result", this.gjR);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
-            this.gjQ = new AlaFilterAndBeautyData();
-            this.gjQ.parse(optJSONObject);
+            this.gjS = new AlaFilterAndBeautyData();
+            this.gjS.parse(optJSONObject);
         }
     }
 
@@ -46,6 +46,6 @@ public class AlaFilterAndBeautyResponseMessage extends JsonHttpResponsedMessage 
         } else {
             com.baidu.live.d.BM().putString("sp_ar_filter_and_beauty_result", "");
         }
-        return this.gjQ;
+        return this.gjS;
     }
 }

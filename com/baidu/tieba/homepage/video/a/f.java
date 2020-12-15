@@ -22,7 +22,7 @@ import com.baidu.tieba.view.FollowUserButton;
 public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     private ab<k> agG;
     private v amH;
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     private BdUniqueId fzO;
     private TbPageContext mPageContext;
 
@@ -100,7 +100,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> {
         kVar.ym(kVar.position + 1);
         amVar.tZ().setPosition(i);
         amVar.a(kVar.eCR.bmx(), (FollowUserButton.a) null);
-        amVar.a(true, Align.ALIGN_RIGHT_TOP, this.fWA);
+        amVar.a(true, Align.ALIGN_RIGHT_TOP, this.fWC);
         amVar.b((am<k>) kVar);
         amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         amVar.tZ().a(this.agG);
@@ -112,6 +112,6 @@ public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> {
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.fWA = aVar;
+        this.fWC = aVar;
     }
 }

@@ -26,7 +26,7 @@ public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
                 setErrorString(getForumBroadcastListResIdl.error.usermsg);
                 if (getError() == 0) {
                     this.majorHistoryData.a(getForumBroadcastListResIdl.data);
-                    this.majorHistoryData.cWq();
+                    this.majorHistoryData.cWr();
                 }
             }
         }

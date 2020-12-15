@@ -13,15 +13,15 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AlaAudioModeInitialize {
-    private static int oKy = -1;
+    private static int oKA = -1;
 
     static {
-        ekw();
         ekx();
-        ekk();
+        eky();
+        ekl();
     }
 
-    private static void ekw() {
+    private static void ekx() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031079, TbConfig.SERVER_ADDRESS + "ala/audio/room/changeMode");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -33,7 +33,7 @@ public class AlaAudioModeInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ekx() {
+    private static void eky() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501008) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -43,20 +43,20 @@ public class AlaAudioModeInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof w)) {
-                        a.ekt().b((TbPageContext) obj, (w) obj2);
+                        a.eku().b((TbPageContext) obj, (w) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void ekk() {
+    private static void ekl() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.ekt().ID();
+                    a.eku().ID();
                 }
             }
         });

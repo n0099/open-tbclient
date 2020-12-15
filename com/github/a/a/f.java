@@ -11,26 +11,26 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 /* loaded from: classes7.dex */
 public class f {
-    private static final Object psm = new Object();
-    private static final SimpleDateFormat psn = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-    private static final SimpleDateFormat pso = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    private static final Object pso = new Object();
+    private static final SimpleDateFormat psp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+    private static final SimpleDateFormat psq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
     public static String Zz(String str) {
         String hi;
-        synchronized (psm) {
+        synchronized (pso) {
             hi = hi("looper", str);
         }
         return hi;
     }
 
-    public static void exO() {
-        e.exN().post(new Runnable() { // from class: com.github.a.a.f.1
+    public static void exP() {
+        e.exO().post(new Runnable() { // from class: com.github.a.a.f.1
             @Override // java.lang.Runnable
             public void run() {
                 long currentTimeMillis = System.currentTimeMillis();
                 File[] apr = c.apr();
                 if (apr != null && apr.length > 0) {
-                    synchronized (f.psm) {
+                    synchronized (f.pso) {
                         for (File file : apr) {
                             if (currentTimeMillis - file.lastModified() > 172800000) {
                                 file.delete();
@@ -47,9 +47,9 @@ public class f {
         String str3;
         Throwable th;
         try {
-            File exL = c.exL();
+            File exM = c.exM();
             long currentTimeMillis = System.currentTimeMillis();
-            str3 = exL.getAbsolutePath() + "/" + str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + psn.format(Long.valueOf(currentTimeMillis)) + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+            str3 = exM.getAbsolutePath() + "/" + str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + psp.format(Long.valueOf(currentTimeMillis)) + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
             try {
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
             } catch (Throwable th2) {
@@ -60,7 +60,7 @@ public class f {
                 bufferedWriter.write("\r\n");
                 bufferedWriter.write("**********************");
                 bufferedWriter.write("\r\n");
-                bufferedWriter.write(pso.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                bufferedWriter.write(psq.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
                 bufferedWriter.write("\r\n");
                 bufferedWriter.write("\r\n");
                 bufferedWriter.write(str2);

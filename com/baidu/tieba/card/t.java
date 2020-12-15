@@ -7,34 +7,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class t {
-    private static t ilk;
-    private List<ar> fYB;
+    private static t ilm;
+    private List<ar> fYD;
 
-    public static t csg() {
-        if (ilk == null) {
+    public static t csh() {
+        if (ilm == null) {
             synchronized (t.class) {
-                if (ilk == null) {
-                    ilk = new t();
+                if (ilm == null) {
+                    ilm = new t();
                 }
             }
         }
-        return ilk;
+        return ilm;
     }
 
     public void e(ar arVar) {
         if (arVar != null) {
-            if (this.fYB == null) {
-                this.fYB = new ArrayList();
+            if (this.fYD == null) {
+                this.fYD = new ArrayList();
             }
-            this.fYB.add(arVar);
+            this.fYD.add(arVar);
         }
     }
 
     public void mj(boolean z) {
         int i;
-        if (com.baidu.tbadk.core.util.y.getCount(this.fYB) != 0) {
+        if (com.baidu.tbadk.core.util.y.getCount(this.fYD) != 0) {
             int i2 = -1;
-            for (ar arVar : this.fYB) {
+            for (ar arVar : this.fYD) {
                 if (arVar != null) {
                     if (i2 != arVar.getPosition()) {
                         int position = arVar.getPosition();
@@ -47,30 +47,30 @@ public class t {
                     i2 = i;
                 }
             }
-            this.fYB.clear();
+            this.fYD.clear();
         }
     }
 
     public void oX(boolean z) {
-        if (com.baidu.tbadk.core.util.y.getCount(this.fYB) != 0) {
-            for (ar arVar : this.fYB) {
+        if (com.baidu.tbadk.core.util.y.getCount(this.fYD) != 0) {
+            for (ar arVar : this.fYD) {
                 if (arVar != null) {
                     arVar.al("obj_type", z ? 1 : 0);
                     TiebaStatic.log(arVar);
                 }
             }
-            this.fYB.clear();
+            this.fYD.clear();
         }
     }
 
-    public void bPr() {
-        if (com.baidu.tbadk.core.util.y.getCount(this.fYB) != 0) {
-            for (ar arVar : this.fYB) {
+    public void bPs() {
+        if (com.baidu.tbadk.core.util.y.getCount(this.fYD) != 0) {
+            for (ar arVar : this.fYD) {
                 if (arVar != null) {
                     TiebaStatic.log(arVar);
                 }
             }
-            this.fYB.clear();
+            this.fYD.clear();
         }
     }
 }

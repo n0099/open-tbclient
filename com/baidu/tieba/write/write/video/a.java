@@ -30,21 +30,21 @@ import java.io.File;
 /* loaded from: classes3.dex */
 public class a {
     private TbPageContext eNx;
-    private PreviewVideoView ogH;
-    private LinearLayout ogI;
-    private TextView ogJ;
-    private TextView ogK;
+    private PreviewVideoView ogJ;
+    private LinearLayout ogK;
     private TextView ogL;
-    private b ogM;
-    private com.baidu.tieba.d.b ogN;
-    private VideoInfo ogO;
-    private EditVideoData ogP;
-    private int ogQ = 0;
+    private TextView ogM;
+    private TextView ogN;
+    private b ogO;
+    private com.baidu.tieba.d.b ogP;
+    private VideoInfo ogQ;
+    private EditVideoData ogR;
+    private int ogS = 0;
     private View.OnClickListener foP = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.video.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != a.this.ogL) {
-                if (view == a.this.ogH.ogC) {
+            if (view != a.this.ogN) {
+                if (view == a.this.ogJ.ogE) {
                     if (a.this.eNx.getPageActivity() instanceof WriteActivity) {
                         a.this.onDestroy();
                         ((WriteActivity) a.this.eNx.getPageActivity()).aC(true, false);
@@ -52,67 +52,67 @@ public class a {
                         return;
                     }
                     return;
-                } else if (a.this.ogQ != 1) {
-                    a.this.ecB();
+                } else if (a.this.ogS != 1) {
+                    a.this.ecC();
                     return;
                 } else {
                     return;
                 }
             }
-            a.this.ecz();
+            a.this.ecA();
         }
     };
 
     public a(TbPageContext<WriteActivity> tbPageContext, View view) {
         this.eNx = tbPageContext;
-        this.ogH = (PreviewVideoView) view.findViewById(R.id.write_video_preview);
-        this.ogH.setOnClickListener(this.foP);
-        this.ogI = (LinearLayout) view.findViewById(R.id.write_video_mix_state_layout);
-        this.ogJ = (TextView) view.findViewById(R.id.write_video_state_text);
-        this.ogK = (TextView) view.findViewById(R.id.write_video_percent);
-        this.ogL = (TextView) view.findViewById(R.id.write_video_retry);
-        this.ogL.setOnClickListener(this.foP);
+        this.ogJ = (PreviewVideoView) view.findViewById(R.id.write_video_preview);
+        this.ogJ.setOnClickListener(this.foP);
+        this.ogK = (LinearLayout) view.findViewById(R.id.write_video_mix_state_layout);
+        this.ogL = (TextView) view.findViewById(R.id.write_video_state_text);
+        this.ogM = (TextView) view.findViewById(R.id.write_video_percent);
+        this.ogN = (TextView) view.findViewById(R.id.write_video_retry);
+        this.ogN.setOnClickListener(this.foP);
         bvs();
     }
 
     public void onStart() {
-        this.ogH.ecx();
+        this.ogJ.ecy();
     }
 
     public void onResume() {
-        if (this.ogP != null && this.ogP.isLegal()) {
-            this.ogH.Wd(this.ogP.finalPath);
+        if (this.ogR != null && this.ogR.isLegal()) {
+            this.ogJ.Wd(this.ogR.finalPath);
         }
     }
 
     public void onPause() {
-        this.ogH.cEV();
+        this.ogJ.cEW();
     }
 
     public void onStop() {
-        this.ogH.ecy();
+        this.ogJ.ecz();
     }
 
     public void onDestroy() {
-        if (this.ogM != null) {
-            this.ogM.yC(true);
+        if (this.ogO != null) {
+            this.ogO.yC(true);
         }
-        if (this.ogN != null) {
-            this.ogN.cancel();
+        if (this.ogP != null) {
+            this.ogP.cancel();
         }
     }
 
     public boolean isVisible() {
-        return this.ogH != null && this.ogH.getVisibility() == 0;
+        return this.ogJ != null && this.ogJ.getVisibility() == 0;
     }
 
-    public void ecz() {
-        if (this.ogP != null) {
-            bXa();
+    public void ecA() {
+        if (this.ogR != null) {
+            bXb();
             dM(1, 10);
-            this.ogN = (com.baidu.tieba.d.b) MessageManager.getInstance().runTask(2921466, com.baidu.tieba.d.b.class, this.ogM).getData();
-            if (this.ogN != null) {
-                this.ogN.start();
+            this.ogP = (com.baidu.tieba.d.b) MessageManager.getInstance().runTask(2921466, com.baidu.tieba.d.b.class, this.ogO).getData();
+            if (this.ogP != null) {
+                this.ogP.start();
             } else {
                 dM(3, 0);
             }
@@ -121,65 +121,65 @@ public class a {
 
     public void a(VideoInfo videoInfo, boolean z) {
         if (videoInfo == null) {
-            this.ogP = null;
+            this.ogR = null;
         } else {
-            this.ogP = videoInfo.getEditVideoData();
+            this.ogR = videoInfo.getEditVideoData();
         }
-        this.ogO = videoInfo;
-        if (this.ogP != null && this.ogP.isLegal()) {
-            this.ogI.setVisibility(0);
-            this.ogH.setVisibility(0);
-            this.ogH.setVideoInfo(this.ogP);
+        this.ogQ = videoInfo;
+        if (this.ogR != null && this.ogR.isLegal()) {
+            this.ogK.setVisibility(0);
+            this.ogJ.setVisibility(0);
+            this.ogJ.setVideoInfo(this.ogR);
             if (z) {
-                this.ogH.ba(1.0f);
+                this.ogJ.ba(1.0f);
                 return;
             }
             return;
         }
-        this.ogI.setVisibility(8);
-        this.ogH.setVisibility(8);
-        this.ogH.reset();
-        if (this.ogM != null) {
-            this.ogM.yC(true);
+        this.ogK.setVisibility(8);
+        this.ogJ.setVisibility(8);
+        this.ogJ.reset();
+        if (this.ogO != null) {
+            this.ogO.yC(true);
         }
-        if (this.ogN != null) {
-            this.ogN.cancel();
+        if (this.ogP != null) {
+            this.ogP.cancel();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dM(int i, int i2) {
-        this.ogK.setText(String.format(this.eNx.getString(R.string.video_mix_percent), Integer.valueOf(i2)));
-        if (i != this.ogQ) {
-            this.ogQ = i;
-            ap.setViewTextColor(this.ogJ, this.ogQ == 3 ? R.color.CAM_X0301 : R.color.CAM_X0107);
+        this.ogM.setText(String.format(this.eNx.getString(R.string.video_mix_percent), Integer.valueOf(i2)));
+        if (i != this.ogS) {
+            this.ogS = i;
+            ap.setViewTextColor(this.ogL, this.ogS == 3 ? R.color.CAM_X0301 : R.color.CAM_X0107);
             if (i == 1) {
-                this.ogJ.setText(this.eNx.getString(R.string.video_mixing));
-                this.ogK.setVisibility(0);
-                this.ogL.setVisibility(8);
+                this.ogL.setText(this.eNx.getString(R.string.video_mixing));
+                this.ogM.setVisibility(0);
+                this.ogN.setVisibility(8);
             } else if (i == 3) {
-                this.ogJ.setText(this.eNx.getString(R.string.video_mix_failed));
-                this.ogK.setVisibility(8);
-                this.ogL.setVisibility(0);
+                this.ogL.setText(this.eNx.getString(R.string.video_mix_failed));
+                this.ogM.setVisibility(8);
+                this.ogN.setVisibility(0);
             } else {
-                this.ogJ.setText(this.eNx.getString(R.string.video_mix_success));
-                this.ogK.setVisibility(8);
-                this.ogL.setVisibility(8);
+                this.ogL.setText(this.eNx.getString(R.string.video_mix_success));
+                this.ogM.setVisibility(8);
+                this.ogN.setVisibility(8);
             }
         }
-        this.ogH.ba(i2 / 100.0f);
+        this.ogJ.ba(i2 / 100.0f);
     }
 
-    private void bXa() {
-        if (this.ogM == null) {
-            this.ogM = new b((WriteActivity) this.eNx.getPageActivity(), this.ogP) { // from class: com.baidu.tieba.write.write.video.a.2
+    private void bXb() {
+        if (this.ogO == null) {
+            this.ogO = new b((WriteActivity) this.eNx.getPageActivity(), this.ogR) { // from class: com.baidu.tieba.write.write.video.a.2
                 @Override // com.baidu.tieba.video.b
                 public void onCancel() {
                     super.onCancel();
                 }
 
                 @Override // com.baidu.tieba.video.b
-                public void dTD() {
+                public void dTE() {
                     a.this.eNx.getPageActivity().runOnUiThread(new Runnable() { // from class: com.baidu.tieba.write.write.video.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -195,13 +195,13 @@ public class a {
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.dM(3, 0);
-                            a.this.ecA();
+                            a.this.ecB();
                         }
                     });
                 }
 
                 @Override // com.baidu.tieba.video.b
-                public void dTE() {
+                public void dTF() {
                     a.this.eNx.getPageActivity().runOnUiThread(new Runnable() { // from class: com.baidu.tieba.write.write.video.a.2.3
                         @Override // java.lang.Runnable
                         public void run() {
@@ -217,7 +217,7 @@ public class a {
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.dM(3, 0);
-                            a.this.ecA();
+                            a.this.ecB();
                         }
                     });
                 }
@@ -227,11 +227,11 @@ public class a {
                     String str;
                     super.a(videoInfo);
                     String videoPath = videoInfo.getVideoPath();
-                    if (au.isEmpty(videoPath) || !videoPath.contains(c.nAX)) {
+                    if (au.isEmpty(videoPath) || !videoPath.contains(c.nAZ)) {
                         str = videoPath;
                     } else {
                         File file = new File(videoPath);
-                        String str2 = c.nAY + file.getName();
+                        String str2 = c.nBa + file.getName();
                         n.copyFile(file.getAbsolutePath(), str2);
                         str = str2;
                     }
@@ -240,29 +240,29 @@ public class a {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    a.this.ogP.finalPath = str;
-                    a.this.ogO.setVideoPath(str);
-                    a.this.ogO.setThumbPath(this.coverPath);
-                    a.this.ogH.Wd(str);
+                    a.this.ogR.finalPath = str;
+                    a.this.ogQ.setVideoPath(str);
+                    a.this.ogQ.setThumbPath(this.coverPath);
+                    a.this.ogJ.Wd(str);
                     a.this.eNx.getPageActivity().runOnUiThread(new Runnable() { // from class: com.baidu.tieba.write.write.video.a.2.5
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.dM(2, 100);
                             if (a.this.eNx != null && (a.this.eNx.getPageActivity() instanceof WriteActivity)) {
-                                ((WriteActivity) a.this.eNx.getPageActivity()).dLF();
+                                ((WriteActivity) a.this.eNx.getPageActivity()).dLG();
                             }
                         }
                     });
                 }
             };
         } else {
-            this.ogM.a(this.ogP);
+            this.ogO.a(this.ogR);
         }
-        this.ogM.yC(false);
+        this.ogO.yC(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecA() {
+    public void ecB() {
         if (this.eNx != null && (this.eNx.getPageActivity() instanceof WriteActivity)) {
             ((WriteActivity) this.eNx.getPageActivity()).Ff(this.eNx.getString(R.string.write_video_mix_fail));
         }
@@ -285,23 +285,23 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecB() {
+    public void ecC() {
         WriteActivity writeActivity;
-        WriteData dcD;
-        if (this.eNx != null && (this.eNx.getPageActivity() instanceof WriteActivity) && (dcD = (writeActivity = (WriteActivity) this.eNx.getPageActivity()).dcD()) != null) {
+        WriteData dcE;
+        if (this.eNx != null && (this.eNx.getPageActivity() instanceof WriteActivity) && (dcE = (writeActivity = (WriteActivity) this.eNx.getPageActivity()).dcE()) != null) {
             VideoInfo videoInfo = new VideoInfo();
-            videoInfo.copy(this.ogO);
-            videoInfo.setVideoPath(this.ogP.originPath);
+            videoInfo.copy(this.ogQ);
+            videoInfo.setVideoPath(this.ogR.originPath);
             videoInfo.getEditVideoData().finalPath = null;
-            EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.eNx.getPageActivity(), writeActivity.getCallFrom(), dcD.getForumName(), dcD.getForumId(), "", videoInfo);
-            editVideoActivityConfig.setProZone(dcD.getProZone());
-            editVideoActivityConfig.setFrsTabInfo(writeActivity.ebE());
+            EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.eNx.getPageActivity(), writeActivity.getCallFrom(), dcE.getForumName(), dcE.getForumId(), "", videoInfo);
+            editVideoActivityConfig.setProZone(dcE.getProZone());
+            editVideoActivityConfig.setFrsTabInfo(writeActivity.ebF());
             editVideoActivityConfig.setFrom(writeActivity.getFrom());
             editVideoActivityConfig.addFromType(EditVideoActivityConfig.FROM_TYPE_WRITE_ACTIVITY_EDIT);
             AntiData antiData = new AntiData();
             antiData.voice_message = writeActivity.fwy;
-            antiData.setIfVoice(writeActivity.ocY);
-            editVideoActivityConfig.setExtraData(antiData, writeActivity.mPrefixData, dcD.getFirstDir(), dcD.getSecondDir());
+            antiData.setIfVoice(writeActivity.oda);
+            editVideoActivityConfig.setExtraData(antiData, writeActivity.mPrefixData, dcE.getFirstDir(), dcE.getSecondDir());
             editVideoActivityConfig.getIntent().setFlags(536870912);
             editVideoActivityConfig.getIntent().setFlags(67108864);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, editVideoActivityConfig));
@@ -309,9 +309,9 @@ public class a {
     }
 
     public void bvs() {
-        this.ogH.bvs();
-        ap.setViewTextColor(this.ogJ, this.ogQ == 3 ? R.color.CAM_X0301 : R.color.CAM_X0107);
-        ap.setViewTextColor(this.ogK, R.color.CAM_X0109);
-        ap.setViewTextColor(this.ogL, R.color.CAM_X0302);
+        this.ogJ.bvs();
+        ap.setViewTextColor(this.ogL, this.ogS == 3 ? R.color.CAM_X0301 : R.color.CAM_X0107);
+        ap.setViewTextColor(this.ogM, R.color.CAM_X0109);
+        ap.setViewTextColor(this.ogN, R.color.CAM_X0302);
     }
 }

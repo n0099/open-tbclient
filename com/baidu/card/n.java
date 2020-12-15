@@ -89,7 +89,7 @@ public class n extends i {
         PostData bqu = aVar.bmn().bqu();
         if (this.ahh != null && bqu != null && bqu.boP() != null && bqu.boP().getUserId() != null) {
             this.ahh.dY("tid", aVar.bmn().tid).dY("post_id", bqu.getId()).dY("uid", bqu.boP().getUserId());
-            com.baidu.tieba.card.t.csg().e(this.ahh);
+            com.baidu.tieba.card.t.csh().e(this.ahh);
         }
         this.ahg.setData(aVar.bmn());
     }

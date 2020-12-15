@@ -6,15 +6,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class f extends g {
-    private b oZM;
-    private a oZN;
+    private b oZO;
+    private a oZP;
 
     public void a(b bVar) {
-        this.oZM = bVar;
+        this.oZO = bVar;
     }
 
     public void a(a aVar) {
-        this.oZN = aVar;
+        this.oZP = aVar;
     }
 
     /* loaded from: classes10.dex */
@@ -89,7 +89,7 @@ public class f extends g {
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.oZM.d;
+        return this.oZO.d;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -98,13 +98,13 @@ public class f extends g {
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject2.put("sign", this.oZM.c());
-            jSONObject2.put("msgid", this.oZM.d());
-            jSONObject2.put("systemtime", this.oZM.e());
-            jSONObject2.put("appid", this.oZM.b());
-            jSONObject2.put("version", this.oZM.a());
+            jSONObject2.put("sign", this.oZO.c());
+            jSONObject2.put("msgid", this.oZO.d());
+            jSONObject2.put("systemtime", this.oZO.e());
+            jSONObject2.put("appid", this.oZO.b());
+            jSONObject2.put("version", this.oZO.a());
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, jSONObject2);
-            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.oZN.a());
+            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.oZP.a());
             jSONObject.put("body", jSONObject3);
         } catch (JSONException e) {
             e.printStackTrace();

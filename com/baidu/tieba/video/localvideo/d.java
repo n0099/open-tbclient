@@ -7,7 +7,7 @@ public class d {
     private boolean hasLoaded = false;
     private long lastModified;
     private String mimeType;
-    private String nGA;
+    private String nGC;
     private Bitmap thumbnailBitmap;
     private int videoHeight;
     private String videoId;
@@ -59,7 +59,7 @@ public class d {
     }
 
     public void UX(String str) {
-        this.nGA = str;
+        this.nGC = str;
     }
 
     public long getLastModified() {
@@ -82,7 +82,7 @@ public class d {
         this.hasLoaded = z;
     }
 
-    public boolean dVt() {
+    public boolean dVu() {
         return this.hasLoaded;
     }
 }

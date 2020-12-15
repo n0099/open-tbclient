@@ -12,14 +12,14 @@ public class AlaDragContainerView extends FrameLayout {
     private float bpE;
     private float bpF;
     private int dOW;
-    private int hbg;
-    private int hbh;
-    private boolean hbi;
-    private final int hbj;
-    private int hbk;
-    private int hbl;
+    private int hbi;
+    private int hbj;
+    private boolean hbk;
+    private final int hbl;
     private int hbm;
     private int hbn;
+    private int hbo;
+    private int hbp;
     private int height;
     private Context mContext;
     private int screenWidth;
@@ -27,9 +27,9 @@ public class AlaDragContainerView extends FrameLayout {
 
     public AlaDragContainerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hbi = false;
+        this.hbk = false;
         this.mContext = context;
-        this.hbj = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.hbl = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -46,8 +46,8 @@ public class AlaDragContainerView extends FrameLayout {
         super.onMeasure(i, i2);
         this.width = getMeasuredWidth();
         this.height = getMeasuredHeight();
-        this.hbg = this.width / 2;
-        this.hbh = this.height / 2;
+        this.hbi = this.width / 2;
+        this.hbj = this.height / 2;
         this.screenWidth = ScreenHelper.getScreenWidth(this.mContext);
         this.dOW = ScreenHelper.getScreenHeight(this.mContext);
     }
@@ -57,47 +57,47 @@ public class AlaDragContainerView extends FrameLayout {
         if (isEnabled()) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.hbi = false;
+                    this.hbk = false;
                     this.bpE = motionEvent.getX();
                     this.bpF = motionEvent.getY();
                     break;
                 case 2:
                     float x = motionEvent.getX() - this.bpE;
                     float y = motionEvent.getY() - this.bpF;
-                    if (Math.abs(x) > this.hbj || Math.abs(y) > this.hbj) {
-                        this.hbi = true;
+                    if (Math.abs(x) > this.hbl || Math.abs(y) > this.hbl) {
+                        this.hbk = true;
                         int left = (int) (x + getLeft());
                         int i = this.width + left;
                         int top = (int) (y + getTop());
                         int i2 = this.height + top;
-                        if (left < (-this.hbg)) {
-                            left = -this.hbg;
+                        if (left < (-this.hbi)) {
+                            left = -this.hbi;
                             i = this.width + left;
-                        } else if (i > this.screenWidth + this.hbg) {
-                            i = this.screenWidth + this.hbg;
+                        } else if (i > this.screenWidth + this.hbi) {
+                            i = this.screenWidth + this.hbi;
                             left = i - this.width;
                         }
-                        if (top < (-this.hbh)) {
-                            top = -this.hbh;
+                        if (top < (-this.hbj)) {
+                            top = -this.hbj;
                             i2 = this.height + top;
-                        } else if (i2 > this.dOW + this.hbh) {
-                            i2 = this.dOW + this.hbh;
+                        } else if (i2 > this.dOW + this.hbj) {
+                            i2 = this.dOW + this.hbj;
                             top = i2 - this.height;
                         }
-                        this.hbk = left;
-                        this.hbl = top;
-                        this.hbm = i;
-                        this.hbn = i2;
+                        this.hbm = left;
+                        this.hbn = top;
+                        this.hbo = i;
+                        this.hbp = i2;
                         layout(left, top, i, i2);
                         break;
                     }
                     break;
             }
         }
-        return Boolean.valueOf(this.hbi);
+        return Boolean.valueOf(this.hbk);
     }
 
-    public void bYW() {
-        layout(this.hbk, this.hbl, this.hbm, this.hbn);
+    public void bYX() {
+        layout(this.hbm, this.hbn, this.hbo, this.hbp);
     }
 }

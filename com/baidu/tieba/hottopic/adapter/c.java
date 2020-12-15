@@ -47,18 +47,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(com.baidu.tieba.hottopic.a.a aVar, final com.baidu.tieba.hottopic.data.b bVar) {
         if (aVar != null && bVar != null) {
-            String string = StringUtils.isNull(bVar.cRO()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.cRO();
-            aVar.keG.setText(bVar.cRN());
-            aVar.keE.setText(string);
-            aVar.keK.startLoad(bVar.cRM(), 10, false);
+            String string = StringUtils.isNull(bVar.cRP()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.cRP();
+            aVar.keI.setText(bVar.cRO());
+            aVar.keG.setText(string);
+            aVar.keM.startLoad(bVar.cRN(), 10, false);
             if (StringUtils.isNull(bVar.getName())) {
-                aVar.keF.setVisibility(8);
-                aVar.keG.setPadding(0, 0, 0, 0);
+                aVar.keH.setVisibility(8);
+                aVar.keI.setPadding(0, 0, 0, 0);
             } else {
-                aVar.keF.setVisibility(0);
-                aVar.keF.setText(bVar.getName());
+                aVar.keH.setVisibility(0);
+                aVar.keH.setText(bVar.getName());
             }
-            aVar.keL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
+            aVar.keN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.adapter.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(view.getContext()).createNormalConfig(String.valueOf(bVar.getId()), bVar.getName(), "5")));
@@ -74,12 +74,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             if (aVar.aku != this.mSkinType) {
                 aVar.aku = this.mSkinType;
                 ap.setBackgroundColor(aVar.getView(), R.color.CAM_X0201);
-                ap.setViewTextColor(aVar.keE, R.color.CAM_X0109, 1);
-                ap.setViewTextColor(aVar.keF, R.color.CAM_X0105, 1);
-                ap.setViewTextColor(aVar.keG, R.color.CAM_X0108, 1);
-                ap.setBackgroundColor(aVar.keI, R.color.CAM_X0204);
-                ap.setBackgroundColor(aVar.keJ, R.color.CAM_X0204);
-                ap.setBackgroundResource(aVar.keL, R.drawable.hot_topic_ranklist_bg);
+                ap.setViewTextColor(aVar.keG, R.color.CAM_X0109, 1);
+                ap.setViewTextColor(aVar.keH, R.color.CAM_X0105, 1);
+                ap.setViewTextColor(aVar.keI, R.color.CAM_X0108, 1);
+                ap.setBackgroundColor(aVar.keK, R.color.CAM_X0204);
+                ap.setBackgroundColor(aVar.keL, R.color.CAM_X0204);
+                ap.setBackgroundResource(aVar.keN, R.drawable.hot_topic_ranklist_bg);
             }
         }
     }

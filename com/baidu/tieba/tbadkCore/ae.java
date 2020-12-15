@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
     private String mFrom = BarDetailForDirSwitch.BAR_DETAIL_DIR;
-    private a nkS;
+    private a nkU;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -30,11 +30,11 @@ public class ae {
     }
 
     public void a(a aVar) {
-        this.nkS = aVar;
+        this.nkU = aVar;
     }
 
     public void O(String str, long j) {
-        new b(str, j, this.mFrom, this.nkS, this, null).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.nkU, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -47,18 +47,18 @@ public class ae {
         private String mForumName;
         private String mFrom;
         private com.baidu.tbadk.core.util.aa mNetwork = null;
-        private WeakReference<a> nkT;
-        private WeakReference<ae> nkU;
+        private WeakReference<a> nkV;
+        private WeakReference<ae> nkW;
         private AuthTokenData tokenData;
 
         public b(String str, long j, String str2, a aVar, ae aeVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.nkT = null;
-            this.nkU = new WeakReference<>(aeVar);
+            this.nkV = null;
+            this.nkW = new WeakReference<>(aeVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.nkT = new WeakReference<>(aVar);
+            this.nkV = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -101,10 +101,10 @@ public class ae {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.nkT != null) {
+            if (this.nkV != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.nkT.get();
+                a aVar2 = this.nkV.get();
                 if (aVar2 != null) {
                     if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.btv().buf().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);

@@ -15,13 +15,13 @@ import java.util.List;
 /* loaded from: classes23.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
-    private com.baidu.tieba.video.editvideo.data.a nCS;
+    private com.baidu.tieba.video.editvideo.data.a nCU;
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.nCS = this.mList.get(0);
+                this.nCU = this.mList.get(0);
             }
         }
     }
@@ -33,10 +33,10 @@ public class b extends BaseAdapter implements View.OnClickListener {
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
         if (aVar == null) {
             if (this.mList != null) {
-                this.nCS = this.mList.get(0);
+                this.nCU = this.mList.get(0);
             }
         } else {
-            this.nCS = aVar;
+            this.nCU = aVar;
         }
         notifyDataSetChanged();
     }
@@ -65,16 +65,16 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_filter, (ViewGroup) null);
-            aVar.nCT = (TbImageView) view.findViewById(R.id.iv_effect);
-            aVar.nCT.setIsRound(true);
-            aVar.nCT.setDrawerType(1);
-            aVar.nCT.setDefaultBgResource(R.color.transparent);
-            aVar.nCT.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
-            aVar.nCT.setBorderColor(ap.getColor(R.color.CAM_X0302));
-            aVar.nCT.setConrers(15);
-            aVar.lJM = (TextView) view.findViewById(R.id.tv_name);
-            ap.setViewTextColor(aVar.lJM, R.color.CAM_X0107);
-            aVar.lJM = (TextView) view.findViewById(R.id.tv_name);
+            aVar.nCV = (TbImageView) view.findViewById(R.id.iv_effect);
+            aVar.nCV.setIsRound(true);
+            aVar.nCV.setDrawerType(1);
+            aVar.nCV.setDefaultBgResource(R.color.transparent);
+            aVar.nCV.setBorderWidth(l.getDimens(viewGroup.getContext(), R.dimen.ds4));
+            aVar.nCV.setBorderColor(ap.getColor(R.color.CAM_X0302));
+            aVar.nCV.setConrers(15);
+            aVar.lJO = (TextView) view.findViewById(R.id.tv_name);
+            ap.setViewTextColor(aVar.lJO, R.color.CAM_X0107);
+            aVar.lJO = (TextView) view.findViewById(R.id.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -82,15 +82,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.nCT.setTag(aVar2);
-                aVar.nCT.setOnClickListener(this);
-                aVar.nCT.startLoad(String.valueOf(aVar2.nDr), 24, false);
-                aVar.lJM.setText(aVar2.name);
+                aVar.nCV.setTag(aVar2);
+                aVar.nCV.setOnClickListener(this);
+                aVar.nCV.startLoad(String.valueOf(aVar2.nDt), 24, false);
+                aVar.lJO.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.nCS != null && TextUtils.equals(aVar2.name, this.nCS.name)) {
-                aVar.nCT.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.nCU != null && TextUtils.equals(aVar2.name, this.nCU.name)) {
+                aVar.nCV.setDrawBorder(true);
             } else {
-                aVar.nCT.setDrawBorder(false);
+                aVar.nCV.setDrawBorder(false);
             }
         }
         return view;
@@ -99,15 +99,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.nCS = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.nCU = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes23.dex */
     class a {
-        TextView lJM;
-        TbImageView nCT;
+        TextView lJO;
+        TbImageView nCV;
 
         a() {
         }

@@ -11,19 +11,19 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class c extends BdBaseModel {
-    private a oiK;
-    private HttpMessageListener gER = new HttpMessageListener(1031038) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.c.1
+    private a oiM;
+    private HttpMessageListener gET = new HttpMessageListener(1031038) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof BannedListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId()) {
                 BannedListHttpResponseMessage bannedListHttpResponseMessage = (BannedListHttpResponseMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    if (c.this.oiK != null) {
-                        c.this.oiK.a(bannedListHttpResponseMessage.ecO());
+                    if (c.this.oiM != null) {
+                        c.this.oiM.a(bannedListHttpResponseMessage.ecP());
                     }
-                } else if (c.this.oiK != null) {
-                    c.this.oiK.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (c.this.oiM != null) {
+                    c.this.oiM.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -38,7 +38,7 @@ public class c extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oiK = aVar;
+        this.oiM = aVar;
     }
 
     public c(Context context) {
@@ -50,7 +50,7 @@ public class c extends BdBaseModel {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(BannedListHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gER);
+        MessageManager.getInstance().registerListener(this.gET);
     }
 
     public void K(String str, String str2, String str3, String str4) {
@@ -64,7 +64,7 @@ public class c extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gER);
+        MessageManager.getInstance().unRegisterListener(this.gET);
         MessageManager.getInstance().unRegisterTask(1031038);
         cancelMessage();
     }

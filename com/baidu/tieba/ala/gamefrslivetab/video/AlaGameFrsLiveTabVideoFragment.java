@@ -19,10 +19,10 @@ import java.net.URL;
 public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements as {
     private String forumId;
     private String forumName;
-    private b gNe;
-    private boolean gLw = false;
-    private boolean gtX = true;
-    private CustomMessageListener gxi = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment.1
+    private b gNg;
+    private boolean gLy = false;
+    private boolean gtZ = true;
+    private CustomMessageListener gxk = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,11 +30,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements as {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2) {
                     if ("FrsGameLive".equals(split[0]) && 8 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
-                        if (AlaGameFrsLiveTabVideoFragment.this.gNe != null) {
-                            AlaGameFrsLiveTabVideoFragment.this.gNe.bSZ();
+                        if (AlaGameFrsLiveTabVideoFragment.this.gNg != null) {
+                            AlaGameFrsLiveTabVideoFragment.this.gNg.bTa();
                         }
-                    } else if ("FrsGameLiveLive".equals(split[0]) && 3 == com.baidu.adp.lib.f.b.toInt(split[1], 0) && AlaGameFrsLiveTabVideoFragment.this.gNe != null) {
-                        AlaGameFrsLiveTabVideoFragment.this.gNe.bSZ();
+                    } else if ("FrsGameLiveLive".equals(split[0]) && 3 == com.baidu.adp.lib.f.b.toInt(split[1], 0) && AlaGameFrsLiveTabVideoFragment.this.gNg != null) {
+                        AlaGameFrsLiveTabVideoFragment.this.gNg.bTa();
                     }
                 }
             }
@@ -47,7 +47,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements as {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (AlaGameFrsLiveTabVideoFragment.this.getVideoUrl().contains(str) || str.contains(AlaGameFrsLiveTabVideoFragment.this.getVideoUrl())) {
-                    AlaGameFrsLiveTabVideoFragment.this.gNe.hideLoadingView();
+                    AlaGameFrsLiveTabVideoFragment.this.gNg.hideLoadingView();
                 }
             }
         }
@@ -56,32 +56,32 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements as {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.gxi, getBaseFragmentActivity().getUniqueId());
+        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.gxk, getBaseFragmentActivity().getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.gNe = new b(this.gLw);
-        return this.gNe.b(layoutInflater, viewGroup);
+        this.gNg = new b(this.gLy);
+        return this.gNg.b(layoutInflater, viewGroup);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.gNe.b(this);
+        this.gNg.b(this);
         registerListener(this.htmlLoadMessageListener);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.gtX || StringUtils.isNull(this.gNe.getWebView().getUrl())) {
+        if (this.gtZ || StringUtils.isNull(this.gNg.getWebView().getUrl())) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.gNe.loadUrl(Hr(getVideoUrl()));
+                this.gNg.loadUrl(Hr(getVideoUrl()));
             } else {
-                this.gNe.loadUrl(getVideoUrl());
+                this.gNg.loadUrl(getVideoUrl());
             }
-            this.gtX = false;
+            this.gtZ = false;
         }
     }
 
@@ -115,8 +115,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements as {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gNe != null) {
-            this.gNe.onDestroy();
+        if (this.gNg != null) {
+            this.gNg.onDestroy();
         }
     }
 
@@ -128,13 +128,13 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements as {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (!this.gtX) {
+        if (!this.gtZ) {
             if (i == 1) {
-                this.gNe.loadUrl(Hr(getVideoUrl()));
+                this.gNg.loadUrl(Hr(getVideoUrl()));
             } else {
-                this.gNe.loadUrl(getVideoUrl());
+                this.gNg.loadUrl(getVideoUrl());
             }
-            this.gNe.onChangeSkinType(i);
+            this.gNg.onChangeSkinType(i);
         }
     }
 
@@ -147,7 +147,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements as {
     }
 
     public void mK(boolean z) {
-        this.gLw = z;
+        this.gLy = z;
     }
 
     public String getVideoUrl() {
@@ -167,7 +167,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements as {
     }
 
     @Override // com.baidu.tieba.frs.as
-    public NavigationBar bVK() {
-        return this.gNe.bVK();
+    public NavigationBar bVL() {
+        return this.gNg.bVL();
     }
 }

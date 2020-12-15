@@ -22,7 +22,7 @@ import java.util.List;
 public class b extends BaseAdapter {
     private Context context;
     private List<e> mList;
-    private a orC;
+    private a orE;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -74,19 +74,19 @@ public class b extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.context).inflate(a.g.yuyin_item_connection_wheat_apply, (ViewGroup) null);
             C0940b c0940b2 = new C0940b();
-            c0940b2.orq = (TextView) view.findViewById(a.f.tv_rank_num);
-            c0940b2.orr = view.findViewById(a.f.margin_top_height);
-            c0940b2.ors = (HeadImageView) view.findViewById(a.f.user_avatar);
-            c0940b2.ort = (TextView) view.findViewById(a.f.tv_nickname);
-            c0940b2.oru = (TextView) view.findViewById(a.f.tv_temp_nickname);
-            c0940b2.orv = (ImageView) view.findViewById(a.f.iv_sex);
-            c0940b2.orw = (TextView) view.findViewById(a.f.tv_level);
-            c0940b2.ory = (TbImageView) view.findViewById(a.f.iv_level);
-            c0940b2.orx = (FrameLayout) view.findViewById(a.f.level_container);
-            c0940b2.orz = (TbImageView) view.findViewById(a.f.iv_badge);
-            c0940b2.orG = (AlaAcceptAndInviteBtn) view.findViewById(a.f.tv_accept_invite);
-            c0940b2.orA = (LinearLayout) view.findViewById(a.f.content_container);
-            c0940b2.orB = (LinearLayout) view.findViewById(a.f.icon_container);
+            c0940b2.ors = (TextView) view.findViewById(a.f.tv_rank_num);
+            c0940b2.ort = view.findViewById(a.f.margin_top_height);
+            c0940b2.oru = (HeadImageView) view.findViewById(a.f.user_avatar);
+            c0940b2.orv = (TextView) view.findViewById(a.f.tv_nickname);
+            c0940b2.orw = (TextView) view.findViewById(a.f.tv_temp_nickname);
+            c0940b2.orx = (ImageView) view.findViewById(a.f.iv_sex);
+            c0940b2.ory = (TextView) view.findViewById(a.f.tv_level);
+            c0940b2.orA = (TbImageView) view.findViewById(a.f.iv_level);
+            c0940b2.orz = (FrameLayout) view.findViewById(a.f.level_container);
+            c0940b2.orB = (TbImageView) view.findViewById(a.f.iv_badge);
+            c0940b2.orI = (AlaAcceptAndInviteBtn) view.findViewById(a.f.tv_accept_invite);
+            c0940b2.orC = (LinearLayout) view.findViewById(a.f.content_container);
+            c0940b2.orD = (LinearLayout) view.findViewById(a.f.icon_container);
             view.setTag(c0940b2);
             c0940b = c0940b2;
         } else {
@@ -95,74 +95,74 @@ public class b extends BaseAdapter {
         final e eVar = (e) ListUtils.getItem(this.mList, i);
         int c = com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(14.0f, view.getContext()) + (com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(4.0f, view.getContext()) * 2);
         if (eVar != null) {
-            c0940b.orG.setBtnEnabled(eVar.aIN);
-            c0940b.orq.setText(Integer.toString(eVar.mPos));
-            c0940b.ors.setIsRound(true);
-            c0940b.ors.setAutoChangeStyle(false);
-            c0940b.ors.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+            c0940b.orI.setBtnEnabled(eVar.aIN);
+            c0940b.ors.setText(Integer.toString(eVar.mPos));
+            c0940b.oru.setIsRound(true);
+            c0940b.oru.setAutoChangeStyle(false);
+            c0940b.oru.setDefaultResource(a.e.yuyin_sdk_default_avatar);
             if (eVar != null && !TextUtils.isEmpty(eVar.mPortrait)) {
-                c0940b.ors.setScaleType(ImageView.ScaleType.FIT_XY);
-                c0940b.ors.setUrl(eVar.mPortrait);
-                c0940b.ors.startLoad(eVar.mPortrait, 12, false);
+                c0940b.oru.setScaleType(ImageView.ScaleType.FIT_XY);
+                c0940b.oru.setUrl(eVar.mPortrait);
+                c0940b.oru.startLoad(eVar.mPortrait, 12, false);
             }
-            c0940b.ort.setText(eVar.mUserName);
-            c0940b.oru.setText(eVar.mUserName);
+            c0940b.orv.setText(eVar.mUserName);
+            c0940b.orw.setText(eVar.mUserName);
             if (eVar.mSex == 0) {
-                c0940b.orv.setVisibility(8);
+                c0940b.orx.setVisibility(8);
             } else {
-                c0940b.orv.setVisibility(0);
-                c0940b.orv.setImageResource(eVar.mSex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
+                c0940b.orx.setVisibility(0);
+                c0940b.orx.setImageResource(eVar.mSex == 1 ? a.e.yuyin_sdk_icon_mine_boy : a.e.yuyin_sdk_icon_mine_girl);
             }
             int i3 = eVar.mSex == 0 ? 3 : 2;
-            c0940b.orx.setVisibility(8);
             c0940b.orz.setVisibility(8);
+            c0940b.orB.setVisibility(8);
             if (eVar.mLiveMarkInfo != null) {
                 i2 = c;
                 for (int i4 = 0; i4 < eVar.mLiveMarkInfo.size() && i4 < i3; i4++) {
                     switch (eVar.mLiveMarkInfo.get(i4).type) {
                         case 1:
-                            c0940b.orx.setVisibility(0);
-                            c0940b.ory.startLoad(eVar.mLiveMarkInfo.get(i4).mark_pic, 10, false);
-                            c0940b.orw.setText(Integer.toString(eVar.level));
+                            c0940b.orz.setVisibility(0);
+                            c0940b.orA.startLoad(eVar.mLiveMarkInfo.get(i4).mark_pic, 10, false);
+                            c0940b.ory.setText(Integer.toString(eVar.level));
                             i2 += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(13.0f, view.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(4.0f, view.getContext());
                             break;
                         case 105:
-                            c0940b.orz.setVisibility(0);
-                            c0940b.orz.startLoad(eVar.mLiveMarkInfo.get(i4).mark_pic, 10, false);
-                            i2 += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(42.0f, c0940b.orz.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(4.0f, view.getContext());
+                            c0940b.orB.setVisibility(0);
+                            c0940b.orB.startLoad(eVar.mLiveMarkInfo.get(i4).mark_pic, 10, false);
+                            i2 += com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(42.0f, c0940b.orB.getContext()) + com.baidu.tieba.yuyinala.liveroom.wheat.e.e.c(4.0f, view.getContext());
                             break;
                     }
                 }
-                c0940b.ors.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.1
+                c0940b.oru.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (b.this.orC != null && view2.getTag() != null && (view2.getTag() instanceof e)) {
-                            b.this.orC.a((e) view2.getTag());
+                        if (b.this.orE != null && view2.getTag() != null && (view2.getTag() instanceof e)) {
+                            b.this.orE.a((e) view2.getTag());
                         }
                     }
                 });
-                c0940b.ort.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.2
+                c0940b.orv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (b.this.orC != null && view2.getTag() != null && (view2.getTag() instanceof e)) {
-                            b.this.orC.a((e) view2.getTag());
+                        if (b.this.orE != null && view2.getTag() != null && (view2.getTag() instanceof e)) {
+                            b.this.orE.a((e) view2.getTag());
                         }
                     }
                 });
-                c0940b.ors.setTag(eVar);
-                c0940b.ort.setTag(eVar);
-                c0940b.orG.setTag(eVar);
-                c0940b.orG.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-                c0940b.orG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.3
+                c0940b.oru.setTag(eVar);
+                c0940b.orv.setTag(eVar);
+                c0940b.orI.setTag(eVar);
+                c0940b.orI.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+                c0940b.orI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (eVar.aIN || b.this.context == null) {
-                            if (b.this.orC != null) {
+                            if (b.this.orE != null) {
                                 if (view2.getTag() == null || !(view2.getTag() instanceof e)) {
-                                    b.this.orC.b(null);
+                                    b.this.orE.b(null);
                                     return;
                                 } else {
-                                    b.this.orC.b((e) view2.getTag());
+                                    b.this.orE.b((e) view2.getTag());
                                     return;
                                 }
                             }
@@ -171,56 +171,56 @@ public class b extends BaseAdapter {
                         BdToast.makeText(b.this.context, b.this.context.getText(a.h.yuyin_ala_apply_unable_text)).show();
                     }
                 });
-                c0940b.ort.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.4
+                c0940b.orv.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c0940b.oru.getMeasuredWidth() + i2 > c0940b.orA.getMeasuredWidth()) {
-                            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0940b.ort.getLayoutParams();
+                        if (c0940b.orw.getMeasuredWidth() + i2 > c0940b.orC.getMeasuredWidth()) {
+                            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0940b.orv.getLayoutParams();
                             layoutParams.weight = 1.0f;
-                            c0940b.ort.setLayoutParams(layoutParams);
+                            c0940b.orv.setLayoutParams(layoutParams);
                             return;
                         }
-                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0940b.ort.getLayoutParams();
+                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0940b.orv.getLayoutParams();
                         layoutParams2.weight = 0.0f;
                         layoutParams2.width = -2;
-                        c0940b.ort.setLayoutParams(layoutParams2);
+                        c0940b.orv.setLayoutParams(layoutParams2);
                     }
                 });
-                c0940b.orr.setVisibility(i != 0 ? 8 : 0);
+                c0940b.ort.setVisibility(i != 0 ? 8 : 0);
                 return view;
             }
         }
         i2 = c;
-        c0940b.ors.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.1
+        c0940b.oru.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.orC != null && view2.getTag() != null && (view2.getTag() instanceof e)) {
-                    b.this.orC.a((e) view2.getTag());
+                if (b.this.orE != null && view2.getTag() != null && (view2.getTag() instanceof e)) {
+                    b.this.orE.a((e) view2.getTag());
                 }
             }
         });
-        c0940b.ort.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.2
+        c0940b.orv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.orC != null && view2.getTag() != null && (view2.getTag() instanceof e)) {
-                    b.this.orC.a((e) view2.getTag());
+                if (b.this.orE != null && view2.getTag() != null && (view2.getTag() instanceof e)) {
+                    b.this.orE.a((e) view2.getTag());
                 }
             }
         });
-        c0940b.ors.setTag(eVar);
-        c0940b.ort.setTag(eVar);
-        c0940b.orG.setTag(eVar);
-        c0940b.orG.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        c0940b.orG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.3
+        c0940b.oru.setTag(eVar);
+        c0940b.orv.setTag(eVar);
+        c0940b.orI.setTag(eVar);
+        c0940b.orI.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        c0940b.orI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (eVar.aIN || b.this.context == null) {
-                    if (b.this.orC != null) {
+                    if (b.this.orE != null) {
                         if (view2.getTag() == null || !(view2.getTag() instanceof e)) {
-                            b.this.orC.b(null);
+                            b.this.orE.b(null);
                             return;
                         } else {
-                            b.this.orC.b((e) view2.getTag());
+                            b.this.orE.b((e) view2.getTag());
                             return;
                         }
                     }
@@ -229,48 +229,48 @@ public class b extends BaseAdapter {
                 BdToast.makeText(b.this.context, b.this.context.getText(a.h.yuyin_ala_apply_unable_text)).show();
             }
         });
-        c0940b.ort.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.4
+        c0940b.orv.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b.4
             @Override // java.lang.Runnable
             public void run() {
-                if (c0940b.oru.getMeasuredWidth() + i2 > c0940b.orA.getMeasuredWidth()) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0940b.ort.getLayoutParams();
+                if (c0940b.orw.getMeasuredWidth() + i2 > c0940b.orC.getMeasuredWidth()) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0940b.orv.getLayoutParams();
                     layoutParams.weight = 1.0f;
-                    c0940b.ort.setLayoutParams(layoutParams);
+                    c0940b.orv.setLayoutParams(layoutParams);
                     return;
                 }
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0940b.ort.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) c0940b.orv.getLayoutParams();
                 layoutParams2.weight = 0.0f;
                 layoutParams2.width = -2;
-                c0940b.ort.setLayoutParams(layoutParams2);
+                c0940b.orv.setLayoutParams(layoutParams2);
             }
         });
-        c0940b.orr.setVisibility(i != 0 ? 8 : 0);
+        c0940b.ort.setVisibility(i != 0 ? 8 : 0);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.adapter.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private class C0940b {
-        private LinearLayout orA;
-        private LinearLayout orB;
-        private AlaAcceptAndInviteBtn orG;
-        private TextView orq;
-        private View orr;
-        private HeadImageView ors;
-        private TextView ort;
-        private TextView oru;
-        private ImageView orv;
+        private TbImageView orA;
+        private TbImageView orB;
+        private LinearLayout orC;
+        private LinearLayout orD;
+        private AlaAcceptAndInviteBtn orI;
+        private TextView ors;
+        private View ort;
+        private HeadImageView oru;
+        private TextView orv;
         private TextView orw;
-        private FrameLayout orx;
-        private TbImageView ory;
-        private TbImageView orz;
+        private ImageView orx;
+        private TextView ory;
+        private FrameLayout orz;
 
         private C0940b() {
         }
     }
 
     public void setOnItemClickLister(a aVar) {
-        this.orC = aVar;
+        this.orE = aVar;
     }
 
     public void Wt(String str) {

@@ -19,11 +19,11 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class MyConcernTabModel extends BdBaseModel {
-    private a gtq;
-    private b gtr;
+    private a gts;
+    private b gtt;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener gts = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.1
+    private HttpMessageListener gtu = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -31,15 +31,15 @@ public class MyConcernTabModel extends BdBaseModel {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
                 boolean z = y.isEmpty(alaLiveTabMyConcernResponse.followList) && y.isEmpty(alaLiveTabMyConcernResponse.recommendList) && y.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (MyConcernTabModel.this.gtq != null) {
-                        MyConcernTabModel.this.gtq.mf(MyConcernTabModel.this.pn == 1);
+                    if (MyConcernTabModel.this.gts != null) {
+                        MyConcernTabModel.this.gts.mf(MyConcernTabModel.this.pn == 1);
                         return;
                     }
                     return;
                 }
-                MyConcernTabModel.this.gtr.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
-                if (MyConcernTabModel.this.gtq != null) {
-                    MyConcernTabModel.this.gtq.b(MyConcernTabModel.this.gtr.bSr(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
+                MyConcernTabModel.this.gtt.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
+                if (MyConcernTabModel.this.gts != null) {
+                    MyConcernTabModel.this.gts.b(MyConcernTabModel.this.gtt.bSs(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
                 }
                 MyConcernTabModel.this.pn = alaLiveTabMyConcernResponse.pn + 1;
             }
@@ -55,12 +55,12 @@ public class MyConcernTabModel extends BdBaseModel {
 
     public MyConcernTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.gtr = new b(this.mTbPageContext);
-        bRF();
-        MessageManager.getInstance().registerListener(this.gts);
+        this.gtt = new b(this.mTbPageContext);
+        bRG();
+        MessageManager.getInstance().registerListener(this.gtu);
     }
 
-    private void bRF() {
+    private void bRG() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -71,11 +71,11 @@ public class MyConcernTabModel extends BdBaseModel {
 
     public void VC() {
         this.pn = 1;
-        this.gtr.clearData();
+        this.gtt.clearData();
         uY(1);
     }
 
-    public void bSo() {
+    public void bSp() {
         uY(this.pn);
     }
 
@@ -86,14 +86,14 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        this.gtr.clearData();
-        if (this.gts != null) {
-            MessageManager.getInstance().unRegisterListener(this.gts);
+        this.gtt.clearData();
+        if (this.gtu != null) {
+            MessageManager.getInstance().unRegisterListener(this.gtu);
         }
     }
 
     public void a(a aVar) {
-        this.gtq = aVar;
+        this.gts = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,6 +107,6 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void x(Class<? extends BaseCardInfo> cls) {
-        this.gtr.x(cls);
+        this.gtt.x(cls);
     }
 }

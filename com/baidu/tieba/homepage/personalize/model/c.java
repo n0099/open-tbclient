@@ -5,6 +5,6 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class c {
     public List<q> fVe;
-    public int jUT = 0;
-    public int jUU = 0;
+    public int jUV = 0;
+    public int jUW = 0;
 }

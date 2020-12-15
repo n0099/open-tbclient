@@ -20,11 +20,9 @@ import com.baidu.tieba.pb.view.TextSizeSeekBar;
 /* loaded from: classes22.dex */
 public class aj extends com.baidu.adp.base.c {
     public static final int bOo = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds78);
-    private BaseFragment gNh;
-    private EMTextView jBQ;
-    private FlowLayout lMR;
-    private EMTextView lMS;
-    private EMTextView lMT;
+    private BaseFragment gNj;
+    private EMTextView jBS;
+    private FlowLayout lMT;
     private EMTextView lMU;
     private EMTextView lMV;
     private EMTextView lMW;
@@ -34,19 +32,21 @@ public class aj extends com.baidu.adp.base.c {
     private EMTextView lNa;
     private EMTextView lNb;
     private EMTextView lNc;
-    private LinearLayout lNd;
-    private TextSizeSeekBar lNe;
-    private View lNf;
-    public boolean lNg;
-    public boolean lNh;
+    private EMTextView lNd;
+    private EMTextView lNe;
+    private LinearLayout lNf;
+    private TextSizeSeekBar lNg;
+    private View lNh;
+    public boolean lNi;
+    public boolean lNj;
     private View.OnClickListener mClickListener;
     private View mView;
 
     public aj(BaseFragment baseFragment, View.OnClickListener onClickListener) {
         super(baseFragment.getPageContext());
-        this.lNb = null;
+        this.lNd = null;
         this.mClickListener = null;
-        this.gNh = baseFragment;
+        this.gNj = baseFragment;
         this.mClickListener = onClickListener;
         initUI();
     }
@@ -55,40 +55,36 @@ public class aj extends com.baidu.adp.base.c {
         return this.mView;
     }
 
-    public TextView drt() {
-        return this.lMS;
-    }
-
     public TextView dru() {
-        return this.lNb;
+        return this.lMU;
     }
 
     public TextView drv() {
-        return this.jBQ;
+        return this.lNd;
     }
 
     public TextView drw() {
-        return this.lNc;
+        return this.jBS;
     }
 
     public TextView drx() {
-        return this.lMX;
+        return this.lNe;
     }
 
     public TextView dry() {
-        return this.lMV;
+        return this.lMZ;
     }
 
     public TextView drz() {
-        return this.lNa;
+        return this.lMX;
     }
 
     public TextView drA() {
-        return this.lMT;
+        return this.lNc;
     }
 
     public TextView drB() {
-        return this.lMU;
+        return this.lMV;
     }
 
     public TextView drC() {
@@ -100,161 +96,165 @@ public class aj extends com.baidu.adp.base.c {
     }
 
     public TextView drE() {
-        return this.lMZ;
+        return this.lNa;
+    }
+
+    public TextView drF() {
+        return this.lNb;
     }
 
     public void release() {
     }
 
     public void ve(boolean z) {
-        this.lNb.setVisibility(z ? 0 : 8);
+        this.lNd.setVisibility(z ? 0 : 8);
     }
 
     public void an(boolean z, boolean z2) {
-        this.lNc.setVisibility(z ? 0 : 8);
+        this.lNe.setVisibility(z ? 0 : 8);
         if (z2) {
-            this.lNc.setText(R.string.group_info_intro_more);
-            h(this.lNc, R.drawable.icon_pure_pb_recommend_all30);
+            this.lNe.setText(R.string.group_info_intro_more);
+            h(this.lNe, R.drawable.icon_pure_pb_recommend_all30);
             return;
         }
-        this.lNc.setText(R.string.view_host);
-        h(this.lNc, R.drawable.icon_pure_pb_recommend_host30);
+        this.lNe.setText(R.string.view_host);
+        h(this.lNe, R.drawable.icon_pure_pb_recommend_host30);
     }
 
     public void ao(boolean z, boolean z2) {
-        this.lMX.setVisibility(z ? 0 : 8);
+        this.lMZ.setVisibility(z ? 0 : 8);
         if (z2) {
-            this.lMX.setText(R.string.pb_cancel_top);
-            h(this.lMX, R.drawable.icon_pure_pb_recommend_toped30);
+            this.lMZ.setText(R.string.pb_cancel_top);
+            h(this.lMZ, R.drawable.icon_pure_pb_recommend_toped30);
             return;
         }
-        this.lMX.setText(R.string.top);
-        h(this.lMX, R.drawable.icon_pure_pb_recommend_top30);
+        this.lMZ.setText(R.string.top);
+        h(this.lMZ, R.drawable.icon_pure_pb_recommend_top30);
     }
 
     public void ap(boolean z, boolean z2) {
-        this.lNa.setVisibility(z ? 0 : 8);
+        this.lNc.setVisibility(z ? 0 : 8);
         if (z2) {
-            this.lNa.setText(R.string.pb_cancel_good);
-            h(this.lNa, R.drawable.icon_pure_pb_recommend_bested30);
+            this.lNc.setText(R.string.pb_cancel_good);
+            h(this.lNc, R.drawable.icon_pure_pb_recommend_bested30);
             return;
         }
-        this.lNa.setText(R.string.commit_good);
-        h(this.lNa, R.drawable.icon_pure_pb_recommend_best30);
+        this.lNc.setText(R.string.commit_good);
+        h(this.lNc, R.drawable.icon_pure_pb_recommend_best30);
     }
 
     public void vf(boolean z) {
-        this.lMV.setVisibility(z ? 0 : 8);
+        this.lMX.setVisibility(z ? 0 : 8);
     }
 
     public void vg(boolean z) {
-        this.lMT.setVisibility(z ? 0 : 8);
+        this.lMV.setVisibility(z ? 0 : 8);
     }
 
     public void vh(boolean z) {
-        this.lMU.setVisibility(z ? 0 : 8);
-    }
-
-    public void vi(boolean z) {
         this.lMW.setVisibility(z ? 0 : 8);
     }
 
-    public void aq(boolean z, boolean z2) {
+    public void vi(boolean z) {
         this.lMY.setVisibility(z ? 0 : 8);
-        this.lNh = z2;
+    }
+
+    public void aq(boolean z, boolean z2) {
+        this.lNa.setVisibility(z ? 0 : 8);
+        this.lNj = z2;
         if (z2) {
-            this.lMY.setText(R.string.view_reverse);
+            this.lNa.setText(R.string.view_reverse);
         } else {
-            this.lMY.setText(R.string.default_sort);
+            this.lNa.setText(R.string.default_sort);
         }
-        this.lMY.setText(R.string.sort_selector);
+        this.lNa.setText(R.string.sort_selector);
     }
 
     public void ar(boolean z, boolean z2) {
-        this.lMZ.setVisibility(z ? 0 : 8);
+        this.lNb.setVisibility(z ? 0 : 8);
         if (z2) {
-            this.lMZ.setText(R.string.normal_mode);
-            h(this.lMZ, R.drawable.icon_pure_pb_recommend_daytime30);
+            this.lNb.setText(R.string.normal_mode);
+            h(this.lNb, R.drawable.icon_pure_pb_recommend_daytime30);
             return;
         }
-        this.lMZ.setText(R.string.eyeshield_mode);
-        h(this.lMZ, R.drawable.icon_pure_pb_recommend_night30);
+        this.lNb.setText(R.string.eyeshield_mode);
+        h(this.lNb, R.drawable.icon_pure_pb_recommend_night30);
     }
 
     public void vj(boolean z) {
-        this.lMS.setVisibility(z ? 0 : 8);
+        this.lMU.setVisibility(z ? 0 : 8);
     }
 
     private void initUI() {
-        this.mView = LayoutInflater.from(this.gNh.getPageContext().getPageActivity()).inflate(R.layout.pb_more_pop_view, (ViewGroup) null);
-        this.lMR = (FlowLayout) this.mView.findViewById(R.id.pb_more_flowlayout);
-        this.lNc = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_host_only);
-        this.lNc.setOnClickListener(this.mClickListener);
-        this.lMY = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_reversed);
-        this.lMY.setOnClickListener(this.mClickListener);
-        this.lMS = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_jump);
-        this.lMS.setOnClickListener(this.mClickListener);
-        this.lMZ = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_night_style);
-        this.lMZ.setOnClickListener(this.mClickListener);
-        this.lMT = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_jump_top);
-        this.lMT.setOnClickListener(this.mClickListener);
-        this.lMU = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_call_fans);
-        this.lMU.setOnClickListener(this.mClickListener);
-        this.lNb = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_report);
-        this.lNb.setOnClickListener(this.mClickListener);
-        this.lMV = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_delete);
-        this.lMV.setOnClickListener(this.mClickListener);
-        this.lMW = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_forbidden);
-        this.lMW.setOnClickListener(this.mClickListener);
-        this.lMX = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_make_top);
-        this.lMX.setOnClickListener(this.mClickListener);
-        this.lNa = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_add_good);
+        this.mView = LayoutInflater.from(this.gNj.getPageContext().getPageActivity()).inflate(R.layout.pb_more_pop_view, (ViewGroup) null);
+        this.lMT = (FlowLayout) this.mView.findViewById(R.id.pb_more_flowlayout);
+        this.lNe = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_host_only);
+        this.lNe.setOnClickListener(this.mClickListener);
+        this.lNa = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_reversed);
         this.lNa.setOnClickListener(this.mClickListener);
-        this.lNe = (TextSizeSeekBar) this.mView.findViewById(R.id.pb_more_text_size_seekbar);
-        this.lNd = (LinearLayout) this.mView.findViewById(R.id.size_seek_bar_group);
-        this.jBQ = (EMTextView) this.mView.findViewById(R.id.pb_more_cancel);
-        this.jBQ.setOnClickListener(this.mClickListener);
-        this.lNf = this.mView.findViewById(R.id.pb_more_bomb_enter_anim_place_holder);
-        if (!drH()) {
-            drG();
+        this.lMU = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_jump);
+        this.lMU.setOnClickListener(this.mClickListener);
+        this.lNb = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_night_style);
+        this.lNb.setOnClickListener(this.mClickListener);
+        this.lMV = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_jump_top);
+        this.lMV.setOnClickListener(this.mClickListener);
+        this.lMW = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_call_fans);
+        this.lMW.setOnClickListener(this.mClickListener);
+        this.lNd = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_report);
+        this.lNd.setOnClickListener(this.mClickListener);
+        this.lMX = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_delete);
+        this.lMX.setOnClickListener(this.mClickListener);
+        this.lMY = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_forbidden);
+        this.lMY.setOnClickListener(this.mClickListener);
+        this.lMZ = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_make_top);
+        this.lMZ.setOnClickListener(this.mClickListener);
+        this.lNc = (EMTextView) this.mView.findViewById(R.id.pb_more_view_item_add_good);
+        this.lNc.setOnClickListener(this.mClickListener);
+        this.lNg = (TextSizeSeekBar) this.mView.findViewById(R.id.pb_more_text_size_seekbar);
+        this.lNf = (LinearLayout) this.mView.findViewById(R.id.size_seek_bar_group);
+        this.jBS = (EMTextView) this.mView.findViewById(R.id.pb_more_cancel);
+        this.jBS.setOnClickListener(this.mClickListener);
+        this.lNh = this.mView.findViewById(R.id.pb_more_bomb_enter_anim_place_holder);
+        if (!drI()) {
+            drH();
         }
     }
 
-    public void drF() {
+    public void drG() {
         int i;
-        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lMR, R.color.CAM_X0204);
-        com.baidu.tbadk.core.elementsMaven.c.bm(this.lNd).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
-        com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNf, R.color.CAM_X0204);
-        com.baidu.tbadk.core.util.ap.setBackgroundResource(this.jBQ, R.color.CAM_X0204);
-        com.baidu.tbadk.core.util.ap.k(this.jBQ, R.color.CAM_X0107);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMS, R.color.CAM_X0107, 1);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNb, R.color.CAM_X0107, 1);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNc, R.color.CAM_X0107, 1);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMT, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lMT, R.color.CAM_X0204);
+        com.baidu.tbadk.core.elementsMaven.c.bm(this.lNf).pA(R.string.J_X14).setBackGroundColor(R.color.CAM_X0204);
+        com.baidu.tbadk.core.util.ap.setBackgroundResource(this.lNh, R.color.CAM_X0204);
+        com.baidu.tbadk.core.util.ap.setBackgroundResource(this.jBS, R.color.CAM_X0204);
+        com.baidu.tbadk.core.util.ap.k(this.jBS, R.color.CAM_X0107);
         com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMU, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNd, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNe, R.color.CAM_X0107, 1);
         com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMV, R.color.CAM_X0107, 1);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMX, R.color.CAM_X0107, 1);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNa, R.color.CAM_X0107, 1);
         com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMW, R.color.CAM_X0107, 1);
-        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMY, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMX, R.color.CAM_X0107, 1);
         com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMZ, R.color.CAM_X0107, 1);
-        int width = ((WindowManager) this.gNh.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getWidth() - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
-        if (drH()) {
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNc, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lMY, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNa, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ap.setViewTextColor(this.lNb, R.color.CAM_X0107, 1);
+        int width = ((WindowManager) this.gNj.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getWidth() - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+        if (drI()) {
             i = (width - (UtilHelper.getDimenPixelSize(R.dimen.tbds201) * 5)) / 4;
         } else {
             i = (width - 1005) / 4;
         }
-        this.lMR.setHorizontalSpacing(i);
-        h(this.lMS, R.drawable.icon_pure_pb_recommend_jump30);
-        h(this.lNb, R.drawable.icon_pure_pb_recommend_report30);
-        h(this.lMT, R.drawable.icon_pure_pb_recommend_initial30);
-        h(this.lMU, R.drawable.icon_pure_pb_recommend_fans30);
-        this.lMU.setAlpha(TbSingleton.getInstance().mCanCallFans ? 1.0f : 0.33f);
-        h(this.lMV, this.lNg ? R.drawable.icon_pure_pb_recommend_report30 : R.drawable.icon_pure_pb_recommend_delete30);
-        h(this.lMW, R.drawable.icon_pure_pb_recommend_block30);
-        h(this.lMY, R.drawable.icon_pure_pb_recommend_sort30);
-        if (this.lNe != null) {
-            this.lNe.onChangeSkinType();
+        this.lMT.setHorizontalSpacing(i);
+        h(this.lMU, R.drawable.icon_pure_pb_recommend_jump30);
+        h(this.lNd, R.drawable.icon_pure_pb_recommend_report30);
+        h(this.lMV, R.drawable.icon_pure_pb_recommend_initial30);
+        h(this.lMW, R.drawable.icon_pure_pb_recommend_fans30);
+        this.lMW.setAlpha(TbSingleton.getInstance().mCanCallFans ? 1.0f : 0.33f);
+        h(this.lMX, this.lNi ? R.drawable.icon_pure_pb_recommend_report30 : R.drawable.icon_pure_pb_recommend_delete30);
+        h(this.lMY, R.drawable.icon_pure_pb_recommend_block30);
+        h(this.lNa, R.drawable.icon_pure_pb_recommend_sort30);
+        if (this.lNg != null) {
+            this.lNg.onChangeSkinType();
         }
     }
 
@@ -266,23 +266,23 @@ public class aj extends com.baidu.adp.base.c {
         }
     }
 
-    private void drG() {
-        this.lNc.getLayoutParams().width = 201;
-        this.lMY.getLayoutParams().width = 201;
-        this.lMS.getLayoutParams().width = 201;
-        this.lMZ.getLayoutParams().width = 201;
-        this.lMT.getLayoutParams().width = 201;
+    private void drH() {
+        this.lNe.getLayoutParams().width = 201;
+        this.lNa.getLayoutParams().width = 201;
         this.lMU.getLayoutParams().width = 201;
         this.lNb.getLayoutParams().width = 201;
         this.lMV.getLayoutParams().width = 201;
         this.lMW.getLayoutParams().width = 201;
+        this.lNd.getLayoutParams().width = 201;
         this.lMX.getLayoutParams().width = 201;
-        this.lNa.getLayoutParams().width = 201;
+        this.lMY.getLayoutParams().width = 201;
+        this.lMZ.getLayoutParams().width = 201;
+        this.lNc.getLayoutParams().width = 201;
     }
 
-    private boolean drH() {
+    private boolean drI() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) this.gNh.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) this.gNj.getBaseFragmentActivity().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics.densityDpi % 160 == 0 || ((double) ((((float) displayMetrics.densityDpi) * 1.0f) / 160.0f)) == 1.5d;
     }
 }

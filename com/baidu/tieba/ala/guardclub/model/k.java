@@ -8,8 +8,8 @@ import org.json.JSONObject;
 public class k {
     public String aRO;
     public String avatar;
-    public String gQQ;
-    public boolean gQR;
+    public String gQS;
+    public boolean gQT;
     public String id;
     public int level;
     public String liveId;
@@ -28,12 +28,12 @@ public class k {
         }
         this.name = jSONObject.optString("regiment_name");
         this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
-        this.gQQ = jSONObject.optString("week_score");
+        this.gQS = jSONObject.optString("week_score");
         this.avatar = jSONObject.optString("guard_club_portrait");
         this.level = jSONObject.optInt("guard_level");
         this.liveStatus = jSONObject.optInt("live_status");
         this.liveId = jSONObject.optString("live_id");
-        this.gQR = jSONObject.optInt("is_join") == 1;
+        this.gQT = jSONObject.optInt("is_join") == 1;
         return this;
     }
 }

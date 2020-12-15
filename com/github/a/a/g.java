@@ -6,11 +6,11 @@ import android.util.Printer;
 import com.baidu.android.imsdk.internal.IMConnection;
 /* loaded from: classes7.dex */
 public class g implements Printer {
-    private long psp;
-    private long psq = 0;
-    private long psr = 0;
-    private a pss;
-    private final boolean pst;
+    private long psr;
+    private long pss = 0;
+    private long pst = 0;
+    private a psu;
+    private final boolean psv;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -18,64 +18,64 @@ public class g implements Printer {
     }
 
     public g(a aVar, long j, boolean z) {
-        this.psp = IMConnection.RETRY_DELAY_TIMES;
-        this.pss = null;
+        this.psr = IMConnection.RETRY_DELAY_TIMES;
+        this.psu = null;
         if (aVar == null) {
             throw new IllegalArgumentException("blockListener should not be null.");
         }
-        this.pss = aVar;
-        this.psp = j;
-        this.pst = z;
+        this.psu = aVar;
+        this.psr = j;
+        this.psv = z;
     }
 
     @Override // android.util.Printer
     public void println(String str) {
-        if (!this.pst || !Debug.isDebuggerConnected()) {
+        if (!this.psv || !Debug.isDebuggerConnected()) {
             if (str.charAt(0) == '>') {
-                this.psq = System.currentTimeMillis();
-                this.psr = SystemClock.currentThreadTimeMillis();
-                exP();
+                this.pss = System.currentTimeMillis();
+                this.pst = SystemClock.currentThreadTimeMillis();
+                exQ();
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
             if (iA(currentTimeMillis)) {
                 iB(currentTimeMillis);
             }
-            exQ();
+            exR();
         }
     }
 
     private boolean iA(long j) {
-        return j - this.psq > this.psp;
+        return j - this.pss > this.psr;
     }
 
     private void iB(final long j) {
-        final long j2 = this.psq;
-        final long j3 = this.psr;
+        final long j2 = this.pss;
+        final long j3 = this.pst;
         final long currentThreadTimeMillis = SystemClock.currentThreadTimeMillis();
-        e.exN().post(new Runnable() { // from class: com.github.a.a.g.1
+        e.exO().post(new Runnable() { // from class: com.github.a.a.g.1
             @Override // java.lang.Runnable
             public void run() {
-                g.this.pss.d(j2, j, j3, currentThreadTimeMillis);
+                g.this.psu.d(j2, j, j3, currentThreadTimeMillis);
             }
         });
     }
 
-    private void exP() {
-        if (c.exI().pse != null) {
-            c.exI().pse.start();
+    private void exQ() {
+        if (c.exJ().psg != null) {
+            c.exJ().psg.start();
         }
-        if (c.exI().psf != null) {
-            c.exI().psf.start();
+        if (c.exJ().psh != null) {
+            c.exJ().psh.start();
         }
     }
 
-    private void exQ() {
-        if (c.exI().pse != null) {
-            c.exI().pse.stop();
+    private void exR() {
+        if (c.exJ().psg != null) {
+            c.exJ().psg.stop();
         }
-        if (c.exI().psf != null) {
-            c.exI().psf.stop();
+        if (c.exJ().psh != null) {
+            c.exJ().psh.stop();
         }
     }
 }

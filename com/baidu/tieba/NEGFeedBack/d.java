@@ -32,10 +32,10 @@ public class d {
     private static void a(final TbPageContext tbPageContext, final g gVar, h hVar, UserData userData) {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null && tbPageContext.getPageActivity().getWindow() != null) {
             i iVar = new i(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), hVar, userData);
-            AntiData cBe = com.baidu.tieba.frs.b.cBd().cBe();
+            AntiData cBf = com.baidu.tieba.frs.b.cBe().cBf();
             SparseArray<String> sparseArray = new SparseArray<>();
-            if (cBe != null && cBe.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = cBe.getDelThreadInfoList();
+            if (cBf != null && cBf.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = cBf.getDelThreadInfoList();
                 for (int i = 0; i < delThreadInfoList.size(); i++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
@@ -43,15 +43,15 @@ public class d {
                 }
             }
             JSONArray jSONArray = new JSONArray();
-            List<by> cBa = com.baidu.tieba.frs.b.cBd().cBa();
-            for (int i2 = 0; i2 < cBa.size(); i2++) {
-                jSONArray.put(cBa.get(i2).getTid());
+            List<by> cBb = com.baidu.tieba.frs.b.cBe().cBb();
+            for (int i2 = 0; i2 < cBb.size(); i2++) {
+                jSONArray.put(cBb.get(i2).getTid());
             }
             at atVar = new at();
             atVar.setFeedBackReasonMap(sparseArray);
             atVar.oq(gVar.getType());
             atVar.Q(jSONArray);
-            atVar.setFid(com.baidu.tieba.frs.b.cBd().getForumId());
+            atVar.setFid(com.baidu.tieba.frs.b.cBe().getForumId());
             iVar.setData(atVar);
             iVar.setDefaultReasonArray(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_5)});
             iVar.Fj("1");
@@ -59,7 +59,7 @@ public class d {
                 @Override // com.baidu.tieba.NEGFeedBack.i.b
                 public void X(JSONArray jSONArray2) {
                     if (j.isNetworkAvailableForImmediately()) {
-                        d.a(jSONArray2, gVar.bLw(), gVar.bLv());
+                        d.a(jSONArray2, gVar.bLx(), gVar.bLw());
                     } else {
                         l.showToast(TbPageContext.this.getContext(), R.string.neterror);
                     }
@@ -71,10 +71,10 @@ public class d {
     private static void a(final TbPageContext tbPageContext, final g gVar) {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null && tbPageContext.getPageActivity().getWindow() != null) {
             f fVar = new f(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView());
-            AntiData cBe = com.baidu.tieba.frs.b.cBd().cBe();
+            AntiData cBf = com.baidu.tieba.frs.b.cBe().cBf();
             SparseArray<String> sparseArray = new SparseArray<>();
-            if (cBe != null && cBe.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = cBe.getDelThreadInfoList();
+            if (cBf != null && cBf.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = cBf.getDelThreadInfoList();
                 for (int i = 0; i < delThreadInfoList.size(); i++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
@@ -82,15 +82,15 @@ public class d {
                 }
             }
             JSONArray jSONArray = new JSONArray();
-            List<by> cBa = com.baidu.tieba.frs.b.cBd().cBa();
-            for (int i2 = 0; i2 < cBa.size(); i2++) {
-                jSONArray.put(cBa.get(i2).getTid());
+            List<by> cBb = com.baidu.tieba.frs.b.cBe().cBb();
+            for (int i2 = 0; i2 < cBb.size(); i2++) {
+                jSONArray.put(cBb.get(i2).getTid());
             }
             at atVar = new at();
             atVar.setFeedBackReasonMap(sparseArray);
             atVar.oq(gVar.getType());
             atVar.Q(jSONArray);
-            atVar.setFid(com.baidu.tieba.frs.b.cBd().getForumId());
+            atVar.setFid(com.baidu.tieba.frs.b.cBe().getForumId());
             fVar.setData(atVar);
             fVar.setDefaultReasonArray(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_5)});
             fVar.Fj("1");
@@ -98,7 +98,7 @@ public class d {
                 @Override // com.baidu.tieba.NEGFeedBack.f.b
                 public void X(JSONArray jSONArray2) {
                     if (j.isNetworkAvailableForImmediately()) {
-                        d.a(jSONArray2, gVar.bLw(), gVar.bLv());
+                        d.a(jSONArray2, gVar.bLx(), gVar.bLw());
                     } else {
                         l.showToast(TbPageContext.this.getContext(), R.string.neterror);
                     }

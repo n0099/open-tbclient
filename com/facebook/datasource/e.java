@@ -7,11 +7,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes19.dex */
 public class e<T> implements j<b<T>> {
-    private final List<j<b<T>>> pcZ;
+    private final List<j<b<T>>> pdb;
 
     private e(List<j<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.pcZ = list;
+        this.pdb = list;
     }
 
     public static <T> e<T> gN(List<j<b<T>>> list) {
@@ -20,13 +20,13 @@ public class e<T> implements j<b<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: equ */
+    /* renamed from: eqv */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.pcZ.hashCode();
+        return this.pdb.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -36,11 +36,11 @@ public class e<T> implements j<b<T>> {
         if (!(obj instanceof e)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.pcZ, ((e) obj).pcZ);
+        return com.facebook.common.internal.f.equal(this.pdb, ((e) obj).pdb);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.ba(this).E("list", this.pcZ).toString();
+        return com.facebook.common.internal.f.ba(this).E("list", this.pdb).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -48,11 +48,11 @@ public class e<T> implements j<b<T>> {
     /* loaded from: classes19.dex */
     public class a extends AbstractDataSource<T> {
         private int mIndex = 0;
-        private b<T> pda = null;
-        private b<T> pdb = null;
+        private b<T> pdc = null;
+        private b<T> pdd = null;
 
         public a() {
-            if (!eqv()) {
+            if (!eqw()) {
                 x(new RuntimeException("No data source supplier or supplier returned null."));
             }
         }
@@ -60,17 +60,17 @@ public class e<T> implements j<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> eqx;
-            eqx = eqx();
-            return eqx != null ? eqx.getResult() : null;
+            b<T> eqy;
+            eqy = eqy();
+            return eqy != null ? eqy.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean eqo() {
+        public synchronized boolean eqp() {
             boolean z;
-            b<T> eqx = eqx();
-            if (eqx != null) {
-                z = eqx.eqo();
+            b<T> eqy = eqy();
+            if (eqy != null) {
+                z = eqy.eqp();
             }
             return z;
         }
@@ -81,21 +81,21 @@ public class e<T> implements j<b<T>> {
                 if (!super.arP()) {
                     return false;
                 }
-                b<T> bVar = this.pda;
-                this.pda = null;
-                b<T> bVar2 = this.pdb;
-                this.pdb = null;
+                b<T> bVar = this.pdc;
+                this.pdc = null;
+                b<T> bVar2 = this.pdd;
+                this.pdd = null;
                 l(bVar2);
                 l(bVar);
                 return true;
             }
         }
 
-        private boolean eqv() {
-            j<b<T>> eqw = eqw();
-            b<T> bVar = eqw != null ? eqw.get() : null;
+        private boolean eqw() {
+            j<b<T>> eqx = eqx();
+            b<T> bVar = eqx != null ? eqx.get() : null;
             if (h(bVar) && bVar != null) {
-                bVar.a(new C0988a(), com.facebook.common.b.a.epI());
+                bVar.a(new C0988a(), com.facebook.common.b.a.epJ());
                 return true;
             }
             l(bVar);
@@ -103,12 +103,12 @@ public class e<T> implements j<b<T>> {
         }
 
         @Nullable
-        private synchronized j<b<T>> eqw() {
+        private synchronized j<b<T>> eqx() {
             j<b<T>> jVar;
-            if (isClosed() || this.mIndex >= e.this.pcZ.size()) {
+            if (isClosed() || this.mIndex >= e.this.pdb.size()) {
                 jVar = null;
             } else {
-                List list = e.this.pcZ;
+                List list = e.this.pdb;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
                 jVar = (j) list.get(i);
@@ -121,7 +121,7 @@ public class e<T> implements j<b<T>> {
             if (isClosed()) {
                 z = false;
             } else {
-                this.pda = bVar;
+                this.pdc = bVar;
                 z = true;
             }
             return z;
@@ -129,27 +129,27 @@ public class e<T> implements j<b<T>> {
 
         private synchronized boolean i(b<T> bVar) {
             boolean z;
-            if (isClosed() || bVar != this.pda) {
+            if (isClosed() || bVar != this.pdc) {
                 z = false;
             } else {
-                this.pda = null;
+                this.pdc = null;
                 z = true;
             }
             return z;
         }
 
         @Nullable
-        private synchronized b<T> eqx() {
-            return this.pdb;
+        private synchronized b<T> eqy() {
+            return this.pdd;
         }
 
         private void a(b<T> bVar, boolean z) {
             b<T> bVar2 = null;
             synchronized (this) {
-                if (bVar == this.pda && bVar != this.pdb) {
-                    if (this.pdb == null || z) {
-                        bVar2 = this.pdb;
-                        this.pdb = bVar;
+                if (bVar == this.pdc && bVar != this.pdd) {
+                    if (this.pdd == null || z) {
+                        bVar2 = this.pdd;
+                        this.pdd = bVar;
                     }
                     l(bVar2);
                 }
@@ -159,11 +159,11 @@ public class e<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void j(b<T> bVar) {
             if (i(bVar)) {
-                if (bVar != eqx()) {
+                if (bVar != eqy()) {
                     l(bVar);
                 }
-                if (!eqv()) {
-                    x(bVar.eqq());
+                if (!eqw()) {
+                    x(bVar.eqr());
                 }
             }
         }
@@ -171,7 +171,7 @@ public class e<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void k(b<T> bVar) {
             a(bVar, bVar.isFinished());
-            if (bVar == eqx()) {
+            if (bVar == eqy()) {
                 b((a) null, bVar.isFinished());
             }
         }
@@ -200,7 +200,7 @@ public class e<T> implements j<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.eqo()) {
+                if (bVar.eqp()) {
                     a.this.k(bVar);
                 } else if (bVar.isFinished()) {
                     a.this.j(bVar);

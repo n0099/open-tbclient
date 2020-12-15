@@ -31,24 +31,24 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
     private String aiw;
     private boolean alo;
     public BdUniqueId fzO;
-    private int hKL;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iZp;
-    private com.baidu.adp.lib.d.b<TbImageView> iZq;
+    private int hKN;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iZr;
+    private com.baidu.adp.lib.d.b<TbImageView> iZs;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
-    private int mpX;
-    private int mpY;
+    private int mpZ;
+    private int mqa;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.alo = true;
-        this.mpX = 0;
-        this.mpY = 0;
-        this.hKL = 0;
-        this.iZp = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
+        this.mpZ = 0;
+        this.mqa = 0;
+        this.hKN = 0;
+        this.iZr = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cEO */
+            /* renamed from: cEP */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -74,7 +74,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.iZq = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.2
+        this.iZs = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: bvP */
@@ -130,7 +130,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
             }
         };
         this.mPageContext = tbPageContext;
-        cNP();
+        cNQ();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -143,16 +143,16 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
         eVar.setPageUniqueId(this.fzO);
         eVar.bt(1024);
         eVar.bt(32768);
-        if (this.mpX > 0) {
-            eVar.bs(this.mpX);
+        if (this.mpZ > 0) {
+            eVar.bs(this.mpZ);
         }
         eVar.aD(false);
         eVar.aE(false);
         aVar.a(eVar);
         final w wVar = new w(this.mPageContext.getPageActivity());
         wVar.setFrom("index");
-        wVar.setConstrainLayoutPool(this.iZp);
-        wVar.setConstrainImagePool(this.iZq);
+        wVar.setConstrainLayoutPool(this.iZr);
+        wVar.setConstrainImagePool(this.iZs);
         wVar.setFromCDN(this.alo);
         aVar.c(wVar);
         aVar.tY().bz(l.getDimens(this.mContext, R.dimen.tbds25));
@@ -188,7 +188,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
         tX.setSourceForPb(4);
         am amVar = new am(tX);
         amVar.setPageId(this.fzO);
-        amVar.bE(this.mpY);
+        amVar.bE(this.mqa);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.personPolymeric.a.a.g.5
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -232,19 +232,19 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
     }
 
     public void Is(int i) {
-        this.mpX = i;
+        this.mpZ = i;
     }
 
     public void Ir(int i) {
-        this.mpY = i;
+        this.mqa = i;
     }
 
-    private void cNP() {
-        k.ink = "c13542";
+    private void cNQ() {
+        k.inm = "c13542";
     }
 
     public void setTabType(int i) {
-        this.hKL = i;
+        this.hKN = i;
     }
 
     public void setIsHost(boolean z) {

@@ -7,13 +7,13 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.g;
 import com.baidu.tieba.ala.alasquare.subtablist.c.h;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.b.e, g> {
-    private String gtT;
-    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f gxp;
-    private h gxq;
+    private String gtV;
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f gxr;
+    private h gxs;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.grH);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.b.e.grJ);
         this.mPageContext = tbPageContext;
     }
 
@@ -22,29 +22,29 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: W */
     public g c(ViewGroup viewGroup) {
-        this.gxp = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
-        if (this.gxq != null) {
-            this.gxp.c(this.gxq);
+        this.gxr = new com.baidu.tieba.ala.alasquare.special_forum.subtab.a.f(this.mPageContext, viewGroup);
+        if (this.gxs != null) {
+            this.gxr.c(this.gxs);
         }
-        return new g(this.gxp);
+        return new g(this.gxr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.b.e eVar, g gVar) {
-        gVar.gxp.a(eVar, this.gtT);
+        gVar.gxr.a(eVar, this.gtV);
         return gVar.getView();
     }
 
     public void a(h hVar) {
-        this.gxq = hVar;
-        if (this.gxp != null) {
-            this.gxp.c(this.gxq);
+        this.gxs = hVar;
+        if (this.gxr != null) {
+            this.gxr.c(this.gxs);
         }
     }
 
     public void setEntryName(String str) {
-        this.gtT = str;
+        this.gtV = str;
     }
 }

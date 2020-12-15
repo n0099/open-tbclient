@@ -31,7 +31,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             for (Post post : list) {
                 PostData postData = new PostData();
                 postData.a(post, TbadkCoreApplication.getInst());
-                postData.nmo = 102;
+                postData.nmq = 102;
                 this.list.add(postData);
             }
         }

@@ -61,8 +61,8 @@ public class a extends Dialog implements View.OnClickListener {
         this.bLA = (TextView) findViewById(a.f.ala_link_mic_status_dialog_btn_second);
         this.bLA.setVisibility(8);
         this.bLx.setBackgroundResource(a.e.sdk_default_avatar);
-        RoundingParams erP = this.bLx.getHierarchy().erP();
-        RoundingParams roundingParams = erP == null ? new RoundingParams() : erP;
+        RoundingParams erQ = this.bLx.getHierarchy().erQ();
+        RoundingParams roundingParams = erQ == null ? new RoundingParams() : erQ;
         roundingParams.AU(true);
         roundingParams.bw(6.0f);
         roundingParams.Qo(-1);

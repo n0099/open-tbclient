@@ -6,10 +6,10 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
     public UserData mUserData = new UserData();
-    public AlaInfoData gxz = new AlaInfoData();
+    public AlaInfoData gxB = new AlaInfoData();
 
     public void e(JSONObject jSONObject, JSONObject jSONObject2) {
         this.mUserData.parserJson(jSONObject);
-        this.gxz.parserJson(jSONObject2);
+        this.gxB.parserJson(jSONObject2);
     }
 }

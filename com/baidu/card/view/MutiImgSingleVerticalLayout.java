@@ -227,7 +227,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<com.b
         if (voiceModel != null) {
             this.alB.EM(voiceModel.voice_status.intValue());
         }
-        this.alB.ccz();
+        this.alB.ccA();
         this.alE = true;
     }
 

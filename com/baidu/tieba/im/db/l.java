@@ -11,28 +11,28 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
     public static String HEAD = "tb_oficial_msg_";
-    private static a kqI;
+    private static a kqK;
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized l cWf() {
+    public static synchronized l cWg() {
         l lVar;
         synchronized (l.class) {
-            if (kqI == null) {
-                kqI = new l();
+            if (kqK == null) {
+                kqK = new l();
             }
-            lVar = (l) kqI;
+            lVar = (l) kqK;
         }
         return lVar;
     }
 
-    public static List<String> cWg() {
+    public static List<String> cWh() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.cVV().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time" + MediaQueryParam.SORT_ASC, new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+            cursor = h.cVW().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time" + MediaQueryParam.SORT_ASC, new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
@@ -47,13 +47,13 @@ public class l extends a {
         return arrayList;
     }
 
-    public static List<com.baidu.tieba.im.db.pojo.a> cWh() {
+    public static List<com.baidu.tieba.im.db.pojo.a> cWi() {
         Cursor cursor;
         Exception e;
         ArrayList arrayList;
         try {
             try {
-                cursor = h.cVV().rawQuery("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                cursor = h.cVW().rawQuery("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
                 if (cursor != null) {
                     try {
                         arrayList = new ArrayList(cursor.getCount());
@@ -107,7 +107,7 @@ public class l extends a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("read_count", Integer.valueOf(i));
-            BdLog.d("updateReadCount result = " + h.cVV().a(HEAD + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)}));
+            BdLog.d("updateReadCount result = " + h.cVW().a(HEAD + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)}));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -118,7 +118,7 @@ public class l extends a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("visit_time", Long.valueOf(j2));
             contentValues.put("unread_count", (Integer) 0);
-            BdLog.d("updateReadCount result = " + h.cVV().a("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)}));
+            BdLog.d("updateReadCount result = " + h.cVW().a("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)}));
         } catch (Exception e) {
             e.printStackTrace();
         }

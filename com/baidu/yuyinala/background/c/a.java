@@ -15,22 +15,22 @@ import com.baidu.yuyinala.background.message.AlaAudioBackgroundListResponseMessa
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
     private final w aFN;
-    private AlaAudioBackgroundDialogData oJG = new AlaAudioBackgroundDialogData();
-    private com.baidu.yuyinala.background.b.a oJT;
-    private com.baidu.yuyinala.background.b.a oJU;
-    private InterfaceC0955a oJV;
+    private AlaAudioBackgroundDialogData oJI = new AlaAudioBackgroundDialogData();
+    private com.baidu.yuyinala.background.b.a oJV;
+    private com.baidu.yuyinala.background.b.a oJW;
+    private InterfaceC0955a oJX;
 
     /* renamed from: com.baidu.yuyinala.background.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public interface InterfaceC0955a {
         void a(AlaAudioBackgroundDialogData alaAudioBackgroundDialogData, com.baidu.yuyinala.background.b.a aVar);
 
-        void ekd();
+        void eke();
     }
 
     public a(w wVar, InterfaceC0955a interfaceC0955a) {
         this.aFN = wVar;
-        this.oJV = interfaceC0955a;
+        this.oJX = interfaceC0955a;
         registerListener();
     }
 
@@ -41,10 +41,10 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof AlaAudioBackgroundListResponseMessage) {
                     AlaAudioBackgroundListResponseMessage alaAudioBackgroundListResponseMessage = (AlaAudioBackgroundListResponseMessage) httpResponsedMessage;
-                    a.this.oJU = a.this.oJT = alaAudioBackgroundListResponseMessage.ekm();
-                    a.this.oJG.setBgList(alaAudioBackgroundListResponseMessage.getBgList());
-                    if (a.this.oJV != null) {
-                        a.this.oJV.a(a.this.oJG, a.this.oJU);
+                    a.this.oJW = a.this.oJV = alaAudioBackgroundListResponseMessage.ekn();
+                    a.this.oJI.setBgList(alaAudioBackgroundListResponseMessage.getBgList());
+                    if (a.this.oJX != null) {
+                        a.this.oJX.a(a.this.oJI, a.this.oJW);
                     }
                 }
             }
@@ -55,8 +55,8 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage.getCmd() == 1031016 && httpResponsedMessage.getError() != 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501019));
-                    if (a.this.oJV != null) {
-                        a.this.oJV.ekd();
+                    if (a.this.oJX != null) {
+                        a.this.oJX.eke();
                     }
                 }
             }
@@ -64,35 +64,35 @@ public class a extends BdBaseModel {
     }
 
     public void a(com.baidu.yuyinala.background.b.a aVar, Bitmap bitmap) {
-        if (aVar != this.oJT) {
-            if (this.oJT != null) {
-                this.oJT.Aq(false);
+        if (aVar != this.oJV) {
+            if (this.oJV != null) {
+                this.oJV.Aq(false);
             }
-            this.oJT = aVar;
-            this.oJT.Aq(true);
+            this.oJV = aVar;
+            this.oJV.Aq(true);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501019, bitmap));
         }
     }
 
-    public void ekc() {
-        if (this.oJU != this.oJT) {
-            if (this.oJT != null) {
-                this.oJT.Aq(false);
+    public void ekd() {
+        if (this.oJW != this.oJV) {
+            if (this.oJV != null) {
+                this.oJV.Aq(false);
             }
-            if (this.oJU != null) {
-                this.oJU.Aq(true);
+            if (this.oJW != null) {
+                this.oJW.Aq(true);
             }
-            this.oJT = null;
-            this.oJU = null;
+            this.oJV = null;
+            this.oJW = null;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501019));
         }
     }
 
-    public void ekb() {
-        if (this.oJU != this.oJT && this.oJT != null && !StringUtils.isNull(this.oJT.getOriginalUrl())) {
-            Yq(this.oJT.getOriginalUrl());
-            this.oJT = null;
-            this.oJU = null;
+    public void ekc() {
+        if (this.oJW != this.oJV && this.oJV != null && !StringUtils.isNull(this.oJV.getOriginalUrl())) {
+            Yq(this.oJV.getOriginalUrl());
+            this.oJV = null;
+            this.oJW = null;
         }
     }
 
@@ -106,7 +106,7 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void ekn() {
+    public void eko() {
         String str;
         String str2;
         String str3 = null;

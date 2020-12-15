@@ -12,12 +12,12 @@ import java.util.List;
 public class e {
     private BdTypeRecyclerView Yf;
     private List<com.baidu.adp.widget.ListView.a> bnf = new LinkedList();
-    private ArrayList<q> isD;
-    private b kKC;
-    private b kKD;
+    private ArrayList<q> isF;
     private b kKE;
     private b kKF;
     private b kKG;
+    private b kKH;
+    private b kKI;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void x(TbPageContext tbPageContext) {
-        this.kKC = new b(tbPageContext, a.kKm);
-        this.kKD = new b(tbPageContext, a.kKn);
-        this.kKE = new b(tbPageContext, a.kKq);
+        this.kKE = new b(tbPageContext, a.kKo);
         this.kKF = new b(tbPageContext, a.kKp);
-        this.kKG = new b(tbPageContext, a.kKo);
-        this.bnf.add(this.kKC);
-        this.bnf.add(this.kKD);
+        this.kKG = new b(tbPageContext, a.kKs);
+        this.kKH = new b(tbPageContext, a.kKr);
+        this.kKI = new b(tbPageContext, a.kKq);
         this.bnf.add(this.kKE);
         this.bnf.add(this.kKF);
         this.bnf.add(this.kKG);
+        this.bnf.add(this.kKH);
+        this.bnf.add(this.kKI);
         this.Yf.addAdapters(this.bnf);
     }
 
@@ -47,7 +47,7 @@ public class e {
 
     public void setData(ArrayList<q> arrayList) {
         this.Yf.setData(arrayList);
-        this.isD = arrayList;
+        this.isF = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -77,8 +77,8 @@ public class e {
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.ab abVar) {
+        this.kKI.setOnCardSubClickListener(abVar);
+        this.kKH.setOnCardSubClickListener(abVar);
         this.kKG.setOnCardSubClickListener(abVar);
-        this.kKF.setOnCardSubClickListener(abVar);
-        this.kKE.setOnCardSubClickListener(abVar);
     }
 }

@@ -19,19 +19,19 @@ import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.d> {
-    public View ijY;
+    public View ika;
     private boolean isHost;
     private View.OnClickListener mOnClickListener;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
-    public TextView muH;
-    public TextView muI;
     public TextView muJ;
     public TextView muK;
-    public ClickableHeaderImageView muL;
-    public ClickableHeaderImageView muM;
+    public TextView muL;
+    public TextView muM;
     public ClickableHeaderImageView muN;
-    public TextView muO;
+    public ClickableHeaderImageView muO;
+    public ClickableHeaderImageView muP;
+    public TextView muQ;
 
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -39,36 +39,36 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         this.mPageContext = tbPageContext;
         View view = getView();
         initListener();
-        this.ijY = view.findViewById(R.id.bottom_divider);
-        this.muI = (TextView) view.findViewById(R.id.month_num);
-        this.muH = (TextView) view.findViewById(R.id.day_num);
-        this.muJ = (TextView) view.findViewById(R.id.identity);
-        this.muK = (TextView) view.findViewById(R.id.attention_str);
-        this.muL = (ClickableHeaderImageView) view.findViewById(R.id.header1);
-        this.muL.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
-        this.muL.setAutoChangeStyle(true);
-        this.muL.setOnClickListener(this.mOnClickListener);
-        this.muM = (ClickableHeaderImageView) view.findViewById(R.id.header2);
-        this.muM.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
-        this.muM.setAutoChangeStyle(true);
-        this.muM.setOnClickListener(this.mOnClickListener);
-        this.muN = (ClickableHeaderImageView) view.findViewById(R.id.header3);
+        this.ika = view.findViewById(R.id.bottom_divider);
+        this.muK = (TextView) view.findViewById(R.id.month_num);
+        this.muJ = (TextView) view.findViewById(R.id.day_num);
+        this.muL = (TextView) view.findViewById(R.id.identity);
+        this.muM = (TextView) view.findViewById(R.id.attention_str);
+        this.muN = (ClickableHeaderImageView) view.findViewById(R.id.header1);
         this.muN.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
         this.muN.setAutoChangeStyle(true);
         this.muN.setOnClickListener(this.mOnClickListener);
-        this.muO = (TextView) view.findViewById(R.id.etc_person);
+        this.muO = (ClickableHeaderImageView) view.findViewById(R.id.header2);
+        this.muO.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
+        this.muO.setAutoChangeStyle(true);
+        this.muO.setOnClickListener(this.mOnClickListener);
+        this.muP = (ClickableHeaderImageView) view.findViewById(R.id.header3);
+        this.muP.setRadius(com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds100));
+        this.muP.setAutoChangeStyle(true);
+        this.muP.setOnClickListener(this.mOnClickListener);
+        this.muQ = (TextView) view.findViewById(R.id.etc_person);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundResource(getView(), R.drawable.home_thread_card_item_bg);
-            ap.setBackgroundColor(this.ijY, R.color.CAM_X0204);
-            ap.setViewTextColor(this.muI, (int) R.color.CAM_X0106);
-            ap.setViewTextColor(this.muH, (int) R.color.CAM_X0106);
-            ap.setViewTextColor(this.muJ, (int) R.color.CAM_X0106);
+            ap.setBackgroundColor(this.ika, R.color.CAM_X0204);
             ap.setViewTextColor(this.muK, (int) R.color.CAM_X0106);
-            ap.setViewTextColor(this.muO, (int) R.color.CAM_X0108);
+            ap.setViewTextColor(this.muJ, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.muL, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.muM, (int) R.color.CAM_X0106);
+            ap.setViewTextColor(this.muQ, (int) R.color.CAM_X0108);
         }
         this.mSkinType = i;
     }
@@ -92,57 +92,57 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
             getView().setVisibility(0);
         }
         this.isHost = dVar.isHost;
-        this.muH.setText(dVar.inS);
-        this.muI.setText(dVar.inR);
-        this.muH.setVisibility(dVar.inY ? 0 : 4);
-        this.muI.setVisibility(dVar.inY ? 0 : 4);
+        this.muJ.setText(dVar.inU);
+        this.muK.setText(dVar.inT);
+        this.muJ.setVisibility(dVar.ioa ? 0 : 4);
+        this.muK.setVisibility(dVar.ioa ? 0 : 4);
         if (dVar.isHost) {
-            this.muJ.setText(this.mPageContext.getString(R.string.me));
+            this.muL.setText(this.mPageContext.getString(R.string.me));
         } else {
-            this.muJ.setText(au.getUserDescByGender(dVar.sex));
+            this.muL.setText(au.getUserDescByGender(dVar.sex));
         }
         int count = y.getCount(dVar.users);
         if (count > 3) {
+            this.muQ.setVisibility(0);
+            this.muQ.setText(String.format(this.mPageContext.getString(R.string.attention_etc_person), Integer.valueOf(count)));
+        } else {
+            this.muQ.setVisibility(8);
+        }
+        if (count >= 3) {
+            this.muP.setVisibility(0);
+            this.muP.setTag(dVar.users.get(2));
+            if (dVar.users.get(2).getGodUserData() != null && dVar.users.get(2).getGodUserData().getType() == 2) {
+                this.muP.setIsGod(true);
+            } else {
+                this.muP.setIsGod(false);
+            }
+            this.muP.startLoad(dVar.users.get(2).getPortrait(), 12, false);
+        } else {
+            this.muP.setVisibility(8);
+        }
+        if (count >= 2) {
             this.muO.setVisibility(0);
-            this.muO.setText(String.format(this.mPageContext.getString(R.string.attention_etc_person), Integer.valueOf(count)));
+            this.muO.setTag(dVar.users.get(1));
+            if (dVar.users.get(1).getGodUserData() != null && dVar.users.get(1).getGodUserData().getType() == 2) {
+                this.muO.setIsGod(true);
+            } else {
+                this.muO.setIsGod(false);
+            }
+            this.muO.startLoad(dVar.users.get(1).getPortrait(), 12, false);
         } else {
             this.muO.setVisibility(8);
         }
-        if (count >= 3) {
+        if (count >= 1) {
             this.muN.setVisibility(0);
-            this.muN.setTag(dVar.users.get(2));
-            if (dVar.users.get(2).getGodUserData() != null && dVar.users.get(2).getGodUserData().getType() == 2) {
+            this.muN.setTag(dVar.users.get(0));
+            if (dVar.users.get(0).getGodUserData() != null && dVar.users.get(0).getGodUserData().getType() == 2) {
                 this.muN.setIsGod(true);
             } else {
                 this.muN.setIsGod(false);
             }
-            this.muN.startLoad(dVar.users.get(2).getPortrait(), 12, false);
+            this.muN.startLoad(dVar.users.get(0).getPortrait(), 12, false);
         } else {
             this.muN.setVisibility(8);
-        }
-        if (count >= 2) {
-            this.muM.setVisibility(0);
-            this.muM.setTag(dVar.users.get(1));
-            if (dVar.users.get(1).getGodUserData() != null && dVar.users.get(1).getGodUserData().getType() == 2) {
-                this.muM.setIsGod(true);
-            } else {
-                this.muM.setIsGod(false);
-            }
-            this.muM.startLoad(dVar.users.get(1).getPortrait(), 12, false);
-        } else {
-            this.muM.setVisibility(8);
-        }
-        if (count >= 1) {
-            this.muL.setVisibility(0);
-            this.muL.setTag(dVar.users.get(0));
-            if (dVar.users.get(0).getGodUserData() != null && dVar.users.get(0).getGodUserData().getType() == 2) {
-                this.muL.setIsGod(true);
-            } else {
-                this.muL.setIsGod(false);
-            }
-            this.muL.startLoad(dVar.users.get(0).getPortrait(), 12, false);
-        } else {
-            this.muL.setVisibility(8);
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

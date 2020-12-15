@@ -72,15 +72,15 @@ public abstract class at extends b<com.baidu.tbadk.core.data.a> implements com.b
                     com.baidu.tieba.card.n.a(at.this.mTitle, at.this.agJ.bmn().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 } else if (c0097a.getActionType() == 2) {
                     if (at.this.ajB != null) {
-                        at.this.ajB.bWD();
+                        at.this.ajB.bWE();
                     }
                 } else if (c0097a.getActionType() == 3) {
                     if (at.this.ajB != null) {
-                        at.this.ajB.dxd();
+                        at.this.ajB.dxe();
                     }
                 } else if (c0097a.getActionType() == 6) {
                     if (at.this.ajB != null) {
-                        return at.this.ajB.dCt();
+                        return at.this.ajB.dCu();
                     }
                 } else if (c0097a.getActionType() == 7) {
                     if (at.this.ajA != null) {
@@ -113,7 +113,7 @@ public abstract class at extends b<com.baidu.tbadk.core.data.a> implements com.b
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
             this.ajA = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
             this.ajB = tK();
-            this.ajB.dBH().setBackgroundResource(R.color.transparent);
+            this.ajB.dBI().setBackgroundResource(R.color.transparent);
             this.ajB.setUniqueId(this.ajD);
             this.ajB.setFrom(this.mFrom);
             this.ajB.setStageType(this.ajC);

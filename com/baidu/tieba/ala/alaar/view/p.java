@@ -7,10 +7,10 @@ import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class p extends j implements View.OnClickListener {
-    private LinearLayout gpi;
-    private FrameLayout gpj;
-    l gpk;
-    private a gpl;
+    private LinearLayout gpk;
+    private FrameLayout gpl;
+    l gpm;
+    private a gpn;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -24,35 +24,35 @@ public class p extends j implements View.OnClickListener {
     @Override // com.baidu.tieba.ala.alaar.view.j
     protected void a(ValueAnimator valueAnimator) {
         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-        this.gpj.setAlpha(1.0f - floatValue);
-        this.gpi.setAlpha(1.0f - floatValue);
+        this.gpl.setAlpha(1.0f - floatValue);
+        this.gpk.setAlpha(1.0f - floatValue);
     }
 
     @Override // com.baidu.tieba.ala.alaar.view.j
     protected void lR(boolean z) {
         if (z) {
-            if (this.gpj != null) {
-                this.gpj.setAlpha(1.0f);
-                this.gpi.setAlpha(1.0f);
-                this.gpj.setVisibility(0);
-                this.gpi.setVisibility(0);
+            if (this.gpl != null) {
+                this.gpl.setAlpha(1.0f);
+                this.gpk.setAlpha(1.0f);
+                this.gpl.setVisibility(0);
+                this.gpk.setVisibility(0);
             }
-        } else if (this.gpj != null) {
-            this.gpj.setVisibility(4);
-            this.gpi.setVisibility(4);
+        } else if (this.gpl != null) {
+            this.gpl.setVisibility(4);
+            this.gpk.setVisibility(4);
         }
     }
 
     public void ce(View view) {
         this.view = view;
-        this.gpi = (LinearLayout) view.findViewById(a.f.tab_title_content);
-        this.gpj = (FrameLayout) view.findViewById(a.f.effect_beauty_select);
+        this.gpk = (LinearLayout) view.findViewById(a.f.tab_title_content);
+        this.gpl = (FrameLayout) view.findViewById(a.f.effect_beauty_select);
     }
 
     public void b(l lVar) {
-        View b = lVar.b(null, this.gpi);
-        this.gpi.addView(b);
-        this.gpj.addView(lVar.bRx());
+        View b = lVar.b(null, this.gpk);
+        this.gpk.addView(b);
+        this.gpl.addView(lVar.bRy());
         b.setOnClickListener(this);
         b.setTag(lVar);
     }
@@ -65,21 +65,21 @@ public class p extends j implements View.OnClickListener {
     }
 
     public void c(l lVar) {
-        if (this.gpk != lVar) {
-            if (this.gpk != null) {
-                this.gpk.setSelected(false);
+        if (this.gpm != lVar) {
+            if (this.gpm != null) {
+                this.gpm.setSelected(false);
             }
-            this.gpk = lVar;
-            if (this.gpk != null) {
-                this.gpk.setSelected(true);
+            this.gpm = lVar;
+            if (this.gpm != null) {
+                this.gpm.setSelected(true);
             }
-            if (this.gpl != null) {
-                this.gpl.a(this.gpk);
+            if (this.gpn != null) {
+                this.gpn.a(this.gpm);
             }
         }
     }
 
     public void a(a aVar) {
-        this.gpl = aVar;
+        this.gpn = aVar;
     }
 }

@@ -84,7 +84,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            p.eDZ();
+            p.eEa();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();

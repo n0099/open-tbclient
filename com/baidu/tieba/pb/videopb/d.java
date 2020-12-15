@@ -8,47 +8,47 @@ import java.util.LinkedList;
 /* loaded from: classes22.dex */
 public class d {
     private boolean alo;
-    private com.baidu.tieba.pb.data.f lEt;
-    private com.baidu.tieba.pb.data.f mbd;
-    private Rect mbf;
-    private boolean mbg;
-    private p<by> mbe = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.f> mbh = new LinkedList<>();
-    private p<by> mbi = new p<>();
-    private p<by> mbj = new p<>();
-    private p<Boolean> mbk = new p<>();
-    private p<Boolean> mbl = new p<>();
+    private com.baidu.tieba.pb.data.f lEv;
+    private com.baidu.tieba.pb.data.f mbf;
+    private Rect mbh;
+    private boolean mbi;
+    private p<by> mbg = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.f> mbj = new LinkedList<>();
+    private p<by> mbk = new p<>();
+    private p<by> mbl = new p<>();
     private p<Boolean> mbm = new p<>();
     private p<Boolean> mbn = new p<>();
-    private p<Integer> mbo = new p<>();
+    private p<Boolean> mbo = new p<>();
+    private p<Boolean> mbp = new p<>();
+    private p<Integer> mbq = new p<>();
 
     public void O(com.baidu.tieba.pb.data.f fVar) {
-        this.mbd = fVar;
+        this.mbf = fVar;
         setData(fVar);
-        this.mbi.setValue(null);
-        this.mbe.setValue(fVar.dmT());
-    }
-
-    public com.baidu.tieba.pb.data.f dwg() {
-        return this.mbd;
+        this.mbk.setValue(null);
+        this.mbg.setValue(fVar.dmU());
     }
 
     public com.baidu.tieba.pb.data.f dwh() {
-        return this.lEt;
+        return this.mbf;
+    }
+
+    public com.baidu.tieba.pb.data.f dwi() {
+        return this.lEv;
     }
 
     public void setData(com.baidu.tieba.pb.data.f fVar) {
-        this.lEt = fVar;
+        this.lEv = fVar;
         if (fVar != null) {
-            this.mbe.setValue(fVar.dmT());
-            if (!y.isEmpty(fVar.dnw())) {
-                aS(fVar.dnw().get(0));
+            this.mbg.setValue(fVar.dmU());
+            if (!y.isEmpty(fVar.dnx())) {
+                aS(fVar.dnx().get(0));
             }
         }
     }
 
-    public p<by> dwi() {
-        return this.mbe;
+    public p<by> dwj() {
+        return this.mbg;
     }
 
     public boolean isFromCDN() {
@@ -60,66 +60,66 @@ public class d {
     }
 
     public void i(Rect rect) {
-        this.mbf = rect;
+        this.mbh = rect;
     }
 
-    public Rect dwj() {
-        return this.mbf;
-    }
-
-    public void wc(boolean z) {
-        this.mbg = z;
-    }
-
-    public boolean dwk() {
-        return this.mbg;
-    }
-
-    public LinkedList<com.baidu.tieba.pb.data.f> dwl() {
+    public Rect dwk() {
         return this.mbh;
     }
 
-    public void aR(by byVar) {
-        this.mbi.setValue(byVar);
+    public void wc(boolean z) {
+        this.mbi = z;
     }
 
-    public void aS(by byVar) {
-        this.mbj.setValue(byVar);
-    }
-
-    public p<by> dwm() {
+    public boolean dwl() {
         return this.mbi;
     }
 
-    public p<by> dwn() {
+    public LinkedList<com.baidu.tieba.pb.data.f> dwm() {
         return this.mbj;
     }
 
-    public p<Boolean> dwo() {
+    public void aR(by byVar) {
+        this.mbk.setValue(byVar);
+    }
+
+    public void aS(by byVar) {
+        this.mbl.setValue(byVar);
+    }
+
+    public p<by> dwn() {
         return this.mbk;
     }
 
-    public void wd(boolean z) {
-        this.mbk.setValue(Boolean.valueOf(z));
-    }
-
-    public p<Boolean> dwp() {
+    public p<by> dwo() {
         return this.mbl;
     }
 
-    public void we(boolean z) {
-        this.mbl.postValue(Boolean.valueOf(z));
+    public p<Boolean> dwp() {
+        return this.mbm;
     }
 
-    public void setIsLoading(boolean z) {
-        this.mbn.setValue(Boolean.valueOf(z));
+    public void wd(boolean z) {
+        this.mbm.setValue(Boolean.valueOf(z));
     }
 
     public p<Boolean> dwq() {
         return this.mbn;
     }
 
-    public p<Integer> dwr() {
-        return this.mbo;
+    public void we(boolean z) {
+        this.mbn.postValue(Boolean.valueOf(z));
+    }
+
+    public void setIsLoading(boolean z) {
+        this.mbp.setValue(Boolean.valueOf(z));
+    }
+
+    public p<Boolean> dwr() {
+        return this.mbp;
+    }
+
+    public p<Integer> dws() {
+        return this.mbq;
     }
 }

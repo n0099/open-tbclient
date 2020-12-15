@@ -17,11 +17,11 @@ public class d extends Dialog implements a {
     private Context mContext;
     private TextView mSubTitle;
     private TextView mTitle;
-    private View ntj;
-    private LinearLayout ntm;
-    private InterestFrsData.Tag nts;
-    private c ntt;
-    private GridView ntu;
+    private View ntl;
+    private LinearLayout nto;
+    private InterestFrsData.Tag ntu;
+    private c ntv;
+    private GridView ntw;
 
     public d(Context context, int i) {
         super(context, i);
@@ -31,43 +31,43 @@ public class d extends Dialog implements a {
 
     private void init() {
         this.egT = View.inflate(this.mContext, R.layout.new_user_img_box, null);
-        this.ntt = new c(this.mContext);
+        this.ntv = new c(this.mContext);
         setCanceledOnTouchOutside(true);
-        this.ntm = (LinearLayout) this.egT.findViewById(R.id.box_close_layout);
-        this.ntu = (GridView) this.egT.findViewById(R.id.layout_content);
-        this.ntu.setAdapter((ListAdapter) this.ntt);
-        this.ntu.setSelector(R.color.common_color_10022);
+        this.nto = (LinearLayout) this.egT.findViewById(R.id.box_close_layout);
+        this.ntw = (GridView) this.egT.findViewById(R.id.layout_content);
+        this.ntw.setAdapter((ListAdapter) this.ntv);
+        this.ntw.setSelector(R.color.common_color_10022);
         setContentView(this.egT);
         this.mTitle = (TextView) this.egT.findViewById(R.id.prompt_title);
         this.mSubTitle = (TextView) this.egT.findViewById(R.id.prompt_sub_title);
-        this.ntj = this.egT.findViewById(R.id.view_layout);
-        this.ntj.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
+        this.ntl = this.egT.findViewById(R.id.view_layout);
+        this.ntl.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void a(InterestFrsData.Tag tag) {
-        this.nts = tag;
-        if (this.nts != null) {
+        this.ntu = tag;
+        if (this.ntu != null) {
             this.mTitle.setText(tag.getBname());
             this.mSubTitle.setText(tag.getBdesc());
-            this.ntt.setData(tag.getCard_list());
+            this.ntv.setData(tag.getCard_list());
         }
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void Ls(int i) {
-        this.ntt.notifyDataSetChanged();
+        this.ntv.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void Lt(int i) {
-        this.ntt.notifyDataSetChanged();
+        this.ntv.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.ntm.setOnClickListener(onClickListener);
-        this.ntt.setOnClickListener(onClickListener);
+        this.nto.setOnClickListener(onClickListener);
+        this.ntv.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a

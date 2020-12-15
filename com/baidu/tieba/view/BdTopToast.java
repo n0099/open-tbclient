@@ -24,8 +24,8 @@ public class BdTopToast extends LinearLayout {
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
-    private BottomShadowLinearLayout nNI;
-    private boolean nNJ;
+    private BottomShadowLinearLayout nNK;
+    private boolean nNL;
 
     public BdTopToast(Context context, int i) {
         this(context);
@@ -53,7 +53,7 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.nNI = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.nNK = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
         this.cRf = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
@@ -88,7 +88,7 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast yW(boolean z) {
-        this.nNJ = z;
+        this.nNL = z;
         return this;
     }
 
@@ -128,13 +128,13 @@ public class BdTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this.mStatusBarView, R.color.CAM_X0207);
-        if (this.nNJ) {
+        if (this.nNL) {
             SvgManager.btW().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
             ap.setViewTextColor(this.cRf, R.color.CAM_X0302);
         } else {
             SvgManager.btW().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, (SvgManager.SvgResourceStateType) null);
             ap.setViewTextColor(this.cRf, R.color.CAM_X0301);
         }
-        this.nNI.onChangeSkinType();
+        this.nNK.onChangeSkinType();
     }
 }

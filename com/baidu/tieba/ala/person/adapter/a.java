@@ -15,10 +15,10 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private Context context;
-    private int gFf;
-    private InterfaceC0706a hJq;
-    private c hJr;
-    private b hJs;
+    private int gFh;
+    private InterfaceC0706a hJs;
+    private c hJt;
+    private b hJu;
     private List mList;
     private int mSkinType;
     private int type;
@@ -40,9 +40,9 @@ public class a extends BaseAdapter {
     }
 
     public a(Context context, int i) {
-        this.gFf = 2;
+        this.gFh = 2;
         this.context = context;
-        this.gFf = i;
+        this.gFh = i;
     }
 
     public void a(boolean z, List list, int i) {
@@ -82,22 +82,22 @@ public class a extends BaseAdapter {
         com.baidu.tieba.ala.person.view.c cVar = null;
         if (view == null) {
             if (this.mList.get(i) != null) {
-                if (this.gFf == 1) {
+                if (this.gFh == 1) {
                     if (this.type == 1 || this.type == 0) {
                         view = LayoutInflater.from(this.context).inflate(a.g.ala_person_list_item_layout, (ViewGroup) null);
-                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.gFf);
+                        cVar = new com.baidu.tieba.ala.person.view.b(view, this.gFh);
                     } else if (this.type == 2) {
                         view = LayoutInflater.from(this.context).inflate(a.g.ala_playbacks_list_item_layout, (ViewGroup) null);
-                        cVar = new e(view, this.gFf);
+                        cVar = new e(view, this.gFh);
                     }
-                } else if (this.gFf == 2) {
+                } else if (this.gFh == 2) {
                     view = LayoutInflater.from(this.context).inflate(a.g.ala_person_card_list_item_layout, (ViewGroup) null);
-                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.gFf);
+                    cVar = new com.baidu.tieba.ala.person.view.b(view, this.gFh);
                 }
                 if (cVar != null) {
-                    cVar.a(this.hJq);
                     cVar.a(this.hJs);
-                    cVar.a(this.hJr);
+                    cVar.a(this.hJu);
+                    cVar.a(this.hJt);
                 }
                 if (view != null) {
                     view.setTag(cVar);
@@ -137,14 +137,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0706a interfaceC0706a) {
-        this.hJq = interfaceC0706a;
+        this.hJs = interfaceC0706a;
     }
 
     public void a(c cVar) {
-        this.hJr = cVar;
+        this.hJt = cVar;
     }
 
     public void a(b bVar) {
-        this.hJs = bVar;
+        this.hJu = bVar;
     }
 }

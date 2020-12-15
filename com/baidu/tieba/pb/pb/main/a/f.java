@@ -27,22 +27,22 @@ public class f {
     private View.OnTouchListener fGd = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.a.f.1
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (f.this.jxj != null) {
-                f.this.jxj.onTouchEvent(motionEvent);
+            if (f.this.jxl != null) {
+                f.this.jxl.onTouchEvent(motionEvent);
                 return false;
             }
             return false;
         }
     };
-    private BdTypeRecyclerView jIJ;
-    private com.baidu.tieba.g.a jxj;
-    private com.baidu.tieba.pb.pb.a.c lSU;
+    private BdTypeRecyclerView jIL;
+    private com.baidu.tieba.g.a jxl;
+    private com.baidu.tieba.pb.pb.a.c lSW;
 
     public f(BdTypeRecyclerView bdTypeRecyclerView, com.baidu.tieba.pb.pb.a.c cVar) {
-        this.jIJ = bdTypeRecyclerView;
-        this.lSU = cVar;
+        this.jIL = bdTypeRecyclerView;
+        this.lSW = cVar;
         bdTypeRecyclerView.setOnTouchListener(this.fGd);
-        this.jxj = new com.baidu.tieba.g.a();
+        this.jxl = new com.baidu.tieba.g.a();
     }
 
     public void H(com.baidu.tieba.pb.data.f fVar) {
@@ -51,10 +51,10 @@ public class f {
             if (fVar.getForum() != null) {
                 str = fVar.getForum().getFirst_class();
             }
-            List<ThreadInfo> dnC = fVar.dnC();
+            List<ThreadInfo> dnD = fVar.dnD();
             LinkedList linkedList = new LinkedList();
-            c(dnC, linkedList, str);
-            this.lSU.cv(linkedList);
+            c(dnD, linkedList, str);
+            this.lSW.cv(linkedList);
         }
     }
 
@@ -108,7 +108,7 @@ public class f {
                                     ar aj;
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(view.getContext(), getLink(), null)));
                                     if (aC instanceof k) {
-                                        aj = ((k) aC).csH();
+                                        aj = ((k) aC).csI();
                                     } else {
                                         aj = aC instanceof l ? ((l) aC).aj(null) : null;
                                     }
@@ -139,9 +139,9 @@ public class f {
         kVar.eCR = byVar;
         kVar.isLinkThread = byVar.isLinkThread();
         if (!byVar.isLinkThread()) {
-            kVar.inw = byVar.boS();
+            kVar.iny = byVar.boS();
         }
-        kVar.inx = true;
+        kVar.inz = true;
         return kVar;
     }
 
@@ -154,10 +154,10 @@ public class f {
             kVar.isLinkThread = byVar.isLinkThread();
             kVar.eII = byVar.bpU();
             if (!byVar.isLinkThread() && !byVar.bpU()) {
-                kVar.inw = byVar.boS();
+                kVar.iny = byVar.boS();
             }
             kVar.eCR = byVar;
-            kVar.inx = true;
+            kVar.inz = true;
             return kVar;
         } else if (l.ad(byVar)) {
             return new l(byVar);
@@ -167,7 +167,7 @@ public class f {
     }
 
     private void b(com.baidu.tieba.card.data.b bVar) {
-        ((k) bVar).imJ = true;
+        ((k) bVar).imL = true;
         bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
         bVar.forceNoTest = true;
     }
@@ -185,7 +185,7 @@ public class f {
     }
 
     private void f(com.baidu.tieba.card.data.b bVar) {
-        ((l) bVar).imK = true;
+        ((l) bVar).imM = true;
         bVar.setSupportType(BaseCardInfo.SupportType.CONTENT);
         bVar.forceNoTest = true;
     }

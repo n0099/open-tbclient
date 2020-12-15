@@ -15,10 +15,10 @@ public class c {
 
     private Map<String, String> a() {
         if (this.f3981a.isEmpty()) {
-            this.f3981a.put("av", sysParamters.eow().b());
-            this.f3981a.put("sv", sysParamters.eow().c());
-            this.f3981a.put(IXAdRequestInfo.TEST_MODE, sysParamters.eow().d());
-            this.f3981a.put("mf", sysParamters.eow().e());
+            this.f3981a.put("av", sysParamters.eox().b());
+            this.f3981a.put("sv", sysParamters.eox().c());
+            this.f3981a.put(IXAdRequestInfo.TEST_MODE, sysParamters.eox().d());
+            this.f3981a.put("mf", sysParamters.eox().e());
             this.f3981a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
         this.f3981a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
@@ -37,7 +37,7 @@ public class c {
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).eoq();
+            }).eor();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

@@ -30,18 +30,18 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes23.dex */
 public class a extends ProxyAdkBaseActivity<a> {
-    public static String nhd = "st_type";
+    public static String nhf = "st_type";
     private NavigationBar mNavigationBar;
-    private ProgressBar ngZ;
-    private b nha;
-    private C0867a nhb;
-    protected ViewGroup nhc;
+    private ProgressBar nhb;
+    private b nhc;
+    private C0867a nhd;
+    protected ViewGroup nhe;
     protected ListView mList = null;
     private String stType = null;
 
     public static void g(Activity activity, String str) {
         Intent intent = new Intent(activity, a.class);
-        intent.putExtra(nhd, str);
+        intent.putExtra(nhf, str);
         activity.startActivity(intent);
     }
 
@@ -52,7 +52,7 @@ public class a extends ProxyAdkBaseActivity<a> {
         setContentView(R.layout.bar_folder_dir_activity);
         initUI();
         aJ(bundle);
-        dNL();
+        dNM();
         TiebaStatic.eventStat(getPageContext().getContext(), "category_1", "enter");
     }
 
@@ -60,7 +60,7 @@ public class a extends ProxyAdkBaseActivity<a> {
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         super.onResume();
-        this.nha.notifyDataSetChanged();
+        this.nhc.notifyDataSetChanged();
     }
 
     protected void initUI() {
@@ -68,34 +68,34 @@ public class a extends ProxyAdkBaseActivity<a> {
         this.mNavigationBar.setTitleText(getResources().getString(R.string.bar_first_dir_name));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mList = (ListView) findViewById(R.id.list);
-        this.nha = new b(getPageContext().getPageActivity(), new c(), true);
+        this.nhc = new b(getPageContext().getPageActivity(), new c(), true);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(getActivity(), R.dimen.ds76)));
         this.mList.addHeaderView(textView);
-        this.mList.setAdapter((ListAdapter) this.nha);
-        this.ngZ = (ProgressBar) findViewById(R.id.progress);
-        this.nhc = (ViewGroup) findViewById(R.id.body_container);
-        bh.bp(this.nhc);
+        this.mList.setAdapter((ListAdapter) this.nhc);
+        this.nhb = (ProgressBar) findViewById(R.id.progress);
+        this.nhe = (ViewGroup) findViewById(R.id.body_container);
+        bh.bp(this.nhe);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        if (this.nhb != null) {
-            this.nhb.cancel();
+        if (this.nhd != null) {
+            this.nhd.cancel();
         }
         a(null, true);
     }
 
-    protected void dNL() {
+    protected void dNM() {
         this.mList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.square.square.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 e eVar;
-                ArrayList<e> dNM = a.this.nha.dNM();
-                if (dNM != null && i < dNM.size() && (eVar = dNM.get(i)) != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(a.this.getPageContext().getPageActivity(), eVar.nfh, eVar.nfi, eVar.nfj)));
+                ArrayList<e> dNN = a.this.nhc.dNN();
+                if (dNN != null && i < dNN.size() && (eVar = dNN.get(i)) != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_LIST, new ForumListActivityConfig(a.this.getPageContext().getPageActivity(), eVar.nfj, eVar.nfk, eVar.nfl)));
                 }
             }
         });
@@ -103,32 +103,32 @@ public class a extends ProxyAdkBaseActivity<a> {
 
     protected void aJ(Bundle bundle) {
         if (bundle != null) {
-            this.stType = bundle.getString(nhd);
+            this.stType = bundle.getString(nhf);
         } else {
-            this.stType = getIntent().getStringExtra(nhd);
+            this.stType = getIntent().getStringExtra(nhf);
         }
-        this.ngZ.setVisibility(0);
+        this.nhb.setVisibility(0);
         this.mList.setEnabled(false);
-        if (this.nhb != null) {
-            this.nhb.cancel();
+        if (this.nhd != null) {
+            this.nhd.cancel();
         }
-        this.nhb = new C0867a();
-        this.nhb.setPriority(3);
-        this.nhb.execute("");
+        this.nhd = new C0867a();
+        this.nhd.setPriority(3);
+        this.nhd.execute("");
     }
 
     protected void a(c cVar, boolean z) {
-        this.ngZ.setVisibility(8);
+        this.nhb.setVisibility(8);
         this.mList.setEnabled(true);
-        this.nhb = null;
+        this.nhd = null;
         if (!z) {
             if (cVar.isFailed()) {
                 showToast(cVar.getErrorMsg());
                 return;
             }
-            this.nha.bj(cVar.dNM());
+            this.nhc.bj(cVar.dNN());
             this.mList.setVisibility(4);
-            this.nha.notifyDataSetChanged();
+            this.nhc.notifyDataSetChanged();
             this.mList.setVisibility(0);
         }
     }
@@ -141,8 +141,8 @@ public class a extends ProxyAdkBaseActivity<a> {
         if (this.mList != null) {
             this.mList.invalidateViews();
         }
-        if (this.nhc != null) {
-            bh.g(this.nhc, i);
+        if (this.nhe != null) {
+            bh.g(this.nhe, i);
         }
         ap.setFrsPBBgColor(findViewById(R.id.root_view), i);
     }
@@ -197,7 +197,7 @@ public class a extends ProxyAdkBaseActivity<a> {
                     z2 = z;
                     this.mNetwork = new aa(TbConfig.SERVER_ADDRESS + Config.FORUM_FIRST_DIR);
                     if (a.this.stType != null) {
-                        this.mNetwork.addPostData(a.nhd, a.this.stType);
+                        this.mNetwork.addPostData(a.nhf, a.this.stType);
                     }
                     String postNetData = this.mNetwork.postNetData();
                     if (!this.mNetwork.btv().buf().isRequestSuccess()) {

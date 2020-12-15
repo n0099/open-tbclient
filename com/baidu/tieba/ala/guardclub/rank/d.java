@@ -14,17 +14,17 @@ import java.util.List;
 public class d implements e {
     private boolean aUy;
     private String brl;
-    private i gQV;
-    private a gRe;
-    private b gRh;
-    private n gRi;
-    private int gRj;
+    private i gQX;
+    private a gRg;
+    private b gRj;
+    private n gRk;
+    private int gRl;
     private Context mContext;
     private int mType;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bWA();
+        void bWB();
 
         void c(k kVar);
 
@@ -41,7 +41,7 @@ public class d implements e {
 
         void a(BaseAdapter baseAdapter);
 
-        void bWC();
+        void bWD();
 
         void cu(List<k> list);
 
@@ -59,21 +59,21 @@ public class d implements e {
     }
 
     public void a(b bVar) {
-        this.gRh = bVar;
+        this.gRj = bVar;
     }
 
     public void a(a aVar) {
-        this.gRe = aVar;
+        this.gRg = aVar;
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public void bWG() {
-        if (this.gQV == null) {
-            this.gQV = new i();
-            this.gQV.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.d.1
+    public void bWH() {
+        if (this.gQX == null) {
+            this.gQX = new i();
+            this.gQX.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.d.1
                 @Override // com.baidu.tieba.ala.guardclub.model.b, com.baidu.tieba.ala.guardclub.model.m.a
                 public void a(int i, com.baidu.live.guardclub.a aVar, List<k> list, f fVar, int i2, boolean z, boolean z2) {
                     super.a(i, aVar, list, fVar, i2, z, z2);
@@ -83,53 +83,53 @@ public class d implements e {
                 }
             });
         }
-        this.gQV.c(this.brl, this.gRj, 20, this.mType);
+        this.gQX.c(this.brl, this.gRl, 20, this.mType);
     }
 
     public void vS(int i) {
-        if (this.gRe != null) {
-            this.gRe.vP(i);
+        if (this.gRg != null) {
+            this.gRg.vP(i);
         }
     }
 
-    public void bWH() {
-        if (this.gRi != null) {
-            this.gRi.notifyDataSetChanged();
+    public void bWI() {
+        if (this.gRk != null) {
+            this.gRk.notifyDataSetChanged();
         }
     }
 
     public void y(String str, long j) {
         List<k> datas;
-        if (this.gRi != null && (datas = this.gRi.getDatas()) != null && !datas.isEmpty()) {
+        if (this.gRk != null && (datas = this.gRk.getDatas()) != null && !datas.isEmpty()) {
             for (k kVar : datas) {
                 if (kVar.id.equals(str)) {
-                    kVar.gQR = true;
+                    kVar.gQT = true;
                     if (j > 0) {
                         kVar.score = String.valueOf(j);
                     }
                 }
             }
-            this.gRi.notifyDataSetChanged();
+            this.gRk.notifyDataSetChanged();
         }
     }
 
     public void f(k kVar) {
-        if (this.gRe != null) {
-            this.gRe.c(kVar);
+        if (this.gRg != null) {
+            this.gRg.c(kVar);
         }
     }
 
-    public void bWA() {
-        if (this.gRe != null) {
-            this.gRe.bWA();
+    public void bWB() {
+        if (this.gRg != null) {
+            this.gRg.bWB();
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
     public void onInitial() {
-        this.gRj = 1;
-        bWI();
-        bWG();
+        this.gRl = 1;
+        bWJ();
+        bWH();
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
@@ -150,72 +150,72 @@ public class d implements e {
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
     public void onDestroy() {
-        this.gRh = null;
-        this.gRe = null;
-        if (this.gQV != null) {
-            this.gQV.release();
+        this.gRj = null;
+        this.gRg = null;
+        if (this.gQX != null) {
+            this.gQX.release();
         }
     }
 
-    private void bWI() {
-        this.gRi = new n(this.mContext);
+    private void bWJ() {
+        this.gRk = new n(this.mContext);
         switch (this.mType) {
             case 1:
-                this.gRi.setType(1);
+                this.gRk.setType(1);
                 break;
             case 2:
-                this.gRi.setType(0);
+                this.gRk.setType(0);
                 break;
         }
-        this.gRi.gr(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
-        this.gRi.a(new n.a() { // from class: com.baidu.tieba.ala.guardclub.rank.d.2
+        this.gRk.gr(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+        this.gRk.a(new n.a() { // from class: com.baidu.tieba.ala.guardclub.rank.d.2
             @Override // com.baidu.tieba.ala.guardclub.n.a
             public void a(k kVar) {
-                if (d.this.gRe != null) {
-                    d.this.gRe.c(kVar);
+                if (d.this.gRg != null) {
+                    d.this.gRg.c(kVar);
                 }
             }
 
             @Override // com.baidu.tieba.ala.guardclub.n.a
             public void b(k kVar) {
-                if (d.this.gRe != null) {
-                    d.this.gRe.d(kVar);
+                if (d.this.gRg != null) {
+                    d.this.gRg.d(kVar);
                 }
             }
         });
-        if (this.gRh != null) {
-            this.gRh.a(this.gRi);
+        if (this.gRj != null) {
+            this.gRj.a(this.gRk);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.guardclub.a aVar, List<k> list, f fVar, int i, boolean z, boolean z2) {
-        if (this.gRe != null) {
-            this.gRe.mQ(z2 && aVar != null && aVar.liveStatus == 1);
+        if (this.gRg != null) {
+            this.gRg.mQ(z2 && aVar != null && aVar.liveStatus == 1);
         }
         if (list != null && !list.isEmpty()) {
-            this.gRj = i + 1;
-            if (this.gRi != null) {
+            this.gRl = i + 1;
+            if (this.gRk != null) {
                 if (i == 1) {
-                    if (this.gRh != null) {
-                        this.gRh.cu(list.subList(0, list.size() >= 3 ? 3 : list.size()));
+                    if (this.gRj != null) {
+                        this.gRj.cu(list.subList(0, list.size() >= 3 ? 3 : list.size()));
                     }
                     if (list.size() > 3) {
-                        this.gRi.setData(list.subList(3, list.size()));
+                        this.gRk.setData(list.subList(3, list.size()));
                     }
                 } else {
-                    this.gRi.ct(list);
+                    this.gRk.ct(list);
                 }
             }
-        } else if (this.gRj == 1) {
-            if (this.gRh != null) {
-                this.gRh.bWC();
+        } else if (this.gRl == 1) {
+            if (this.gRj != null) {
+                this.gRj.bWD();
                 return;
             }
             return;
         }
-        if (this.gRh != null) {
-            this.gRh.K(z, i == 1);
+        if (this.gRj != null) {
+            this.gRj.K(z, i == 1);
         }
         if (aVar != null) {
             if (z2 || (fVar != null && !TextUtils.isEmpty(fVar.bjr))) {
@@ -237,8 +237,8 @@ public class d implements e {
                 if (str2 == null) {
                     str2 = "";
                 }
-                if (this.gRh != null) {
-                    this.gRh.g(str, aVar.biT, aVar.biN, str2, aVar.liveStatus == 1 && !this.aUy);
+                if (this.gRj != null) {
+                    this.gRj.g(str, aVar.biT, aVar.biN, str2, aVar.liveStatus == 1 && !this.aUy);
                 }
             }
         }

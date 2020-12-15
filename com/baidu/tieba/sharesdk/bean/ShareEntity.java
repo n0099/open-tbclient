@@ -103,7 +103,7 @@ public class ShareEntity implements Parcelable {
         this.readCount = j;
     }
 
-    public long dKO() {
+    public long dKP() {
         return this.readCount;
     }
 
@@ -111,7 +111,7 @@ public class ShareEntity implements Parcelable {
         this.isVideoThread = z;
     }
 
-    public boolean dKP() {
+    public boolean dKQ() {
         return this.isVideoThread;
     }
 
@@ -127,7 +127,7 @@ public class ShareEntity implements Parcelable {
         this.localFile = str;
     }
 
-    public String dKQ() {
+    public String dKR() {
         return this.localFile;
     }
 
@@ -147,7 +147,7 @@ public class ShareEntity implements Parcelable {
         this.location = location;
     }
 
-    public int dKR() {
+    public int dKS() {
         return this.shareTo;
     }
 
@@ -155,7 +155,7 @@ public class ShareEntity implements Parcelable {
         this.shareTo = i;
     }
 
-    public int dKS() {
+    public int dKT() {
         return this.shareType;
     }
 
@@ -167,7 +167,7 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public String dKT() {
+    public String dKU() {
         return this.extLiveInfo;
     }
 
@@ -179,7 +179,7 @@ public class ShareEntity implements Parcelable {
         this.fName = str;
     }
 
-    public String dKU() {
+    public String dKV() {
         return this.fName;
     }
 
@@ -187,7 +187,7 @@ public class ShareEntity implements Parcelable {
         this.typeShareToSmallApp = i;
     }
 
-    public int dKV() {
+    public int dKW() {
         return this.typeShareToSmallApp;
     }
 
@@ -195,7 +195,7 @@ public class ShareEntity implements Parcelable {
         this.shareType = i;
     }
 
-    public boolean dKW() {
+    public boolean dKX() {
         return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
     }
 

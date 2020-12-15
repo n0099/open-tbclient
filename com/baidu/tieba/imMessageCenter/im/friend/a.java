@@ -19,15 +19,15 @@ public class a extends BaseAdapter {
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.kGb.a(view, (BlackListItemData) tag);
+                a.this.kGd.a(view, (BlackListItemData) tag);
             }
         }
     };
-    private IMBlackListActivity kGb;
+    private IMBlackListActivity kGd;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.kGb = iMBlackListActivity;
+        this.kGd = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
@@ -76,36 +76,36 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private C0788a daL() {
+    private C0788a daM() {
         C0788a c0788a = new C0788a();
-        c0788a.rootView = LayoutInflater.from(this.kGb.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
-        c0788a.kGd = (HeadImageView) c0788a.rootView.findViewById(R.id.header_view);
-        c0788a.kGd.setIsRound(true);
-        c0788a.hLB = (TextView) c0788a.rootView.findViewById(R.id.user_name);
-        c0788a.kGe = (Button) c0788a.rootView.findViewById(R.id.remove_button);
+        c0788a.rootView = LayoutInflater.from(this.kGd.getPageContext().getContext()).inflate(R.layout.im_black_list_item, (ViewGroup) null);
+        c0788a.kGf = (HeadImageView) c0788a.rootView.findViewById(R.id.header_view);
+        c0788a.kGf.setIsRound(true);
+        c0788a.hLD = (TextView) c0788a.rootView.findViewById(R.id.user_name);
+        c0788a.kGg = (Button) c0788a.rootView.findViewById(R.id.remove_button);
         c0788a.rootView.setTag(c0788a);
-        c0788a.kGe.setOnClickListener(this.feV);
+        c0788a.kGg.setOnClickListener(this.feV);
         return c0788a;
     }
 
     private C0788a a(Object obj, BlackListItemData blackListItemData) {
         C0788a c0788a;
         if (obj == null) {
-            c0788a = daL();
+            c0788a = daM();
         } else {
             c0788a = (C0788a) obj;
         }
         a(c0788a, blackListItemData.ZZ());
-        c0788a.hLB.setText(blackListItemData.bAh());
-        c0788a.kGe.setTag(blackListItemData);
-        this.kGb.getLayoutMode().onModeChanged(c0788a.rootView);
+        c0788a.hLD.setText(blackListItemData.bAh());
+        c0788a.kGg.setTag(blackListItemData);
+        this.kGd.getLayoutMode().onModeChanged(c0788a.rootView);
         return c0788a;
     }
 
     private void a(C0788a c0788a, String str) {
         if (str != null) {
-            c0788a.kGd.setTag(str);
-            c0788a.kGd.startLoad(str, 12, false);
+            c0788a.kGf.setTag(str);
+            c0788a.kGf.startLoad(str, 12, false);
         }
     }
 
@@ -113,9 +113,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.friend.a$a  reason: collision with other inner class name */
     /* loaded from: classes22.dex */
     public class C0788a {
-        public TextView hLB;
-        public HeadImageView kGd;
-        public Button kGe;
+        public TextView hLD;
+        public HeadImageView kGf;
+        public Button kGg;
         public View rootView;
 
         private C0788a() {

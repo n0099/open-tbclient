@@ -13,8 +13,8 @@ import com.baidu.tieba.ala.message.AlaGetMyAssistWIshListResponseMessage;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class e extends BdBaseModel {
-    private a hGO;
-    private HttpMessageListener hHS;
+    private a hGQ;
+    private HttpMessageListener hHU;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -25,25 +25,25 @@ public class e extends BdBaseModel {
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hHS = new HttpMessageListener(1021171) { // from class: com.baidu.tieba.ala.g.e.1
+        this.hHU = new HttpMessageListener(1021171) { // from class: com.baidu.tieba.ala.g.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021171 && (httpResponsedMessage instanceof AlaGetMyAssistWIshListResponseMessage)) {
                     AlaGetMyAssistWIshListResponseMessage alaGetMyAssistWIshListResponseMessage = (AlaGetMyAssistWIshListResponseMessage) httpResponsedMessage;
-                    if (e.this.hGO != null) {
+                    if (e.this.hGQ != null) {
                         if (alaGetMyAssistWIshListResponseMessage.getError() != 0 || !alaGetMyAssistWIshListResponseMessage.isSuccess()) {
-                            e.this.hGO.bl(alaGetMyAssistWIshListResponseMessage.getError(), alaGetMyAssistWIshListResponseMessage.getErrorString());
+                            e.this.hGQ.bl(alaGetMyAssistWIshListResponseMessage.getError(), alaGetMyAssistWIshListResponseMessage.getErrorString());
                         } else {
-                            e.this.hGO.ag(alaGetMyAssistWIshListResponseMessage.getData());
+                            e.this.hGQ.ag(alaGetMyAssistWIshListResponseMessage.getData());
                         }
                     }
                 }
             }
         };
-        this.hGO = aVar;
+        this.hGQ = aVar;
         acn();
-        registerListener(this.hHS);
+        registerListener(this.hHU);
     }
 
     private void acn() {
@@ -73,7 +73,7 @@ public class e extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hHS);
+        MessageManager.getInstance().unRegisterListener(this.hHU);
         MessageManager.getInstance().unRegisterTask(1021171);
     }
 }

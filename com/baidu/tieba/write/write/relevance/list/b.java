@@ -22,37 +22,37 @@ import java.util.List;
 public class b {
     private BdUniqueId ajD;
     private final String mCategory;
-    private a ogf;
-    private List<String> ogg;
+    private a ogh;
+    private List<String> ogi;
     private int mPageNum = 1;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH) { // from class: com.baidu.tieba.write.write.relevance.list.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && b.this.ogf != null) {
+            if (httpResponsedMessage != null && b.this.ogh != null) {
                 if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == b.this.ajD) {
                     RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
                     if (responseData != null && responseData.getData() != null) {
-                        if (y.equalList(b.this.ogg, responseData.getData().getTab_option())) {
-                            b.this.ogg = responseData.getData().getTab_option();
-                            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(b.this.ogg));
+                        if (y.equalList(b.this.ogi, responseData.getData().getTab_option())) {
+                            b.this.ogi = responseData.getData().getTab_option();
+                            MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(b.this.ogi));
                         }
                         if (httpResponsedMessage.getError() != 0) {
-                            b.this.ogf.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-                            b.this.ecs();
+                            b.this.ogh.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                            b.this.ect();
                             return;
                         } else if (y.isEmpty(responseData.getData().getItem_list())) {
                             if (b.this.mPageNum == 1) {
-                                b.this.ogf.ecp();
+                                b.this.ogh.ecq();
                                 return;
                             } else {
-                                b.this.ogf.ecq();
+                                b.this.ogh.ecr();
                                 return;
                             }
                         } else if (responseData != null) {
-                            b.this.ogf.a(responseData);
+                            b.this.ogh.a(responseData);
                             if (b.this.mPageNum == 1 && responseData.getData().getItem_list().size() < 20) {
-                                b.this.ogf.ecq();
+                                b.this.ogh.ecr();
                             }
                             b.e(b.this);
                             return;
@@ -61,8 +61,8 @@ public class b {
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                    b.this.ogf.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
-                    b.this.ecs();
+                    b.this.ogh.onError(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
+                    b.this.ect();
                 }
             }
         }
@@ -72,9 +72,9 @@ public class b {
     public interface a {
         void a(RelevanceItemSearchData relevanceItemSearchData);
 
-        void ecp();
-
         void ecq();
+
+        void ecr();
 
         void onError(int i, String str);
     }
@@ -93,7 +93,7 @@ public class b {
         MessageManager.getInstance().registerListener(this.mHttpMessageListener);
     }
 
-    public void ecr() {
+    public void ecs() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
         httpMessage.addParam("tab_name", this.mCategory);
         httpMessage.addParam(Config.PACKAGE_NAME, this.mPageNum);
@@ -111,11 +111,11 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.ogf = aVar;
+        this.ogh = aVar;
     }
 
     public void g(Editable editable) {
-        ecs();
+        ect();
         h(editable);
     }
 
@@ -134,7 +134,7 @@ public class b {
         MessageManager.getInstance().unRegisterListener(this.ajD);
     }
 
-    public void ecs() {
+    public void ect() {
         this.mPageNum = 1;
     }
 }

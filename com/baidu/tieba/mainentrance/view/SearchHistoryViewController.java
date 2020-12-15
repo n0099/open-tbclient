@@ -30,21 +30,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes24.dex */
 public class SearchHistoryViewController {
-    private b laP;
-    private c laQ;
-    private List<String> laR = new ArrayList();
-    private boolean laS;
+    private b laR;
+    private c laS;
+    private List<String> laT = new ArrayList();
+    private boolean laU;
     private TbPageContext mPageContext;
 
     public SearchHistoryViewController(BaseActivity baseActivity, b bVar, c cVar) {
         this.mPageContext = baseActivity.getPageContext();
-        this.laP = bVar;
-        this.laQ = cVar;
-        dgr();
+        this.laR = bVar;
+        this.laS = cVar;
         dgs();
+        dgt();
     }
 
-    private void dgr() {
+    private void dgs() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.view.SearchHistoryViewController.1
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -53,7 +53,7 @@ public class SearchHistoryViewController {
         BaseWebView.f fVar = new BaseWebView.f() { // from class: com.baidu.tieba.mainentrance.view.SearchHistoryViewController.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                if (webView == SearchHistoryViewController.this.laQ.dgD()) {
+                if (webView == SearchHistoryViewController.this.laS.dgE()) {
                     SearchHistoryViewController.this.tG(false);
                 }
             }
@@ -64,22 +64,22 @@ public class SearchHistoryViewController {
                 return SearchHistoryViewController.this.Hw(str);
             }
         };
-        QuickWebView dgD = this.laQ.dgD();
-        if (dgD != null) {
-            dgD.addJsPromptInterface(new SearchJsBridge());
-            dgD.setOnPageFinishedListener(cVar);
-            dgD.setOnReceivedErrorListener(fVar);
-            dgD.setOnLoadUrlListener(bVar);
+        QuickWebView dgE = this.laS.dgE();
+        if (dgE != null) {
+            dgE.addJsPromptInterface(new SearchJsBridge());
+            dgE.setOnPageFinishedListener(cVar);
+            dgE.setOnReceivedErrorListener(fVar);
+            dgE.setOnLoadUrlListener(bVar);
         }
     }
 
-    private void dgs() {
+    private void dgt() {
         ad.a(new ac<List<String>>() { // from class: com.baidu.tieba.mainentrance.view.SearchHistoryViewController.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ac
-            /* renamed from: bMY */
+            /* renamed from: bMZ */
             public List<String> doInBackground() {
-                return com.baidu.tieba.tbadkCore.util.a.dQf();
+                return com.baidu.tieba.tbadkCore.util.a.dQg();
             }
         }, new m<List<String>>() { // from class: com.baidu.tieba.mainentrance.view.SearchHistoryViewController.5
             /* JADX DEBUG: Method merged with bridge method */
@@ -87,34 +87,34 @@ public class SearchHistoryViewController {
             /* renamed from: bV */
             public void onReturnDataInUI(List<String> list) {
                 if (!y.isEmpty(list)) {
-                    SearchHistoryViewController.this.laR = list;
+                    SearchHistoryViewController.this.laT = list;
                 }
             }
         });
     }
 
-    public void dgt() {
-        this.laQ.dgy();
-        if (this.laS) {
-            String dgu = dgu();
-            if (!StringUtils.isNull(dgu)) {
-                this.laQ.dgD().loadUrl("javascript:setSearchHistory('" + dgu + "')");
+    public void dgu() {
+        this.laS.dgz();
+        if (this.laU) {
+            String dgv = dgv();
+            if (!StringUtils.isNull(dgv)) {
+                this.laS.dgE().loadUrl("javascript:setSearchHistory('" + dgv + "')");
                 return;
             }
             return;
         }
-        this.laQ.dgD().loadUrl(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/search_history");
+        this.laS.dgE().loadUrl(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "n/apage-runtime/page/search_history");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String dgu() {
-        int count = y.getCount(this.laR);
+    public String dgv() {
+        int count = y.getCount(this.laT);
         if (count == 0) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < count; i++) {
-            jSONArray.put(this.laR.get(i));
+            jSONArray.put(this.laT.get(i));
         }
         return jSONArray.toString();
     }
@@ -123,22 +123,22 @@ public class SearchHistoryViewController {
     public void tG(boolean z) {
         NoDataViewFactory.d qP;
         if (!z) {
-            this.laQ.dgi();
+            this.laS.dgj();
             if (j.isNetWorkAvailable()) {
                 qP = NoDataViewFactory.d.qP(R.string.text_no_search_record);
             } else {
                 qP = NoDataViewFactory.d.qP(R.string.neterror);
             }
-            this.laQ.a(qP);
+            this.laS.a(qP);
             return;
         }
-        this.laQ.dgy();
+        this.laS.dgz();
     }
 
     public void OG(String str) {
-        if (!StringUtils.isNull(str) && this.laR != null) {
-            this.laR.remove(str);
-            this.laR.add(0, str);
+        if (!StringUtils.isNull(str) && this.laT != null) {
+            this.laT.remove(str);
+            this.laT.add(0, str);
         }
     }
 
@@ -180,8 +180,8 @@ public class SearchHistoryViewController {
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("CommonJSBridge".equals(str)) {
                 if (METHOD_GET_SEARCH_HISTORY.equals(str2)) {
-                    jsPromptResult.confirm(SearchHistoryViewController.this.dgu());
-                    SearchHistoryViewController.this.laS = true;
+                    jsPromptResult.confirm(SearchHistoryViewController.this.dgv());
+                    SearchHistoryViewController.this.laU = true;
                     return true;
                 } else if (METHOD_DELETE_SEARCH_HISTORY.equals(str2)) {
                     deleteSearchHistory(str3);
@@ -208,7 +208,7 @@ public class SearchHistoryViewController {
                 ad.a(new ac<String>() { // from class: com.baidu.tieba.mainentrance.view.SearchHistoryViewController.SearchJsBridge.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.ac
-                    /* renamed from: cQb */
+                    /* renamed from: cQc */
                     public String doInBackground() {
                         com.baidu.tieba.tbadkCore.util.a.TX(optString);
                         return optString;
@@ -218,7 +218,7 @@ public class SearchHistoryViewController {
                     @Override // com.baidu.tbadk.util.m
                     /* renamed from: My */
                     public void onReturnDataInUI(String str2) {
-                        SearchHistoryViewController.this.laR.remove(str2);
+                        SearchHistoryViewController.this.laT.remove(str2);
                     }
                 });
             } catch (Exception e) {
@@ -230,13 +230,13 @@ public class SearchHistoryViewController {
             ad.a(new ac() { // from class: com.baidu.tieba.mainentrance.view.SearchHistoryViewController.SearchJsBridge.3
                 @Override // com.baidu.tbadk.util.ac
                 public Object doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.dQh();
+                    com.baidu.tieba.tbadkCore.util.a.dQi();
                     return null;
                 }
             }, new m() { // from class: com.baidu.tieba.mainentrance.view.SearchHistoryViewController.SearchJsBridge.4
                 @Override // com.baidu.tbadk.util.m
                 public void onReturnDataInUI(Object obj) {
-                    SearchHistoryViewController.this.laR.clear();
+                    SearchHistoryViewController.this.laT.clear();
                 }
             });
         }
@@ -246,8 +246,8 @@ public class SearchHistoryViewController {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("query");
                 int optInt = jSONObject.optInt(FuFaceItem.JK_SUB_TYPE);
-                if (SearchHistoryViewController.this.laP != null) {
-                    SearchHistoryViewController.this.laP.b(optString, true, optInt);
+                if (SearchHistoryViewController.this.laR != null) {
+                    SearchHistoryViewController.this.laR.b(optString, true, optInt);
                     TiebaStatic.log(new ar("c12034"));
                 }
             } catch (Exception e) {

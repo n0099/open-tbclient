@@ -9,28 +9,28 @@ import java.util.List;
 public class b {
     private AntiData fju;
     private String forumId;
-    private ay iRD;
-    private final ArrayList<by> iRF;
-    private boolean iRG;
-    private boolean iRH;
+    private ay iRF;
+    private final ArrayList<by> iRH;
+    private boolean iRI;
+    private boolean iRJ;
 
     private b() {
-        this.iRG = false;
-        this.iRF = new ArrayList<>();
+        this.iRI = false;
+        this.iRH = new ArrayList<>();
     }
 
-    public static b cBd() {
-        return a.iRI;
+    public static b cBe() {
+        return a.iRK;
     }
 
-    public boolean cAX() {
-        return this.iRG;
+    public boolean cAY() {
+        return this.iRI;
     }
 
     public void V(boolean z, boolean z2) {
-        this.iRG = z;
-        if (this.iRD != null) {
-            this.iRD.d(this.iRG, z2, 1);
+        this.iRI = z;
+        if (this.iRF != null) {
+            this.iRF.d(this.iRI, z2, 1);
         }
     }
 
@@ -38,42 +38,42 @@ public class b {
         if (byVar == null) {
             return false;
         }
-        if (this.iRF.size() > 29) {
-            if (this.iRD != null) {
-                this.iRD.zK(1);
+        if (this.iRH.size() > 29) {
+            if (this.iRF != null) {
+                this.iRF.zK(1);
                 return false;
             }
             return false;
         }
-        this.iRF.add(byVar);
-        if (this.iRD != null) {
-            this.iRD.cq(this.iRF.size(), 1);
+        this.iRH.add(byVar);
+        if (this.iRF != null) {
+            this.iRF.cq(this.iRH.size(), 1);
         }
         return true;
     }
 
-    public List<by> cBa() {
-        return this.iRF;
+    public List<by> cBb() {
+        return this.iRH;
     }
 
     public void am(by byVar) {
-        this.iRF.remove(byVar);
-        if (this.iRD != null) {
-            this.iRD.cq(this.iRF.size(), 1);
+        this.iRH.remove(byVar);
+        if (this.iRF != null) {
+            this.iRF.cq(this.iRH.size(), 1);
         }
     }
 
     public void clearData() {
-        Iterator<by> it = this.iRF.iterator();
+        Iterator<by> it = this.iRH.iterator();
         while (it.hasNext()) {
             by next = it.next();
             if (next != null) {
                 next.jg(false);
             }
         }
-        this.iRF.clear();
-        if (this.iRD != null) {
-            this.iRD.cq(0, 1);
+        this.iRH.clear();
+        if (this.iRF != null) {
+            this.iRF.cq(0, 1);
         }
     }
 
@@ -83,16 +83,16 @@ public class b {
     }
 
     public void a(ay ayVar) {
-        this.iRD = ayVar;
+        this.iRF = ayVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static b iRI = new b();
+        private static b iRK = new b();
     }
 
-    public AntiData cBe() {
+    public AntiData cBf() {
         return this.fju;
     }
 
@@ -109,12 +109,12 @@ public class b {
     }
 
     public void pO(boolean z) {
-        this.iRH = z;
+        this.iRJ = z;
     }
 
     public void dg(List<String> list) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.iRF)) {
-            Iterator<by> it = this.iRF.iterator();
+        if (!com.baidu.tbadk.core.util.y.isEmpty(list) && !com.baidu.tbadk.core.util.y.isEmpty(this.iRH)) {
+            Iterator<by> it = this.iRH.iterator();
             while (it.hasNext()) {
                 by next = it.next();
                 int i = 0;
@@ -130,13 +130,13 @@ public class b {
                     }
                 }
             }
-            if (this.iRD != null) {
-                this.iRD.cq(this.iRF.size(), 1);
+            if (this.iRF != null) {
+                this.iRF.cq(this.iRH.size(), 1);
             }
         }
     }
 
-    public boolean cBf() {
-        return this.iRH;
+    public boolean cBg() {
+        return this.iRJ;
     }
 }

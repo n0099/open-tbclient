@@ -26,12 +26,12 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     private String aiw;
     private com.baidu.adp.widget.ListView.v amH;
     public BdUniqueId fzO;
-    private NEGFeedBackView.a hbY;
+    private NEGFeedBackView.a hca;
     private TbPageContext<?> mPageContext;
 
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hbY = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.adapter.s.1
+        this.hca = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.concern.adapter.s.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(at atVar) {
             }
@@ -75,7 +75,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         am amVar = new am(aVar.a(BaseCardInfo.SupportType.FULL, viewGroup, this.amH));
         amVar.setPageId(this.fzO);
         com.baidu.card.ab aN = amVar.aN(false);
-        aN.a(this.hbY);
+        aN.a(this.hca);
         aN.setAutoProcess(false);
         aN.setHeadText(this.mContext.getString(R.string.concern_recommend_dialog_title));
         aN.aJ(true);
@@ -92,7 +92,7 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         ar arVar = new ar("c13565");
         arVar.al("obj_source", aVar.bod() ? 1 : 2);
-        com.baidu.tieba.card.t.csg().e(arVar);
+        com.baidu.tieba.card.t.csh().e(arVar);
         amVar.tZ().setPosition(i);
         if (amVar.tZ() instanceof com.baidu.tieba.a.e) {
             amVar.tZ().setPage(this.aiw);

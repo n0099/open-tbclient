@@ -6,31 +6,31 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
 public class c extends BaseCardInfo {
-    public static final BdUniqueId gpE = BdUniqueId.gen();
+    public static final BdUniqueId gpG = BdUniqueId.gen();
     public String entryName;
-    public by gpF;
-    public boolean gpG;
-    public boolean gpH;
+    public by gpH;
+    public boolean gpI;
+    public boolean gpJ;
     public String labelName;
     public int tabId;
     public boolean isLeft = false;
     public boolean isRight = false;
-    public boolean gpD = false;
+    public boolean gpF = false;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return gpE;
+        return gpG;
     }
 
     @Deprecated
     public void a(ThreadInfo threadInfo) {
-        if (this.gpF == null) {
-            this.gpF = new by();
+        if (this.gpH == null) {
+            this.gpH = new by();
         }
-        this.gpF.a(threadInfo);
+        this.gpH.a(threadInfo);
     }
 
     public by bmn() {
-        return this.gpF;
+        return this.gpH;
     }
 }

@@ -16,9 +16,9 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
     @Override // io.reactivex.g
     public void a(org.a.c<? super U> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.pFg.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
+            this.pFi.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
         } else {
-            this.pFg.a((j) new C1048b(cVar, this.mapper));
+            this.pFi.a((j) new C1048b(cVar, this.mapper));
         }
     }
 

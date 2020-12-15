@@ -11,10 +11,10 @@ import java.util.List;
 public class a {
     private BdTypeRecyclerView Yf;
     private List<com.baidu.adp.widget.ListView.a> bnf;
-    private e gri;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.c grj;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b grk;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a grl;
+    private e grk;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.c grl;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b grm;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a grn;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -29,14 +29,14 @@ public class a {
 
     private void Nt() {
         this.bnf = new ArrayList();
-        this.gri = new e(this.mPageContext, this.tabType);
-        this.grj = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
-        this.grk = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.grl = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bnf.add(this.gri);
-        this.bnf.add(this.grj);
+        this.grk = new e(this.mPageContext, this.tabType);
+        this.grl = new com.baidu.tieba.ala.alasquare.live_tab.a.c(this.mPageContext);
+        this.grm = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.grn = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
         this.bnf.add(this.grk);
         this.bnf.add(this.grl);
+        this.bnf.add(this.grm);
+        this.bnf.add(this.grn);
         this.Yf.addAdapters(this.bnf);
     }
 

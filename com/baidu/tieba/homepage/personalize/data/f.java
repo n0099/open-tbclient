@@ -12,19 +12,19 @@ import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes22.dex */
 public class f extends com.baidu.tbadk.core.data.a {
-    public static final BdUniqueId jUD = BdUniqueId.gen();
-    private List<AlaLiveInfo> jUE = new ArrayList();
+    public static final BdUniqueId jUF = BdUniqueId.gen();
+    private List<AlaLiveInfo> jUG = new ArrayList();
 
     public void a(UserFollowLive userFollowLive) {
-        this.jUE.clear();
+        this.jUG.clear();
         if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !y.isEmpty(userFollowLive.user_follow_live)) {
-            this.jUE.addAll(userFollowLive.user_follow_live);
+            this.jUG.addAll(userFollowLive.user_follow_live);
         }
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return jUD;
+        return jUF;
     }
 
     @Override // com.baidu.tbadk.core.data.a
@@ -37,11 +37,11 @@ public class f extends com.baidu.tbadk.core.data.a {
         return null;
     }
 
-    public List<AlaLiveInfo> cQn() {
-        return this.jUE;
+    public List<AlaLiveInfo> cQo() {
+        return this.jUG;
     }
 
-    public ar cQo() {
+    public ar cQp() {
         ar arVar = new ar("c13620");
         arVar.w("uid", TbadkApplication.getCurrentAccountId());
         arVar.al("fid", 0);

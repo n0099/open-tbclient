@@ -21,12 +21,12 @@ public class QRCodeStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QRCodeScanActivityConfig.class, QRCodeScanActivity.class);
-        dEg();
         dEh();
-        dkg();
+        dEi();
+        dkh();
     }
 
-    private static void dEg() {
+    private static void dEh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921388, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
@@ -37,7 +37,7 @@ public class QRCodeStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dEh() {
+    private static void dEi() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921403, new CustomMessageTask.CustomRunnable<o>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<o> customMessage) {
@@ -47,14 +47,14 @@ public class QRCodeStatic {
                 }
                 o data = customMessage.getData();
                 if (data.type == 0) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.J(data.nmQ);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.J(data.nmS);
                 } else if (data.type == 1) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.RJ(data.nmR);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.RJ(data.nmT);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.nmS = "qr_none";
+                    data.nmU = "qr_none";
                 } else {
-                    data.nmS = str;
+                    data.nmU = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }
@@ -63,7 +63,7 @@ public class QRCodeStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void dkg() {
+    private static void dkh() {
         bf.bua().a(new bf.a() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.3
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {

@@ -14,17 +14,17 @@ public interface am {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.q> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, by> cFW();
+    HashMap<Integer, by> cFX();
 
-    int cFX();
+    int cFY();
 
-    void cFY();
-
-    int cFZ();
+    void cFZ();
 
     int cGa();
 
-    void cGb();
+    int cGb();
+
+    void cGc();
 
     List<com.baidu.adp.widget.ListView.q> getDatas();
 

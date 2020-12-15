@@ -11,13 +11,13 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes21.dex */
 public class a extends k<by, com.baidu.tieba.card.a.a<x>> implements y {
-    private ab<by> gth;
+    private ab<by> gtj;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gth = new ab<by>() { // from class: com.baidu.tieba.hottopic.frs.a.1
+        this.gtj = new ab<by>() { // from class: com.baidu.tieba.hottopic.frs.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, by byVar, Object obj) {
@@ -52,11 +52,11 @@ public class a extends k<by, com.baidu.tieba.card.a.a<x>> implements y {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, by byVar, com.baidu.tieba.card.a.a<x> aVar) {
-        if (aVar == null || aVar.csM() == null) {
+        if (aVar == null || aVar.csN() == null) {
             return null;
         }
-        aVar.csM().c(this.gth);
-        aVar.csM().a(byVar);
+        aVar.csN().c(this.gtj);
+        aVar.csN().a(byVar);
         return aVar.getView();
     }
 

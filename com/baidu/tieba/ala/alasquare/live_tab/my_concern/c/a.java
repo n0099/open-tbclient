@@ -22,31 +22,31 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
     private BdTypeRecyclerView Yf;
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a gtA;
-    private InterfaceC0642a gtB;
-    private AlphaAnimation gtC;
-    private AlphaAnimation gtD;
-    private BdSwipeRefreshLayout gty;
-    private View gtz;
+    private BdSwipeRefreshLayout gtA;
+    private View gtB;
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a gtC;
+    private InterfaceC0642a gtD;
+    private AlphaAnimation gtE;
+    private AlphaAnimation gtF;
     private RelativeLayout mContainer;
     private NavigationBar mNavigationBar;
     RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.5
-        private int gtF = -1;
+        private int gtH = -1;
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            if (this.gtF != i) {
-                this.gtF = i;
-                if (this.gtF != 1) {
+            if (this.gtH != i) {
+                this.gtH = i;
+                if (this.gtH != 1) {
                     if (a.this.a(recyclerView)) {
-                        a.this.bSv();
+                        a.this.bSw();
                         return;
                     } else {
-                        a.this.bSu();
+                        a.this.bSv();
                         return;
                     }
                 }
-                a.this.bSu();
+                a.this.bSv();
             }
         }
     };
@@ -71,7 +71,7 @@ public class a {
     private void initView() {
         bFP();
         this.mContainer = (RelativeLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_container);
-        this.gtz = this.mRootView.findViewById(R.id.divider_shadow);
+        this.gtB = this.mRootView.findViewById(R.id.divider_shadow);
         this.Yf = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_recyclerview);
         this.Yf.setLayoutManager(new LinearLayoutManager(this.mTbPageContext.getPageActivity()));
         this.Yf.setFadingEdgeLength(0);
@@ -80,8 +80,8 @@ public class a {
         this.Yf.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.1
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                if (a.this.gtB != null) {
-                    a.this.gtB.onScrollToBottom();
+                if (a.this.gtD != null) {
+                    a.this.gtD.onScrollToBottom();
                 }
             }
         });
@@ -89,15 +89,15 @@ public class a {
         this.mPullView.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.2
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
-                if (a.this.gtB != null) {
-                    a.this.gtB.onListPullRefresh(z);
+                if (a.this.gtD != null) {
+                    a.this.gtD.onListPullRefresh(z);
                 }
             }
         });
-        this.gty = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_pull_refresh_layout);
-        this.gty.setProgressView(this.mPullView);
-        this.gtA = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a(this.mTbPageContext);
-        this.Yf.addAdapters(this.gtA.bSn());
+        this.gtA = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_pull_refresh_layout);
+        this.gtA.setProgressView(this.mPullView);
+        this.gtC = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a(this.mTbPageContext);
+        this.Yf.addAdapters(this.gtC.bSo());
     }
 
     private void bFP() {
@@ -117,7 +117,7 @@ public class a {
         return this.mRootView;
     }
 
-    public View bSs() {
+    public View bSt() {
         return this.mContainer;
     }
 
@@ -129,40 +129,40 @@ public class a {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        ap.setBackgroundColor(this.gty, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.gtA, R.color.CAM_X0201);
         ap.setBackgroundColor(this.Yf, R.color.CAM_X0201);
     }
 
-    private boolean bSt() {
-        return this.gtz.getVisibility() == 0;
-    }
-
-    public void bSu() {
-        if (!bSt()) {
-            this.gtz.setVisibility(0);
-            if (this.gtC == null) {
-                this.gtC = new AlphaAnimation(0.0f, 1.0f);
-                this.gtC.setFillAfter(true);
-                this.gtC.setDuration(300L);
-            }
-            this.gtz.startAnimation(this.gtC);
-        }
+    private boolean bSu() {
+        return this.gtB.getVisibility() == 0;
     }
 
     public void bSv() {
-        if (bSt()) {
-            if (this.gtD == null) {
-                this.gtD = new AlphaAnimation(1.0f, 0.0f);
-                this.gtD.setFillAfter(true);
-                this.gtD.setDuration(300L);
-                this.gtD.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.4
+        if (!bSu()) {
+            this.gtB.setVisibility(0);
+            if (this.gtE == null) {
+                this.gtE = new AlphaAnimation(0.0f, 1.0f);
+                this.gtE.setFillAfter(true);
+                this.gtE.setDuration(300L);
+            }
+            this.gtB.startAnimation(this.gtE);
+        }
+    }
+
+    public void bSw() {
+        if (bSu()) {
+            if (this.gtF == null) {
+                this.gtF = new AlphaAnimation(1.0f, 0.0f);
+                this.gtF.setFillAfter(true);
+                this.gtF.setDuration(300L);
+                this.gtF.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.4
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        a.this.gtz.setVisibility(8);
+                        a.this.gtB.setVisibility(8);
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -170,7 +170,7 @@ public class a {
                     }
                 });
             }
-            this.gtz.startAnimation(this.gtD);
+            this.gtB.startAnimation(this.gtF);
         }
     }
 
@@ -181,15 +181,15 @@ public class a {
 
     public void lx(boolean z) {
         if (!z) {
-            this.gty.setRefreshing(false);
+            this.gtA.setRefreshing(false);
         }
     }
 
     public void a(InterfaceC0642a interfaceC0642a) {
-        this.gtB = interfaceC0642a;
+        this.gtD = interfaceC0642a;
     }
 
-    public RelativeLayout bSw() {
+    public RelativeLayout bSx() {
         return this.mContainer;
     }
 

@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class d {
-    private static d pje;
-    private int pjf;
+    private static d pjg;
+    private int pjh;
     @Nullable
-    private List<c.a> pjg;
-    private final c.a pjh = new a();
+    private List<c.a> pji;
+    private final c.a pjj = new a();
 
     private d() {
-        esI();
+        esJ();
     }
 
     public void gO(@Nullable List<c.a> list) {
-        this.pjg = list;
-        esI();
+        this.pji = list;
+        esJ();
     }
 
     public c t(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.pjf];
-        int a2 = a(this.pjf, inputStream, bArr);
-        c q = this.pjh.q(bArr, a2);
-        if (q == null || q == c.pjc) {
-            if (this.pjg != null) {
-                for (c.a aVar : this.pjg) {
+        byte[] bArr = new byte[this.pjh];
+        int a2 = a(this.pjh, inputStream, bArr);
+        c q = this.pjj.q(bArr, a2);
+        if (q == null || q == c.pje) {
+            if (this.pji != null) {
+                for (c.a aVar : this.pji) {
                     c q2 = aVar.q(bArr, a2);
-                    if (q2 != null && q2 != c.pjc) {
+                    if (q2 != null && q2 != c.pje) {
                         return q2;
                     }
                 }
             }
-            return c.pjc;
+            return c.pje;
         }
         return q;
     }
 
-    private void esI() {
-        this.pjf = this.pjh.getHeaderSize();
-        if (this.pjg != null) {
-            for (c.a aVar : this.pjg) {
-                this.pjf = Math.max(this.pjf, aVar.getHeaderSize());
+    private void esJ() {
+        this.pjh = this.pjj.getHeaderSize();
+        if (this.pji != null) {
+            for (c.a aVar : this.pji) {
+                this.pjh = Math.max(this.pjh, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d esJ() {
+    public static synchronized d esK() {
         d dVar;
         synchronized (d.class) {
-            if (pje == null) {
-                pje = new d();
+            if (pjg == null) {
+                pjg = new d();
             }
-            dVar = pje;
+            dVar = pjg;
         }
         return dVar;
     }
 
     public static c u(InputStream inputStream) throws IOException {
-        return esJ().t(inputStream);
+        return esK().t(inputStream);
     }
 
     public static c v(InputStream inputStream) {

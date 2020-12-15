@@ -10,12 +10,12 @@ import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tbadk.suspended.a;
 /* loaded from: classes3.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
-    private RelevanceItemSearchView ofN;
+    private RelevanceItemSearchView ofP;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected a a(LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.ofN = new RelevanceItemSearchView(this, linearLayout, navigationBar);
-        return this.ofN;
+        this.ofP = new RelevanceItemSearchView(this, linearLayout, navigationBar);
+        return this.ofP;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -26,8 +26,8 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.ofN != null) {
-            this.ofN.onDestroy();
+        if (this.ofP != null) {
+            this.ofP.onDestroy();
         }
     }
 

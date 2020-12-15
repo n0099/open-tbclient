@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements f.c {
-    private ba iOU;
-    private com.baidu.tieba.forumMember.member.a.b iOW;
-    private e iOX;
+    private ba iOW;
+    private com.baidu.tieba.forumMember.member.a.b iOY;
+    private e iOZ;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.q> iOV = null;
-    private au iOY = new au() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+    private List<com.baidu.adp.widget.ListView.q> iOX = null;
+    private au iPa = new au() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
         @Override // com.baidu.tieba.frs.au
         public void a(int i, int i2, bd bdVar, ArrayList<com.baidu.adp.widget.ListView.q> arrayList) {
-            ForumMemberActivity.this.iOW.hideLoadingView();
-            ForumMemberActivity.this.iOW.completePullRefresh();
+            ForumMemberActivity.this.iOY.hideLoadingView();
+            ForumMemberActivity.this.iOY.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.q> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -33,23 +33,23 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!y.isEmpty(arrayList)) {
-                ForumMemberActivity.this.iOW.Yb();
-                ForumMemberActivity.this.iOV = arrayList;
-                ForumMemberActivity.this.iOW.dd(ForumMemberActivity.this.iOV);
-            } else if (y.isEmpty(ForumMemberActivity.this.iOV) && bdVar != null) {
-                ForumMemberActivity.this.iOW.KC(bdVar.errMsg);
+                ForumMemberActivity.this.iOY.Yb();
+                ForumMemberActivity.this.iOX = arrayList;
+                ForumMemberActivity.this.iOY.dd(ForumMemberActivity.this.iOX);
+            } else if (y.isEmpty(ForumMemberActivity.this.iOX) && bdVar != null) {
+                ForumMemberActivity.this.iOY.KC(bdVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a gpx = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a gpz = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
-            ForumMemberActivity.this.iOW.pL(z);
+            ForumMemberActivity.this.iOY.pL(z);
             if (z) {
-                if (y.isEmpty(ForumMemberActivity.this.iOV)) {
-                    ForumMemberActivity.this.cAw();
+                if (y.isEmpty(ForumMemberActivity.this.iOX)) {
+                    ForumMemberActivity.this.cAx();
                 } else {
-                    ForumMemberActivity.this.iOW.startPullRefresh();
+                    ForumMemberActivity.this.iOY.startPullRefresh();
                 }
             }
         }
@@ -60,13 +60,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initBundle(bundle);
-        this.iOW = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.iOW.f(this.gpx);
-        this.iOX = new e();
-        this.iOX.setTag(getUniqueId());
-        this.iOX.init();
-        this.iOX.a(this.iOY);
-        cAw();
+        this.iOY = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.iOY.f(this.gpz);
+        this.iOZ = new e();
+        this.iOZ.setTag(getUniqueId());
+        this.iOZ.init();
+        this.iOZ.a(this.iPa);
+        cAx();
     }
 
     private void initBundle(Bundle bundle) {
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.iOU = new ba();
-        this.iOU.forumId = this.mForumId;
-        this.iOU.forumName = this.mForumName;
+        this.iOW = new ba();
+        this.iOW.forumId = this.mForumId;
+        this.iOW.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iOW.onChangeSkinType(i);
+        this.iOY.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.iOX.bYY();
-        if (this.iOW != null) {
-            this.iOW.onDestroy();
+        this.iOZ.bYZ();
+        if (this.iOY != null) {
+            this.iOY.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        e eVar = this.iOX;
-        e eVar2 = this.iOX;
-        eVar.a(3, 0, this.iOU);
+        e eVar = this.iOZ;
+        e eVar2 = this.iOZ;
+        eVar.a(3, 0, this.iOW);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            cAw();
+            cAx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cAw() {
-        this.iOW.showLoadingView();
-        e eVar = this.iOX;
-        e eVar2 = this.iOX;
-        eVar.a(3, 0, this.iOU);
+    public void cAx() {
+        this.iOY.showLoadingView();
+        e eVar = this.iOZ;
+        e eVar2 = this.iOZ;
+        eVar.a(3, 0, this.iOW);
     }
 }

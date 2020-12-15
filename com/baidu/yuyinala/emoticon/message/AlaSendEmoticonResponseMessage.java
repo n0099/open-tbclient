@@ -6,9 +6,9 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSendEmoticonResponseMessage extends JsonHttpResponsedMessage {
     private String btV;
-    public String oKo;
-    public String oKp;
     public String oKq;
+    public String oKr;
+    public String oKs;
 
     public AlaSendEmoticonResponseMessage() {
         super(1031025);
@@ -18,9 +18,9 @@ public class AlaSendEmoticonResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-        this.oKo = jSONObject.optString("prototype_img");
-        this.oKp = jSONObject.optString("compression_img");
-        this.oKq = jSONObject.optString("result_img");
+        this.oKq = jSONObject.optString("prototype_img");
+        this.oKr = jSONObject.optString("compression_img");
+        this.oKs = jSONObject.optString("result_img");
         if (optJSONObject != null) {
             this.btV = optJSONObject.optString("usermsg");
         }

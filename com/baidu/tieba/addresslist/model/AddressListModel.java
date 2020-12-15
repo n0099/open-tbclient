@@ -11,53 +11,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a gcS;
+    private a gcU;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.gcS = a.bMP();
+        this.gcU = a.bMQ();
     }
 
     public void a(a.InterfaceC0622a interfaceC0622a) {
-        this.gcS.a(interfaceC0622a);
+        this.gcU.a(interfaceC0622a);
     }
 
     public void b(a.InterfaceC0622a interfaceC0622a) {
-        this.gcS.b(interfaceC0622a);
+        this.gcU.b(interfaceC0622a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bNi() {
-        return this.gcS.bMQ();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bNj() {
+        return this.gcU.bMR();
     }
 
-    public void bNj() {
+    public void bNk() {
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST));
     }
 
-    public void bNf() {
+    public void bNg() {
         super.sendMessage(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));
     }
 
     public void bX(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.gcS.bT(list);
+        this.gcU.bT(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.gcS.a(aVar);
+        this.gcU.a(aVar);
     }
 
     public void eM(long j) {
-        this.gcS.eM(j);
+        this.gcU.eM(j);
     }
 
     public int FU(String str) {
         int i;
         if (c.Dh(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> bMQ = this.gcS.bMQ();
-            if (bMQ != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bMQ) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> bMR = this.gcU.bMR();
+            if (bMR != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bMR) {
                     if (str.equals(aVar.bAg())) {
-                        i = bMQ.indexOf(aVar);
+                        i = bMR.indexOf(aVar);
                         break;
                     }
                 }

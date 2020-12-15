@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.by;
 /* loaded from: classes22.dex */
 public class o implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId lCh = BdUniqueId.gen();
+    public static final BdUniqueId lCj = BdUniqueId.gen();
     private by alu;
     private AntiData fbn;
-    private boolean lCi = false;
-    public boolean lCj = false;
+    private boolean lCk = false;
+    public boolean lCl = false;
 
     public o(by byVar, AntiData antiData) {
         this.alu = byVar;
@@ -18,7 +18,7 @@ public class o implements com.baidu.adp.widget.ListView.q {
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return lCh;
+        return lCj;
     }
 
     public int bqs() {
@@ -28,7 +28,7 @@ public class o implements com.baidu.adp.widget.ListView.q {
         return 0;
     }
 
-    public boolean dnO() {
+    public boolean dnP() {
         return this.alu != null && this.alu.bqr() == 1;
     }
 
@@ -41,10 +41,10 @@ public class o implements com.baidu.adp.widget.ListView.q {
     }
 
     public void ux(boolean z) {
-        this.lCi = z;
+        this.lCk = z;
     }
 
-    public boolean dnP() {
-        return this.lCi;
+    public boolean dnQ() {
+        return this.lCk;
     }
 }

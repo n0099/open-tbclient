@@ -8,21 +8,21 @@ import android.view.ViewConfiguration;
 public class a implements d {
     float bDi;
     float bDj;
-    final float iFt;
+    final float iFv;
     private VelocityTracker mVelocityTracker;
-    protected e oTV;
-    final float oTW;
-    private boolean oTX;
+    protected e oTX;
+    final float oTY;
+    private boolean oTZ;
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public void a(e eVar) {
-        this.oTV = eVar;
+        this.oTX = eVar;
     }
 
     public a(Context context) {
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
-        this.oTW = viewConfiguration.getScaledMinimumFlingVelocity();
-        this.iFt = viewConfiguration.getScaledTouchSlop();
+        this.oTY = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.iFv = viewConfiguration.getScaledTouchSlop();
     }
 
     float ap(MotionEvent motionEvent) {
@@ -34,13 +34,13 @@ public class a implements d {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
-    public boolean ene() {
+    public boolean enf() {
         return false;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public boolean isDragging() {
-        return this.oTX;
+        return this.oTZ;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
@@ -51,22 +51,22 @@ public class a implements d {
                 if (this.mVelocityTracker != null) {
                     this.mVelocityTracker.addMovement(motionEvent);
                 } else {
-                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.enf().i("CupcakeGestureDetector", "Velocity tracker is null");
+                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.eng().i("CupcakeGestureDetector", "Velocity tracker is null");
                 }
                 this.bDi = ap(motionEvent);
                 this.bDj = aq(motionEvent);
-                this.oTX = false;
+                this.oTZ = false;
                 break;
             case 1:
-                if (this.oTX && this.mVelocityTracker != null) {
+                if (this.oTZ && this.mVelocityTracker != null) {
                     this.bDi = ap(motionEvent);
                     this.bDj = aq(motionEvent);
                     this.mVelocityTracker.addMovement(motionEvent);
                     this.mVelocityTracker.computeCurrentVelocity(1000);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     float yVelocity = this.mVelocityTracker.getYVelocity();
-                    if (Math.max(Math.abs(xVelocity), Math.abs(yVelocity)) >= this.oTW) {
-                        this.oTV.i(this.bDi, this.bDj, -xVelocity, -yVelocity);
+                    if (Math.max(Math.abs(xVelocity), Math.abs(yVelocity)) >= this.oTY) {
+                        this.oTX.i(this.bDi, this.bDj, -xVelocity, -yVelocity);
                     }
                 }
                 if (this.mVelocityTracker != null) {
@@ -80,11 +80,11 @@ public class a implements d {
                 float aq = aq(motionEvent);
                 float f = ap - this.bDi;
                 float f2 = aq - this.bDj;
-                if (!this.oTX) {
-                    this.oTX = Math.sqrt((double) ((f * f) + (f2 * f2))) >= ((double) this.iFt);
+                if (!this.oTZ) {
+                    this.oTZ = Math.sqrt((double) ((f * f) + (f2 * f2))) >= ((double) this.iFv);
                 }
-                if (this.oTX) {
-                    this.oTV.onDrag(f, f2);
+                if (this.oTZ) {
+                    this.oTX.onDrag(f, f2);
                     this.bDi = ap;
                     this.bDj = aq;
                     if (this.mVelocityTracker != null) {

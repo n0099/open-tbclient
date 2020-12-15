@@ -7,14 +7,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
 public final class k extends v {
-    private static final k pIE = new k();
+    private static final k pIG = new k();
 
-    public static k eDp() {
-        return pIE;
+    public static k eDq() {
+        return pIG;
     }
 
     @Override // io.reactivex.v
-    public v.c eCV() {
+    public v.c eCW() {
         return new c();
     }
 
@@ -42,9 +42,9 @@ public final class k extends v {
     /* loaded from: classes9.dex */
     static final class c extends v.c implements io.reactivex.disposables.b {
         volatile boolean disposed;
-        final PriorityBlockingQueue<b> pIH = new PriorityBlockingQueue<>();
+        final PriorityBlockingQueue<b> pIJ = new PriorityBlockingQueue<>();
         private final AtomicInteger wip = new AtomicInteger();
-        final AtomicInteger pII = new AtomicInteger();
+        final AtomicInteger pIK = new AtomicInteger();
 
         c() {
         }
@@ -64,15 +64,15 @@ public final class k extends v {
             if (this.disposed) {
                 return EmptyDisposable.INSTANCE;
             }
-            b bVar = new b(runnable, Long.valueOf(j), this.pII.incrementAndGet());
-            this.pIH.add(bVar);
+            b bVar = new b(runnable, Long.valueOf(j), this.pIK.incrementAndGet());
+            this.pIJ.add(bVar);
             if (this.wip.getAndIncrement() == 0) {
                 int i = 1;
                 while (!this.disposed) {
-                    b poll = this.pIH.poll();
+                    b poll = this.pIJ.poll();
                     if (poll != null) {
                         if (!poll.disposed) {
-                            poll.pEB.run();
+                            poll.pED.run();
                         }
                     } else {
                         int addAndGet = this.wip.addAndGet(-i);
@@ -82,7 +82,7 @@ public final class k extends v {
                         i = addAndGet;
                     }
                 }
-                this.pIH.clear();
+                this.pIJ.clear();
                 return EmptyDisposable.INSTANCE;
             }
             return io.reactivex.disposables.c.I(new a(bVar));
@@ -101,16 +101,16 @@ public final class k extends v {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes9.dex */
         public final class a implements Runnable {
-            final b pIJ;
+            final b pIL;
 
             a(b bVar) {
-                this.pIJ = bVar;
+                this.pIL = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                this.pIJ.disposed = true;
-                c.this.pIH.remove(this.pIJ);
+                this.pIL.disposed = true;
+                c.this.pIJ.remove(this.pIL);
             }
         }
     }
@@ -120,12 +120,12 @@ public final class k extends v {
     public static final class b implements Comparable<b> {
         final int count;
         volatile boolean disposed;
-        final Runnable pEB;
-        final long pIG;
+        final Runnable pED;
+        final long pII;
 
         b(Runnable runnable, Long l, int i) {
-            this.pEB = runnable;
-            this.pIG = l.longValue();
+            this.pED = runnable;
+            this.pII = l.longValue();
             this.count = i;
         }
 
@@ -133,7 +133,7 @@ public final class k extends v {
         @Override // java.lang.Comparable
         /* renamed from: a */
         public int compareTo(b bVar) {
-            int M = io.reactivex.internal.functions.a.M(this.pIG, bVar.pIG);
+            int M = io.reactivex.internal.functions.a.M(this.pII, bVar.pII);
             if (M == 0) {
                 return io.reactivex.internal.functions.a.compare(this.count, bVar.count);
             }
@@ -143,22 +143,22 @@ public final class k extends v {
 
     /* loaded from: classes9.dex */
     static final class a implements Runnable {
-        private final Runnable pEB;
-        private final c pIF;
-        private final long pIG;
+        private final Runnable pED;
+        private final c pIH;
+        private final long pII;
 
         a(Runnable runnable, c cVar, long j) {
-            this.pEB = runnable;
-            this.pIF = cVar;
-            this.pIG = j;
+            this.pED = runnable;
+            this.pIH = cVar;
+            this.pII = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!this.pIF.disposed) {
-                long a2 = this.pIF.a(TimeUnit.MILLISECONDS);
-                if (this.pIG > a2) {
-                    long j = this.pIG - a2;
+            if (!this.pIH.disposed) {
+                long a2 = this.pIH.a(TimeUnit.MILLISECONDS);
+                if (this.pII > a2) {
+                    long j = this.pII - a2;
                     if (j > 0) {
                         try {
                             Thread.sleep(j);
@@ -169,8 +169,8 @@ public final class k extends v {
                         }
                     }
                 }
-                if (!this.pIF.disposed) {
-                    this.pEB.run();
+                if (!this.pIH.disposed) {
+                    this.pED.run();
                 }
             }
         }

@@ -15,14 +15,14 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes25.dex */
 public class a implements d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final long geB = TimeUnit.MINUTES.toMillis(3);
-    private static final C0629a geC = new C0629a();
+    private static final long geD = TimeUnit.MINUTES.toMillis(3);
+    private static final C0629a geE = new C0629a();
     private LocationClient ehT;
-    private LocationClientOption geA;
+    private LocationClientOption geC;
 
     @Override // com.baidu.swan.apps.t.b.d
     public void a(String str, boolean z, boolean z2, d.a aVar) {
-        BDLocation eT = geC.eT(bNY());
+        BDLocation eT = geE.eT(bNZ());
         boolean z3 = eT != null;
         if (z3) {
             aVar.a(a(eT, str));
@@ -35,12 +35,12 @@ public class a implements d {
             locationClientOption.setIgnoreKillProcess(true);
             locationClientOption.setIsNeedAddress(true);
             this.ehT.setLocOption(locationClientOption);
-            this.geA = locationClientOption;
+            this.geC = locationClientOption;
             this.ehT.start();
         }
         this.ehT.registerLocationListener(new b(this.ehT, aVar, str, z3));
-        this.geA.setIsNeedAltitude(z2);
-        this.ehT.setLocOption(this.geA);
+        this.geC.setIsNeedAltitude(z2);
+        this.ehT.setLocOption(this.geC);
         ak.m(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.d.a.1
             @Override // java.lang.Runnable
             public void run() {
@@ -51,7 +51,7 @@ public class a implements d {
 
     @Override // com.baidu.swan.apps.t.b.d
     public com.baidu.swan.apps.scheme.actions.f.b aAA() {
-        BDLocation bDLocation = geC.geF;
+        BDLocation bDLocation = geE.geH;
         if (bDLocation == null) {
             return null;
         }
@@ -60,8 +60,8 @@ public class a implements d {
 
     @Override // com.baidu.swan.apps.t.b.d
     public void aAB() {
-        long bNY = bNY();
-        if (geC.geF == null || (bNY > 0 && !geC.eS(bNY))) {
+        long bNZ = bNZ();
+        if (geE.geH == null || (bNZ > 0 && !geE.eS(bNZ))) {
             if (DEBUG) {
                 Log.i("SwanAppLocationImpl", "onWarmUp");
             }
@@ -128,39 +128,39 @@ public class a implements d {
         return dArr;
     }
 
-    private long bNY() {
-        return geB;
+    private long bNZ() {
+        return geD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes25.dex */
     public static class b extends BDAbstractLocationListener {
         String coorType;
-        LocationClient geG;
-        d.a geH;
-        boolean geI;
+        LocationClient geI;
+        d.a geJ;
+        boolean geK;
 
         public b(LocationClient locationClient, d.a aVar, String str, boolean z) {
-            this.geG = locationClient;
-            this.geH = aVar;
+            this.geI = locationClient;
+            this.geJ = aVar;
             this.coorType = str;
-            this.geI = z;
+            this.geK = z;
         }
 
         @Override // com.baidu.location.BDAbstractLocationListener
         public void onReceiveLocation(BDLocation bDLocation) {
-            this.geG.unRegisterLocationListener(this);
+            this.geI.unRegisterLocationListener(this);
             int locType = bDLocation.getLocType();
             if (!a.ux(locType)) {
-                if (!this.geI) {
-                    this.geH.onFailed(locType);
+                if (!this.geK) {
+                    this.geJ.onFailed(locType);
                     return;
                 }
                 return;
             }
-            a.geC.f(bDLocation);
-            if (!this.geI) {
-                this.geH.a(a.a(bDLocation, this.coorType));
+            a.geE.f(bDLocation);
+            if (!this.geK) {
+                this.geJ.a(a.a(bDLocation, this.coorType));
             }
         }
     }
@@ -205,24 +205,24 @@ public class a implements d {
     /* renamed from: com.baidu.tieba.aiapps.apps.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes25.dex */
     public static class C0629a {
-        private long geE;
-        private BDLocation geF;
+        private long geG;
+        private BDLocation geH;
 
         private C0629a() {
-            this.geE = 0L;
+            this.geG = 0L;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public synchronized void f(BDLocation bDLocation) {
-            this.geF = bDLocation;
-            this.geE = System.currentTimeMillis();
+            this.geH = bDLocation;
+            this.geG = System.currentTimeMillis();
         }
 
         synchronized boolean eS(long j) {
             boolean z = true;
             synchronized (this) {
-                long currentTimeMillis = System.currentTimeMillis() - this.geE;
-                boolean z2 = this.geF != null;
+                long currentTimeMillis = System.currentTimeMillis() - this.geG;
+                boolean z2 = this.geH != null;
                 boolean z3 = currentTimeMillis < j;
                 if (!z2 || !z3) {
                     z = false;
@@ -235,7 +235,7 @@ public class a implements d {
         }
 
         synchronized BDLocation eT(long j) {
-            return eS(j) ? this.geF : null;
+            return eS(j) ? this.geH : null;
         }
     }
 }

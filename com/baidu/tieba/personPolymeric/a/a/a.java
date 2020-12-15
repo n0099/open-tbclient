@@ -21,17 +21,17 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private ab<com.baidu.tieba.card.data.e> agG;
     private String aiw;
     public BdUniqueId fzO;
-    private int hKL;
+    private int hKN;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
-    private int mpX;
-    private int mpY;
+    private int mpZ;
+    private int mqa;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.mpX = 0;
-        this.mpY = 0;
-        this.hKL = 0;
+        this.mpZ = 0;
+        this.mqa = 0;
+        this.hKN = 0;
         this.agG = new ab<com.baidu.tieba.card.data.e>() { // from class: com.baidu.tieba.personPolymeric.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
@@ -48,7 +48,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         };
         this.mPageContext = tbPageContext;
-        cNP();
+        cNQ();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,8 +61,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         eVar.setPageUniqueId(this.fzO);
         eVar.b(this.mPageContext);
         eVar.bt(32768);
-        if (this.mpX > 0) {
-            eVar.bs(this.mpX);
+        if (this.mpZ > 0) {
+            eVar.bs(this.mpZ);
         }
         eVar.aD(false);
         eVar.aE(false);
@@ -98,7 +98,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         tX.setSourceForPb(4);
         am<com.baidu.tieba.card.data.e> amVar = new am<>(tX);
         amVar.setPageId(this.fzO);
-        amVar.bE(this.mpY);
+        amVar.bE(this.mqa);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.personPolymeric.a.a.a.4
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -142,8 +142,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         }
     }
 
-    private void cNP() {
-        com.baidu.tieba.card.data.k.ink = "c13542";
+    private void cNQ() {
+        com.baidu.tieba.card.data.k.inm = "c13542";
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -159,11 +159,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void Is(int i) {
-        this.mpX = i;
+        this.mpZ = i;
     }
 
     public void setTabType(int i) {
-        this.hKL = i;
+        this.hKN = i;
     }
 
     public void setIsHost(boolean z) {
@@ -171,6 +171,6 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void Ir(int i) {
-        this.mpY = i;
+        this.mqa = i;
     }
 }

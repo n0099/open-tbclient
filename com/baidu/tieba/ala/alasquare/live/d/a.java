@@ -34,14 +34,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private BdTypeListView gpX;
-    private NoNetworkView grd;
-    private PbListView gre;
-    private b grf;
-    private i grg = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
+    private BdTypeListView gpZ;
+    private NoNetworkView grf;
+    private PbListView grg;
+    private b grh;
+    private i gri = new i() { // from class: com.baidu.tieba.ala.alasquare.live.d.a.1
         @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
         public void a(int i, String str, by byVar) {
-            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.bSG().a(a.this.isSmallFollow, "c12118", i, str, byVar));
+            TiebaStatic.log(com.baidu.tieba.ala.alasquare.c.a.bSH().a(a.this.isSmallFollow, "c12118", i, str, byVar));
             a.this.a(a.this.mPageContext, byVar, str);
         }
 
@@ -59,24 +59,24 @@ public class a {
         this.mPageContext = tbPageContext;
         this.mRootView = new LinearLayout(tbPageContext.getPageActivity());
         this.mRootView.setOrientation(1);
-        this.grd = new NoNetworkView(tbPageContext.getPageActivity());
+        this.grf = new NoNetworkView(tbPageContext.getPageActivity());
         if (j.isNetWorkAvailable()) {
-            this.grd.setVisibility(8);
+            this.grf.setVisibility(8);
         }
-        this.mRootView.addView(this.grd);
+        this.mRootView.addView(this.grf);
         this.mContentView = new FrameLayout(tbPageContext.getPageActivity());
         this.mRootView.addView(this.mContentView, new RelativeLayout.LayoutParams(-1, -1));
         this.mRootView.setPadding(0, 0, 0, 0);
-        this.gpX = new BdTypeListView(this.mPageContext.getPageActivity());
-        this.gpX.setDivider(null);
-        this.mContentView.addView(this.gpX, new FrameLayout.LayoutParams(-1, -1));
+        this.gpZ = new BdTypeListView(this.mPageContext.getPageActivity());
+        this.gpZ.setDivider(null);
+        this.mContentView.addView(this.gpZ, new FrameLayout.LayoutParams(-1, -1));
         this.mPullView = new g(this.mPageContext);
         this.mPullView.setTag(bdUniqueId);
-        this.gpX.setPullRefresh(this.mPullView);
-        this.gre = new PbListView(tbPageContext.getPageActivity());
-        this.gre.createView();
-        this.grf = new b(tbPageContext, this.gpX);
-        this.grf.a(this.grg);
+        this.gpZ.setPullRefresh(this.mPullView);
+        this.grg = new PbListView(tbPageContext.getPageActivity());
+        this.grg.createView();
+        this.grh = new b(tbPageContext, this.gpZ);
+        this.grh.a(this.gri);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -100,7 +100,7 @@ public class a {
         return this.mRootView;
     }
 
-    public FrameLayout bRZ() {
+    public FrameLayout bSa() {
         return this.mContentView;
     }
 
@@ -109,69 +109,69 @@ public class a {
             list = new LinkedList<>();
         }
         this.isSmallFollow = i;
-        this.grf.setDatas(list);
-        this.grf.uU(i);
+        this.grh.setDatas(list);
+        this.grh.uU(i);
         if (z) {
-            bSb();
+            bSc();
         } else {
-            bSa();
+            bSb();
         }
     }
 
     public void completePullRefresh() {
-        this.gpX.completePullRefresh();
+        this.gpZ.completePullRefresh();
     }
 
     public void setListPullRefreshListener(f.c cVar) {
         this.mPullView.setListPullRefreshListener(cVar);
     }
 
-    public void bSa() {
-        if (this.gre != null) {
-            if (this.gre.getView().getParent() == null) {
-                this.gpX.setNextPage(this.gre);
+    public void bSb() {
+        if (this.grg != null) {
+            if (this.grg.getView().getParent() == null) {
+                this.gpZ.setNextPage(this.grg);
             }
-            this.gre.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
-            this.gre.endLoadData();
+            this.grg.setText(this.mPageContext.getResources().getString(R.string.list_no_more));
+            this.grg.endLoadData();
         }
     }
 
-    public void bSb() {
-        if (this.gre != null) {
-            if (this.gre.getView().getParent() == null) {
-                this.gpX.setNextPage(this.gre);
+    public void bSc() {
+        if (this.grg != null) {
+            if (this.grg.getView().getParent() == null) {
+                this.gpZ.setNextPage(this.grg);
             }
-            this.gre.showLoadingViewWithoutEmptyView();
-            this.gre.startLoadData();
+            this.grg.showLoadingViewWithoutEmptyView();
+            this.grg.startLoadData();
         }
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.gpX.setOnSrollToBottomListener(eVar);
+        this.gpZ.setOnSrollToBottomListener(eVar);
     }
 
     public void a(BdListView.d dVar, int i) {
-        this.gpX.setOnScrollStopDelayedListener(dVar, i);
+        this.gpZ.setOnScrollStopDelayedListener(dVar, i);
     }
 
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.gpX.setOnScrollListener(onScrollListener);
+        this.gpZ.setOnScrollListener(onScrollListener);
     }
 
     public void onChangeSkinType(int i) {
-        this.gre.setContainerBackgroundColorResId(R.color.CAM_X0204);
-        this.gre.changeSkin(i);
+        this.grg.setContainerBackgroundColorResId(R.color.CAM_X0204);
+        this.grg.changeSkin(i);
         this.mPullView.changeSkin(i);
-        this.grf.notifyDataSetChanged();
+        this.grh.notifyDataSetChanged();
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        this.grd.onChangeSkinType(this.mPageContext, i);
+        this.grf.onChangeSkinType(this.mPageContext, i);
     }
 
-    public BdTypeListView bSc() {
-        return this.gpX;
+    public BdTypeListView bSd() {
+        return this.gpZ;
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.grf.a(iAlaSquareTabController);
+        this.grh.a(iAlaSquareTabController);
     }
 }

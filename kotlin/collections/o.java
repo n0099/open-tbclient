@@ -7,7 +7,7 @@ import java.util.List;
 @kotlin.e
 /* loaded from: classes17.dex */
 public class o {
-    public static final <T> List<T> eDJ() {
+    public static final <T> List<T> eDK() {
         return EmptyList.INSTANCE;
     }
 
@@ -33,7 +33,7 @@ public class o {
         kotlin.jvm.internal.p.o(list, "$receiver");
         switch (list.size()) {
             case 0:
-                return n.eDJ();
+                return n.eDK();
             case 1:
                 return n.bP(list.get(0));
             default:

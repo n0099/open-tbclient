@@ -6,18 +6,18 @@ import java.lang.reflect.Type;
 /* loaded from: classes5.dex */
 public class a<T> {
     final int hashCode;
-    final Class<? super T> pwH;
+    final Class<? super T> pwJ;
     final Type type;
 
     protected a() {
         this.type = I(getClass());
-        this.pwH = (Class<? super T>) C$Gson$Types.f(this.type);
+        this.pwJ = (Class<? super T>) C$Gson$Types.f(this.type);
         this.hashCode = this.type.hashCode();
     }
 
     a(Type type) {
         this.type = C$Gson$Types.e((Type) com.google.gson.internal.a.checkNotNull(type));
-        this.pwH = (Class<? super T>) C$Gson$Types.f(this.type);
+        this.pwJ = (Class<? super T>) C$Gson$Types.f(this.type);
         this.hashCode = this.type.hashCode();
     }
 
@@ -29,8 +29,8 @@ public class a<T> {
         return C$Gson$Types.e(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class<? super T> eyV() {
-        return this.pwH;
+    public final Class<? super T> eyW() {
+        return this.pwJ;
     }
 
     public final Type getType() {

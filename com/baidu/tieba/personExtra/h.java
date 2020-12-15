@@ -19,7 +19,7 @@ public class h extends RecyclerView.Adapter<a> {
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
-    private View.OnLongClickListener mpd;
+    private View.OnLongClickListener mpf;
 
     public h(Context context) {
         this.mContext = context;
@@ -49,7 +49,7 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.mpd = onLongClickListener;
+        this.mpf = onLongClickListener;
     }
 
     private SmartApp Ip(int i) {
@@ -78,7 +78,7 @@ public class h extends RecyclerView.Adapter<a> {
         if (aVar != null && (Ip = Ip(i)) != null) {
             aVar.b(Ip);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.mpd);
+            aVar.setOnLongClickListener(this.mpf);
             aVar.onChangeSkinType();
         }
     }
@@ -90,26 +90,26 @@ public class h extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes24.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView kKQ;
+        private HeadImageView kKS;
         private TextView mName;
         private View mRootView;
-        private SmartApp mpe;
+        private SmartApp mpg;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.kKQ = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.kKQ.setIsRound(true);
-            this.kKQ.setPlaceHolder(1);
+            this.kKS = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.kKS.setIsRound(true);
+            this.kKS.setPlaceHolder(1);
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void b(SmartApp smartApp) {
-            this.mpe = smartApp;
+            this.mpg = smartApp;
             this.mRootView.setTag(smartApp);
             if (!au.isEmpty(smartApp.avatar)) {
-                this.kKQ.setPlaceHolder(1);
-                this.kKQ.startLoad(smartApp.avatar, 10, false, false);
+                this.kKS.setPlaceHolder(1);
+                this.kKS.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!au.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

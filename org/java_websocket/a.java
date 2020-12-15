@@ -36,7 +36,7 @@ public abstract class a extends b {
                 while (it.hasNext()) {
                     WebSocket webSocket = (WebSocket) it.next();
                     if (webSocket instanceof c) {
-                        ((c) webSocket).eEH();
+                        ((c) webSocket).eEI();
                     }
                 }
             } catch (Exception e) {
@@ -79,20 +79,20 @@ public abstract class a extends b {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
         this.connectionLostTimerTask = new TimerTask() { // from class: org.java_websocket.a.1
-            private ArrayList<WebSocket> pNK = new ArrayList<>();
+            private ArrayList<WebSocket> pNM = new ArrayList<>();
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                this.pNK.clear();
+                this.pNM.clear();
                 try {
-                    this.pNK.addAll(a.this.getConnections());
+                    this.pNM.addAll(a.this.getConnections());
                     long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * 1500);
-                    Iterator<WebSocket> it = this.pNK.iterator();
+                    Iterator<WebSocket> it = this.pNM.iterator();
                     while (it.hasNext()) {
                         WebSocket next = it.next();
                         if (next instanceof c) {
                             c cVar = (c) next;
-                            if (cVar.eEG() < currentTimeMillis) {
+                            if (cVar.eEH() < currentTimeMillis) {
                                 if (c.DEBUG) {
                                     System.out.println("Closing connection due to no pong received: " + next.toString());
                                 }
@@ -109,7 +109,7 @@ public abstract class a extends b {
                         System.out.println("Exception during connection lost ping: " + e.getMessage());
                     }
                 }
-                this.pNK.clear();
+                this.pNM.clear();
             }
         };
         this.connectionLostTimer.scheduleAtFixedRate(this.connectionLostTimerTask, this.connectionLostTimeout * 1000, this.connectionLostTimeout * 1000);

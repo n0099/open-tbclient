@@ -14,7 +14,7 @@ public class c {
     private List<q> dataList = new ArrayList();
     public boolean hasMore = true;
     public int pn = 0;
-    public int neW = 0;
+    public int neY = 0;
     public int eYk = 0;
 
     public List<q> getDataList() {

@@ -3,23 +3,23 @@ package com.baidu.tieba.ala.liveroom.watermark;
 import android.view.ViewGroup;
 /* loaded from: classes4.dex */
 public class a {
-    private AlaLiveRoomWatermarkView hGw;
+    private AlaLiveRoomWatermarkView hGy;
 
-    public void clJ() {
-        if (this.hGw != null && this.hGw.getParent() != null) {
-            ((ViewGroup) this.hGw.getParent()).removeView(this.hGw);
+    public void clK() {
+        if (this.hGy != null && this.hGy.getParent() != null) {
+            ((ViewGroup) this.hGy.getParent()).removeView(this.hGy);
         }
     }
 
     public void setTimeTextMode(boolean z) {
-        if (this.hGw != null) {
-            this.hGw.setTimeTextMode(z);
+        if (this.hGy != null) {
+            this.hGy.setTimeTextMode(z);
         }
     }
 
     public void setVisibility(int i) {
-        if (this.hGw != null) {
-            this.hGw.setVisibility(i);
+        if (this.hGy != null) {
+            this.hGy.setVisibility(i);
         }
     }
 }

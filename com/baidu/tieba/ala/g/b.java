@@ -12,8 +12,8 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel {
-    private a gKL;
-    private HttpMessageListener hHL;
+    private a gKN;
+    private HttpMessageListener hHN;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -22,18 +22,18 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.hHL = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.g.b.1
+        this.hHN = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.g.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == b.this.unique_id) {
-                    b.this.gKL.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    b.this.gKN.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.gKL = aVar;
+        this.gKN = aVar;
         registerTask();
-        registerListener(this.hHL);
+        registerListener(this.hHN);
     }
 
     private void registerTask() {

@@ -4,12 +4,12 @@ import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes12.dex */
 public final class i<T> implements d.b<Boolean, T> {
-    final boolean pQX;
-    final rx.functions.f<? super T, Boolean> pQc;
+    final boolean pQZ;
+    final rx.functions.f<? super T, Boolean> pQe;
 
     public i(rx.functions.f<? super T, Boolean> fVar, boolean z) {
-        this.pQc = fVar;
-        this.pQX = z;
+        this.pQe = fVar;
+        this.pQZ = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,16 +18,16 @@ public final class i<T> implements d.b<Boolean, T> {
         final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
         rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.i.1
             boolean done;
-            boolean pQY;
+            boolean pRa;
 
             @Override // rx.e
             public void onNext(T t) {
                 if (!this.done) {
-                    this.pQY = true;
+                    this.pRa = true;
                     try {
-                        if (i.this.pQc.call(t).booleanValue()) {
+                        if (i.this.pQe.call(t).booleanValue()) {
                             this.done = true;
-                            singleDelayedProducer.setValue(Boolean.valueOf(!i.this.pQX));
+                            singleDelayedProducer.setValue(Boolean.valueOf(!i.this.pQZ));
                             unsubscribe();
                         }
                     } catch (Throwable th) {
@@ -50,10 +50,10 @@ public final class i<T> implements d.b<Boolean, T> {
             public void onCompleted() {
                 if (!this.done) {
                     this.done = true;
-                    if (this.pQY) {
+                    if (this.pRa) {
                         singleDelayedProducer.setValue(false);
                     } else {
-                        singleDelayedProducer.setValue(Boolean.valueOf(i.this.pQX));
+                        singleDelayedProducer.setValue(Boolean.valueOf(i.this.pQZ));
                     }
                 }
             }

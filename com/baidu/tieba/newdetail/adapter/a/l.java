@@ -11,62 +11,62 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class l {
     private List<com.baidu.adp.widget.ListView.a> bnf = new LinkedList();
-    private BdTypeRecyclerView iAG;
-    private TbPageContext<?> jnn;
-    private j lpS;
-    private c lpT;
-    private e lpU;
-    private d lpV;
-    private f lpW;
-    private k lpX;
-    private g lpY;
-    private h lpZ;
-    private b lqa;
-    private m lqb;
-    private i lqc;
+    private BdTypeRecyclerView iAI;
+    private TbPageContext<?> jnp;
+    private j lpU;
+    private c lpV;
+    private e lpW;
+    private d lpX;
+    private f lpY;
+    private k lpZ;
+    private g lqa;
+    private h lqb;
+    private b lqc;
+    private m lqd;
+    private i lqe;
     private BdUniqueId pageId;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jnn = tbPageContext;
+        this.jnp = tbPageContext;
         this.pageId = bdUniqueId;
-        this.iAG = bdTypeRecyclerView;
+        this.iAI = bdTypeRecyclerView;
         Nt();
     }
 
     private void Nt() {
-        this.lpS = new j(this.jnn, by.eIY, this.pageId);
-        this.lpS.a(this.iAG);
-        this.bnf.add(this.lpS);
-        this.lpT = new c(this.jnn, by.eJd, this.pageId);
-        this.lpT.a(this.iAG);
-        this.bnf.add(this.lpT);
-        this.lpU = new e(this.jnn, by.eJb, this.pageId);
-        this.lpU.a(this.iAG);
+        this.lpU = new j(this.jnp, by.eIY, this.pageId);
+        this.lpU.a(this.iAI);
         this.bnf.add(this.lpU);
-        this.lpV = new d(this.jnn, by.eJc, this.pageId);
-        this.lpV.a(this.iAG);
+        this.lpV = new c(this.jnp, by.eJd, this.pageId);
+        this.lpV.a(this.iAI);
         this.bnf.add(this.lpV);
-        this.lpW = new f(this.jnn, by.eIZ, this.pageId);
-        this.lpW.a(this.iAG);
+        this.lpW = new e(this.jnp, by.eJb, this.pageId);
+        this.lpW.a(this.iAI);
         this.bnf.add(this.lpW);
-        this.lpX = new k(this.jnn, by.eJq, this.pageId);
-        this.lpX.a(this.iAG);
+        this.lpX = new d(this.jnp, by.eJc, this.pageId);
+        this.lpX.a(this.iAI);
         this.bnf.add(this.lpX);
-        this.lpY = new g(this.jnn, by.eJi, this.pageId);
-        this.lpY.a(this.iAG);
+        this.lpY = new f(this.jnp, by.eIZ, this.pageId);
+        this.lpY.a(this.iAI);
         this.bnf.add(this.lpY);
-        this.lpZ = new h(this.jnn, by.eJe, this.pageId);
-        this.lpZ.a(this.iAG);
+        this.lpZ = new k(this.jnp, by.eJq, this.pageId);
+        this.lpZ.a(this.iAI);
         this.bnf.add(this.lpZ);
-        this.lqa = new b(this.jnn, by.eJh, this.pageId);
-        this.lqa.a(this.iAG);
+        this.lqa = new g(this.jnp, by.eJi, this.pageId);
+        this.lqa.a(this.iAI);
         this.bnf.add(this.lqa);
-        this.lqb = new m(this.jnn, bl.eFE);
-        this.lqb.a(this.iAG);
+        this.lqb = new h(this.jnp, by.eJe, this.pageId);
+        this.lqb.a(this.iAI);
         this.bnf.add(this.lqb);
-        this.lqc = new i(this.jnn, com.baidu.tieba.card.data.k.eJv);
+        this.lqc = new b(this.jnp, by.eJh, this.pageId);
+        this.lqc.a(this.iAI);
         this.bnf.add(this.lqc);
-        this.iAG.addAdapters(this.bnf);
+        this.lqd = new m(this.jnp, bl.eFE);
+        this.lqd.a(this.iAI);
+        this.bnf.add(this.lqd);
+        this.lqe = new i(this.jnp, com.baidu.tieba.card.data.k.eJv);
+        this.bnf.add(this.lqe);
+        this.iAI.addAdapters(this.bnf);
     }
 
     public void ug(boolean z) {
@@ -78,10 +78,10 @@ public class l {
     }
 
     public void notifyDataSetChanged() {
-        this.iAG.getAdapter().notifyDataSetChanged();
+        this.iAI.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<? extends q> list) {
-        this.iAG.setData(list);
+        this.iAI.setData(list);
     }
 }

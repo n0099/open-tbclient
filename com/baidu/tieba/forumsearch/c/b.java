@@ -21,21 +21,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class b extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
-    private WrapLineLayout iRo;
-    private List<a> iRp;
+    private WrapLineLayout iRq;
+    private List<a> iRr;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.iRp = new ArrayList();
+        this.iRr = new ArrayList();
         this.mSkinType = 3;
-        this.iRo = (WrapLineLayout) getView();
+        this.iRq = (WrapLineLayout) getView();
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            for (a aVar : this.iRp) {
+            for (a aVar : this.iRr) {
                 if (aVar != null) {
                     aVar.onChangeSkinType();
                 }
@@ -52,14 +52,14 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.forumsearch.b.a aVar) {
-        if (aVar != null && !y.isEmpty(aVar.cAP())) {
-            zA(aVar.cAP().size());
-            int size = this.iRp.size();
+        if (aVar != null && !y.isEmpty(aVar.cAQ())) {
+            zA(aVar.cAQ().size());
+            int size = this.iRr.size();
             for (int i = 0; i < size; i++) {
-                a aVar2 = this.iRp.get(i);
+                a aVar2 = this.iRr.get(i);
                 if (aVar2 != null) {
                     aVar2.pN(false);
-                    aVar2.mTextView.setText(aVar.cAP().get(i));
+                    aVar2.mTextView.setText(aVar.cAQ().get(i));
                 }
             }
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -67,32 +67,32 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
     }
 
     private void zA(int i) {
-        int size = this.iRp.size();
+        int size = this.iRr.size();
         if (size != i) {
             if (size < i) {
                 int i2 = i - size;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    a cAV = cAV();
+                    a cAW = cAW();
                     ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
                     marginLayoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds2);
                     marginLayoutParams.leftMargin = marginLayoutParams.topMargin;
-                    this.iRo.addView(cAV.getView(), marginLayoutParams);
-                    this.iRp.add(cAV);
+                    this.iRq.addView(cAW.getView(), marginLayoutParams);
+                    this.iRr.add(cAW);
                 }
             } else if (i == 0) {
-                this.iRo.removeAllViews();
-                this.iRp.clear();
+                this.iRq.removeAllViews();
+                this.iRr.clear();
             } else if (size > i) {
                 int i4 = size - i;
                 for (int i5 = 0; i5 < i4; i5++) {
-                    this.iRo.removeView(this.iRp.get(i5).getView());
-                    this.iRp.remove(i5);
+                    this.iRq.removeView(this.iRr.get(i5).getView());
+                    this.iRr.remove(i5);
                 }
             }
         }
     }
 
-    private a cAV() {
+    private a cAW() {
         return new a();
     }
 
@@ -111,7 +111,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
             this.mTextView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.forumsearch.c.b.a.1
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    for (a aVar : b.this.iRp) {
+                    for (a aVar : b.this.iRr) {
                         if (aVar != null && aVar.getView() != view) {
                             aVar.pN(false);
                         }

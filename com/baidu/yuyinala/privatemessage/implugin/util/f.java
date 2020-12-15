@@ -35,7 +35,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class f {
     @SuppressLint({"UseSparseArrays"})
-    private static Map<Long, Long> oVv = new HashMap();
+    private static Map<Long, Long> oVx = new HashMap();
 
     public static String g(Context context, long j) {
         SimpleDateFormat simpleDateFormat;
@@ -202,7 +202,7 @@ public class f {
         return 55;
     }
 
-    public static long enS() {
+    public static long enT() {
         long j = 0;
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
@@ -260,7 +260,7 @@ public class f {
                                 context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                                 return;
                             }
-                            com.baidu.yuyinala.privatemessage.implugin.d.b.elg().h(context, str, false);
+                            com.baidu.yuyinala.privatemessage.implugin.d.b.elh().h(context, str, false);
                         } catch (Exception e) {
                             c.e("Utils", "ex " + e.getMessage());
                         }
@@ -281,16 +281,16 @@ public class f {
             jSONObject.put("oauth", "");
             jSONObject.put("needUserSetting", false);
             jSONObject.put("thirdLogin", false);
-            com.baidu.yuyinala.privatemessage.implugin.d.b.elg().a(jSONObject.toString(), dVar);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elh().a(jSONObject.toString(), dVar);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public static void emy() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a emE = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emz().emE();
-        if (emE != null) {
-            emE.emy();
+    public static void emz() {
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a emF = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emA().emF();
+        if (emF != null) {
+            emF.emz();
         }
     }
 

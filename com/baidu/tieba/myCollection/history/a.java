@@ -16,21 +16,21 @@ import java.util.Date;
 /* loaded from: classes24.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, b> {
     private TextView fdq;
-    private TextView hMy;
-    private TextView loQ;
-    private TextView loR;
+    private TextView hMA;
+    private TextView loS;
+    private TextView loT;
     private View mLine;
     private View mRootView;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.loQ = (TextView) view.findViewById(R.id.title);
+        this.loS = (TextView) view.findViewById(R.id.title);
         this.fdq = (TextView) view.findViewById(R.id.content);
         this.fdq.setSingleLine();
         this.fdq.setEllipsize(TextUtils.TruncateAt.END);
-        this.hMy = (TextView) view.findViewById(R.id.time);
-        this.loR = (TextView) view.findViewById(R.id.live_status);
+        this.hMA = (TextView) view.findViewById(R.id.time);
+        this.loT = (TextView) view.findViewById(R.id.live_status);
         this.mLine = view.findViewById(R.id.line);
     }
 
@@ -40,22 +40,22 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void au(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.au(aVar);
         if (aVar != null) {
-            if (this.loQ != null) {
+            if (this.loS != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
                         if (StringUtils.isNull(aVar.getUserName())) {
-                            this.loQ.setText(getString(R.string.pb_history_default_user_name));
+                            this.loS.setText(getString(R.string.pb_history_default_user_name));
                         } else {
-                            this.loQ.setText(aVar.getUserName());
+                            this.loS.setText(aVar.getUserName());
                         }
                     } else {
-                        this.loQ.setText(aVar.getDescription());
+                        this.loS.setText(aVar.getDescription());
                     }
-                } else if (aVar.djN() != null) {
+                } else if (aVar.djO() != null) {
                     if (aVar.isShareThread()) {
-                        this.loQ.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.djN()));
+                        this.loS.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.djO()));
                     } else {
-                        this.loQ.setText(aVar.djN());
+                        this.loS.setText(aVar.djO());
                     }
                 }
             }
@@ -69,16 +69,16 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
                 }
             }
             if (aVar.getThreadType() == 49) {
-                this.loR.setVisibility(aVar.djQ() ? 0 : 8);
+                this.loT.setVisibility(aVar.djR() ? 0 : 8);
             } else {
-                this.loR.setVisibility(8);
+                this.loT.setVisibility(8);
             }
-            if (this.hMy != null) {
+            if (this.hMA != null) {
                 String l = au.l(new Date(aVar.getTime()));
                 if (l == null) {
                     l = "";
                 }
-                this.hMy.setText(l);
+                this.hMA.setText(l);
             }
         }
     }
@@ -88,11 +88,11 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         ap.setBackgroundResource(this.mRootView, R.drawable.list_item_selector);
         ap.setBackgroundResource(this.mLine, R.color.CAM_X0204);
-        ap.setViewTextColor(this.loQ, R.color.CAM_X0105, 1);
+        ap.setViewTextColor(this.loS, R.color.CAM_X0105, 1);
         ap.setViewTextColor(this.fdq, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.hMy, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.loR, R.color.CAM_X0101);
-        com.baidu.tbadk.core.util.e.a.buz().qm(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.CAM_X0308, R.color.CAM_X0301).bq(this.loR);
+        ap.setViewTextColor(this.hMA, R.color.CAM_X0109, 1);
+        ap.setViewTextColor(this.loT, R.color.CAM_X0101);
+        com.baidu.tbadk.core.util.e.a.buz().qm(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.CAM_X0308, R.color.CAM_X0301).bq(this.loT);
         return true;
     }
 }

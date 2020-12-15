@@ -9,10 +9,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaGetRoomCardInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private e opN;
+    private e opP;
 
-    public e edS() {
-        return this.opN;
+    public e edT() {
+        return this.opP;
     }
 
     public AlaGetRoomCardInfoHttpResponseMessage() {
@@ -25,43 +25,43 @@ public class AlaGetRoomCardInfoHttpResponseMessage extends JsonHttpResponsedMess
         JSONArray optJSONArray2;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031019) {
-            if (this.opN == null) {
-                this.opN = new e();
+            if (this.opP == null) {
+                this.opP = new e();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.opN.opT = optJSONObject.optInt("room_editor_show");
-                this.opN.opU = optJSONObject.optInt("room_ban_show");
-                this.opN.opV = optJSONObject.optString("room_unfollow_copywriting");
-                this.opN.opW = optJSONObject.optInt("room_follow_status");
-                this.opN.opZ = optJSONObject.optInt("room_fans");
-                this.opN.oqa = optJSONObject.optInt(UbcStatConstant.KEY_CUSTOM_ROOM_ID);
-                this.opN.oqb = optJSONObject.optString("room_cover");
-                this.opN.room_name = optJSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
+                this.opP.opV = optJSONObject.optInt("room_editor_show");
+                this.opP.opW = optJSONObject.optInt("room_ban_show");
+                this.opP.opX = optJSONObject.optString("room_unfollow_copywriting");
+                this.opP.opY = optJSONObject.optInt("room_follow_status");
+                this.opP.oqb = optJSONObject.optInt("room_fans");
+                this.opP.oqc = optJSONObject.optInt(UbcStatConstant.KEY_CUSTOM_ROOM_ID);
+                this.opP.oqd = optJSONObject.optString("room_cover");
+                this.opP.room_name = optJSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
                 if (optJSONObject.has("room_host") && (optJSONArray2 = optJSONObject.optJSONArray("room_host")) != null && optJSONArray2.length() > 0) {
-                    this.opN.opX = new ArrayList<>();
+                    this.opP.opZ = new ArrayList<>();
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         JSONObject jSONObject2 = (JSONObject) optJSONArray2.get(i2);
                         e.a aVar = new e.a();
-                        aVar.oqd = jSONObject2.optString("user_cover");
-                        aVar.oqc = jSONObject2.optInt("user_Identity");
+                        aVar.oqf = jSONObject2.optString("user_cover");
+                        aVar.oqe = jSONObject2.optInt("user_Identity");
                         aVar.user_name = jSONObject2.optString("user_name");
                         aVar.user_uk = jSONObject2.optString("user_uk");
-                        aVar.oqe = false;
-                        this.opN.opX.add(aVar);
+                        aVar.oqg = false;
+                        this.opP.opZ.add(aVar);
                     }
                 }
                 if (optJSONObject.has("room_manage") && (optJSONArray = optJSONObject.optJSONArray("room_manage")) != null && optJSONArray.length() > 0) {
-                    this.opN.opY = new ArrayList<>();
+                    this.opP.oqa = new ArrayList<>();
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         JSONObject jSONObject3 = (JSONObject) optJSONArray.get(i3);
                         e.a aVar2 = new e.a();
-                        aVar2.oqd = jSONObject3.optString("user_cover");
-                        aVar2.oqc = jSONObject3.optInt("user_Identity");
+                        aVar2.oqf = jSONObject3.optString("user_cover");
+                        aVar2.oqe = jSONObject3.optInt("user_Identity");
                         aVar2.user_name = jSONObject3.optString("user_name");
                         aVar2.user_uk = jSONObject3.optString("user_uk");
-                        aVar2.oqe = false;
-                        this.opN.opY.add(aVar2);
+                        aVar2.oqg = false;
+                        this.opP.oqa.add(aVar2);
                     }
                 }
             }

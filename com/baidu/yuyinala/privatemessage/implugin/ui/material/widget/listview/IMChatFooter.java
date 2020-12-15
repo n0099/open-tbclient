@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes4.dex */
 public class IMChatFooter extends LinearLayout {
-    private View oSY;
+    private View oTa;
 
     public IMChatFooter(Context context) {
         super(context);
@@ -20,14 +20,14 @@ public class IMChatFooter extends LinearLayout {
     }
 
     private void ev(Context context) {
-        this.oSY = new TextView(context);
-        this.oSY.setLayoutParams(new LinearLayout.LayoutParams(-1, 80));
-        addView(this.oSY);
+        this.oTa = new TextView(context);
+        this.oTa.setLayoutParams(new LinearLayout.LayoutParams(-1, 80));
+        addView(this.oTa);
     }
 
     public void setFooterHeight(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.oSY.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.oTa.getLayoutParams();
         layoutParams.height = i;
-        this.oSY.setLayoutParams(layoutParams);
+        this.oTa.setLayoutParams(layoutParams);
     }
 }

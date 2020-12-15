@@ -9,21 +9,21 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class c {
-    private TextView gZf;
-    private TextView gZg;
     private TextView gZh;
-    private View gZi;
-    private LinearLayout gZj;
-    private LinearLayout gZk;
+    private TextView gZi;
+    private TextView gZj;
+    private View gZk;
+    private LinearLayout gZl;
+    private LinearLayout gZm;
     protected Context mContext;
     private View mRootView;
 
     public c(Context context) {
         this.mContext = context;
-        an(bYz());
+        an(bYA());
     }
 
-    public View bYz() {
+    public View bYA() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_exp_top_header, (ViewGroup) null);
         }
@@ -31,42 +31,42 @@ public class c {
     }
 
     private void an(View view) {
-        this.gZk = (LinearLayout) view.findViewById(a.f.ala_person_center_current_exp_panel);
-        this.gZf = (TextView) view.findViewById(a.f.ala_person_center_current_exp_txt);
-        this.gZg = (TextView) view.findViewById(a.f.ala_person_center_current_level);
-        this.gZh = (TextView) view.findViewById(a.f.ala_person_center_next_level);
-        this.gZj = (LinearLayout) view.findViewById(a.f.ala_person_center_next_level_bg);
-        this.gZi = view.findViewById(a.f.ala_person_center_current_level_bg);
+        this.gZm = (LinearLayout) view.findViewById(a.f.ala_person_center_current_exp_panel);
+        this.gZh = (TextView) view.findViewById(a.f.ala_person_center_current_exp_txt);
+        this.gZi = (TextView) view.findViewById(a.f.ala_person_center_current_level);
+        this.gZj = (TextView) view.findViewById(a.f.ala_person_center_next_level);
+        this.gZl = (LinearLayout) view.findViewById(a.f.ala_person_center_next_level_bg);
+        this.gZk = view.findViewById(a.f.ala_person_center_current_level_bg);
     }
 
     public void w(long j, int i) {
-        long j2 = com.baidu.tieba.ala.live.personcenter.a.gYs[i - 1];
+        long j2 = com.baidu.tieba.ala.live.personcenter.a.gYu[i - 1];
         int i2 = i + 1;
-        this.gZf.setText(this.mContext.getResources().getString(a.h.sdk_prc_current_exp, String.valueOf(j + "/" + j2)));
-        this.gZg.setText(this.mContext.getResources().getString(a.h.sdk_prc_current_level, String.valueOf(i)));
+        this.gZh.setText(this.mContext.getResources().getString(a.h.sdk_prc_current_exp, String.valueOf(j + "/" + j2)));
+        this.gZi.setText(this.mContext.getResources().getString(a.h.sdk_prc_current_level, String.valueOf(i)));
         if (i2 > 40) {
-            this.gZh.setText("");
+            this.gZj.setText("");
         } else {
-            this.gZh.setText(this.mContext.getResources().getString(a.h.sdk_prc_next_level, String.valueOf(i2)));
+            this.gZj.setText(this.mContext.getResources().getString(a.h.sdk_prc_next_level, String.valueOf(i2)));
         }
         if (j2 != 0) {
-            ViewGroup.LayoutParams layoutParams = this.gZi.getLayoutParams();
-            layoutParams.width = (int) ((this.gZj.getLayoutParams().width * j) / j2);
-            this.gZi.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.gZk.getLayoutParams();
+            layoutParams.width = (int) ((this.gZl.getLayoutParams().width * j) / j2);
+            this.gZk.setLayoutParams(layoutParams);
         }
     }
 
     public void b(AlaPersonCenterExpActivity alaPersonCenterExpActivity, int i) {
-        alaPersonCenterExpActivity.getLayoutMode().onModeChanged(this.gZk);
+        alaPersonCenterExpActivity.getLayoutMode().onModeChanged(this.gZm);
         if (i == 1) {
-            this.gZf.setAlpha(0.7f);
-            this.gZf.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_g));
-            this.gZg.setAlpha(0.7f);
-            this.gZg.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_g));
             this.gZh.setAlpha(0.7f);
             this.gZh.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_g));
             this.gZi.setAlpha(0.7f);
-            this.gZi.setBackgroundDrawable(this.mContext.getResources().getDrawable(a.e.sdk_prc_current_level_bg));
+            this.gZi.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_g));
+            this.gZj.setAlpha(0.7f);
+            this.gZj.setTextColor(this.mContext.getResources().getColor(a.c.sdk_cp_cont_g));
+            this.gZk.setAlpha(0.7f);
+            this.gZk.setBackgroundDrawable(this.mContext.getResources().getDrawable(a.e.sdk_prc_current_level_bg));
         }
     }
 }

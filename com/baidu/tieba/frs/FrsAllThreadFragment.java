@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ar {
     private String forumId;
-    private View iSh;
-    private RecyclerView iSi;
+    private View iSj;
+    private RecyclerView iSk;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
@@ -28,33 +28,33 @@ public class FrsAllThreadFragment extends BaseFragment implements ar {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        cBK();
-        return this.iSh;
+        cBL();
+        return this.iSj;
     }
 
     public void setView(View view) {
-        this.iSh = view;
-        this.iSi = (RecyclerView) this.iSh.findViewById(R.id.frs_lv_thread);
-        cBK();
-    }
-
-    private void cBK() {
-        if (this.iSh != null && (this.iSh.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.iSh.getParent()).removeView(this.iSh);
-            this.iSh.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.ar
-    public void cBL() {
-        if (this.iSi != null) {
-            this.iSi.scrollToPosition(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.frs.ar
-    public void bSZ() {
+        this.iSj = view;
+        this.iSk = (RecyclerView) this.iSj.findViewById(R.id.frs_lv_thread);
         cBL();
+    }
+
+    private void cBL() {
+        if (this.iSj != null && (this.iSj.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.iSj.getParent()).removeView(this.iSj);
+            this.iSj.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.ar
+    public void cBM() {
+        if (this.iSk != null) {
+            this.iSk.scrollToPosition(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.ar
+    public void bTa() {
+        cBM();
         u uVar = new u();
         uVar.tabId = 1;
         uVar.fVi = true;

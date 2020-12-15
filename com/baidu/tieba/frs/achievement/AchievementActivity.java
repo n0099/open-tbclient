@@ -7,13 +7,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class AchievementActivity extends BaseActivity {
-    private c iYn;
-    private a iYo;
-    private View.OnClickListener iYp = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
+    private c iYp;
+    private a iYq;
+    private View.OnClickListener iYr = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            AchievementActivity.this.iYn.setDisplay(false);
-            AchievementActivity.this.iYo.setDisplay(true);
+            AchievementActivity.this.iYp.setDisplay(false);
+            AchievementActivity.this.iYq.setDisplay(true);
         }
     };
 
@@ -23,11 +23,11 @@ public class AchievementActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(R.layout.activity_achievement);
-        this.iYn = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
-        this.iYn.setDisplay(true);
-        this.iYn.A(this.iYp);
-        this.iYo = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
-        this.iYo.setDisplay(false);
+        this.iYp = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
+        this.iYp.setDisplay(true);
+        this.iYp.A(this.iYr);
+        this.iYq = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
+        this.iYq.setDisplay(false);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -44,7 +44,7 @@ public class AchievementActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iYn.onChangeSkinType(i);
-        this.iYo.onChangeSkinType(i);
+        this.iYp.onChangeSkinType(i);
+        this.iYq.onChangeSkinType(i);
     }
 }

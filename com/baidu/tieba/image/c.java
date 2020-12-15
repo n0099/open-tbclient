@@ -33,20 +33,20 @@ public class c {
     private String eJV;
     private Map<String, ImageUrlData> fpg;
     public String fwy;
-    private String iSN;
-    public ForumData jDq;
-    private ArrayList<String> kLb;
-    private ArrayList<AlaInfoData> kLd;
-    private String kLe;
-    private String kLf;
-    private String kLn;
-    private String kLo;
+    private String iSP;
+    public ForumData jDs;
+    private ArrayList<String> kLd;
+    private ArrayList<AlaInfoData> kLf;
+    private String kLg;
+    private String kLh;
     private String kLp;
-    private boolean kLq;
-    private int kLs;
-    public MetaData kLt;
-    public String kLu;
-    public boolean kLv;
+    private String kLq;
+    private String kLr;
+    private boolean kLs;
+    private int kLu;
+    public MetaData kLv;
+    public String kLw;
+    public boolean kLx;
     private String mForumId;
     private String mFrom;
     private boolean mIsReset;
@@ -59,16 +59,16 @@ public class c {
     private int mThreadType;
     private String mUserId;
     public int replyPrivateFlag;
-    private HashMap<String, String> kLc = new HashMap<>();
+    private HashMap<String, String> kLe = new HashMap<>();
     private boolean mIsReserver = true;
-    private a kLg = null;
-    private int kLh = 0;
-    private boolean kLi = false;
-    private boolean kLj = false;
-    private b kLk = null;
-    private AdvertAppInfo kLl = null;
-    private boolean kLm = false;
-    private boolean kLr = false;
+    private a kLi = null;
+    private int kLj = 0;
+    private boolean kLk = false;
+    private boolean kLl = false;
+    private b kLm = null;
+    private AdvertAppInfo kLn = null;
+    private boolean kLo = false;
+    private boolean kLt = false;
 
     /* loaded from: classes21.dex */
     public interface b {
@@ -79,28 +79,28 @@ public class c {
 
     public c(ArrayList<String> arrayList, Map<String, ImageUrlData> map, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, boolean z, int i2, String str8, String str9, String str10, String str11) {
         this.doR = false;
-        this.kLb = arrayList;
+        this.kLd = arrayList;
         this.fpg = map;
-        if (this.kLb == null) {
-            this.kLb = new ArrayList<>();
+        if (this.kLd == null) {
+            this.kLd = new ArrayList<>();
         }
-        Iterator<String> it = this.kLb.iterator();
+        Iterator<String> it = this.kLd.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            this.kLc.put(com.baidu.tieba.image.b.Oe(next), next);
+            this.kLe.put(com.baidu.tieba.image.b.Oe(next), next);
         }
         this.amY = str3;
         this.mNid = str4;
-        this.iSN = str2;
+        this.iSP = str2;
         this.mForumId = str;
-        this.kLf = str5;
+        this.kLh = str5;
         this.mThreadType = i;
-        this.doR = this.kLf == null;
+        this.doR = this.kLh == null;
         this.mUserId = str6;
         this.mFrom = str7;
         this.mIsReset = z;
-        this.kLq = false;
-        this.kLs = i2;
+        this.kLs = false;
+        this.kLu = i2;
         this.mRecomSource = str8;
         this.mRecomAbTag = str9;
         this.mRecomWeight = str10;
@@ -108,15 +108,15 @@ public class c {
     }
 
     public void setSourceImageRectInScreen(String str) {
-        this.kLo = str;
+        this.kLq = str;
     }
 
     public void Og(String str) {
-        this.kLp = str;
+        this.kLr = str;
     }
 
     public void tk(boolean z) {
-        this.kLq = z;
+        this.kLs = z;
     }
 
     public String bqz() {
@@ -127,41 +127,41 @@ public class c {
         return this.eJV;
     }
 
-    public ArrayList<AlaInfoData> dbT() {
-        return this.kLd;
+    public ArrayList<AlaInfoData> dbU() {
+        return this.kLf;
     }
 
     public void tl(boolean z) {
         this.mIsReserver = z;
     }
 
-    public void dbU() {
-        this.kLm = false;
+    public void dbV() {
+        this.kLo = false;
         if (!this.doR) {
-            c(this.amY, this.kLf, 10, 0);
+            c(this.amY, this.kLh, 10, 0);
         }
     }
 
-    public void dbV() {
-        this.kLm = true;
-        String str = this.kLb.get(0);
-        if (StringUtils.isNull(this.kLe)) {
-            this.kLe = com.baidu.tieba.image.b.Oe(str);
+    public void dbW() {
+        this.kLo = true;
+        String str = this.kLd.get(0);
+        if (StringUtils.isNull(this.kLg)) {
+            this.kLg = com.baidu.tieba.image.b.Oe(str);
         }
-        c(this.amY, this.kLe, 0, 10);
+        c(this.amY, this.kLg, 0, 10);
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.kLg != null) {
-            if (str2 == null || !str2.equals(this.kLg.getPicId())) {
-                this.kLg.cancel();
+        if (this.kLi != null) {
+            if (str2 == null || !str2.equals(this.kLi.getPicId())) {
+                this.kLi.cancel();
             } else {
                 return;
             }
         }
-        this.kLg = new a(str, str2, i, i2);
-        this.kLg.setPriority(3);
-        this.kLg.execute(new Object[0]);
+        this.kLi = new a(str, str2, i, i2);
+        this.kLi.setPriority(3);
+        this.kLi.execute(new Object[0]);
     }
 
     public void setPostId(String str) {
@@ -169,15 +169,15 @@ public class c {
     }
 
     public void tm(boolean z) {
-        this.kLi = z;
+        this.kLk = z;
     }
 
     public void tn(boolean z) {
-        this.kLj = z;
+        this.kLl = z;
     }
 
     public void a(b bVar) {
-        this.kLk = bVar;
+        this.kLm = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -185,19 +185,19 @@ public class c {
     public class a extends BdAsyncTask<Object, Integer, f> {
         private String amY;
         private aa cfI = null;
-        private int kLw;
-        private int kLx;
+        private int kLy;
+        private int kLz;
         private String mPicId;
 
         public a(String str, String str2, int i, int i2) {
             this.amY = null;
             this.mPicId = null;
-            this.kLw = 0;
-            this.kLx = 0;
+            this.kLy = 0;
+            this.kLz = 0;
             this.mPicId = str2;
             this.amY = str;
-            this.kLw = i;
-            this.kLx = i2;
+            this.kLy = i;
+            this.kLz = i2;
         }
 
         public String getPicId() {
@@ -210,7 +210,7 @@ public class c {
         /* renamed from: A */
         public f doInBackground(Object... objArr) {
             this.cfI = new aa(TbConfig.SERVER_ADDRESS + TbConfig.IMAGE_PB_ADDRESS);
-            this.cfI.addPostData("kw", c.this.iSN);
+            this.cfI.addPostData("kw", c.this.iSP);
             this.cfI.addPostData("tid", this.amY);
             if (this.mPicId != null) {
                 this.cfI.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, this.mPicId);
@@ -218,12 +218,12 @@ public class c {
             if (!TextUtils.isEmpty(c.this.mPostId) && !"0".equals(c.this.mPostId)) {
                 this.cfI.addPostData("post_id", c.this.mPostId);
             }
-            this.cfI.addPostData("source", String.valueOf(c.this.kLj ? 1 : 2));
-            c.this.kLj = false;
-            this.cfI.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.kLw));
-            this.cfI.addPostData("prev", String.valueOf(this.kLx));
-            this.cfI.addPostData("not_see_lz", String.valueOf(c.this.kLi ? 0 : 1));
-            this.cfI.addPostData("is_top_agree", String.valueOf(c.this.kLq ? 1 : 2));
+            this.cfI.addPostData("source", String.valueOf(c.this.kLl ? 1 : 2));
+            c.this.kLl = false;
+            this.cfI.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.kLy));
+            this.cfI.addPostData("prev", String.valueOf(this.kLz));
+            this.cfI.addPostData("not_see_lz", String.valueOf(c.this.kLk ? 0 : 1));
+            this.cfI.addPostData("is_top_agree", String.valueOf(c.this.kLs ? 1 : 2));
             if (!c.this.mIsReserver) {
                 this.cfI.addPostData("r", String.valueOf(1));
             }
@@ -232,18 +232,18 @@ public class c {
             } else {
                 this.cfI.addPostData("obj_type", "other");
             }
-            if (TextUtils.isEmpty(c.this.kLn)) {
+            if (TextUtils.isEmpty(c.this.kLp)) {
                 if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bsO().getLong(SharedPrefConfig.APPLIST_INSTALLED_APK_IDS_TIMESTAMP, 0L) < 86400000) {
-                    c.this.kLn = com.baidu.tbadk.core.sharedPref.b.bsO().getString(SharedPrefConfig.APPLIST_INSTALLED_APK_IDS, "");
+                    c.this.kLp = com.baidu.tbadk.core.sharedPref.b.bsO().getString(SharedPrefConfig.APPLIST_INSTALLED_APK_IDS, "");
                 }
             }
-            this.cfI.addPostData("applist", c.this.kLn);
+            this.cfI.addPostData("applist", c.this.kLp);
             String zj = com.baidu.helios.b.al(TbadkCoreApplication.getInst()).zj();
             if (!TextUtils.isEmpty(zj)) {
                 this.cfI.addPostData("oaid", zj);
             }
             this.cfI.addPostData("ad_ext_params", AdExtParam.a.bFX().bFY());
-            dbW();
+            dbX();
             this.cfI.btv().bue().mNeedBackgroundLogin = false;
             String postNetData = this.cfI.postNetData();
             if (!this.cfI.btv().buf().isRequestSuccess()) {
@@ -254,7 +254,7 @@ public class c {
             return fVar;
         }
 
-        private void dbW() {
+        private void dbX() {
             this.cfI.addPostData("forum_id", c.this.mForumId);
             this.cfI.addPostData("user_id", c.this.mUserId == null ? "0" : c.this.mUserId);
             this.cfI.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
@@ -262,7 +262,7 @@ public class c {
             this.cfI.addPostData("q_type", String.valueOf(av.btX().btY() ? 2 : 1));
             this.cfI.addPostData("_os_version", Build.VERSION.RELEASE);
             this.cfI.addPostData("page_name", "PB");
-            this.cfI.addPostData("pic_index", String.valueOf(c.this.kLb.size()));
+            this.cfI.addPostData("pic_index", String.valueOf(c.this.kLd.size()));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -270,7 +270,7 @@ public class c {
             if (this.cfI != null) {
                 this.cfI.cancelNetConnect();
             }
-            c.this.kLg = null;
+            c.this.kLi = null;
             super.cancel(true);
         }
 
@@ -281,9 +281,9 @@ public class c {
         public void onPostExecute(f fVar) {
             super.onPostExecute(fVar);
             if (c.this.fpg != null) {
-                c.this.kLg = null;
+                c.this.kLi = null;
                 if (fVar == null) {
-                    if (c.this.kLk != null) {
+                    if (c.this.kLm != null) {
                         String str = null;
                         int i = -1;
                         if (this.cfI != null) {
@@ -292,69 +292,69 @@ public class c {
                                 str = this.cfI.getErrorString();
                             }
                         }
-                        c.this.kLk.bz(i, str);
+                        c.this.kLm.bz(i, str);
                         return;
                     }
                     return;
                 }
-                boolean isEmpty = y.isEmpty(fVar.dcf());
+                boolean isEmpty = y.isEmpty(fVar.dcg());
                 if (c.this.mIsReset && !isEmpty) {
-                    c.this.kLb.clear();
+                    c.this.kLd.clear();
                     c.this.fpg.clear();
-                    c.this.kLc.clear();
+                    c.this.kLe.clear();
                 }
                 if (fVar.getImageNum() != 0) {
-                    c.this.kLh = fVar.getImageNum();
+                    c.this.kLj = fVar.getImageNum();
                 }
-                c.this.kLl = fVar.bmI();
+                c.this.kLn = fVar.bmI();
                 c.this.fwy = fVar.fwy;
-                c.this.replyPrivateFlag = fVar.dch();
-                c.this.kLt = fVar.kLt;
-                c.this.kLu = fVar.kLu;
-                c.this.kLv = fVar.kLJ == 1;
+                c.this.replyPrivateFlag = fVar.dci();
+                c.this.kLv = fVar.kLv;
+                c.this.kLw = fVar.kLw;
+                c.this.kLx = fVar.kLL == 1;
                 if (this.mPicId == null) {
-                    c.this.kLb.clear();
-                    c.this.kLc.clear();
+                    c.this.kLd.clear();
+                    c.this.kLe.clear();
                 }
-                LinkedList<d> dcf = fVar.dcf();
-                int size = dcf.size();
+                LinkedList<d> dcg = fVar.dcg();
+                int size = dcg.size();
                 if (size <= 0) {
                     c.this.doR = true;
                 } else {
                     for (int i2 = 0; i2 < size; i2++) {
-                        d dVar = dcf.get(i2);
+                        d dVar = dcg.get(i2);
                         String a2 = c.this.a(dVar);
                         ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.id = dVar.dbX();
-                        if (au.equals(imageUrlData.id, c.this.kLp)) {
-                            imageUrlData.setSourceImageRectInScreen(c.this.kLo);
+                        imageUrlData.id = dVar.dbY();
+                        if (au.equals(imageUrlData.id, c.this.kLr)) {
+                            imageUrlData.setSourceImageRectInScreen(c.this.kLq);
                         }
                         imageUrlData.imageUrl = a2;
-                        String str2 = a2 + "*" + dVar.dcb();
+                        String str2 = a2 + "*" + dVar.dcc();
                         imageUrlData.urlType = 10;
                         imageUrlData.originalUrl = dVar.bJa();
                         imageUrlData.originalSize = dVar.getOriginalSize();
                         imageUrlData.forumId = c.this.mForumId;
-                        imageUrlData.forumName = c.this.iSN;
+                        imageUrlData.forumName = c.this.iSP;
                         imageUrlData.threadId = com.baidu.adp.lib.f.b.toLong(this.amY, -1L);
                         imageUrlData.nid = c.this.mNid;
-                        imageUrlData.postId = com.baidu.adp.lib.f.b.toLong(dVar.dbY(), -1L);
+                        imageUrlData.postId = com.baidu.adp.lib.f.b.toLong(dVar.dbZ(), -1L);
                         imageUrlData.userId = dVar.getUserId();
                         imageUrlData.userNameShow = StringUtils.isNull(dVar.bAh()) ? dVar.getUserName() : dVar.bAh();
                         imageUrlData.mIsReserver = c.this.mIsReserver;
-                        imageUrlData.mIsSeeHost = c.this.kLi;
-                        imageUrlData.overAllIndex = dVar.dcb();
+                        imageUrlData.mIsSeeHost = c.this.kLk;
+                        imageUrlData.overAllIndex = dVar.dcc();
                         imageUrlData.mThreadType = c.this.mThreadType;
                         imageUrlData.mPicType = dVar.getPicType();
                         imageUrlData.mTagName = dVar.getTagName();
-                        imageUrlData.mIsShowOrigonButton = dVar.dbZ();
+                        imageUrlData.mIsShowOrigonButton = dVar.dca();
                         imageUrlData.isLongPic = dVar.isLongPic();
-                        imageUrlData.isBlockedPic = dVar.dca();
+                        imageUrlData.isBlockedPic = dVar.dcb();
                         imageUrlData.from = c.this.mFrom;
-                        if (dVar.dcd() != null) {
-                            imageUrlData.richTextArray = dVar.dcd().toString();
+                        if (dVar.dce() != null) {
+                            imageUrlData.richTextArray = dVar.dce().toString();
                         }
-                        imageUrlData.isFirstPost = dVar.dce();
+                        imageUrlData.isFirstPost = dVar.dcf();
                         if (dVar.bqI() != null) {
                             imageUrlData.agreeData = dVar.bqI();
                             imageUrlData.agreeData.isFromImageViewer = true;
@@ -364,8 +364,8 @@ public class c {
                             imageUrlData.agreeData.nid = imageUrlData.nid;
                             imageUrlData.agreeData.postId = String.valueOf(imageUrlData.postId);
                             imageUrlData.agreeData.indexOfPic = imageUrlData.overAllIndex;
-                            imageUrlData.commentNum = dVar.dcc();
-                            if (dVar.dce()) {
+                            imageUrlData.commentNum = dVar.dcd();
+                            if (dVar.dcf()) {
                                 imageUrlData.agreeData.objType = 3;
                                 imageUrlData.agreeData.isInThread = true;
                                 imageUrlData.agreeData.isInPost = false;
@@ -374,14 +374,14 @@ public class c {
                                 imageUrlData.agreeData.isInThread = false;
                                 imageUrlData.agreeData.isInPost = true;
                             }
-                            imageUrlData.agreeData.cardType = c.this.kLs;
+                            imageUrlData.agreeData.cardType = c.this.kLu;
                             imageUrlData.agreeData.recomSource = c.this.mRecomSource;
                             imageUrlData.agreeData.recomAbTag = c.this.mRecomAbTag;
                             imageUrlData.agreeData.recomExtra = c.this.mRecomExtra;
                             imageUrlData.agreeData.recomWeight = c.this.mRecomWeight;
                         }
-                        if (c.this.kLc.containsKey(imageUrlData.id)) {
-                            String str3 = (String) c.this.kLc.get(imageUrlData.id);
+                        if (c.this.kLe.containsKey(imageUrlData.id)) {
+                            String str3 = (String) c.this.kLe.get(imageUrlData.id);
                             ImageUrlData imageUrlData2 = (ImageUrlData) c.this.fpg.get(str3);
                             if (imageUrlData2 == null) {
                                 c.this.fpg.put(str3, imageUrlData);
@@ -397,32 +397,32 @@ public class c {
                                 imageUrlData2.userId = imageUrlData.userId;
                                 imageUrlData2.userNameShow = imageUrlData.userNameShow;
                                 imageUrlData2.forumId = c.this.mForumId;
-                                imageUrlData2.forumName = c.this.iSN;
-                                if (au.equals(imageUrlData.id, c.this.kLp)) {
-                                    imageUrlData2.setSourceImageRectInScreen(c.this.kLo);
+                                imageUrlData2.forumName = c.this.iSP;
+                                if (au.equals(imageUrlData.id, c.this.kLr)) {
+                                    imageUrlData2.setSourceImageRectInScreen(c.this.kLq);
                                 }
                             }
-                        } else if (c.this.kLr) {
-                            c.this.kLh = c.this.fpg.size();
-                            c.this.kLl = null;
+                        } else if (c.this.kLt) {
+                            c.this.kLj = c.this.fpg.size();
+                            c.this.kLn = null;
                         } else {
                             c.this.fpg.put(str2, imageUrlData);
-                            if (c.this.kLm) {
-                                c.this.kLb.add(i2, str2);
+                            if (c.this.kLo) {
+                                c.this.kLd.add(i2, str2);
                             } else {
-                                c.this.kLb.add(str2);
+                                c.this.kLd.add(str2);
                             }
-                            c.this.kLc.put(imageUrlData.id, str2);
+                            c.this.kLe.put(imageUrlData.id, str2);
                         }
                     }
-                    d dVar2 = (d) y.getItem(dcf, 0);
+                    d dVar2 = (d) y.getItem(dcg, 0);
                     if (dVar2 != null) {
-                        c.this.kLe = dVar2.dbX();
+                        c.this.kLg = dVar2.dbY();
                     }
-                    d dVar3 = (d) y.getItem(dcf, size - 1);
+                    d dVar3 = (d) y.getItem(dcg, size - 1);
                     if (dVar3 != null) {
-                        c.this.kLf = dVar3.dbX();
-                        c.this.doR = ((long) c.this.kLh) == dVar3.dcb();
+                        c.this.kLh = dVar3.dbY();
+                        c.this.doR = ((long) c.this.kLj) == dVar3.dcc();
                     }
                 }
                 ImageUrlData imageUrlData3 = null;
@@ -440,7 +440,7 @@ public class c {
                                     imageUrlData4.userId = imageUrlData5.userId;
                                     imageUrlData4.userNameShow = imageUrlData5.userNameShow;
                                     imageUrlData4.forumId = c.this.mForumId;
-                                    imageUrlData4.forumName = c.this.iSN;
+                                    imageUrlData4.forumName = c.this.iSP;
                                 }
                                 imageUrlData3 = imageUrlData5;
                             }
@@ -451,7 +451,7 @@ public class c {
                             imageUrlData4.userId = imageUrlData3.userId;
                             imageUrlData4.userNameShow = imageUrlData3.userNameShow;
                             imageUrlData4.forumId = c.this.mForumId;
-                            imageUrlData4.forumName = c.this.iSN;
+                            imageUrlData4.forumName = c.this.iSP;
                         }
                     }
                 }
@@ -462,18 +462,18 @@ public class c {
                     c.this.amY = this.amY;
                     z = true;
                 }
-                int position = c.this.kLm ? y.getPosition(c.this.kLb, (String) c.this.kLc.get(this.mPicId)) - 1 : i3;
+                int position = c.this.kLo ? y.getPosition(c.this.kLd, (String) c.this.kLe.get(this.mPicId)) - 1 : i3;
                 c.this.eJU = fVar.bqz();
                 c.this.eJV = fVar.bqA();
-                c.this.jDq = fVar.bDp();
-                if (c.this.kLd == null) {
-                    c.this.kLd = new ArrayList();
-                    if (fVar.dcg() != null && fVar.dcf().size() > 0) {
-                        c.this.kLd.addAll(fVar.dcg());
+                c.this.jDs = fVar.bDp();
+                if (c.this.kLf == null) {
+                    c.this.kLf = new ArrayList();
+                    if (fVar.dch() != null && fVar.dcg().size() > 0) {
+                        c.this.kLf.addAll(fVar.dch());
                     }
                 }
-                if (c.this.kLk != null) {
-                    c.this.kLk.a(c.this.kLb, position, c.this.kLh, false, null, z, c.this.kLl, isEmpty);
+                if (c.this.kLm != null) {
+                    c.this.kLm.a(c.this.kLd, position, c.this.kLj, false, null, z, c.this.kLn, isEmpty);
                 }
                 c.this.mIsReset = false;
             }
@@ -505,6 +505,6 @@ public class c {
     }
 
     public void to(boolean z) {
-        this.kLr = z;
+        this.kLt = z;
     }
 }

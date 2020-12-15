@@ -55,10 +55,10 @@ public final class FloatPermissionUtil {
     @SuppressLint({"ValidFragment"})
     /* loaded from: classes4.dex */
     public static class PermissionFragment extends Fragment {
-        private static a gKH = null;
+        private static a gKJ = null;
 
         public static void b(Activity activity, a aVar) {
-            gKH = aVar;
+            gKJ = aVar;
             activity.getFragmentManager().beginTransaction().add(new PermissionFragment(), activity.getLocalClassName()).commitAllowingStateLoss();
         }
 
@@ -66,8 +66,8 @@ public final class FloatPermissionUtil {
         public void onActivityCreated(Bundle bundle) {
             super.onActivityCreated(bundle);
             if (Build.VERSION.SDK_INT < 23) {
-                if (gKH != null) {
-                    gKH.onResult(0);
+                if (gKJ != null) {
+                    gKJ.onResult(0);
                     return;
                 }
                 return;
@@ -85,8 +85,8 @@ public final class FloatPermissionUtil {
                     @Override // java.lang.Runnable
                     public void run() {
                         boolean checkPermission = FloatPermissionUtil.checkPermission(PermissionFragment.this.getActivity());
-                        if (PermissionFragment.gKH != null) {
-                            PermissionFragment.gKH.onResult(checkPermission ? 0 : 1);
+                        if (PermissionFragment.gKJ != null) {
+                            PermissionFragment.gKJ.onResult(checkPermission ? 0 : 1);
                         }
                         if (PermissionFragment.this.getFragmentManager() != null) {
                             PermissionFragment.this.getFragmentManager().beginTransaction().remove(PermissionFragment.this).commitAllowingStateLoss();

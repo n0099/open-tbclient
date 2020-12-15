@@ -7,8 +7,8 @@ import android.view.View;
 /* loaded from: classes4.dex */
 public class j {
     private boolean bbP;
-    protected a gow;
-    private ValueAnimator gox;
+    protected a goy;
+    private ValueAnimator goz;
     View view;
 
     /* loaded from: classes4.dex */
@@ -41,25 +41,25 @@ public class j {
             this.bbP = false;
             onDismiss();
             if (z) {
-                bRw();
+                bRx();
             } else {
                 lR(isShowing());
             }
         }
     }
 
-    private void bRw() {
-        this.gox = z(0.0f, 1.0f);
+    private void bRx() {
+        this.goz = z(0.0f, 1.0f);
     }
 
     private void EW() {
         lR(isShowing());
-        this.gox = z(1.0f, 0.0f);
+        this.goz = z(1.0f, 0.0f);
     }
 
     private ValueAnimator z(float f, float f2) {
-        if (this.gox != null && this.gox.isRunning()) {
-            this.gox.cancel();
+        if (this.goz != null && this.goz.isRunning()) {
+            this.goz.cancel();
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
         ofFloat.setDuration(250L);
@@ -70,18 +70,18 @@ public class j {
             }
         });
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.alaar.view.j.2
-            boolean goz;
+            boolean goB;
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
-                this.goz = true;
+                this.goB = true;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                if (!this.goz) {
+                if (!this.goB) {
                     j.this.lR(j.this.isShowing());
                 }
             }
@@ -104,6 +104,6 @@ public class j {
     }
 
     public void a(a aVar) {
-        this.gow = aVar;
+        this.goy = aVar;
     }
 }

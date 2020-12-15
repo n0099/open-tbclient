@@ -21,10 +21,10 @@ public class ScreenTopToast extends LinearLayout {
     private Animation bNq;
     private TextView cRf;
     private boolean isShow;
-    private TBSpecificationBtn izc;
+    private TBSpecificationBtn ize;
     private Runnable mHideRunnable;
     private TextView mTitleView;
-    private ShadowLinearLayout nRm;
+    private ShadowLinearLayout nRo;
 
     public ScreenTopToast(Context context) {
         this(context, null);
@@ -45,11 +45,11 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.nRm = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.nRo = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
         this.mTitleView = (TextView) findViewById(R.id.screen_top_toast_title);
         this.cRf = (TextView) findViewById(R.id.screen_top_toast_content);
-        this.izc = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-        this.izc.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
+        this.ize = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+        this.ize.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
         initAnimation();
         onChangeSkinType();
     }
@@ -94,12 +94,12 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     public ScreenTopToast Vz(String str) {
-        this.izc.setText(str);
+        this.ize.setText(str);
         return this;
     }
 
     public ScreenTopToast al(View.OnClickListener onClickListener) {
-        this.izc.setOnClickListener(onClickListener);
+        this.ize.setOnClickListener(onClickListener);
         return this;
     }
 
@@ -134,8 +134,8 @@ public class ScreenTopToast extends LinearLayout {
     public void onChangeSkinType() {
         ap.setViewTextColor(this.mTitleView, R.color.CAM_X0302);
         ap.setViewTextColor(this.cRf, R.color.CAM_X0302);
-        this.izc.bvt();
-        this.nRm.onChangeSkinType();
+        this.ize.bvt();
+        this.nRo.onChangeSkinType();
     }
 
     public boolean isShow() {

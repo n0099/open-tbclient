@@ -10,7 +10,7 @@ import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes17.dex */
 class n implements ArCoreApk.a {
-    final /* synthetic */ o ptp;
+    final /* synthetic */ o ptr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ArCoreApk.Availability hN(Context context) {
@@ -74,14 +74,14 @@ class n implements ArCoreApk.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(o oVar) {
-        this.ptp = oVar;
+        this.ptr = oVar;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
-        synchronized (this.ptp) {
-            o.a(this.ptp, availability);
-            o.a(this.ptp, false);
+        synchronized (this.ptr) {
+            o.a(this.ptr, availability);
+            o.a(this.ptr, false);
         }
     }
 }

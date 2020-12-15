@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage {
-    private b hjQ;
-    private List<d> hjR;
+    private b hjS;
+    private List<d> hjT;
 
     public AlaSearchTargetListResponseMessage() {
         super(1021182);
@@ -25,18 +25,18 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("page");
             if (optJSONObject2 != null) {
-                this.hjQ = new b();
-                this.hjQ.parseJson(optJSONObject2);
+                this.hjS = new b();
+                this.hjS.parseJson(optJSONObject2);
             }
             String optString = optJSONObject.optString("query_words");
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.hjR = new ArrayList();
+                this.hjT = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
                     dVar.userName = ex(optString, dVar.userName);
-                    this.hjR.add(dVar);
+                    this.hjT.add(dVar);
                 }
             }
         }
@@ -52,11 +52,11 @@ public class AlaSearchTargetListResponseMessage extends JsonHttpResponsedMessage
         return stringBuffer.toString();
     }
 
-    public b cdh() {
-        return this.hjQ;
+    public b cdi() {
+        return this.hjS;
     }
 
-    public List<d> cdi() {
-        return this.hjR;
+    public List<d> cdj() {
+        return this.hjT;
     }
 }

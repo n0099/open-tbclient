@@ -29,7 +29,7 @@ import com.baidu.tieba.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static c nkV;
+    private static c nkX;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -126,8 +126,8 @@ public class a {
                             textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.b.a.3.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (a.nkV != null) {
-                                        a.nkV.dismiss();
+                                    if (a.nkX != null) {
+                                        a.nkX.dismiss();
                                     }
                                     MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) TbPageContext.this.getPageActivity(), true, (int) RequestResponseCode.REQUEST_PAY_BUBBLE_CODE, "expiring");
                                     memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
@@ -159,7 +159,7 @@ public class a {
                     });
                     dVar.ac(true);
                     dVar.ae(false);
-                    nkV = dVar.mi();
+                    nkX = dVar.mi();
                     new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.4
                         @Override // java.lang.Runnable
                         public void run() {
@@ -174,15 +174,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void l(Activity activity, boolean z) {
-        if (nkV != null) {
-            nkV.show(activity);
+        if (nkX != null) {
+            nkX.show(activity);
         }
         if (!z) {
             new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.nkV != null) {
-                        a.nkV.dismiss();
+                    if (a.nkX != null) {
+                        a.nkX.dismiss();
                     }
                 }
             }, 5000L);

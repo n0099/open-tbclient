@@ -20,12 +20,12 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public static final int NORMAL_LOAD = 2;
     public static final int NO_LOADED_DATA = 1;
     public static final String TOPIC_SELECT_KEY = "topic_select_user";
-    private CustomMessageListener fVX;
-    private String iQJ;
-    private boolean kiA;
-    private boolean kiB;
-    private com.baidu.adp.framework.listener.a kiC;
-    private final a kiz;
+    private CustomMessageListener fVZ;
+    private String iQL;
+    private final a kiB;
+    private boolean kiC;
+    private boolean kiD;
+    private com.baidu.adp.framework.listener.a kiE;
     private String mFirstDir;
     private long mForumId;
     private int mFrom;
@@ -45,15 +45,15 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
     public HotTopicSelectModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.kiA = false;
-        this.kiB = false;
+        this.kiC = false;
+        this.kiD = false;
         this.mForumId = 0L;
         this.mFirstDir = "";
         this.mSecondDir = "";
         checkNotNull(aVar, "HotSelectCallBack is NullPointerException");
         checkNotNull(tbPageContext, "HotTopicSelectActivity is  NullPointerException");
         this.mPageContext = tbPageContext;
-        this.kiz = aVar;
+        this.kiB = aVar;
     }
 
     private void checkNotNull(Object obj, String str) {
@@ -76,30 +76,30 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     }
 
     public void MJ(String str) {
-        this.iQJ = str;
-        this.kiA = true;
+        this.iQL = str;
+        this.kiC = true;
         if (!j.isNetWorkAvailable()) {
-            this.kiz.MI("");
-        } else if (!this.kiB) {
-            this.kiB = true;
-            HotTopicSelectNetMessage cSL = cSL();
-            cSL.setPrefix(str);
-            sendMessage(cSL);
+            this.kiB.MI("");
+        } else if (!this.kiD) {
+            this.kiD = true;
+            HotTopicSelectNetMessage cSM = cSM();
+            cSM.setPrefix(str);
+            sendMessage(cSM);
         }
     }
 
-    public void cSK() {
-        this.iQJ = "";
-        this.kiA = false;
+    public void cSL() {
+        this.iQL = "";
+        this.kiC = false;
         if (!j.isNetWorkAvailable()) {
             getCacheData();
-        } else if (!this.kiB) {
-            this.kiB = true;
-            sendMessage(cSL());
+        } else if (!this.kiD) {
+            this.kiD = true;
+            sendMessage(cSM());
         }
     }
 
-    private HotTopicSelectNetMessage cSL() {
+    private HotTopicSelectNetMessage cSM() {
         HotTopicSelectNetMessage hotTopicSelectNetMessage = new HotTopicSelectNetMessage();
         hotTopicSelectNetMessage.setFid(this.mForumId);
         hotTopicSelectNetMessage.setFirstDir(this.mFirstDir);
@@ -108,11 +108,11 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     }
 
     public void MK(String str) {
-        this.iQJ = str;
+        this.iQL = str;
     }
 
-    public String cAS() {
-        return this.iQJ;
+    public String cAT() {
+        return this.iQL;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -129,36 +129,36 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public void b(boolean z, ResponsedMessage<?> responsedMessage) {
         if (responsedMessage == null || TextUtils.isEmpty(responsedMessage.getErrorString())) {
             if (z) {
-                this.kiz.MI("");
+                this.kiB.MI("");
             } else {
-                this.kiz.MH(this.mPageContext.getString(R.string.neterror));
+                this.kiB.MH(this.mPageContext.getString(R.string.neterror));
             }
         } else if (z) {
-            this.kiz.MI("");
+            this.kiB.MI("");
         } else {
-            this.kiz.MH(responsedMessage.getErrorString());
+            this.kiB.MH(responsedMessage.getErrorString());
         }
     }
 
-    private void cSM() {
-        this.fVX = new CustomMessageListener(CmdConfigCustom.CMD_HOT_TOPIC_SELECT_CACHE) { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectModel.1
+    private void cSN() {
+        this.fVZ = new CustomMessageListener(CmdConfigCustom.CMD_HOT_TOPIC_SELECT_CACHE) { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage == null || !(customResponsedMessage instanceof HotSelectCacheResponseMessage)) {
-                    HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiA, customResponsedMessage);
+                    HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiC, customResponsedMessage);
                     return;
                 }
                 HotSelectCacheResponseMessage hotSelectCacheResponseMessage = (HotSelectCacheResponseMessage) customResponsedMessage;
                 switch (hotSelectCacheResponseMessage.getResultStatus()) {
                     case 1:
-                        HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiA, customResponsedMessage);
+                        HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiC, customResponsedMessage);
                         return;
                     case 2:
-                        HotTopicSelectModel.this.kiz.a(hotSelectCacheResponseMessage.mUserData, hotSelectCacheResponseMessage.mBangData);
+                        HotTopicSelectModel.this.kiB.a(hotSelectCacheResponseMessage.mUserData, hotSelectCacheResponseMessage.mBangData);
                         return;
                     case 3:
-                        HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiA, customResponsedMessage);
+                        HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiC, customResponsedMessage);
                         return;
                     default:
                         return;
@@ -166,50 +166,50 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
             }
         };
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_HOT_TOPIC_SELECT_CACHE, com.baidu.tieba.hottopicselect.a.class);
-        registerListener(this.fVX);
+        registerListener(this.fVZ);
     }
 
-    private void cSN() {
-        this.kiC = new com.baidu.adp.framework.listener.a(1003186, CmdConfigSocket.CMD_GET_HOTTOPIC_SELECT) { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectModel.2
+    private void cSO() {
+        this.kiE = new com.baidu.adp.framework.listener.a(1003186, CmdConfigSocket.CMD_GET_HOTTOPIC_SELECT) { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                HotTopicSelectModel.this.kiB = false;
+                HotTopicSelectModel.this.kiD = false;
                 if (!(responsedMessage instanceof HotSelectSocketResponseMessage) && !(responsedMessage instanceof HotSelectHttpResponseMessage)) {
-                    HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiA, responsedMessage);
+                    HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiC, responsedMessage);
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotTopicSelectNetMessage)) {
-                    HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiA, responsedMessage);
+                    HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiC, responsedMessage);
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiA, responsedMessage);
+                    HotTopicSelectModel.this.b(HotTopicSelectModel.this.kiC, responsedMessage);
                 } else if (responsedMessage instanceof HotSelectHttpResponseMessage) {
                     HotSelectHttpResponseMessage hotSelectHttpResponseMessage = (HotSelectHttpResponseMessage) responsedMessage;
-                    if (HotTopicSelectModel.this.kiA) {
-                        HotTopicSelectModel.this.kiz.a(hotSelectHttpResponseMessage.getSugTopic());
+                    if (HotTopicSelectModel.this.kiC) {
+                        HotTopicSelectModel.this.kiB.a(hotSelectHttpResponseMessage.getSugTopic());
                     } else {
-                        HotTopicSelectModel.this.kiz.a(hotSelectHttpResponseMessage.getUserHisTopic(), hotSelectHttpResponseMessage.getBangTopic());
+                        HotTopicSelectModel.this.kiB.a(hotSelectHttpResponseMessage.getUserHisTopic(), hotSelectHttpResponseMessage.getBangTopic());
                     }
                 } else if (responsedMessage instanceof HotSelectSocketResponseMessage) {
                     HotSelectSocketResponseMessage hotSelectSocketResponseMessage = (HotSelectSocketResponseMessage) responsedMessage;
-                    if (HotTopicSelectModel.this.kiA) {
-                        HotTopicSelectModel.this.kiz.a(hotSelectSocketResponseMessage.getSugTopic());
+                    if (HotTopicSelectModel.this.kiC) {
+                        HotTopicSelectModel.this.kiB.a(hotSelectSocketResponseMessage.getSugTopic());
                     } else {
-                        HotTopicSelectModel.this.kiz.a(hotSelectSocketResponseMessage.getUserHisTopic(), hotSelectSocketResponseMessage.getBangTopic());
+                        HotTopicSelectModel.this.kiB.a(hotSelectSocketResponseMessage.getUserHisTopic(), hotSelectSocketResponseMessage.getBangTopic());
                     }
                 }
             }
         };
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_HOTTOPIC_SELECT, HotSelectSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_HOTTOPIC_SELECT, 1003186, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
-        registerListener(this.kiC);
+        registerListener(this.kiE);
     }
 
-    public void cSO() {
+    public void cSP() {
+        cSO();
         cSN();
-        cSM();
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.kiC);
-        MessageManager.getInstance().unRegisterListener(this.fVX);
+        MessageManager.getInstance().unRegisterListener(this.kiE);
+        MessageManager.getInstance().unRegisterListener(this.fVZ);
         MessageManager.getInstance().unRegisterTask(CmdConfigSocket.CMD_GET_HOTTOPIC_SELECT);
         MessageManager.getInstance().unRegisterTask(1003186);
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_HOT_TOPIC_SELECT_CACHE);

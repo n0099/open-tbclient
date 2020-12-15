@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.pKj;
-        long j = this.pUF;
-        long eDh = eDh();
-        long iL = iL(eDh);
+        E[] eArr = this.pKl;
+        long j = this.pUH;
+        long eDi = eDi();
+        long iL = iL(eDi);
         if (b(eArr, iL) != null) {
-            if (eDh - eDi() > j) {
+            if (eDi - eDj() > j) {
                 return false;
             }
             do {
             } while (b(eArr, iL) != null);
             a(eArr, iL, e);
-            iN(1 + eDh);
+            iN(1 + eDi);
             return true;
         }
         a(eArr, iL, e);
-        iN(1 + eDh);
+        iN(1 + eDi);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long eDi;
-        long eGm = eGm();
+        long eDj;
+        long eGn = eGn();
         do {
-            eDi = eDi();
-            if (eDi >= eGm) {
-                long eDh = eDh();
-                if (eDi >= eDh) {
+            eDj = eDj();
+            if (eDj >= eGn) {
+                long eDi = eDi();
+                if (eDj >= eDi) {
                     return null;
                 }
-                iO(eDh);
+                iO(eDi);
             }
-        } while (!S(eDi, 1 + eDi));
-        long iL = iL(eDi);
-        E[] eArr = this.pKj;
+        } while (!S(eDj, 1 + eDj));
+        long iL = iL(eDj);
+        E[] eArr = this.pKl;
         E a2 = a(eArr, iL);
         b(eArr, iL, null);
         return a2;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E iM;
-        long eGm = eGm();
+        long eGn = eGn();
         do {
-            long eDi = eDi();
-            if (eDi >= eGm) {
-                long eDh = eDh();
-                if (eDi >= eDh) {
+            long eDj = eDj();
+            if (eDj >= eGn) {
+                long eDi = eDi();
+                if (eDj >= eDi) {
                     return null;
                 }
-                iO(eDh);
+                iO(eDi);
             }
-            iM = iM(iL(eDi));
+            iM = iM(iL(eDj));
         } while (iM == null);
         return iM;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eDi = eDi();
+        long eDj = eDj();
         while (true) {
-            long eDh = eDh();
-            long eDi2 = eDi();
-            if (eDi == eDi2) {
-                return (int) (eDh - eDi2);
+            long eDi = eDi();
+            long eDj2 = eDj();
+            if (eDj == eDj2) {
+                return (int) (eDi - eDj2);
             }
-            eDi = eDi2;
+            eDj = eDj2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eDi() == eDh();
+        return eDj() == eDi();
     }
 }

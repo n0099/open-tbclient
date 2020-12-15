@@ -11,8 +11,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes4.dex */
 public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
-    private HeadImageView gnP;
-    private TextView gnQ;
+    private HeadImageView gnR;
+    private TextView gnS;
 
     public AlaLiveMultiBeautyFilterItemView(Context context) {
         super(context);
@@ -21,28 +21,28 @@ public class AlaLiveMultiBeautyFilterItemView extends LinearLayout {
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(a.g.ala_live_beauty_filter_item_view, (ViewGroup) this, true);
-        this.gnP = (HeadImageView) inflate.findViewById(a.f.item_icon);
-        this.gnP.setIsRound(true);
-        this.gnP.setAutoChangeStyle(false);
-        this.gnP.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gnQ = (TextView) inflate.findViewById(a.f.item_text);
+        this.gnR = (HeadImageView) inflate.findViewById(a.f.item_icon);
+        this.gnR.setIsRound(true);
+        this.gnR.setAutoChangeStyle(false);
+        this.gnR.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gnS = (TextView) inflate.findViewById(a.f.item_text);
     }
 
     public void setUnselectedBackground() {
-        this.gnP.setBackgroundColor(getResources().getColor(a.c.sdk_black_alpha0));
-        this.gnQ.setTextColor(getResources().getColor(a.c.sdk_cp_cont_d));
+        this.gnR.setBackgroundColor(getResources().getColor(a.c.sdk_black_alpha0));
+        this.gnS.setTextColor(getResources().getColor(a.c.sdk_cp_cont_d));
     }
 
     public void setSelectedBackground() {
-        this.gnQ.setTextColor(getResources().getColor(a.c.sdk_cp_other_b));
-        this.gnP.setBackgroundDrawable(getResources().getDrawable(a.e.ala_live_effect_item_selected));
+        this.gnS.setTextColor(getResources().getColor(a.c.sdk_cp_other_b));
+        this.gnR.setBackgroundDrawable(getResources().getDrawable(a.e.ala_live_effect_item_selected));
     }
 
     public void setItemIcon(int i) {
-        this.gnP.setImageDrawable(getResources().getDrawable(i));
+        this.gnR.setImageDrawable(getResources().getDrawable(i));
     }
 
     public void setItemText(String str) {
-        this.gnQ.setText(str);
+        this.gnS.setText(str);
     }
 }

@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.j;
 /* loaded from: classes7.dex */
 public class b {
-    public static final a pqM = new C0998b();
-    private static volatile c pqN = null;
+    public static final a pqO = new C0998b();
+    private static volatile c pqP = null;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -19,22 +19,22 @@ public class b {
     }
 
     public static void beginSection(String str) {
-        exx().beginSection(str);
+        exy().beginSection(str);
     }
 
     public static void endSection() {
-        exx().endSection();
+        exy().endSection();
     }
 
-    private static c exx() {
-        if (pqN == null) {
+    private static c exy() {
+        if (pqP == null) {
             synchronized (b.class) {
-                if (pqN == null) {
-                    pqN = new com.facebook.imagepipeline.j.a();
+                if (pqP == null) {
+                    pqP = new com.facebook.imagepipeline.j.a();
                 }
             }
         }
-        return pqN;
+        return pqP;
     }
 
     /* renamed from: com.facebook.imagepipeline.j.b$b  reason: collision with other inner class name */

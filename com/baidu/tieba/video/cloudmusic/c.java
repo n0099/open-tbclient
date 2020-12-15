@@ -6,9 +6,9 @@ public interface c {
 
     /* loaded from: classes23.dex */
     public interface a {
-        void cFg();
+        void cFh();
 
-        void dTW();
+        void dTX();
     }
 
     /* loaded from: classes23.dex */

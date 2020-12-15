@@ -34,12 +34,12 @@ public class SdkLivePlayer extends LinearLayout implements f {
     private boolean aGB;
     private com.baidu.live.u.b bNW;
     private String bNX;
-    private ArrayList<com.baidu.live.liveroom.e.d> hSF;
-    private ArrayList<AlaLiveInfoData> hSG;
-    private com.baidu.live.liveroom.e.f hSH;
-    private g hSI;
-    private int hSJ;
-    private com.baidu.live.u.c hSK;
+    private ArrayList<com.baidu.live.liveroom.e.d> hSH;
+    private ArrayList<AlaLiveInfoData> hSI;
+    private com.baidu.live.liveroom.e.f hSJ;
+    private g hSK;
+    private int hSL;
+    private com.baidu.live.u.c hSM;
     private Context mContext;
     private boolean mIsFloating;
     private boolean mPaused;
@@ -56,21 +56,21 @@ public class SdkLivePlayer extends LinearLayout implements f {
         this.bNX = "";
         this.aGB = false;
         this.mPaused = false;
-        this.hSK = new com.baidu.live.u.c() { // from class: com.baidu.tieba.ala.player.SdkLivePlayer.1
+        this.hSM = new com.baidu.live.u.c() { // from class: com.baidu.tieba.ala.player.SdkLivePlayer.1
         };
         this.mContext = context;
         setOrientation(0);
-        this.hSF = new ArrayList<>();
+        this.hSH = new ArrayList<>();
         com.baidu.live.liveroom.e.d bc = i.PB().bc(context);
         com.baidu.live.liveroom.e.d bc2 = i.PB().bc(context);
         boolean z = com.baidu.live.ae.a.RB().brA.aMK;
-        this.hSF.add(bc);
-        this.hSF.add(bc2);
+        this.hSH.add(bc);
+        this.hSH.add(bc2);
         com.baidu.live.u.d PE = i.PB().PE();
         if (PE != null && !PE.Qz()) {
-            PE.a(this.hSK);
+            PE.a(this.hSM);
         }
-        this.hSI = new g(this.mContext);
+        this.hSK = new g(this.mContext);
     }
 
     public boolean isFloatingMode() {
@@ -80,22 +80,22 @@ public class SdkLivePlayer extends LinearLayout implements f {
     public void setFloatingModel(boolean z) {
         if (this.mIsFloating != z) {
             this.mIsFloating = z;
-            if (!this.mIsFloating && this.hSI != null) {
-                this.hSI.abandonAudioFocus();
+            if (!this.mIsFloating && this.hSK != null) {
+                this.hSK.abandonAudioFocus();
             }
         }
     }
 
     public com.baidu.live.liveroom.e.d getCurrentFloatingPlayer() {
-        if (this.hSF.size() > 0) {
-            return this.hSF.get(0);
+        if (this.hSH.size() > 0) {
+            return this.hSH.get(0);
         }
         return null;
     }
 
-    public void coe() {
-        if (this.hSF != null && this.hSF.size() > 0) {
-            Iterator<com.baidu.live.liveroom.e.d> it = this.hSF.iterator();
+    public void cof() {
+        if (this.hSH != null && this.hSH.size() > 0) {
+            Iterator<com.baidu.live.liveroom.e.d> it = this.hSH.iterator();
             while (it.hasNext()) {
                 com.baidu.live.liveroom.e.d next = it.next();
                 if (next != null) {
@@ -107,11 +107,11 @@ public class SdkLivePlayer extends LinearLayout implements f {
         }
     }
 
-    public void cof() {
+    public void cog() {
         String str;
         requestAudioFocus();
-        if (this.hSG != null && this.hSG.size() > 0) {
-            Iterator<AlaLiveInfoData> it = this.hSG.iterator();
+        if (this.hSI != null && this.hSI.size() > 0) {
+            Iterator<AlaLiveInfoData> it = this.hSI.iterator();
             int i = 0;
             while (it.hasNext()) {
                 AlaLiveInfoData next = it.next();
@@ -122,8 +122,8 @@ public class SdkLivePlayer extends LinearLayout implements f {
                         str = next.playUrl;
                     }
                     if (!TextUtils.isEmpty(str)) {
-                        if (this.hSF != null && this.hSF.size() > i) {
-                            com.baidu.live.liveroom.e.d dVar = this.hSF.get(i);
+                        if (this.hSH != null && this.hSH.size() > i) {
+                            com.baidu.live.liveroom.e.d dVar = this.hSH.get(i);
                             dVar.stop();
                             dVar.c(Uri.parse(str));
                             dVar.start();
@@ -137,21 +137,21 @@ public class SdkLivePlayer extends LinearLayout implements f {
     }
 
     public AlaLiveInfoData getCurrentLiveInfoData() {
-        if (this.hSG.size() > 0) {
-            return this.hSG.get(0);
+        if (this.hSI.size() > 0) {
+            return this.hSI.get(0);
         }
         return null;
     }
 
     public List<AlaLiveInfoData> getAlaLiveInfoDataList() {
-        return this.hSG;
+        return this.hSI;
     }
 
     @Override // com.baidu.live.u.f
     public void c(AlaLiveInfoData alaLiveInfoData) {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         arrayList.add(alaLiveInfoData);
-        cog();
+        coh();
         al(arrayList);
     }
 
@@ -164,16 +164,16 @@ public class SdkLivePlayer extends LinearLayout implements f {
         com.baidu.live.liveroom.e.d dVar;
         bo boVar;
         requestAudioFocus();
-        this.hSG = arrayList;
-        LinearLayout.LayoutParams cok = cok();
+        this.hSI = arrayList;
+        LinearLayout.LayoutParams col = col();
         if (ListUtils.getCount(arrayList) == 2) {
-            cok = coj();
+            col = cok();
         }
         if (arrayList == null || arrayList.size() != 1 || (boVar = com.baidu.live.ae.a.RB().bxq) == null || boVar.aQT == null || ((i = boVar.aQT.aRI) != 1 && i != 2)) {
             i = 1;
         }
-        if (this.hSF != null && !this.hSF.isEmpty() && (dVar = this.hSF.get(0)) != null && dVar.getPlayerView() != null) {
-            dVar.getPlayerView().setLayoutParams(cok);
+        if (this.hSH != null && !this.hSH.isEmpty() && (dVar = this.hSH.get(0)) != null && dVar.getPlayerView() != null) {
+            dVar.getPlayerView().setLayoutParams(col);
         }
         if (arrayList != null && arrayList.size() > 0) {
             int i2 = 0;
@@ -182,7 +182,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
                     i2 = 2;
                 }
                 if (i3 != 0 || !z) {
-                    a(arrayList.get(i3), i3, cok, i, i2);
+                    a(arrayList.get(i3), i3, col, i, i2);
                 }
             }
         }
@@ -204,8 +204,8 @@ public class SdkLivePlayer extends LinearLayout implements f {
             if (i == 0) {
                 this.bNX = str;
             }
-            if (this.hSF != null && this.hSF.size() > 0) {
-                final com.baidu.live.liveroom.e.d dVar = this.hSF.get(i);
+            if (this.hSH != null && this.hSH.size() > 0) {
+                final com.baidu.live.liveroom.e.d dVar = this.hSH.get(i);
                 if (i != 0 || !dVar.isPlaying() || dVar.getPlayerView().getParent() == null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -236,24 +236,24 @@ public class SdkLivePlayer extends LinearLayout implements f {
                         @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                         public void onStart() {
                             super.onStart();
-                            if (SdkLivePlayer.this.hSH != null) {
-                                SdkLivePlayer.this.hSH.onStart();
+                            if (SdkLivePlayer.this.hSJ != null) {
+                                SdkLivePlayer.this.hSJ.onStart();
                             }
                         }
 
                         @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                         public void onPause() {
                             super.onPause();
-                            if (SdkLivePlayer.this.hSH != null) {
-                                SdkLivePlayer.this.hSH.onPause();
+                            if (SdkLivePlayer.this.hSJ != null) {
+                                SdkLivePlayer.this.hSJ.onPause();
                             }
                         }
 
                         @Override // com.baidu.live.liveroom.e.g, com.baidu.live.liveroom.e.f
                         public void onEnd(int i4) {
                             super.onEnd(i4);
-                            if (SdkLivePlayer.this.hSH != null) {
-                                SdkLivePlayer.this.hSH.onEnd(i4);
+                            if (SdkLivePlayer.this.hSJ != null) {
+                                SdkLivePlayer.this.hSJ.onEnd(i4);
                             }
                         }
 
@@ -262,11 +262,11 @@ public class SdkLivePlayer extends LinearLayout implements f {
                             if (com.baidu.live.liveroom.e.h.isDebug()) {
                                 Log.d("sdkLivePlayer", "onInfo " + i4 + ", " + i5);
                             }
-                            if (SdkLivePlayer.this.hSJ == 936 && i4 == 904 && !TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo() && !TbadkCoreApplication.getInst().isTieba()) {
+                            if (SdkLivePlayer.this.hSL == 936 && i4 == 904 && !TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isQuanmin() && !TbadkCoreApplication.getInst().isYinbo() && !TbadkCoreApplication.getInst().isTieba()) {
                                 ArrayList arrayList = (ArrayList) SdkLivePlayer.this.getAlaLiveInfoDataList();
                                 if (!ListUtils.isEmpty(arrayList)) {
                                     ArrayList<AlaLiveInfoData> arrayList2 = new ArrayList<>(arrayList);
-                                    SdkLivePlayer.this.cog();
+                                    SdkLivePlayer.this.coh();
                                     SdkLivePlayer.this.al(arrayList2);
                                 }
                             }
@@ -279,10 +279,10 @@ public class SdkLivePlayer extends LinearLayout implements f {
                                 }
                                 dVar.fj(0);
                             }
-                            if (SdkLivePlayer.this.hSH != null) {
-                                SdkLivePlayer.this.hSH.a(dVar2, i4, i5);
+                            if (SdkLivePlayer.this.hSJ != null) {
+                                SdkLivePlayer.this.hSJ.a(dVar2, i4, i5);
                             }
-                            SdkLivePlayer.this.hSJ = i4;
+                            SdkLivePlayer.this.hSL = i4;
                         }
                     });
                     dVar.c(Uri.parse(str));
@@ -304,8 +304,8 @@ public class SdkLivePlayer extends LinearLayout implements f {
     }
 
     private void Yj() {
-        if (!ListUtils.isEmpty(this.hSF)) {
-            Iterator<com.baidu.live.liveroom.e.d> it = this.hSF.iterator();
+        if (!ListUtils.isEmpty(this.hSH)) {
+            Iterator<com.baidu.live.liveroom.e.d> it = this.hSH.iterator();
             while (it.hasNext()) {
                 com.baidu.live.liveroom.e.d next = it.next();
                 if (next != null && next.getPlayerView() != null && next.getPlayerView().getParent() != null) {
@@ -316,7 +316,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         removeAllViews();
     }
 
-    public void cog() {
+    public void coh() {
         cE(true);
     }
 
@@ -326,15 +326,15 @@ public class SdkLivePlayer extends LinearLayout implements f {
             BdLog.e("AlaLivePlayer stopLivePlayer()");
         }
         if (isFloatingMode()) {
-            coe();
+            cof();
             return;
         }
         if (z) {
             Yj();
         }
         this.bNX = "";
-        if (!ListUtils.isEmpty(this.hSF)) {
-            Iterator<com.baidu.live.liveroom.e.d> it = this.hSF.iterator();
+        if (!ListUtils.isEmpty(this.hSH)) {
+            Iterator<com.baidu.live.liveroom.e.d> it = this.hSH.iterator();
             while (it.hasNext()) {
                 com.baidu.live.liveroom.e.d next = it.next();
                 if (next != null) {
@@ -344,41 +344,41 @@ public class SdkLivePlayer extends LinearLayout implements f {
                 }
             }
         }
-        if (this.hSG != null) {
-            this.hSG.clear();
+        if (this.hSI != null) {
+            this.hSI.clear();
         }
         this.aGB = false;
         UbcStatisticManager.getInstance().liveRoomFlowEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PLAY_FLOW, "notice", "liveroom", "playtime"));
     }
 
-    public void coh() {
+    public void coi() {
         if (BdLog.isDebugMode()) {
             BdLog.e("AlaLivePlayer stopLivePlayer()");
         }
         if (isFloatingMode()) {
-            coe();
+            cof();
             return;
         }
-        if (!ListUtils.isEmpty(this.hSF)) {
-            for (int i = 0; i < this.hSF.size(); i++) {
-                com.baidu.live.liveroom.e.d dVar = this.hSF.get(i);
+        if (!ListUtils.isEmpty(this.hSH)) {
+            for (int i = 0; i < this.hSH.size(); i++) {
+                com.baidu.live.liveroom.e.d dVar = this.hSH.get(i);
                 if (i != 0 && dVar != null && dVar.getPlayerView() != null && dVar.getPlayerView().getParent() != null) {
                     ((ViewGroup) dVar.getPlayerView().getParent()).removeView(dVar.getPlayerView());
                 }
             }
         }
         this.bNX = "";
-        if (!ListUtils.isEmpty(this.hSF)) {
-            for (int i2 = 0; i2 < this.hSF.size(); i2++) {
-                com.baidu.live.liveroom.e.d dVar2 = this.hSF.get(i2);
+        if (!ListUtils.isEmpty(this.hSH)) {
+            for (int i2 = 0; i2 < this.hSH.size(); i2++) {
+                com.baidu.live.liveroom.e.d dVar2 = this.hSH.get(i2);
                 if (i2 != 0 && dVar2 != null) {
                     dVar2.setPlayerCallback(null);
                     dVar2.stop();
                 }
             }
         }
-        if (this.hSG != null) {
-            this.hSG.clear();
+        if (this.hSI != null) {
+            this.hSI.clear();
         }
         this.aGB = false;
         UbcStatisticManager.getInstance().liveRoomFlowEnd(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PLAY_FLOW, "notice", "liveroom", "playtime"));
@@ -390,8 +390,8 @@ public class SdkLivePlayer extends LinearLayout implements f {
     }
 
     public void pause() {
-        if (!ListUtils.isEmpty(this.hSF)) {
-            Iterator<com.baidu.live.liveroom.e.d> it = this.hSF.iterator();
+        if (!ListUtils.isEmpty(this.hSH)) {
+            Iterator<com.baidu.live.liveroom.e.d> it = this.hSH.iterator();
             while (it.hasNext()) {
                 com.baidu.live.liveroom.e.d next = it.next();
                 if (next != null) {
@@ -407,8 +407,8 @@ public class SdkLivePlayer extends LinearLayout implements f {
     public void resume() {
         requestAudioFocus();
         this.mPaused = false;
-        if (!ListUtils.isEmpty(this.hSF)) {
-            Iterator<com.baidu.live.liveroom.e.d> it = this.hSF.iterator();
+        if (!ListUtils.isEmpty(this.hSH)) {
+            Iterator<com.baidu.live.liveroom.e.d> it = this.hSH.iterator();
             while (it.hasNext()) {
                 com.baidu.live.liveroom.e.d next = it.next();
                 if (next != null) {
@@ -427,11 +427,11 @@ public class SdkLivePlayer extends LinearLayout implements f {
             BdLog.e("AlaLivePlayer pausePlay()");
         }
         if (isFloatingMode()) {
-            coe();
+            cof();
             return;
         }
-        if (!ListUtils.isEmpty(this.hSF)) {
-            Iterator<com.baidu.live.liveroom.e.d> it = this.hSF.iterator();
+        if (!ListUtils.isEmpty(this.hSH)) {
+            Iterator<com.baidu.live.liveroom.e.d> it = this.hSH.iterator();
             while (it.hasNext()) {
                 com.baidu.live.liveroom.e.d next = it.next();
                 if (next != null) {
@@ -449,8 +449,8 @@ public class SdkLivePlayer extends LinearLayout implements f {
             BdLog.e("AlaLivePlayer destroy()");
         }
         this.mPaused = false;
-        if (!ListUtils.isEmpty(this.hSF)) {
-            Iterator<com.baidu.live.liveroom.e.d> it = this.hSF.iterator();
+        if (!ListUtils.isEmpty(this.hSH)) {
+            Iterator<com.baidu.live.liveroom.e.d> it = this.hSH.iterator();
             while (it.hasNext()) {
                 com.baidu.live.liveroom.e.d next = it.next();
                 if (next != null) {
@@ -458,11 +458,11 @@ public class SdkLivePlayer extends LinearLayout implements f {
                     next.release();
                 }
             }
-            this.hSF.clear();
+            this.hSH.clear();
         }
         com.baidu.live.u.d PE = i.PB().PE();
         if (PE != null) {
-            PE.b(this.hSK);
+            PE.b(this.hSM);
         }
     }
 
@@ -476,13 +476,13 @@ public class SdkLivePlayer extends LinearLayout implements f {
     }
 
     public void setIPlayerAudioFocusCallBack(com.baidu.live.u.a aVar) {
-        if (this.hSI != null) {
-            this.hSI.setIPlayerAudioFocusCallBack(aVar);
+        if (this.hSK != null) {
+            this.hSK.setIPlayerAudioFocusCallBack(aVar);
         }
     }
 
     public void setPlayerCallback(com.baidu.live.liveroom.e.f fVar) {
-        this.hSH = fVar;
+        this.hSJ = fVar;
     }
 
     public boolean isPlaying() {
@@ -492,30 +492,30 @@ public class SdkLivePlayer extends LinearLayout implements f {
     public void setPlayLiveInfo(AlaLiveInfoData alaLiveInfoData) {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         arrayList.add(alaLiveInfoData);
-        this.hSG = arrayList;
-        coi();
+        this.hSI = arrayList;
+        coj();
     }
 
     public void setPlayLiveInfo(ArrayList<AlaLiveInfoData> arrayList) {
-        this.hSG = arrayList;
-        coi();
+        this.hSI = arrayList;
+        coj();
     }
 
-    private void coi() {
-        if (this.hSG != null && this.hSF != null && this.hSG.size() > 0 && this.hSF.size() > 0) {
+    private void coj() {
+        if (this.hSI != null && this.hSH != null && this.hSI.size() > 0 && this.hSH.size() > 0) {
             int i = 0;
-            for (int i2 = 0; i2 < this.hSG.size(); i2++) {
-                if (this.hSG.get(i2) != null && this.hSF.get(i2) != null) {
-                    if (this.hSG.get(i2).screen_direction == 2) {
+            for (int i2 = 0; i2 < this.hSI.size(); i2++) {
+                if (this.hSI.get(i2) != null && this.hSH.get(i2) != null) {
+                    if (this.hSI.get(i2).screen_direction == 2) {
                         i = 2;
                     }
-                    this.hSF.get(i2).setVideoScalingMode(i);
+                    this.hSH.get(i2).setVideoScalingMode(i);
                 }
             }
         }
     }
 
-    private LinearLayout.LayoutParams coj() {
+    private LinearLayout.LayoutParams cok() {
         int bh = com.baidu.live.utils.h.bh(this.mContext);
         int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.mContext) / 2;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(equipmentWidth, com.baidu.live.utils.h.gC(equipmentWidth));
@@ -523,30 +523,30 @@ public class SdkLivePlayer extends LinearLayout implements f {
         return layoutParams;
     }
 
-    private LinearLayout.LayoutParams cok() {
+    private LinearLayout.LayoutParams col() {
         return new LinearLayout.LayoutParams(-1, -1);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.hSI != null) {
-            this.hSI.requestAudioFocus();
+        if (this.hSK != null) {
+            this.hSK.requestAudioFocus();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (!isFloatingMode() && this.hSI != null) {
-            this.hSI.abandonAudioFocus();
+        if (!isFloatingMode() && this.hSK != null) {
+            this.hSK.abandonAudioFocus();
         }
     }
 
     private void requestAudioFocus() {
-        if (this.hSI != null && TbadkCoreApplication.getInst().isBaidu() && !this.hSI.hasFocus()) {
-            this.hSI.abandonAudioFocus();
-            this.hSI.requestAudioFocus();
+        if (this.hSK != null && TbadkCoreApplication.getInst().isBaidu() && !this.hSK.hasFocus()) {
+            this.hSK.abandonAudioFocus();
+            this.hSK.requestAudioFocus();
         }
     }
 }

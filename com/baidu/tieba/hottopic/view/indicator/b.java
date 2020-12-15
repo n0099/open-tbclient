@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class b extends BaseAdapter {
-    private final int khN;
+    private final int khP;
     private Context mContext;
     private int padding;
     private List<p> tagList = new ArrayList();
@@ -27,7 +27,7 @@ public class b extends BaseAdapter {
         this.mContext = context;
         this.textSize = context.getResources().getDimensionPixelSize(R.dimen.fontsize28);
         this.padding = context.getResources().getDimensionPixelSize(R.dimen.ds16);
-        this.khN = i;
+        this.khP = i;
     }
 
     public void setTagList(List<p> list) {
@@ -75,7 +75,7 @@ public class b extends BaseAdapter {
         }
         textView.setText(au.cutChineseAndEnglishWithSuffix(pVar.tabName, 8, null));
         ap.setViewTextColor(textView, R.color.CAM_X0106, 1);
-        if (i == this.khN) {
+        if (i == this.khP) {
             ap.setBackgroundResource(textView, R.drawable.btn_label_white_s);
             return textView;
         } else if (1 == TbadkCoreApplication.getInst().getSkinType() || 4 == TbadkCoreApplication.getInst().getSkinType()) {

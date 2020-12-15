@@ -12,19 +12,19 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.live.guess.a.c;
 /* loaded from: classes4.dex */
 public class d extends b implements View.OnClickListener {
-    private LinearLayout gWZ;
-    private TextView gXa;
-    private a gXb;
+    private LinearLayout gXb;
+    private TextView gXc;
+    private a gXd;
 
     /* loaded from: classes4.dex */
     public interface a {
         void apM();
 
-        void bXT();
+        void bXU();
     }
 
     public void a(a aVar) {
-        this.gXb = aVar;
+        this.gXd = aVar;
     }
 
     public d(Context context) {
@@ -33,19 +33,19 @@ public class d extends b implements View.OnClickListener {
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void HH() {
-        this.gXa.setOnClickListener(this);
-        this.gWZ.setOnClickListener(this);
+        this.gXc.setOnClickListener(this);
+        this.gXb.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    void bYa() {
+    void bYb() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_follow_dialog, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void initView() {
-        this.gWZ = (LinearLayout) this.mRootView.findViewById(a.f.frame_exit);
-        this.gXa = (TextView) this.mRootView.findViewById(a.f.tv_guess_follow);
+        this.gXb = (LinearLayout) this.mRootView.findViewById(a.f.frame_exit);
+        this.gXc = (TextView) this.mRootView.findViewById(a.f.tv_guess_follow);
         this.mDialog.setOnKeyListener(new c.b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.a.d.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -56,13 +56,13 @@ public class d extends b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gWZ) {
-            if (this.gXb != null) {
-                this.gXb.apM();
+        if (view == this.gXb) {
+            if (this.gXd != null) {
+                this.gXd.apM();
                 dismiss();
             }
-        } else if (view == this.gXa) {
-            this.gXb.bXT();
+        } else if (view == this.gXc) {
+            this.gXd.bXU();
             dismiss();
         }
     }

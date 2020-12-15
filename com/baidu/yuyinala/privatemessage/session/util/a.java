@@ -14,17 +14,17 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes4.dex */
 public final class a {
-    private static long oXJ = -1;
+    private static long oXL = -1;
 
     public static String j(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(eon());
+        Calendar calendar = Calendar.getInstance(eoo());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(eon());
+        Calendar calendar2 = Calendar.getInstance(eoo());
         calendar2.setTimeInMillis(m43if(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", eon());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", eoo());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,9 +52,9 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", eon());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", eoo());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eon());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", eoo());
             }
         }
         return simpleDateFormat.format(time);
@@ -62,16 +62,16 @@ public final class a {
 
     /* renamed from: if  reason: not valid java name */
     public static long m43if(long j) {
-        if (oXJ < 0) {
-            oXJ = j;
+        if (oXL < 0) {
+            oXL = j;
         }
-        if (Math.abs(oXJ - j) > 1000) {
-            oXJ = j;
+        if (Math.abs(oXL - j) > 1000) {
+            oXL = j;
         }
-        return oXJ;
+        return oXL;
     }
 
-    public static Locale eon() {
+    public static Locale eoo() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
@@ -90,7 +90,7 @@ public final class a {
     }
 
     public static void ih(long j) {
-        b.eok().ie(j);
+        b.eol().ie(j);
     }
 
     public static String b(ChatSession chatSession) {

@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class h extends BaseAdapter {
     private TbPageContext<?> eNx;
     private int eOV;
-    private b iOA;
-    private ArrayList<i> iOC = new ArrayList<>();
-    private p iOD;
-    private int iOE;
+    private b iOC;
+    private ArrayList<i> iOE = new ArrayList<>();
+    private p iOF;
+    private int iOG;
 
     /* loaded from: classes23.dex */
     public interface b {
@@ -27,16 +27,16 @@ public class h extends BaseAdapter {
 
     public h(TbPageContext<?> tbPageContext) {
         this.eOV = 0;
-        this.iOE = 0;
+        this.iOG = 0;
         this.eNx = tbPageContext;
         this.eOV = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds31);
-        this.iOE = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds0);
+        this.iOG = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds0);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iOC != null) {
-            return this.iOC.size();
+        if (this.iOE != null) {
+            return this.iOE.size();
         }
         return 0;
     }
@@ -45,10 +45,10 @@ public class h extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: zq */
     public i getItem(int i) {
-        if (this.iOC == null || i >= this.iOC.size()) {
+        if (this.iOE == null || i >= this.iOE.size()) {
             return null;
         }
-        return this.iOC.get(i);
+        return this.iOE.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -58,7 +58,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return getItem(i).cAo();
+        return getItem(i).cAp();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -85,58 +85,58 @@ public class h extends BaseAdapter {
         } else if (getItemViewType(i) == 1) {
             if (view != null && (view.getTag() instanceof c)) {
                 c cVar2 = (c) view.getTag();
-                cVar2.iOG.setVisibility(0);
-                cVar2.iOH.setVisibility(8);
-                cVar2.iOI.setVisibility(8);
+                cVar2.iOI.setVisibility(0);
                 cVar2.iOJ.setVisibility(8);
+                cVar2.iOK.setVisibility(8);
+                cVar2.iOL.setVisibility(8);
                 cVar = cVar2;
             } else {
                 view = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.bawu_item_member, viewGroup, false);
                 c cVar3 = new c();
                 cVar3.mRoot = (RelativeLayout) view.findViewById(R.id.bawu_item_member_root);
-                cVar3.iOG = (BawuMemberInfoView) view.findViewById(R.id.left_member);
-                cVar3.iOH = (BawuMemberInfoView) view.findViewById(R.id.right_member);
-                cVar3.iOI = (BawuManagerApplyInfoView) view.findViewById(R.id.left_manager_apply);
-                cVar3.iOJ = (BawuManagerApplyInfoView) view.findViewById(R.id.right_manager_apply);
+                cVar3.iOI = (BawuMemberInfoView) view.findViewById(R.id.left_member);
+                cVar3.iOJ = (BawuMemberInfoView) view.findViewById(R.id.right_member);
+                cVar3.iOK = (BawuManagerApplyInfoView) view.findViewById(R.id.left_manager_apply);
+                cVar3.iOL = (BawuManagerApplyInfoView) view.findViewById(R.id.right_manager_apply);
                 view.setTag(cVar3);
                 cVar = cVar3;
             }
             com.baidu.tieba.forumMember.bawu.b bVar = (com.baidu.tieba.forumMember.bawu.b) getItem(i);
-            if (bVar != null && bVar.cAp() != null && bVar.cAp().size() > 0) {
-                if (bVar.isLast() && bVar.cAq()) {
-                    cVar.mRoot.setPadding(this.eOV, 0, this.eOV, this.iOE);
-                    if (this.iOD != null && !this.iOD.isEmpty()) {
-                        if (bVar.cAp().size() == 2) {
-                            if (bVar.cAr().equals(this.eNx.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                                cVar.iOJ.setVisibility(8);
-                                cVar.iOI.setVisibility(8);
-                            } else if (bVar.cAr().equals(this.eNx.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                                cVar.iOJ.setVisibility(8);
-                                cVar.iOI.setVisibility(0);
-                                cVar.iOI.aO(this.eNx.getResources().getString(R.string.tip_assist_apply), this.iOD.cAA());
-                                cVar.iOI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
+            if (bVar != null && bVar.cAq() != null && bVar.cAq().size() > 0) {
+                if (bVar.isLast() && bVar.cAr()) {
+                    cVar.mRoot.setPadding(this.eOV, 0, this.eOV, this.iOG);
+                    if (this.iOF != null && !this.iOF.isEmpty()) {
+                        if (bVar.cAq().size() == 2) {
+                            if (bVar.cAs().equals(this.eNx.getResources().getString(R.string.bawu_member_bazhu_tip))) {
+                                cVar.iOL.setVisibility(8);
+                                cVar.iOK.setVisibility(8);
+                            } else if (bVar.cAs().equals(this.eNx.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                                cVar.iOL.setVisibility(8);
+                                cVar.iOK.setVisibility(0);
+                                cVar.iOK.aO(this.eNx.getResources().getString(R.string.tip_assist_apply), this.iOF.cAB());
+                                cVar.iOK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
-                                        if (h.this.iOA != null) {
-                                            h.this.iOA.Ky(h.this.iOD.cAB());
+                                        if (h.this.iOC != null) {
+                                            h.this.iOC.Ky(h.this.iOF.cAC());
                                         }
                                     }
                                 });
                             }
-                        } else if (bVar.cAr().equals(this.eNx.getResources().getString(R.string.bawu_member_bazhu_tip))) {
-                            cVar.iOH.setVisibility(8);
+                        } else if (bVar.cAs().equals(this.eNx.getResources().getString(R.string.bawu_member_bazhu_tip))) {
                             cVar.iOJ.setVisibility(8);
-                            cVar.iOI.setVisibility(8);
-                        } else if (bVar.cAr().equals(this.eNx.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
-                            cVar.iOH.setVisibility(8);
-                            cVar.iOJ.setVisibility(0);
-                            cVar.iOI.setVisibility(8);
-                            cVar.iOJ.aO(this.eNx.getResources().getString(R.string.tip_assist_apply), this.iOD.cAA());
-                            cVar.iOJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
+                            cVar.iOL.setVisibility(8);
+                            cVar.iOK.setVisibility(8);
+                        } else if (bVar.cAs().equals(this.eNx.getResources().getString(R.string.bawu_member_xbazhu_tip))) {
+                            cVar.iOJ.setVisibility(8);
+                            cVar.iOL.setVisibility(0);
+                            cVar.iOK.setVisibility(8);
+                            cVar.iOL.aO(this.eNx.getResources().getString(R.string.tip_assist_apply), this.iOF.cAB());
+                            cVar.iOL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (h.this.iOA != null) {
-                                        h.this.iOA.Ky(h.this.iOD.cAB());
+                                    if (h.this.iOC != null) {
+                                        h.this.iOC.Ky(h.this.iOF.cAC());
                                     }
                                 }
                             });
@@ -144,15 +144,15 @@ public class h extends BaseAdapter {
                     }
                 } else {
                     cVar.mRoot.setPadding(this.eOV, 0, this.eOV, 0);
-                    cVar.iOI.setVisibility(8);
-                    cVar.iOJ.setVisibility(8);
+                    cVar.iOK.setVisibility(8);
+                    cVar.iOL.setVisibility(8);
                 }
-                cVar.iOG.a(bVar.cAp().get(0));
-                if (bVar.cAp().size() >= 2) {
-                    cVar.iOH.a(bVar.cAp().get(1));
-                    cVar.iOH.setVisibility(0);
+                cVar.iOI.a(bVar.cAq().get(0));
+                if (bVar.cAq().size() >= 2) {
+                    cVar.iOJ.a(bVar.cAq().get(1));
+                    cVar.iOJ.setVisibility(0);
                 } else {
-                    cVar.iOH.setVisibility(8);
+                    cVar.iOJ.setVisibility(8);
                 }
                 this.eNx.getLayoutMode().onModeChanged(view);
             }
@@ -171,23 +171,23 @@ public class h extends BaseAdapter {
     }
 
     public void ay(ArrayList<i> arrayList) {
-        this.iOC = arrayList;
+        this.iOE = arrayList;
     }
 
     public void a(p pVar) {
-        this.iOD = pVar;
+        this.iOF = pVar;
     }
 
     public void a(b bVar) {
-        this.iOA = bVar;
+        this.iOC = bVar;
     }
 
     /* loaded from: classes23.dex */
     public class c {
-        BawuMemberInfoView iOG;
-        BawuMemberInfoView iOH;
-        BawuManagerApplyInfoView iOI;
-        BawuManagerApplyInfoView iOJ;
+        BawuMemberInfoView iOI;
+        BawuMemberInfoView iOJ;
+        BawuManagerApplyInfoView iOK;
+        BawuManagerApplyInfoView iOL;
         RelativeLayout mRoot;
 
         public c() {

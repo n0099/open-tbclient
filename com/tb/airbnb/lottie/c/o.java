@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import java.io.IOException;
 /* loaded from: classes20.dex */
 public class o implements aj<Integer> {
-    public static final o pCX = new o();
+    public static final o pCZ = new o();
 
     private o() {
     }

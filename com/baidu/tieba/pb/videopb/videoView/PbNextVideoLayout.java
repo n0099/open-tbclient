@@ -17,98 +17,98 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class PbNextVideoLayout extends RelativeLayout {
-    private final int mcJ;
-    private int mcK;
-    private TbImageView mcL;
-    private TextView mcM;
-    private TextView mcN;
-    private ImageView mcO;
-    private ProgressBar mcP;
-    private boolean mcQ;
-    public boolean mcR;
-    private a mcS;
+    private final int mcL;
+    private int mcM;
+    private TbImageView mcN;
+    private TextView mcO;
+    private TextView mcP;
+    private ImageView mcQ;
+    private ProgressBar mcR;
+    private boolean mcS;
+    public boolean mcT;
+    private a mcU;
 
     public PbNextVideoLayout(Context context) {
         super(context);
-        this.mcJ = 5000;
-        this.mcK = 50;
-        this.mcQ = true;
-        this.mcR = true;
+        this.mcL = 5000;
+        this.mcM = 50;
+        this.mcS = true;
+        this.mcT = true;
         init(context);
     }
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mcJ = 5000;
-        this.mcK = 50;
-        this.mcQ = true;
-        this.mcR = true;
+        this.mcL = 5000;
+        this.mcM = 50;
+        this.mcS = true;
+        this.mcT = true;
         init(context);
     }
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mcJ = 5000;
-        this.mcK = 50;
-        this.mcQ = true;
-        this.mcR = true;
+        this.mcL = 5000;
+        this.mcM = 50;
+        this.mcS = true;
+        this.mcT = true;
         init(context);
     }
 
     private void init(Context context) {
         inflate(context, R.layout.pb_next_video_layout, this);
-        this.mcL = (TbImageView) findViewById(R.id.pb_next_video_img);
-        this.mcM = (TextView) findViewById(R.id.pb_next_video_txt);
-        this.mcN = (TextView) findViewById(R.id.pb_next_video_title);
-        this.mcO = (ImageView) findViewById(R.id.pb_next_video_close);
-        this.mcP = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
-        SvgManager.btW().a(this.mcO, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, (SvgManager.SvgResourceStateType) null);
+        this.mcN = (TbImageView) findViewById(R.id.pb_next_video_img);
+        this.mcO = (TextView) findViewById(R.id.pb_next_video_txt);
+        this.mcP = (TextView) findViewById(R.id.pb_next_video_title);
+        this.mcQ = (ImageView) findViewById(R.id.pb_next_video_close);
+        this.mcR = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
+        SvgManager.btW().a(this.mcQ, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, (SvgManager.SvgResourceStateType) null);
     }
 
     public void as(boolean z, boolean z2) {
         getLayoutParams().height = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
-        this.mcL.getLayoutParams().width = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
-        this.mcN.setTextSize(0, l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
-        ((LinearLayout.LayoutParams) this.mcN.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
-        ((RelativeLayout.LayoutParams) this.mcO.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
-        ((RelativeLayout.LayoutParams) this.mcO.getLayoutParams()).rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
-        this.mcK = (!z2 || z) ? 50 : 25;
+        this.mcN.getLayoutParams().width = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
+        this.mcP.setTextSize(0, l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
+        ((LinearLayout.LayoutParams) this.mcP.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
+        ((RelativeLayout.LayoutParams) this.mcQ.getLayoutParams()).topMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
+        ((RelativeLayout.LayoutParams) this.mcQ.getLayoutParams()).rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
+        this.mcM = (!z2 || z) ? 50 : 25;
     }
 
     public void setDate(by byVar) {
         if (byVar != null && byVar.bph() != null) {
-            this.mcL.startLoad(byVar.bph().thumbnail_url, 10, false);
-            this.mcM.setText(R.string.pb_video_next_play);
-            this.mcN.setText(byVar.getTitle());
-            this.mcP.setProgress(0);
+            this.mcN.startLoad(byVar.bph().thumbnail_url, 10, false);
+            this.mcO.setText(R.string.pb_video_next_play);
+            this.mcP.setText(byVar.getTitle());
+            this.mcR.setProgress(0);
         }
     }
 
     private void stopProgress() {
-        this.mcQ = false;
-        if (this.mcS != null) {
-            this.mcS.cancel();
+        this.mcS = false;
+        if (this.mcU != null) {
+            this.mcU.cancel();
         }
-        this.mcM.setText(R.string.pb_video_next_video);
-        this.mcP.setProgress(0);
+        this.mcO.setText(R.string.pb_video_next_video);
+        this.mcR.setProgress(0);
     }
 
-    private void dwX() {
-        this.mcQ = true;
-        this.mcM.setText(R.string.pb_video_next_play);
-        if (this.mcS != null) {
-            this.mcS.cancel();
+    private void dwY() {
+        this.mcS = true;
+        this.mcO.setText(R.string.pb_video_next_play);
+        if (this.mcU != null) {
+            this.mcU.cancel();
         }
-        this.mcS = new a(5000 - this.mcP.getProgress(), this.mcK);
-        this.mcS.start();
+        this.mcU = new a(5000 - this.mcR.getProgress(), this.mcM);
+        this.mcU.start();
     }
 
     public void setIsCountDownValid(boolean z) {
-        if (this.mcQ != z) {
-            this.mcQ = z;
+        if (this.mcS != z) {
+            this.mcS = z;
             if (getVisibility() == 0) {
                 if (z) {
-                    dwX();
+                    dwY();
                 } else {
                     stopProgress();
                 }
@@ -120,24 +120,24 @@ public class PbNextVideoLayout extends RelativeLayout {
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (i == 0) {
-            if (this.mcQ) {
-                dwX();
+            if (this.mcS) {
+                dwY();
                 return;
             } else {
                 stopProgress();
                 return;
             }
         }
-        this.mcP.setProgress(0);
-        if (this.mcS != null) {
-            this.mcS.cancel();
+        this.mcR.setProgress(0);
+        if (this.mcU != null) {
+            this.mcU.cancel();
         }
     }
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.mcO.setOnClickListener(onClickListener);
+        this.mcQ.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -145,17 +145,17 @@ public class PbNextVideoLayout extends RelativeLayout {
     public class a extends CountDownTimer {
         a(long j, long j2) {
             super(j, j2);
-            PbNextVideoLayout.this.mcR = true;
+            PbNextVideoLayout.this.mcT = true;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            PbNextVideoLayout.this.mcP.setProgress(((int) (5000 - j)) * 2);
+            PbNextVideoLayout.this.mcR.setProgress(((int) (5000 - j)) * 2);
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            PbNextVideoLayout.this.mcR = false;
+            PbNextVideoLayout.this.mcT = false;
             PbNextVideoLayout.this.performClick();
         }
     }

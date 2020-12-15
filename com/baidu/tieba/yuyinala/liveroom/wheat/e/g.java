@@ -34,7 +34,7 @@ public class g {
         return wVar.aKQ.getActivityStage();
     }
 
-    public static boolean efY() {
+    public static boolean efZ() {
         String Zc = Zc();
         return Zc != null && com.baidu.live.ap.b.YX().jv(Zc);
     }
@@ -77,7 +77,7 @@ public class g {
         gVar.setText(str);
         gVar.Wn(PayHelper.STATUS_CANCEL_DESC);
         gVar.bV("确认", a.c.sdk_black_alpha100);
-        gVar.efz();
+        gVar.efA();
         gVar.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.g.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
             public void onCancel() {

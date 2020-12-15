@@ -39,18 +39,18 @@ public class CommonTbJsBridge_Proxy extends a {
         if (cVar == null) {
             cVar = new c();
         }
-        String dPS = eVar.dPS();
-        JSONObject dPQ = eVar.dPQ();
-        if (dPS.equals("account/startLoginModule")) {
+        String dPT = eVar.dPT();
+        JSONObject dPR = eVar.dPR();
+        if (dPT.equals("account/startLoginModule")) {
             cVar.ye(true);
-            c startLoginModule = this.mJsBridge.startLoginModule(dPQ.optString("cssUrl"));
+            c startLoginModule = this.mJsBridge.startLoginModule(dPR.optString("cssUrl"));
             if (startLoginModule != null) {
                 cVar.setStatus(startLoginModule.getStatus());
                 cVar.setMessage(startLoginModule.getMessage());
                 cVar.setData(startLoginModule.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("router/finishThisPage")) {
+        } else if (dPT.equals("router/finishThisPage")) {
             cVar.ye(true);
             c finishPage = this.mJsBridge.finishPage();
             if (finishPage != null) {
@@ -59,27 +59,27 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(finishPage.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("toast/toastPopupView")) {
+        } else if (dPT.equals("toast/toastPopupView")) {
             cVar.ye(true);
-            c showLowerHairHint = this.mJsBridge.showLowerHairHint(dPQ.optInt("showType"), dPQ.optInt("aheadType"), dPQ.optString("message"), dPQ.optString("btnText"), dPQ.optInt("toastDuration"), dPQ.optString("schema"), dPQ.optString("token"), dPQ.optDouble("opacity"), dPQ.optString("imgUrl"), dPQ.optString("url"), dPQ.optInt("missionId"), dPQ.optString("btnColor"), dPQ.optString("messageColor"), dPQ.optString("btnTextColor"));
+            c showLowerHairHint = this.mJsBridge.showLowerHairHint(dPR.optInt("showType"), dPR.optInt("aheadType"), dPR.optString("message"), dPR.optString("btnText"), dPR.optInt("toastDuration"), dPR.optString("schema"), dPR.optString("token"), dPR.optDouble("opacity"), dPR.optString("imgUrl"), dPR.optString("url"), dPR.optInt("missionId"), dPR.optString("btnColor"), dPR.optString("messageColor"), dPR.optString("btnTextColor"));
             if (showLowerHairHint != null) {
                 cVar.setStatus(showLowerHairHint.getStatus());
                 cVar.setMessage(showLowerHairHint.getMessage());
                 cVar.setData(showLowerHairHint.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("router/goToBarDetail")) {
+        } else if (dPT.equals("router/goToBarDetail")) {
             cVar.ye(true);
-            c handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(dPQ.optString(TbTitleActivityConfig.FORUM_ID));
+            c handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(dPR.optString(TbTitleActivityConfig.FORUM_ID));
             if (handleGoToBarDetail != null) {
                 cVar.setStatus(handleGoToBarDetail.getStatus());
                 cVar.setMessage(handleGoToBarDetail.getMessage());
                 cVar.setData(handleGoToBarDetail.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("system/saveImage")) {
+        } else if (dPT.equals("system/saveImage")) {
             cVar.ye(true);
-            c handleSaveImage = this.mJsBridge.handleSaveImage(dPQ.optString("imgUrl"));
+            c handleSaveImage = this.mJsBridge.handleSaveImage(dPR.optString("imgUrl"));
             this.mNotificationNameList.add("saveImageSuccess");
             if (handleSaveImage != null) {
                 cVar.setStatus(handleSaveImage.getStatus());
@@ -91,16 +91,16 @@ public class CommonTbJsBridge_Proxy extends a {
                 }
             }
             cVar.Ld(0);
-        } else if (dPS.equals("system/playSound")) {
+        } else if (dPT.equals("system/playSound")) {
             cVar.ye(true);
-            c playSound = this.mJsBridge.playSound(dPQ.optString("soundUrl"));
+            c playSound = this.mJsBridge.playSound(dPR.optString("soundUrl"));
             if (playSound != null) {
                 cVar.setStatus(playSound.getStatus());
                 cVar.setMessage(playSound.getMessage());
                 cVar.setData(playSound.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("system/playVibrate")) {
+        } else if (dPT.equals("system/playVibrate")) {
             cVar.ye(true);
             c playVibrate = this.mJsBridge.playVibrate();
             if (playVibrate != null) {
@@ -109,16 +109,16 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(playVibrate.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("account/loadThirdPartyLogin")) {
+        } else if (dPT.equals("account/loadThirdPartyLogin")) {
             cVar.ye(true);
-            c jumpLoginActivity = this.mJsBridge.jumpLoginActivity(dPQ.optInt("socialType"), dPQ.optString("activityId"));
+            c jumpLoginActivity = this.mJsBridge.jumpLoginActivity(dPR.optInt("socialType"), dPR.optString("activityId"));
             if (jumpLoginActivity != null) {
                 cVar.setStatus(jumpLoginActivity.getStatus());
                 cVar.setMessage(jumpLoginActivity.getMessage());
                 cVar.setData(jumpLoginActivity.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("device/getZid")) {
+        } else if (dPT.equals("device/getZid")) {
             cVar.ye(true);
             c zid = this.mJsBridge.getZid();
             if (zid != null) {
@@ -127,25 +127,25 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(zid.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("share/registerShareDataNew")) {
+        } else if (dPT.equals("share/registerShareDataNew")) {
             cVar.ye(true);
-            c shareInfo = this.mJsBridge.setShareInfo(dPQ.optString("title"), dPQ.optString("desc"), dPQ.optString("img"), dPQ.optString("url"), dPQ.optString("topic"), dPQ.optString("wbtitle"), dPQ.optString("wbcontent"), dPQ.optString("isShowMoreForum"), dPQ.optInt("shareimg"), dPQ.optString("extdata"));
+            c shareInfo = this.mJsBridge.setShareInfo(dPR.optString("title"), dPR.optString("desc"), dPR.optString("img"), dPR.optString("url"), dPR.optString("topic"), dPR.optString("wbtitle"), dPR.optString("wbcontent"), dPR.optString("isShowMoreForum"), dPR.optInt("shareimg"), dPR.optString("extdata"));
             if (shareInfo != null) {
                 cVar.setStatus(shareInfo.getStatus());
                 cVar.setMessage(shareInfo.getMessage());
                 cVar.setData(shareInfo.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("share/share")) {
+        } else if (dPT.equals("share/share")) {
             cVar.ye(true);
-            c share = this.mJsBridge.share(dPQ.optInt("channel"), dPQ.optInt("shareImg"), dPQ.optString("img"), dPQ.optString("isShowMoreForum"), dPQ.optString("url"), dPQ.optString("title"), dPQ.optString("desc"), dPQ.optString("topic"), dPQ.optString("wbtitle"), dPQ.optString("wbcontent"), dPQ.optInt("weixinDisable"), dPQ.optString(CashierData.EXT_DATA));
+            c share = this.mJsBridge.share(dPR.optInt("channel"), dPR.optInt("shareImg"), dPR.optString("img"), dPR.optString("isShowMoreForum"), dPR.optString("url"), dPR.optString("title"), dPR.optString("desc"), dPR.optString("topic"), dPR.optString("wbtitle"), dPR.optString("wbcontent"), dPR.optInt("weixinDisable"), dPR.optString(CashierData.EXT_DATA));
             if (share != null) {
                 cVar.setStatus(share.getStatus());
                 cVar.setMessage(share.getMessage());
                 cVar.setData(share.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("clipper/getClipperInformation")) {
+        } else if (dPT.equals("clipper/getClipperInformation")) {
             cVar.ye(true);
             c clipperInformation = this.mJsBridge.getClipperInformation();
             if (clipperInformation != null) {
@@ -154,34 +154,34 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(clipperInformation.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("clipper/setClipperInformation")) {
+        } else if (dPT.equals("clipper/setClipperInformation")) {
             cVar.ye(true);
-            c clipperInformation2 = this.mJsBridge.setClipperInformation(dPQ.optString(DocumentOpenUtil.TXT));
+            c clipperInformation2 = this.mJsBridge.setClipperInformation(dPR.optString(DocumentOpenUtil.TXT));
             if (clipperInformation2 != null) {
                 cVar.setStatus(clipperInformation2.getStatus());
                 cVar.setMessage(clipperInformation2.getMessage());
                 cVar.setData(clipperInformation2.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("system/checkAppInstall")) {
+        } else if (dPT.equals("system/checkAppInstall")) {
             cVar.ye(true);
-            c checkAppInstall = this.mJsBridge.checkAppInstall(dPQ.optString(PushClientConstants.TAG_PKG_NAME));
+            c checkAppInstall = this.mJsBridge.checkAppInstall(dPR.optString(PushClientConstants.TAG_PKG_NAME));
             if (checkAppInstall != null) {
                 cVar.setStatus(checkAppInstall.getStatus());
                 cVar.setMessage(checkAppInstall.getMessage());
                 cVar.setData(checkAppInstall.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("system/startApp")) {
+        } else if (dPT.equals("system/startApp")) {
             cVar.ye(true);
-            c startApp = this.mJsBridge.startApp(dPQ.optString(PushClientConstants.TAG_PKG_NAME), dPQ.optString("schema"));
+            c startApp = this.mJsBridge.startApp(dPR.optString(PushClientConstants.TAG_PKG_NAME), dPR.optString("schema"));
             if (startApp != null) {
                 cVar.setStatus(startApp.getStatus());
                 cVar.setMessage(startApp.getMessage());
                 cVar.setData(startApp.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("system/hasNotificationPermission")) {
+        } else if (dPT.equals("system/hasNotificationPermission")) {
             cVar.ye(true);
             c hasNotificationPermission = this.mJsBridge.hasNotificationPermission();
             if (hasNotificationPermission != null) {
@@ -190,7 +190,7 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(hasNotificationPermission.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("system/goToNotificationSetting")) {
+        } else if (dPT.equals("system/goToNotificationSetting")) {
             cVar.ye(true);
             c goToNotificationSetting = this.mJsBridge.goToNotificationSetting();
             if (goToNotificationSetting != null) {
@@ -199,16 +199,16 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(goToNotificationSetting.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("account/startDownloadCss")) {
+        } else if (dPT.equals("account/startDownloadCss")) {
             cVar.ye(true);
-            c startDownloadCss = this.mJsBridge.startDownloadCss(dPQ.optString("downloadUrl"));
+            c startDownloadCss = this.mJsBridge.startDownloadCss(dPR.optString("downloadUrl"));
             if (startDownloadCss != null) {
                 cVar.setStatus(startDownloadCss.getStatus());
                 cVar.setMessage(startDownloadCss.getMessage());
                 cVar.setData(startDownloadCss.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("navigationBar/isDisableGoBack")) {
+        } else if (dPT.equals("navigationBar/isDisableGoBack")) {
             cVar.ye(true);
             c disableGoBack = this.mJsBridge.setDisableGoBack();
             if (disableGoBack != null) {
@@ -217,7 +217,7 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(disableGoBack.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("device/getSupplementInfo")) {
+        } else if (dPT.equals("device/getSupplementInfo")) {
             cVar.ye(true);
             c supplementInfo = this.mJsBridge.getSupplementInfo();
             if (supplementInfo != null) {
@@ -226,7 +226,7 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(supplementInfo.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("device/getDeviceInfo")) {
+        } else if (dPT.equals("device/getDeviceInfo")) {
             cVar.ye(true);
             c deviceInfo = this.mJsBridge.getDeviceInfo();
             if (deviceInfo != null) {
@@ -235,34 +235,34 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setData(deviceInfo.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("activity/completeTask")) {
+        } else if (dPT.equals("activity/completeTask")) {
             cVar.ye(true);
-            c sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(dPQ.optString("activityId"), dPQ.optString("missionId"));
+            c sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(dPR.optString("activityId"), dPR.optString("missionId"));
             if (sendCompleteTaskReqMsg != null) {
                 cVar.setStatus(sendCompleteTaskReqMsg.getStatus());
                 cVar.setMessage(sendCompleteTaskReqMsg.getMessage());
                 cVar.setData(sendCompleteTaskReqMsg.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("toast/showTipToast")) {
+        } else if (dPT.equals("toast/showTipToast")) {
             cVar.ye(true);
-            c showTipToast = this.mJsBridge.showTipToast(dPQ.optString("content"), dPQ.optString("linkUrl"), dPQ.optString("key"), dPQ.optInt("maxTimes"));
+            c showTipToast = this.mJsBridge.showTipToast(dPR.optString("content"), dPR.optString("linkUrl"), dPR.optString("key"), dPR.optInt("maxTimes"));
             if (showTipToast != null) {
                 cVar.setStatus(showTipToast.getStatus());
                 cVar.setMessage(showTipToast.getMessage());
                 cVar.setData(showTipToast.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("router/jumpToHTMLPage")) {
+        } else if (dPT.equals("router/jumpToHTMLPage")) {
             cVar.ye(true);
-            c jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(dPQ.optString("url"), dPQ.optInt("finishThisPage"));
+            c jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(dPR.optString("url"), dPR.optInt("finishThisPage"));
             if (jumpToHtmlPage != null) {
                 cVar.setStatus(jumpToHtmlPage.getStatus());
                 cVar.setMessage(jumpToHtmlPage.getMessage());
                 cVar.setData(jumpToHtmlPage.getData());
             }
             cVar.Ld(0);
-        } else if (dPS.equals("router/goToHotTrend")) {
+        } else if (dPT.equals("router/goToHotTrend")) {
             cVar.ye(true);
             c jumpToHotTrendPage = this.mJsBridge.jumpToHotTrendPage();
             if (jumpToHotTrendPage != null) {
@@ -311,7 +311,7 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar.setMessage(dealClickGoBackToH5.getMessage());
                 cVar.setData(dealClickGoBackToH5.getData());
                 arrayList.add(cVar);
-                if (!next.dPJ()) {
+                if (!next.dPK()) {
                     it.remove();
                 }
             }

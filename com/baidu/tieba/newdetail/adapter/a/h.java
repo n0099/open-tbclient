@@ -34,7 +34,7 @@ public class h extends a<bx, am<by>> {
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bx bxVar) {
                 if (bxVar != null) {
-                    t.csg().mj(true);
+                    t.csh().mj(true);
                     h.this.g(view, bxVar.eCR);
                 }
             }

@@ -5,13 +5,13 @@ import java.util.ArrayList;
 /* loaded from: classes22.dex */
 public class e {
     private ArrayList<q> eOt;
-    private boolean miV = true;
+    private boolean miX = true;
 
     public void bg(ArrayList<q> arrayList) {
         this.eOt = arrayList;
     }
 
     public void wp(boolean z) {
-        this.miV = z;
+        this.miX = z;
     }
 }

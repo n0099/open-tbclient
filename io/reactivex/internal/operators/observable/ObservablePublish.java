@@ -10,12 +10,12 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class ObservablePublish<T> extends io.reactivex.c.a<T> {
     final AtomicReference<a<T>> current;
-    final t<T> pGG;
+    final t<T> pGI;
     final t<T> source;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.pGG.subscribe(uVar);
+        this.pGI.subscribe(uVar);
     }
 
     @Override // io.reactivex.c.a
@@ -46,11 +46,11 @@ public final class ObservablePublish<T> extends io.reactivex.c.a<T> {
 
     /* loaded from: classes9.dex */
     static final class a<T> implements io.reactivex.disposables.b, u<T> {
-        static final InnerDisposable[] pGH = new InnerDisposable[0];
-        static final InnerDisposable[] pGI = new InnerDisposable[0];
+        static final InnerDisposable[] pGJ = new InnerDisposable[0];
+        static final InnerDisposable[] pGK = new InnerDisposable[0];
         final AtomicReference<a<T>> current;
         final AtomicReference<io.reactivex.disposables.b> s = new AtomicReference<>();
-        final AtomicReference<InnerDisposable<T>[]> observers = new AtomicReference<>(pGH);
+        final AtomicReference<InnerDisposable<T>[]> observers = new AtomicReference<>(pGJ);
         final AtomicBoolean shouldConnect = new AtomicBoolean();
 
         a(AtomicReference<a<T>> atomicReference) {
@@ -59,7 +59,7 @@ public final class ObservablePublish<T> extends io.reactivex.c.a<T> {
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            if (this.observers.get() != pGI && this.observers.getAndSet(pGI) != pGI) {
+            if (this.observers.get() != pGK && this.observers.getAndSet(pGK) != pGK) {
                 this.current.compareAndSet(this, null);
                 DisposableHelper.dispose(this.s);
             }
@@ -67,7 +67,7 @@ public final class ObservablePublish<T> extends io.reactivex.c.a<T> {
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.observers.get() == pGI;
+            return this.observers.get() == pGK;
         }
 
         @Override // io.reactivex.u
@@ -85,7 +85,7 @@ public final class ObservablePublish<T> extends io.reactivex.c.a<T> {
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.current.compareAndSet(this, null);
-            InnerDisposable<T>[] andSet = this.observers.getAndSet(pGI);
+            InnerDisposable<T>[] andSet = this.observers.getAndSet(pGK);
             if (andSet.length != 0) {
                 for (InnerDisposable<T> innerDisposable : andSet) {
                     innerDisposable.child.onError(th);
@@ -98,7 +98,7 @@ public final class ObservablePublish<T> extends io.reactivex.c.a<T> {
         @Override // io.reactivex.u
         public void onComplete() {
             this.current.compareAndSet(this, null);
-            for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(pGI)) {
+            for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(pGK)) {
                 innerDisposable.child.onComplete();
             }
         }
@@ -124,7 +124,7 @@ public final class ObservablePublish<T> extends io.reactivex.c.a<T> {
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            innerDisposableArr2 = pGH;
+                            innerDisposableArr2 = pGJ;
                         } else {
                             innerDisposableArr2 = new InnerDisposable[length - 1];
                             System.arraycopy(innerDisposableArr, 0, innerDisposableArr2, 0, i);

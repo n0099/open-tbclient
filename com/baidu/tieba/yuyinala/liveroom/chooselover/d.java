@@ -57,37 +57,37 @@ public class d extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_item_choose_love_person, (ViewGroup) null);
             a aVar2 = new a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                aVar2.olN.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
+                aVar2.olP.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
             } else {
-                aVar2.olN.setDefaultResource(a.e.sdk_icon_default_avatar100);
+                aVar2.olP.setDefaultResource(a.e.sdk_icon_default_avatar100);
             }
-            aVar2.olN.setIsRound(true);
-            aVar2.olN.setDrawBorder(true);
-            aVar2.olN.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-            aVar2.olN.setAutoChangeStyle(false);
-            aVar2.olN.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            aVar2.olP.setIsRound(true);
+            aVar2.olP.setDrawBorder(true);
+            aVar2.olP.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            aVar2.olP.setAutoChangeStyle(false);
+            aVar2.olP.setScaleType(ImageView.ScaleType.CENTER_CROP);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         AlaWheatInfoData alaWheatInfoData = (AlaWheatInfoData) getItem(i);
-        g(aVar.olP);
-        aVar.olN.setDrawBorder(true);
+        g(aVar.olR);
+        aVar.olP.setDrawBorder(true);
         aVar.bAG.setText(alaWheatInfoData.userName);
         if (!TextUtils.isEmpty(alaWheatInfoData.portrait)) {
-            aVar.olN.startLoad(alaWheatInfoData.portrait, 12, false, false);
+            aVar.olP.startLoad(alaWheatInfoData.portrait, 12, false, false);
         }
         if (alaWheatInfoData.sex == 2) {
-            aVar.olO.setBackgroundResource(a.e.shape_yuin_choose_love_person_woman);
+            aVar.olQ.setBackgroundResource(a.e.shape_yuin_choose_love_person_woman);
         } else {
-            aVar.olO.setBackgroundResource(a.e.shape_yuin_choose_love_person_man);
+            aVar.olQ.setBackgroundResource(a.e.shape_yuin_choose_love_person_man);
         }
-        aVar.olO.setText(alaWheatInfoData.realWheatPosition + "");
+        aVar.olQ.setText(alaWheatInfoData.realWheatPosition + "");
         if (alaWheatInfoData.isSelect) {
-            aVar.olN.setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
+            aVar.olP.setBackgroundResource(a.e.shape_yuin_choose_love_person_select);
         } else {
-            aVar.olN.setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
+            aVar.olP.setBackgroundResource(a.e.shape_yuin_choose_love_person_unselect);
         }
         return view;
     }
@@ -114,17 +114,17 @@ public class d extends BaseAdapter {
     /* loaded from: classes4.dex */
     public static class a {
         public TextView bAG;
-        public HeadImageView olN;
-        public TextView olO;
-        public LinearLayout olP;
+        public HeadImageView olP;
+        public TextView olQ;
+        public LinearLayout olR;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.olN = (HeadImageView) view.findViewById(a.f.iv_head);
+            this.olP = (HeadImageView) view.findViewById(a.f.iv_head);
             this.bAG = (TextView) view.findViewById(a.f.tv_name);
-            this.olO = (TextView) view.findViewById(a.f.tv_sex);
-            this.olP = (LinearLayout) view.findViewById(a.f.ll_bg);
+            this.olQ = (TextView) view.findViewById(a.f.tv_sex);
+            this.olR = (LinearLayout) view.findViewById(a.f.ll_bg);
         }
     }
 }

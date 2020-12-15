@@ -10,26 +10,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c implements e {
-    private static File gkQ = i.getPrivateCaptureRootChildDir("duMakeup");
+    private static File gkS = i.getPrivateCaptureRootChildDir("duMakeup");
     private List<com.baidu.tieba.ala.alaar.sticker.download.a.a> ceI;
     private File cet;
     private File ceu;
-    private a gkY;
-    private com.baidu.tieba.ala.alaar.makeup.c gkZ;
+    private a gla;
+    private com.baidu.tieba.ala.alaar.makeup.c glb;
     private File mFolder;
 
     public c(com.baidu.tieba.ala.alaar.makeup.c cVar) {
-        this(cVar, gkQ);
+        this(cVar, gkS);
     }
 
     public c(com.baidu.tieba.ala.alaar.makeup.c cVar, File file) {
-        this.gkZ = cVar;
+        this.glb = cVar;
         this.mFolder = file;
         this.ceI = new ArrayList();
-        if (!TextUtils.isEmpty(this.gkZ.bPP())) {
-            this.cet = new File(file, this.gkZ.bPQ());
-            this.ceu = new File(file, this.gkZ.bPQ() + ".zip");
-            this.gkZ.Gi(this.cet.getAbsolutePath());
+        if (!TextUtils.isEmpty(this.glb.bPQ())) {
+            this.cet = new File(file, this.glb.bPR());
+            this.ceu = new File(file, this.glb.bPR() + ".zip");
+            this.glb.Gi(this.cet.getAbsolutePath());
         }
     }
 
@@ -38,7 +38,7 @@ public class c implements e {
     }
 
     public boolean isLoading() {
-        return this.gkY != null;
+        return this.gla != null;
     }
 
     public File getLocalFile() {
@@ -57,15 +57,15 @@ public class c implements e {
         if (aVar != null && !this.ceI.contains(aVar)) {
             this.ceI.add(aVar);
         }
-        bQP();
+        bQQ();
     }
 
-    private void bQP() {
+    private void bQQ() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
-                    this.gkY = new a();
-                    com.baidu.tieba.ala.alaar.sticker.download.b.bQw().a(this.gkZ.bPP(), this.mFolder, this.ceu.getName(), this.gkY);
+                    this.gla = new a();
+                    com.baidu.tieba.ala.alaar.sticker.download.b.bQx().a(this.glb.bPQ(), this.mFolder, this.ceu.getName(), this.gla);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class c implements e {
 
     protected void f(final DownloadException downloadException) {
         synchronized (this) {
-            this.gkY = null;
+            this.gla = null;
         }
         if (this.ceI != null && !this.ceI.isEmpty()) {
             final boolean isLoaded = isLoaded();
@@ -116,7 +116,7 @@ public class c implements e {
         boolean z = false;
         try {
             File file = new File(str);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onCompleted-unzip:" + str + "\nto " + this.cet.getAbsolutePath() + ", sk:" + this.gkZ.bPQ());
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onCompleted-unzip:" + str + "\nto " + this.cet.getAbsolutePath() + ", sk:" + this.glb.bPR());
             File file2 = new File(this.cet + ".ziping");
             if (file2.exists()) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFileOrDir(file2);
@@ -148,7 +148,7 @@ public class c implements e {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onStarted() {
             super.onStarted();
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onStarted url:" + c.this.gkZ.bPP());
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onStarted url:" + c.this.glb.bPQ());
             if (c.this.ceI != null && !c.this.ceI.isEmpty()) {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.sticker.model.c.a.1
                     @Override // java.lang.Runnable
@@ -191,7 +191,7 @@ public class c implements e {
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void a(DownloadException downloadException) {
             super.a(downloadException);
-            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onFailed " + (downloadException != null ? downloadException.getErrorMessage() : "") + "\n" + c.this.gkZ.bPP());
+            com.baidu.tieba.ala.alaar.sticker.b.a.e("AR_DuMakeupModel", "onFailed " + (downloadException != null ? downloadException.getErrorMessage() : "") + "\n" + c.this.glb.bPQ());
             c.this.g(downloadException);
         }
     }

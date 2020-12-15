@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes15.dex */
 public class q {
-    private c pjL;
-    private com.facebook.common.memory.g pjO;
-    private i pjQ;
-    private com.facebook.common.memory.j pkc;
-    private final p poa;
-    private k pob;
-    private com.facebook.common.memory.a poc;
+    private c pjN;
+    private com.facebook.common.memory.g pjQ;
+    private i pjS;
+    private com.facebook.common.memory.j pke;
+    private final p poc;
+    private k pod;
+    private com.facebook.common.memory.a poe;
 
     public q(p pVar) {
-        this.poa = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.poc = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c ewl() {
-        if (this.pjL == null) {
-            this.pjL = new c(this.poa.eua(), this.poa.ewc(), this.poa.ewd());
+    public c ewm() {
+        if (this.pjN == null) {
+            this.pjN = new c(this.poc.eub(), this.poc.ewd(), this.poc.ewe());
         }
-        return this.pjL;
+        return this.pjN;
     }
 
-    public i ewm() {
+    public i ewn() {
+        if (this.pjS == null) {
+            this.pjS = new i(this.poc.eub(), this.poc.ewh());
+        }
+        return this.pjS;
+    }
+
+    public int ewo() {
+        return this.poc.ewh().pom;
+    }
+
+    public k ewp() {
+        if (this.pod == null) {
+            this.pod = new k(this.poc.eub(), this.poc.ewf(), this.poc.ewg());
+        }
+        return this.pod;
+    }
+
+    public com.facebook.common.memory.g ewq() {
         if (this.pjQ == null) {
-            this.pjQ = new i(this.poa.eua(), this.poa.ewg());
+            this.pjQ = new m(ewp(), ewr());
         }
         return this.pjQ;
     }
 
-    public int ewn() {
-        return this.poa.ewg().pok;
+    public com.facebook.common.memory.j ewr() {
+        if (this.pke == null) {
+            this.pke = new com.facebook.common.memory.j(ews());
+        }
+        return this.pke;
     }
 
-    public k ewo() {
-        if (this.pob == null) {
-            this.pob = new k(this.poa.eua(), this.poa.ewe(), this.poa.ewf());
+    public com.facebook.common.memory.a ews() {
+        if (this.poe == null) {
+            this.poe = new j(this.poc.eub(), this.poc.ewi(), this.poc.ewj());
         }
-        return this.pob;
-    }
-
-    public com.facebook.common.memory.g ewp() {
-        if (this.pjO == null) {
-            this.pjO = new m(ewo(), ewq());
-        }
-        return this.pjO;
-    }
-
-    public com.facebook.common.memory.j ewq() {
-        if (this.pkc == null) {
-            this.pkc = new com.facebook.common.memory.j(ewr());
-        }
-        return this.pkc;
-    }
-
-    public com.facebook.common.memory.a ewr() {
-        if (this.poc == null) {
-            this.poc = new j(this.poa.eua(), this.poa.ewh(), this.poa.ewi());
-        }
-        return this.poc;
+        return this.poe;
     }
 }

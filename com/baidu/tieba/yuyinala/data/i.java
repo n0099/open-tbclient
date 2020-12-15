@@ -6,40 +6,40 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i extends BaseData {
-    private ArrayList<c> giP;
-    private g ojU;
-    private int ojV = 10;
+    private ArrayList<c> giR;
+    private g ojW;
+    private int ojX = 10;
 
     public ArrayList<c> getList() {
-        return this.giP;
+        return this.giR;
     }
 
-    public g ecT() {
-        return this.ojU;
+    public g ecU() {
+        return this.ojW;
     }
 
-    public int ecU() {
-        return this.ojV;
+    public int ecV() {
+        return this.ojX;
     }
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ojV = jSONObject.optInt("rank_size");
+            this.ojX = jSONObject.optInt("rank_size");
             JSONArray optJSONArray = jSONObject.optJSONArray("rank_list");
             if (optJSONArray != null) {
-                this.giP = new ArrayList<>();
+                this.giR = new ArrayList<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     c cVar = new c();
                     cVar.parserJson(optJSONObject);
-                    this.giP.add(cVar);
+                    this.giR.add(cVar);
                 }
             }
-            this.ojU = new g();
+            this.ojW = new g();
             JSONObject optJSONObject2 = jSONObject.optJSONObject("charm_data");
             if (optJSONObject2 != null) {
-                this.ojU.parserJson(optJSONObject2);
+                this.ojW.parserJson(optJSONObject2);
             }
         }
     }

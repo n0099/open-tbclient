@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a hqx = null;
+    private static volatile a hqz = null;
     private Long ceP;
     private Long ceQ;
     private RandomAccessFile ceR;
@@ -23,15 +23,15 @@ public class a {
     private a() {
     }
 
-    public static a ceJ() {
-        if (hqx == null) {
+    public static a ceK() {
+        if (hqz == null) {
             synchronized (a.class) {
-                if (hqx == null) {
-                    hqx = new a();
+                if (hqz == null) {
+                    hqz = new a();
                 }
             }
         }
-        return hqx;
+        return hqz;
     }
 
     public double acF() {
@@ -108,7 +108,7 @@ public class a {
         return d;
     }
 
-    public double ceK() {
+    public double ceL() {
         try {
             Debug.MemoryInfo[] processMemoryInfo = this.dIC.getProcessMemoryInfo(new int[]{Process.myPid()});
             if (processMemoryInfo.length <= 0) {

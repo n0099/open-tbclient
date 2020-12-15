@@ -33,23 +33,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.live.ah.c {
-    private static volatile b hCw = null;
+    private static volatile b hCy = null;
     private Dialog biC;
     private long currLiveId;
-    private boolean hCx = false;
-    private boolean hCy = false;
-    private Handler handler = new Handler();
     private long startTime;
+    private boolean hCz = false;
+    private boolean hCA = false;
+    private Handler handler = new Handler();
 
-    public static b ckC() {
-        if (hCw == null) {
+    public static b ckD() {
+        if (hCy == null) {
             synchronized (b.class) {
-                if (hCw == null) {
-                    hCw = new b();
+                if (hCy == null) {
+                    hCy = new b();
                 }
             }
         }
-        return hCw;
+        return hCy;
     }
 
     @Override // com.baidu.live.ah.c
@@ -79,8 +79,8 @@ public class b implements com.baidu.live.ah.c {
     public void b(final Context context, final long j, long j2, String str, String str2) {
         if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
             this.currLiveId = 0L;
-            this.hCx = false;
-            this.hCy = false;
+            this.hCz = false;
+            this.hCA = false;
             if (!isEnable(str2)) {
                 if (TbConfig.FLOWER_GUIDE_STATUS != 2) {
                     TbConfig.FLOWER_GUIDE_STATUS = 0;
@@ -91,7 +91,7 @@ public class b implements com.baidu.live.ah.c {
             TbConfig.FLOWER_GUIDE_STATUS = 1;
             this.currLiveId = j;
             this.startTime = System.currentTimeMillis();
-            this.hCy = true;
+            this.hCA = true;
             if (isDebug()) {
                 this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.task.b.1
                     @Override // java.lang.Runnable
@@ -116,8 +116,8 @@ public class b implements com.baidu.live.ah.c {
     @Override // com.baidu.live.ah.c
     public void a(Context context, long j, int[] iArr) {
         boolean isDebug = isDebug();
-        if (this.hCy && this.startTime > 0 && this.currLiveId == j) {
-            if ((!this.hCx || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
+        if (this.hCA && this.startTime > 0 && this.currLiveId == j) {
+            if ((!this.hCz || TbadkCoreApplication.getInst().currentAccountFlowerNum <= 0 || isDebug) && TbadkCoreApplication.isLogin()) {
                 long j2 = 60;
                 if (isDebug) {
                     j2 = 3;
@@ -218,7 +218,7 @@ public class b implements com.baidu.live.ah.c {
         try {
             dialog.show();
             this.biC = dialog;
-            this.hCy = false;
+            this.hCA = false;
             d.BM().putInt("showtimes_flower_task_dialog", d.BM().getInt("showtimes_flower_task_dialog", 0) + 1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -275,12 +275,12 @@ public class b implements com.baidu.live.ah.c {
                     if (j > 0 && !isDebug) {
                         return false;
                     }
-                    this.hCx = true;
+                    this.hCz = true;
                 }
             } else if (j > 0 && !isDebug) {
                 return false;
             } else {
-                this.hCx = true;
+                this.hCz = true;
             }
             return true;
         }
@@ -289,8 +289,8 @@ public class b implements com.baidu.live.ah.c {
     @Override // com.baidu.live.ah.c
     public void release() {
         this.currLiveId = 0L;
-        this.hCx = false;
-        this.hCy = false;
+        this.hCz = false;
+        this.hCA = false;
         TbConfig.FLOWER_GUIDE_STATUS = 0;
         this.handler.removeCallbacksAndMessages(null);
         ID();

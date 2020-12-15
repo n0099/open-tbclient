@@ -27,18 +27,18 @@ import java.util.List;
 public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     private EditorTools acn;
     private e eNZ;
-    private ViewGroup.LayoutParams hin;
-    private HListView iLP;
-    private List<String> lSZ;
-    private b lTa;
-    private QueryMatchEmotionModel lTb;
-    private String lTc;
-    private GetEmotionPidModel lTd;
-    private Runnable lTe = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.1
+    private ViewGroup.LayoutParams hip;
+    private HListView iLR;
+    private List<String> lTb;
+    private b lTc;
+    private QueryMatchEmotionModel lTd;
+    private String lTe;
+    private GetEmotionPidModel lTf;
+    private Runnable lTg = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.1
         @Override // java.lang.Runnable
         public void run() {
-            c.this.lTc = "";
-            c.this.iLP.setVisibility(8);
+            c.this.lTe = "";
+            c.this.iLR.setVisibility(8);
         }
     };
     private Handler mHandler = new Handler();
@@ -47,64 +47,64 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     public c(e eVar, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         this.eNZ = eVar;
         this.mParent = viewGroup;
-        this.hin = layoutParams;
+        this.hip = layoutParams;
     }
 
     public void setData(List<String> list) {
-        this.lSZ = list;
+        this.lTb = list;
     }
 
     public void Qz(String str) {
-        if (!TextUtils.isEmpty(str) && !y.isEmpty(this.lSZ) && this.lSZ.contains(str)) {
+        if (!TextUtils.isEmpty(str) && !y.isEmpty(this.lTb) && this.lTb.contains(str)) {
             QA(str);
         }
     }
 
     private void QA(String str) {
-        if (!TextUtils.isEmpty(str) && !str.equals(this.lTc)) {
-            this.lTc = str;
-            if (this.lTb == null) {
-                this.lTb = new QueryMatchEmotionModel(this.eNZ);
+        if (!TextUtils.isEmpty(str) && !str.equals(this.lTe)) {
+            this.lTe = str;
+            if (this.lTd == null) {
+                this.lTd = new QueryMatchEmotionModel(this.eNZ);
             }
-            this.lTb.a(str, this);
+            this.lTd.a(str, this);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.a
     public void n(String str, List<EmotionImageData> list) {
-        if (!TextUtils.isEmpty(str) && str.equals(this.lTc)) {
+        if (!TextUtils.isEmpty(str) && str.equals(this.lTe)) {
             if (y.isEmpty(list)) {
-                this.lTc = "";
-            } else if (this.mParent != null && this.hin != null) {
+                this.lTe = "";
+            } else if (this.mParent != null && this.hip != null) {
                 if (list.size() > 10) {
                     list = list.subList(0, 10);
                 }
                 TiebaStatic.log("c12488");
-                if (this.iLP == null || this.iLP.getParent() == null) {
-                    this.iLP = new HListView(this.eNZ.getContext());
-                    ap.setBackgroundColor(this.iLP, R.color.CAM_X0201);
-                    this.iLP.setDividerWidth(l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds7));
-                    this.iLP.setClipToPadding(false);
+                if (this.iLR == null || this.iLR.getParent() == null) {
+                    this.iLR = new HListView(this.eNZ.getContext());
+                    ap.setBackgroundColor(this.iLR, R.color.CAM_X0201);
+                    this.iLR.setDividerWidth(l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds7));
+                    this.iLR.setClipToPadding(false);
                     int dimens = l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds10);
-                    this.iLP.setPadding(dimens, dimens, dimens, dimens);
-                    this.iLP.setSelector(R.drawable.list_selector_transparent);
-                    this.hin.height = l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds136);
-                    this.mParent.addView(this.iLP, this.hin);
-                    if (this.lTa == null) {
-                        this.lTa = new b();
-                        this.lTa.a((b.a) this);
-                        this.lTa.a((EmotionView.a) this);
-                        this.iLP.setAdapter((ListAdapter) this.lTa);
-                        this.iLP.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.2
+                    this.iLR.setPadding(dimens, dimens, dimens, dimens);
+                    this.iLR.setSelector(R.drawable.list_selector_transparent);
+                    this.hip.height = l.getDimens(this.eNZ.getPageActivity(), R.dimen.ds136);
+                    this.mParent.addView(this.iLR, this.hip);
+                    if (this.lTc == null) {
+                        this.lTc = new b();
+                        this.lTc.a((b.a) this);
+                        this.lTc.a((EmotionView.a) this);
+                        this.iLR.setAdapter((ListAdapter) this.lTc);
+                        this.iLR.setOnScrollListener(new AbsHListView.g() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.2
                             @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.g
                             public void a(AbsHListView absHListView, int i) {
                                 switch (i) {
                                     case 0:
-                                        c.this.mHandler.removeCallbacks(c.this.lTe);
-                                        c.this.mHandler.postDelayed(c.this.lTe, 5000L);
+                                        c.this.mHandler.removeCallbacks(c.this.lTg);
+                                        c.this.mHandler.postDelayed(c.this.lTg, 5000L);
                                         return;
                                     case 1:
-                                        c.this.mHandler.removeCallbacks(c.this.lTe);
+                                        c.this.mHandler.removeCallbacks(c.this.lTg);
                                         return;
                                     default:
                                         return;
@@ -117,12 +117,12 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
                         });
                     }
                 }
-                this.iLP.setVisibility(0);
-                this.lTa.setData(list);
-                this.lTa.notifyDataSetChanged();
-                this.iLP.setSelection(0);
-                this.mHandler.removeCallbacks(this.lTe);
-                this.mHandler.postDelayed(this.lTe, 5000L);
+                this.iLR.setVisibility(0);
+                this.lTc.setData(list);
+                this.lTc.notifyDataSetChanged();
+                this.iLR.setSelection(0);
+                this.mHandler.removeCallbacks(this.lTg);
+                this.mHandler.postDelayed(this.lTg, 5000L);
             }
         }
     }
@@ -131,30 +131,30 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     public void onFail(int i, String str) {
     }
 
-    public void dtJ() {
-        if (this.iLP != null) {
-            this.iLP.setVisibility(8);
+    public void dtK() {
+        if (this.iLR != null) {
+            this.iLR.setVisibility(8);
         }
-        this.mHandler.removeCallbacks(this.lTe);
-        this.lTc = "";
+        this.mHandler.removeCallbacks(this.lTg);
+        this.lTe = "";
     }
 
-    public void cFg() {
-        if (this.lTb != null) {
-            this.lTb.cancelLoadData();
+    public void cFh() {
+        if (this.lTd != null) {
+            this.lTd.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.emotion.b.a
     public void d(final EmotionImageData emotionImageData) {
-        this.mHandler.removeCallbacks(this.lTe);
-        this.mHandler.postDelayed(this.lTe, 5000L);
+        this.mHandler.removeCallbacks(this.lTg);
+        this.mHandler.postDelayed(this.lTg, 5000L);
         if (emotionImageData != null && !TextUtils.isEmpty(emotionImageData.getPicUrl()) && this.acn != null) {
             if (TextUtils.isEmpty(emotionImageData.getPicId()) || emotionImageData.getPicId().equals("0")) {
-                if (this.lTd == null) {
-                    this.lTd = new GetEmotionPidModel();
+                if (this.lTf == null) {
+                    this.lTf = new GetEmotionPidModel();
                 }
-                this.lTd.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.3
+                this.lTf.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.c.3
                     @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
                     public void a(com.baidu.tbadk.img.c cVar) {
                         if (cVar != null && !TextUtils.isEmpty(cVar.picId)) {
@@ -194,7 +194,7 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean cxU() {
+    public boolean cxV() {
         return true;
     }
 
@@ -204,13 +204,13 @@ public class c implements EmotionView.a, b.a, QueryMatchEmotionModel.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void cxX() {
-        this.mHandler.removeCallbacks(this.lTe);
+    public void cxY() {
+        this.mHandler.removeCallbacks(this.lTg);
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void cxY() {
-        this.mHandler.removeCallbacks(this.lTe);
-        this.mHandler.postDelayed(this.lTe, 5000L);
+    public void cxZ() {
+        this.mHandler.removeCallbacks(this.lTg);
+        this.mHandler.postDelayed(this.lTg, 5000L);
     }
 }

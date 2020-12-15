@@ -6,13 +6,13 @@ import com.tb.airbnb.lottie.model.a.m;
 public class a implements b {
     private final boolean FT;
     private final String name;
-    private final m<PointF, PointF> pBV;
-    private final com.tb.airbnb.lottie.model.a.f pCb;
+    private final m<PointF, PointF> pBX;
+    private final com.tb.airbnb.lottie.model.a.f pCd;
 
     public a(String str, m<PointF, PointF> mVar, com.tb.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.pBV = mVar;
-        this.pCb = fVar;
+        this.pBX = mVar;
+        this.pCd = fVar;
         this.FT = z;
     }
 
@@ -25,12 +25,12 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> eBl() {
-        return this.pBV;
+    public m<PointF, PointF> eBm() {
+        return this.pBX;
     }
 
-    public com.tb.airbnb.lottie.model.a.f eBs() {
-        return this.pCb;
+    public com.tb.airbnb.lottie.model.a.f eBt() {
+        return this.pCd;
     }
 
     public boolean isReversed() {

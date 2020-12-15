@@ -14,13 +14,13 @@ class n {
     private String mId;
     private int mOption;
     private long mTime;
-    private String oHo;
+    private String oHq;
 
     public n(String str, String str2, int i) {
         this.mContent = "";
         this.erE = false;
         this.abH = "";
-        this.oHo = "0";
+        this.oHq = "0";
         this.mId = str;
         this.erA = str;
         this.erB = -1;
@@ -35,7 +35,7 @@ class n {
         this.mContent = "";
         this.erE = false;
         this.abH = "";
-        this.oHo = "0";
+        this.oHq = "0";
         this.mId = str;
         this.erA = str;
         this.erB = -1;
@@ -50,7 +50,7 @@ class n {
         this.mContent = "";
         this.erE = false;
         this.abH = "";
-        this.oHo = "0";
+        this.oHq = "0";
         this.mId = str2;
         this.erA = str;
         this.erB = i;
@@ -65,7 +65,7 @@ class n {
         this.mContent = "";
         this.erE = false;
         this.abH = "";
-        this.oHo = "0";
+        this.oHq = "0";
         this.mId = str2;
         this.erA = str;
         this.erB = i;
@@ -137,16 +137,16 @@ class n {
     }
 
     public void bgg() {
-        if (this.mId != null && this.mId.equals(this.erA) && g.eiL().zq(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.erA) && g.eiM().zq(this.mId)) {
             this.erD = UBC.getUBCContext().aFA();
         }
     }
 
     public void XM(String str) {
-        this.oHo = str;
+        this.oHq = str;
     }
 
-    public String eiR() {
-        return this.oHo;
+    public String eiS() {
+        return this.oHq;
     }
 }

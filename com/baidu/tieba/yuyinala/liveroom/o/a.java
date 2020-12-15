@@ -11,7 +11,7 @@ public class a {
         if (z) {
             return (int) ((BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) * 0.3f) + TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_tbds64));
         }
-        int wheatHeight = o.efd().getWheatHeight();
+        int wheatHeight = o.efe().getWheatHeight();
         if (wheatHeight <= 0) {
             if (i == 1) {
                 wheatHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds935);

@@ -36,7 +36,7 @@ public class r extends at {
         this.ajA = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.aho = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
         this.ajB = tK();
-        this.ajB.dBH().setBackgroundResource(R.color.transparent);
+        this.ajB.dBI().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

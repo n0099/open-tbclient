@@ -15,13 +15,13 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class FrsFoldingView extends LinearLayout {
-    private LinearLayout.LayoutParams jwA;
-    private LinearLayout jwB;
-    private FrameLayout jwC;
-    private FrameLayout jwD;
-    private ImageView jwE;
-    private int jwy;
-    private boolean jwz;
+    private int jwA;
+    private boolean jwB;
+    private LinearLayout.LayoutParams jwC;
+    private LinearLayout jwD;
+    private FrameLayout jwE;
+    private FrameLayout jwF;
+    private ImageView jwG;
     private View mRootView;
 
     public FrsFoldingView(Context context) {
@@ -34,52 +34,52 @@ public class FrsFoldingView extends LinearLayout {
 
     public FrsFoldingView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jwy = 0;
-        this.jwz = true;
+        this.jwA = 0;
+        this.jwB = true;
         init();
     }
 
     private void init() {
         initView();
-        cKp();
+        cKq();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.folding_view_layout, (ViewGroup) this, true);
-        this.jwB = (LinearLayout) this.mRootView.findViewById(R.id.folding_root_layout);
-        this.jwC = (FrameLayout) this.mRootView.findViewById(R.id.permanent_layout);
-        this.jwD = (FrameLayout) this.mRootView.findViewById(R.id.collapsible_layout);
-        this.jwE = (ImageView) this.mRootView.findViewById(R.id.folding_arrow);
-        SvgManager.btW().a(this.jwE, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.jwD = (LinearLayout) this.mRootView.findViewById(R.id.folding_root_layout);
+        this.jwE = (FrameLayout) this.mRootView.findViewById(R.id.permanent_layout);
+        this.jwF = (FrameLayout) this.mRootView.findViewById(R.id.collapsible_layout);
+        this.jwG = (ImageView) this.mRootView.findViewById(R.id.folding_arrow);
+        SvgManager.btW().a(this.jwG, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
-    private void cKp() {
+    private void cKq() {
         this.mRootView.findViewById(R.id.folding_arrow).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FrsFoldingView.this.jwz) {
-                    FrsFoldingView.this.cKq();
-                    FrsFoldingView.this.jwz = false;
+                if (FrsFoldingView.this.jwB) {
+                    FrsFoldingView.this.cKr();
+                    FrsFoldingView.this.jwB = false;
                     return;
                 }
-                FrsFoldingView.this.cKr();
-                FrsFoldingView.this.jwz = true;
+                FrsFoldingView.this.cKs();
+                FrsFoldingView.this.jwB = true;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKq() {
-        this.jwA = (LinearLayout.LayoutParams) this.jwD.getLayoutParams();
+    public void cKr() {
+        this.jwC = (LinearLayout.LayoutParams) this.jwF.getLayoutParams();
         final ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) ofFloat.getAnimatedValue()).floatValue();
-                FrsFoldingView.this.jwA.height = (int) (FrsFoldingView.this.jwy * floatValue);
-                FrsFoldingView.this.jwD.setLayoutParams(FrsFoldingView.this.jwA);
-                FrsFoldingView.this.jwD.setAlpha(floatValue);
-                FrsFoldingView.this.jwE.setRotation((-floatValue) * 180.0f);
+                FrsFoldingView.this.jwC.height = (int) (FrsFoldingView.this.jwA * floatValue);
+                FrsFoldingView.this.jwF.setLayoutParams(FrsFoldingView.this.jwC);
+                FrsFoldingView.this.jwF.setAlpha(floatValue);
+                FrsFoldingView.this.jwG.setRotation((-floatValue) * 180.0f);
             }
         });
         ofFloat.setDuration(300L);
@@ -87,17 +87,17 @@ public class FrsFoldingView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKr() {
-        this.jwA = (LinearLayout.LayoutParams) this.jwD.getLayoutParams();
+    public void cKs() {
+        this.jwC = (LinearLayout.LayoutParams) this.jwF.getLayoutParams();
         final ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) ofFloat.getAnimatedValue()).floatValue();
-                FrsFoldingView.this.jwA.height = (int) (FrsFoldingView.this.jwy * floatValue);
-                FrsFoldingView.this.jwD.setLayoutParams(FrsFoldingView.this.jwA);
-                FrsFoldingView.this.jwD.setAlpha(floatValue);
-                FrsFoldingView.this.jwE.setRotation((-floatValue) * 180.0f);
+                FrsFoldingView.this.jwC.height = (int) (FrsFoldingView.this.jwA * floatValue);
+                FrsFoldingView.this.jwF.setLayoutParams(FrsFoldingView.this.jwC);
+                FrsFoldingView.this.jwF.setAlpha(floatValue);
+                FrsFoldingView.this.jwG.setRotation((-floatValue) * 180.0f);
             }
         });
         ofFloat.setDuration(300L);
@@ -105,19 +105,19 @@ public class FrsFoldingView extends LinearLayout {
     }
 
     public void setViews(List<View> list, List<com.baidu.tieba.frs.view.g> list2) {
-        this.jwC.removeAllViews();
-        this.jwC.addView(list.get(0));
+        this.jwE.removeAllViews();
+        this.jwE.addView(list.get(0));
         if (list.size() > 1) {
-            this.jwE.setVisibility(0);
-            this.jwD.removeAllViews();
-            this.jwD.addView(list.get(1));
-            this.jwy = list2.get(1).getCount() * com.baidu.adp.lib.util.l.getDimens(getContext().getApplicationContext(), R.dimen.tbds93);
+            this.jwG.setVisibility(0);
+            this.jwF.removeAllViews();
+            this.jwF.addView(list.get(1));
+            this.jwA = list2.get(1).getCount() * com.baidu.adp.lib.util.l.getDimens(getContext().getApplicationContext(), R.dimen.tbds93);
             return;
         }
-        this.jwE.setVisibility(8);
+        this.jwG.setVisibility(8);
     }
 
     public void onChangeSkinType() {
-        SvgManager.btW().a(this.jwE, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.btW().a(this.jwG, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 }

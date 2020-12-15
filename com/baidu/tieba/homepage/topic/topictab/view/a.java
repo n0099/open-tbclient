@@ -27,19 +27,19 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class a extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.topictab.b.a> {
     private static final int ahn;
-    private TbImageView iyY;
-    private CellTopicLinearLayout jYR;
-    private com.baidu.tieba.homepage.topic.topictab.b.a jZA;
-    private final View jZq;
-    private TextView jZr;
-    private TextView jZs;
-    private RelativeLayout jZt;
-    private View jZu;
-    private TopicPkView jZv;
-    private ThreadGodReplyLayout jZw;
-    private TextView jZx;
-    private View jZy;
-    private RelativeLayout jZz;
+    private TbImageView iza;
+    private CellTopicLinearLayout jYT;
+    private View jZA;
+    private RelativeLayout jZB;
+    private com.baidu.tieba.homepage.topic.topictab.b.a jZC;
+    private final View jZs;
+    private TextView jZt;
+    private TextView jZu;
+    private RelativeLayout jZv;
+    private View jZw;
+    private TopicPkView jZx;
+    private ThreadGodReplyLayout jZy;
+    private TextView jZz;
     private TextView mDescView;
     private int mSkinType;
     private TextView mTitleView;
@@ -61,42 +61,42 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
         }
         this.padding = dimens;
         View view = getView();
-        this.jYR = (CellTopicLinearLayout) view.findViewById(R.id.cell_topic_root);
-        this.jZz = (RelativeLayout) view.findViewById(R.id.cell_topic_top_layout);
-        this.jZr = (TextView) view.findViewById(R.id.cell_topic_index);
+        this.jYT = (CellTopicLinearLayout) view.findViewById(R.id.cell_topic_root);
+        this.jZB = (RelativeLayout) view.findViewById(R.id.cell_topic_top_layout);
+        this.jZt = (TextView) view.findViewById(R.id.cell_topic_index);
         this.mTitleView = (TextView) view.findViewById(R.id.cell_topic_title);
-        this.jZs = (TextView) view.findViewById(R.id.cell_topic_partake);
+        this.jZu = (TextView) view.findViewById(R.id.cell_topic_partake);
         this.mDescView = (TextView) view.findViewById(R.id.cell_topic_des);
-        this.jZt = (RelativeLayout) view.findViewById(R.id.cell_topic_img_layout);
-        this.iyY = (TbImageView) view.findViewById(R.id.cell_topic_img);
-        this.jZu = view.findViewById(R.id.cell_topic_img_placeholder);
-        this.jZv = (TopicPkView) view.findViewById(R.id.cell_topic_pk);
-        this.jZw = (ThreadGodReplyLayout) view.findViewById(R.id.cell_topic_god_reply);
-        this.jZx = (TextView) view.findViewById(R.id.cell_topic_icon);
-        this.jZy = view.findViewById(R.id.cell_topic_img_mask);
-        this.jZq = view.findViewById(R.id.cell_topic_bottom_placeholder);
-        cY(this.jZz);
+        this.jZv = (RelativeLayout) view.findViewById(R.id.cell_topic_img_layout);
+        this.iza = (TbImageView) view.findViewById(R.id.cell_topic_img);
+        this.jZw = view.findViewById(R.id.cell_topic_img_placeholder);
+        this.jZx = (TopicPkView) view.findViewById(R.id.cell_topic_pk);
+        this.jZy = (ThreadGodReplyLayout) view.findViewById(R.id.cell_topic_god_reply);
+        this.jZz = (TextView) view.findViewById(R.id.cell_topic_icon);
+        this.jZA = view.findViewById(R.id.cell_topic_img_mask);
+        this.jZs = view.findViewById(R.id.cell_topic_bottom_placeholder);
+        cY(this.jZB);
         cY(this.mDescView);
-        cY(this.jZw);
-        cY(this.jZq);
-        cY(this.iyY);
         cY(this.jZy);
+        cY(this.jZs);
+        cY(this.iza);
+        cY(this.jZA);
         if (d.bkA()) {
             dimens2 = l.getDimens(getContext(), R.dimen.tbds16);
         } else {
             dimens2 = l.getDimens(getContext(), R.dimen.tbds11);
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.jZv.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.jZx.getLayoutParams();
         layoutParams.leftMargin = dimens2;
         layoutParams.rightMargin = dimens2;
-        this.jZv.setLayoutParams(layoutParams);
-        ViewGroup.LayoutParams layoutParams2 = this.iyY.getLayoutParams();
+        this.jZx.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams2 = this.iza.getLayoutParams();
         layoutParams2.height = ((l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88)) * 9) / 16;
-        this.iyY.setLayoutParams(layoutParams2);
-        this.iyY.setRadiusById(R.string.J_X05);
-        this.iyY.setConrers(15);
-        this.iyY.setDrawCorner(true);
-        this.iyY.setPlaceHolder(3);
+        this.iza.setLayoutParams(layoutParams2);
+        this.iza.setRadiusById(R.string.J_X05);
+        this.iza.setConrers(15);
+        this.iza.setDrawCorner(true);
+        this.iza.setPlaceHolder(3);
     }
 
     private void cY(View view) {
@@ -110,15 +110,15 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.jZv.onChangeSkinType();
-        this.jZw.onChangeSkinType();
+        this.jZx.onChangeSkinType();
+        this.jZy.onChangeSkinType();
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            ap.setViewTextColor(this.jZr, R.color.CAM_X0101);
+            ap.setViewTextColor(this.jZt, R.color.CAM_X0101);
             ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-            ap.setViewTextColor(this.jZs, R.color.CAM_X0109);
+            ap.setViewTextColor(this.jZu, R.color.CAM_X0109);
             ap.setViewTextColor(this.mDescView, R.color.CAM_X0105);
-            this.iyY.setIsNight(this.mSkinType == 1);
+            this.iza.setIsNight(this.mSkinType == 1);
         }
     }
 
@@ -131,20 +131,20 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.homepage.topic.topictab.b.a aVar) {
         if (aVar != null) {
-            this.jZA = aVar;
+            this.jZC = aVar;
             if (aVar.from == 0) {
-                this.jZx.setVisibility(8);
-                this.jZr.setVisibility(0);
-                this.jZs.setVisibility(0);
-                this.jZr.setText(String.valueOf(aVar.index));
+                this.jZz.setVisibility(8);
+                this.jZt.setVisibility(0);
+                this.jZu.setVisibility(0);
+                this.jZt.setText(String.valueOf(aVar.index));
                 if (aVar.index == 1) {
-                    ap.setBackgroundResource(this.jZr, R.drawable.topic_rank_one_bg);
+                    ap.setBackgroundResource(this.jZt, R.drawable.topic_rank_one_bg);
                 } else if (aVar.index == 2) {
-                    ap.setBackgroundResource(this.jZr, R.drawable.topic_rank_two_bg);
+                    ap.setBackgroundResource(this.jZt, R.drawable.topic_rank_two_bg);
                 } else if (aVar.index == 3) {
-                    ap.setBackgroundResource(this.jZr, R.drawable.topic_rank_three_bg);
+                    ap.setBackgroundResource(this.jZt, R.drawable.topic_rank_three_bg);
                 } else {
-                    ap.setBackgroundResource(this.jZr, R.drawable.topic_rank_other_bg);
+                    ap.setBackgroundResource(this.jZt, R.drawable.topic_rank_other_bg);
                 }
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams();
                 int dimens = l.getDimens(getContext(), R.dimen.tbds16);
@@ -152,21 +152,21 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
                 layoutParams.setMargins(dimens, 0, dimens, 0);
                 az.a(this.mDescView, aVar.eIc, R.string.check_detail, R.dimen.tbds17, 2, ahn, true);
                 if (aVar.eIb == 0) {
-                    this.jZs.setText("NEW");
+                    this.jZu.setText("NEW");
                 } else {
-                    this.jZs.setText(String.format(this.mTbPageContext.getString(R.string.topic_partake_default), au.numberUniformFormat(aVar.eIb)));
+                    this.jZu.setText(String.format(this.mTbPageContext.getString(R.string.topic_partake_default), au.numberUniformFormat(aVar.eIb)));
                 }
-                if (aVar.jZd == null) {
-                    this.jZw.setVisibility(8);
+                if (aVar.jZf == null) {
+                    this.jZy.setVisibility(8);
                 } else {
-                    this.jZw.setVisibility(0);
-                    this.jZw.setData(aVar.jZd);
+                    this.jZy.setVisibility(0);
+                    this.jZy.setData(aVar.jZf);
                 }
             } else {
-                this.jZx.setVisibility(0);
-                this.jZr.setVisibility(8);
-                this.jZs.setVisibility(8);
-                this.jZw.setVisibility(8);
+                this.jZz.setVisibility(0);
+                this.jZt.setVisibility(8);
+                this.jZu.setVisibility(8);
+                this.jZy.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.mTitleView.getLayoutParams();
                 int dimens2 = l.getDimens(getContext(), R.dimen.tbds30);
                 int dimens3 = l.getDimens(getContext(), R.dimen.tbds16);
@@ -187,42 +187,42 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
                 str = str.substring(0, 13) + StringHelper.STRING_MORE;
             }
             this.mTitleView.setText(String.format(this.mTbPageContext.getString(R.string.daily_topic_name), str));
-            if (StringUtils.isNull(aVar.jXH)) {
-                this.jZt.setVisibility(8);
-                this.jZv.setUserColor(R.color.CAM_X0109);
-            } else {
-                this.jZt.setVisibility(0);
-                this.iyY.setPlaceHolder(3);
-                this.iyY.startLoad(aVar.jXH, 10, false);
-                this.jZv.setUserColor(R.color.CAM_X0101);
-            }
-            if (aVar.jZc == null) {
-                this.jZu.setVisibility(8);
+            if (StringUtils.isNull(aVar.jXJ)) {
                 this.jZv.setVisibility(8);
-                this.jZy.setVisibility(8);
+                this.jZx.setUserColor(R.color.CAM_X0109);
+            } else {
+                this.jZv.setVisibility(0);
+                this.iza.setPlaceHolder(3);
+                this.iza.startLoad(aVar.jXJ, 10, false);
+                this.jZx.setUserColor(R.color.CAM_X0101);
+            }
+            if (aVar.jZe == null) {
+                this.jZw.setVisibility(8);
+                this.jZx.setVisibility(8);
+                this.jZA.setVisibility(8);
                 return;
             }
-            this.jZu.setVisibility(0);
-            this.jZv.setVisibility(0);
-            this.jZv.setData(aVar.jZc);
-            this.jZy.setVisibility(0);
+            this.jZw.setVisibility(0);
+            this.jZx.setVisibility(0);
+            this.jZx.setData(aVar.jZe);
+            this.jZA.setVisibility(0);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jZA != null) {
-            if (this.jZA.from != 1) {
-                TiebaStatic.log(new ar("c13351").w("topic_id", this.jZA.topicId).al("obj_locate", this.jZA.index));
+        if (this.jZC != null) {
+            if (this.jZC.from != 1) {
+                TiebaStatic.log(new ar("c13351").w("topic_id", this.jZC.topicId).al("obj_locate", this.jZC.index));
             }
-            if (this.jZA.from == 1) {
-                TiebaStatic.log(new ar("c13449").w("topic_id", this.jZA.topicId));
+            if (this.jZC.from == 1) {
+                TiebaStatic.log(new ar("c13449").w("topic_id", this.jZC.topicId));
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopicDetailActivityConfig(getContext(), this.jZA.topicId)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TopicDetailActivityConfig(getContext(), this.jZC.topicId)));
         }
     }
 
-    public CellTopicLinearLayout cRd() {
-        return this.jYR;
+    public CellTopicLinearLayout cRe() {
+        return this.jYT;
     }
 }

@@ -16,26 +16,26 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MercatorModel {
-    private final a.InterfaceC0020a gAp;
-    private boolean noR;
+    private final a.InterfaceC0020a gAr;
+    private boolean noT;
 
     private MercatorModel() {
-        this.noR = false;
-        this.gAp = new a.InterfaceC0020a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
+        this.noT = false;
+        this.gAr = new a.InterfaceC0020a() { // from class: com.baidu.tieba.tbadkCore.util.MercatorModel.1
             @Override // com.baidu.adp.lib.c.a.InterfaceC0020a
             public void onLocationGeted(int i, String str, Address address) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i == 0 && address != null && inst != null && !MercatorModel.this.noR) {
-                    MercatorModel.this.noR = true;
+                if (i == 0 && address != null && inst != null && !MercatorModel.this.noT) {
+                    MercatorModel.this.noT = true;
                     String valueOf = String.valueOf(address.getLatitude());
                     String valueOf2 = String.valueOf(address.getLongitude());
                     String locString = BDLocManager.getInstance(inst).getLocString();
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    com.baidu.tieba.recapp.d.a.dFX().MX(valueOf);
-                    com.baidu.tieba.recapp.d.a.dFX().MW(valueOf2);
-                    com.baidu.tieba.recapp.d.a.dFX().hB(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.d.a.dFY().MX(valueOf);
+                    com.baidu.tieba.recapp.d.a.dFY().MW(valueOf2);
+                    com.baidu.tieba.recapp.d.a.dFY().hB(System.currentTimeMillis());
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     httpMessage.addParam("cuid", cuid);
                     httpMessage.addParam("cip", clientIP);
@@ -44,7 +44,7 @@ public class MercatorModel {
                     httpMessage.addParam("longitude", valueOf2);
                     httpMessage.addParam("latitude", valueOf);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    MercatorModel.this.noR = false;
+                    MercatorModel.this.noT = false;
                 }
             }
         };
@@ -54,17 +54,17 @@ public class MercatorModel {
     }
 
     public void startLoad() {
-        com.baidu.adp.lib.c.a.mk().a(true, this.gAp);
+        com.baidu.adp.lib.c.a.mk().a(true, this.gAr);
     }
 
-    public static MercatorModel dQl() {
-        return a.noY;
+    public static MercatorModel dQm() {
+        return a.npa;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final MercatorModel noY = new MercatorModel();
+        private static final MercatorModel npa = new MercatorModel();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -98,41 +98,41 @@ public class MercatorModel {
 
     /* loaded from: classes.dex */
     public static class MercatorData extends OrmObject {
-        String noT;
-        String noU;
         String noV;
-        int noW;
-        long noX;
+        String noW;
+        String noX;
+        int noY;
+        long noZ;
 
         public MercatorData() {
         }
 
         public MercatorData(String str, String str2, String str3, int i, long j) {
-            this.noT = str;
-            this.noU = str2;
-            this.noV = str3;
-            this.noW = i;
-            this.noX = j;
-        }
-
-        public String dQm() {
-            return this.noT;
+            this.noV = str;
+            this.noW = str2;
+            this.noX = str3;
+            this.noY = i;
+            this.noZ = j;
         }
 
         public String dQn() {
-            return this.noU;
-        }
-
-        public String dQo() {
             return this.noV;
         }
 
-        public int dQp() {
+        public String dQo() {
             return this.noW;
         }
 
-        public long dQq() {
+        public String dQp() {
             return this.noX;
+        }
+
+        public int dQq() {
+            return this.noY;
+        }
+
+        public long dQr() {
+            return this.noZ;
         }
     }
 }

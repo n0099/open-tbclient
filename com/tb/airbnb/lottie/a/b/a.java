@@ -9,9 +9,9 @@ import java.util.List;
 public abstract class a<K, A> {
     private final List<? extends com.tb.airbnb.lottie.e.a<K>> EF;
     @Nullable
-    protected com.tb.airbnb.lottie.e.c<A> pBu;
+    protected com.tb.airbnb.lottie.e.c<A> pBw;
     @Nullable
-    private com.tb.airbnb.lottie.e.a<K> pBv;
+    private com.tb.airbnb.lottie.e.a<K> pBx;
     final List<InterfaceC1019a> listeners = new ArrayList();
     private boolean EE = false;
     private float progress = 0.0f;
@@ -62,9 +62,9 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.tb.airbnb.lottie.e.a<K> eBc() {
-        if (this.pBv != null && this.pBv.l(this.progress)) {
-            return this.pBv;
+    private com.tb.airbnb.lottie.e.a<K> eBd() {
+        if (this.pBx != null && this.pBx.l(this.progress)) {
+            return this.pBx;
         }
         com.tb.airbnb.lottie.e.a<K> aVar = this.EF.get(this.EF.size() - 1);
         if (this.progress < aVar.kz()) {
@@ -75,7 +75,7 @@ public abstract class a<K, A> {
                 }
             }
         }
-        this.pBv = aVar;
+        this.pBx = aVar;
         return aVar;
     }
 
@@ -84,19 +84,19 @@ public abstract class a<K, A> {
         if (this.EE) {
             return 0.0f;
         }
-        com.tb.airbnb.lottie.e.a<K> eBc = eBc();
-        if (eBc.lc()) {
+        com.tb.airbnb.lottie.e.a<K> eBd = eBd();
+        if (eBd.lc()) {
             return 0.0f;
         }
-        return (this.progress - eBc.kz()) / (eBc.jm() - eBc.kz());
+        return (this.progress - eBd.kz()) / (eBd.jm() - eBd.kz());
     }
 
     private float jk() {
-        com.tb.airbnb.lottie.e.a<K> eBc = eBc();
-        if (eBc.lc()) {
+        com.tb.airbnb.lottie.e.a<K> eBd = eBd();
+        if (eBd.lc()) {
             return 0.0f;
         }
-        return eBc.Ih.getInterpolation(jj());
+        return eBd.Ih.getInterpolation(jj());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
@@ -116,7 +116,7 @@ public abstract class a<K, A> {
     }
 
     public A getValue() {
-        return a(eBc(), jk());
+        return a(eBd(), jk());
     }
 
     public float getProgress() {
@@ -124,10 +124,10 @@ public abstract class a<K, A> {
     }
 
     public void a(@Nullable com.tb.airbnb.lottie.e.c<A> cVar) {
-        if (this.pBu != null) {
-            this.pBu.b(null);
+        if (this.pBw != null) {
+            this.pBw.b(null);
         }
-        this.pBu = cVar;
+        this.pBw = cVar;
         if (cVar != null) {
             cVar.b(this);
         }

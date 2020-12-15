@@ -16,8 +16,8 @@ import java.util.Iterator;
 public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     private String aOt;
     private String brl;
-    private ArrayList<c> gSI = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.ala.guardthrone.b.b> gSJ = new ArrayList<>();
+    private ArrayList<c> gSK = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.ala.guardthrone.b.b> gSL = new ArrayList<>();
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
@@ -30,17 +30,17 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
         this.aOt = str3;
         this.mTabId = i;
         this.mIsHost = z;
-        bWU();
+        bWV();
     }
 
-    private void bWU() {
+    private void bWV() {
         com.baidu.tieba.ala.guardthrone.b.b bVar = new com.baidu.tieba.ala.guardthrone.b.b();
         com.baidu.tieba.ala.guardthrone.a.a aVar = new com.baidu.tieba.ala.guardthrone.a.a();
         aVar.a(this.mTbPageContext, this.mLiveId, this.brl, this.aOt, this.mTabId, this.mIsHost);
-        this.gSI.add(aVar);
+        this.gSK.add(aVar);
         bVar.tabName = this.mTbPageContext.getString(a.h.guard_throne_title);
-        bVar.gSX = "guard_throne";
-        this.gSJ.add(bVar);
+        bVar.gSZ = "guard_throne";
+        this.gSL.add(bVar);
         c cVar = null;
         com.baidu.live.noble.data.c cVar2 = new com.baidu.live.noble.data.c();
         cVar2.mTbPageContext = this.mTbPageContext;
@@ -54,29 +54,29 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
             cVar = (c) runTask.getData();
         }
         if (cVar != null) {
-            this.gSI.add(cVar);
+            this.gSK.add(cVar);
             com.baidu.tieba.ala.guardthrone.b.b bVar2 = new com.baidu.tieba.ala.guardthrone.b.b();
             bVar2.tabName = this.mTbPageContext.getString(a.h.noble_title);
-            bVar2.gSX = "noble";
-            this.gSJ.add(bVar2);
+            bVar2.gSZ = "noble";
+            this.gSL.add(bVar2);
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.gSI != null) {
-            return this.gSI.size();
+        if (this.gSK != null) {
+            return this.gSK.size();
         }
         return 0;
     }
 
     public ArrayList<c> getDataList() {
-        return this.gSI;
+        return this.gSK;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        c cVar = (c) ListUtils.getItem(this.gSI, i);
+        c cVar = (c) ListUtils.getItem(this.gSK, i);
         if (cVar != null && cVar.getView() != null) {
             View view = cVar.getView();
             if (view.getParent() != null) {
@@ -94,9 +94,9 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void uC(int i) {
-        if (i >= 0 && i < this.gSJ.size()) {
-            for (int i2 = 0; i2 < this.gSI.size(); i2++) {
-                c cVar = this.gSI.get(i2);
+        if (i >= 0 && i < this.gSL.size()) {
+            for (int i2 = 0; i2 < this.gSK.size(); i2++) {
+                c cVar = this.gSK.get(i2);
                 if (i2 == i) {
                     cVar.cb(true);
                 } else {
@@ -107,8 +107,8 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (!ListUtils.isEmpty(this.gSI)) {
-            Iterator<c> it = this.gSI.iterator();
+        if (!ListUtils.isEmpty(this.gSK)) {
+            Iterator<c> it = this.gSK.iterator();
             while (it.hasNext()) {
                 it.next().onConfigurationChanged(configuration);
             }
@@ -116,8 +116,8 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void onDestroy() {
-        if (!ListUtils.isEmpty(this.gSI)) {
-            Iterator<c> it = this.gSI.iterator();
+        if (!ListUtils.isEmpty(this.gSK)) {
+            Iterator<c> it = this.gSK.iterator();
             while (it.hasNext()) {
                 it.next().onDestroy();
             }

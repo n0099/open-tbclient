@@ -28,7 +28,7 @@ public class a extends e implements f {
     private CommonWebLayout bug;
     private View buh;
     private float bui;
-    private boolean hdA;
+    private boolean hdC;
     private Activity mActivity;
 
     public a(Activity activity) {
@@ -112,13 +112,13 @@ public class a extends e implements f {
     }
 
     private void initView() {
-        cfv();
-        initWebView();
         cfw();
+        initWebView();
+        cfx();
         setContentView(this.bue);
     }
 
-    private void cfv() {
+    private void cfw() {
         if (this.bue == null) {
             this.bui = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds10);
             this.bue = new RoundRectRelativeLayout(this.mActivity);
@@ -168,7 +168,7 @@ public class a extends e implements f {
         this.bue.addView(this.bug, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    private void cfw() {
+    private void cfx() {
         if (this.mActivity != null && !this.mActivity.isFinishing() && !this.mActivity.isDestroyed()) {
             this.buh = LayoutInflater.from(this.mActivity).inflate(a.g.live_web_pop_progress, (ViewGroup) null);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -191,7 +191,7 @@ public class a extends e implements f {
         if (getContentView() == null) {
             return false;
         }
-        if (this.hdA) {
+        if (this.hdC) {
             return true;
         }
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 1.0f);
@@ -205,7 +205,7 @@ public class a extends e implements f {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 a.this.YQ();
-                a.this.hdA = false;
+                a.this.hdC = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -213,7 +213,7 @@ public class a extends e implements f {
             }
         });
         getContentView().startAnimation(translateAnimation);
-        this.hdA = true;
+        this.hdC = true;
         return true;
     }
 

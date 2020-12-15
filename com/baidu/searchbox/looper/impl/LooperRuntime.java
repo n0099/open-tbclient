@@ -82,7 +82,7 @@ public class LooperRuntime {
 
     public void dispatchBlock(Context context, com.github.a.a.a.a aVar) {
         if (this.mLooperMonitordList != null && this.mLooperMonitordList.getList() != null) {
-            LooperBlock looperBlock = new LooperBlock(aVar.duration, aVar.psO, aVar.psL, aVar.psM, aVar.psT);
+            LooperBlock looperBlock = new LooperBlock(aVar.duration, aVar.psQ, aVar.psN, aVar.psO, aVar.psV);
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
                 if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {

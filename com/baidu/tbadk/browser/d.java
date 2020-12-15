@@ -316,7 +316,7 @@ public class d {
             if (shareItem.fny) {
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.eAy, shareItem, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                f.ctk().b(shareDialogConfig);
+                f.ctl().b(shareDialogConfig);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) this.eAy, shareItem, true, blH())));

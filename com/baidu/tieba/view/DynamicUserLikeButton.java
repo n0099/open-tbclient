@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
     private boolean ala;
-    private a nOk;
-    private boolean nOl;
+    private a nOm;
+    private boolean nOn;
 
     /* loaded from: classes21.dex */
     public interface a {
@@ -37,7 +37,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void aP(boolean z) {
-        if (this.nOl) {
+        if (this.nOn) {
             if (z) {
                 com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
                 bVar.bwc();
@@ -93,8 +93,8 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bB(View view) {
-        if (this.nOk != null) {
-            this.nOk.cG(view);
+        if (this.nOm != null) {
+            this.nOm.cG(view);
         }
     }
 
@@ -108,7 +108,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void setOnClickEvent(a aVar) {
-        this.nOk = aVar;
+        this.nOm = aVar;
     }
 
     public void setUseNewStyle(boolean z) {
@@ -116,6 +116,6 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void setGodRecommendStyle(boolean z) {
-        this.nOl = z;
+        this.nOn = z;
     }
 }

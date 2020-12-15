@@ -7,16 +7,16 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes22.dex */
 public class b extends com.baidu.tieba.card.data.i implements p {
-    private CardForum jUx;
+    private CardForum jUz;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.jUx = cardForum;
+            this.jUz = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(csE() + cardForum.position.intValue());
+                setYuelaouLocate(csF() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(csE() + 0);
+                setYuelaouLocate(csF() + 0);
             }
             if (y.getCount(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -35,14 +35,14 @@ public class b extends com.baidu.tieba.card.data.i implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.jUx != null) {
-            return this.jUx.position.intValue();
+        if (this.jUz != null) {
+            return this.jUz.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean csC() {
+    public boolean csD() {
         return true;
     }
 

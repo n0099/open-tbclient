@@ -16,13 +16,13 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.j;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b, j> {
-    private ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> gth;
+    private ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> gtj;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.gtm);
-        this.gth = new ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.gto);
+        this.gtj = new ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar) {
@@ -38,7 +38,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* renamed from: Q */
     public j c(ViewGroup viewGroup) {
         i iVar = new i(this.mPageContext, viewGroup);
-        iVar.c(this.gth);
+        iVar.c(this.gtj);
         return new j(iVar);
     }
 
@@ -46,10 +46,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar, j jVar) {
-        if (jVar == null || jVar.gum == null) {
+        if (jVar == null || jVar.guo == null) {
             return null;
         }
-        jVar.gum.a(bVar);
+        jVar.guo.a(bVar);
         return jVar.getView();
     }
 

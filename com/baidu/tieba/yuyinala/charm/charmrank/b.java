@@ -14,8 +14,8 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 /* loaded from: classes4.dex */
 public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
     private BdUniqueId brR;
-    private HttpMessageListener gER;
-    private a ojn;
+    private HttpMessageListener gET;
+    private a ojp;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -26,26 +26,26 @@ public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
 
     public b(TbPageContext<YuyinCharmRankTotalActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gER = new HttpMessageListener(1031035) { // from class: com.baidu.tieba.yuyinala.charm.charmrank.b.1
+        this.gET = new HttpMessageListener(1031035) { // from class: com.baidu.tieba.yuyinala.charm.charmrank.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof CharmRankListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.getUniqueId()) {
                     CharmRankListHttpResponseMessage charmRankListHttpResponseMessage = (CharmRankListHttpResponseMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
-                        if (b.this.ojn != null) {
-                            b.this.ojn.a(charmRankListHttpResponseMessage.ecR());
+                        if (b.this.ojp != null) {
+                            b.this.ojp.a(charmRankListHttpResponseMessage.ecS());
                         }
-                    } else if (b.this.ojn != null) {
-                        b.this.ojn.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    } else if (b.this.ojp != null) {
+                        b.this.ojp.t(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     }
                 }
             }
         };
-        this.ojn = aVar;
+        this.ojp = aVar;
         this.brR = BdUniqueId.gen();
         setUniqueId(this.brR);
-        MessageManager.getInstance().registerListener(this.gER);
+        MessageManager.getInstance().registerListener(this.gET);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031035, TbConfig.SERVER_ADDRESS + "ala/audio/room/getRankList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -64,7 +64,7 @@ public class b extends BdBaseModel<YuyinCharmRankTotalActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gER);
+        MessageManager.getInstance().unRegisterListener(this.gET);
         MessageManager.getInstance().unRegisterTask(1031035);
         cancelMessage();
     }

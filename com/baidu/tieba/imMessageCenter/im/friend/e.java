@@ -8,9 +8,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes22.dex */
 public class e extends BdBaseModel<InviteFriendListActivity> {
-    private RequestCommitInviteMessage kGO;
-    private long kGP;
-    private long kkq;
+    private RequestCommitInviteMessage kGQ;
+    private long kGR;
+    private long kks;
 
     public e(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,26 +23,26 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.kkq = intent.getLongExtra("gid", -1L);
-            this.kGP = intent.getLongExtra("groupid", -1L);
+            this.kks = intent.getLongExtra("gid", -1L);
+            this.kGR = intent.getLongExtra("groupid", -1L);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.kkq = bundle.getLong("gid", -1L);
-            this.kGP = bundle.getLong("groupid", -1L);
+            this.kks = bundle.getLong("gid", -1L);
+            this.kGR = bundle.getLong("groupid", -1L);
         }
     }
 
     public void ay(Bundle bundle) {
-        bundle.putLong("gid", this.kkq);
-        bundle.putLong("groupid", this.kGP);
+        bundle.putLong("gid", this.kks);
+        bundle.putLong("groupid", this.kGR);
     }
 
     public void Oa(String str) {
-        this.kGO = d(this.kkq, this.kGP, str);
-        super.sendMessage(this.kGO);
+        this.kGQ = d(this.kks, this.kGR, str);
+        super.sendMessage(this.kGQ);
     }
 
     private RequestCommitInviteMessage d(long j, long j2, String str) {

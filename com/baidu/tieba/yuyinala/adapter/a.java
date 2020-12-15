@@ -10,46 +10,46 @@ import com.baidu.tieba.yuyinala.data.c;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<c> giP;
+    private ArrayList<c> giR;
     private String mRoomId;
-    private AlaRankListActivity ohZ;
+    private AlaRankListActivity oib;
 
     public a(AlaRankListActivity alaRankListActivity, String str) {
-        this.ohZ = alaRankListActivity;
+        this.oib = alaRankListActivity;
         this.mRoomId = str;
     }
 
     public void setData(ArrayList<c> arrayList) {
-        if (this.giP == null) {
-            this.giP = new ArrayList<>();
+        if (this.giR == null) {
+            this.giR = new ArrayList<>();
         } else {
-            this.giP.clear();
+            this.giR.clear();
         }
         if (arrayList != null) {
-            this.giP.addAll(arrayList);
+            this.giR.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.giP == null) {
+        if (this.giR == null) {
             return 0;
         }
-        return this.giP.size();
+        return this.giR.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.giP == null) {
+        if (this.giR == null) {
             return null;
         }
-        return this.giP.get(i);
+        return this.giR.get(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public boolean isEmpty() {
-        return this.giP == null || this.giP.size() == 0;
+        return this.giR == null || this.giR.size() == 0;
     }
 
     @Override // android.widget.Adapter
@@ -61,14 +61,14 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.yuyinala.view.c cVar;
         if (view == null) {
-            view = LayoutInflater.from(this.ohZ).inflate(a.g.yuyin_ala_rank_list_item_view, (ViewGroup) null);
-            com.baidu.tieba.yuyinala.view.c cVar2 = new com.baidu.tieba.yuyinala.view.c(this.ohZ, view);
+            view = LayoutInflater.from(this.oib).inflate(a.g.yuyin_ala_rank_list_item_view, (ViewGroup) null);
+            com.baidu.tieba.yuyinala.view.c cVar2 = new com.baidu.tieba.yuyinala.view.c(this.oib, view);
             view.setTag(cVar2);
             cVar = cVar2;
         } else {
             cVar = (com.baidu.tieba.yuyinala.view.c) view.getTag();
         }
-        cVar.a(this.giP.get(i), i);
+        cVar.a(this.giR.get(i), i);
         return view;
     }
 }

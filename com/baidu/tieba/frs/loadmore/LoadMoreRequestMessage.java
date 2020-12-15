@@ -79,9 +79,9 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.q_type = Integer.valueOf(av.btX().btY() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dGe().Sm("tag_frs_tab");
+        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dGf().Sm("tag_frs_tab");
         u.a(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.dFX().dGb();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.dFY().dGc();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);

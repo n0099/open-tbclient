@@ -15,7 +15,7 @@ public class a {
     /* loaded from: classes.dex */
     public static class b {
         public String amY;
-        public int imE;
+        public int imG;
         public String mPid;
     }
 
@@ -57,36 +57,36 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0870a {
         private final boolean eGJ;
-        private final ar kQO;
+        private final ar kQQ;
         private final String key;
-        private final String nne;
-        private final String nnf;
         private final String nng;
+        private final String nnh;
+        private final String nni;
         private final String page;
 
         private C0870a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.nne = str2;
+            this.nng = str2;
             this.page = str3;
-            this.nnf = str4;
-            this.nng = str5;
+            this.nnh = str4;
+            this.nni = str5;
             this.eGJ = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.kQO = dPx();
+            this.kQQ = dPy();
         }
 
-        private ar dPx() {
+        private ar dPy() {
             ar arVar = new ar(this.key);
-            if (!StringUtils.isNull(this.nne)) {
-                arVar = arVar.dY("line", this.nne);
+            if (!StringUtils.isNull(this.nng)) {
+                arVar = arVar.dY("line", this.nng);
             }
             if (!StringUtils.isNull(this.page)) {
                 arVar = arVar.dY("page", this.page);
             }
-            if (!StringUtils.isNull(this.nnf)) {
-                arVar = arVar.dY("locate", this.nnf);
+            if (!StringUtils.isNull(this.nnh)) {
+                arVar = arVar.dY("locate", this.nnh);
             }
-            if (!StringUtils.isNull(this.nng)) {
-                return arVar.dY("task", this.nng);
+            if (!StringUtils.isNull(this.nni)) {
+                return arVar.dY("task", this.nni);
             }
             return arVar;
         }
@@ -94,33 +94,33 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public ar m(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.kQO.dY(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.kQQ.dY(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.kQO.dY("obj_id", str2);
+                this.kQQ.dY("obj_id", str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.kQO.dY("fid", str3);
+                this.kQQ.dY("fid", str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.kQO.dY("fname", str4);
+                this.kQQ.dY("fname", str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.kQO.dY("tid", str5);
+                this.kQQ.dY("tid", str5);
             }
-            this.kQO.al("obj_cpid", 0).al("obj_good_id", 0).dY("obj_throw_type", "BY_POST").dY("client_type", "MOBILE_APP").dY("user_timestamp", String.valueOf(System.currentTimeMillis())).dY("os", "android").dY("os_version", Build.VERSION.RELEASE).dY("log_ver", "1.1");
-            return this.kQO;
+            this.kQQ.al("obj_cpid", 0).al("obj_good_id", 0).dY("obj_throw_type", "BY_POST").dY("client_type", "MOBILE_APP").dY("user_timestamp", String.valueOf(System.currentTimeMillis())).dY("os", "android").dY("os_version", Build.VERSION.RELEASE).dY("log_ver", "1.1");
+            return this.kQQ;
         }
 
         public C0870a gw(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.kQO.dY(str, str2);
+                this.kQQ.dY(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.kQO);
+            TiebaStatic.log(this.kQQ);
             if (!this.eGJ) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
@@ -130,7 +130,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.kQO.delete(str);
+            this.kQQ.delete(str);
         }
     }
 }

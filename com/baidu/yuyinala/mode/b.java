@@ -8,7 +8,7 @@ import com.baidu.yuyinala.mode.c;
 import com.baidu.yuyinala.mode.c.a;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioModeDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0959a {
-    private com.baidu.yuyinala.mode.c.a oKx;
+    private com.baidu.yuyinala.mode.c.a oKz;
 
     public b(TbPageContext tbPageContext, w wVar, AlaAudioModeDialogData alaAudioModeDialogData) {
         super(tbPageContext, new c(tbPageContext), alaAudioModeDialogData);
@@ -18,21 +18,21 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
         cX(true);
         cY(true);
         a((DialogInterface.OnDismissListener) this.bFM);
-        this.oKx = new com.baidu.yuyinala.mode.c.a(wVar, this);
+        this.oKz = new com.baidu.yuyinala.mode.c.a(wVar, this);
     }
 
     public void a(w wVar, AlaAudioModeDialogData alaAudioModeDialogData) {
-        this.oKx.aB(wVar);
+        this.oKz.aB(wVar);
         a((b) alaAudioModeDialogData);
     }
 
     @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0959a
-    public void eku() {
+    public void ekv() {
         this.mPageContext.showToast(a.h.change_mode_fail);
     }
 
     @Override // com.baidu.yuyinala.mode.c.a.InterfaceC0959a
-    public void ekv() {
+    public void ekw() {
         this.mPageContext.showToast(a.h.change_mode_succ);
     }
 
@@ -53,6 +53,6 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
 
     @Override // com.baidu.yuyinala.mode.c.a
     public void OT(int i) {
-        this.oKx.OT(i);
+        this.oKz.OT(i);
     }
 }

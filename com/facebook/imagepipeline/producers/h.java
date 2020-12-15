@@ -4,45 +4,45 @@ import com.facebook.common.internal.ImmutableMap;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes15.dex */
 public class h implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> {
-    private final com.facebook.imagepipeline.b.p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pdv;
-    private final com.facebook.imagepipeline.b.f plv;
-    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> pox;
+    private final com.facebook.imagepipeline.b.p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pdx;
+    private final com.facebook.imagepipeline.b.f plx;
+    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> poz;
 
     public h(com.facebook.imagepipeline.b.p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pVar, com.facebook.imagepipeline.b.f fVar, aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> ajVar) {
-        this.pdv = pVar;
-        this.plv = fVar;
-        this.pox = ajVar;
+        this.pdx = pVar;
+        this.plx = fVar;
+        this.poz = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> kVar, ak akVar) {
-        am eww = akVar.eww();
+        am ewx = akVar.ewx();
         String id = akVar.getId();
-        eww.hh(id, ewG());
-        com.facebook.cache.common.b a2 = this.plv.a(akVar.ewv(), akVar.erm());
-        com.facebook.common.references.a<com.facebook.imagepipeline.f.c> bu = this.pdv.bu(a2);
+        ewx.hh(id, ewH());
+        com.facebook.cache.common.b a2 = this.plx.a(akVar.eww(), akVar.ern());
+        com.facebook.common.references.a<com.facebook.imagepipeline.f.c> bu = this.pdx.bu(a2);
         if (bu != null) {
-            boolean evI = bu.get().evu().evI();
-            if (evI) {
-                eww.a(id, ewG(), eww.Zq(id) ? ImmutableMap.of("cached_value_found", "true") : null);
-                eww.J(id, ewG(), true);
+            boolean evJ = bu.get().evv().evJ();
+            if (evJ) {
+                ewx.a(id, ewH(), ewx.Zq(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                ewx.J(id, ewH(), true);
                 kVar.aV(1.0f);
             }
-            kVar.h(bu, b.AW(evI));
+            kVar.h(bu, b.AW(evJ));
             bu.close();
-            if (evI) {
+            if (evJ) {
                 return;
             }
         }
-        if (akVar.ewx().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
-            eww.a(id, ewG(), eww.Zq(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-            eww.J(id, ewG(), false);
+        if (akVar.ewy().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
+            ewx.a(id, ewH(), ewx.Zq(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+            ewx.J(id, ewH(), false);
             kVar.h(null, 1);
             return;
         }
-        k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> a3 = a(kVar, a2, akVar.ewv().exs());
-        eww.a(id, ewG(), eww.Zq(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-        this.pox.a(a3, akVar);
+        k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> a3 = a(kVar, a2, akVar.eww().ext());
+        ewx.a(id, ewH(), ewx.Zq(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+        this.poz.a(a3, akVar);
     }
 
     protected k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> a(k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> kVar, final com.facebook.cache.common.b bVar, final boolean z) {
@@ -55,42 +55,42 @@ public class h implements aj<com.facebook.common.references.a<com.facebook.image
                 boolean Rh = Rh(i);
                 if (aVar == null) {
                     if (Rh) {
-                        ewI().h(null, i);
+                        ewJ().h(null, i);
                     }
                 } else if (aVar.get().isStateful() || ef(i, 8)) {
-                    ewI().h(aVar, i);
+                    ewJ().h(aVar, i);
                 } else {
-                    if (!Rh && (bu = h.this.pdv.bu(bVar)) != null) {
+                    if (!Rh && (bu = h.this.pdx.bu(bVar)) != null) {
                         try {
-                            com.facebook.imagepipeline.f.h evu = aVar.get().evu();
-                            com.facebook.imagepipeline.f.h evu2 = bu.get().evu();
-                            if (evu2.evI() || evu2.evG() >= evu.evG()) {
-                                ewI().h(bu, i);
+                            com.facebook.imagepipeline.f.h evv = aVar.get().evv();
+                            com.facebook.imagepipeline.f.h evv2 = bu.get().evv();
+                            if (evv2.evJ() || evv2.evH() >= evv.evH()) {
+                                ewJ().h(bu, i);
                                 return;
                             }
                         } finally {
                             com.facebook.common.references.a.c(bu);
                         }
                     }
-                    com.facebook.common.references.a<com.facebook.imagepipeline.f.c> a2 = z ? h.this.pdv.a(bVar, aVar) : null;
+                    com.facebook.common.references.a<com.facebook.imagepipeline.f.c> a2 = z ? h.this.pdx.a(bVar, aVar) : null;
                     if (Rh) {
                         try {
-                            ewI().aV(1.0f);
+                            ewJ().aV(1.0f);
                         } finally {
                             com.facebook.common.references.a.c(a2);
                         }
                     }
-                    k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> ewI = ewI();
+                    k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> ewJ = ewJ();
                     if (a2 != null) {
                         aVar = a2;
                     }
-                    ewI.h(aVar, i);
+                    ewJ.h(aVar, i);
                 }
             }
         };
     }
 
-    protected String ewG() {
+    protected String ewH() {
         return "BitmapMemoryCacheProducer";
     }
 }

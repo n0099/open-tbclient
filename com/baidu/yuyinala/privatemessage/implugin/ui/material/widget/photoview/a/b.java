@@ -7,18 +7,18 @@ import android.view.MotionEvent;
 /* loaded from: classes4.dex */
 public class b extends a {
     private int mActivePointerId;
-    private int oTY;
+    private int oUa;
 
     public b(Context context) {
         super(context);
         this.mActivePointerId = -1;
-        this.oTY = 0;
+        this.oUa = 0;
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a
     float ap(MotionEvent motionEvent) {
         try {
-            return motionEvent.getX(this.oTY);
+            return motionEvent.getX(this.oUa);
         } catch (Exception e) {
             return motionEvent.getX();
         }
@@ -27,7 +27,7 @@ public class b extends a {
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a
     float aq(MotionEvent motionEvent) {
         try {
-            return motionEvent.getY(this.oTY);
+            return motionEvent.getY(this.oUa);
         } catch (Exception e) {
             return motionEvent.getY();
         }
@@ -54,7 +54,7 @@ public class b extends a {
                 }
                 break;
         }
-        this.oTY = motionEvent.findPointerIndex(this.mActivePointerId != -1 ? this.mActivePointerId : 0);
+        this.oUa = motionEvent.findPointerIndex(this.mActivePointerId != -1 ? this.mActivePointerId : 0);
         return super.onTouchEvent(motionEvent);
     }
 }

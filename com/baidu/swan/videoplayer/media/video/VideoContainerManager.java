@@ -134,7 +134,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         private void bhp() {
             this.etW = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.etW.getHierarchy().b(p.b.pgx);
+            this.etW.getHierarchy().b(p.b.pgz);
             addView(this.etW, layoutParams);
         }
 
@@ -167,7 +167,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.pgx;
+                p.b bVar = p.b.pgz;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -191,16 +191,16 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.pgw;
+                        p.b bVar2 = p.b.pgy;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.pgx;
+                        p.b bVar3 = p.b.pgz;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.pgr;
+                        p.b bVar4 = p.b.pgt;
                         break;
                 }
-                this.etW.getHierarchy().b(p.b.pgx);
+                this.etW.getHierarchy().b(p.b.pgz);
                 a(str, this.etW);
             }
         }
@@ -217,7 +217,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             if (measuredWidth > 0 && measuredHeight > 0) {
                 af.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.eqF().c(simpleDraweeView.getController()).bo(af.exw()).erw());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.eqG().c(simpleDraweeView.getController()).bo(af.exx()).erx());
         }
 
         public Uri getUri(String str) {

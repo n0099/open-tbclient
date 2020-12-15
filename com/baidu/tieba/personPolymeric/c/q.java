@@ -6,22 +6,22 @@ import tbclient.GetRecommendGodList.DataRes;
 import tbclient.User;
 /* loaded from: classes24.dex */
 public class q {
-    public int gQy;
-    public int jFM;
-    public List<User> msd;
+    public int gQA;
+    public int jFO;
+    public List<User> msf;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.msd = dataRes.recom_user_list;
-            this.jFM = dataRes.has_more.intValue();
-            this.gQy = dataRes.current_page.intValue();
+            this.msf = dataRes.recom_user_list;
+            this.jFO = dataRes.has_more.intValue();
+            this.gQA = dataRes.current_page.intValue();
         }
     }
 
-    public bq dAz() {
+    public bq dAA() {
         bq bqVar = new bq();
         bqVar.eIg = false;
-        bqVar.bn(this.msd);
+        bqVar.bn(this.msf);
         return bqVar;
     }
 }

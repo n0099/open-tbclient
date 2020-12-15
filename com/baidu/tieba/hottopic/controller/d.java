@@ -8,30 +8,30 @@ import com.baidu.tieba.g.a;
 import com.baidu.tieba.play.i;
 /* loaded from: classes21.dex */
 public class d {
-    private i iBT;
-    private boolean jPy = true;
-    private int iVc = 0;
-    private int gpN = 0;
-    private boolean iVM = false;
-    private Runnable kcZ = new Runnable() { // from class: com.baidu.tieba.hottopic.controller.d.1
+    private i iBV;
+    private boolean jPA = true;
+    private int iVe = 0;
+    private int gpP = 0;
+    private boolean iVO = false;
+    private Runnable kdb = new Runnable() { // from class: com.baidu.tieba.hottopic.controller.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.iBT.deK();
+            d.this.iBV.deL();
         }
     };
-    private com.baidu.tieba.g.a jxj = new com.baidu.tieba.g.a();
+    private com.baidu.tieba.g.a jxl = new com.baidu.tieba.g.a();
 
     public d(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.iBT = new i(tbPageContext, bdTypeListView);
-        this.jxj.a(new a.InterfaceC0756a() { // from class: com.baidu.tieba.hottopic.controller.d.2
+        this.iBV = new i(tbPageContext, bdTypeListView);
+        this.jxl.a(new a.InterfaceC0756a() { // from class: com.baidu.tieba.hottopic.controller.d.2
             @Override // com.baidu.tieba.g.a.InterfaceC0756a
             public void G(int i, int i2) {
-                d.this.iVM = false;
+                d.this.iVO = false;
             }
 
             @Override // com.baidu.tieba.g.a.InterfaceC0756a
             public void H(int i, int i2) {
-                d.this.iVM = true;
+                d.this.iVO = true;
             }
 
             @Override // com.baidu.tieba.g.a.InterfaceC0756a
@@ -45,44 +45,44 @@ public class d {
     }
 
     public void rS(boolean z) {
-        this.jPy = z;
+        this.jPA = z;
     }
 
-    public void cPh() {
-        this.iBT.cPh();
-        this.jPy = false;
+    public void cPi() {
+        this.iBV.cPi();
+        this.jPA = false;
     }
 
-    public void cRL() {
-        if (this.iBT != null && this.jPy) {
-            this.iBT.a(this.iVc, this.gpN, this.iVM, 1);
+    public void cRM() {
+        if (this.iBV != null && this.jPA) {
+            this.iBV.a(this.iVe, this.gpP, this.iVO, 1);
         }
     }
 
     public void onScroll(int i, int i2) {
-        this.iVc = i;
-        this.gpN = (i + i2) - 1;
+        this.iVe = i;
+        this.gpP = (i + i2) - 1;
     }
 
     public void onTouch(MotionEvent motionEvent) {
-        if (this.jxj != null) {
-            this.jxj.onTouchEvent(motionEvent);
+        if (this.jxl != null) {
+            this.jxl.onTouchEvent(motionEvent);
         }
     }
 
     public void rT(boolean z) {
-        this.iBT.tC(!z);
-        e.mY().removeCallbacks(this.kcZ);
+        this.iBV.tC(!z);
+        e.mY().removeCallbacks(this.kdb);
         if (z) {
-            this.iBT.deJ();
+            this.iBV.deK();
         } else {
-            e.mY().postDelayed(this.kcZ, 200L);
+            e.mY().postDelayed(this.kdb, 200L);
         }
     }
 
     public void destroy() {
-        if (this.iBT != null) {
-            this.iBT.destroy();
+        if (this.iBV != null) {
+            this.iBV.destroy();
         }
     }
 }

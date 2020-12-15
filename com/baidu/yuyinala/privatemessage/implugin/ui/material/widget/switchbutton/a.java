@@ -5,23 +5,23 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class a {
-    private static int oUf = 256;
-    private static int oUg = 7;
-    private static int oUh = 16;
+    private static int oUh = 256;
+    private static int oUi = 7;
+    private static int oUj = 16;
     private int mFrom;
-    private b oUj;
-    private int oUk;
-    private int oUl;
+    private b oUl;
+    private int oUm;
+    private int oUn;
     private boolean isAnimating = false;
-    private int bFu = oUg;
-    private HandlerC0972a oUi = new HandlerC0972a();
+    private int bFu = oUi;
+    private HandlerC0972a oUk = new HandlerC0972a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public interface b {
-        boolean eni();
+        boolean enj();
 
-        void enj();
+        void enk();
 
         void onAnimationStart();
 
@@ -32,7 +32,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a enh() {
+    public static a eni() {
         return new a();
     }
 
@@ -41,7 +41,7 @@ public class a {
         if (bVar == null) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e("SwitchButtonAnimationController", "onAnimateListener can not be null");
         } else {
-            this.oUj = bVar;
+            this.oUl = bVar;
         }
         return this;
     }
@@ -55,7 +55,7 @@ public class a {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == a.oUf && message.obj != null) {
+            if (message.what == a.oUh && message.obj != null) {
                 ((Runnable) message.obj).run();
             }
         }
@@ -65,18 +65,18 @@ public class a {
     public void dU(int i, int i2) {
         this.isAnimating = true;
         this.mFrom = i;
-        this.oUl = i2;
-        this.oUk = this.bFu;
-        if (this.oUl > this.mFrom) {
-            this.oUk = Math.abs(this.bFu);
-        } else if (this.oUl < this.mFrom) {
-            this.oUk = -Math.abs(this.bFu);
+        this.oUn = i2;
+        this.oUm = this.bFu;
+        if (this.oUn > this.mFrom) {
+            this.oUm = Math.abs(this.bFu);
+        } else if (this.oUn < this.mFrom) {
+            this.oUm = -Math.abs(this.bFu);
         } else {
             this.isAnimating = false;
-            this.oUj.enj();
+            this.oUl.enk();
             return;
         }
-        this.oUj.onAnimationStart();
+        this.oUl.onAnimationStart();
         new c().run();
     }
 
@@ -86,7 +86,7 @@ public class a {
 
     public void Pp(int i) {
         if (i <= 0) {
-            this.bFu = oUg;
+            this.bFu = oUi;
         } else {
             this.bFu = i;
         }
@@ -100,25 +100,25 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.isAnimating) {
-                enk();
-                a.this.oUj.onFrameUpdate(a.this.oUk);
-                if (a.this.oUj.eni()) {
-                    enl();
+                enl();
+                a.this.oUl.onFrameUpdate(a.this.oUm);
+                if (a.this.oUl.enj()) {
+                    enm();
                     return;
                 }
                 a.this.stopAnimation();
-                a.this.oUj.enj();
+                a.this.oUl.enk();
             }
         }
 
-        private void enk() {
+        private void enl() {
         }
 
-        private void enl() {
-            Message obtainMessage = a.this.oUi.obtainMessage();
-            obtainMessage.what = a.oUf;
+        private void enm() {
+            Message obtainMessage = a.this.oUk.obtainMessage();
+            obtainMessage.what = a.oUh;
             obtainMessage.obj = this;
-            a.this.oUi.sendMessageDelayed(obtainMessage, a.oUh);
+            a.this.oUk.sendMessageDelayed(obtainMessage, a.oUj);
         }
     }
 }

@@ -10,21 +10,21 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaApplyWheatHttpResponse
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.c;
 /* loaded from: classes4.dex */
 public class c {
-    private static c oul;
-    private a oum;
+    private static c oun;
+    private a ouo;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void dfx();
+        void dfy();
 
-        void eeG();
+        void eeH();
     }
 
-    public static c eeL() {
-        if (oul == null) {
-            oul = new c();
+    public static c eeM() {
+        if (oun == null) {
+            oun = new c();
         }
-        return oul;
+        return oun;
     }
 
     private c() {
@@ -39,17 +39,17 @@ public class c {
     }
 
     private void a(Context context, Activity activity, final String str) {
-        d.eeM().a(context, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.1
+        d.eeN().a(context, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
             public void zK(boolean z) {
                 if (z) {
-                    if (c.this.oum != null) {
-                        c.this.oum.dfx();
+                    if (c.this.ouo != null) {
+                        c.this.ouo.dfy();
                     }
                     new com.baidu.tieba.yuyinala.liveroom.wheat.model.c(null, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.1.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
                         public void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-                            l.eeZ().NQ(2);
+                            l.efa().NQ(2);
                             c.this.a(alaApplyWheatHttpResponseMessage);
                         }
 
@@ -57,29 +57,29 @@ public class c {
                         public void c(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
                         }
-                    }).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().CZ(), str, "", "");
+                    }).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().CZ(), str, "", "");
                 }
             }
         });
     }
 
     private void b(Context context, Activity activity, final String str, final String str2) {
-        d.eeM().a(context, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.2
+        d.eeN().a(context, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
             public void zK(boolean z) {
                 if (z) {
                     new com.baidu.tieba.yuyinala.liveroom.wheat.model.c(null, new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.c.2.1
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
                         public void b(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-                            if (!alaApplyWheatHttpResponseMessage.isError() && c.this.oum != null) {
-                                c.this.oum.eeG();
+                            if (!alaApplyWheatHttpResponseMessage.isError() && c.this.ouo != null) {
+                                c.this.ouo.eeH();
                             }
                         }
 
                         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.c.a
                         public void c(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
                         }
-                    }).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().CZ(), str, str2, "");
+                    }).L(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().CZ(), str, str2, "");
                 }
             }
         });
@@ -87,8 +87,8 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage) {
-        if (alaApplyWheatHttpResponseMessage.efL() == 1) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().M(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eet(), TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaApplyWheatHttpResponseMessage.getPushUrl(), alaApplyWheatHttpResponseMessage.efK());
+        if (alaApplyWheatHttpResponseMessage.efM() == 1) {
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().M(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eeu(), TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaApplyWheatHttpResponseMessage.getPushUrl(), alaApplyWheatHttpResponseMessage.efL());
         }
     }
 
@@ -97,11 +97,11 @@ public class c {
     }
 
     public void onDestroy() {
-        oul = null;
+        oun = null;
     }
 
     public c a(a aVar) {
-        this.oum = aVar;
+        this.ouo = aVar;
         return this;
     }
 }

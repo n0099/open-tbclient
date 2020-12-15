@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes24.dex */
 public class a extends RecyclerView.Adapter<b> {
     private String ejE;
-    private InterfaceC0809a lbs;
+    private InterfaceC0809a lbu;
     private Context mContext;
     private List<String> mDataList;
 
@@ -46,15 +46,15 @@ public class a extends RecyclerView.Adapter<b> {
         if (this.mDataList != null) {
             final String str = this.mDataList.get(i);
             if (!StringUtils.isNull(str)) {
-                bVar.lbv.setText(str);
-                ap.setViewTextColor(bVar.lbv, R.color.CAM_X0105);
+                bVar.lbx.setText(str);
+                ap.setViewTextColor(bVar.lbx, R.color.CAM_X0105);
                 ap.setBackgroundResource(bVar.itemView, R.drawable.more_pop_item_bg_selector);
-                d(bVar.lbv, str);
+                d(bVar.lbx, str);
                 bVar.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (a.this.lbs != null) {
-                            a.this.lbs.OJ(str);
+                        if (a.this.lbu != null) {
+                            a.this.lbu.OJ(str);
                         }
                     }
                 });
@@ -71,7 +71,7 @@ public class a extends RecyclerView.Adapter<b> {
     }
 
     public void b(InterfaceC0809a interfaceC0809a) {
-        this.lbs = interfaceC0809a;
+        this.lbu = interfaceC0809a;
     }
 
     public void setData(List<String> list) {
@@ -79,7 +79,7 @@ public class a extends RecyclerView.Adapter<b> {
         notifyDataSetChanged();
     }
 
-    public void dgS() {
+    public void dgT() {
         if (this.mDataList != null) {
             this.mDataList.clear();
             notifyDataSetChanged();
@@ -92,11 +92,11 @@ public class a extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes24.dex */
     public class b extends RecyclerView.ViewHolder {
-        TextView lbv;
+        TextView lbx;
 
         public b(View view) {
             super(view);
-            this.lbv = (TextView) view.findViewById(R.id.tv_major_name);
+            this.lbx = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 

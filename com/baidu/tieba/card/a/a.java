@@ -4,14 +4,14 @@ import com.baidu.adp.widget.ListView.af;
 import com.baidu.tieba.card.b;
 /* loaded from: classes21.dex */
 public class a<T extends b> extends af.a {
-    protected T iot;
+    protected T iov;
 
     public a(T t) {
         super(t.getView());
-        this.iot = t;
+        this.iov = t;
     }
 
-    public T csM() {
-        return this.iot;
+    public T csN() {
+        return this.iov;
     }
 }

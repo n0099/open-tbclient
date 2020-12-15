@@ -15,11 +15,11 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private ArrayList<MetaData> eOt;
-    private TbCheckBox.a kGv;
+    private TbCheckBox.a kGx;
     private final Context mContext;
-    private AtListActivity oaV;
-    private boolean oaX;
-    private b oaW = null;
+    private AtListActivity oaX;
+    private boolean oaZ;
+    private b oaY = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes3.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.oaW = bVar;
+        this.oaY = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.oaX = true;
-        this.oaV = atListActivity;
-        this.mContext = this.oaV.getPageContext().getContext();
-        this.oaX = z;
+        this.oaZ = true;
+        this.oaX = atListActivity;
+        this.mContext = this.oaX.getPageContext().getContext();
+        this.oaZ = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.kGv = aVar;
+        this.kGx = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -94,39 +94,39 @@ public class a extends BaseAdapter {
         C0905a c0905a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0905a = eac();
+            c0905a = ead();
         } else {
             c0905a = (C0905a) obj;
         }
-        if (this.oaW != null) {
-            this.oaW.a(c0905a.rootView, metaData);
+        if (this.oaY != null) {
+            this.oaY.a(c0905a.rootView, metaData);
         }
         String avater = metaData.getAvater();
-        c0905a.hLB.setText(metaData.getName_show());
-        c0905a.kGy.setTagData(metaData);
-        c0905a.kGd.setTag(avater);
-        if (this.oaX) {
-            c0905a.kGy.setVisibility(0);
+        c0905a.hLD.setText(metaData.getName_show());
+        c0905a.kGA.setTagData(metaData);
+        c0905a.kGf.setTag(avater);
+        if (this.oaZ) {
+            c0905a.kGA.setVisibility(0);
         } else {
-            c0905a.kGy.setVisibility(8);
+            c0905a.kGA.setVisibility(8);
         }
-        c0905a.kGd.startLoad(avater, 12, false);
-        this.oaV.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.oaV.getPageContext().getLayoutMode().onModeChanged(c0905a.rootView);
+        c0905a.kGf.startLoad(avater, 12, false);
+        this.oaX.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.oaX.getPageContext().getLayoutMode().onModeChanged(c0905a.rootView);
         return c0905a;
     }
 
-    private C0905a eac() {
+    private C0905a ead() {
         C0905a c0905a = new C0905a();
         c0905a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        c0905a.kGd = (HeadImageView) c0905a.rootView.findViewById(R.id.photo);
-        c0905a.kGd.setIsRound(false);
-        c0905a.hLB = (TextView) c0905a.rootView.findViewById(R.id.txt_user_name);
-        c0905a.kGy = (TbCheckBox) c0905a.rootView.findViewById(R.id.ckb_select);
-        c0905a.kGy.setBackgroundDrawableIdIsWebP(true);
-        c0905a.kGy.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
-        if (this.kGv != null) {
-            c0905a.kGy.setStatedChangedListener(this.kGv);
+        c0905a.kGf = (HeadImageView) c0905a.rootView.findViewById(R.id.photo);
+        c0905a.kGf.setIsRound(false);
+        c0905a.hLD = (TextView) c0905a.rootView.findViewById(R.id.txt_user_name);
+        c0905a.kGA = (TbCheckBox) c0905a.rootView.findViewById(R.id.ckb_select);
+        c0905a.kGA.setBackgroundDrawableIdIsWebP(true);
+        c0905a.kGA.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
+        if (this.kGx != null) {
+            c0905a.kGA.setStatedChangedListener(this.kGx);
         }
         c0905a.rootView.setTag(c0905a);
         return c0905a;
@@ -136,9 +136,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0905a {
-        public TextView hLB;
-        public HeadImageView kGd;
-        public TbCheckBox kGy;
+        public TextView hLD;
+        public TbCheckBox kGA;
+        public HeadImageView kGf;
         public View rootView;
 
         private C0905a() {

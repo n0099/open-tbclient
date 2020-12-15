@@ -8,43 +8,43 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdToast;
 /* loaded from: classes4.dex */
 public class l {
-    private static l ouW;
-    private TbPageContext oty;
+    private static l ouY;
+    private TbPageContext otA;
 
-    public static l eeZ() {
-        if (ouW == null) {
-            ouW = new l();
+    public static l efa() {
+        if (ouY == null) {
+            ouY = new l();
         }
-        return ouW;
+        return ouY;
     }
 
     public l i(TbPageContext tbPageContext) {
-        this.oty = tbPageContext;
+        this.otA = tbPageContext;
         return this;
     }
 
     public void NQ(int i) {
-        o.efd().zO(false);
+        o.efe().zO(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, true));
         if (i == 3) {
-            efa();
-            if (!o.efd().eev()) {
-                e.eeN().eeO().h(this.oty);
+            efb();
+            if (!o.efe().eew()) {
+                e.eeO().eeP().h(this.otA);
             }
         } else if (i == 2) {
             com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("auth_success_host_2", true);
-            o.efd().zQ(true);
-            efa();
+            o.efe().zQ(true);
+            efb();
         } else if (i == 4) {
-            efa();
-            if (!o.efd().eev()) {
-                e.eeN().eeO().h(this.oty);
+            efb();
+            if (!o.efe().eew()) {
+                e.eeO().eeP().h(this.otA);
             }
         }
     }
 
-    private void efa() {
+    private void efb() {
         if (com.baidu.tieba.yuyinala.liveroom.wheat.e.a.gQ(TbadkCoreApplication.getInst())) {
             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_apply_succ_1_text)).show();
         } else {

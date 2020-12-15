@@ -12,11 +12,11 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
     private BdTypeRecyclerView Yf;
-    private LinkedList<com.baidu.adp.widget.ListView.a> jOs = new LinkedList<>();
-    private f jOt;
-    private c jOu;
-    private d jOv;
-    private e jOw;
+    private LinkedList<com.baidu.adp.widget.ListView.a> jOu = new LinkedList<>();
+    private f jOv;
+    private c jOw;
+    private d jOx;
+    private e jOy;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -26,19 +26,19 @@ public class a {
     }
 
     private void Nt() {
-        this.jOt = new f(this.mPageContext, k.inn);
-        this.jOu = new c(this.mPageContext, l.eJq);
-        this.jOv = new d(this.mPageContext, k.inv);
-        this.jOw = new e(this.mPageContext, k.f4int);
-        this.jOt.a(this.Yf);
-        this.jOu.a(this.Yf);
+        this.jOv = new f(this.mPageContext, k.inp);
+        this.jOw = new c(this.mPageContext, l.eJq);
+        this.jOx = new d(this.mPageContext, k.inx);
+        this.jOy = new e(this.mPageContext, k.inv);
         this.jOv.a(this.Yf);
         this.jOw.a(this.Yf);
-        this.jOs.add(this.jOt);
-        this.jOs.add(this.jOu);
-        this.jOs.add(this.jOv);
-        this.jOs.add(this.jOw);
-        this.Yf.addAdapters(this.jOs);
+        this.jOx.a(this.Yf);
+        this.jOy.a(this.Yf);
+        this.jOu.add(this.jOv);
+        this.jOu.add(this.jOw);
+        this.jOu.add(this.jOx);
+        this.jOu.add(this.jOy);
+        this.Yf.addAdapters(this.jOu);
     }
 
     public void notifyDataSetChanged() {
@@ -48,17 +48,17 @@ public class a {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.jOt != null) {
-            this.jOt.setPageUniqueId(bdUniqueId);
-        }
-        if (this.jOu != null) {
-            this.jOu.setPageUniqueId(bdUniqueId);
-        }
         if (this.jOv != null) {
             this.jOv.setPageUniqueId(bdUniqueId);
         }
         if (this.jOw != null) {
             this.jOw.setPageUniqueId(bdUniqueId);
+        }
+        if (this.jOx != null) {
+            this.jOx.setPageUniqueId(bdUniqueId);
+        }
+        if (this.jOy != null) {
+            this.jOy.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -74,29 +74,29 @@ public class a {
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.jOw != null) {
-            this.jOw.setEventCallback(aVar);
+        if (this.jOy != null) {
+            this.jOy.setEventCallback(aVar);
         }
     }
 
     public void CQ(int i) {
-        if (this.jOt != null) {
-            this.jOt.CQ(i);
-        }
-        if (this.jOu != null) {
-            this.jOu.CQ(i);
-        }
         if (this.jOv != null) {
             this.jOv.CQ(i);
         }
         if (this.jOw != null) {
             this.jOw.CQ(i);
         }
+        if (this.jOx != null) {
+            this.jOx.CQ(i);
+        }
+        if (this.jOy != null) {
+            this.jOy.CQ(i);
+        }
     }
 
     public void onPause() {
-        if (this.jOu != null) {
-            this.jOu.onPause();
+        if (this.jOw != null) {
+            this.jOw.onPause();
         }
     }
 

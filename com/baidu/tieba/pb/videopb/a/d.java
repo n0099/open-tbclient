@@ -25,7 +25,7 @@ import java.util.HashMap;
 /* loaded from: classes22.dex */
 public class d extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
     public BdUniqueId fzO;
-    private BdTypeRecyclerView jdj;
+    private BdTypeRecyclerView jdl;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,7 +45,7 @@ public class d extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
         s sVar = new s(this.mPageContext.getPageActivity());
         sVar.tO();
         aVar.a((i) sVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.jdj);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.jdl);
         a2.setSourceForPb(2);
         am<by> amVar = new am<>(a2);
         amVar.setPageId(this.fzO);
@@ -81,6 +81,6 @@ public class d extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
     }
 
     public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jdj = bdTypeRecyclerView;
+        this.jdl = bdTypeRecyclerView;
     }
 }

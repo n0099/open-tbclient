@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private static a gwc;
-    private List<ar> fYB;
+    private static a gwe;
+    private List<ar> fYD;
 
-    public static a bSG() {
-        if (gwc == null) {
+    public static a bSH() {
+        if (gwe == null) {
             synchronized (a.class) {
-                if (gwc == null) {
-                    gwc = new a();
+                if (gwe == null) {
+                    gwe = new a();
                 }
             }
         }
-        return gwc;
+        return gwe;
     }
 
     public void e(ar arVar) {
         if (arVar != null) {
-            if (this.fYB == null) {
-                this.fYB = new ArrayList();
+            if (this.fYD == null) {
+                this.fYD = new ArrayList();
             }
-            if (this.fYB != null) {
-                this.fYB.add(arVar);
+            if (this.fYD != null) {
+                this.fYD.add(arVar);
             }
         }
     }
 
     public void GN(String str) {
         if (str != null) {
-            if (this.fYB == null) {
-                this.fYB = new ArrayList();
+            if (this.fYD == null) {
+                this.fYD = new ArrayList();
             }
-            if (this.fYB != null) {
-                this.fYB.add(new ar(str));
+            if (this.fYD != null) {
+                this.fYD.add(new ar(str));
             }
         }
     }
 
-    public void bPr() {
-        if (y.getCount(this.fYB) != 0) {
-            for (ar arVar : this.fYB) {
+    public void bPs() {
+        if (y.getCount(this.fYD) != 0) {
+            for (ar arVar : this.fYD) {
                 if (arVar != null) {
                     TiebaStatic.log(arVar);
                 }
             }
-            this.fYB.clear();
+            this.fYD.clear();
         }
     }
 
     public void mj(boolean z) {
-        if (y.getCount(this.fYB) != 0) {
-            for (ar arVar : this.fYB) {
+        if (y.getCount(this.fYD) != 0) {
+            for (ar arVar : this.fYD) {
                 if (arVar != null) {
                     int i = 0;
                     if (z) {
@@ -71,7 +71,7 @@ public class a {
                     TiebaStatic.log(arVar);
                 }
             }
-            this.fYB.clear();
+            this.fYD.clear();
         }
     }
 

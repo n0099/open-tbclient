@@ -19,9 +19,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String jIi = null;
+    private String jIk = null;
     private TextView mTextView = null;
-    private TextView jIx = null;
+    private TextView jIz = null;
     LinearLayout mContainer = null;
 
     public static void aP(Context context, String str) {
@@ -41,17 +41,17 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_success_activity);
         initData();
-        cNo();
+        cNp();
     }
 
     private void initData() {
-        this.jIi = getIntent().getStringExtra("barname");
-        if (this.jIi == null) {
-            this.jIi = "";
+        this.jIk = getIntent().getStringExtra("barname");
+        if (this.jIk == null) {
+            this.jIk = "";
         }
     }
 
-    private void cNo() {
+    private void cNp() {
         this.mContainer = (LinearLayout) findViewById(R.id.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -63,7 +63,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.create_bar));
         this.mTextView = (TextView) findViewById(R.id.text);
-        this.jIx = (TextView) findViewById(R.id.text_more);
+        this.jIz = (TextView) findViewById(R.id.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -75,10 +75,10 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         boolean isOn = new CreateBarTipSwitch().isOn();
         String string = isOn ? getPageContext().getString(R.string.create_bar_new_tip) : getPageContext().getString(R.string.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(isOn ? string + this.jIi + getPageContext().getString(R.string.create_bar_new_tip2) : string + this.jIi + getPageContext().getString(R.string.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.common_color_10252)), length, this.jIi.length() + length, 33);
+        SpannableString spannableString = new SpannableString(isOn ? string + this.jIk + getPageContext().getString(R.string.create_bar_new_tip2) : string + this.jIk + getPageContext().getString(R.string.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.common_color_10252)), length, this.jIk.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.jIx.setVisibility(isOn ? 0 : 8);
+        this.jIz.setVisibility(isOn ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

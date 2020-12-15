@@ -40,7 +40,7 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
     private int fvK;
     private EditText fwL;
     private LinearLayout fwP;
-    private ImageView iWv;
+    private ImageView iWx;
     private View mBottomLine;
 
     public VideoPlayInputContainer(Context context) {
@@ -76,10 +76,10 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
     }
 
     private void gJ(Context context) {
-        this.iWv = new ImageView(context);
-        this.iWv.setEnabled(true);
-        this.iWv.setPadding(0, 0, l.getDimens(context, R.dimen.tbds30), l.getDimens(context, R.dimen.tbds24));
-        this.iWv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
+        this.iWx = new ImageView(context);
+        this.iWx.setEnabled(true);
+        this.iWx.setPadding(0, 0, l.getDimens(context, R.dimen.tbds30), l.getDimens(context, R.dimen.tbds24));
+        this.iWx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(1, 5, null));
@@ -87,7 +87,7 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        this.fwP.addView(this.iWv, layoutParams);
+        this.fwP.addView(this.iWx, layoutParams);
     }
 
     private void eU(Context context) {
@@ -122,7 +122,7 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
                     VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, VideoPlayInputContainer.this.fwL.getText().toString()));
                 }
                 VideoPlayInputContainer.this.bQv.setEnabled((editable == null || StringUtils.isNull(editable.toString().trim())) ? false : true);
-                VideoPlayInputContainer.this.dXI();
+                VideoPlayInputContainer.this.dXJ();
             }
         });
         this.fwL.setHint(context.getString(R.string.reply_something));
@@ -167,7 +167,7 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
                 case 3:
                     if (this.fwL.getSelectionStart() > 0) {
                         String substring = this.fwL.getText().toString().substring(0, this.fwL.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.iEW.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.iEY.matcher(substring);
                         if (matcher.find()) {
                             this.fwL.getText().delete(this.fwL.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.fwL.getSelectionStart());
                             return;
@@ -204,7 +204,7 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
                         this.fwL.setText((CharSequence) null);
                     }
                     this.bQv.setEnabled(false);
-                    dXI();
+                    dXJ();
                     return;
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof u)) {
@@ -301,12 +301,12 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
             j.h(this.fwL, R.drawable.edittext_cursor_1);
             this.fwL.setHintTextColor(ap.getColor(i, R.color.CAM_X0109));
         }
-        dXI();
-        ap.setImageResource(this.iWv, R.drawable.pbeditor_face_button);
+        dXJ();
+        ap.setImageResource(this.iWx, R.drawable.pbeditor_face_button);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXI() {
+    public void dXJ() {
         if (this.bQv.isEnabled()) {
             ap.setViewTextColor(this.bQv, R.color.CAM_X0302, 1, this.aku);
         } else {

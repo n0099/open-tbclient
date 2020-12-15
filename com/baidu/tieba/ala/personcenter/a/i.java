@@ -15,14 +15,14 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes6.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.l, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
-    private TextView gBU;
-    private String hMT;
+    private TextView gBW;
+    private String hMV;
     private TbPageContext mPageContext;
     private String user_id;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.l.hNA);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.l.hNC);
         this.mPageContext = tbPageContext;
     }
 
@@ -38,24 +38,24 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.l lVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.csM() == null) {
+        if (aVar.csN() == null) {
             return null;
         }
-        a(lVar, aVar.csM());
-        aVar.csM().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
+        a(lVar, aVar.csN());
+        aVar.csN().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 i.this.click();
             }
         });
-        return aVar.csM().getView();
+        return aVar.csN().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.l lVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = lVar.getPersonCenterData();
         if (personCenterData != null && aVar != null) {
-            this.gBU = aVar.cno();
-            this.user_id = personCenterData.cmP().user_id;
+            this.gBW = aVar.cnp();
+            this.user_id = personCenterData.cmQ().user_id;
             a(personCenterData, aVar);
             aVar.xD(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_privilege));
@@ -89,7 +89,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: private */
     public void click() {
         AlaSharedPrefHelper.getInstance().putBoolean(AlaSharedPrefConfig.ALA_MY_LIVE_PRIVILEGE_HAS_ENTERED, true);
-        a(this.gBU, this.hMT, false);
+        a(this.gBW, this.hMV, false);
         ar arVar = new ar("c13333");
         arVar.dY("uid", TbadkApplication.getCurrentAccount());
         TiebaStatic.log(arVar);

@@ -14,13 +14,13 @@ import com.baidu.tieba.R;
 public class i extends af.a {
     public TBSpecificationBtn akU;
     private int faz;
-    public TbImageView ktI;
+    public TbImageView ktK;
     public TextView mDescView;
     public TextView mTitleView;
 
     public i(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.ktI = (TbImageView) view.findViewById(R.id.net_refresh_image);
+        this.ktK = (TbImageView) view.findViewById(R.id.net_refresh_image);
         this.mDescView = (TextView) view.findViewById(R.id.net_refresh_desc);
         this.mTitleView = (TextView) view.findViewById(R.id.net_refresh_title);
         this.akU = (TBSpecificationBtn) view.findViewById(R.id.net_refresh_button);
@@ -36,21 +36,21 @@ public class i extends af.a {
         setLayoutMargin(0);
         Ei(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.ktI.setImageBitmap(ap.getBitmap565Quality(R.drawable.new_pic_emotion_08));
+            this.ktK.setImageBitmap(ap.getBitmap565Quality(R.drawable.new_pic_emotion_08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.ktI.setImageBitmap(ap.getBitmap565Quality(R.drawable.new_pic_emotion_05));
+            this.ktK.setImageBitmap(ap.getBitmap565Quality(R.drawable.new_pic_emotion_05));
         } else {
             d(imgType);
-            this.ktI.setImageBitmap(ap.getBitmap565Quality(this.faz));
+            this.ktK.setImageBitmap(ap.getBitmap565Quality(this.faz));
         }
     }
 
     public void setLayoutMargin(int i) {
-        ViewGroup.LayoutParams layoutParams = this.ktI.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.ktK.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.ktI.setLayoutParams(marginLayoutParams);
+            this.ktK.setLayoutParams(marginLayoutParams);
         }
     }
 

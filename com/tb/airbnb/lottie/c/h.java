@@ -7,7 +7,7 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.IOException;
 /* loaded from: classes20.dex */
 public class h implements aj<com.tb.airbnb.lottie.model.b> {
-    public static final h pCV = new h();
+    public static final h pCX = new h();
 
     private h() {
     }

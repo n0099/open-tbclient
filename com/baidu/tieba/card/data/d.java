@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.al;
 public class d extends BaseCardInfo implements al, p {
     private boolean eEu;
     public String fFV;
-    public AdvertAppInfo imN;
+    public AdvertAppInfo imP;
     public String mPageType;
     public int mPn;
 
@@ -16,7 +16,7 @@ public class d extends BaseCardInfo implements al, p {
         this.mPn = 0;
         this.mPageType = "";
         this.eEu = false;
-        this.imN = advertAppInfo;
+        this.imP = advertAppInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,17 +25,17 @@ public class d extends BaseCardInfo implements al, p {
         this.mPn = 0;
         this.mPageType = "";
         this.eEu = false;
-        this.imN = null;
+        this.imP = null;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        if (this.imN != null && this.imN.getType() == AdvertAppInfo.eDM) {
+        if (this.imP != null && this.imP.getType() == AdvertAppInfo.eDM) {
             return AdvertAppInfo.eDS;
         }
-        if (this.imN != null && this.imN.legoCard != null) {
+        if (this.imP != null && this.imP.legoCard != null) {
             BdUniqueId bdUniqueId = AdvertAppInfo.eDV;
-            switch (this.imN.legoCard.getGoodsStyle()) {
+            switch (this.imP.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
                     return AdvertAppInfo.eDW;
@@ -63,11 +63,11 @@ public class d extends BaseCardInfo implements al, p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.f.b.toInt(this.imN != null ? this.imN.adPosition : "-1", -1);
+        return com.baidu.adp.lib.f.b.toInt(this.imP != null ? this.imP.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean csC() {
+    public boolean csD() {
         return false;
     }
 
@@ -79,19 +79,19 @@ public class d extends BaseCardInfo implements al, p {
     public void pb(boolean z) {
     }
 
-    public AdvertAppInfo csD() {
-        return this.imN;
+    public AdvertAppInfo csE() {
+        return this.imP;
     }
 
     @Override // com.baidu.tbadk.core.data.al
     public AdvertAppInfo bmI() {
-        return this.imN;
+        return this.imP;
     }
 
     @Override // com.baidu.tbadk.core.data.al
     public void setPosition(int i) {
         this.position = i;
-        this.imN.position = i;
+        this.imP.position = i;
         this.eEu = true;
     }
 

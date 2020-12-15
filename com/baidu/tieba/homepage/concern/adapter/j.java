@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.b, a> {
     public j(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.a.b.jLm);
+        super(context, com.baidu.tieba.homepage.concern.a.b.jLo);
     }
 
     public j(Context context, BdUniqueId bdUniqueId) {
@@ -36,14 +36,14 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (bVar.tipString != null) {
             aVar.tipText.setText(bVar.tipString);
         }
-        if (bVar.getType() == com.baidu.tieba.homepage.concern.a.b.jLl) {
-            if (bVar.jLn == 2) {
+        if (bVar.getType() == com.baidu.tieba.homepage.concern.a.b.jLn) {
+            if (bVar.jLp == 2) {
                 aVar.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
             } else {
                 aVar.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
             }
         }
-        switch (bVar.jLn) {
+        switch (bVar.jLp) {
             case 2:
                 aVar.cH(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
@@ -57,15 +57,15 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes22.dex */
     public static class a extends af.a {
         private int aku;
-        public ImageView jKA;
-        public ViewGroup jKz;
+        public ViewGroup jKB;
+        public ImageView jKC;
         public TextView tipText;
 
         public a(View view) {
             super(view);
             this.aku = 3;
-            this.jKz = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.jKA = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.jKB = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.jKC = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
@@ -73,7 +73,7 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             if (this.aku != i) {
                 ap.setViewTextColor(this.tipText, R.color.CAM_X0107);
             }
-            ap.setImageResource(this.jKA, i2);
+            ap.setImageResource(this.jKC, i2);
             this.aku = i;
         }
     }

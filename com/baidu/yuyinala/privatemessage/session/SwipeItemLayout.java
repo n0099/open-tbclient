@@ -23,10 +23,10 @@ public class SwipeItemLayout extends ViewGroup {
     };
     private int eYk;
     private boolean mInLayout;
-    private Mode oWP;
-    private View oWQ;
-    private int oWR;
-    private a oWS;
+    private Mode oWR;
+    private View oWS;
+    private int oWT;
+    private a oWU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -44,9 +44,9 @@ public class SwipeItemLayout extends ViewGroup {
     public SwipeItemLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mInLayout = false;
-        this.oWP = Mode.RESET;
+        this.oWR = Mode.RESET;
         this.eYk = 0;
-        this.oWS = new a(context);
+        this.oWU = new a(context);
     }
 
     public int getScrollOffset() {
@@ -55,14 +55,14 @@ public class SwipeItemLayout extends ViewGroup {
 
     public void close() {
         if (this.eYk != 0) {
-            if (this.oWP == Mode.FLING) {
-                this.oWS.abort();
+            if (this.oWR == Mode.FLING) {
+                this.oWU.abort();
             }
-            this.oWS.dX(this.eYk, 0);
+            this.oWU.dX(this.eYk, 0);
         }
     }
 
-    private void eob() {
+    private void eoc() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -70,26 +70,26 @@ public class SwipeItemLayout extends ViewGroup {
             if (layoutParams == null || !(layoutParams instanceof LayoutParams)) {
                 throw new IllegalStateException("缺少layout参数");
             }
-            if (((LayoutParams) layoutParams).oWT == 1) {
-                this.oWQ = childAt;
+            if (((LayoutParams) layoutParams).oWV == 1) {
+                this.oWS = childAt;
             }
         }
-        if (this.oWQ == null) {
+        if (this.oWS == null) {
             throw new IllegalStateException("main item不能为空");
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        eob();
-        LayoutParams layoutParams = (LayoutParams) this.oWQ.getLayoutParams();
-        measureChildWithMargins(this.oWQ, i, getPaddingLeft() + getPaddingRight(), i2, getPaddingTop() + getPaddingBottom());
-        setMeasuredDimension(this.oWQ.getMeasuredWidth() + getPaddingLeft() + getPaddingRight() + layoutParams.leftMargin + layoutParams.rightMargin, this.oWQ.getMeasuredHeight() + getPaddingTop() + getPaddingBottom() + layoutParams.topMargin + layoutParams.bottomMargin);
+        eoc();
+        LayoutParams layoutParams = (LayoutParams) this.oWS.getLayoutParams();
+        measureChildWithMargins(this.oWS, i, getPaddingLeft() + getPaddingRight(), i2, getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(this.oWS.getMeasuredWidth() + getPaddingLeft() + getPaddingRight() + layoutParams.leftMargin + layoutParams.rightMargin, this.oWS.getMeasuredHeight() + getPaddingTop() + getPaddingBottom() + layoutParams.topMargin + layoutParams.bottomMargin);
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.oWQ.getMeasuredHeight(), 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.oWS.getMeasuredHeight(), 1073741824);
         for (int i3 = 0; i3 < getChildCount(); i3++) {
             View childAt = getChildAt(i3);
-            if (((LayoutParams) childAt.getLayoutParams()).oWT != 1) {
+            if (((LayoutParams) childAt.getLayoutParams()).oWV != 1) {
                 measureChildWithMargins(childAt, makeMeasureSpec, 0, makeMeasureSpec2, 0);
             }
         }
@@ -98,14 +98,14 @@ public class SwipeItemLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         this.mInLayout = true;
-        eob();
+        eoc();
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingRight = getPaddingRight();
         int paddingBottom = getPaddingBottom();
-        LayoutParams layoutParams = (LayoutParams) this.oWQ.getLayoutParams();
-        this.oWQ.layout(paddingLeft + layoutParams.leftMargin, layoutParams.topMargin + paddingTop, (getWidth() - paddingRight) - layoutParams.rightMargin, (getHeight() - paddingBottom) - layoutParams.bottomMargin);
-        int right = this.oWQ.getRight() + layoutParams.rightMargin;
+        LayoutParams layoutParams = (LayoutParams) this.oWS.getLayoutParams();
+        this.oWS.layout(paddingLeft + layoutParams.leftMargin, layoutParams.topMargin + paddingTop, (getWidth() - paddingRight) - layoutParams.rightMargin, (getHeight() - paddingBottom) - layoutParams.bottomMargin);
+        int right = this.oWS.getRight() + layoutParams.rightMargin;
         int i5 = 0;
         int i6 = 0;
         int i7 = right;
@@ -116,7 +116,7 @@ public class SwipeItemLayout extends ViewGroup {
             }
             View childAt = getChildAt(i8);
             LayoutParams layoutParams2 = (LayoutParams) childAt.getLayoutParams();
-            if (layoutParams2.oWT != 1) {
+            if (layoutParams2.oWV != 1) {
                 int i9 = i7 + layoutParams2.leftMargin;
                 int i10 = layoutParams2.topMargin + paddingTop;
                 childAt.layout(i9, i10, childAt.getMeasuredWidth() + i9 + layoutParams2.rightMargin, childAt.getMeasuredHeight() + i10 + layoutParams2.bottomMargin);
@@ -125,8 +125,8 @@ public class SwipeItemLayout extends ViewGroup {
             }
             i5 = i8 + 1;
         }
-        this.oWR = i6;
-        this.eYk = this.eYk < (-this.oWR) / 2 ? -this.oWR : 0;
+        this.oWT = i6;
+        this.eYk = this.eYk < (-this.oWT) / 2 ? -this.oWT : 0;
         offsetChildrenLeftAndRight(this.eYk);
         this.mInLayout = false;
     }
@@ -147,8 +147,8 @@ public class SwipeItemLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.oWS);
-        this.oWP = Mode.RESET;
+        removeCallbacks(this.oWU);
+        this.oWR = Mode.RESET;
         this.eYk = 0;
     }
 
@@ -157,13 +157,13 @@ public class SwipeItemLayout extends ViewGroup {
         switch (motionEvent.getActionMasked()) {
             case 0:
                 View e = e(this, (int) motionEvent.getX(), (int) motionEvent.getY());
-                if (e != null && e == this.oWQ && this.eYk != 0) {
+                if (e != null && e == this.oWS && this.eYk != 0) {
                     return true;
                 }
                 break;
             case 1:
                 View e2 = e(this, (int) motionEvent.getX(), (int) motionEvent.getY());
-                if (e2 != null && e2 == this.oWQ && this.oWP == Mode.CLICK && this.eYk != 0) {
+                if (e2 != null && e2 == this.oWS && this.oWR == Mode.CLICK && this.eYk != 0) {
                     return true;
                 }
                 break;
@@ -176,13 +176,13 @@ public class SwipeItemLayout extends ViewGroup {
         switch (motionEvent.getActionMasked()) {
             case 0:
                 View e = e(this, (int) motionEvent.getX(), (int) motionEvent.getY());
-                if (e != null && e == this.oWQ && this.eYk != 0) {
+                if (e != null && e == this.oWS && this.eYk != 0) {
                     return true;
                 }
                 break;
             case 1:
                 View e2 = e(this, (int) motionEvent.getX(), (int) motionEvent.getY());
-                if (e2 != null && e2 == this.oWQ && this.oWP == Mode.CLICK && this.eYk != 0) {
+                if (e2 != null && e2 == this.oWS && this.oWR == Mode.CLICK && this.eYk != 0) {
                     close();
                     return true;
                 }
@@ -192,26 +192,26 @@ public class SwipeItemLayout extends ViewGroup {
     }
 
     void setTouchMode(Mode mode) {
-        if (mode != this.oWP) {
-            if (this.oWP == Mode.FLING) {
-                removeCallbacks(this.oWS);
+        if (mode != this.oWR) {
+            if (this.oWR == Mode.FLING) {
+                removeCallbacks(this.oWU);
             }
-            this.oWP = mode;
+            this.oWR = mode;
         }
     }
 
     public Mode getTouchMode() {
-        return this.oWP;
+        return this.oWR;
     }
 
     boolean PC(int i) {
         boolean z = true;
         if (i != 0) {
             int i2 = this.eYk + i;
-            if ((i <= 0 || i2 <= 0) && (i >= 0 || i2 >= (-this.oWR))) {
+            if ((i <= 0 || i2 <= 0) && (i >= 0 || i2 >= (-this.oWT))) {
                 z = false;
             } else {
-                i2 = Math.max(Math.min(i2, 0), -this.oWR);
+                i2 = Math.max(Math.min(i2, 0), -this.oWT);
             }
             offsetChildrenLeftAndRight(i2 - this.eYk);
             this.eYk = i2;
@@ -224,7 +224,7 @@ public class SwipeItemLayout extends ViewGroup {
     public class a implements Runnable {
         private Scroller fHz;
         private int minVelocity;
-        private boolean oWU = false;
+        private boolean oWW = false;
 
         a(Context context) {
             this.fHz = new Scroller(context, SwipeItemLayout.sInterpolator);
@@ -235,15 +235,15 @@ public class SwipeItemLayout extends ViewGroup {
             if (i != i2) {
                 Log.e("scroll - startX - endX", "" + i + " " + i2);
                 SwipeItemLayout.this.setTouchMode(Mode.FLING);
-                this.oWU = false;
+                this.oWW = false;
                 this.fHz.startScroll(i, 0, i2 - i, 0, 400);
                 ViewCompat.postOnAnimation(SwipeItemLayout.this, this);
             }
         }
 
         void abort() {
-            if (!this.oWU) {
-                this.oWU = true;
+            if (!this.oWW) {
+                this.oWW = true;
                 if (!this.fHz.isFinished()) {
                     this.fHz.abortAnimation();
                     SwipeItemLayout.this.removeCallbacks(this);
@@ -253,8 +253,8 @@ public class SwipeItemLayout extends ViewGroup {
 
         @Override // java.lang.Runnable
         public void run() {
-            Log.e("abort", Boolean.toString(this.oWU));
-            if (!this.oWU) {
+            Log.e("abort", Boolean.toString(this.oWW));
+            if (!this.oWW) {
                 boolean computeScrollOffset = this.fHz.computeScrollOffset();
                 int currX = this.fHz.getCurrX();
                 Log.e("curX", "" + currX);
@@ -278,7 +278,7 @@ public class SwipeItemLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: eoc */
+    /* renamed from: eod */
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-1, -1);
     }
@@ -305,24 +305,24 @@ public class SwipeItemLayout extends ViewGroup {
 
     /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
-        public int oWT;
+        public int oWV;
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.oWT = -1;
+            this.oWV = -1;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.SwipeItemLayout);
-            this.oWT = obtainStyledAttributes.getInt(a.j.SwipeItemLayout_layout_itemType, -1);
+            this.oWV = obtainStyledAttributes.getInt(a.j.SwipeItemLayout_layout_itemType, -1);
             obtainStyledAttributes.recycle();
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.oWT = -1;
+            this.oWV = -1;
         }
 
         public LayoutParams(int i, int i2) {
             super(i, i2);
-            this.oWT = -1;
+            this.oWV = -1;
         }
     }
 

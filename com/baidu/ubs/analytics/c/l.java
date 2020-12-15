@@ -6,17 +6,17 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes17.dex */
 public final class l {
-    private static String oIq;
-    private static String oIr;
-    private final LinkedHashMap<String, Long> oIs = new LinkedHashMap<>();
+    private static String oIs;
+    private static String oIt;
+    private final LinkedHashMap<String, Long> oIu = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void XW(String str) {
         if (!TextUtils.isEmpty(str)) {
-            synchronized (this.oIs) {
-                this.oIs.put(str, Long.valueOf(System.currentTimeMillis()));
-                oIq = str;
-                oIr = String.valueOf(System.currentTimeMillis());
+            synchronized (this.oIu) {
+                this.oIu.put(str, Long.valueOf(System.currentTimeMillis()));
+                oIs = str;
+                oIt = String.valueOf(System.currentTimeMillis());
             }
         }
     }
@@ -26,16 +26,16 @@ public final class l {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.oIs) {
-                Long remove = this.oIs.remove(str);
+            synchronized (this.oIu) {
+                Long remove = this.oIu.remove(str);
                 if (remove != null) {
                     try {
                         lVar.setStartTime(String.valueOf(remove));
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
-                        dVar = d.a.oIf;
+                        dVar = d.a.oIh;
                         lVar.setPath(dVar.adS());
-                        lVar.x(m.ejC().I());
+                        lVar.x(m.ejD().I());
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.G(e.toString());
                         com.baidu.ubs.analytics.d.b.I(e.toString());

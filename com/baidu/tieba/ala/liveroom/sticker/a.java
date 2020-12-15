@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private AudienceStickerContainerView hCi;
-    private List<AlaLiveStickerInfo> hCj;
+    private AudienceStickerContainerView hCk;
+    private List<AlaLiveStickerInfo> hCl;
     private TbPageContext mTbPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -21,32 +21,32 @@ public class a {
 
     public void aD(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.hCi == null) {
-                this.hCi = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
+            if (this.hCk == null) {
+                this.hCk = new AudienceStickerContainerView(this.mTbPageContext.getPageActivity());
             }
-            if (this.hCi.getParent() != null) {
-                ((ViewGroup) this.hCi.getParent()).removeView(this.hCi);
+            if (this.hCk.getParent() != null) {
+                ((ViewGroup) this.hCk.getParent()).removeView(this.hCk);
             }
-            viewGroup.addView(this.hCi, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.hCk, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
     public void cG(List<AlaLiveStickerInfo> list) {
         boolean z;
         boolean z2 = true;
-        if (this.hCi.getWidth() > 0 && this.hCi.getHeight() > 0) {
-            if (this.hCj != null && list != null) {
-                if (this.hCj.size() != list.size()) {
-                    this.hCj = list;
+        if (this.hCk.getWidth() > 0 && this.hCk.getHeight() > 0) {
+            if (this.hCl != null && list != null) {
+                if (this.hCl.size() != list.size()) {
+                    this.hCl = list;
                 } else {
                     int size = list.size();
                     int i = 0;
                     while (true) {
                         if (i < size) {
-                            if (this.hCj.get(i).equals(list.get(i))) {
+                            if (this.hCl.get(i).equals(list.get(i))) {
                                 i++;
                             } else {
-                                this.hCj = list;
+                                this.hCl = list;
                                 z = true;
                                 break;
                             }
@@ -57,17 +57,17 @@ public class a {
                     }
                     z2 = z;
                 }
-            } else if (this.hCj != null && list == null) {
-                this.hCj = list;
-            } else if (this.hCj != null || list == null) {
+            } else if (this.hCl != null && list == null) {
+                this.hCl = list;
+            } else if (this.hCl != null || list == null) {
                 z2 = false;
             } else {
-                this.hCj = list;
+                this.hCl = list;
             }
             if (z2) {
-                this.hCi.removeAllViews();
-                if (this.hCj != null && this.hCj.size() > 0) {
-                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.hCj) {
+                this.hCk.removeAllViews();
+                if (this.hCl != null && this.hCl.size() > 0) {
+                    for (AlaLiveStickerInfo alaLiveStickerInfo : this.hCl) {
                         b(alaLiveStickerInfo);
                     }
                 }
@@ -86,18 +86,18 @@ public class a {
                     super.onLoaded((AnonymousClass1) bdImage, str2, i);
                     if (bdImage != null && bdImage.getRawBitmap() != null && str2 != null && str2.equals(str)) {
                         alaLiveStickerInfo.bitmap = bdImage.getRawBitmap();
-                        a.this.hCi.b(alaLiveStickerInfo);
+                        a.this.hCk.b(alaLiveStickerInfo);
                     }
                 }
             }, null);
         }
     }
 
-    public void cky() {
-        this.hCi.setVisibility(8);
+    public void ckz() {
+        this.hCk.setVisibility(8);
     }
 
-    public void ckz() {
-        this.hCi.setVisibility(0);
+    public void ckA() {
+        this.hCk.setVisibility(0);
     }
 }

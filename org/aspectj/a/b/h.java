@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes16.dex */
 class h {
-    static h pMd = new h();
-    static h pMe;
-    static h pMf;
-    boolean pLU = true;
-    boolean pLV = true;
-    boolean pLW = false;
-    boolean pLX = false;
+    static h pMf = new h();
+    static h pMg;
+    static h pMh;
+    boolean pLW = true;
+    boolean pLX = true;
     boolean pLY = false;
-    boolean pLZ = true;
-    boolean pMa = true;
+    boolean pLZ = false;
+    boolean pMa = false;
     boolean pMb = true;
-    int pMc;
+    boolean pMc = true;
+    boolean pMd = true;
+    int pMe;
 
     h() {
     }
 
     static {
-        pMd.pLU = true;
-        pMd.pLV = false;
-        pMd.pLW = false;
-        pMd.pLX = false;
-        pMd.pLY = true;
-        pMd.pLZ = false;
-        pMd.pMa = false;
-        pMd.pMc = 0;
-        pMe = new h();
-        pMe.pLU = true;
-        pMe.pLV = true;
-        pMe.pLW = false;
-        pMe.pLX = false;
-        pMe.pLY = false;
-        pMd.pMc = 1;
-        pMf = new h();
-        pMf.pLU = false;
-        pMf.pLV = true;
-        pMf.pLW = false;
-        pMf.pLX = true;
+        pMf.pLW = true;
+        pMf.pLX = false;
         pMf.pLY = false;
+        pMf.pLZ = false;
+        pMf.pMa = true;
         pMf.pMb = false;
-        pMf.pMc = 2;
+        pMf.pMc = false;
+        pMf.pMe = 0;
+        pMg = new h();
+        pMg.pLW = true;
+        pMg.pLX = true;
+        pMg.pLY = false;
+        pMg.pLZ = false;
+        pMg.pMa = false;
+        pMf.pMe = 1;
+        pMh = new h();
+        pMh.pLW = false;
+        pMh.pLX = true;
+        pMh.pLY = false;
+        pMh.pLZ = true;
+        pMh.pMa = false;
+        pMh.pMd = false;
+        pMh.pMe = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String Se(int i) {
-        if (this.pLX) {
+        if (this.pLZ) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String N(Class cls) {
-        return b(cls, cls.getName(), this.pLU);
+        return b(cls, cls.getName(), this.pLW);
     }
 
     public String k(Class cls, String str) {
-        return b(cls, str, this.pLY);
+        return b(cls, str, this.pMa);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.pLV) {
+            if (!this.pLX) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.pLW && clsArr != null && clsArr.length != 0) {
+        if (this.pLY && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

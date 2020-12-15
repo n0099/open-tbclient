@@ -27,18 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes26.dex */
 public class OfficialBarMsglistView extends CommonPersonalMsglistView {
-    private LinearLayout jbe;
-    private TextView kjk;
-    private ImageView kmO;
-    private LinearLayout kmP;
-    private LinearLayout kmQ;
-    private OfficialSecondMenuPopupWindow kmR;
-    private a[] kmS;
-    private boolean kmT;
+    private LinearLayout jbg;
+    private TextView kjm;
+    private ImageView kmQ;
+    private LinearLayout kmR;
+    private LinearLayout kmS;
+    private OfficialSecondMenuPopupWindow kmT;
+    private a[] kmU;
+    private boolean kmV;
 
     public OfficialBarMsglistView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
-        this.kmT = true;
+        this.kmV = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,43 +49,43 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         if (string != null) {
             this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_info_btn, talkableActivity);
             this.mNavigationBar.showBottomLine();
-            this.kjk = (TextView) this.mBtnGroupInfo.findViewById(R.id.group_info_btn_txt);
-            this.kjk.setText(string);
+            this.kjm = (TextView) this.mBtnGroupInfo.findViewById(R.id.group_info_btn_txt);
+            this.kjm.setText(string);
         }
-        this.jbe = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.official_bar_memu_stub)).inflate();
-        this.jbe.setVisibility(0);
-        this.kmO = (ImageView) this.jbe.findViewById(R.id.official_bar_toggle_button);
-        this.kmO.setVisibility(0);
-        this.kmS = new a[3];
+        this.jbg = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.official_bar_memu_stub)).inflate();
+        this.jbg.setVisibility(0);
+        this.kmQ = (ImageView) this.jbg.findViewById(R.id.official_bar_toggle_button);
+        this.kmQ.setVisibility(0);
+        this.kmU = new a[3];
         a aVar = new a();
         aVar.bvS = false;
-        aVar.kmX = (LinearLayout) this.jbe.findViewById(R.id.menu_frist);
-        aVar.kmY = (TextView) this.jbe.findViewById(R.id.menu_frist_text);
-        aVar.kmZ = (ImageView) this.jbe.findViewById(R.id.menu_frist_tip);
-        this.kmS[0] = aVar;
+        aVar.kmZ = (LinearLayout) this.jbg.findViewById(R.id.menu_frist);
+        aVar.kna = (TextView) this.jbg.findViewById(R.id.menu_frist_text);
+        aVar.knb = (ImageView) this.jbg.findViewById(R.id.menu_frist_tip);
+        this.kmU[0] = aVar;
         a aVar2 = new a();
         aVar2.bvS = false;
-        aVar2.kmX = (LinearLayout) this.jbe.findViewById(R.id.menu_second);
-        aVar2.kmY = (TextView) this.jbe.findViewById(R.id.menu_second_text);
-        aVar2.kmZ = (ImageView) this.jbe.findViewById(R.id.menu_second_tip);
-        this.kmS[1] = aVar2;
+        aVar2.kmZ = (LinearLayout) this.jbg.findViewById(R.id.menu_second);
+        aVar2.kna = (TextView) this.jbg.findViewById(R.id.menu_second_text);
+        aVar2.knb = (ImageView) this.jbg.findViewById(R.id.menu_second_tip);
+        this.kmU[1] = aVar2;
         a aVar3 = new a();
         aVar3.bvS = false;
-        aVar3.kmX = (LinearLayout) this.jbe.findViewById(R.id.menu_third);
-        aVar3.kmY = (TextView) this.jbe.findViewById(R.id.menu_third_text);
-        aVar3.kmZ = (ImageView) this.jbe.findViewById(R.id.menu_third_tip);
-        this.kmS[2] = aVar3;
+        aVar3.kmZ = (LinearLayout) this.jbg.findViewById(R.id.menu_third);
+        aVar3.kna = (TextView) this.jbg.findViewById(R.id.menu_third_text);
+        aVar3.knb = (ImageView) this.jbg.findViewById(R.id.menu_third_tip);
+        this.kmU[2] = aVar3;
         for (int i = 0; i < 3; i++) {
-            this.kmS[i].kmX.setOnClickListener(talkableActivity);
+            this.kmU[i].kmZ.setOnClickListener(talkableActivity);
         }
-        this.kmP = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.official_bar_memu_down_line)).inflate();
-        this.kmP.setVisibility(0);
-        this.kmQ = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.official_bar_menu_loading)).inflate();
-        this.kmQ.setVisibility(8);
+        this.kmR = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.official_bar_memu_down_line)).inflate();
+        this.kmR.setVisibility(0);
+        this.kmS = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.official_bar_menu_loading)).inflate();
+        this.kmS.setVisibility(8);
         if (this.mTool != null) {
             this.mTool.hide();
         }
-        this.kmO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarMsglistView.1
+        this.kmQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarMsglistView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 OfficialBarMsglistView.this.sg(false);
@@ -97,11 +97,11 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initMsglist(MsglistActivity msglistActivity) {
         super.initMsglist(msglistActivity);
-        this.kmR = new OfficialSecondMenuPopupWindow(msglistActivity.getPageContext().getPageActivity());
-        getListMain().addView(this.kmR);
-        this.kmR.setVisibility(8);
-        this.kmR.setOnItemClickListener((OfficialBarChatActivity) msglistActivity);
-        this.kmT = true;
+        this.kmT = new OfficialSecondMenuPopupWindow(msglistActivity.getPageContext().getPageActivity());
+        getListMain().addView(this.kmT);
+        this.kmT.setVisibility(8);
+        this.kmT.setOnItemClickListener((OfficialBarChatActivity) msglistActivity);
+        this.kmV = true;
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
@@ -143,7 +143,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         com.baidu.tbadk.editortools.sendtool.a aVar2 = new com.baidu.tbadk.editortools.sendtool.a(talkableActivity.getActivity());
         aVar2.setText(R.string.send_msg);
         this.mTool.b(aVar2);
-        if (this.kmT) {
+        if (this.kmV) {
             this.mTool.b(new com.baidu.tieba.im.chat.officialBar.a(talkableActivity.getActivity()));
         }
         this.mTool.build();
@@ -155,7 +155,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         if (TbadkCoreApplication.getInst().isFaceShopNew()) {
             this.mTool.b(new com.baidu.tbadk.editortools.a(2, 5, "N"));
         }
-        if (this.kmT) {
+        if (this.kmV) {
             this.mTool.setActionListener(30, new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarMsglistView.2
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar3) {
@@ -165,26 +165,26 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         }
     }
 
-    public OfficialSecondMenuPopupWindow cUa() {
-        return this.kmR;
+    public OfficialSecondMenuPopupWindow cUb() {
+        return this.kmT;
     }
 
     public void ai(boolean z, boolean z2) {
-        if (this.kmT != z) {
-            if (!this.kmT) {
+        if (this.kmV != z) {
+            if (!this.kmV) {
                 this.mTool.ku(false);
                 return;
             }
-            this.jbe.setVisibility(0);
+            this.jbg.setVisibility(0);
             if (this.mTool != null) {
                 this.mTool.hide();
             }
-            this.kmP.setVisibility(0);
+            this.kmR.setVisibility(0);
             return;
         }
-        this.kmT = !z;
+        this.kmV = !z;
         if (z) {
-            this.jbe.setVisibility(8);
+            this.jbg.setVisibility(8);
             if (this.mTool != null) {
                 this.mInputControl.removeView(this.mTool);
                 initMsgSend(this.mContext);
@@ -195,7 +195,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
                     this.mTool.ku(false);
                 }
             }
-            this.kmP.setVisibility(8);
+            this.kmR.setVisibility(8);
             return;
         }
         if (this.mTool != null) {
@@ -203,31 +203,31 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             initMsgSend(this.mContext);
             this.mTool.onChangeSkinType(0);
         }
-        this.jbe.setVisibility(0);
+        this.jbg.setVisibility(0);
         if (this.mTool != null) {
             this.mTool.hide();
         }
-        this.kmP.setVisibility(0);
+        this.kmR.setVisibility(0);
     }
 
-    public a[] cUb() {
-        return this.kmS;
+    public a[] cUc() {
+        return this.kmU;
     }
 
     public void ek(List<com.baidu.tieba.im.data.b> list) {
         if (list != null && list.size() == 3) {
             for (int i = 0; i < 3; i++) {
                 com.baidu.tieba.im.data.b bVar = list.get(i);
-                this.kmS[i].kmY.setText(bVar.getName());
-                if (bVar.cVG() != 0) {
-                    this.kmS[i].kmZ.setVisibility(8);
+                this.kmU[i].kna.setText(bVar.getName());
+                if (bVar.cVH() != 0) {
+                    this.kmU[i].knb.setVisibility(8);
                 }
             }
         }
     }
 
     public void sf(boolean z) {
-        this.kmQ.setVisibility(z ? 0 : 8);
+        this.kmS.setVisibility(z ? 0 : 8);
     }
 
     public void sg(final boolean z) {
@@ -245,21 +245,21 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 if (z) {
-                    OfficialBarMsglistView.this.jbe.setVisibility(0);
+                    OfficialBarMsglistView.this.jbg.setVisibility(0);
                     if (OfficialBarMsglistView.this.mTool != null) {
                         OfficialBarMsglistView.this.mTool.hide();
                     }
                 } else {
-                    OfficialBarMsglistView.this.jbe.setVisibility(8);
+                    OfficialBarMsglistView.this.jbg.setVisibility(8);
                     if (OfficialBarMsglistView.this.mTool != null) {
                         OfficialBarMsglistView.this.mTool.su();
                     }
                     for (int i = 0; i < 3; i++) {
-                        a aVar = OfficialBarMsglistView.this.kmS[i];
+                        a aVar = OfficialBarMsglistView.this.kmU[i];
                         if (aVar.bvS) {
                             aVar.bvS = false;
                             OfficialBarMsglistView.this.aa(i, aVar.bvS);
-                            OfficialBarMsglistView.this.kmR.Wd();
+                            OfficialBarMsglistView.this.kmT.Wd();
                         }
                     }
                 }
@@ -274,19 +274,19 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     }
 
     public void aa(int i, boolean z) {
-        a aVar = this.kmS[i];
+        a aVar = this.kmU[i];
         if (z) {
-            aVar.kmZ.setImageResource(R.drawable.icon_bottombar_arrow_s);
-            aVar.kmY.setTextColor(this.mContext.getResources().getColor(R.color.CAM_X0302));
+            aVar.knb.setImageResource(R.drawable.icon_bottombar_arrow_s);
+            aVar.kna.setTextColor(this.mContext.getResources().getColor(R.color.CAM_X0302));
             return;
         }
-        aVar.kmZ.setImageResource(R.drawable.icon_bottombar_arrow_n);
-        aVar.kmY.setTextColor(this.mContext.getResources().getColor(R.color.CAM_X0106));
+        aVar.knb.setImageResource(R.drawable.icon_bottombar_arrow_n);
+        aVar.kna.setTextColor(this.mContext.getResources().getColor(R.color.CAM_X0106));
     }
 
     public int df(View view) {
         for (int i = 0; i < 3; i++) {
-            if (view == this.kmS[i].kmX) {
+            if (view == this.kmU[i].kmZ) {
                 return i;
             }
         }
@@ -297,9 +297,9 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     /* loaded from: classes26.dex */
     public static class a {
         boolean bvS;
-        LinearLayout kmX;
-        TextView kmY;
-        ImageView kmZ;
+        LinearLayout kmZ;
+        TextView kna;
+        ImageView knb;
 
         a() {
         }
@@ -311,12 +311,12 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     }
 
     public void DN(int i) {
-        if (this.kjk != null) {
-            this.kjk.setText(i);
+        if (this.kjm != null) {
+            this.kjm.setText(i);
         }
     }
 
-    public void cUc() {
+    public void cUd() {
         if (this.mLayBottom != null) {
             this.mLayBottom.setVisibility(8);
         }
@@ -326,6 +326,6 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setViewTextColor(this.kjk, R.color.CAM_X0302, 1);
+        ap.setViewTextColor(this.kjm, R.color.CAM_X0302, 1);
     }
 }

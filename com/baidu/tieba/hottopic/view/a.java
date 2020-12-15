@@ -21,18 +21,18 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class a extends com.baidu.tieba.card.c<n> {
     private List<q> dataList;
-    private RelateForumHorizonalListView kfx;
+    private RelateForumHorizonalListView kfz;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
-        this.kfx = new RelateForumHorizonalListView(getContext());
+        this.kfz = new RelateForumHorizonalListView(getContext());
         this.dataList = new ArrayList();
-        this.kfx.setTag(getTag());
-        this.kfx.setLoadMoreClickListener(this);
-        this.ihi.addView(this.kfx);
-        this.iha.setOnClickListener(this);
+        this.kfz.setTag(getTag());
+        this.kfz.setLoadMoreClickListener(this);
+        this.ihk.addView(this.kfz);
+        this.ihc.setOnClickListener(this);
         yf(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
         oO(false);
     }
@@ -40,22 +40,22 @@ public class a extends com.baidu.tieba.card.c<n> {
     @Override // com.baidu.tieba.card.b
     public void setTag(BdUniqueId bdUniqueId) {
         super.setTag(bdUniqueId);
-        if (this.kfx != null) {
-            this.kfx.setTag(getTag());
+        if (this.kfz != null) {
+            this.kfz.setTag(getTag());
         }
     }
 
     @Override // com.baidu.tieba.card.b
     public void setFrom(String str) {
         super.setFrom(str);
-        this.kfx.setFrom(str);
+        this.kfz.setFrom(str);
     }
 
     @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        if (this.kfx != null) {
-            this.kfx.onSkinTypeChanged(i);
+        if (this.kfz != null) {
+            this.kfz.onSkinTypeChanged(i);
         }
     }
 
@@ -68,8 +68,8 @@ public class a extends com.baidu.tieba.card.c<n> {
             return;
         }
         this.dataList.clear();
-        if (nVar.keo != null) {
-            this.dataList.addAll(nVar.keo);
+        if (nVar.keq != null) {
+            this.dataList.addAll(nVar.keq);
         }
         List<com.baidu.tbadk.widget.horizonalScrollListView.a> eg = eg(this.dataList);
         int count = y.getCount(eg);
@@ -79,9 +79,9 @@ public class a extends com.baidu.tieba.card.c<n> {
         }
         getView().setVisibility(0);
         if (count > 10) {
-            this.kfx.setData(eg.subList(0, 10), getTbPageContext(), true);
+            this.kfz.setData(eg.subList(0, 10), getTbPageContext(), true);
         } else {
-            this.kfx.setData(eg, getTbPageContext(), false);
+            this.kfz.setData(eg, getTbPageContext(), false);
         }
         onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
     }
@@ -113,9 +113,9 @@ public class a extends com.baidu.tieba.card.c<n> {
     @Override // com.baidu.tieba.card.c, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (this.kfx != null && this.kfx.getLastItemView() == view && this.dataList != null) {
+        if (this.kfz != null && this.kfz.getLastItemView() == view && this.dataList != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-            this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RelateTopicForumActivityConfig(this.mPageContext.getPageActivity(), this.dataList, ((HotTopicActivity) this.mPageContext.getOrignalPage()).cRD())));
+            this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RelateTopicForumActivityConfig(this.mPageContext.getPageActivity(), this.dataList, ((HotTopicActivity) this.mPageContext.getOrignalPage()).cRE())));
         }
     }
 }

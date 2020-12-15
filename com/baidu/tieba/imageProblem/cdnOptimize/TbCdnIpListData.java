@@ -9,13 +9,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> kNt;
-    public int kNr = 0;
+    public ArrayList<ArrayList<String>> kNv;
+    public int kNt = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String kNs = null;
-    boolean kNu = false;
-    public String kNv = null;
+    public String kNu = null;
+    boolean kNw = false;
+    public String kNx = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -23,19 +23,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
-                    this.kNr = optJSONObject.optInt("errorno");
+                    this.kNt = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.kNu = true;
+                    this.kNw = true;
                 } else {
-                    this.kNu = false;
+                    this.kNw = false;
                 }
-                this.kNv = jSONObject.optString("cdn_domain");
+                this.kNx = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.kNs = optJSONObject2.optString("img_md5");
+                    this.kNu = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -58,7 +58,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.kNt = arrayList;
+                        this.kNv = arrayList;
                     }
                 }
             } catch (Exception e) {

@@ -25,21 +25,21 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
     private int bRA;
     private RoundRectRelativeLayout bue;
     private float bui;
-    private boolean hdA;
-    private TextView hrf;
-    private a hrg;
-    private int hrh;
-    private f hri;
+    private boolean hdC;
+    private TextView hrh;
+    private a hri;
+    private int hrj;
+    private f hrk;
     private Activity mActivity;
     private View mRootView;
 
     public void a(f fVar) {
-        this.hri = fVar;
+        this.hrk = fVar;
     }
 
     public d(Activity activity) {
         super(activity);
-        this.hrh = -1;
+        this.hrj = -1;
         this.mActivity = activity;
         init();
     }
@@ -53,16 +53,16 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
 
     public void a(u uVar, int i) {
         if (!this.mActivity.isFinishing() && uVar != null && uVar.Fm()) {
-            this.hrh = i;
+            this.hrj = i;
             this.aKN = uVar;
-            if (this.hrg != null) {
-                this.hrg.setDatas(this.aKN.Fn());
-                if (this.hrh >= 0) {
+            if (this.hri != null) {
+                this.hri.setDatas(this.aKN.Fn());
+                if (this.hrj >= 0) {
                     nF(false);
-                    this.hrg.wF(this.hrh);
+                    this.hri.wF(this.hrj);
                 } else {
                     nF(true);
-                    this.hrg.wF(-1);
+                    this.hri.wF(-1);
                 }
             }
             View findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290);
@@ -82,7 +82,7 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
 
     private void nF(boolean z) {
         if (this.aKN != null) {
-            c.a(this.mActivity, this.hrf, z, this.aKN.Fp(), this.aKN.Fo(), false);
+            c.a(this.mActivity, this.hrh, z, this.aKN.Fp(), this.aKN.Fo(), false);
         }
     }
 
@@ -102,12 +102,12 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
         this.bui = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds36);
         this.bue = new RoundRectRelativeLayout(this.mActivity);
         this.mRootView = LayoutInflater.from(this.mActivity).inflate(a.g.ala_exclusive_scene_land_pop_layout, (ViewGroup) null);
-        this.hrf = (TextView) this.mRootView.findViewById(a.f.tv_land_allscene);
-        this.hrf.setOnClickListener(this);
+        this.hrh = (TextView) this.mRootView.findViewById(a.f.tv_land_allscene);
+        this.hrh.setOnClickListener(this);
         this.bJR = (BdGridView) this.mRootView.findViewById(a.f.ala_live_land_scene_gridview);
-        this.hrg = new a(this.mActivity, false);
-        this.hrg.a(this);
-        this.bJR.setAdapter((ListAdapter) this.hrg);
+        this.hri = new a(this.mActivity, false);
+        this.hri.a(this);
+        this.bJR.setAdapter((ListAdapter) this.hri);
         this.bue.addView(this.mRootView, new ViewGroup.LayoutParams(-1, -1));
         setContentView(this.bue);
         setClippingEnabled(false);
@@ -144,7 +144,7 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
         if (getContentView() == null) {
             return false;
         }
-        if (this.hdA) {
+        if (this.hdC) {
             return true;
         }
         TranslateAnimation translateAnimation = null;
@@ -167,7 +167,7 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     d.this.YQ();
-                    d.this.hdA = false;
+                    d.this.hdC = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -175,7 +175,7 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
                 }
             });
             getContentView().startAnimation(translateAnimation);
-            this.hdA = true;
+            this.hdC = true;
             return true;
         }
         return false;
@@ -189,17 +189,17 @@ public class d extends com.baidu.live.view.e implements View.OnClickListener, co
     @Override // com.baidu.tieba.ala.liveroom.exclusive.a.InterfaceC0687a
     public void a(View view, int i, ah ahVar) {
         dismiss();
-        if (this.hri != null) {
-            this.hri.a(false, view, i, ahVar);
+        if (this.hrk != null) {
+            this.hrk.a(false, view, i, ahVar);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hrf) {
+        if (view == this.hrh) {
             dismiss();
-            if (this.hri != null) {
-                this.hri.a(true, this.hrf, -1, null);
+            if (this.hrk != null) {
+                this.hrk.a(true, this.hrh, -1, null);
             }
         }
     }

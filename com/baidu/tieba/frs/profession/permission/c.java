@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c implements NetModel.b {
     private TbPageContext<?> eNx;
-    private int jsF;
-    private FrsProfessionPermissionModel jsJ;
-    private com.baidu.tieba.frs.profession.permission.a jsK = new com.baidu.tieba.frs.profession.permission.a();
-    private a jsL;
+    private int jsH;
+    private FrsProfessionPermissionModel jsL;
+    private com.baidu.tieba.frs.profession.permission.a jsM = new com.baidu.tieba.frs.profession.permission.a();
+    private a jsN;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -33,42 +33,42 @@ public class c implements NetModel.b {
 
     public c(TbPageContext<?> tbPageContext) {
         this.eNx = tbPageContext;
-        this.jsJ = new FrsProfessionPermissionModel(tbPageContext, this.jsK);
-        this.jsJ.a(this);
+        this.jsL = new FrsProfessionPermissionModel(tbPageContext, this.jsM);
+        this.jsL.a(this);
     }
 
     public void a(a aVar) {
-        this.jsL = aVar;
+        this.jsN = aVar;
     }
 
     public void Bo(int i) {
-        this.jsF = i;
-        this.jsK.jsF = i;
+        this.jsH = i;
+        this.jsM.jsH = i;
     }
 
     public void LD(String str) {
-        this.jsK.jsE = 1;
-        this.jsK.forum_id = str;
+        this.jsM.jsG = 1;
+        this.jsM.forum_id = str;
         loadData();
     }
 
     public void aR(String str, int i) {
-        this.jsK.jsD = i;
-        this.jsK.forum_id = str;
-        this.jsK.jsE = 2;
+        this.jsM.jsF = i;
+        this.jsM.forum_id = str;
+        this.jsM.jsG = 2;
         loadData();
     }
 
     public void G(String str, long j) {
-        this.jsK.forum_id = str;
-        this.jsK.thread_id = j;
-        this.jsK.jsE = 3;
+        this.jsM.forum_id = str;
+        this.jsM.thread_id = j;
+        this.jsM.jsG = 3;
         loadData();
     }
 
     private void loadData() {
-        if (!this.jsJ.isLoading()) {
-            this.jsJ.loadData();
+        if (!this.jsL.isLoading()) {
+            this.jsL.loadData();
         }
     }
 
@@ -77,13 +77,13 @@ public class c implements NetModel.b {
         if (mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof com.baidu.tieba.frs.profession.permission.a) && mvcHttpResponsedMessage != null && (mvcHttpResponsedMessage.getData() instanceof b)) {
             com.baidu.tieba.frs.profession.permission.a aVar = (com.baidu.tieba.frs.profession.permission.a) mvcNetMessage.getRequestData();
             b bVar = (b) mvcHttpResponsedMessage.getData();
-            if (aVar.jsF == this.jsF) {
-                switch (aVar.jsE) {
+            if (aVar.jsH == this.jsH) {
+                switch (aVar.jsG) {
                     case 1:
                         a(bVar);
                         return;
                     case 2:
-                        a(bVar, aVar.jsD);
+                        a(bVar, aVar.jsF);
                         return;
                     case 3:
                         a(bVar, aVar.forum_id);
@@ -100,13 +100,13 @@ public class c implements NetModel.b {
         if (mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof com.baidu.tieba.frs.profession.permission.a) && mvcSocketResponsedMessage != null && (mvcSocketResponsedMessage.getData() instanceof b)) {
             com.baidu.tieba.frs.profession.permission.a aVar = (com.baidu.tieba.frs.profession.permission.a) mvcNetMessage.getRequestData();
             b bVar = (b) mvcSocketResponsedMessage.getData();
-            if (aVar.jsF == this.jsF) {
-                switch (aVar.jsE) {
+            if (aVar.jsH == this.jsH) {
+                switch (aVar.jsG) {
                     case 1:
                         a(bVar);
                         return;
                     case 2:
-                        a(bVar, aVar.jsD);
+                        a(bVar, aVar.jsF);
                         return;
                     case 3:
                         a(bVar, aVar.forum_id);
@@ -129,15 +129,15 @@ public class c implements NetModel.b {
                     return;
                 }
             }
-            if (!bVar.jsG) {
-                if (bVar.jsH == 1) {
-                    fc(bVar.jsI, str);
-                } else if (bVar.jsH == 3) {
-                    LE(bVar.jsI);
+            if (!bVar.jsI) {
+                if (bVar.jsJ == 1) {
+                    fc(bVar.jsK, str);
+                } else if (bVar.jsJ == 3) {
+                    LE(bVar.jsK);
                 }
             }
-            if (this.jsL != null) {
-                this.jsL.qj(bVar.jsG);
+            if (this.jsN != null) {
+                this.jsN.qj(bVar.jsI);
             }
         }
     }
@@ -150,19 +150,19 @@ public class c implements NetModel.b {
                 } else {
                     this.eNx.showToast(bVar.errorString);
                 }
-            } else if (this.jsL != null) {
-                this.jsL.C(bVar.jsG, i);
+            } else if (this.jsN != null) {
+                this.jsN.C(bVar.jsI, i);
             }
         }
     }
 
     private void a(b bVar) {
         if (bVar != null && bVar.errorCode == 0) {
-            if (!bVar.jsG && bVar.jsH == 2) {
-                LE(bVar.jsI);
+            if (!bVar.jsI && bVar.jsJ == 2) {
+                LE(bVar.jsK);
             }
-            if (this.jsL != null) {
-                this.jsL.qi(bVar.jsG);
+            if (this.jsN != null) {
+                this.jsN.qi(bVar.jsI);
             }
         }
     }

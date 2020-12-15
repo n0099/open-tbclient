@@ -17,153 +17,151 @@ import java.util.List;
 public class a implements d {
     private final Context mContext;
     private final TbPageContext mTbPageContext;
-    private ForumSquareModel nev;
-
-    /* renamed from: new  reason: not valid java name */
-    public b f5new;
-    private c nex;
-    private String ney = "";
+    private String neA = "";
+    private ForumSquareModel nex;
+    public b ney;
+    private c nez;
 
     public a(Context context, TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mContext = context;
-        this.nev = new ForumSquareModel(context, this);
-        this.f5new = new b(context, this.mTbPageContext);
+        this.nex = new ForumSquareModel(context, this);
+        this.ney = new b(context, this.mTbPageContext);
     }
 
     public void startLoadData() {
-        this.nex = new c(this.mContext, this, this.f5new);
-        this.nex.dNo();
-        cIF();
+        this.nez = new c(this.mContext, this, this.ney);
+        this.nez.dNp();
+        cIG();
     }
 
-    private void cIF() {
-        this.f5new.dNi();
-        this.nev.Tn(this.ney);
+    private void cIG() {
+        this.ney.dNj();
+        this.nex.Tn(this.neA);
     }
 
-    public void dNc() {
-        this.f5new.dNc();
+    public void dNd() {
+        this.ney.dNd();
     }
 
     @Override // com.baidu.tieba.square.d
     public void d(String str, List<String> list, List<q> list2) {
         boolean z = true;
-        if (this.nev != null && this.f5new != null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.ney)) {
-                String dNf = this.f5new.dNf();
-                if (TextUtils.isEmpty(str) || str.equals(dNf)) {
+        if (this.nex != null && this.ney != null) {
+            if (TextUtils.isEmpty(str) || str.equals(this.neA)) {
+                String dNg = this.ney.dNg();
+                if (TextUtils.isEmpty(str) || str.equals(dNg)) {
                     z = false;
                 }
             }
-            this.ney = str;
-            this.f5new.dNj();
-            this.f5new.c(str, list, z);
-            this.f5new.v(list2, this.nev.w(list2, 300));
+            this.neA = str;
+            this.ney.dNk();
+            this.ney.c(str, list, z);
+            this.ney.v(list2, this.nex.w(list2, 300));
             r(str, list2);
         }
     }
 
     private void r(String str, List<q> list) {
-        if (this.f5new != null && this.nev != null) {
+        if (this.ney != null && this.nex != null) {
             if (y.isEmpty(list)) {
-                this.f5new.bTa();
+                this.ney.bTb();
             } else if (y.getCount(list) < 10) {
-                this.f5new.dNm();
+                this.ney.dNn();
             } else {
-                this.f5new.xR(this.nev.To(str));
+                this.ney.xR(this.nex.To(str));
             }
         }
     }
 
     @Override // com.baidu.tieba.square.d
     public void a(String str, ErrorData errorData) {
-        if (this.f5new != null && this.nev != null) {
-            this.f5new.dNj();
-            com.baidu.tieba.square.data.c Tm = this.nev.Tm(str);
+        if (this.ney != null && this.nex != null) {
+            this.ney.dNk();
+            com.baidu.tieba.square.data.c Tm = this.nex.Tm(str);
             if (Tm == null || (Tm.hasMore && y.isEmpty(Tm.getDataList()))) {
-                this.f5new.bTa();
-                this.f5new.dNg();
+                this.ney.bTb();
+                this.ney.dNh();
                 return;
             }
-            this.f5new.fT(Tm.getDataList());
+            this.ney.fT(Tm.getDataList());
             r(str, Tm.getDataList());
         }
     }
 
     @Override // com.baidu.tieba.square.d
     public void e(ErrorData errorData) {
-        if (this.f5new != null) {
-            this.f5new.dNh();
+        if (this.ney != null) {
+            this.ney.dNi();
         }
     }
 
-    public void bWE() {
+    public void bWF() {
         String className = getClassName();
-        if (this.nev != null && this.f5new != null) {
-            boolean isLoading = this.nev.isLoading();
-            boolean xR = this.f5new.xR(this.nev.To(className));
+        if (this.nex != null && this.ney != null) {
+            boolean isLoading = this.nex.isLoading();
+            boolean xR = this.ney.xR(this.nex.To(className));
             if (!isLoading && xR) {
-                this.nev.Tn(className);
+                this.nex.Tn(className);
             }
         }
     }
 
-    public void dNd() {
-        if (this.f5new != null) {
-            this.f5new.dNi();
+    public void dNe() {
+        if (this.ney != null) {
+            this.ney.dNj();
         }
-        if (this.nev != null) {
-            this.nev.Tn(getClassName());
+        if (this.nex != null) {
+            this.nex.Tn(getClassName());
         }
     }
 
     public void Tg(String str) {
-        Th(this.ney);
-        this.ney = str;
-        if (this.nev != null && this.f5new != null) {
-            com.baidu.tieba.square.data.c Tm = this.nev.Tm(str);
+        Th(this.neA);
+        this.neA = str;
+        if (this.nex != null && this.ney != null) {
+            com.baidu.tieba.square.data.c Tm = this.nex.Tm(str);
             if (Tm == null || (Tm.hasMore && y.isEmpty(Tm.getDataList()))) {
-                this.f5new.dNk();
+                this.ney.dNl();
                 r(str, null);
-                this.nev.Tn(str);
-                this.f5new.scrollToPositionWithOffset(0, 0);
+                this.nex.Tn(str);
+                this.ney.scrollToPositionWithOffset(0, 0);
                 return;
             }
-            this.f5new.dNj();
+            this.ney.dNk();
             r(str, Tm.getDataList());
-            this.f5new.fT(Tm.getDataList());
-            this.f5new.scrollToPositionWithOffset(Tm.neW, Tm.eYk);
+            this.ney.fT(Tm.getDataList());
+            this.ney.scrollToPositionWithOffset(Tm.neY, Tm.eYk);
         }
     }
 
     public void Th(String str) {
         com.baidu.tieba.square.data.c Tm;
-        Pair<Integer, Integer> dNe;
-        if (this.f5new != null && this.nev != null && !TextUtils.isEmpty(str) && (Tm = this.nev.Tm(str)) != null && (dNe = this.f5new.dNe()) != null) {
-            Tm.neW = ((Integer) dNe.first).intValue();
-            Tm.eYk = ((Integer) dNe.second).intValue();
+        Pair<Integer, Integer> dNf;
+        if (this.ney != null && this.nex != null && !TextUtils.isEmpty(str) && (Tm = this.nex.Tm(str)) != null && (dNf = this.ney.dNf()) != null) {
+            Tm.neY = ((Integer) dNf.first).intValue();
+            Tm.eYk = ((Integer) dNf.second).intValue();
         }
     }
 
     public String getClassName() {
-        return this.ney;
+        return this.neA;
     }
 
     public void V(Intent intent) {
         Uri uri;
         if (intent != null) {
-            this.ney = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            if (TextUtils.isEmpty(this.ney) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-                this.ney = uri.getQueryParameter("tab_name");
+            this.neA = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            if (TextUtils.isEmpty(this.neA) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+                this.neA = uri.getQueryParameter("tab_name");
             }
-            this.f5new.xQ(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
+            this.ney.xQ(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
         }
     }
 
     public void Ti(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.f5new.Tj(str);
+            this.ney.Tj(str);
             Tg(str);
         }
     }

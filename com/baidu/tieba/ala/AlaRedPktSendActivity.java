@@ -15,7 +15,7 @@ import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 /* loaded from: classes4.dex */
 public class AlaRedPktSendActivity extends BaseFragmentActivity {
     private int availableHeight;
-    private com.baidu.tieba.ala.d.e ghz;
+    private com.baidu.tieba.ala.d.e ghB;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
     private boolean mIsKeyboardOpen = false;
@@ -56,8 +56,8 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.ghz = new com.baidu.tieba.ala.d.e(getPageContext().getPageActivity());
-            setContentView(this.ghz.getView());
+            this.ghB = new com.baidu.tieba.ala.d.e(getPageContext().getPageActivity());
+            setContentView(this.ghB.getView());
             Window window = getWindow();
             if (window != null) {
                 window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
@@ -68,15 +68,15 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.ghz != null) {
-            this.ghz.IR();
+        if (this.ghB != null) {
+            this.ghB.IR();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.ghz != null) {
-            this.ghz.onKeyboardVisibilityChanged(z);
+        if (this.ghB != null) {
+            this.ghB.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -98,8 +98,8 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.ghz != null) {
-            this.ghz.destroy();
+        if (this.ghB != null) {
+            this.ghB.destroy();
         }
     }
 

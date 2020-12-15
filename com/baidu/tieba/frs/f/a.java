@@ -41,7 +41,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (fVar != null && y.getCount(list) > 0 && y.getCount(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.f.nlj) {
+            for (int i : com.baidu.tieba.tbadkCore.data.f.nll) {
                 q qVar = (q) y.getItem(list, i);
                 if (qVar != null && (indexOf = list2.indexOf(qVar)) >= 0) {
                     fVar.dy(i, indexOf);

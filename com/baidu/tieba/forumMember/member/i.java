@@ -30,14 +30,14 @@ import com.baidu.tieba.tbadkCore.w;
 /* loaded from: classes23.dex */
 public class i extends com.baidu.tieba.frs.k<j, k> {
     private LikeModel fgf;
-    private int hFk;
-    private int iPf;
+    private int hFm;
+    private int iPh;
     private View.OnClickListener mClickListener;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.hFk = 0;
-        this.iPf = 0;
+        this.hFm = 0;
+        this.iPh = 0;
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -71,7 +71,7 @@ public class i extends com.baidu.tieba.frs.k<j, k> {
     /* renamed from: bc */
     public k c(ViewGroup viewGroup) {
         if (this.fgf == null) {
-            bSN();
+            bSO();
         }
         return new k(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -81,75 +81,75 @@ public class i extends com.baidu.tieba.frs.k<j, k> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, j jVar, k kVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (j) kVar);
-        if (jVar != null && jVar.cAy() != null) {
+        if (jVar != null && jVar.cAz() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = ap.getColor(R.color.CAM_X0109);
-            w cAy = jVar.cAy();
+            w cAz = jVar.cAz();
             if (TbadkCoreApplication.isLogin()) {
-                if (cAy.isLike() == 1) {
-                    kVar.iPj.setVisibility(8);
-                    kVar.iPk.setVisibility(0);
-                    kVar.iPk.setText(R.string.mydegree);
-                    ap.setImageResource(kVar.iOj, BitmapHelper.getSmallGradeResourceIdNew(cAy.bLB()));
-                    if (StringUtils.isNull(cAy.getLevelName())) {
-                        kVar.iOk.setVisibility(8);
+                if (cAz.isLike() == 1) {
+                    kVar.iPl.setVisibility(8);
+                    kVar.iPm.setVisibility(0);
+                    kVar.iPm.setText(R.string.mydegree);
+                    ap.setImageResource(kVar.iOl, BitmapHelper.getSmallGradeResourceIdNew(cAz.bLC()));
+                    if (StringUtils.isNull(cAz.getLevelName())) {
+                        kVar.iOm.setVisibility(8);
                     } else {
-                        kVar.iOk.setText(cAy.getLevelName());
-                        kVar.iOk.setVisibility(0);
+                        kVar.iOm.setText(cAz.getLevelName());
+                        kVar.iOm.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(cAy.getCurScore() + "");
+                    SpannableString spannableString = new SpannableString(cAz.getCurScore() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + cAy.getLevelupScore());
+                    SpannableString spannableString2 = new SpannableString("/" + cAz.getLevelupScore());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
                     kVar.eZp.setText(spannableStringBuilder);
                     kVar.eZp.setVisibility(0);
-                    kVar.iPp.setVisibility(0);
-                    kVar.iPq.setVisibility(0);
+                    kVar.iPr.setVisibility(0);
+                    kVar.iPs.setVisibility(0);
                 } else {
-                    kVar.iPj.setVisibility(0);
-                    kVar.iPk.setVisibility(8);
-                    kVar.iOj.setVisibility(8);
-                    kVar.iOk.setVisibility(8);
+                    kVar.iPl.setVisibility(0);
+                    kVar.iPm.setVisibility(8);
+                    kVar.iOl.setVisibility(8);
+                    kVar.iOm.setVisibility(8);
                     kVar.eZp.setVisibility(8);
-                    kVar.iPp.setVisibility(8);
-                    kVar.iPq.setVisibility(8);
+                    kVar.iPr.setVisibility(8);
+                    kVar.iPs.setVisibility(8);
                 }
             } else {
-                kVar.iPj.setVisibility(8);
-                kVar.iPk.setVisibility(8);
-                kVar.iOj.setVisibility(8);
-                kVar.iOk.setVisibility(8);
+                kVar.iPl.setVisibility(8);
+                kVar.iPm.setVisibility(8);
+                kVar.iOl.setVisibility(8);
+                kVar.iOm.setVisibility(8);
                 kVar.eZp.setVisibility(8);
-                kVar.iPp.setVisibility(8);
-                kVar.iPq.setVisibility(8);
+                kVar.iPr.setVisibility(8);
+                kVar.iPs.setVisibility(8);
             }
-            kVar.iPj.setTag(Integer.valueOf(i));
-            kVar.iOk.setTag(Integer.valueOf(i));
-            kVar.iOk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            ap.setBackgroundColor(kVar.iPm, R.color.CAM_X0201);
+            kVar.iPl.setTag(Integer.valueOf(i));
+            kVar.iOm.setTag(Integer.valueOf(i));
+            kVar.iOm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            ap.setBackgroundColor(kVar.iPo, R.color.CAM_X0201);
             ap.setBackgroundColor(kVar.mDivider, R.color.CAM_X0204);
-            ap.setBackgroundColor(kVar.iPn, R.color.CAM_X0204);
-            ap.setBackgroundResource(kVar.iPj, R.drawable.frs_btn_like);
-            ap.setViewTextColor(kVar.iPj, R.color.white_alpha100, 1);
-            ap.setViewTextColor(kVar.iPk, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(kVar.iOk, R.color.CAM_X0109, 1);
-            ap.setViewTextColor(kVar.iPo, R.color.CAM_X0105, 1);
-            ap.setBackgroundResource(kVar.iPp, R.drawable.forum_member_exp_progress);
-            ap.setBackgroundColor(kVar.iPq, R.color.CAM_X0204);
-            if (this.hFk != cAy.bLB() || this.iPf != cAy.getCurScore()) {
-                this.hFk = cAy.bLB();
-                this.iPf = cAy.getCurScore();
-                kVar.iPp.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, zt(this.hFk)));
+            ap.setBackgroundColor(kVar.iPp, R.color.CAM_X0204);
+            ap.setBackgroundResource(kVar.iPl, R.drawable.frs_btn_like);
+            ap.setViewTextColor(kVar.iPl, R.color.white_alpha100, 1);
+            ap.setViewTextColor(kVar.iPm, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(kVar.iOm, R.color.CAM_X0109, 1);
+            ap.setViewTextColor(kVar.iPq, R.color.CAM_X0105, 1);
+            ap.setBackgroundResource(kVar.iPr, R.drawable.forum_member_exp_progress);
+            ap.setBackgroundColor(kVar.iPs, R.color.CAM_X0204);
+            if (this.hFm != cAz.bLC() || this.iPh != cAz.getCurScore()) {
+                this.hFm = cAz.bLC();
+                this.iPh = cAz.getCurScore();
+                kVar.iPr.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, zt(this.hFm)));
                 float f = 0.0f;
-                this.iPf = cAy.getCurScore();
-                if (this.iPf > cAy.getLevelupScore()) {
-                    this.iPf = cAy.getLevelupScore();
+                this.iPh = cAz.getCurScore();
+                if (this.iPh > cAz.getLevelupScore()) {
+                    this.iPh = cAz.getLevelupScore();
                 }
-                if (cAy.getLevelupScore() != 0) {
-                    f = this.iPf / cAy.getLevelupScore();
+                if (cAz.getLevelupScore() != 0) {
+                    f = this.iPh / cAz.getLevelupScore();
                 }
                 if (f > 0.999f) {
                     f = 1.0f;
@@ -157,13 +157,13 @@ public class i extends com.baidu.tieba.frs.k<j, k> {
                 ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setDuration(1000L);
-                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), kVar.iPp, scaleAnimation, null);
+                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), kVar.iPr, scaleAnimation, null);
             }
         }
         return view;
     }
 
-    private void bSN() {
+    private void bSO() {
         if (this.mPageContext != null) {
             this.fgf = new LikeModel(this.mPageContext);
             this.fgf.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2

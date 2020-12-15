@@ -13,19 +13,19 @@ public class d implements com.baidu.tbadk.mvc.b.a {
     private String forumId;
     private String forumName;
     private int index;
-    private ArrayList<String> ipb;
+    private ArrayList<String> ipd;
     private String threadId;
 
     public d(int i, tinfo tinfoVar) {
         if (tinfoVar != null) {
-            this.ipb = new ArrayList<>();
+            this.ipd = new ArrayList<>();
             this.index = i;
             this.forumId = String.valueOf(tinfoVar.forum_id);
             this.forumName = tinfoVar.forum_name;
             this.threadId = String.valueOf(tinfoVar.thread_id);
             for (Pic pic : tinfoVar.pics) {
                 if (pic != null && !StringUtils.isNull(pic.big_pic)) {
-                    this.ipb.add(pic.big_pic);
+                    this.ipd.add(pic.big_pic);
                 }
             }
         }
@@ -33,7 +33,7 @@ public class d implements com.baidu.tbadk.mvc.b.a {
 
     public CustomMessage<ImageViewerConfig> fM(Context context) {
         ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-        aVar.x(this.ipb).oj(this.index).AG(this.forumName).AH(this.forumId).AI(this.threadId).iN(true).iO(false).AJ(this.ipb.get(this.ipb.size() - 1));
+        aVar.x(this.ipd).oj(this.index).AG(this.forumName).AH(this.forumId).AI(this.threadId).iN(true).iO(false).AJ(this.ipd.get(this.ipd.size() - 1));
         return new CustomMessage<>((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.ez(context));
     }
 }

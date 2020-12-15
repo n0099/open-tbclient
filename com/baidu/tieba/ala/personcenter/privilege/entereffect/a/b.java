@@ -12,9 +12,9 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
     private List<com.baidu.adp.widget.ListView.a> bnf;
-    private BdTypeListView gpX;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a hQt;
-    private c hQu;
+    private BdTypeListView gpZ;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a hQv;
+    private c hQw;
     private List<q> mDataList;
     private TbPageContext mPageContext;
 
@@ -24,23 +24,23 @@ public class b {
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.gpX = bdTypeListView;
+        this.gpZ = bdTypeListView;
         Nt();
     }
 
     private void Nt() {
         this.bnf = new ArrayList();
-        this.hQt = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.bnf.add(this.hQt);
-        this.hQu = new c(this.mPageContext.getPageActivity());
-        this.bnf.add(this.hQu);
-        this.gpX.addAdapters(this.bnf);
+        this.hQv = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
+        this.bnf.add(this.hQv);
+        this.hQw = new c(this.mPageContext.getPageActivity());
+        this.bnf.add(this.hQw);
+        this.gpZ.addAdapters(this.bnf);
     }
 
     public void setData(List<q> list) {
         if (!y.isEmpty(list)) {
-            this.gpX.setData(list);
-            this.mDataList = this.gpX.getData();
+            this.gpZ.setData(list);
+            this.mDataList = this.gpZ.getData();
         }
     }
 

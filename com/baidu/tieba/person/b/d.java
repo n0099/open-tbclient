@@ -19,10 +19,10 @@ import java.util.List;
 public class d extends af.a {
     public int aku;
     public TextView eAz;
-    public View jQL;
+    public View jQN;
     public TbPageContext mPageContext;
-    public HTypeListView mja;
-    public e mjb;
+    public HTypeListView mjc;
+    public e mjd;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
@@ -30,15 +30,15 @@ public class d extends af.a {
         this.aku = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jQL = view.findViewById(R.id.divider_view_under_photo_album);
+        this.jQN = view.findViewById(R.id.divider_view_under_photo_album);
         this.eAz = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.mja = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.mjb = new e(this.mPageContext, this.mja);
+        this.mjc = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.mjd = new e(this.mPageContext, this.mjc);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.mjb.setDatas(fu(fVar.getPhotoAlbum()));
+            this.mjd.setDatas(fu(fVar.getPhotoAlbum()));
         }
     }
 
@@ -53,13 +53,13 @@ public class d extends af.a {
         return list;
     }
 
-    public void dyi() {
+    public void dyj() {
         if (this.aku != TbadkCoreApplication.getInst().getSkinType()) {
             this.aku = TbadkCoreApplication.getInst().getSkinType();
             ap.setBackgroundColor(this.rootView, R.color.CAM_X0201);
-            ap.setBackgroundColor(this.jQL, R.color.CAM_X0204);
+            ap.setBackgroundColor(this.jQN, R.color.CAM_X0204);
             ap.setViewTextColor(this.eAz, R.color.CAM_X0109, 1);
-            this.mjb.notifyDataSetChanged();
+            this.mjd.notifyDataSetChanged();
         }
     }
 }

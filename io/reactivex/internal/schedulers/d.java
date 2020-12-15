@@ -14,85 +14,85 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class d extends v {
-    static final RxThreadFactory pHZ;
-    static final RxThreadFactory pIa;
-    private static final TimeUnit pIb = TimeUnit.SECONDS;
-    static final c pIc = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
-    static final a pId;
-    final ThreadFactory pHG;
-    final AtomicReference<a> pHH;
+    static final RxThreadFactory pIb;
+    static final RxThreadFactory pIc;
+    private static final TimeUnit pId = TimeUnit.SECONDS;
+    static final c pIe = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
+    static final a pIf;
+    final ThreadFactory pHI;
+    final AtomicReference<a> pHJ;
 
     static {
-        pIc.dispose();
+        pIe.dispose();
         int max = Math.max(1, Math.min(10, Integer.getInteger("rx2.io-priority", 5).intValue()));
-        pHZ = new RxThreadFactory("RxCachedThreadScheduler", max);
-        pIa = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
-        pId = new a(0L, null, pHZ);
-        pId.shutdown();
+        pIb = new RxThreadFactory("RxCachedThreadScheduler", max);
+        pIc = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
+        pIf = new a(0L, null, pIb);
+        pIf.shutdown();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes9.dex */
     public static final class a implements Runnable {
-        private final ThreadFactory pHG;
-        private final long pIe;
-        private final ConcurrentLinkedQueue<c> pIf;
-        final io.reactivex.disposables.a pIg;
-        private final ScheduledExecutorService pIh;
-        private final Future<?> pIi;
+        private final ThreadFactory pHI;
+        private final long pIg;
+        private final ConcurrentLinkedQueue<c> pIh;
+        final io.reactivex.disposables.a pIi;
+        private final ScheduledExecutorService pIj;
+        private final Future<?> pIk;
 
         a(long j, TimeUnit timeUnit, ThreadFactory threadFactory) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService = null;
-            this.pIe = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.pIf = new ConcurrentLinkedQueue<>();
-            this.pIg = new io.reactivex.disposables.a();
-            this.pHG = threadFactory;
+            this.pIg = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.pIh = new ConcurrentLinkedQueue<>();
+            this.pIi = new io.reactivex.disposables.a();
+            this.pHI = threadFactory;
             if (timeUnit != null) {
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, d.pIa);
+                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, d.pIc);
                 scheduledExecutorService = newScheduledThreadPool;
-                scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(this, this.pIe, this.pIe, TimeUnit.NANOSECONDS);
+                scheduledFuture = newScheduledThreadPool.scheduleWithFixedDelay(this, this.pIg, this.pIg, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
-            this.pIh = scheduledExecutorService;
-            this.pIi = scheduledFuture;
+            this.pIj = scheduledExecutorService;
+            this.pIk = scheduledFuture;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            eDn();
+            eDo();
         }
 
-        c eDm() {
-            if (this.pIg.isDisposed()) {
-                return d.pIc;
+        c eDn() {
+            if (this.pIi.isDisposed()) {
+                return d.pIe;
             }
-            while (!this.pIf.isEmpty()) {
-                c poll = this.pIf.poll();
+            while (!this.pIh.isEmpty()) {
+                c poll = this.pIh.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.pHG);
-            this.pIg.a(cVar);
+            c cVar = new c(this.pHI);
+            this.pIi.a(cVar);
             return cVar;
         }
 
         void a(c cVar) {
-            cVar.iH(now() + this.pIe);
-            this.pIf.offer(cVar);
+            cVar.iH(now() + this.pIg);
+            this.pIh.offer(cVar);
         }
 
-        void eDn() {
-            if (!this.pIf.isEmpty()) {
+        void eDo() {
+            if (!this.pIh.isEmpty()) {
                 long now = now();
-                Iterator<c> it = this.pIf.iterator();
+                Iterator<c> it = this.pIh.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.eDo() <= now) {
-                        if (this.pIf.remove(next)) {
-                            this.pIg.b(next);
+                    if (next.eDp() <= now) {
+                        if (this.pIh.remove(next)) {
+                            this.pIi.b(next);
                         }
                     } else {
                         return;
@@ -106,56 +106,56 @@ public final class d extends v {
         }
 
         void shutdown() {
-            this.pIg.dispose();
-            if (this.pIi != null) {
-                this.pIi.cancel(true);
+            this.pIi.dispose();
+            if (this.pIk != null) {
+                this.pIk.cancel(true);
             }
-            if (this.pIh != null) {
-                this.pIh.shutdownNow();
+            if (this.pIj != null) {
+                this.pIj.shutdownNow();
             }
         }
     }
 
     public d() {
-        this(pHZ);
+        this(pIb);
     }
 
     public d(ThreadFactory threadFactory) {
-        this.pHG = threadFactory;
-        this.pHH = new AtomicReference<>(pId);
+        this.pHI = threadFactory;
+        this.pHJ = new AtomicReference<>(pIf);
         start();
     }
 
     @Override // io.reactivex.v
     public void start() {
-        a aVar = new a(60L, pIb, this.pHG);
-        if (!this.pHH.compareAndSet(pId, aVar)) {
+        a aVar = new a(60L, pId, this.pHI);
+        if (!this.pHJ.compareAndSet(pIf, aVar)) {
             aVar.shutdown();
         }
     }
 
     @Override // io.reactivex.v
-    public v.c eCV() {
-        return new b(this.pHH.get());
+    public v.c eCW() {
+        return new b(this.pHJ.get());
     }
 
     /* loaded from: classes9.dex */
     static final class b extends v.c {
         final AtomicBoolean once = new AtomicBoolean();
-        private final io.reactivex.disposables.a pHS = new io.reactivex.disposables.a();
-        private final a pIj;
-        private final c pIk;
+        private final io.reactivex.disposables.a pHU = new io.reactivex.disposables.a();
+        private final a pIl;
+        private final c pIm;
 
         b(a aVar) {
-            this.pIj = aVar;
-            this.pIk = aVar.eDm();
+            this.pIl = aVar;
+            this.pIm = aVar.eDn();
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (this.once.compareAndSet(false, true)) {
-                this.pHS.dispose();
-                this.pIj.a(this.pIk);
+                this.pHU.dispose();
+                this.pIl.a(this.pIm);
             }
         }
 
@@ -166,26 +166,26 @@ public final class d extends v {
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.pHS.isDisposed() ? EmptyDisposable.INSTANCE : this.pIk.a(runnable, j, timeUnit, this.pHS);
+            return this.pHU.isDisposed() ? EmptyDisposable.INSTANCE : this.pIm.a(runnable, j, timeUnit, this.pHU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes9.dex */
     public static final class c extends f {
-        private long pIl;
+        private long pIn;
 
         c(ThreadFactory threadFactory) {
             super(threadFactory);
-            this.pIl = 0L;
+            this.pIn = 0L;
         }
 
-        public long eDo() {
-            return this.pIl;
+        public long eDp() {
+            return this.pIn;
         }
 
         public void iH(long j) {
-            this.pIl = j;
+            this.pIn = j;
         }
     }
 }

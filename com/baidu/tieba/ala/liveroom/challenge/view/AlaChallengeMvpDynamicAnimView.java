@@ -23,12 +23,12 @@ import com.baidu.live.utils.l;
 import com.tb.airbnb.lottie.LottieAnimationView;
 /* loaded from: classes4.dex */
 public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
-    private RelativeLayout ggC;
-    private HeadImageView hoe;
-    private TextView hof;
-    private LottieAnimationView hog;
-    private Animation hoh;
-    private final CustomMessageListener hoi;
+    private RelativeLayout ggE;
+    private HeadImageView hog;
+    private TextView hoh;
+    private LottieAnimationView hoi;
+    private Animation hoj;
+    private final CustomMessageListener hok;
     private final Animator.AnimatorListener mAnimatorListener;
 
     public AlaChallengeMvpDynamicAnimView(Context context) {
@@ -51,7 +51,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         };
-        this.hoi = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
+        this.hok = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -83,7 +83,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         };
-        this.hoi = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
+        this.hok = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -115,7 +115,7 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         };
-        this.hoi = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
+        this.hok = new CustomMessageListener(2913205) { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpDynamicAnimView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -129,36 +129,36 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_challenge_mvp_dynamic_view, (ViewGroup) this, true);
-        this.ggC = (RelativeLayout) findViewById(a.f.id_challenge_mvp_dynamic_content_layout);
-        this.hoe = (HeadImageView) findViewById(a.f.id_challenge_head_img);
-        this.hoe.setIsRound(true);
-        this.hoe.setAutoChangeStyle(false);
-        this.hoe.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.hoe.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
-        this.hoe.setDrawBorder(true);
-        this.hoe.setBorderWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds3));
-        this.hoe.setBorderColor(getResources().getColor(a.c.sdk_white_alpha100));
-        this.hof = (TextView) findViewById(a.f.id_challenge_user_name);
-        this.hog = (LottieAnimationView) findViewById(a.f.id_challenge_mvp_anim_lottie_view);
+        this.ggE = (RelativeLayout) findViewById(a.f.id_challenge_mvp_dynamic_content_layout);
+        this.hog = (HeadImageView) findViewById(a.f.id_challenge_head_img);
+        this.hog.setIsRound(true);
+        this.hog.setAutoChangeStyle(false);
+        this.hog.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.hog.setDefaultErrorResource(a.e.sdk_pic_mycenter_avatar_def);
+        this.hog.setDrawBorder(true);
+        this.hog.setBorderWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds3));
+        this.hog.setBorderColor(getResources().getColor(a.c.sdk_white_alpha100));
+        this.hoh = (TextView) findViewById(a.f.id_challenge_user_name);
+        this.hoi = (LottieAnimationView) findViewById(a.f.id_challenge_mvp_anim_lottie_view);
         Lo();
     }
 
     private void Lo() {
-        this.hog.setAnimation("mvpdynamic.json");
-        this.hog.setImageAssetsFolder("images/");
-        this.hog.addAnimatorListener(this.mAnimatorListener);
-        this.hog.loop(false);
-        this.hoh = AnimationUtils.loadAnimation(getContext(), a.C0205a.challenge_mvp_content_anim);
+        this.hoi.setAnimation("mvpdynamic.json");
+        this.hoi.setImageAssetsFolder("images/");
+        this.hoi.addAnimatorListener(this.mAnimatorListener);
+        this.hoi.loop(false);
+        this.hoj = AnimationUtils.loadAnimation(getContext(), a.C0205a.challenge_mvp_content_anim);
         BounceInterpolator bounceInterpolator = new BounceInterpolator();
-        this.hoh.setDuration(800L);
-        this.hoh.setInterpolator(bounceInterpolator);
+        this.hoj.setDuration(800L);
+        this.hoj.setInterpolator(bounceInterpolator);
     }
 
     public void a(bb bbVar) {
         if (bbVar == null) {
-            ceg();
+            ceh();
         } else if (bbVar.aPT < com.baidu.live.ae.a.RB().brA.aNF) {
-            ceg();
+            ceh();
         } else {
             setVisibility(0);
             String str = bbVar.mNickName;
@@ -166,41 +166,41 @@ public class AlaChallengeMvpDynamicAnimView extends RelativeLayout {
                 if (TextHelper.getTextLengthWithEmoji(str) > 22) {
                     str = TextHelper.subStringWithEmoji(str, 22) + StringHelper.STRING_MORE;
                 }
-                this.hof.setText(str);
+                this.hoh.setText(str);
             }
-            l.a(this.hoe, bbVar.mPortrait, true, false);
+            l.a(this.hog, bbVar.mPortrait, true, false);
             startAnim();
         }
     }
 
     private void startAnim() {
-        if (this.hog.isAnimating()) {
-            this.hog.cancelAnimation();
+        if (this.hoi.isAnimating()) {
+            this.hoi.cancelAnimation();
         }
-        this.hog.setProgress(0.0f);
-        this.hog.playAnimation();
-        this.ggC.clearAnimation();
-        this.ggC.startAnimation(this.hoh);
+        this.hoi.setProgress(0.0f);
+        this.hoi.playAnimation();
+        this.ggE.clearAnimation();
+        this.ggE.startAnimation(this.hoj);
     }
 
-    public void ceg() {
-        if (this.hog.isAnimating()) {
-            this.hog.cancelAnimation();
+    public void ceh() {
+        if (this.hoi.isAnimating()) {
+            this.hoi.cancelAnimation();
         }
-        this.ggC.clearAnimation();
+        this.ggE.clearAnimation();
         setVisibility(8);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.hoi);
+        MessageManager.getInstance().registerListener(this.hok);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        ceg();
-        MessageManager.getInstance().unRegisterListener(this.hoi);
+        ceh();
+        MessageManager.getInstance().unRegisterListener(this.hok);
     }
 }

@@ -4,7 +4,7 @@ public class c implements i {
     private String title;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int cAo() {
+    public int cAp() {
         return 0;
     }
 

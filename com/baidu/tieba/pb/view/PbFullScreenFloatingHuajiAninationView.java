@@ -19,26 +19,26 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
-    private a lZK;
+    private a lZM;
     private boolean mIsAnimating;
     private Runnable mRunnable;
     private AnimatorSet meA;
     private AnimatorSet meB;
-    private Runnable meC;
-    private Runnable meD;
-    private ImageView meo;
-    private ImageView mep;
+    private AnimatorSet meC;
+    private AnimatorSet meD;
+    private Runnable meE;
+    private Runnable meF;
     private ImageView meq;
     private ImageView mer;
     private ImageView mes;
     private ImageView met;
-    private TextView meu;
-    private AnimatorSet mev;
-    private AnimatorSet mew;
+    private ImageView meu;
+    private ImageView mev;
+    private TextView mew;
     private AnimatorSet mex;
     private AnimatorSet mey;
     private AnimatorSet mez;
-    private static final int gpo = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds48);
+    private static final int gpq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds48);
     private static final int ajr = l.getEquipmentWidth(TbadkCoreApplication.getInst());
 
     /* loaded from: classes22.dex */
@@ -49,13 +49,13 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public PbFullScreenFloatingHuajiAninationView(Context context) {
         super(context);
         this.mIsAnimating = false;
-        this.meC = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
+        this.meE = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
             @Override // java.lang.Runnable
             public void run() {
-                PbFullScreenFloatingHuajiAninationView.this.dxo();
+                PbFullScreenFloatingHuajiAninationView.this.dxp();
             }
         };
-        this.meD = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
+        this.meF = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
             @Override // java.lang.Runnable
             public void run() {
                 ViewGroup viewGroup = (ViewGroup) ((Activity) PbFullScreenFloatingHuajiAninationView.this.getContext()).getWindow().getDecorView();
@@ -79,13 +79,13 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public PbFullScreenFloatingHuajiAninationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mIsAnimating = false;
-        this.meC = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
+        this.meE = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
             @Override // java.lang.Runnable
             public void run() {
-                PbFullScreenFloatingHuajiAninationView.this.dxo();
+                PbFullScreenFloatingHuajiAninationView.this.dxp();
             }
         };
-        this.meD = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
+        this.meF = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
             @Override // java.lang.Runnable
             public void run() {
                 ViewGroup viewGroup = (ViewGroup) ((Activity) PbFullScreenFloatingHuajiAninationView.this.getContext()).getWindow().getDecorView();
@@ -109,13 +109,13 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public PbFullScreenFloatingHuajiAninationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mIsAnimating = false;
-        this.meC = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
+        this.meE = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.1
             @Override // java.lang.Runnable
             public void run() {
-                PbFullScreenFloatingHuajiAninationView.this.dxo();
+                PbFullScreenFloatingHuajiAninationView.this.dxp();
             }
         };
-        this.meD = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
+        this.meF = new Runnable() { // from class: com.baidu.tieba.pb.view.PbFullScreenFloatingHuajiAninationView.2
             @Override // java.lang.Runnable
             public void run() {
                 ViewGroup viewGroup = (ViewGroup) ((Activity) PbFullScreenFloatingHuajiAninationView.this.getContext()).getWindow().getDecorView();
@@ -138,65 +138,65 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.pb_full_screen_floating_huaji_view, this);
-        this.meo = (ImageView) findViewById(R.id.pb_video_floating_big_huaji);
-        this.mep = (ImageView) findViewById(R.id.pb_video_floating_small_huaji1);
-        this.meq = (ImageView) findViewById(R.id.pb_video_floating_small_huaji2);
-        this.mer = (ImageView) findViewById(R.id.pb_video_floating_small_huaji3);
-        this.mes = (ImageView) findViewById(R.id.pb_video_floating_small_huaji4);
-        this.met = (ImageView) findViewById(R.id.pb_video_floating_small_huaji5);
-        this.meu = (TextView) findViewById(R.id.pb_video_floating_huaji_tip);
-        this.meu.setX((ajr - gpo) / 2);
+        this.meq = (ImageView) findViewById(R.id.pb_video_floating_big_huaji);
+        this.mer = (ImageView) findViewById(R.id.pb_video_floating_small_huaji1);
+        this.mes = (ImageView) findViewById(R.id.pb_video_floating_small_huaji2);
+        this.met = (ImageView) findViewById(R.id.pb_video_floating_small_huaji3);
+        this.meu = (ImageView) findViewById(R.id.pb_video_floating_small_huaji4);
+        this.mev = (ImageView) findViewById(R.id.pb_video_floating_small_huaji5);
+        this.mew = (TextView) findViewById(R.id.pb_video_floating_huaji_tip);
+        this.mew.setX((ajr - gpq) / 2);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        cpI();
+        cpJ();
     }
 
-    private void cpI() {
-        this.mev = new AnimatorSet();
+    private void cpJ() {
+        this.mex = new AnimatorSet();
         Drawable drawable = ap.getDrawable(R.drawable.icon_floor_bigpraised_floating);
         int intrinsicWidth = (ajr - drawable.getIntrinsicWidth()) / 2;
         int intrinsicWidth2 = 0 - drawable.getIntrinsicWidth();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.meo, "X", ajr, intrinsicWidth);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.meq, "X", ajr, intrinsicWidth);
         ofFloat.setDuration(400L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.meo, "X", intrinsicWidth, intrinsicWidth2);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.meq, "X", intrinsicWidth, intrinsicWidth2);
         ofFloat2.setDuration(500L);
         ofFloat2.setStartDelay(1000L);
-        this.mev.playTogether(ofFloat, ofFloat2);
-        this.mew = new AnimatorSet();
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mep, "X", ajr, intrinsicWidth2);
+        this.mex.playTogether(ofFloat, ofFloat2);
+        this.mey = new AnimatorSet();
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mer, "X", ajr, intrinsicWidth2);
         ofFloat3.setDuration(600L);
         ofFloat3.setStartDelay(800L);
-        this.mew.play(ofFloat3);
-        this.mex = new AnimatorSet();
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.meq, "X", ajr, intrinsicWidth2);
+        this.mey.play(ofFloat3);
+        this.mez = new AnimatorSet();
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mes, "X", ajr, intrinsicWidth2);
         ofFloat4.setDuration(600L);
         ofFloat4.setStartDelay(800L);
-        this.mex.play(ofFloat4);
-        this.mey = new AnimatorSet();
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.mer, "X", ajr, intrinsicWidth2);
+        this.mez.play(ofFloat4);
+        this.meA = new AnimatorSet();
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.met, "X", ajr, intrinsicWidth2);
         ofFloat5.setDuration(300L);
         ofFloat5.setStartDelay(1100L);
-        this.mey.play(ofFloat5);
-        this.mez = new AnimatorSet();
-        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.mes, "X", ajr, intrinsicWidth2);
+        this.meA.play(ofFloat5);
+        this.meB = new AnimatorSet();
+        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.meu, "X", ajr, intrinsicWidth2);
         ofFloat6.setDuration(200L);
         ofFloat6.setStartDelay(1200L);
-        this.mez.play(ofFloat6);
-        this.meA = new AnimatorSet();
-        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.met, "X", ajr, intrinsicWidth2);
+        this.meB.play(ofFloat6);
+        this.meC = new AnimatorSet();
+        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.mev, "X", ajr, intrinsicWidth2);
         ofFloat7.setDuration(150L);
         ofFloat7.setStartDelay(1400L);
-        this.meA.play(ofFloat7);
-        this.meB = new AnimatorSet();
-        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.meu, "scaleX", 0.0f, 2.0f, 1.0f);
+        this.meC.play(ofFloat7);
+        this.meD = new AnimatorSet();
+        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.mew, "scaleX", 0.0f, 2.0f, 1.0f);
         ofFloat8.setDuration(500L);
         ofFloat8.setStartDelay(400L);
-        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.meu, "scaleY", 0.0f, 2.0f, 1.0f);
+        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.mew, "scaleY", 0.0f, 2.0f, 1.0f);
         ofFloat9.setDuration(500L);
         ofFloat8.setStartDelay(400L);
-        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.meu, "X", ajr / 2, intrinsicWidth2);
+        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.mew, "X", ajr / 2, intrinsicWidth2);
         ofFloat10.setDuration(300L);
         ofFloat10.setStartDelay(700L);
-        this.meB.playTogether(ofFloat8, ofFloat9, ofFloat10);
+        this.meD.playTogether(ofFloat8, ofFloat9, ofFloat10);
     }
 
     public void onChangeSkinType(int i) {
@@ -208,49 +208,49 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
             i2 = R.drawable.icon_floor_praised_floating_xmas;
             i3 = R.drawable.icon_floor_bigpraised_floating_xmas;
         }
-        ap.setImageResource(this.meo, i3);
-        ap.setImageResource(this.mep, i2);
-        ap.setImageResource(this.meq, i2);
+        ap.setImageResource(this.meq, i3);
         ap.setImageResource(this.mer, i2);
         ap.setImageResource(this.mes, i2);
         ap.setImageResource(this.met, i2);
-        ap.setViewTextColor(this.meu, R.color.CAM_X0101);
+        ap.setImageResource(this.meu, i2);
+        ap.setImageResource(this.mev, i2);
+        ap.setViewTextColor(this.mew, R.color.CAM_X0101);
     }
 
     public void wm(boolean z) {
         if (UtilHelper.getRealScreenOrientation(getContext()) != 2 && !this.mIsAnimating) {
             this.mIsAnimating = true;
             ((ViewGroup) ((Activity) getContext()).getWindow().getDecorView()).addView(this);
-            postDelayed(this.meC, 2000L);
-            this.mev.start();
-            this.mew.start();
+            postDelayed(this.meE, 2000L);
             this.mex.start();
             this.mey.start();
             this.mez.start();
             this.meA.start();
+            this.meB.start();
+            this.meC.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dxo() {
+    public void dxp() {
         this.mIsAnimating = false;
-        com.baidu.adp.lib.f.e.mY().post(this.meD);
-        if (this.lZK != null) {
-            this.lZK.onAnimationEnd();
+        com.baidu.adp.lib.f.e.mY().post(this.meF);
+        if (this.lZM != null) {
+            this.lZM.onAnimationEnd();
         }
-        removeCallbacks(this.meC);
+        removeCallbacks(this.meE);
     }
 
     public void stopAnimation() {
         if (this.mIsAnimating) {
-            dxo();
-            this.mev.cancel();
-            this.mew.cancel();
+            dxp();
             this.mex.cancel();
             this.mey.cancel();
             this.mez.cancel();
             this.meA.cancel();
             this.meB.cancel();
+            this.meC.cancel();
+            this.meD.cancel();
         }
     }
 
@@ -263,6 +263,6 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     }
 
     public void setFloatingHuajiAninationListener(a aVar) {
-        this.lZK = aVar;
+        this.lZM = aVar;
     }
 }

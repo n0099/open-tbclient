@@ -15,20 +15,20 @@ public class AlaLiveExposureView extends View {
     private int bGh;
     private float cBL;
     private Paint ftT;
-    private Paint hEe;
-    private int hEf;
-    private int hEg;
-    private float hEh;
-    private float hEi;
-    private a hEj;
-    private Runnable hEk;
+    private Paint hEg;
+    private int hEh;
+    private int hEi;
+    private float hEj;
+    private float hEk;
+    private a hEl;
+    private Runnable hEm;
     private int mActivePointerId;
     private Paint mCirclePaint;
     private float mDownX;
 
     /* loaded from: classes4.dex */
     interface a {
-        void chl();
+        void chm();
 
         void onExposure(float f);
     }
@@ -36,12 +36,12 @@ public class AlaLiveExposureView extends View {
     public AlaLiveExposureView(Context context) {
         super(context);
         this.bGh = 5;
-        this.hEf = 4;
-        this.hEg = 4;
-        this.hEh = 0.5f;
-        this.hEi = 0.5f;
+        this.hEh = 4;
+        this.hEi = 4;
+        this.hEj = 0.5f;
+        this.hEk = 0.5f;
         this.mActivePointerId = -1;
-        this.hEk = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
+        this.hEm = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveExposureView.this.setVisibility(4);
@@ -53,12 +53,12 @@ public class AlaLiveExposureView extends View {
     public AlaLiveExposureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.bGh = 5;
-        this.hEf = 4;
-        this.hEg = 4;
-        this.hEh = 0.5f;
-        this.hEi = 0.5f;
+        this.hEh = 4;
+        this.hEi = 4;
+        this.hEj = 0.5f;
+        this.hEk = 0.5f;
         this.mActivePointerId = -1;
-        this.hEk = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
+        this.hEm = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveExposureView.this.setVisibility(4);
@@ -70,12 +70,12 @@ public class AlaLiveExposureView extends View {
     public AlaLiveExposureView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.bGh = 5;
-        this.hEf = 4;
-        this.hEg = 4;
-        this.hEh = 0.5f;
-        this.hEi = 0.5f;
+        this.hEh = 4;
+        this.hEi = 4;
+        this.hEj = 0.5f;
+        this.hEk = 0.5f;
         this.mActivePointerId = -1;
-        this.hEk = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
+        this.hEm = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.1
             @Override // java.lang.Runnable
             public void run() {
                 AlaLiveExposureView.this.setVisibility(4);
@@ -94,21 +94,21 @@ public class AlaLiveExposureView extends View {
         this.mCirclePaint.setAntiAlias(true);
         this.mCirclePaint.setStyle(Paint.Style.STROKE);
         this.mCirclePaint.setColor(-1);
-        this.mCirclePaint.setStrokeWidth(this.hEf);
-        this.hEe = new Paint();
-        this.hEe.setAntiAlias(true);
-        this.hEe.setStyle(Paint.Style.STROKE);
-        this.hEe.setStrokeCap(Paint.Cap.ROUND);
-        this.hEe.setColor(-1);
-        this.hEe.setStrokeWidth(this.hEg);
+        this.mCirclePaint.setStrokeWidth(this.hEh);
+        this.hEg = new Paint();
+        this.hEg.setAntiAlias(true);
+        this.hEg.setStyle(Paint.Style.STROKE);
+        this.hEg.setStrokeCap(Paint.Cap.ROUND);
+        this.hEg.setColor(-1);
+        this.hEg.setStrokeWidth(this.hEi);
     }
 
     public void setExposureListener(a aVar) {
-        this.hEj = aVar;
+        this.hEl = aVar;
     }
 
     public void setExposureValue(float f) {
-        this.hEh = f;
+        this.hEj = f;
         invalidate();
     }
 
@@ -121,7 +121,7 @@ public class AlaLiveExposureView extends View {
     }
 
     private void Q(Canvas canvas) {
-        int height = (int) ((getHeight() - 88) * this.hEh);
+        int height = (int) ((getHeight() - 88) * this.hEj);
         if (height > 3) {
             int width = getWidth() / 2;
             canvas.drawLine(width, 0, width, height + 0, this.ftT);
@@ -130,7 +130,7 @@ public class AlaLiveExposureView extends View {
 
     private void R(Canvas canvas) {
         int height = getHeight() - 88;
-        int i = height - ((int) (height * this.hEh));
+        int i = height - ((int) (height * this.hEj));
         if (i > 3) {
             int width = getWidth() / 2;
             int height2 = getHeight();
@@ -139,7 +139,7 @@ public class AlaLiveExposureView extends View {
     }
 
     private void f(Canvas canvas) {
-        int round = Math.round((getHeight() - 88) * this.hEh);
+        int round = Math.round((getHeight() - 88) * this.hEj);
         int width = getWidth() / 2;
         int i = round + 44;
         canvas.drawArc(new RectF(width - 18, i - 18, width + 18, i + 18), 360.0f, 360.0f, false, this.mCirclePaint);
@@ -147,51 +147,51 @@ public class AlaLiveExposureView extends View {
 
     private void S(Canvas canvas) {
         int width = getWidth() / 2;
-        int height = ((int) ((getHeight() - 88) * this.hEh)) + 44;
-        int round = 8 - Math.round(this.hEh * 8.0f);
+        int height = ((int) ((getHeight() - 88) * this.hEj)) + 44;
+        int round = 8 - Math.round(this.hEj * 8.0f);
         int i = (height - 18) - 8;
         int i2 = i - 4;
         for (int i3 = 0; i3 < round; i3++) {
-            canvas.drawLine(width, i, width, i2, this.hEe);
+            canvas.drawLine(width, i, width, i2, this.hEg);
             canvas.rotate(45.0f, width, height);
         }
     }
 
-    public void ckZ() {
-        removeCallbacks(this.hEk);
-        postDelayed(this.hEk, IMConnection.RETRY_DELAY_TIMES);
+    public void cla() {
+        removeCallbacks(this.hEm);
+        postDelayed(this.hEm, IMConnection.RETRY_DELAY_TIMES);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & 255) {
             case 0:
-                if (this.hEj != null) {
-                    this.hEj.chl();
+                if (this.hEl != null) {
+                    this.hEl.chm();
                 }
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                 if (!isInvalidEvent(motionEvent, actionIndex, this.mActivePointerId)) {
                     this.mDownX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.cBL = MotionEventCompat.getY(motionEvent, actionIndex);
-                    this.hEi = this.hEh;
-                    removeCallbacks(this.hEk);
+                    this.hEk = this.hEj;
+                    removeCallbacks(this.hEm);
                     return true;
                 }
                 break;
             case 1:
             case 3:
-                ckZ();
+                cla();
                 break;
             case 2:
                 getDiffX(motionEvent);
-                float M = ((M(motionEvent) * 1.0f) / (getHeight() - 88)) + this.hEi;
+                float M = ((M(motionEvent) * 1.0f) / (getHeight() - 88)) + this.hEk;
                 float f = M < 1.0f ? M : 1.0f;
                 float f2 = f > 0.0f ? f : 0.0f;
-                if (f2 != this.hEh) {
-                    this.hEh = f2;
-                    if (this.hEj != null) {
-                        this.hEj.onExposure(this.hEh);
+                if (f2 != this.hEj) {
+                    this.hEj = f2;
+                    if (this.hEl != null) {
+                        this.hEl.onExposure(this.hEj);
                     }
                 }
                 invalidate();

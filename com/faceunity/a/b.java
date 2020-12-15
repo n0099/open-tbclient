@@ -6,19 +6,19 @@ import com.baidu.ala.helper.StreamConfig;
 import java.nio.ByteBuffer;
 /* loaded from: classes23.dex */
 public class b {
-    private static b pqY;
+    private static b pra;
     private AudioRecord mAudioRecord;
-    private boolean pqZ;
-    private static final int[] pqW = {1, 0, 5, 7, 6};
+    private boolean prb;
+    private static final int[] pqY = {1, 0, 5, 7, 6};
     public static int SAMPLE_RATE = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int pqX = 24;
+    public static int pqZ = 24;
 
     public b() {
         int minBufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
-        int i = SAMPLES_PER_FRAME * pqX;
+        int i = SAMPLES_PER_FRAME * pqZ;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : pqW) {
+        for (int i2 : pqY) {
             try {
                 this.mAudioRecord = new AudioRecord(i2, SAMPLE_RATE, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
@@ -31,8 +31,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.pqZ) {
-            this.pqZ = true;
+        if (!this.prb) {
+            this.prb = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -49,11 +49,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (pqY != null && !pqY.abU()) {
-                pqY.release();
+            if (pra != null && !pra.abU()) {
+                pra.release();
             }
             this.mAudioRecord.startRecording();
-            pqY = this;
+            pra = this;
         }
     }
 
@@ -64,10 +64,10 @@ public class b {
     }
 
     public boolean abU() {
-        return this.pqZ;
+        return this.prb;
     }
 
-    public AudioRecord exz() {
+    public AudioRecord exA() {
         return this.mAudioRecord;
     }
 }

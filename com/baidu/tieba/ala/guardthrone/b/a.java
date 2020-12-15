@@ -9,8 +9,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    public C0664a gSM;
-    public b gSN;
+    public C0664a gSO;
+    public b gSP;
     public int status;
 
     public void parserJson(JSONObject jSONObject) {
@@ -18,13 +18,13 @@ public class a {
             this.status = jSONObject.optInt("status");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
             if (optJSONObject != null) {
-                this.gSM = new C0664a();
-                this.gSM.dF(optJSONObject);
+                this.gSO = new C0664a();
+                this.gSO.dF(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("rank");
             if (optJSONObject2 != null) {
-                this.gSN = new b();
-                this.gSN.dH(optJSONObject2);
+                this.gSP = new b();
+                this.gSP.dH(optJSONObject2);
             }
         }
     }
@@ -33,14 +33,14 @@ public class a {
     /* loaded from: classes4.dex */
     public static class C0664a {
         public long bzb;
-        public String gSO;
-        public String gSP;
         public String gSQ;
         public String gSR;
         public String gSS;
-        public long gST;
-        public long gSU;
-        public List<C0665a> gSV;
+        public String gST;
+        public String gSU;
+        public long gSV;
+        public long gSW;
+        public List<C0665a> gSX;
         public long startTime;
         public String username;
 
@@ -59,36 +59,36 @@ public class a {
         public void dF(JSONObject jSONObject) {
             JSONArray optJSONArray = jSONObject.optJSONArray(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.gSV = new ArrayList();
+                this.gSX = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     C0665a c0665a = new C0665a();
                     c0665a.dG(optJSONArray.optJSONObject(i));
-                    this.gSV.add(c0665a);
+                    this.gSX.add(c0665a);
                 }
             }
             if (!jSONObject.isNull("portrait")) {
-                this.gSO = jSONObject.optString("portrait");
+                this.gSQ = jSONObject.optString("portrait");
             }
             if (!jSONObject.isNull("user_name")) {
                 this.username = jSONObject.optString("user_name");
             }
             if (!jSONObject.isNull("guard_seat_user")) {
-                this.gSS = jSONObject.optString("guard_seat_user");
+                this.gSU = jSONObject.optString("guard_seat_user");
             }
-            this.gSP = jSONObject.optString("frame_pic");
-            this.gSQ = jSONObject.optString("time_text");
-            this.gSR = jSONObject.optString("rule_url");
+            this.gSR = jSONObject.optString("frame_pic");
+            this.gSS = jSONObject.optString("time_text");
+            this.gST = jSONObject.optString("rule_url");
             this.startTime = jSONObject.optLong("start_time");
             this.bzb = jSONObject.optLong("count_down");
-            this.gST = jSONObject.optLong("effect_time");
-            this.gSU = jSONObject.optLong("polling_time");
+            this.gSV = jSONObject.optLong("effect_time");
+            this.gSW = jSONObject.optLong("polling_time");
         }
     }
 
     /* loaded from: classes4.dex */
     public static class b {
         public List<C0667b> aIZ;
-        public C0666a gSW;
+        public C0666a gSY;
 
         /* renamed from: com.baidu.tieba.ala.guardthrone.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
@@ -131,8 +131,8 @@ public class a {
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
-                    this.gSW = new C0666a();
-                    this.gSW.dI(optJSONObject);
+                    this.gSY = new C0666a();
+                    this.gSY.dI(optJSONObject);
                 }
             }
         }

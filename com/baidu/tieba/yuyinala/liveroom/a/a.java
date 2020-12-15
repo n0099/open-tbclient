@@ -13,9 +13,9 @@ public class a implements c {
     private boolean aUy;
     private CustomMessageListener bRw;
     private long brr;
-    private long ggj;
+    private long ggl;
     private Activity mActivity;
-    private b okv;
+    private b okx;
 
     public a(Activity activity) {
         this.mActivity = activity;
@@ -29,7 +29,7 @@ public class a implements c {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void f(long j, String str, String str2) {
-        this.ggj = j;
+        this.ggl = j;
         this.aPR = str;
         if (this.aPR == null) {
             this.aPR = "";
@@ -44,46 +44,46 @@ public class a implements c {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void bU(String str, int i) {
-        this.okv = new b(this.mActivity);
+        this.okx = new b(this.mActivity);
         g gVar = new g();
         AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
         alaLastLiveroomInfo.setLastLiveId(this.brr);
         alaLastLiveroomInfo.setLastAnchorUname(this.aPR);
-        alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.ggj));
+        alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.ggl));
         alaLastLiveroomInfo.setLastAnchorPortrait(this.aPS);
         alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HALF_WEBVIEW);
         alaLastLiveroomInfo.setIsAudio(1);
-        gVar.x(this.mActivity).a(this.okv).a(this.okv.getWebView().getSchemeCallback()).bA(this.ggj).jq(this.aPR).dA(this.aUy).bB(this.brr).a(alaLastLiveroomInfo);
+        gVar.x(this.mActivity).a(this.okx).a(this.okx.getWebView().getSchemeCallback()).bA(this.ggl).jq(this.aPR).dA(this.aUy).bB(this.brr).a(alaLastLiveroomInfo);
         com.baidu.live.view.web.a[] YO = gVar.YO();
         for (com.baidu.live.view.web.a aVar : YO) {
-            this.okv.getWebView().addJavascriptInterface(aVar, aVar.getName());
+            this.okx.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.okv.aH(str, i);
+        this.okx.aH(str, i);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void resume() {
-        if (this.okv != null && this.okv.isShowing() && this.okv.getWebView() != null) {
-            this.okv.getWebView().onResume();
+        if (this.okx != null && this.okx.isShowing() && this.okx.getWebView() != null) {
+            this.okx.getWebView().onResume();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void pause() {
-        if (this.okv != null && this.okv.isShowing() && this.okv.getWebView() != null) {
-            this.okv.getWebView().onPause();
+        if (this.okx != null && this.okx.isShowing() && this.okx.getWebView() != null) {
+            this.okx.getWebView().onPause();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a.c
     public void release() {
-        this.ggj = 0L;
+        this.ggl = 0L;
         this.aPR = "";
         MessageManager.getInstance().unRegisterListener(this.bRw);
-        if (this.okv != null) {
-            this.okv.YQ();
-            if (this.okv.getWebView() != null) {
-                this.okv.getWebView().release();
+        if (this.okx != null) {
+            this.okx.YQ();
+            if (this.okx.getWebView() != null) {
+                this.okx.getWebView().release();
             }
         }
     }
@@ -93,8 +93,8 @@ public class a implements c {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.okv != null && a.this.okv.isShowing()) {
-                    a.this.okv.dismiss();
+                if (a.this.okx != null && a.this.okx.isShowing()) {
+                    a.this.okx.dismiss();
                 }
             }
         };

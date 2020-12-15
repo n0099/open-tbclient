@@ -19,32 +19,32 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes22.dex */
 public class ChatAggregationFragment extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter kHY;
-    private e kIb;
+    private ViewEventCenter kIa;
+    private e kId;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (ChatAggregationFragment.this.kIb != null) {
-                    ChatAggregationFragment.this.kIb.tf(true);
+                if (ChatAggregationFragment.this.kId != null) {
+                    ChatAggregationFragment.this.kId.tf(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (ChatAggregationFragment.this.kIb != null) {
-                    ChatAggregationFragment.this.kIb.cKv();
-                    ChatAggregationFragment.this.kIb.aj(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (ChatAggregationFragment.this.kId != null) {
+                    ChatAggregationFragment.this.kId.cKw();
+                    ChatAggregationFragment.this.kId.aj(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener kHZ = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
+    private CustomMessageListener kIb = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ChatAggregationFragment.this.kIb != null) {
-                    ChatAggregationFragment.this.kIb.onNewIntent(intent);
+                if (ChatAggregationFragment.this.kId != null) {
+                    ChatAggregationFragment.this.kId.onNewIntent(intent);
                 }
             }
         }
@@ -52,26 +52,26 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.kIb = new e(this);
+        this.kId = new e(this);
         if (bundle != null) {
-            this.kIb.as(bundle);
+            this.kId.as(bundle);
         } else {
-            this.kIb.as(null);
+            this.kId.as(null);
         }
-        View bVG = this.kIb.bVG();
-        this.kIb.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        View bVH = this.kId.bVH();
+        this.kId.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         bEP().addEventDelegate(this);
         registerListener(this.mAccountChangedListener);
-        registerListener(this.kHZ);
-        return bVG;
+        registerListener(this.kIb);
+        return bVH;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         if (getActivity() != null && Z(getActivity().getIntent())) {
-            this.kIb.onNewIntent(getActivity().getIntent());
+            this.kId.onNewIntent(getActivity().getIntent());
         } else {
-            this.kIb.cKv();
+            this.kId.cKw();
         }
         super.onViewCreated(view, bundle);
     }
@@ -91,16 +91,16 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     }
 
     public ViewEventCenter bEP() {
-        if (this.kHY == null) {
-            this.kHY = new ViewEventCenter();
+        if (this.kIa == null) {
+            this.kIa = new ViewEventCenter();
         }
-        return this.kHY;
+        return this.kIa;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.kIb != null) {
-            this.kIb.b(getPageContext(), i);
+        if (this.kId != null) {
+            this.kId.b(getPageContext(), i);
         }
     }
 
@@ -141,30 +141,30 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
-        MessageManager.getInstance().unRegisterListener(this.kHZ);
-        if (this.kIb != null) {
-            this.kIb.cIC();
+        MessageManager.getInstance().unRegisterListener(this.kIb);
+        if (this.kId != null) {
+            this.kId.cID();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void onNetworkChange(boolean z) {
-        if (this.kIb != null) {
-            this.kIb.tc(z);
+        if (this.kId != null) {
+            this.kId.tc(z);
         }
     }
 
     public void VC() {
-        if (this.kIb != null) {
-            this.kIb.VC();
+        if (this.kId != null) {
+            this.kId.VC();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.kIb != null) {
-            this.kIb.dbt();
+        if (this.kId != null) {
+            this.kId.dbu();
         }
     }
 }

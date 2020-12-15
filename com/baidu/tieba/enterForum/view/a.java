@@ -24,12 +24,12 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class a extends PopupWindow {
     private ViewGroup bJb;
-    private View.OnClickListener gcQ;
-    private InterfaceC0733a iCD;
-    private View iCE;
-    private TextView iCF;
-    private TextView iCG;
-    private int iCH;
+    private View.OnClickListener gcS;
+    private InterfaceC0733a iCF;
+    private View iCG;
+    private TextView iCH;
+    private TextView iCI;
+    private int iCJ;
     private Context mContext;
     private final View.OnClickListener mOnClickListener;
     private int mStatusBarHeight;
@@ -42,15 +42,15 @@ public class a extends PopupWindow {
 
     public a(Context context) {
         super(context);
-        this.gcQ = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
+        this.gcS = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.iCF) {
-                    if (a.this.iCD != null) {
-                        a.this.iCD.onItemClick(1);
+                if (view == a.this.iCH) {
+                    if (a.this.iCF != null) {
+                        a.this.iCF.onItemClick(1);
                     }
-                } else if (view == a.this.iCG && a.this.iCD != null) {
-                    a.this.iCD.onItemClick(2);
+                } else if (view == a.this.iCI && a.this.iCF != null) {
+                    a.this.iCF.onItemClick(2);
                 }
                 a.this.Wd();
             }
@@ -69,52 +69,52 @@ public class a extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View cxc() {
-        cxd();
+    private View cxd() {
+        cxe();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
         this.bJb = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.iCE);
+        frameLayout.addView(this.iCG);
         this.bJb.setOnClickListener(this.mOnClickListener);
-        com.baidu.tbadk.core.util.e.a.buy().qx(R.color.CAM_X0901).qs(l.getDimens(this.mContext, R.dimen.tbds10)).qt(R.color.CAM_X0804).qu(l.getDimens(this.mContext, R.dimen.tbds21)).qv(0).qw(l.getDimens(this.mContext, R.dimen.tbds4)).bq(this.iCE);
+        com.baidu.tbadk.core.util.e.a.buy().qx(R.color.CAM_X0901).qs(l.getDimens(this.mContext, R.dimen.tbds10)).qt(R.color.CAM_X0804).qu(l.getDimens(this.mContext, R.dimen.tbds21)).qv(0).qw(l.getDimens(this.mContext, R.dimen.tbds4)).bq(this.iCG);
         return frameLayout;
     }
 
-    private void cxd() {
-        this.iCE = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
-        this.iCF = (TextView) this.iCE.findViewById(R.id.sort_type_level_text);
-        com.baidu.tbadk.core.elementsMaven.c.bm(this.iCF).pu(R.string.F_X01);
-        this.iCG = (TextView) this.iCE.findViewById(R.id.sort_type_update_text);
-        com.baidu.tbadk.core.elementsMaven.c.bm(this.iCG).pu(R.string.F_X01);
-        this.iCF.setOnClickListener(this.gcQ);
-        this.iCG.setOnClickListener(this.gcQ);
+    private void cxe() {
+        this.iCG = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
+        this.iCH = (TextView) this.iCG.findViewById(R.id.sort_type_level_text);
+        com.baidu.tbadk.core.elementsMaven.c.bm(this.iCH).pu(R.string.F_X01);
+        this.iCI = (TextView) this.iCG.findViewById(R.id.sort_type_update_text);
+        com.baidu.tbadk.core.elementsMaven.c.bm(this.iCI).pu(R.string.F_X01);
+        this.iCH.setOnClickListener(this.gcS);
+        this.iCI.setOnClickListener(this.gcS);
     }
 
     public void setData(List<h> list, int i) {
         if (list != null) {
-            this.iCH = i;
-            View cxc = cxc();
+            this.iCJ = i;
+            View cxd = cxd();
             for (h hVar : list) {
                 if (hVar.sortType == 1) {
-                    this.iCF.setText(hVar.iuB);
+                    this.iCH.setText(hVar.iuD);
                 } else {
-                    this.iCG.setText(hVar.iuB);
+                    this.iCI.setText(hVar.iuD);
                 }
                 if (i == 1) {
-                    ap.setViewTextColor(this.iCF, R.color.CAM_X0105);
-                    ap.setViewTextColor(this.iCG, R.color.CAM_X0108);
+                    ap.setViewTextColor(this.iCH, R.color.CAM_X0105);
+                    ap.setViewTextColor(this.iCI, R.color.CAM_X0108);
                 } else {
-                    ap.setViewTextColor(this.iCG, R.color.CAM_X0105);
-                    ap.setViewTextColor(this.iCF, R.color.CAM_X0108);
+                    ap.setViewTextColor(this.iCI, R.color.CAM_X0105);
+                    ap.setViewTextColor(this.iCH, R.color.CAM_X0108);
                 }
             }
-            setContentView(cxc);
+            setContentView(cxd);
         }
     }
 
     public void a(InterfaceC0733a interfaceC0733a) {
-        this.iCD = interfaceC0733a;
+        this.iCF = interfaceC0733a;
     }
 
     public void O(View view) {
@@ -159,7 +159,7 @@ public class a extends PopupWindow {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.iCE.startAnimation(translateAnimation);
+        this.iCG.startAnimation(translateAnimation);
         this.bJb.startAnimation(alphaAnimation);
     }
 
@@ -186,19 +186,19 @@ public class a extends PopupWindow {
                     a.this.We();
                 }
             });
-            this.iCE.startAnimation(translateAnimation);
+            this.iCG.startAnimation(translateAnimation);
             this.bJb.startAnimation(alphaAnimation);
         }
     }
 
     public void onChangeSkinType() {
-        if (this.iCH == 1) {
-            ap.setViewTextColor(this.iCF, R.color.CAM_X0105);
-            ap.setViewTextColor(this.iCG, R.color.CAM_X0108);
+        if (this.iCJ == 1) {
+            ap.setViewTextColor(this.iCH, R.color.CAM_X0105);
+            ap.setViewTextColor(this.iCI, R.color.CAM_X0108);
         } else {
-            ap.setViewTextColor(this.iCG, R.color.CAM_X0105);
-            ap.setViewTextColor(this.iCF, R.color.CAM_X0108);
+            ap.setViewTextColor(this.iCI, R.color.CAM_X0105);
+            ap.setViewTextColor(this.iCH, R.color.CAM_X0108);
         }
-        com.baidu.tbadk.core.util.e.a.buy().qx(R.color.CAM_X0901).qs(l.getDimens(this.mContext, R.dimen.tbds10)).qt(R.color.CAM_X0804).qu(l.getDimens(this.mContext, R.dimen.tbds21)).qv(0).qw(l.getDimens(this.mContext, R.dimen.tbds4)).bq(this.iCE);
+        com.baidu.tbadk.core.util.e.a.buy().qx(R.color.CAM_X0901).qs(l.getDimens(this.mContext, R.dimen.tbds10)).qt(R.color.CAM_X0804).qu(l.getDimens(this.mContext, R.dimen.tbds21)).qv(0).qw(l.getDimens(this.mContext, R.dimen.tbds4)).bq(this.iCG);
     }
 }

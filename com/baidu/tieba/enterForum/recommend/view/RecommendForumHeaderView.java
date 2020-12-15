@@ -19,36 +19,36 @@ import com.baidu.tieba.enterForum.recommend.view.ForumTestView;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class RecommendForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private e iAa;
-    private boolean iAb;
-    private CustomMessageListener iAc;
-    private CustomMessageListener iAd;
-    private ForumTestView izZ;
+    private ForumTestView iAb;
+    private e iAc;
+    private boolean iAd;
+    private CustomMessageListener iAe;
+    private CustomMessageListener iAf;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
 
     public RecommendForumHeaderView(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.iAb = true;
-        this.iAc = new CustomMessageListener(2921386) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendForumHeaderView.1
+        this.iAd = true;
+        this.iAe = new CustomMessageListener(2921386) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendForumHeaderView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921386) {
-                    RecommendForumHeaderView.this.cwH();
+                    RecommendForumHeaderView.this.cwI();
                 }
             }
         };
-        this.iAd = new CustomMessageListener(2921385) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendForumHeaderView.2
+        this.iAf = new CustomMessageListener(2921385) { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendForumHeaderView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921385) {
-                    if (RecommendForumHeaderView.this.izZ == null || RecommendForumHeaderView.this.izZ.getVisibility() == 8) {
-                        RecommendForumHeaderView.this.iAb = false;
+                    if (RecommendForumHeaderView.this.iAb == null || RecommendForumHeaderView.this.iAb.getVisibility() == 8) {
+                        RecommendForumHeaderView.this.iAd = false;
                     } else {
-                        RecommendForumHeaderView.this.cwG();
+                        RecommendForumHeaderView.this.cwH();
                     }
                 }
             }
@@ -60,8 +60,8 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.recom_forum_header_layout, (ViewGroup) this, true);
-        this.izZ = (ForumTestView) findViewById(R.id.recommend_forum_header_test_view);
-        this.izZ.setOnClickListener(this);
+        this.iAb = (ForumTestView) findViewById(R.id.recommend_forum_header_test_view);
+        this.iAb.setOnClickListener(this);
         onChangeSkinType();
     }
 
@@ -71,21 +71,21 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     }
 
     public void setOnSecectedListener(ForumTestView.a aVar) {
-        if (this.izZ != null) {
-            this.izZ.setOnSecectedListener(aVar);
+        if (this.iAb != null) {
+            this.iAb.setOnSecectedListener(aVar);
         }
     }
 
     public void setData(List<f> list) {
         if (y.isEmpty(list)) {
-            this.izZ.setVisibility(8);
+            this.iAb.setVisibility(8);
             return;
         }
-        this.izZ.setVisibility(0);
-        this.izZ.setData(list);
-        if (!this.iAb) {
-            cwG();
-            this.iAb = true;
+        this.iAb.setVisibility(0);
+        this.iAb.setData(list);
+        if (!this.iAd) {
+            cwH();
+            this.iAd = true;
         }
     }
 
@@ -93,56 +93,56 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            if (this.izZ != null) {
-                this.izZ.onChangeSkinType();
+            if (this.iAb != null) {
+                this.iAb.onChangeSkinType();
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != this.izZ && this.iAa != null) {
-            cwH();
+        if (view != this.iAb && this.iAc != null) {
+            cwI();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        MessageManager.getInstance().unRegisterListener(this.iAd);
+        MessageManager.getInstance().unRegisterListener(this.iAf);
         super.onDetachedFromWindow();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwG() {
-        if (this.iAa == null) {
-            this.iAa = new e(this.mPageContext, this.izZ);
-            this.iAa.fO(R.drawable.bg_tip_blue_up);
-            this.iAa.fN(32);
-            this.iAa.setUseDirectOffset(true);
-            this.iAa.fP(3000);
-            this.iAa.setYOffset(0);
-            this.iAa.d(this);
-            this.iAa.aP(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
-        }
-    }
-
     public void cwH() {
-        if (this.iAa != null) {
-            this.iAa.UG();
+        if (this.iAc == null) {
+            this.iAc = new e(this.mPageContext, this.iAb);
+            this.iAc.fO(R.drawable.bg_tip_blue_up);
+            this.iAc.fN(32);
+            this.iAc.setUseDirectOffset(true);
+            this.iAc.fP(3000);
+            this.iAc.setYOffset(0);
+            this.iAc.d(this);
+            this.iAc.aP(getContext().getString(R.string.recommend_tab_click_to_test), "key_recommend_tab_click_to_test_tip");
         }
     }
 
     public void cwI() {
-        MessageManager.getInstance().unRegisterListener(this.iAc);
+        if (this.iAc != null) {
+            this.iAc.UG();
+        }
+    }
+
+    public void cwJ() {
+        MessageManager.getInstance().unRegisterListener(this.iAe);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.izZ != null) {
-            this.izZ.setPageId(bdUniqueId);
+        if (this.iAb != null) {
+            this.iAb.setPageId(bdUniqueId);
         }
-        this.iAd.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.iAd);
-        this.iAc.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.iAc);
+        this.iAf.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.iAf);
+        this.iAe.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.iAe);
     }
 }

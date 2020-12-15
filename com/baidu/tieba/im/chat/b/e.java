@@ -47,7 +47,7 @@ public class e {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != com.baidu.tieba.im.sendmessage.a.kCD.longValue()) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != com.baidu.tieba.im.sendmessage.a.kCF.longValue()) {
                 return -1L;
             }
             return com.baidu.tieba.im.util.d.hb(optJSONObject.optLong("readMsgId"));

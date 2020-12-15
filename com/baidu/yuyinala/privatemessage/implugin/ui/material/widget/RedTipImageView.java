@@ -12,8 +12,8 @@ import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 public class RedTipImageView extends ImageView {
     private float mDensity;
     private Paint mPaint;
-    private a oSG;
-    private boolean oSy;
+    private boolean oSA;
+    private a oSI;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
@@ -29,7 +29,7 @@ public class RedTipImageView extends ImageView {
             this.Yp = (int) (RedTipImageView.this.mDensity * 3.0f);
             this.fov = (int) (RedTipImageView.this.mDensity * 3.0f);
             this.color = Color.parseColor("#F43531");
-            if (ThemeManager.enN() == ThemeManager.ThemeMode.NIGHT) {
+            if (ThemeManager.enO() == ThemeManager.ThemeMode.NIGHT) {
                 this.color = Color.parseColor("#79251f");
             }
         }
@@ -37,44 +37,44 @@ public class RedTipImageView extends ImageView {
 
     public RedTipImageView(Context context) {
         super(context);
-        this.oSy = false;
+        this.oSA = false;
         init();
     }
 
     public RedTipImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oSy = false;
+        this.oSA = false;
         init();
     }
 
     public RedTipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oSy = false;
+        this.oSA = false;
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
-        this.oSG = new a();
+        this.oSI = new a();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.oSy) {
-            float width = ((getWidth() - this.oSG.fov) + (this.mDensity * 3.0f)) - this.oSG.radius;
-            float f = (this.oSG.Yp + this.oSG.radius) - (this.mDensity * 3.0f);
+        if (this.oSA) {
+            float width = ((getWidth() - this.oSI.fov) + (this.mDensity * 3.0f)) - this.oSI.radius;
+            float f = (this.oSI.Yp + this.oSI.radius) - (this.mDensity * 3.0f);
             Log.d("RedTipImageView", "cx = " + width + " cy= " + f);
             int color = this.mPaint.getColor();
-            this.mPaint.setColor(this.oSG.color);
+            this.mPaint.setColor(this.oSI.color);
             this.mPaint.setStyle(Paint.Style.FILL);
-            canvas.drawCircle(width, f, this.oSG.radius, this.mPaint);
+            canvas.drawCircle(width, f, this.oSI.radius, this.mPaint);
             this.mPaint.setColor(color);
         }
     }
 
     public void setTipOn(boolean z) {
-        this.oSy = z;
+        this.oSA = z;
         invalidate();
     }
 }

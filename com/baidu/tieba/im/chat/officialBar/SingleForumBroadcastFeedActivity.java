@@ -14,18 +14,18 @@ import java.util.List;
 /* loaded from: classes26.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     private String forumId;
-    private i knL;
-    private OfficialBarFeedMsglistView knM;
-    private byte knN;
-    private i.a knO = new i.a() { // from class: com.baidu.tieba.im.chat.officialBar.SingleForumBroadcastFeedActivity.1
+    private i knN;
+    private OfficialBarFeedMsglistView knO;
+    private byte knP;
+    private i.a knQ = new i.a() { // from class: com.baidu.tieba.im.chat.officialBar.SingleForumBroadcastFeedActivity.1
         @Override // com.baidu.tieba.im.chat.officialBar.i.a
         public void el(List<com.baidu.tieba.im.message.chat.b> list) {
-            SingleForumBroadcastFeedActivity.this.knM.y(list, null);
+            SingleForumBroadcastFeedActivity.this.knO.y(list, null);
         }
 
         @Override // com.baidu.tieba.im.chat.officialBar.i.a
         public void onReadCountLoad(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-            SingleForumBroadcastFeedActivity.this.knM.a(longSparseArray);
+            SingleForumBroadcastFeedActivity.this.knO.a(longSparseArray);
         }
     };
 
@@ -33,14 +33,14 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.knL = new i(getPageContext());
-        this.knL.a(this.knO);
-        this.knM = new OfficialBarFeedMsglistView(this, true);
+        this.knN = new i(getPageContext());
+        this.knN.a(this.knQ);
+        this.knO = new OfficialBarFeedMsglistView(this, true);
         if (getIntent() != null) {
             this.forumId = getIntent().getStringExtra("key_uid");
-            this.knN = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
-            this.knL.hO(this.forumId);
-            this.knM.J(this.forumId, System.currentTimeMillis());
+            this.knP = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
+            this.knN.hO(this.forumId);
+            this.knO.J(this.forumId, System.currentTimeMillis());
         }
     }
 
@@ -48,7 +48,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.knM.onChangeSkinType(i);
+        this.knO.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,7 +59,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         ar arVar = new ar("c13870");
         arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
         arVar.dY("fid", this.forumId);
-        arVar.al("obj_source", this.knN);
+        arVar.al("obj_source", this.knP);
         TiebaStatic.log(arVar);
     }
 
@@ -67,8 +67,8 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.knL != null) {
-            this.knL.destroy();
+        if (this.knN != null) {
+            this.knN.destroy();
         }
     }
 }

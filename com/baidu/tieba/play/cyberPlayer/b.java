@@ -12,65 +12,65 @@ import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
 public class b {
     private by eCR;
-    private long myD;
-    private o myE;
-    private boolean myG;
-    private long myC = 0;
+    private long myF;
+    private o myG;
+    private boolean myI;
+    private long myE = 0;
     private long mStartTime = 0;
-    private String myF = "1";
-    private k myH = new k();
+    private String myH = "1";
+    private k myJ = new k();
 
-    public void dCd() {
-        this.myH.diY();
+    public void dCe() {
+        this.myJ.diZ();
     }
 
     public void hA(long j) {
-        this.myD = j;
-        this.myH.diZ();
+        this.myF = j;
+        this.myJ.dja();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.myC = (System.currentTimeMillis() - this.mStartTime) + this.myC;
+            this.myE = (System.currentTimeMillis() - this.mStartTime) + this.myE;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.myG = true;
-        this.myH.dja();
+        this.myI = true;
+        this.myJ.djb();
     }
 
     public void b(TbCyberVideoView tbCyberVideoView) {
-        this.myH.a(tbCyberVideoView);
+        this.myJ.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.myC = (System.currentTimeMillis() - this.mStartTime) + this.myC;
+            this.myE = (System.currentTimeMillis() - this.mStartTime) + this.myE;
             this.mStartTime = 0L;
         }
-        this.myG = false;
+        this.myI = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.myC = (System.currentTimeMillis() - this.mStartTime) + this.myC;
+            this.myE = (System.currentTimeMillis() - this.mStartTime) + this.myE;
             this.mStartTime = 0L;
         }
-        dCe();
-        this.myC = 0L;
+        dCf();
+        this.myE = 0L;
         this.mStartTime = 0L;
-        this.myG = false;
-        this.myH.diX();
+        this.myI = false;
+        this.myJ.diY();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.myC = (System.currentTimeMillis() - this.mStartTime) + this.myC;
+            this.myE = (System.currentTimeMillis() - this.mStartTime) + this.myE;
             this.mStartTime = 0L;
         }
     }
 
     public void setVideoStatsData(o oVar) {
-        this.myE = oVar;
+        this.myG = oVar;
     }
 
     public void setThreadData(by byVar) {
@@ -78,22 +78,22 @@ public class b {
     }
 
     public void setPlayMode(String str) {
-        this.myF = str;
+        this.myH = str;
     }
 
-    private void dCe() {
-        if (this.myC >= 0 && this.myC < 86400000) {
-            if (this.myC > 0) {
+    private void dCf() {
+        if (this.myE >= 0 && this.myE < 86400000) {
+            if (this.myE > 0) {
                 ar arVar = new ar(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                arVar.w("obj_duration", this.myC);
-                arVar.dY("obj_type", this.myF);
-                arVar.w("playduration", this.myD);
+                arVar.w("obj_duration", this.myE);
+                arVar.dY("obj_type", this.myH);
+                arVar.w("playduration", this.myF);
                 arVar.al("player_type", 1);
                 if (!au.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     arVar.dY("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.myE != null) {
-                    this.myE.f(arVar);
+                if (this.myG != null) {
+                    this.myG.f(arVar);
                 }
                 if (!arVar.BY("obj_param5") && this.eCR != null) {
                     if (this.eCR.getBaijiahaoData() != null) {
@@ -107,9 +107,9 @@ public class b {
                     }
                 }
                 TiebaStatic.log(arVar);
-                h.a(this.myC, this.myF, this.myE, "", this.myD);
-            } else if (this.myG) {
-                h.a(this.myC, this.myF, this.myE, "", this.myD);
+                h.a(this.myE, this.myH, this.myG, "", this.myF);
+            } else if (this.myI) {
+                h.a(this.myE, this.myH, this.myG, "", this.myF);
             }
         }
     }

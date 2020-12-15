@@ -20,11 +20,11 @@ import com.baidu.tieba.sdk.util.b;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class LivePlayerActivity extends LiveBaseActivity implements BdPageContextSupport {
-    private a mSo;
-    private com.baidu.tieba.sdk.e.a mSq;
+    private a mSr;
+    private com.baidu.tieba.sdk.e.a mSs;
     private boolean mReceiverTag = false;
     private boolean mIsFromH5 = false;
-    c mSr = new c() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
+    c mSt = new c() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
         @Override // com.baidu.tieba.ala.player.c
         public void a(boolean z, boolean z2, long j) {
             LivePlayerActivity.this.finish();
@@ -35,7 +35,7 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     public void onCreate(Bundle bundle) {
         com.baidu.tieba.sdk.b.c cVar;
         if (BdBaseApplication.getInst() != null) {
-            cVar = com.baidu.tieba.sdk.d.a.dHl().dHr();
+            cVar = com.baidu.tieba.sdk.d.a.dHm().dHs();
             if (cVar != null) {
                 cVar.a(this);
             }
@@ -51,17 +51,17 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
         if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
             TbConfig.sdkInitCallback.initSdk();
         }
-        com.baidu.tieba.sdk.a.dHh().dHj();
-        this.mSq = com.baidu.tieba.sdk.a.dHh().a(this);
-        this.mSq.a(this.mSr);
+        com.baidu.tieba.sdk.a.dHi().dHk();
+        this.mSs = com.baidu.tieba.sdk.a.dHi().a(this);
+        this.mSs.a(this.mSt);
         if (cVar != null) {
             cVar.b(this);
         }
         if (!this.mReceiverTag) {
-            this.mSo = new a(this);
+            this.mSr = new a(this);
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(b.dHJ());
-            registerReceiver(this.mSo, intentFilter, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
+            intentFilter.addAction(b.dHK());
+            registerReceiver(this.mSr, intentFilter, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
             this.mReceiverTag = true;
         }
         ow(false);
@@ -75,8 +75,8 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     }
 
     public void ow(boolean z) {
-        if (this.mSq != null) {
-            this.mSq.ow(z);
+        if (this.mSs != null) {
+            this.mSs.ow(z);
         }
     }
 
@@ -84,10 +84,10 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.mSq.onStart();
-        com.baidu.tieba.sdk.b.c dHr = com.baidu.tieba.sdk.d.a.dHl().dHr();
-        if (dHr != null) {
-            dHr.e(this);
+        this.mSs.onStart();
+        com.baidu.tieba.sdk.b.c dHs = com.baidu.tieba.sdk.d.a.dHm().dHs();
+        if (dHs != null) {
+            dHs.e(this);
         }
     }
 
@@ -95,10 +95,10 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mSq.onResume();
-        com.baidu.tieba.sdk.b.c dHr = com.baidu.tieba.sdk.d.a.dHl().dHr();
-        if (dHr != null) {
-            dHr.c(this);
+        this.mSs.onResume();
+        com.baidu.tieba.sdk.b.c dHs = com.baidu.tieba.sdk.d.a.dHm().dHs();
+        if (dHs != null) {
+            dHs.c(this);
         }
     }
 
@@ -106,18 +106,18 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.mSq.onPause();
-        com.baidu.tieba.sdk.b.c dHr = com.baidu.tieba.sdk.d.a.dHl().dHr();
-        if (dHr != null) {
-            dHr.d(this);
+        this.mSs.onPause();
+        com.baidu.tieba.sdk.b.c dHs = com.baidu.tieba.sdk.d.a.dHm().dHs();
+        if (dHs != null) {
+            dHs.d(this);
         }
     }
 
     protected void ox(boolean z) {
-        this.mSq.ox(z);
-        com.baidu.tieba.sdk.b.c dHr = com.baidu.tieba.sdk.d.a.dHl().dHr();
-        if (dHr != null) {
-            dHr.f(this);
+        this.mSs.ox(z);
+        com.baidu.tieba.sdk.b.c dHs = com.baidu.tieba.sdk.d.a.dHm().dHs();
+        if (dHs != null) {
+            dHs.f(this);
         }
     }
 
@@ -131,14 +131,14 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.mSq != null) {
-            this.mSq.onWindowFocusChanged(z);
+        if (this.mSs != null) {
+            this.mSs.onWindowFocusChanged(z);
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.mSq.onKeyDown(i, keyEvent)) {
+        if (this.mSs.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -148,40 +148,40 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.mSq.onActivityResult(i, i2, intent);
+        this.mSs.onActivityResult(i, i2, intent);
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.mSq != null) {
-            this.mSq.onConfigurationChanged(configuration);
+        if (this.mSs != null) {
+            this.mSs.onConfigurationChanged(configuration);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        com.baidu.tieba.sdk.b.c dHr = com.baidu.tieba.sdk.d.a.dHl().dHr();
-        if (dHr != null) {
-            dHr.g(this);
+        com.baidu.tieba.sdk.b.c dHs = com.baidu.tieba.sdk.d.a.dHm().dHs();
+        if (dHs != null) {
+            dHs.g(this);
         }
         super.onDestroy();
-        if (this.mSq != null) {
-            this.mSq.onDestroy();
+        if (this.mSs != null) {
+            this.mSs.onDestroy();
         }
-        if (dHr != null) {
-            dHr.h(this);
+        if (dHs != null) {
+            dHs.h(this);
         }
-        if (this.mSo != null && this.mReceiverTag) {
-            unregisterReceiver(this.mSo);
+        if (this.mSr != null && this.mReceiverTag) {
+            unregisterReceiver(this.mSr);
             this.mReceiverTag = false;
         }
     }
 
     @Override // com.baidu.live.adp.base.BdPageContextSupport, com.baidu.live.tbadk.TbPageContextSupport
     public BdPageContext getPageContext() {
-        return this.mSq;
+        return this.mSs;
     }
 
     /* loaded from: classes4.dex */
@@ -194,7 +194,7 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(b.dHJ(), intent.getAction())) {
+            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(b.dHK(), intent.getAction())) {
                 if (TextUtils.equals(intent.getStringExtra("DetailLifecycle"), MissionEvent.MESSAGE_STOP)) {
                     this.reference.get().ow(false);
                     this.reference.get().onStart();

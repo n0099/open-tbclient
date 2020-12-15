@@ -16,34 +16,34 @@ public class h extends a {
     private final RectF Ed;
     private final int Eh;
     private final String name;
-    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> pAY;
-    private final GradientType pAZ;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pBa;
-    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pBb;
+    private final com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.model.content.c, com.tb.airbnb.lottie.model.content.c> pBa;
+    private final GradientType pBb;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pBc;
+    private final com.tb.airbnb.lottie.a.b.a<PointF, PointF> pBd;
 
     public h(com.tb.airbnb.lottie.g gVar, com.tb.airbnb.lottie.model.layer.a aVar, com.tb.airbnb.lottie.model.content.e eVar) {
-        super(gVar, aVar, eVar.eBy().toPaintCap(), eVar.eBz().toPaintJoin(), eVar.jZ(), eVar.eBo(), eVar.eBx(), eVar.jX(), eVar.eBA());
+        super(gVar, aVar, eVar.eBz().toPaintCap(), eVar.eBA().toPaintJoin(), eVar.jZ(), eVar.eBp(), eVar.eBy(), eVar.jX(), eVar.eBB());
         this.Ea = new LongSparseArray<>();
         this.Eb = new LongSparseArray<>();
         this.Ed = new RectF();
         this.name = eVar.getName();
-        this.pAZ = eVar.eBt();
+        this.pBb = eVar.eBu();
         this.Eh = (int) (gVar.getComposition().iv() / 32.0f);
-        this.pAY = eVar.eBu().eBi();
-        this.pAY.b(this);
-        aVar.a(this.pAY);
-        this.pBa = eVar.eBv().eBi();
+        this.pBa = eVar.eBv().eBj();
         this.pBa.b(this);
         aVar.a(this.pBa);
-        this.pBb = eVar.eBw().eBi();
-        this.pBb.b(this);
-        aVar.a(this.pBb);
+        this.pBc = eVar.eBw().eBj();
+        this.pBc.b(this);
+        aVar.a(this.pBc);
+        this.pBd = eVar.eBx().eBj();
+        this.pBd.b(this);
+        aVar.a(this.pBd);
     }
 
     @Override // com.tb.airbnb.lottie.a.a.a, com.tb.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         a(this.Ed, matrix);
-        if (this.pAZ == GradientType.Linear) {
+        if (this.pBb == GradientType.Linear) {
             this.paint.setShader(iX());
         } else {
             this.paint.setShader(iY());
@@ -60,9 +60,9 @@ public class h extends a {
         int iZ = iZ();
         LinearGradient linearGradient = this.Ea.get(iZ);
         if (linearGradient == null) {
-            PointF value = this.pBa.getValue();
-            PointF value2 = this.pBb.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.pAY.getValue();
+            PointF value = this.pBc.getValue();
+            PointF value2 = this.pBd.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.pBa.getValue();
             LinearGradient linearGradient2 = new LinearGradient((int) (this.Ed.left + (this.Ed.width() / 2.0f) + value.x), (int) (value.y + this.Ed.top + (this.Ed.height() / 2.0f)), (int) (this.Ed.left + (this.Ed.width() / 2.0f) + value2.x), (int) (this.Ed.top + (this.Ed.height() / 2.0f) + value2.y), value3.getColors(), value3.jO(), Shader.TileMode.CLAMP);
             this.Ea.put(iZ, linearGradient2);
             return linearGradient2;
@@ -74,9 +74,9 @@ public class h extends a {
         int iZ = iZ();
         RadialGradient radialGradient = this.Eb.get(iZ);
         if (radialGradient == null) {
-            PointF value = this.pBa.getValue();
-            PointF value2 = this.pBb.getValue();
-            com.tb.airbnb.lottie.model.content.c value3 = this.pAY.getValue();
+            PointF value = this.pBc.getValue();
+            PointF value2 = this.pBd.getValue();
+            com.tb.airbnb.lottie.model.content.c value3 = this.pBa.getValue();
             int[] colors = value3.getColors();
             float[] jO = value3.jO();
             int width = (int) (this.Ed.left + (this.Ed.width() / 2.0f) + value.x);
@@ -90,9 +90,9 @@ public class h extends a {
     }
 
     private int iZ() {
-        int round = Math.round(this.pBa.getProgress() * this.Eh);
-        int round2 = Math.round(this.pBb.getProgress() * this.Eh);
-        int round3 = Math.round(this.pAY.getProgress() * this.Eh);
+        int round = Math.round(this.pBc.getProgress() * this.Eh);
+        int round2 = Math.round(this.pBd.getProgress() * this.Eh);
+        int round3 = Math.round(this.pBa.getProgress() * this.Eh);
         int i = 17;
         if (round != 0) {
             i = round * 527;

@@ -83,7 +83,7 @@ public class d {
                 public void onPostExecute(List<bu> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.coL().cJ(list);
+                        c.coM().cJ(list);
                     }
                 }
             }.execute(new Void[0]);

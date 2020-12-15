@@ -6,46 +6,46 @@ import com.baidu.tieba.ala.floating.a;
 /* loaded from: classes4.dex */
 public class b {
     private static String TAG = "AlaFloatLiveControllerUtil";
-    private static a gKl;
+    private static a gKn;
 
     public static a fG(Context context) {
-        if (gKl == null) {
-            gKl = fH(context);
+        if (gKn == null) {
+            gKn = fH(context);
         }
-        return gKl;
+        return gKn;
     }
 
     private static synchronized a fH(Context context) {
         a aVar;
         synchronized (b.class) {
-            if (gKl == null) {
-                gKl = new a(context);
+            if (gKn == null) {
+                gKn = new a(context);
             }
-            aVar = gKl;
+            aVar = gKn;
         }
         return aVar;
     }
 
-    public static AlaLiveInfoData bVp() {
-        a aVar = gKl;
+    public static AlaLiveInfoData bVq() {
+        a aVar = gKn;
         if (aVar != null) {
-            return aVar.bVp();
+            return aVar.bVq();
         }
         return null;
     }
 
     public static void b(a.InterfaceC0653a interfaceC0653a) {
-        a aVar = gKl;
+        a aVar = gKn;
         if (aVar != null) {
             aVar.a(interfaceC0653a);
-            aVar.bVu();
+            aVar.bVv();
         }
     }
 
-    public static boolean bVs() {
-        a aVar = gKl;
+    public static boolean bVt() {
+        a aVar = gKn;
         if (aVar != null) {
-            return aVar.bVs();
+            return aVar.bVt();
         }
         return false;
     }
@@ -53,8 +53,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public static synchronized void destroy() {
         synchronized (b.class) {
-            a aVar = gKl;
-            gKl = null;
+            a aVar = gKn;
+            gKn = null;
             if (aVar != null) {
                 aVar.onDestroy();
             }

@@ -18,11 +18,11 @@ import com.baidu.tieba.frs.forumRule.view.a;
 import com.baidu.tieba.view.BdTopToast;
 /* loaded from: classes22.dex */
 public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements b {
-    private a jgT;
-    private ForumRuleEditModel jgU;
-    private String jgV;
-    private String jgW;
-    private ForumRuleBaseData jgX;
+    private a jgV;
+    private ForumRuleEditModel jgW;
+    private String jgX;
+    private String jgY;
+    private ForumRuleBaseData jgZ;
     private String mForumId;
     private String mForumName;
     private View rootView;
@@ -34,8 +34,8 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         super.onCreate(bundle);
         an(bundle);
         this.rootView = LayoutInflater.from(this).inflate(R.layout.forum_rule_edit_activity, (ViewGroup) null);
-        this.jgT = new a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.jgV, this.jgW, this.userLevel, this);
-        this.jgU = new ForumRuleEditModel(getPageContext(), this, this.mForumId);
+        this.jgV = new a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.jgX, this.jgY, this.userLevel, this);
+        this.jgW = new ForumRuleEditModel(getPageContext(), this, this.mForumId);
         setContentView(this.rootView);
         setSwipeBackEnabled(false);
         KS(this.mForumId);
@@ -46,8 +46,8 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jgT != null) {
-            this.jgT.changeSkinType(i);
+        if (this.jgV != null) {
+            this.jgV.changeSkinType(i);
         }
     }
 
@@ -56,17 +56,17 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (intent != null) {
             this.mForumId = intent.getStringExtra("forum_id");
             this.mForumName = intent.getStringExtra("forum_name");
-            this.jgV = intent.getStringExtra("from");
-            this.jgW = intent.getStringExtra("url");
+            this.jgX = intent.getStringExtra("from");
+            this.jgY = intent.getStringExtra("url");
             this.userLevel = intent.getIntExtra(IntentConfig.USER_LEVEL, 0);
-            this.jgX = (ForumRuleBaseData) intent.getSerializableExtra("datas");
+            this.jgZ = (ForumRuleBaseData) intent.getSerializableExtra("datas");
         } else if (bundle != null) {
             this.mForumId = bundle.getString("forum_id");
             this.mForumName = bundle.getString("forum_name");
-            this.jgV = bundle.getString("from");
-            this.jgW = bundle.getString("url");
+            this.jgX = bundle.getString("from");
+            this.jgY = bundle.getString("url");
             this.userLevel = bundle.getInt(IntentConfig.USER_LEVEL);
-            this.jgX = (ForumRuleBaseData) bundle.getSerializable("datas");
+            this.jgZ = (ForumRuleBaseData) bundle.getSerializable("datas");
         }
     }
 
@@ -78,7 +78,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.jgT.cGZ();
+            this.jgV.cHa();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -95,24 +95,24 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     }
 
     public void KS(String str) {
-        this.jgU.KS(str);
+        this.jgW.KS(str);
     }
 
     @Override // com.baidu.tieba.frs.forumRule.b.b
     public void a(int i, ForumRuleBaseData forumRuleBaseData, String str) {
         if (i == 0) {
             if (forumRuleBaseData != null) {
-                this.jgT.b(forumRuleBaseData, true);
+                this.jgV.b(forumRuleBaseData, true);
                 return;
-            } else if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.jgV)) {
-                this.jgT.b(this.jgX, false);
+            } else if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.jgX)) {
+                this.jgV.b(this.jgZ, false);
                 return;
             } else {
                 return;
             }
         }
-        if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.jgV)) {
-            this.jgT.b(this.jgX, false);
+        if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.jgX)) {
+            this.jgV.b(this.jgZ, false);
         }
         new BdTopToast(this, 2000).yW(false).Vt(str).aF((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
     }
@@ -122,7 +122,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (TextUtils.isEmpty(this.mForumId)) {
             new BdTopToast(this, 2000).yW(false).Vt(getString(R.string.forum_rule_defalt_commit_fail_no_forum)).aF((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
         } else {
-            this.jgU.a(this.mForumId, forumRuleBaseData, z);
+            this.jgW.a(this.mForumId, forumRuleBaseData, z);
         }
     }
 
@@ -131,7 +131,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (i == 0) {
             Intent intent = getIntent();
             if (z) {
-                this.jgT.cHa();
+                this.jgV.cHb();
                 intent.putExtra("group_name", getString(R.string.save_success));
                 intent.putExtra("from", true);
             } else {
@@ -149,6 +149,6 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jgT.onDestory();
+        this.jgV.onDestory();
     }
 }

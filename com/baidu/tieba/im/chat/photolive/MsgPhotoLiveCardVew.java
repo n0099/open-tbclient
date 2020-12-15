@@ -29,15 +29,15 @@ import com.baidu.tieba.tbadkCore.util.c;
 import java.net.URLDecoder;
 /* loaded from: classes26.dex */
 public class MsgPhotoLiveCardVew extends g {
-    private LinearLayout knV;
-    private ClickableHeaderImageView knW;
-    private TextView knX;
-    private TextView knY;
+    private LinearLayout knX;
+    private ClickableHeaderImageView knY;
     private TextView knZ;
     private TextView koa;
     private TextView kob;
-    private LinearLayout koc;
+    private TextView koc;
     private TextView kod;
+    private LinearLayout koe;
+    private TextView kof;
     private int messageType;
     private int paddingLeft;
     private long postId;
@@ -54,16 +54,16 @@ public class MsgPhotoLiveCardVew extends g {
     }
 
     private void init() {
-        this.knV = (LinearLayout) findViewById(R.id.msg_photolive_card);
-        this.knW = (ClickableHeaderImageView) findViewById(R.id.author_portrait);
-        this.knX = (TextView) findViewById(R.id.author_name);
-        this.knY = (TextView) findViewById(R.id.call_time);
-        this.knZ = (TextView) findViewById(R.id.call_content);
-        this.koa = (TextView) findViewById(R.id.call_thread_title);
-        this.koc = (LinearLayout) findViewById(R.id.auhtor_name_and_call_time);
-        this.kob = (TextView) findViewById(R.id.remind_title);
-        this.kod = (TextView) findViewById(R.id.card_bottom_chakanzhibo);
-        this.knV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.1
+        this.knX = (LinearLayout) findViewById(R.id.msg_photolive_card);
+        this.knY = (ClickableHeaderImageView) findViewById(R.id.author_portrait);
+        this.knZ = (TextView) findViewById(R.id.author_name);
+        this.koa = (TextView) findViewById(R.id.call_time);
+        this.kob = (TextView) findViewById(R.id.call_content);
+        this.koc = (TextView) findViewById(R.id.call_thread_title);
+        this.koe = (LinearLayout) findViewById(R.id.auhtor_name_and_call_time);
+        this.kod = (TextView) findViewById(R.id.remind_title);
+        this.kof = (TextView) findViewById(R.id.card_bottom_chakanzhibo);
+        this.knX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (MsgPhotoLiveCardVew.this.threadId > 0) {
@@ -120,8 +120,8 @@ public class MsgPhotoLiveCardVew extends g {
             this.threadId = MQ.threadId;
             this.postId = MQ.postId;
             this.messageType = MQ.msgType;
-            int i3 = MQ.koh;
-            ViewGroup.LayoutParams layoutParams = this.koc.getLayoutParams();
+            int i3 = MQ.koj;
+            ViewGroup.LayoutParams layoutParams = this.koe.getLayoutParams();
             if (this.messageType == 1 || this.messageType == 6) {
                 if (this.messageType == 1) {
                     str = MQ.threadTitle;
@@ -132,59 +132,59 @@ public class MsgPhotoLiveCardVew extends g {
                     str = decode;
                     i2 = 0;
                 }
-                this.koa.setText(str);
+                this.koc.setText(str);
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds72);
-                this.koc.setPadding(this.paddingLeft, 0, 0, 0);
-                this.knW.setVisibility(0);
-                this.knW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.2
+                this.koe.setPadding(this.paddingLeft, 0, 0, 0);
+                this.knY.setVisibility(0);
+                this.knY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         MsgPhotoLiveCardVew.this.dg(view2);
                     }
                 });
-                this.knW.setTag(MQ.userId);
-                this.knW.setGodIconMargin(i2);
-                this.kob.setVisibility(8);
-                this.knX.setVisibility(0);
-                this.knX.setText(MQ.userName);
-                this.knZ.setText(MQ.kog);
-                this.knX.setTextSize(0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
-                this.kod.setText(i);
+                this.knY.setTag(MQ.userId);
+                this.knY.setGodIconMargin(i2);
+                this.kod.setVisibility(8);
+                this.knZ.setVisibility(0);
+                this.knZ.setText(MQ.userName);
+                this.kob.setText(MQ.koi);
+                this.knZ.setTextSize(0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
+                this.kof.setText(i);
             } else if (this.messageType == 3) {
-                this.koa.setText(MQ.threadTitle);
+                this.koc.setText(MQ.threadTitle);
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds80);
-                this.koc.setPadding(0, 0, 0, 0);
-                this.knW.setVisibility(8);
-                this.kob.setVisibility(0);
-                this.knX.setVisibility(8);
-                this.kob.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
-                if (MQ.kog != null && MQ.kog.indexOf(String.valueOf(i3)) != -1) {
-                    this.knZ.setText(aZ(MQ.kog, i3));
+                this.koe.setPadding(0, 0, 0, 0);
+                this.knY.setVisibility(8);
+                this.kod.setVisibility(0);
+                this.knZ.setVisibility(8);
+                this.kod.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
+                if (MQ.koi != null && MQ.koi.indexOf(String.valueOf(i3)) != -1) {
+                    this.kob.setText(aZ(MQ.koi, i3));
                 } else {
-                    this.knZ.setText(MQ.kog);
+                    this.kob.setText(MQ.koi);
                 }
             } else {
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds80);
-                this.koc.setPadding(0, 0, 0, 0);
-                this.knW.setVisibility(8);
-                this.kob.setVisibility(0);
-                this.knX.setVisibility(8);
-                this.knZ.setText(MQ.kog);
+                this.koe.setPadding(0, 0, 0, 0);
+                this.knY.setVisibility(8);
+                this.kod.setVisibility(0);
+                this.knZ.setVisibility(8);
+                this.kob.setText(MQ.koi);
                 if (this.messageType == 4) {
-                    this.koa.setText(MQ.threadTitle);
-                    this.kob.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
+                    this.koc.setText(MQ.threadTitle);
+                    this.kod.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
                 } else if (this.messageType == 5) {
-                    this.koa.setText(MQ.threadTitle);
-                    this.kod.setText(R.string.look_normal_thread);
-                    this.kob.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
+                    this.koc.setText(MQ.threadTitle);
+                    this.kof.setText(R.string.look_normal_thread);
+                    this.kod.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
                 }
             }
             if (!TextUtils.isEmpty(MQ.portrait)) {
-                this.knW.startLoad(MQ.portrait, 12, false);
+                this.knY.startLoad(MQ.portrait, 12, false);
             } else {
-                this.knW.startLoad(null, 12, false);
+                this.knY.startLoad(null, 12, false);
             }
-            this.knY.setText(au.getFormatTime(MQ.kof));
+            this.koa.setText(au.getFormatTime(MQ.koh));
         }
     }
 

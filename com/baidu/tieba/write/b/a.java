@@ -29,8 +29,8 @@ import java.util.LinkedList;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes3.dex */
 public class a {
-    private static com.baidu.tieba.write.b.c.a nWR;
-    private static CopyOnWriteArrayList<String> nWS = new CopyOnWriteArrayList<>();
+    private static com.baidu.tieba.write.b.c.a nWT;
+    private static CopyOnWriteArrayList<String> nWU = new CopyOnWriteArrayList<>();
 
     /* renamed from: com.baidu.tieba.write.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -41,7 +41,7 @@ public class a {
     }
 
     static {
-        b.dZm().init();
+        b.dZn().init();
     }
 
     public static void a(final WriteData writeData, final InterfaceC0892a interfaceC0892a) {
@@ -61,13 +61,13 @@ public class a {
             }
             return;
         }
-        if (nWR == null) {
-            nWR = new com.baidu.tieba.write.b.c.a();
+        if (nWT == null) {
+            nWT = new com.baidu.tieba.write.b.c.a();
         }
         final LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
-        nWR.a(chosedFiles, writeImagesInfo.isOriginalImg(), new a.InterfaceC0893a() { // from class: com.baidu.tieba.write.b.a.1
+        nWT.a(chosedFiles, writeImagesInfo.isOriginalImg(), new a.InterfaceC0893a() { // from class: com.baidu.tieba.write.b.a.1
             @Override // com.baidu.tieba.write.b.c.a.InterfaceC0893a
-            public void did() {
+            public void die() {
                 ArrayList arrayList = new ArrayList();
                 Iterator it = chosedFiles.iterator();
                 while (it.hasNext()) {
@@ -275,13 +275,13 @@ public class a {
     }
 
     public static void VJ(String str) {
-        nWS.add(str);
+        nWU.add(str);
     }
 
-    public static void dZg() {
+    public static void dZh() {
         try {
-            if (nWS != null && nWS.size() > 0) {
-                nWS.clear();
+            if (nWU != null && nWU.size() > 0) {
+                nWU.clear();
                 n.deleteFileOrDir(new File(e.fzl));
                 TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE"));
             }

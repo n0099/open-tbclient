@@ -38,7 +38,7 @@ public class l {
         a2.al("obj_param5", v(byVar));
         a2.al("obj_type", byVar.bpX());
         if (byVar.bqu() != null) {
-            a2.al("obj_name", byVar.bqu().nmB ? 1 : 0);
+            a2.al("obj_name", byVar.bqu().nmD ? 1 : 0);
         }
         if (byVar.getBaijiahaoData() != null) {
             a2.dY("obj_param4", byVar.getBaijiahaoData().oriUgcNid);

@@ -6,9 +6,9 @@ public class ab {
     public String forumName;
     public String imageUrl;
     public int index;
-    public boolean ivV;
+    public boolean ivX;
     public String link;
     public String name;
-    public ac nkO;
+    public ac nkQ;
     public String version;
 }

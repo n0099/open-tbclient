@@ -10,9 +10,9 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class e extends af.a {
-    public EMTextView jhp;
-    public TbRichTextView jhq;
-    public boolean jhr;
+    public EMTextView jhr;
+    public TbRichTextView jhs;
+    public boolean jht;
     private Context mContext;
     private View mRootView;
 
@@ -24,27 +24,27 @@ public class e extends af.a {
     }
 
     private void an(View view) {
-        this.jhp = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
-        this.jhq = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
-        this.jhq.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-        com.baidu.tbadk.widget.richText.a layoutStrategy = this.jhq.getLayoutStrategy();
+        this.jhr = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
+        this.jhs = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
+        this.jhs.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
+        com.baidu.tbadk.widget.richText.a layoutStrategy = this.jhs.getLayoutStrategy();
         layoutStrategy.setLineSpacing(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
-        this.jhq.setLayoutStrategy(layoutStrategy);
+        this.jhs.setLayoutStrategy(layoutStrategy);
         onChangeSkinType();
     }
 
     public void qD(boolean z) {
-        this.jhr = z;
+        this.jht = z;
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        if (this.jhr) {
-            com.baidu.tbadk.core.elementsMaven.c.bm(this.jhp).pu(R.string.F_X02).ps(R.color.CAM_X0301);
-            this.jhq.setTextColor(ap.getColor(R.color.CAM_X0301));
+        if (this.jht) {
+            com.baidu.tbadk.core.elementsMaven.c.bm(this.jhr).pu(R.string.F_X02).ps(R.color.CAM_X0301);
+            this.jhs.setTextColor(ap.getColor(R.color.CAM_X0301));
             return;
         }
-        com.baidu.tbadk.core.elementsMaven.c.bm(this.jhp).pu(R.string.F_X02).ps(R.color.CAM_X0105);
-        this.jhq.setTextColor(ap.getColor(R.color.CAM_X0105));
+        com.baidu.tbadk.core.elementsMaven.c.bm(this.jhr).pu(R.string.F_X02).ps(R.color.CAM_X0105);
+        this.jhs.setTextColor(ap.getColor(R.color.CAM_X0105));
     }
 }

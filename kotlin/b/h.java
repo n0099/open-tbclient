@@ -5,18 +5,18 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes17.dex */
 public final class h extends f {
-    public static final a pKT = new a(null);
-    private static final h pKS = new h(1, 0);
+    public static final a pKV = new a(null);
+    private static final h pKU = new h(1, 0);
 
     public h(int i, int i2) {
         super(i, i2, 1);
     }
 
-    public Integer eEi() {
+    public Integer eEj() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer eEj() {
+    public Integer eEk() {
         return Integer.valueOf(getLast());
     }
 
@@ -53,8 +53,8 @@ public final class h extends f {
             this();
         }
 
-        public final h eEl() {
-            return h.pKS;
+        public final h eEm() {
+            return h.pKU;
         }
     }
 }

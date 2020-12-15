@@ -27,26 +27,26 @@ import java.util.List;
 public class c {
     private LinearLayout btb;
     private CommonEmptyView btg;
-    private TextView fWX;
-    private int gDD;
-    private PbListView gDK;
-    private View.OnClickListener gDW = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.4
+    private TextView fWZ;
+    private int gDF;
+    private PbListView gDM;
+    private View.OnClickListener gDY = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ViewHelper.checkUpIsLogin(view.getContext());
         }
     };
-    private View gFg;
-    private View gFh;
+    private View gFi;
+    private View gFj;
     private BdListView mListView;
     private String mLiveId;
     private View mRootView;
     private int mUserType;
-    private String ohD;
-    private YuyinCharmRankTotalActivity ojp;
-    private e ojq;
-    private TextView ojr;
-    private com.baidu.tieba.yuyinala.charm.charmrank.a ojs;
+    private String ohF;
+    private YuyinCharmRankTotalActivity ojr;
+    private e ojs;
+    private TextView ojt;
+    private com.baidu.tieba.yuyinala.charm.charmrank.a oju;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -54,62 +54,62 @@ public class c {
     }
 
     public c(YuyinCharmRankTotalActivity yuyinCharmRankTotalActivity, int i, String str, String str2, int i2) {
-        this.ojp = yuyinCharmRankTotalActivity;
-        this.gDD = i;
-        this.ohD = str;
+        this.ojr = yuyinCharmRankTotalActivity;
+        this.gDF = i;
+        this.ohF = str;
         this.mLiveId = str2;
         this.mUserType = i2;
-        this.mRootView = this.ojp.getLayoutInflater().inflate(a.g.yuyin_charm_rank_total_layout, (ViewGroup) null);
+        this.mRootView = this.ojr.getLayoutInflater().inflate(a.g.yuyin_charm_rank_total_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
         this.btg = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
-        this.ojr = (TextView) this.mRootView.findViewById(a.f.top_text_right);
-        this.gFg = this.mRootView.findViewById(a.f.toLogin_layout);
-        this.gFh = this.mRootView.findViewById(a.f.toLogin_text);
-        this.gFh.setOnClickListener(this.gDW);
-        if (!TbadkCoreApplication.isLogin() && this.gDD == 0) {
-            this.gFg.setVisibility(0);
+        this.ojt = (TextView) this.mRootView.findViewById(a.f.top_text_right);
+        this.gFi = this.mRootView.findViewById(a.f.toLogin_layout);
+        this.gFj = this.mRootView.findViewById(a.f.toLogin_text);
+        this.gFj.setOnClickListener(this.gDY);
+        if (!TbadkCoreApplication.isLogin() && this.gDF == 0) {
+            this.gFi.setVisibility(0);
         } else {
-            this.gFg.setVisibility(8);
+            this.gFi.setVisibility(8);
         }
-        this.ojq = new e(yuyinCharmRankTotalActivity.getPageContext(), this.gDD, this.ohD, this.mLiveId);
-        this.mListView.setAdapter((ListAdapter) this.ojq);
+        this.ojs = new e(yuyinCharmRankTotalActivity.getPageContext(), this.gDF, this.ohF, this.mLiveId);
+        this.mListView.setAdapter((ListAdapter) this.ojs);
         this.mListView.setEmptyView(this.btg);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
-                c.this.a(c.this.ojq.getItem(i3));
+                c.this.a(c.this.ojs.getItem(i3));
             }
         });
-        this.fWX = (TextView) this.mRootView.findViewById(a.f.top_text);
-        if (this.gDD == 0) {
-            this.fWX.setText("按今日在本房间贡献的魅力值排序");
+        this.fWZ = (TextView) this.mRootView.findViewById(a.f.top_text);
+        if (this.gDF == 0) {
+            this.fWZ.setText("按今日在本房间贡献的魅力值排序");
         } else {
-            this.fWX.setText("按今日在本房间收到的魅力值排序");
+            this.fWZ.setText("按今日在本房间收到的魅力值排序");
         }
-        if (this.gDD == 0 && TbadkCoreApplication.isLogin()) {
+        if (this.gDF == 0 && TbadkCoreApplication.isLogin()) {
             this.btb = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
-            this.ojs = new com.baidu.tieba.yuyinala.charm.charmrank.a(this.ojp, this.ohD);
-            this.btb.addView(this.ojs.getView(), new LinearLayout.LayoutParams(-1, -2));
-            this.ojs.a(new a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.2
+            this.oju = new com.baidu.tieba.yuyinala.charm.charmrank.a(this.ojr, this.ohF);
+            this.btb.addView(this.oju.getView(), new LinearLayout.LayoutParams(-1, -2));
+            this.oju.a(new a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.2
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.c.a
                 public void ef(View view) {
                     MessageManager.getInstance().dispatchResponsedMessage(new YuyinSupportRoomMessage(new SupportRoom()));
                 }
             });
         }
-        if (this.gDK == null) {
-            this.gDK = new PbListView(this.ojp);
-            this.gDK.setTextColor(this.ojp.getResources().getColor(a.c.sdk_color_858585));
-            this.gDK.setSkinType(0);
-            this.gDK.setContainerBackgroundColorResId(a.c.sdk_transparent);
-            this.gDK.setmTextSize(14.0f);
-            this.gDK.createView();
-            this.gDK.setHeight(BdUtilHelper.dip2px(this.ojp, 60.0f));
+        if (this.gDM == null) {
+            this.gDM = new PbListView(this.ojr);
+            this.gDM.setTextColor(this.ojr.getResources().getColor(a.c.sdk_color_858585));
+            this.gDM.setSkinType(0);
+            this.gDM.setContainerBackgroundColorResId(a.c.sdk_transparent);
+            this.gDM.setmTextSize(14.0f);
+            this.gDM.createView();
+            this.gDM.setHeight(BdUtilHelper.dip2px(this.ojr, 60.0f));
         }
     }
 
     public void gx(List<i.b> list) {
-        this.ojq.setData(list);
+        this.ojs.setData(list);
     }
 
     public void dG(boolean z) {
@@ -117,7 +117,7 @@ public class c {
             this.btg.reset();
             this.btg.setTitle("还没有人上榜哦~");
             this.btg.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.btg.setTextColor(this.ojp.getResources().getColor(a.c.sdk_color_525252));
+            this.btg.setTextColor(this.ojr.getResources().getColor(a.c.sdk_color_525252));
             this.btg.setVisibility(0);
             return;
         }
@@ -127,8 +127,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(i.b bVar) {
         if (bVar != null) {
-            this.ojp.finish();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.ojp.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(bVar.user_uk), bVar.user_name, bVar.bd_portrait, 0, bVar.level_id, null, null, 0L, 0L, 0L, 0, "", this.mLiveId, false, "", null, bVar.user_name, "")));
+            this.ojr.finish();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.ojr.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(bVar.user_uk), bVar.user_name, bVar.bd_portrait, 0, bVar.level_id, null, null, 0L, 0L, 0L, 0, "", this.mLiveId, false, "", null, bVar.user_name, "")));
         }
     }
 
@@ -141,7 +141,7 @@ public class c {
         this.btg.setTitle("网络加载失败了哦~");
         this.btg.setRefreshButton("重新加载", onClickListener);
         this.btg.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.btg.setTextColor(this.ojp.getResources().getColor(a.c.sdk_color_525252));
+        this.btg.setTextColor(this.ojr.getResources().getColor(a.c.sdk_color_525252));
         this.btg.setVisibility(0);
     }
 
@@ -150,28 +150,28 @@ public class c {
     }
 
     public void Hm(String str) {
-        this.mListView.setNextPage(this.gDK);
-        this.gDK.endLoadDataWithNoMore(str);
+        this.mListView.setNextPage(this.gDM);
+        this.gDM.endLoadDataWithNoMore(str);
     }
 
     public void Nl(int i) {
-        this.ojr.setVisibility(0);
-        this.ojr.setText("今日魅力 " + StringHelper.formatYuyinValue(i));
+        this.ojt.setVisibility(0);
+        this.ojt.setText("今日魅力 " + StringHelper.formatYuyinValue(i));
     }
 
     public void b(i.a aVar) {
         if (aVar == null) {
-            if (this.ojs != null) {
-                this.ojs.getView().setVisibility(8);
+            if (this.oju != null) {
+                this.oju.getView().setVisibility(8);
                 return;
             }
             return;
         }
         View view = null;
-        if (this.ojs != null) {
-            this.ojs.a(aVar);
-            this.ojs.getView().setVisibility(0);
-            view = this.ojs.getView();
+        if (this.oju != null) {
+            this.oju.a(aVar);
+            this.oju.getView().setVisibility(0);
+            view = this.oju.getView();
         }
         if (TbadkCoreApplication.getInst().isNotMobileBaidu() && view != null) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.c.3

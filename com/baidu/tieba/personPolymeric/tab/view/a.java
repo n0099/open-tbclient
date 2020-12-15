@@ -29,18 +29,18 @@ import java.util.List;
 public class a {
     private BdTypeRecyclerView Yf;
     private TbPageContext eNx;
-    private PbListView gre;
+    private PbListView grg;
     private NoDataView mNoDataView;
     private View mRootView;
-    private n mtX;
-    private PersonCenterTabBaseFragment mtY;
-    private com.baidu.tbadk.n.b lHx = null;
+    private n mtZ;
+    private PersonCenterTabBaseFragment mua;
+    private com.baidu.tbadk.n.b lHz = null;
     private int mSubType = 1010;
 
     public a(TbPageContext tbPageContext, View view, PersonCenterTabBaseFragment personCenterTabBaseFragment) {
         this.eNx = tbPageContext;
         this.mRootView = view;
-        this.mtY = personCenterTabBaseFragment;
+        this.mua = personCenterTabBaseFragment;
         initUI();
     }
 
@@ -60,38 +60,38 @@ public class a {
         this.Yf.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.personPolymeric.tab.view.a.2
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (a.this.lHx == null) {
-                    a.this.lHx = new com.baidu.tbadk.n.b();
-                    a.this.lHx.setSubType(a.this.mSubType);
+                if (a.this.lHz == null) {
+                    a.this.lHz = new com.baidu.tbadk.n.b();
+                    a.this.lHz.setSubType(a.this.mSubType);
                 }
                 if (i == 0) {
-                    a.this.lHx.bFe();
+                    a.this.lHz.bFe();
                 } else {
-                    a.this.lHx.bFd();
+                    a.this.lHz.bFd();
                 }
             }
         });
-        this.gre = new PbListView(this.eNx.getPageActivity());
-        this.gre.createView();
-        this.gre.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.gre.setHeight(l.getDimens(this.eNx.getPageActivity(), R.dimen.tbds182));
-        this.gre.setLineGone();
-        this.gre.setTextSize(R.dimen.tbfontsize33);
-        this.gre.setTextColor(ap.getColor(R.color.CAM_X0107));
-        this.gre.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.mtX = new n(this.eNx, this.Yf, this.mtY.getUniqueId());
-        this.mtX.setIsHost(this.mtY.isHost());
-        this.mtX.Iq(32);
+        this.grg = new PbListView(this.eNx.getPageActivity());
+        this.grg.createView();
+        this.grg.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.grg.setHeight(l.getDimens(this.eNx.getPageActivity(), R.dimen.tbds182));
+        this.grg.setLineGone();
+        this.grg.setTextSize(R.dimen.tbfontsize33);
+        this.grg.setTextColor(ap.getColor(R.color.CAM_X0107));
+        this.grg.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.mtZ = new n(this.eNx, this.Yf, this.mua.getUniqueId());
+        this.mtZ.setIsHost(this.mua.isHost());
+        this.mtZ.Iq(32);
         int i = 0;
-        if (this.mtY.isHost()) {
-            if (this.mtY instanceof PersonCenterDynamicTabFragment) {
+        if (this.mua.isHost()) {
+            if (this.mua instanceof PersonCenterDynamicTabFragment) {
                 i = 4;
-            } else if (this.mtY instanceof PersonCenterThreadTabFragment) {
+            } else if (this.mua instanceof PersonCenterThreadTabFragment) {
                 i = 6;
             }
         }
-        this.mtX.Ir(i);
-        this.mtX.setTabType(this.mtY.getTabType());
+        this.mtZ.Ir(i);
+        this.mtZ.setTabType(this.mua.getTabType());
     }
 
     public void addHeaderView(View view) {
@@ -103,15 +103,15 @@ public class a {
     }
 
     public void onDestroy() {
-        if (this.lHx != null) {
-            this.lHx.bFf();
+        if (this.lHz != null) {
+            this.lHz.bFf();
         }
         this.Yf.setOnSrollToBottomListener(null);
     }
 
     public void fF(List<q> list) {
         if (y.isEmpty(list)) {
-            bTa();
+            bTb();
             if (this.Yf.getHeaderViewsCount() == 0) {
                 Ed(R.string.person_center_listempty_txt);
             }
@@ -119,15 +119,15 @@ public class a {
             this.Yf.removeHeaderView(this.mNoDataView);
         }
         this.Yf.setData(list);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.mtY.getTabType())));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.mua.getTabType())));
     }
 
     private void Ed(int i) {
         String string;
-        if (this.mtY.getTabType() == 1) {
-            string = this.mtY.getResources().getString(R.string.person_center_listempty_dynamic_txt);
+        if (this.mua.getTabType() == 1) {
+            string = this.mua.getResources().getString(R.string.person_center_listempty_dynamic_txt);
         } else {
-            string = this.mtY.getResources().getString(R.string.person_center_listempty_thread_txt);
+            string = this.mua.getResources().getString(R.string.person_center_listempty_thread_txt);
         }
         if (this.mNoDataView == null) {
             this.mNoDataView = NoDataViewFactory.a(this.eNx.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.dZ(null, string), null);
@@ -141,20 +141,20 @@ public class a {
 
     public void onChangeSkinType(int i) {
         ap.setBackgroundResource(this.mRootView, R.color.CAM_X0201);
-        if (this.mtX != null) {
-            this.mtX.notifyDataSetChanged();
+        if (this.mtZ != null) {
+            this.mtZ.notifyDataSetChanged();
         }
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(this.eNx, i);
         }
-        if (this.gre != null) {
-            this.gre.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.gre.changeSkin(i);
+        if (this.grg != null) {
+            this.grg.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.grg.changeSkin(i);
         }
     }
 
-    public n dBf() {
-        return this.mtX;
+    public n dBg() {
+        return this.mtZ;
     }
 
     public View getRootView() {
@@ -162,31 +162,31 @@ public class a {
     }
 
     public void XZ() {
-        this.Yf.setNextPage(this.gre);
-        this.gre.showEmptyView(0);
-        this.gre.startLoadData();
+        this.Yf.setNextPage(this.grg);
+        this.grg.showEmptyView(0);
+        this.grg.startLoadData();
     }
 
     public void Ya() {
-        this.Yf.setNextPage(this.gre);
-        this.gre.showEmptyView(0);
-        this.gre.endLoadData();
-        this.gre.setText(this.eNx.getString(R.string.list_no_more));
+        this.Yf.setNextPage(this.grg);
+        this.grg.showEmptyView(0);
+        this.grg.endLoadData();
+        this.grg.setText(this.eNx.getString(R.string.list_no_more));
     }
 
-    public void bTa() {
+    public void bTb() {
         this.Yf.setNextPage(null);
     }
 
-    public void cBL() {
+    public void cBM() {
         this.Yf.smoothScrollToPosition(0);
     }
 
     public void Iy(int i) {
-        this.Yf.setNextPage(this.gre);
-        this.gre.showEmptyView(0);
-        this.gre.endLoadData();
-        this.gre.setText(this.eNx.getString(i));
+        this.Yf.setNextPage(this.grg);
+        this.grg.showEmptyView(0);
+        this.grg.endLoadData();
+        this.grg.setText(this.eNx.getString(i));
     }
 
     public void setSubType(int i) {

@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes4.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c hpI;
+    private com.baidu.tieba.ala.liveroom.views.c hpK;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,19 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.hpI = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.hpI.setTbPageContext(this.mPageContext);
-        this.mRootView = this.hpI.getView();
+        this.hpK = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.hpK.setTbPageContext(this.mPageContext);
+        this.mRootView = this.hpK.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.hpI != null) {
-            this.hpI.a(iShareCallback);
+        if (this.hpK != null) {
+            this.hpK.a(iShareCallback);
         }
     }
 
-    private void ceu() {
-        this.hpI.ceu();
+    private void cev() {
+        this.hpK.cev();
     }
 
     public View getView() {
@@ -37,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.hpI.c(alaLiveRecorder);
-        ceu();
-    }
-
-    public boolean cev() {
-        return this.hpI.cev();
+        this.hpK.c(alaLiveRecorder);
+        cev();
     }
 
     public boolean cew() {
-        return this.hpI.cew();
-    }
-
-    public String getLiveTitle() {
-        return this.hpI.getLiveTitle();
+        return this.hpK.cew();
     }
 
     public boolean cex() {
-        return this.hpI.cex();
+        return this.hpK.cex();
+    }
+
+    public String getLiveTitle() {
+        return this.hpK.getLiveTitle();
     }
 
     public boolean cey() {
-        return this.hpI.cey();
+        return this.hpK.cey();
+    }
+
+    public boolean cez() {
+        return this.hpK.cez();
     }
 
     public void nA(boolean z) {
-        this.hpI.nA(z);
+        this.hpK.nA(z);
     }
 
-    public void cez() {
-        this.hpI.hDv = false;
+    public void ceA() {
+        this.hpK.hDx = false;
     }
 
-    public String ceA() {
-        return this.hpI.ceA();
+    public String ceB() {
+        return this.hpK.ceB();
     }
 
     public void setVisibility(int i) {
@@ -82,68 +82,68 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.hpI.a(bVar);
+        this.hpK.a(bVar);
     }
 
     public void P(boolean z, boolean z2) {
         if (z) {
-            this.hpI.onKeyboardVisibilityChanged(false);
+            this.hpK.onKeyboardVisibilityChanged(false);
         } else {
-            this.hpI.onKeyboardVisibilityChanged(z2);
+            this.hpK.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.hpI.a(aVar);
+        this.hpK.a(aVar);
     }
 
     public void In(String str) {
-        this.hpI.In(str);
+        this.hpK.In(str);
     }
 
     public void onResume() {
-        this.hpI.onResume();
+        this.hpK.onResume();
     }
 
     public void onRefresh() {
-        this.hpI.onRefresh();
+        this.hpK.onRefresh();
     }
 
-    public boolean ceB() {
-        return this.hpI.ceB();
-    }
-
-    public void ceC() {
-        this.hpI.ceC();
-    }
-
-    public void release() {
-        this.hpI.release();
-    }
-
-    public void destroy() {
-        this.hpI.destroy();
-    }
-
-    public void nB(boolean z) {
-        this.hpI.nB(z);
+    public boolean ceC() {
+        return this.hpK.ceC();
     }
 
     public void ceD() {
-        if (this.hpI != null) {
-            this.hpI.ceD();
+        this.hpK.ceD();
+    }
+
+    public void release() {
+        this.hpK.release();
+    }
+
+    public void destroy() {
+        this.hpK.destroy();
+    }
+
+    public void nB(boolean z) {
+        this.hpK.nB(z);
+    }
+
+    public void ceE() {
+        if (this.hpK != null) {
+            this.hpK.ceE();
         }
     }
 
     public void nC(boolean z) {
-        if (this.hpI != null) {
-            this.hpI.nC(z);
+        if (this.hpK != null) {
+            this.hpK.nC(z);
         }
     }
 
     public void a(com.baidu.live.m.a aVar) {
-        if (this.hpI != null) {
-            this.hpI.a(aVar);
+        if (this.hpK != null) {
+            this.hpK.a(aVar);
         }
     }
 }

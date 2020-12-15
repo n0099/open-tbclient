@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes21.dex */
 public class BannerDownloadStateBar extends LinearLayout {
-    private TextView gal;
-    private ImageView gam;
+    private TextView gan;
+    private ImageView gao;
     private View mRootView;
 
     public BannerDownloadStateBar(Context context) {
@@ -35,8 +35,8 @@ public class BannerDownloadStateBar extends LinearLayout {
         setOrientation(0);
         setGravity(17);
         setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-        this.gam = (ImageView) this.mRootView.findViewById(R.id.apk_download_state_icon);
-        this.gal = (TextView) this.mRootView.findViewById(R.id.apk_download_state_text);
+        this.gao = (ImageView) this.mRootView.findViewById(R.id.apk_download_state_icon);
+        this.gan = (TextView) this.mRootView.findViewById(R.id.apk_download_state_text);
         setState(0);
     }
 
@@ -44,45 +44,45 @@ public class BannerDownloadStateBar extends LinearLayout {
         switch (i) {
             case 0:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.gam.setVisibility(8);
-                this.gam.setImageDrawable(null);
-                this.gal.setText(R.string.ad_button_download_now);
-                this.gal.setTextColor(Color.parseColor("#333333"));
+                this.gao.setVisibility(8);
+                this.gao.setImageDrawable(null);
+                this.gan.setText(R.string.ad_button_download_now);
+                this.gan.setTextColor(Color.parseColor("#333333"));
                 return;
             case 1:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.gam.setVisibility(0);
-                this.gam.setImageResource(R.drawable.ad_banner_download_pause);
-                this.gal.setText(R.string.ad_button_pause);
-                this.gal.setTextColor(Color.parseColor("#333333"));
+                this.gao.setVisibility(0);
+                this.gao.setImageResource(R.drawable.ad_banner_download_pause);
+                this.gan.setText(R.string.ad_button_pause);
+                this.gan.setTextColor(Color.parseColor("#333333"));
                 return;
             case 2:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.gam.setVisibility(0);
-                this.gam.setImageResource(R.drawable.ad_banner_download_resume);
-                this.gal.setText(R.string.ad_button_resume);
-                this.gal.setTextColor(Color.parseColor("#333333"));
+                this.gao.setVisibility(0);
+                this.gao.setImageResource(R.drawable.ad_banner_download_resume);
+                this.gan.setText(R.string.ad_button_resume);
+                this.gan.setTextColor(Color.parseColor("#333333"));
                 return;
             case 3:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.gam.setVisibility(8);
-                this.gam.setImageDrawable(null);
-                this.gal.setText(R.string.ad_button_install);
-                this.gal.setTextColor(Color.parseColor("#FFFFFF"));
+                this.gao.setVisibility(8);
+                this.gao.setImageDrawable(null);
+                this.gan.setText(R.string.ad_button_install);
+                this.gan.setTextColor(Color.parseColor("#FFFFFF"));
                 return;
             case 4:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.gam.setVisibility(8);
-                this.gam.setImageDrawable(null);
-                this.gal.setText(R.string.ad_button_open);
-                this.gal.setTextColor(Color.parseColor("#FFFFFF"));
+                this.gao.setVisibility(8);
+                this.gao.setImageDrawable(null);
+                this.gan.setText(R.string.ad_button_open);
+                this.gan.setTextColor(Color.parseColor("#FFFFFF"));
                 return;
             default:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.gam.setVisibility(8);
-                this.gam.setImageDrawable(null);
-                this.gal.setText(R.string.ad_button_download_now);
-                this.gal.setTextColor(Color.parseColor("#333333"));
+                this.gao.setVisibility(8);
+                this.gao.setImageDrawable(null);
+                this.gan.setText(R.string.ad_button_download_now);
+                this.gan.setTextColor(Color.parseColor("#333333"));
                 return;
         }
     }

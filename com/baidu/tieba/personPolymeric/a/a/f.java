@@ -27,18 +27,18 @@ public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
     private String aiw;
     private boolean alo;
     public BdUniqueId fzO;
-    private int hKL;
+    private int hKN;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
-    private int mpX;
-    private int mpY;
+    private int mpZ;
+    private int mqa;
 
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.alo = true;
-        this.mpX = 0;
-        this.mpY = 0;
-        this.hKL = 0;
+        this.mpZ = 0;
+        this.mqa = 0;
+        this.hKN = 0;
         this.agG = new ab<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
@@ -61,8 +61,8 @@ public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
         eVar.setPageUniqueId(this.fzO);
         eVar.bt(1024);
         eVar.bt(32768);
-        if (this.mpX > 0) {
-            eVar.bs(this.mpX);
+        if (this.mpZ > 0) {
+            eVar.bs(this.mpZ);
         }
         eVar.aD(false);
         eVar.aE(false);
@@ -123,7 +123,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
         tX.setSourceForPb(4);
         am<k> amVar = new am<>(tX);
         amVar.setPageId(this.fzO);
-        amVar.bE(this.mpY);
+        amVar.bE(this.mqa);
         a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.personPolymeric.a.a.f.5
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -167,11 +167,11 @@ public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
     }
 
     public void Is(int i) {
-        this.mpX = i;
+        this.mpZ = i;
     }
 
     public void setTabType(int i) {
-        this.hKL = i;
+        this.hKN = i;
     }
 
     public void setIsHost(boolean z) {
@@ -179,6 +179,6 @@ public class f extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
     }
 
     public void Ir(int i) {
-        this.mpY = i;
+        this.mqa = i;
     }
 }

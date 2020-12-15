@@ -15,7 +15,7 @@ import com.baidu.tieba.setting.more.youngster.message.YoungsterVerifyHttpRespons
 /* loaded from: classes26.dex */
 public class YoungsterVerifyModel extends BdBaseModel {
     private HttpMessageListener mHttpMessageListener;
-    a mYp;
+    a mYr;
     TbPageContext<?> pageContext;
 
     /* loaded from: classes26.dex */
@@ -50,9 +50,9 @@ public class YoungsterVerifyModel extends BdBaseModel {
                         youngsterVerifyHttpResponsedMessage = (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage;
                     }
                     if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().isSuccess) {
-                        YoungsterVerifyModel.this.mYp.onSuccess();
+                        YoungsterVerifyModel.this.mYr.onSuccess();
                     } else {
-                        YoungsterVerifyModel.this.mYp.b(errorData);
+                        YoungsterVerifyModel.this.mYr.b(errorData);
                     }
                 }
             }
@@ -60,7 +60,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
         this.pageContext = tbPageContext;
         this.mHttpMessageListener.setSelfListener(true);
         registerListener(this.mHttpMessageListener);
-        this.mYp = aVar;
+        this.mYr = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

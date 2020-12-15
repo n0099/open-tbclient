@@ -13,7 +13,7 @@ public class a extends BdBaseModel {
     private Context bJK;
     private BdUniqueId brR = BdUniqueId.gen();
     private final HttpMessageListener bxC;
-    private InterfaceC0924a olG;
+    private InterfaceC0924a olI;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.chooselover.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -24,7 +24,7 @@ public class a extends BdBaseModel {
     }
 
     public void a(InterfaceC0924a interfaceC0924a) {
-        this.olG = interfaceC0924a;
+        this.olI = interfaceC0924a;
     }
 
     public a(Context context) {
@@ -39,12 +39,12 @@ public class a extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChooseLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId() && a.this.olG != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChooseLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId() && a.this.olI != null) {
                     ChooseLoverHttpResponseMessage chooseLoverHttpResponseMessage = (ChooseLoverHttpResponseMessage) httpResponsedMessage;
                     if (chooseLoverHttpResponseMessage.getError() != 0 || !chooseLoverHttpResponseMessage.isSuccess()) {
-                        a.this.olG.onFail(chooseLoverHttpResponseMessage.getError(), chooseLoverHttpResponseMessage.getErrorString());
+                        a.this.olI.onFail(chooseLoverHttpResponseMessage.getError(), chooseLoverHttpResponseMessage.getErrorString());
                     } else {
-                        a.this.olG.a(chooseLoverHttpResponseMessage);
+                        a.this.olI.a(chooseLoverHttpResponseMessage);
                     }
                 }
             }

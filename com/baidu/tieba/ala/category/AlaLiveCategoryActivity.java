@@ -27,15 +27,17 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivity> {
     private CommonEmptyView btg;
-    private BdTypeListView gCA;
-    private a gCB;
-    private com.baidu.tieba.ala.category.a.a gCC;
-    private c gCD;
-    private String gCE;
-    private String gCF;
-    private com.baidu.tieba.ala.category.b.c gCG;
-    private com.baidu.tieba.ala.category.b.c gCH;
-    private MessageListener<?> gCI = new CustomMessageListener(2913200) { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.3
+    private TextView gCA;
+    private BdTypeListView gCB;
+    private BdTypeListView gCC;
+    private a gCD;
+    private com.baidu.tieba.ala.category.a.a gCE;
+    private c gCF;
+    private String gCG;
+    private String gCH;
+    private com.baidu.tieba.ala.category.b.c gCI;
+    private com.baidu.tieba.ala.category.b.c gCJ;
+    private MessageListener<?> gCK = new CustomMessageListener(2913200) { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,7 +46,7 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
             }
         }
     };
-    private MessageListener<?> gCJ = new CustomMessageListener(2913201) { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.4
+    private MessageListener<?> gCL = new CustomMessageListener(2913201) { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -53,8 +55,6 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
             }
         }
     };
-    private TextView gCy;
-    private BdTypeListView gCz;
     private NavigationBar mNavigationBar;
     private RelativeLayout mRootView;
 
@@ -73,38 +73,38 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gCH != null && !TextUtils.equals(this.gCH.getId(), this.gCF)) {
+        if (this.gCJ != null && !TextUtils.equals(this.gCJ.getId(), this.gCH)) {
             com.baidu.tieba.ala.category.b.a aVar = new com.baidu.tieba.ala.category.b.a();
-            aVar.c(this.gCG);
-            aVar.d(this.gCH);
+            aVar.c(this.gCI);
+            aVar.d(this.gCJ);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913202, aVar));
         }
     }
 
     private void registerListener() {
-        registerListener(this.gCI);
-        registerListener(this.gCJ);
+        registerListener(this.gCK);
+        registerListener(this.gCL);
     }
 
     private void initData() {
-        this.gCE = getIntent().getStringExtra("cat1_id");
-        this.gCF = getIntent().getStringExtra("cat2_id");
-        this.gCB = new com.baidu.tieba.ala.category.c.a(getPageContext());
-        this.gCB.a(new a.InterfaceC0648a() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.1
+        this.gCG = getIntent().getStringExtra("cat1_id");
+        this.gCH = getIntent().getStringExtra("cat2_id");
+        this.gCD = new com.baidu.tieba.ala.category.c.a(getPageContext());
+        this.gCD.a(new a.InterfaceC0648a() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.1
             @Override // com.baidu.tieba.ala.category.c.a.InterfaceC0648a
             public void aUk() {
-                List<IAdapterData> bTV = AlaLiveCategoryActivity.this.gCB.bTV();
-                AlaLiveCategoryActivity.this.gCz.setData(bTV);
-                AlaLiveCategoryActivity.this.cl(bTV);
+                List<IAdapterData> bTW = AlaLiveCategoryActivity.this.gCD.bTW();
+                AlaLiveCategoryActivity.this.gCB.setData(bTW);
+                AlaLiveCategoryActivity.this.cl(bTW);
             }
 
             @Override // com.baidu.tieba.ala.category.c.a.InterfaceC0648a
             public void aC(int i, String str) {
-                AlaLiveCategoryActivity.this.bSi();
+                AlaLiveCategoryActivity.this.bSj();
             }
         });
-        this.gCC = new com.baidu.tieba.ala.category.a.a(getPageContext().getContext(), this.gCB.getUniqueId());
-        this.gCD = new c(getPageContext().getContext(), this.gCB.getUniqueId());
+        this.gCE = new com.baidu.tieba.ala.category.a.a(getPageContext().getContext(), this.gCD.getUniqueId());
+        this.gCF = new c(getPageContext().getContext(), this.gCD.getUniqueId());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -120,11 +120,11 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
             IAdapterData next = it.next();
             if (next instanceof com.baidu.tieba.ala.category.b.c) {
                 cVar = cVar2 == null ? (com.baidu.tieba.ala.category.b.c) next : cVar2;
-                if (TextUtils.equals(((com.baidu.tieba.ala.category.b.c) next).getId(), this.gCE)) {
-                    for (IAdapterData iAdapterData : ((com.baidu.tieba.ala.category.b.c) next).bTW()) {
-                        if ((iAdapterData instanceof com.baidu.tieba.ala.category.b.c) && TextUtils.equals(((com.baidu.tieba.ala.category.b.c) iAdapterData).getId(), this.gCF)) {
-                            this.gCG = (com.baidu.tieba.ala.category.b.c) next;
-                            this.gCH = (com.baidu.tieba.ala.category.b.c) iAdapterData;
+                if (TextUtils.equals(((com.baidu.tieba.ala.category.b.c) next).getId(), this.gCG)) {
+                    for (IAdapterData iAdapterData : ((com.baidu.tieba.ala.category.b.c) next).bTX()) {
+                        if ((iAdapterData instanceof com.baidu.tieba.ala.category.b.c) && TextUtils.equals(((com.baidu.tieba.ala.category.b.c) iAdapterData).getId(), this.gCH)) {
+                            this.gCI = (com.baidu.tieba.ala.category.b.c) next;
+                            this.gCJ = (com.baidu.tieba.ala.category.b.c) iAdapterData;
                             break loop0;
                         }
                     }
@@ -134,11 +134,11 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
                 }
             }
         }
-        if (this.gCG != null) {
-            cVar = this.gCG;
+        if (this.gCI != null) {
+            cVar = this.gCI;
         }
         a(cVar);
-        b(this.gCH);
+        b(this.gCJ);
     }
 
     private void initView() {
@@ -148,46 +148,46 @@ public class AlaLiveCategoryActivity extends BaseActivity<AlaLiveCategoryActivit
         TextView centerTextTitle = this.mNavigationBar.setCenterTextTitle(getString(a.h.ala_live_category_title));
         SkinManager.setNavbarIconSrc((ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.f.widget_navi_back_button), a.e.sdk_d_icon_return_n, a.e.sdk_d_icon_return_n);
         SkinManager.setNavbarTitleColor(centerTextTitle, a.c.sdk_cp_cont_i, a.c.sdk_cp_cont_i);
-        this.gCy = (TextView) findViewById(a.f.selected_category_tv);
-        this.gCz = (BdTypeListView) findViewById(a.f.ala_live_category_one_list);
-        this.gCA = (BdTypeListView) findViewById(a.f.ala_live_category_two_list);
+        this.gCA = (TextView) findViewById(a.f.selected_category_tv);
+        this.gCB = (BdTypeListView) findViewById(a.f.ala_live_category_one_list);
+        this.gCC = (BdTypeListView) findViewById(a.f.ala_live_category_two_list);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.gCC);
-        this.gCz.addAdapters(arrayList);
+        arrayList.add(this.gCE);
+        this.gCB.addAdapters(arrayList);
         ArrayList arrayList2 = new ArrayList();
-        arrayList2.add(this.gCD);
-        this.gCA.addAdapters(arrayList2);
-        ViewGroup.LayoutParams layoutParams = this.gCz.getLayoutParams();
+        arrayList2.add(this.gCF);
+        this.gCC.addAdapters(arrayList2);
+        ViewGroup.LayoutParams layoutParams = this.gCB.getLayoutParams();
         layoutParams.width = (ScreenHelper.getScreenWidth(getPageContext().getContext()) * 85) / 375;
-        this.gCz.setLayoutParams(layoutParams);
+        this.gCB.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.gCB.bUa();
+        this.gCD.bUb();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.category.b.c cVar) {
         if (cVar != null) {
-            this.gCC.GR(cVar.getId());
-            this.gCA.setData(cVar.bTW());
-            this.gCA.setTag(cVar);
+            this.gCE.GR(cVar.getId());
+            this.gCC.setData(cVar.bTX());
+            this.gCC.setTag(cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.ala.category.b.c cVar) {
         if (cVar != null) {
-            this.gCH = cVar;
-            this.gCG = (com.baidu.tieba.ala.category.b.c) this.gCA.getTag();
-            this.gCD.GR(this.gCH.getId());
-            this.gCy.setText(cVar.getName());
+            this.gCJ = cVar;
+            this.gCI = (com.baidu.tieba.ala.category.b.c) this.gCC.getTag();
+            this.gCF.GR(this.gCJ.getId());
+            this.gCA.setText(cVar.getName());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSi() {
+    public void bSj() {
         this.btg.reset();
         this.btg.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveCategoryActivity.2
             @Override // android.view.View.OnClickListener

@@ -22,43 +22,43 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 /* loaded from: classes21.dex */
 public class HotRankView extends FrameLayout {
-    private g gAe;
-    private BdTypeListView gpX;
-    private View iIw;
-    private com.baidu.tieba.hottopic.adapter.b kfy;
+    private g gAg;
+    private BdTypeListView gpZ;
+    private View iIy;
+    private com.baidu.tieba.hottopic.adapter.b kfA;
     private com.baidu.tbadk.core.view.g mPullView;
     private TbPageContext<?> pageContext;
     private h refreshView;
 
     public HotRankView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gpX = null;
-        this.kfy = null;
+        this.gpZ = null;
+        this.kfA = null;
         this.mPullView = null;
         init(context);
     }
 
     public HotRankView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gpX = null;
-        this.kfy = null;
+        this.gpZ = null;
+        this.kfA = null;
         this.mPullView = null;
         init(context);
     }
 
     public HotRankView(Context context) {
         super(context);
-        this.gpX = null;
-        this.kfy = null;
+        this.gpZ = null;
+        this.kfA = null;
         this.mPullView = null;
         init(context);
     }
 
     private void init(Context context) {
-        this.gpX = new BdTypeListView(context);
-        this.gpX.setVerticalScrollBarEnabled(false);
-        this.gpX.setDividerHeight(0);
-        this.gpX.setSelector(17170445);
+        this.gpZ = new BdTypeListView(context);
+        this.gpZ.setVerticalScrollBarEnabled(false);
+        this.gpZ.setDividerHeight(0);
+        this.gpZ.setSelector(17170445);
         com.baidu.adp.base.e<?> J = i.J(context);
         if (J instanceof TbPageContext) {
             this.pageContext = (TbPageContext) J;
@@ -69,16 +69,16 @@ public class HotRankView extends FrameLayout {
             public void onListPullRefresh(boolean z) {
                 if (!j.isNetWorkAvailable()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                    HotRankView.this.gpX.completePullRefreshPostDelayed(0L);
+                    HotRankView.this.gpZ.completePullRefreshPostDelayed(0L);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).cRs();
+                ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).cRt();
             }
         });
-        this.gpX.setPullRefresh(this.mPullView);
-        this.iIw = BdListViewHelper.a(context, this.gpX, BdListViewHelper.HeadType.HASTAB);
-        this.gpX.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotRankView.2
+        this.gpZ.setPullRefresh(this.mPullView);
+        this.iIy = BdListViewHelper.a(context, this.gpZ, BdListViewHelper.HeadType.HASTAB);
+        this.gpZ.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotRankView.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
@@ -90,68 +90,68 @@ public class HotRankView extends FrameLayout {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_ON_SCROLL));
             }
         });
-        this.kfy = new com.baidu.tieba.hottopic.adapter.b((HotRanklistActivity) this.pageContext.getOrignalPage(), this.gpX);
-        addView(this.gpX);
+        this.kfA = new com.baidu.tieba.hottopic.adapter.b((HotRanklistActivity) this.pageContext.getOrignalPage(), this.gpZ);
+        addView(this.gpZ);
     }
 
     public void f(View view, int i, int i2, int i3, int i4) {
-        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.iIw.getLayoutParams();
+        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.iIy.getLayoutParams();
         layoutParams.height = i2;
-        this.iIw.setLayoutParams(layoutParams);
+        this.iIy.setLayoutParams(layoutParams);
     }
 
     public void b(com.baidu.tieba.hottopic.data.j jVar, String str) {
-        if (this.kfy != null) {
+        if (this.kfA != null) {
             if (jVar == null) {
                 jVar = new com.baidu.tieba.hottopic.data.j();
             }
-            this.gpX.setVisibility(0);
-            this.kfy.a(jVar, str);
+            this.gpZ.setVisibility(0);
+            this.kfA.a(jVar, str);
         }
     }
 
     public void rR(boolean z) {
-        if (this.gpX != null) {
+        if (this.gpZ != null) {
             if (z) {
-                this.gpX.completePullRefresh();
+                this.gpZ.completePullRefresh();
             } else {
-                this.gpX.completePullRefreshPostDelayed(0L);
+                this.gpZ.completePullRefreshPostDelayed(0L);
             }
         }
     }
 
     public void D(boolean z, int i) {
-        if (!cqy()) {
-            if (this.gAe == null) {
+        if (!cqz()) {
+            if (this.gAg == null) {
                 if (i <= 0) {
-                    this.gAe = new g(getContext());
+                    this.gAg = new g(getContext());
                 } else {
-                    this.gAe = new g(getContext(), i);
-                    this.gAe.bDY();
+                    this.gAg = new g(getContext(), i);
+                    this.gAg.bDY();
                 }
-                this.gAe.onChangeSkinType();
+                this.gAg.onChangeSkinType();
             }
-            this.gAe.attachView(this, z);
-            this.gpX.setVisibility(8);
+            this.gAg.attachView(this, z);
+            this.gpZ.setVisibility(8);
         }
     }
 
     public void hideLoadingView() {
-        if (this.gAe != null) {
-            this.gAe.dettachView(this);
-            this.gAe = null;
+        if (this.gAg != null) {
+            this.gAg.dettachView(this);
+            this.gAg = null;
         }
     }
 
-    public boolean cqy() {
-        if (this.gAe != null) {
-            return this.gAe.isViewAttached();
+    public boolean cqz() {
+        if (this.gAg != null) {
+            return this.gAg.isViewAttached();
         }
         return false;
     }
 
     public void aR(String str, boolean z) {
-        if (!cqz()) {
+        if (!cqA()) {
             if (this.refreshView == null) {
                 this.refreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotRankView.3
                     @Override // android.view.View.OnClickListener
@@ -159,7 +159,7 @@ public class HotRankView extends FrameLayout {
                         if (j.isNetworkAvailableForImmediately()) {
                             HotRankView.this.Yb();
                             HotRankView.this.D(true, l.getDimens(HotRankView.this.pageContext.getPageActivity(), R.dimen.ds500));
-                            ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).cRs();
+                            ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).cRt();
                         }
                     }
                 });
@@ -167,7 +167,7 @@ public class HotRankView extends FrameLayout {
             this.refreshView.setLayoutMargin(getContext().getResources().getDimensionPixelSize(R.dimen.ds280));
             this.refreshView.attachView(this, z);
             this.refreshView.showRefreshButton();
-            this.gpX.setVisibility(8);
+            this.gpZ.setVisibility(8);
         }
     }
 
@@ -178,7 +178,7 @@ public class HotRankView extends FrameLayout {
         }
     }
 
-    public boolean cqz() {
+    public boolean cqA() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
@@ -187,10 +187,10 @@ public class HotRankView extends FrameLayout {
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.gpX, R.color.CAM_X0201);
-        this.gpX.getListAdapter().notifyDataSetChanged();
-        if (this.gAe != null) {
-            this.gAe.onChangeSkinType();
+        ap.setBackgroundColor(this.gpZ, R.color.CAM_X0201);
+        this.gpZ.getListAdapter().notifyDataSetChanged();
+        if (this.gAg != null) {
+            this.gAg.onChangeSkinType();
         }
         if (this.refreshView != null) {
             this.refreshView.onChangeSkinType();

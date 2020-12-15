@@ -11,19 +11,19 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.live.guess.a.c;
 /* loaded from: classes4.dex */
 public class f extends b implements View.OnClickListener {
-    private TextView gXd;
-    private TextView gXe;
-    private a gXf;
+    private TextView gXf;
+    private TextView gXg;
+    private a gXh;
 
     /* loaded from: classes4.dex */
     public interface a {
         void apM();
 
-        void bXU();
+        void bXV();
     }
 
     public void a(a aVar) {
-        this.gXf = aVar;
+        this.gXh = aVar;
     }
 
     public f(Context context) {
@@ -32,19 +32,19 @@ public class f extends b implements View.OnClickListener {
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void HH() {
-        this.gXe.setOnClickListener(this);
-        this.gXd.setOnClickListener(this);
+        this.gXg.setOnClickListener(this);
+        this.gXf.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    void bYa() {
+    void bYb() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_voucher_dialog, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void initView() {
-        this.gXd = (TextView) this.mRootView.findViewById(a.f.tv_guess_continue);
-        this.gXe = (TextView) this.mRootView.findViewById(a.f.tv_guess_voucher);
+        this.gXf = (TextView) this.mRootView.findViewById(a.f.tv_guess_continue);
+        this.gXg = (TextView) this.mRootView.findViewById(a.f.tv_guess_voucher);
         this.mDialog.setOnKeyListener(new c.b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.a.f.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -55,13 +55,13 @@ public class f extends b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gXd) {
-            if (this.gXf != null) {
-                this.gXf.apM();
+        if (view == this.gXf) {
+            if (this.gXh != null) {
+                this.gXh.apM();
                 dismiss();
             }
-        } else if (view == this.gXe) {
-            this.gXf.bXU();
+        } else if (view == this.gXg) {
+            this.gXh.bXV();
             dismiss();
         }
     }

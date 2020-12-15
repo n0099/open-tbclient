@@ -253,7 +253,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
                 case 3:
                     if (this.fwL.getSelectionStart() > 0) {
                         String substring = this.fwL.getText().toString().substring(0, this.fwL.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.iEW.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.iEY.matcher(substring);
                         if (matcher.find()) {
                             this.fwL.getText().delete(this.fwL.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.fwL.getSelectionStart());
                             break;

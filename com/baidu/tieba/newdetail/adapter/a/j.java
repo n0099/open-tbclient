@@ -32,7 +32,7 @@ public class j extends a<bx, am<by>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, by byVar) {
-                t.csg().mj(true);
+                t.csh().mj(true);
                 j.this.g(view, byVar);
             }
         };

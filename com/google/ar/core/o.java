@@ -11,7 +11,7 @@ import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes17.dex */
 public final class o extends ArCoreApk {
-    private static final o ptq = new o();
+    private static final o ptt = new o();
 
     /* renamed from: a */
     Exception f4046a;
@@ -21,14 +21,14 @@ public final class o extends ArCoreApk {
     private boolean i;
     private boolean j;
     private int k;
-    private ArCoreApk.Availability ptr;
-    private w ptt;
+    private ArCoreApk.Availability ptu;
+    private w ptv;
 
     o() {
     }
 
-    public static o eyc() {
-        return ptq;
+    public static o eyd() {
+        return ptt;
     }
 
     @Override // com.google.ar.core.ArCoreApk
@@ -42,7 +42,7 @@ public final class o extends ArCoreApk {
                 return n.hN(context);
             }
             synchronized (this) {
-                if ((this.ptr == null || this.ptr.isUnknown()) && !this.g) {
+                if ((this.ptu == null || this.ptu.isUnknown()) && !this.g) {
                     this.g = true;
                     n nVar = new n(this);
                     if (b(context)) {
@@ -55,8 +55,8 @@ public final class o extends ArCoreApk {
                         hP(context).a(context, nVar);
                     }
                 }
-                if (this.ptr != null) {
-                    return this.ptr;
+                if (this.ptu != null) {
+                    return this.ptu;
                 } else if (this.g) {
                     return ArCoreApk.Availability.UNKNOWN_CHECKING;
                 } else {
@@ -71,12 +71,12 @@ public final class o extends ArCoreApk {
     }
 
     public final synchronized w hP(Context context) {
-        if (this.ptt == null) {
+        if (this.ptv == null) {
             w wVar = new w((byte) 0);
             wVar.a(context.getApplicationContext());
-            this.ptt = wVar;
+            this.ptv = wVar;
         }
-        return this.ptt;
+        return this.ptv;
     }
 
     public final synchronized void b() {
@@ -84,9 +84,9 @@ public final class o extends ArCoreApk {
             this.d = 0;
         }
         this.c = false;
-        if (this.ptt != null) {
-            this.ptt.a();
-            this.ptt = null;
+        if (this.ptv != null) {
+            this.ptv.a();
+            this.ptv = null;
         }
     }
 

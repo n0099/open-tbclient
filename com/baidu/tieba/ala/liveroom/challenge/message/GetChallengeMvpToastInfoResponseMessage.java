@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class GetChallengeMvpToastInfoResponseMessage extends JsonHttpResponsedMessage {
-    public List<b> hjS;
+    public List<b> hjU;
     public String toast;
     public int type;
 
@@ -22,13 +22,13 @@ public class GetChallengeMvpToastInfoResponseMessage extends JsonHttpResponsedMe
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONArray optJSONArray = optJSONObject.optJSONArray("sticker");
-            this.hjS = new ArrayList();
+            this.hjU = new ArrayList();
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     b bVar = new b();
                     bVar.parse(optJSONObject2);
-                    this.hjS.add(bVar);
+                    this.hjU.add(bVar);
                 }
             }
             this.type = optJSONObject.optInt("type");

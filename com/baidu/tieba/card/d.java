@@ -14,7 +14,7 @@ public class d extends com.baidu.tieba.horizonalList.widget.e {
     public BarImageView fLs;
     public TextView fLt;
     public EntelechyUserLikeButton fLv;
-    private com.baidu.tieba.card.data.g ihl;
+    private com.baidu.tieba.card.data.g ihn;
     private int mSkinType;
 
     public d(View view) {
@@ -28,17 +28,17 @@ public class d extends com.baidu.tieba.horizonalList.widget.e {
     @Override // com.baidu.tieba.horizonalList.widget.e
     public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
         if (cVar != null && (cVar instanceof com.baidu.tieba.card.data.g)) {
-            this.ihl = (com.baidu.tieba.card.data.g) cVar;
-            this.fLs.setTag(this.ihl.forumAvatar);
-            this.fLs.setTag(R.id.tag_forum_name, this.ihl.forumName);
-            this.fLs.startLoad(this.ihl.forumAvatar, 15, false);
-            this.fLt.setText(au.getFixedText(this.ihl.forumName, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-            this.fLt.setTag(R.id.tag_forum_name, this.ihl.forumName);
-            this.fLv.setTag(R.id.tag_forum_id, Long.valueOf(this.ihl.forumId));
-            this.fLv.setTag(R.id.tag_forum_name, this.ihl.forumName);
-            getView().setTag(R.id.tag_forum_id, Long.valueOf(this.ihl.forumId));
-            getView().setTag(R.id.tag_forum_name, this.ihl.forumName);
-            a(this.fLv, this.ihl.isLiked);
+            this.ihn = (com.baidu.tieba.card.data.g) cVar;
+            this.fLs.setTag(this.ihn.forumAvatar);
+            this.fLs.setTag(R.id.tag_forum_name, this.ihn.forumName);
+            this.fLs.startLoad(this.ihn.forumAvatar, 15, false);
+            this.fLt.setText(au.getFixedText(this.ihn.forumName, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+            this.fLt.setTag(R.id.tag_forum_name, this.ihn.forumName);
+            this.fLv.setTag(R.id.tag_forum_id, Long.valueOf(this.ihn.forumId));
+            this.fLv.setTag(R.id.tag_forum_name, this.ihn.forumName);
+            getView().setTag(R.id.tag_forum_id, Long.valueOf(this.ihn.forumId));
+            getView().setTag(R.id.tag_forum_name, this.ihn.forumName);
+            a(this.fLv, this.ihn.isLiked);
             this.fLs.setOnClickListener(this.foP);
             this.fLv.setOnClickListener(this.foP);
             this.fLt.setOnClickListener(this.foP);
@@ -54,7 +54,7 @@ public class d extends com.baidu.tieba.horizonalList.widget.e {
         dVar.fLs.setGifIconSupport(false);
         dVar.fLt = (TextView) view.findViewById(R.id.m_forum_name_textview);
         dVar.fLv = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
-        dVar.kbp = 16908308;
+        dVar.kbr = 16908308;
         return dVar;
     }
 
@@ -63,7 +63,7 @@ public class d extends com.baidu.tieba.horizonalList.widget.e {
         if (this.mSkinType != i) {
             ap.setBackgroundColor(getView(), R.color.CAM_X0201);
             ap.setViewTextColor(this.fLt, R.color.CAM_X0105);
-            a(this.fLv, this.ihl.isLiked);
+            a(this.fLv, this.ihn.isLiked);
         }
         this.mSkinType = i;
     }

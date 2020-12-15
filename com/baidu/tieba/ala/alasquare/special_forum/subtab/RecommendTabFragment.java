@@ -38,23 +38,23 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class RecommendTabFragment extends SpecialForumTabBaseFragment {
-    private BdTypeListView gpX;
-    private PbListView gre;
-    private a gyr;
-    private SpecialRecommendTabModel gys;
+    private BdTypeListView gpZ;
+    private PbListView grg;
+    private a gyt;
+    private SpecialRecommendTabModel gyu;
     private g mPullView;
     private h mRefreshView;
     private View mRootView;
     private boolean mHasMore = true;
-    private boolean gya = false;
+    private boolean gyc = false;
     private boolean mIsInit = false;
-    private SpecialRecommendTabModel.a gyt = new SpecialRecommendTabModel.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment.1
+    private SpecialRecommendTabModel.a gyv = new SpecialRecommendTabModel.a() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment.1
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.a
         public void m(List<q> list, boolean z) {
             RecommendTabFragment.this.mHasMore = z;
             RecommendTabFragment.this.mIsInit = true;
             if (!y.isEmpty(list)) {
-                RecommendTabFragment.this.gpX.setData(list);
+                RecommendTabFragment.this.gpZ.setData(list);
             }
             if (!RecommendTabFragment.this.mHasMore) {
                 RecommendTabFragment.this.Ya();
@@ -69,25 +69,25 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.a
         public void t(int i, String str) {
             RecommendTabFragment.this.hideLoadingView(RecommendTabFragment.this.mRootView);
-            RecommendTabFragment.this.bTa();
-            RecommendTabFragment.this.bSe();
+            RecommendTabFragment.this.bTb();
+            RecommendTabFragment.this.bSf();
         }
     };
     private BdListView.e WQ = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment.2
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                RecommendTabFragment.this.bTa();
+                RecommendTabFragment.this.bTb();
             } else if (RecommendTabFragment.this.mHasMore) {
-                RecommendTabFragment.this.gys.bSo();
+                RecommendTabFragment.this.gyu.bSp();
             }
         }
     };
-    private final f.c gyc = new f.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment.3
+    private final f.c gye = new f.c() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment.3
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                RecommendTabFragment.this.gys.VC();
+                RecommendTabFragment.this.gyu.VC();
             } else {
                 RecommendTabFragment.this.lx(false);
             }
@@ -101,9 +101,9 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.gys == null) {
-            this.gys = new SpecialRecommendTabModel(getPageContext());
-            this.gys.a(this.gyt);
+        if (this.gyu == null) {
+            this.gyu = new SpecialRecommendTabModel(getPageContext());
+            this.gyu.a(this.gyv);
         }
     }
 
@@ -111,25 +111,25 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         if (this.mRootView == null) {
             this.mRootView = layoutInflater.inflate(R.layout.special_bar_recommend_tab, viewGroup, false);
-            this.gpX = (BdTypeListView) this.mRootView.findViewById(R.id.content_thread);
-            this.gpX.setFadingEdgeLength(0);
-            this.gpX.setOverScrollMode(2);
-            this.gpX.setScrollable(this);
-            this.gpX.setOnSrollToBottomListener(this.WQ);
+            this.gpZ = (BdTypeListView) this.mRootView.findViewById(R.id.content_thread);
+            this.gpZ.setFadingEdgeLength(0);
+            this.gpZ.setOverScrollMode(2);
+            this.gpZ.setScrollable(this);
+            this.gpZ.setOnSrollToBottomListener(this.WQ);
             this.mPullView = new g(getPageContext());
-            this.mPullView.setListPullRefreshListener(this.gyc);
-            this.gpX.setPullRefresh(this.mPullView);
-            this.gre = new PbListView(getContext());
-            this.gre.createView();
-            this.gre.setContainerBackgroundColorResId(R.color.CAM_X0201);
-            this.gre.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-            this.gre.setLineGone();
-            this.gre.setTextSize(R.dimen.tbfontsize33);
-            this.gre.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.gre.setNoMoreTextColorId(R.color.CAM_X0110);
-            this.gre.getView().setLayoutParams(new AbsListView.LayoutParams(-1, -2));
-            this.gyr = new a();
-            this.gpX.addAdapters(this.gyr.bnf);
+            this.mPullView.setListPullRefreshListener(this.gye);
+            this.gpZ.setPullRefresh(this.mPullView);
+            this.grg = new PbListView(getContext());
+            this.grg.createView();
+            this.grg.setContainerBackgroundColorResId(R.color.CAM_X0201);
+            this.grg.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
+            this.grg.setLineGone();
+            this.grg.setTextSize(R.dimen.tbfontsize33);
+            this.grg.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.grg.setNoMoreTextColorId(R.color.CAM_X0110);
+            this.grg.getView().setLayoutParams(new AbsListView.LayoutParams(-1, -2));
+            this.gyt = new a();
+            this.gpZ.addAdapters(this.gyt.bnf);
         }
         if (this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
@@ -147,7 +147,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSe() {
+    public void bSf() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             this.mRefreshView.setTitle(null);
@@ -157,10 +157,10 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         }
         this.mRefreshView.setSubText(getPageContext().getResources().getString(R.string.square_sub_list_no_data));
         this.mRefreshView.onChangeSkinType();
-        if (!this.gya) {
-            this.gpX.addHeaderView(this.mRefreshView.getAttachedView(), 0);
+        if (!this.gyc) {
+            this.gpZ.addHeaderView(this.mRefreshView.getAttachedView(), 0);
         }
-        this.gya = true;
+        this.gyc = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -172,45 +172,45 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
 
     private void refreshData() {
         this.mIsInit = false;
-        this.gys.VC();
+        this.gyu.VC();
         showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(R.dimen.ds230));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Yb() {
-        if (this.gpX != null && this.mRefreshView != null) {
-            this.gpX.removeHeaderView(this.mRefreshView.getAttachedView());
+        if (this.gpZ != null && this.mRefreshView != null) {
+            this.gpZ.removeHeaderView(this.mRefreshView.getAttachedView());
         }
-        this.gya = false;
+        this.gyc = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void XZ() {
-        this.gpX.setNextPage(this.gre);
-        this.gre.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-        this.gre.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.gre.startLoadData();
+        this.gpZ.setNextPage(this.grg);
+        this.grg.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
+        this.grg.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.grg.startLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ya() {
-        this.gpX.setNextPage(this.gre);
-        this.gre.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-        this.gre.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.gre.setText(getResources().getString(R.string.list_no_more));
-        this.gre.endLoadData();
+        this.gpZ.setNextPage(this.grg);
+        this.grg.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
+        this.grg.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.grg.setText(getResources().getString(R.string.list_no_more));
+        this.grg.endLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTa() {
-        this.gpX.setNextPage(this.gre);
-        this.gre.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
-        this.gre.hideWithoutEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+    public void bTb() {
+        this.gpZ.setNextPage(this.grg);
+        this.grg.setHeight(l.getDimens(getContext(), R.dimen.tbds182));
+        this.grg.hideWithoutEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
     }
 
     public void lx(boolean z) {
         if (!z) {
-            this.gpX.completePullRefresh();
+            this.gpZ.completePullRefresh();
         }
     }
 
@@ -220,51 +220,51 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.gre != null) {
-            this.gre.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.gre.changeSkin(i);
+        if (this.grg != null) {
+            this.grg.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.grg.changeSkin(i);
         }
-        ap.setBackgroundColor(this.gpX, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.gpZ, R.color.CAM_X0201);
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
-    public void bSZ() {
-        super.bSZ();
-        if (this.gpX != null) {
-            this.gpX.smoothScrollToPosition(0);
-            this.gpX.startPullRefresh();
+    public void bTa() {
+        super.bTa();
+        if (this.gpZ != null) {
+            this.gpZ.smoothScrollToPosition(0);
+            this.gpZ.startPullRefresh();
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
     protected void notifyDataSetChanged() {
-        if (this.gpX != null) {
-            this.gpX.getAdapter().notifyDataSetChanged();
+        if (this.gpZ != null) {
+            this.gpZ.getAdapter().notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.gpX.setOnSrollToBottomListener(null);
-        this.gpX.setScrollable(null);
-        this.gys.onDestroy();
+        this.gpZ.setOnSrollToBottomListener(null);
+        this.gpZ.setScrollable(null);
+        this.gyu.onDestroy();
         hideLoadingView(this.mRootView);
     }
 
     /* loaded from: classes6.dex */
     class a {
         private List<com.baidu.adp.widget.ListView.a> bnf = new LinkedList();
-        private com.baidu.tieba.ala.alasquare.special_forum.a.f gym;
-        private e gyv;
+        private com.baidu.tieba.ala.alasquare.special_forum.a.f gyo;
+        private e gyx;
 
         public a() {
-            this.gyv = new e(RecommendTabFragment.this.getPageContext());
-            this.gym = new com.baidu.tieba.ala.alasquare.special_forum.a.f(RecommendTabFragment.this.getPageContext());
-            this.gym.setFrom(2);
-            this.bnf.add(this.gyv);
-            this.bnf.add(this.gym);
-            this.gym.b(new i() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment.a.1
+            this.gyx = new e(RecommendTabFragment.this.getPageContext());
+            this.gyo = new com.baidu.tieba.ala.alasquare.special_forum.a.f(RecommendTabFragment.this.getPageContext());
+            this.gyo.setFrom(2);
+            this.bnf.add(this.gyx);
+            this.bnf.add(this.gyo);
+            this.gyo.b(new i() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment.a.1
                 @Override // com.baidu.tieba.ala.alasquare.subtablist.c.i
                 public void a(int i, String str, by byVar) {
                     a.this.a(RecommendTabFragment.this.getPageContext(), byVar, str);
@@ -293,7 +293,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                 alaLiveInfoCoreData.fillWithInfoData(byVar.bpj());
                 AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
                 alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-                for (by byVar2 : RecommendTabFragment.this.gys.bSY()) {
+                for (by byVar2 : RecommendTabFragment.this.gyu.bSZ()) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(V(byVar2));
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "frs_live_tab_recommend_tab", str2, z, "颜值".equals(str) ? str : null, null)));

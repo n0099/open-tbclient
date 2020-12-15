@@ -11,17 +11,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static Pattern kAv = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    private static Pattern kAx = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
     /* renamed from: com.baidu.tieba.im.message.chat.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0782a {
         public long createTime;
         public String fid;
-        public long kAw;
-        public String kAx;
-        public int kAy;
-        public String klT;
+        public int kAA;
+        public long kAy;
+        public String kAz;
+        public String klV;
         public long picId;
         public long serviceId;
         public String src;
@@ -60,7 +60,7 @@ public class a {
                 C0782a c0782a = new C0782a();
                 if (!TextUtils.isEmpty(optString2)) {
                     optString2 = optString2.trim();
-                    Matcher matcher = kAv.matcher(optString2);
+                    Matcher matcher = kAx.matcher(optString2);
                     if (matcher.find()) {
                         c0782a.tid = matcher.group(1);
                     }
@@ -73,14 +73,14 @@ public class a {
                 c0782a.picId = optLong;
                 c0782a.taskId = j2;
                 c0782a.serviceId = j3;
-                c0782a.klT = optString5;
+                c0782a.klV = optString5;
                 if (i > -1) {
                     c0782a.userType = i;
                 }
                 if (userData != null) {
-                    c0782a.kAw = j;
-                    c0782a.kAx = userData.getUserId();
-                    c0782a.kAy = userData.getUserType();
+                    c0782a.kAy = j;
+                    c0782a.kAz = userData.getUserId();
+                    c0782a.kAA = userData.getUserType();
                 }
                 linkedList.add(c0782a);
             }

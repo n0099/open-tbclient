@@ -26,25 +26,25 @@ public class an extends o<com.baidu.tieba.pb.data.l, com.baidu.tieba.pb.pb.a.b> 
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.l lVar, com.baidu.tieba.pb.pb.a.b bVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (com.baidu.tieba.pb.data.l) bVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        bVar.mTextView.setText(lVar.lBT);
-        if (lVar.lBS != 0) {
-            com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, lVar.lBS);
+        bVar.mTextView.setText(lVar.lBV);
+        if (lVar.lBU != 0) {
+            com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, lVar.lBU);
         } else {
             com.baidu.tbadk.core.util.ap.setImageResource(bVar.mImageView, R.drawable.new_pic_emotion_06);
         }
         com.baidu.tbadk.core.util.ap.setViewTextColor(bVar.mTextView, R.color.CAM_X0109);
-        if (lVar.grt != 0 && view.getLayoutParams() != null) {
-            view.getLayoutParams().height = lVar.grt;
+        if (lVar.grv != 0 && view.getLayoutParams() != null) {
+            view.getLayoutParams().height = lVar.grv;
         }
-        if (lVar.lBU != 0) {
+        if (lVar.lBW != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) bVar.mImageView.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.lBU, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, lVar.lBW, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        if (lVar.lBV != 0) {
+        if (lVar.lBX != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) bVar.mTextView.getLayoutParams();
-            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.lBV);
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, lVar.lBX);
         }
-        bVar.mImageView.setVisibility(lVar.lBW);
+        bVar.mImageView.setVisibility(lVar.lBY);
         return view;
     }
 }

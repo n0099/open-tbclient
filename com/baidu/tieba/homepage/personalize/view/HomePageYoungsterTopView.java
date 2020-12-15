@@ -21,15 +21,15 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 /* loaded from: classes22.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
-    private TextView jVB;
-    private ImageView jVC;
-    private b jVD;
-    private a jVE;
+    private TextView jVD;
+    private ImageView jVE;
+    private b jVF;
+    private a jVG;
     private TbPageContext<?> pageContext;
 
     /* loaded from: classes22.dex */
     public interface a {
-        void cQa();
+        void cQb();
     }
 
     public HomePageYoungsterTopView(TbPageContext<?> tbPageContext) {
@@ -52,18 +52,18 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-        this.jVB = (TextView) findViewById(R.id.youngster_top_text);
-        this.jVC = (ImageView) findViewById(R.id.youngster_top_delete);
+        this.jVD = (TextView) findViewById(R.id.youngster_top_text);
+        this.jVE = (ImageView) findViewById(R.id.youngster_top_delete);
         SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
-        this.jVD = new b(getContext());
-        spannableString.setSpan(this.jVD, 9, 13, 33);
-        this.jVB.setText(spannableString);
-        this.jVB.setMovementMethod(LinkMovementMethod.getInstance());
-        this.jVC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.HomePageYoungsterTopView.1
+        this.jVF = new b(getContext());
+        spannableString.setSpan(this.jVF, 9, 13, 33);
+        this.jVD.setText(spannableString);
+        this.jVD.setMovementMethod(LinkMovementMethod.getInstance());
+        this.jVE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.HomePageYoungsterTopView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HomePageYoungsterTopView.this.jVE != null) {
-                    HomePageYoungsterTopView.this.jVE.cQa();
+                if (HomePageYoungsterTopView.this.jVG != null) {
+                    HomePageYoungsterTopView.this.jVG.cQb();
                 }
             }
         });
@@ -71,22 +71,22 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     }
 
     public void setOnDeleteClick(a aVar) {
-        this.jVE = aVar;
+        this.jVG = aVar;
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.CAM_X0206);
-        ap.setViewTextColor(this.jVB, R.color.CAM_X0107);
-        ap.setImageResource(this.jVC, R.drawable.icon_home_card_delete);
+        ap.setViewTextColor(this.jVD, R.color.CAM_X0107);
+        ap.setImageResource(this.jVE, R.drawable.icon_home_card_delete);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes22.dex */
     public static class b extends ClickableSpan {
-        WeakReference<Context> jVG;
+        WeakReference<Context> jVI;
 
         public b(Context context) {
-            this.jVG = new WeakReference<>(context);
+            this.jVI = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -97,7 +97,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            Context context = this.jVG.get();
+            Context context = this.jVI.get();
             if (context != null && com.baidu.tbadk.youngster.b.c.bKl()) {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);

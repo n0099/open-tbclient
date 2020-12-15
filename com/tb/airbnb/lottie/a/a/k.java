@@ -11,7 +11,7 @@ import java.util.ListIterator;
 /* loaded from: classes20.dex */
 public class k implements i, l {
     private final String name;
-    private final MergePaths pBc;
+    private final MergePaths pBe;
     private final Path Ei = new Path();
     private final Path Ej = new Path();
     private final Path path = new Path();
@@ -22,7 +22,7 @@ public class k implements i, l {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
         this.name = mergePaths.getName();
-        this.pBc = mergePaths;
+        this.pBe = mergePaths;
     }
 
     @Override // com.tb.airbnb.lottie.a.a.i
@@ -55,7 +55,7 @@ public class k implements i, l {
     @Override // com.tb.airbnb.lottie.a.a.l
     public Path iW() {
         this.path.reset();
-        switch (this.pBc.eBD()) {
+        switch (this.pBe.eBE()) {
             case Merge:
                 ja();
                 break;

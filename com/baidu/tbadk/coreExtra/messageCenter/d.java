@@ -33,7 +33,7 @@ public class d {
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.dQk();
+        com.baidu.tieba.tbadkCore.util.a.dQl();
     }
 
     public void bzm() {

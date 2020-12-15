@@ -4,18 +4,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private JSONObject gKh;
-    private JSONObject gKm;
+    private JSONObject gKj;
+    private JSONObject gKo;
     public String roomId = null;
     public String cover = null;
     public String extra = null;
 
-    public JSONObject cxJ() {
-        return this.gKh;
+    public JSONObject cxK() {
+        return this.gKj;
     }
 
-    public JSONObject cxK() {
-        return this.gKm;
+    public JSONObject cxL() {
+        return this.gKo;
     }
 
     public static c JS(String str) {
@@ -34,17 +34,17 @@ public class c {
             return null;
         }
         c cVar = new c();
-        cVar.gKh = jSONObject.optJSONObject("extra");
-        cVar.gKm = jSONObject.optJSONObject("src");
+        cVar.gKj = jSONObject.optJSONObject("extra");
+        cVar.gKo = jSONObject.optJSONObject("src");
         try {
+            JSONObject cxL = cVar.cxL();
+            if (cxL != null) {
+                cVar.roomId = cxL.optString("room_id");
+                cVar.cover = cxL.optString("cover");
+            }
             JSONObject cxK = cVar.cxK();
             if (cxK != null) {
-                cVar.roomId = cxK.optString("room_id");
-                cVar.cover = cxK.optString("cover");
-            }
-            JSONObject cxJ = cVar.cxJ();
-            if (cxJ != null) {
-                cVar.extra = cxJ.toString();
+                cVar.extra = cxK.toString();
                 return cVar;
             }
             return cVar;

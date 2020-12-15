@@ -13,13 +13,13 @@ public interface h {
 
     void bG(int i, String str);
 
-    void diK();
-
     void diL();
 
     void diM();
 
     void diN();
+
+    void diO();
 
     void o(int i, int i2, String str);
 }

@@ -46,7 +46,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendlist.data.a aVar, C0857a c0857a) {
-        c0857a.a(aVar.mQw, i, this.type, this.bur);
+        c0857a.a(aVar.mQy, i, this.type, this.bur);
         return view;
     }
 
@@ -58,50 +58,50 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
     /* loaded from: classes4.dex */
     public static class C0857a extends TypeAdapter.ViewHolder {
         private w bur;
-        private String hTP;
+        private String hTR;
         private Context mContext;
         private int mPosition;
-        private HeadImageView mQh;
-        private TextView mQi;
-        private TBLottieAnimationView mQj;
+        private HeadImageView mQj;
         private TextView mQk;
-        private AlaRecommendLiveData mQl;
+        private TBLottieAnimationView mQl;
+        private TextView mQm;
+        private AlaRecommendLiveData mQn;
         private View rootView;
 
         private C0857a(View view, Context context) {
             super(view);
-            this.hTP = "";
+            this.hTR = "";
             this.mContext = context;
             this.rootView = view;
-            this.mQh = (HeadImageView) view.findViewById(a.f.ala_headImage);
-            this.mQi = (TextView) view.findViewById(a.f.ala_liveroom_name);
-            this.mQj = (TBLottieAnimationView) view.findViewById(a.f.ala_headImage_lottieView);
-            this.mQk = (TextView) view.findViewById(a.f.ala_audience_count);
+            this.mQj = (HeadImageView) view.findViewById(a.f.ala_headImage);
+            this.mQk = (TextView) view.findViewById(a.f.ala_liveroom_name);
+            this.mQl = (TBLottieAnimationView) view.findViewById(a.f.ala_headImage_lottieView);
+            this.mQm = (TextView) view.findViewById(a.f.ala_audience_count);
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.hTP = "@resize{w:" + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds100) + ",h:" + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds100) + "}";
+                this.hTR = "@resize{w:" + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds100) + ",h:" + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds100) + "}";
             } else {
-                this.hTP = "";
+                this.hTR = "";
             }
-            this.mQj.setImageAssetsFolder("images/");
+            this.mQl.setImageAssetsFolder("images/");
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.mQj.setAnimation("headNightJson.json");
+                this.mQl.setAnimation("headNightJson.json");
             } else {
-                this.mQj.setAnimation("headDayJson.json");
+                this.mQl.setAnimation("headDayJson.json");
             }
         }
 
         public void a(final AlaRecommendLiveData alaRecommendLiveData, int i, int i2, w wVar) {
             if (alaRecommendLiveData != null) {
                 this.bur = wVar;
-                this.mQl = alaRecommendLiveData;
+                this.mQn = alaRecommendLiveData;
                 this.mPosition = i;
-                this.mQh.setIsRound(true);
-                this.mQh.setDrawBorder(false);
-                this.mQh.setDefaultBgResource(a.c.sdk_transparent);
-                this.mQh.startLoad(alaRecommendLiveData.cover + this.hTP, 10, false);
-                this.mQi.setText(alaRecommendLiveData.getNameShow());
-                if (i2 == 101 && this.mQk != null) {
-                    this.mQk.setText(alaRecommendLiveData.audience_count + "观看");
+                this.mQj.setIsRound(true);
+                this.mQj.setDrawBorder(false);
+                this.mQj.setDefaultBgResource(a.c.sdk_transparent);
+                this.mQj.startLoad(alaRecommendLiveData.cover + this.hTR, 10, false);
+                this.mQk.setText(alaRecommendLiveData.getNameShow());
+                if (i2 == 101 && this.mQm != null) {
+                    this.mQm.setText(alaRecommendLiveData.audience_count + "观看");
                 }
                 this.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.a.a.1
                     @Override // android.view.View.OnClickListener
@@ -109,7 +109,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.a, 
                         C0857a.this.a(alaRecommendLiveData);
                     }
                 });
-                this.mQj.playAnimation();
+                this.mQl.playAnimation();
             }
         }
 

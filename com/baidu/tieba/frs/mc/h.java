@@ -20,39 +20,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes22.dex */
 public class h extends j {
-    private String jpJ;
-    private final CustomMessageListener jpR;
-    private by jsq;
-    private boolean jsr;
-    private PraiseModel jss;
+    private String jpL;
+    private final CustomMessageListener jpT;
+    private by jss;
+    private boolean jst;
+    private PraiseModel jsu;
 
     public h(FrsFragment frsFragment) {
         super(frsFragment);
-        this.jpR = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
+        this.jpT = new CustomMessageListener(CmdConfigCustom.PB_ACTION_PRAISE) { // from class: com.baidu.tieba.frs.mc.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof by)) {
                     by byVar = (by) customResponsedMessage.getData();
-                    h.this.jpJ = byVar.getId();
-                    if (!TextUtils.isEmpty(h.this.jpJ) && byVar.boA() != null) {
+                    h.this.jpL = byVar.getId();
+                    if (!TextUtils.isEmpty(h.this.jpL) && byVar.boA() != null) {
                         h.this.Bf(byVar.boA().getIsLike());
                     }
                 }
             }
         };
-        this.jrk.registerListener(this.jpR);
-        this.jss = cJx();
+        this.jrm.registerListener(this.jpT);
+        this.jsu = cJy();
     }
 
-    public final PraiseModel cJx() {
-        if (this.jss == null) {
-            this.jss = new PraiseModel(this.jrk.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
+    public final PraiseModel cJy() {
+        if (this.jsu == null) {
+            this.jsu = new PraiseModel(this.jrm.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void FQ(String str) {
                     int i = 1;
-                    if (h.this.jsr) {
-                        if (h.this.jsq != null && h.this.jsq.boA().getIsLike() == 1) {
+                    if (h.this.jst) {
+                        if (h.this.jss != null && h.this.jss.boA().getIsLike() == 1) {
                             i = 0;
                         }
                         h.this.Bf(i);
@@ -62,23 +62,23 @@ public class h extends j {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void onLoadFailed(int i, String str) {
-                    if (h.this.jrk != null && h.this.jrk.getPageContext() != null && h.this.jsr && !TextUtils.isEmpty(str)) {
+                    if (h.this.jrm != null && h.this.jrm.getPageContext() != null && h.this.jst && !TextUtils.isEmpty(str)) {
                         if (AntiHelper.bP(i, str)) {
-                            AntiHelper.bn(h.this.jrk.getPageContext().getPageActivity(), str);
+                            AntiHelper.bn(h.this.jrm.getPageContext().getPageActivity(), str);
                         } else {
-                            h.this.jrk.showToast(str);
+                            h.this.jrm.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.jss;
+        return this.jsu;
     }
 
     public void Bf(int i) {
         ArrayList<q> threadList;
-        FrsViewData cCJ = this.jrk.cCJ();
-        if (cCJ != null && this.iSV != null && (threadList = cCJ.getThreadList()) != null) {
+        FrsViewData cCK = this.jrm.cCK();
+        if (cCK != null && this.iSX != null && (threadList = cCK.getThreadList()) != null) {
             Iterator<q> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -87,19 +87,19 @@ public class h extends j {
                 q next = it.next();
                 if (next instanceof bx) {
                     by byVar = ((bx) next).eCR;
-                    if (byVar == this.jsq) {
+                    if (byVar == this.jss) {
                         c(byVar, i);
-                        this.jsq = null;
+                        this.jss = null;
                         break;
-                    } else if (byVar.getId() != null && byVar.getId().equals(this.jpJ)) {
+                    } else if (byVar.getId() != null && byVar.getId().equals(this.jpL)) {
                         c(byVar, i);
-                        this.jpJ = null;
+                        this.jpL = null;
                         break;
                     }
                 }
             }
-            this.iSV.cDE().b(threadList, cCJ);
-            this.iSV.cDE().notifyDataSetChanged();
+            this.iSX.cDF().b(threadList, cCK);
+            this.iSX.cDF().notifyDataSetChanged();
         }
     }
 
@@ -144,6 +144,6 @@ public class h extends j {
     }
 
     public void qR(boolean z) {
-        this.jsr = z;
+        this.jst = z;
     }
 }

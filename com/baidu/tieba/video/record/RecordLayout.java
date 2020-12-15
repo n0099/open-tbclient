@@ -14,13 +14,13 @@ public class RecordLayout extends RelativeLayout {
     private int mMaximumVelocity;
     private int mMinimumVelocity;
     private VelocityTracker mVelocityTracker;
-    private a nIG;
+    private a nII;
 
     /* loaded from: classes23.dex */
     public interface a {
-        void dWm();
-
         void dWn();
+
+        void dWo();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.nIG != null) {
+                if (this.nII != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.nIG.dWn();
+                            this.nII.dWo();
                         } else {
-                            this.nIG.dWm();
+                            this.nII.dWn();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) {
                         if (rawX > 0) {
-                            this.nIG.dWn();
+                            this.nII.dWo();
                         } else {
-                            this.nIG.dWn();
+                            this.nII.dWo();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.nIG = aVar;
+        this.nII = aVar;
     }
 }

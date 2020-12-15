@@ -11,7 +11,7 @@ public class a {
     private long fTQ;
     private boolean fTR;
     private boolean fTS;
-    private InterfaceC0692a hui;
+    private InterfaceC0692a huk;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -65,18 +65,18 @@ public class a {
                     this.fTR = false;
                 }
                 if (this.fTS) {
-                    if (this.hui != null) {
-                        this.hui.y(motionEvent.getRawX(), motionEvent.getRawY());
+                    if (this.huk != null) {
+                        this.huk.y(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cBL - motionEvent.getY()) && this.hui != null) {
-                    this.hui.bJZ();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cBL - motionEvent.getY()) && this.huk != null) {
+                    this.huk.bJZ();
                 }
                 if (!this.fTS && this.fTR && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cBL - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.livepager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.fTS && a.this.fTR && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cBL - motionEvent.getY()) < 30.0f && a.this.hui != null) {
-                                a.this.hui.bJY();
+                            if (!a.this.fTS && a.this.fTR && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cBL - motionEvent.getY()) < 30.0f && a.this.huk != null) {
+                                a.this.huk.bJY();
                             }
                         }
                     }, 300L);
@@ -92,7 +92,7 @@ public class a {
     }
 
     public void setEventListener(InterfaceC0692a interfaceC0692a) {
-        this.hui = interfaceC0692a;
+        this.huk = interfaceC0692a;
     }
 
     private void releaseVelocityTracker() {

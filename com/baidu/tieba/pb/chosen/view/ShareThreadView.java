@@ -13,13 +13,13 @@ import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public final class ShareThreadView extends LinearLayout {
     private TbImageView fzX;
-    private EditText jCr;
-    private TextView khg;
+    private EditText jCt;
+    private TextView khi;
     private LinearLayout mRootView;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.jCr;
+        return this.jCt;
     }
 
     public void aQ(String str, boolean z) {
@@ -44,25 +44,25 @@ public final class ShareThreadView extends LinearLayout {
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
         this.title = (TextView) findViewById(R.id.share_title_view);
         ap.setViewTextColor(this.title, R.color.CAM_X0105, 1);
-        this.jCr = (EditText) findViewById(R.id.chat_msg);
+        this.jCt = (EditText) findViewById(R.id.chat_msg);
         this.fzX = (TbImageView) findViewById(R.id.chat_group_img);
-        this.khg = (TextView) findViewById(R.id.chat_group_desc);
-        ap.setViewTextColor(this.jCr, R.color.CAM_X0105, 2);
-        ap.setViewTextColor(this.khg, R.color.CAM_X0106, 1);
-        this.jCr.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        this.jCr.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cMg();
+        this.khi = (TextView) findViewById(R.id.chat_group_desc);
+        ap.setViewTextColor(this.jCt, R.color.CAM_X0105, 2);
+        ap.setViewTextColor(this.khi, R.color.CAM_X0106, 1);
+        this.jCt.setHintTextColor(ap.getColor(R.color.CAM_X0110));
+        this.jCt.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        cMh();
     }
 
-    public void cMg() {
+    public void cMh() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public void setDesc(String str) {
-        if (this.khg != null) {
-            this.khg.setText(str);
+        if (this.khi != null) {
+            this.khi.setText(str);
         }
     }
 
@@ -73,8 +73,8 @@ public final class ShareThreadView extends LinearLayout {
     }
 
     public String getLeaveMsg() {
-        if (this.jCr != null) {
-            return k.charSequence2String(this.jCr.getText(), null);
+        if (this.jCt != null) {
+            return k.charSequence2String(this.jCt.getText(), null);
         }
         return null;
     }

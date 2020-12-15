@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext gML;
-    private d gMM;
+    private TbPageContext gMN;
+    private d gMO;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gML = tbPageContext;
+        this.gMN = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.gMM = new d(this.gML);
-        ((ViewGroup) getView()).addView(this.gMM.getView());
+        this.gMO = new d(this.gMN);
+        ((ViewGroup) getView()).addView(this.gMO.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gMM != null) {
-            this.gMM.onChangeSkinType(tbPageContext, i);
+        if (this.gMO != null) {
+            this.gMO.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.eCR != null && this.gMM != null) {
-            this.gMM.a(cVar.eCR);
+        if (cVar != null && cVar.eCR != null && this.gMO != null) {
+            this.gMO.a(cVar.eCR);
         }
     }
 
@@ -46,18 +46,18 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     public void c(com.baidu.tieba.ala.f fVar) {
-        if (this.gMM != null) {
-            this.gMM.d(fVar);
+        if (this.gMO != null) {
+            this.gMO.d(fVar);
         }
     }
 
     /* loaded from: classes6.dex */
     public static class a extends af.a {
-        public f gMN;
+        public f gMP;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.gMN = fVar;
+            this.gMP = fVar;
         }
     }
 }

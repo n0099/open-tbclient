@@ -37,68 +37,68 @@ public class a implements com.baidu.live.e.b {
     private int mLastScreenHeight;
     private int mLastScreenWidth;
     private TbPageContext mPageContext;
-    private com.baidu.live.e.a ozE;
-    private b ozF;
+    private com.baidu.live.e.a ozG;
+    private b ozH;
     private Handler mHandler = new Handler();
     private boolean mIsKeyboardOpen = false;
     private boolean bJi = true;
-    private boolean hRq = false;
-    private int huC = -1;
-    private CustomMessageListener huD = new CustomMessageListener(2913011, false) { // from class: com.baidu.tieba.yuyinala.player.a.1
+    private boolean hRs = false;
+    private int huE = -1;
+    private CustomMessageListener huF = new CustomMessageListener(2913011, false) { // from class: com.baidu.tieba.yuyinala.player.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage instanceof AlaCloseLiveRoomResponsedMessage) && a.this.ozF != null) {
-                a.this.ozF.S(false, true);
+            if (customResponsedMessage != null && (customResponsedMessage instanceof AlaCloseLiveRoomResponsedMessage) && a.this.ozH != null) {
+                a.this.ozH.S(false, true);
             }
         }
     };
-    private CustomMessageListener hRr = new CustomMessageListener(2913086) { // from class: com.baidu.tieba.yuyinala.player.a.2
+    private CustomMessageListener hRt = new CustomMessageListener(2913086) { // from class: com.baidu.tieba.yuyinala.player.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (a.this.ozF != null) {
-                a.this.ozF.oA(false);
-                a.this.ozF.bZf();
+            if (a.this.ozH != null) {
+                a.this.ozH.oA(false);
+                a.this.ozH.bZg();
             }
         }
     };
-    private CustomMessageListener hdn = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.yuyinala.player.a.3
+    private CustomMessageListener hdp = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.yuyinala.player.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int netType = BdNetTypeUtil.netType();
-            if (netType != a.this.huC) {
-                a.this.huC = netType;
+            if (netType != a.this.huE) {
+                a.this.huE = netType;
                 NetWorkChangedMessage netWorkChangedMessage = (NetWorkChangedMessage) customResponsedMessage;
                 if (netWorkChangedMessage.mLastNetState != netType || !BdNetTypeUtil.isWifiNet() || netWorkChangedMessage.mlastChangedTime != 0) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        a.this.cgW();
-                        if (a.this.ozF != null) {
-                            a.this.ozF.ox(false);
+                        a.this.cgX();
+                        if (a.this.ozH != null) {
+                            a.this.ozH.ox(false);
                             return;
                         }
                         return;
                     }
                     if (BdNetTypeUtil.isMobileNet() && l.Ww()) {
-                        a.this.cgV();
+                        a.this.cgW();
                     } else if (BdNetTypeUtil.isWifiNet()) {
-                        a.this.cgX();
+                        a.this.cgY();
                     }
-                    if (a.this.ozF != null) {
-                        a.this.ozF.onStart();
-                        a.this.ozF.coc();
+                    if (a.this.ozH != null) {
+                        a.this.ozH.onStart();
+                        a.this.ozH.cod();
                     }
                 }
             }
         }
     };
-    private CustomMessageListener hRs = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.yuyinala.player.a.4
+    private CustomMessageListener hRu = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.yuyinala.player.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof AccountData) {
-                a.this.cnr();
+                a.this.cns();
             }
         }
     };
@@ -108,18 +108,18 @@ public class a implements com.baidu.live.e.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    a.this.cgW();
-                    if (a.this.ozF != null) {
-                        a.this.ozF.ox(false);
+                    a.this.cgX();
+                    if (a.this.ozH != null) {
+                        a.this.ozH.ox(false);
                     }
-                } else if (a.this.ozF != null) {
-                    if (a.this.ozF.cnL()) {
+                } else if (a.this.ozH != null) {
+                    if (a.this.ozH.cnM()) {
                         if (!TbadkCoreApplication.isShownNetChangeDialog.booleanValue() && BdNetTypeUtil.isMobileNet() && l.Ww()) {
                             TbadkCoreApplication.isShownNetChangeDialog = true;
-                            a.this.cgV();
+                            a.this.cgW();
                         }
                     } else if (BdNetTypeUtil.isMobileNet() && l.Ww()) {
-                        a.this.cgV();
+                        a.this.cgW();
                     }
                 }
             }
@@ -134,23 +134,23 @@ public class a implements com.baidu.live.e.b {
     @Override // com.baidu.live.e.b
     public void a(TbPageContext tbPageContext, com.baidu.live.e.a aVar) {
         this.mPageContext = tbPageContext;
-        this.ozE = aVar;
+        this.ozG = aVar;
         init();
     }
 
     private void init() {
         if (MessageManager.getInstance().findTask(2913060) != null) {
-            this.hRq = false;
+            this.hRs = false;
             BdUtilHelper.showToast(getPageContext().getPageActivity(), a.h.ala_master_on_live_no_watch_other_live);
             b(false, false, -1L);
             return;
         }
-        this.hRq = true;
+        this.hRs = true;
         MessageManager.getInstance().dispatchResponsedMessage(new AlaCloseLiveRoomResponsedMessage());
-        MessageManager.getInstance().registerListener(this.huD);
-        MessageManager.getInstance().registerListener(this.hRr);
-        MessageManager.getInstance().registerListener(this.hdn);
-        MessageManager.getInstance().registerListener(this.hRs);
+        MessageManager.getInstance().registerListener(this.huF);
+        MessageManager.getInstance().registerListener(this.hRt);
+        MessageManager.getInstance().registerListener(this.hdp);
+        MessageManager.getInstance().registerListener(this.hRu);
         MessageManager.getInstance().registerListener(this.byv);
         UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         getPageContext().getPageActivity().getWindow().addFlags(128);
@@ -164,20 +164,20 @@ public class a implements com.baidu.live.e.b {
         this.mLastScreenHeight = screenDimensions[1];
         this.mLastScreenWidth = screenDimensions[0];
         if (!UtilHelper.isARM()) {
-            cgQ();
+            cgR();
             return;
         }
         Intent intent = getPageContext().getPageActivity().getIntent();
         if (intent != null && intent.getExtras() != null) {
-            this.ozF = new b(getPageContext(), this);
-            this.ozF.aw(intent);
+            this.ozH = new b(getPageContext(), this);
+            this.ozH.aw(intent);
             return;
         }
         getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.h.ala_entry_live_failed));
         b(false, false, -1L);
     }
 
-    private void cgQ() {
+    private void cgR() {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(getPageContext().getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -194,8 +194,8 @@ public class a implements com.baidu.live.e.b {
 
     @Override // com.baidu.live.e.b
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.ozF != null) {
-            this.ozF.dX(getPageContext().getPageActivity().getResources().getConfiguration().orientation);
+        if (this.ozH != null) {
+            this.ozH.dX(getPageContext().getPageActivity().getResources().getConfiguration().orientation);
         }
     }
 
@@ -210,13 +210,13 @@ public class a implements com.baidu.live.e.b {
                 boolean z = a.this.availableHeight != rect.bottom;
                 a.this.availableHeight = rect.bottom;
                 if (a.this.mLastScreenHeight != screenFullSize[1]) {
-                    if (a.this.ozF != null) {
-                        a.this.ozF.cnT();
+                    if (a.this.ozH != null) {
+                        a.this.ozH.cnU();
                     }
                     a.this.mLastScreenHeight = screenFullSize[1];
                 } else if (a.this.mLastScreenWidth != screenFullSize[0]) {
-                    if (a.this.ozF != null) {
-                        a.this.ozF.cnT();
+                    if (a.this.ozH != null) {
+                        a.this.ozH.cnU();
                     }
                     a.this.mLastScreenWidth = screenFullSize[0];
                 }
@@ -236,11 +236,11 @@ public class a implements com.baidu.live.e.b {
     @Override // com.baidu.live.e.b
     public void onWindowFocusChanged(boolean z) {
         int realScreenOrientation = UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity());
-        if (this.ozF != null) {
+        if (this.ozH != null) {
             if (realScreenOrientation == 2) {
-                this.ozF.cnU();
+                this.ozH.cnV();
             } else {
-                this.ozF.cnV();
+                this.ozH.cnW();
             }
         }
     }
@@ -249,27 +249,27 @@ public class a implements com.baidu.live.e.b {
     public void onResume() {
         TbadkCoreApplication.getInst().AddResumeNum();
         this.bJi = true;
-        if (this.ozF != null) {
-            this.ozF.onResume();
+        if (this.ozH != null) {
+            this.ozH.onResume();
         }
         UtilHelper.changeStatusBarIconAndTextColor(true, getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgX() {
+    public void cgY() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getResources().getString(a.h.ala_watch_live_user_has_change_to_wifi));
         }
     }
 
-    public void cgV() {
+    public void cgW() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.h.ala_watch_live_mobile_net_tip));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgW() {
+    public void cgX() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getString(a.h.ala_create_no_network));
         }
@@ -277,60 +277,60 @@ public class a implements com.baidu.live.e.b {
 
     @Override // com.baidu.live.e.b
     public void onStart() {
-        if (this.ozF != null) {
-            this.ozF.oC(false);
-            this.ozF.onStart();
+        if (this.ozH != null) {
+            this.ozH.oC(false);
+            this.ozH.onStart();
         }
     }
 
     @Override // com.baidu.live.e.b
     public void onPause() {
         TbadkCoreApplication.getInst().DelResumeNum();
-        if (this.hRq) {
+        if (this.hRs) {
             this.bJi = false;
-            if (this.ozF != null) {
-                this.ozF.onPause();
+            if (this.ozH != null) {
+                this.ozH.onPause();
             }
         }
     }
 
     @Override // com.baidu.live.e.b
     public void onStop() {
-        if (this.ozF != null) {
-            this.ozF.oC(true);
-            this.ozF.ox(true);
+        if (this.ozH != null) {
+            this.ozH.oC(true);
+            this.ozH.ox(true);
         }
         AlaStatManager.getInstance().forceUpload();
     }
 
     @Override // com.baidu.live.e.b
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return i == 4 && this.ozF != null && this.ozF.onKeyDown(i, keyEvent);
+        return i == 4 && this.ozH != null && this.ozH.onKeyDown(i, keyEvent);
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.ozF != null) {
-            this.ozF.onKeyboardVisibilityChanged(z);
+        if (this.ozH != null) {
+            this.ozH.onKeyboardVisibilityChanged(z);
         }
     }
 
     @Override // com.baidu.live.e.b
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.ozF != null) {
-            this.ozF.onActivityResult(i, i2, intent);
+        if (this.ozH != null) {
+            this.ozH.onActivityResult(i, i2, intent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnr() {
+    public void cns() {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.a.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.ozF != null) {
-                        a.this.ozF.nn(true);
-                        a.this.ozF.cnK();
-                        a.this.ozF.cnt();
+                    if (a.this.ozH != null) {
+                        a.this.ozH.nn(true);
+                        a.this.ozH.cnL();
+                        a.this.ozH.cnu();
                     }
                 }
             }, 1L);
@@ -344,11 +344,11 @@ public class a implements com.baidu.live.e.b {
         com.baidu.live.ag.a.b.Sm().release();
         aj.Iy();
         com.baidu.live.entereffect.a.Gi().release();
-        if (this.ozF != null) {
-            this.ozF.cob();
+        if (this.ozH != null) {
+            this.ozH.coc();
         }
-        if (this.ozE != null) {
-            this.ozE.a(z, !z2, j);
+        if (this.ozG != null) {
+            this.ozG.a(z, !z2, j);
         } else {
             getPageContext().getPageActivity().finish();
         }
@@ -356,19 +356,19 @@ public class a implements com.baidu.live.e.b {
 
     @Override // com.baidu.live.e.b
     public void onDestroy() {
-        if (this.hRq) {
-            MessageManager.getInstance().unRegisterListener(this.hRr);
-            MessageManager.getInstance().unRegisterListener(this.huD);
-            MessageManager.getInstance().unRegisterListener(this.hdn);
-            MessageManager.getInstance().unRegisterListener(this.hRs);
+        if (this.hRs) {
+            MessageManager.getInstance().unRegisterListener(this.hRt);
+            MessageManager.getInstance().unRegisterListener(this.huF);
+            MessageManager.getInstance().unRegisterListener(this.hdp);
+            MessageManager.getInstance().unRegisterListener(this.hRu);
             MessageManager.getInstance().unRegisterListener(this.byv);
             MessageManager.getInstance().unRegisterListener(getPageContext().getUniqueId());
             getPageContext().getPageActivity().getWindow().clearFlags(128);
             getPageContext().getPageActivity().getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.globalListener);
             this.globalListener = null;
-            if (this.ozF != null) {
-                this.ozF.destroy();
-                this.ozF = null;
+            if (this.ozH != null) {
+                this.ozH.destroy();
+                this.ozH = null;
             }
             this.mHandler.removeCallbacksAndMessages(null);
             this.mHandler = null;

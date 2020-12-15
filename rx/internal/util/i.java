@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes12.dex */
 public final class i implements k {
-    private volatile boolean pPt;
-    private List<k> pUy;
+    private volatile boolean pPv;
+    private List<k> pUA;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.pUy = new LinkedList(Arrays.asList(kVarArr));
+        this.pUA = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.pUy = new LinkedList();
-        this.pUy.add(kVar);
+        this.pUA = new LinkedList();
+        this.pUA.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.pPt;
+        return this.pPv;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.pPt) {
+            if (!this.pPv) {
                 synchronized (this) {
-                    if (!this.pPt) {
-                        List list = this.pUy;
+                    if (!this.pPv) {
+                        List list = this.pUA;
                         if (list == null) {
                             list = new LinkedList();
-                            this.pUy = list;
+                            this.pUA = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.pPt) {
+        if (!this.pPv) {
             synchronized (this) {
-                List<k> list = this.pUy;
-                if (!this.pPt && list != null) {
+                List<k> list = this.pUA;
+                if (!this.pPv && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.pPt) {
+        if (!this.pPv) {
             synchronized (this) {
-                if (!this.pPt) {
-                    this.pPt = true;
-                    List<k> list = this.pUy;
-                    this.pUy = null;
+                if (!this.pPv) {
+                    this.pPv = true;
+                    List<k> list = this.pUA;
+                    this.pUA = null;
                     u(list);
                 }
             }

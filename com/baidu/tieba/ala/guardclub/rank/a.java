@@ -7,20 +7,20 @@ import android.view.ViewGroup;
 import com.baidu.live.tbadk.core.fragment.SupportXFragment;
 /* loaded from: classes4.dex */
 public abstract class a extends SupportXFragment {
-    private e gQS;
+    private e gQU;
     protected boolean mInitialed;
     protected boolean mVisible;
 
-    protected abstract e bWx();
+    protected abstract e bWy();
 
-    protected abstract int bWy();
+    protected abstract int bWz();
 
     protected abstract void onInflate(View view, Bundle bundle);
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.gQS = bWx();
-        this.mView = layoutInflater.inflate(bWy(), viewGroup, false);
+        this.gQU = bWy();
+        this.mView = layoutInflater.inflate(bWz(), viewGroup, false);
         onInflate(this.mView, bundle);
         return this.mView;
     }
@@ -48,23 +48,23 @@ public abstract class a extends SupportXFragment {
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onResume() {
         super.onResume();
-        if (this.gQS != null) {
-            this.gQS.onResume();
+        if (this.gQU != null) {
+            this.gQU.onResume();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onPause() {
-        if (this.gQS != null) {
-            this.gQS.onPause();
+        if (this.gQU != null) {
+            this.gQU.onPause();
         }
         super.onPause();
     }
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroyView() {
-        if (this.gQS != null) {
-            this.gQS.onDestoryView();
+        if (this.gQU != null) {
+            this.gQU.onDestoryView();
         }
         this.mInitialed = false;
         super.onDestroyView();
@@ -72,23 +72,23 @@ public abstract class a extends SupportXFragment {
 
     @Override // com.baidu.live.tbadk.core.fragment.SupportXFragment
     public void onDestroy() {
-        if (this.gQS != null) {
-            this.gQS.onDestroy();
+        if (this.gQU != null) {
+            this.gQU.onDestroy();
         }
         super.onDestroy();
     }
 
     private void initData() {
         this.mInitialed = true;
-        if (this.gQS != null) {
-            this.gQS.onInitial();
+        if (this.gQU != null) {
+            this.gQU.onInitial();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onVisibilityChanged(boolean z) {
-        if (this.gQS != null) {
-            this.gQS.onVisibilityChanged(z);
+        if (this.gQU != null) {
+            this.gQU.onVisibilityChanged(z);
         }
     }
 }

@@ -1,46 +1,46 @@
 package com.facebook.imagepipeline.common;
 /* loaded from: classes7.dex */
 public class e {
-    private static final e plf = new e(-1, false);
-    private static final e plg = new e(-2, false);
-    private static final e plh = new e(-1, true);
+    private static final e plh = new e(-1, false);
+    private static final e pli = new e(-2, false);
+    private static final e plj = new e(-1, true);
     private final int mRotation;
-    private final boolean ple;
-
-    public static e etA() {
-        return plf;
-    }
+    private final boolean plg;
 
     public static e etB() {
         return plh;
     }
 
-    private e(int i, boolean z) {
-        this.mRotation = i;
-        this.ple = z;
+    public static e etC() {
+        return plj;
     }
 
-    public boolean etC() {
-        return this.mRotation == -1;
+    private e(int i, boolean z) {
+        this.mRotation = i;
+        this.plg = z;
     }
 
     public boolean etD() {
+        return this.mRotation == -1;
+    }
+
+    public boolean etE() {
         return this.mRotation != -2;
     }
 
-    public int etE() {
-        if (etC()) {
+    public int etF() {
+        if (etD()) {
             throw new IllegalStateException("Rotation is set to use EXIF");
         }
         return this.mRotation;
     }
 
-    public boolean etF() {
-        return this.ple;
+    public boolean etG() {
+        return this.plg;
     }
 
     public int hashCode() {
-        return com.facebook.common.util.a.h(Integer.valueOf(this.mRotation), Boolean.valueOf(this.ple));
+        return com.facebook.common.util.a.h(Integer.valueOf(this.mRotation), Boolean.valueOf(this.plg));
     }
 
     public boolean equals(Object obj) {
@@ -49,12 +49,12 @@ public class e {
         }
         if (obj instanceof e) {
             e eVar = (e) obj;
-            return this.mRotation == eVar.mRotation && this.ple == eVar.ple;
+            return this.mRotation == eVar.mRotation && this.plg == eVar.plg;
         }
         return false;
     }
 
     public String toString() {
-        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.ple));
+        return String.format(null, "%d defer:%b", Integer.valueOf(this.mRotation), Boolean.valueOf(this.plg));
     }
 }

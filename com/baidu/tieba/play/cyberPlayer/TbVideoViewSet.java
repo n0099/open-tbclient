@@ -11,15 +11,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TbVideoViewSet {
-    private static TbVideoViewSet mzg = null;
-    private LRULinkedHashMap<String, TbCyberVideoView> mzf = new LRULinkedHashMap<>();
-    private boolean mzh;
+    private static TbVideoViewSet mzi = null;
+    private LRULinkedHashMap<String, TbCyberVideoView> mzh = new LRULinkedHashMap<>();
+    private boolean mzj;
 
     /* loaded from: classes.dex */
     public interface a {
-        void dCo();
-
         void dCp();
+
+        void dCq();
     }
 
     private TbVideoViewSet() {
@@ -34,33 +34,33 @@ public class TbVideoViewSet {
         });
     }
 
-    public static TbVideoViewSet dCn() {
-        if (mzg == null) {
+    public static TbVideoViewSet dCo() {
+        if (mzi == null) {
             synchronized (TbVideoViewSet.class) {
-                if (mzg == null) {
-                    mzg = new TbVideoViewSet();
+                if (mzi == null) {
+                    mzi = new TbVideoViewSet();
                 }
             }
         }
-        return mzg;
+        return mzi;
     }
 
     public TbCyberVideoView Rq(String str) {
-        if (au.isEmpty(str) || !this.mzf.containsKey(str)) {
+        if (au.isEmpty(str) || !this.mzh.containsKey(str)) {
             return null;
         }
-        return this.mzf.get(str);
+        return this.mzh.get(str);
     }
 
     public void a(TbCyberVideoView tbCyberVideoView, String str) {
         String str2;
-        if (this.mzf.containsKey(str) && tbCyberVideoView != this.mzf.get(str)) {
-            TbCyberVideoView tbCyberVideoView2 = this.mzf.get(str);
+        if (this.mzh.containsKey(str) && tbCyberVideoView != this.mzh.get(str)) {
+            TbCyberVideoView tbCyberVideoView2 = this.mzh.get(str);
             if (tbCyberVideoView2 != null && tbCyberVideoView2.isPlaying()) {
                 tbCyberVideoView2.stopPlayback();
             }
-        } else if (this.mzf.containsValue(tbCyberVideoView)) {
-            Iterator it = this.mzf.entrySet().iterator();
+        } else if (this.mzh.containsValue(tbCyberVideoView)) {
+            Iterator it = this.mzh.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str2 = null;
@@ -72,31 +72,31 @@ public class TbVideoViewSet {
                     break;
                 }
             }
-            if (!this.mzh && !au.isEmpty(str2)) {
-                this.mzf.remove(str2);
+            if (!this.mzj && !au.isEmpty(str2)) {
+                this.mzh.remove(str2);
             }
         }
-        this.mzf.put(str, tbCyberVideoView);
+        this.mzh.put(str, tbCyberVideoView);
     }
 
     public void Rr(String str) {
         TbCyberVideoView tbCyberVideoView;
-        if (!this.mzh && this.mzf.containsKey(str) && (tbCyberVideoView = (TbCyberVideoView) this.mzf.remove(str)) != null) {
+        if (!this.mzj && this.mzh.containsKey(str) && (tbCyberVideoView = (TbCyberVideoView) this.mzh.remove(str)) != null) {
             tbCyberVideoView.stopPlayback();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ayA() {
-        Iterator it = this.mzf.entrySet().iterator();
+        Iterator it = this.mzh.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             if (entry != null) {
                 TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) entry.getValue();
                 if (tbCyberVideoView != null) {
-                    this.mzh = true;
+                    this.mzj = true;
                     tbCyberVideoView.stopPlayback();
-                    this.mzh = false;
+                    this.mzj = false;
                 }
                 it.remove();
             }
@@ -118,10 +118,10 @@ public class TbVideoViewSet {
             TbCyberVideoView value;
             boolean z = size() > 3;
             if (z && (value = entry.getValue()) != null) {
-                TbVideoViewSet.this.mzh = true;
-                value.dCk();
+                TbVideoViewSet.this.mzj = true;
+                value.dCl();
                 value.stopPlayback();
-                TbVideoViewSet.this.mzh = false;
+                TbVideoViewSet.this.mzj = false;
             }
             return z;
         }

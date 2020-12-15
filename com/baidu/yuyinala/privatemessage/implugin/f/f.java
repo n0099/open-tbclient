@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 public class f extends i {
     private String mKey;
     private long mUid;
-    private final String oOq = "http://ext.baidu.com/";
+    private final String oOs = "http://ext.baidu.com/";
 
     public f(Context context, long j, String str) {
         this.mKey = "";

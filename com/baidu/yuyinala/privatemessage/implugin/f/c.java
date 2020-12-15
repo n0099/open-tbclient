@@ -19,12 +19,12 @@ import org.json.JSONObject;
 public class c extends i {
     private String mKey;
     private String mType;
-    private long oOl;
-    private final String oOq = "http://cp01-zhangsukun.epc.baidu.com:8220/";
+    private long oOn;
+    private final String oOs = "http://cp01-zhangsukun.epc.baidu.com:8220/";
 
     public c(Context context, String str, long j, String str2) {
         this.mKey = "";
-        this.oOl = j;
+        this.oOn = j;
         this.mKey = str2;
         this.mContext = context;
         this.mType = str;
@@ -49,22 +49,22 @@ public class c extends i {
         } else {
             z = false;
         }
-        k.hm(this.mContext).a(i, new String(bArr), this.oOl, this.mKey, z);
+        k.hm(this.mContext).a(i, new String(bArr), this.oOn, this.mKey, z);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
-        k.hm(this.mContext).a(i, new String(bArr), this.oOl, this.mKey, false);
+        k.hm(this.mContext).a(i, new String(bArr), this.oOn, this.mKey, false);
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.i, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
         if (!AccountManager.isCuidLogin(this.mContext)) {
-            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.elg().getBduss(this.mContext));
+            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.elh().getBduss(this.mContext));
         } else {
             try {
-                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.elg().getCuid(this.mContext).getBytes())), "UTF-8"));
+                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.elh().getCuid(this.mContext).getBytes())), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -82,9 +82,9 @@ public class c extends i {
         StringBuilder sb = new StringBuilder();
         sb.append("op_type=").append("add");
         sb.append("&type=").append(this.mType);
-        sb.append("&third_id=").append(ExtraParamsManager.getEncryptionUserId(this.oOl + ""));
+        sb.append("&third_id=").append(ExtraParamsManager.getEncryptionUserId(this.oOn + ""));
         sb.append("&sfrom=").append("mingame");
-        if (ChatInfo.oNH) {
+        if (ChatInfo.oNJ) {
             sb.append("&source=").append("im_c2cchat_sgame");
         } else {
             sb.append("&source=").append("im_c2cchat");

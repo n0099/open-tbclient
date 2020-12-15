@@ -11,9 +11,9 @@ public class DealEventView extends FrameLayout {
     private boolean fTS;
     private float mLastX;
     private float mLastY;
-    private long nLH;
-    private a nLI;
-    private boolean nLJ;
+    private long nLJ;
+    private a nLK;
+    private boolean nLL;
 
     /* loaded from: classes24.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class DealEventView extends FrameLayout {
 
         void bJZ();
 
-        void dXh();
+        void dXi();
     }
 
     public DealEventView(Context context) {
@@ -47,34 +47,34 @@ public class DealEventView extends FrameLayout {
                 this.mLastX = motionEvent.getX();
                 this.mLastY = motionEvent.getY();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.nLH < 300) {
+                if (currentTimeMillis - this.nLJ < 300) {
                     this.fTS = true;
-                    if (this.nLI != null) {
-                        this.nLI.dXh();
+                    if (this.nLK != null) {
+                        this.nLK.dXi();
                     }
                 } else {
                     this.fTS = false;
                 }
-                this.nLH = currentTimeMillis;
+                this.nLJ = currentTimeMillis;
                 break;
             case 1:
                 if (this.mLastX - motionEvent.getX() < 10.0f && this.mLastY - motionEvent.getY() < 10.0f) {
-                    this.nLJ = true;
+                    this.nLL = true;
                 } else {
-                    this.nLJ = false;
+                    this.nLL = false;
                 }
                 postDelayed(new Runnable() { // from class: com.baidu.tieba.videoplay.DealEventView.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!DealEventView.this.fTS && DealEventView.this.nLJ && DealEventView.this.nLI != null) {
-                            DealEventView.this.nLI.bJY();
+                        if (!DealEventView.this.fTS && DealEventView.this.nLL && DealEventView.this.nLK != null) {
+                            DealEventView.this.nLK.bJY();
                         }
                     }
                 }, 300L);
                 break;
             case 2:
-                if (this.mLastX - motionEvent.getX() > 60.0f && (this.mLastX - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.mLastY) && !this.fTS && this.nLI != null) {
-                    this.nLI.bJZ();
+                if (this.mLastX - motionEvent.getX() > 60.0f && (this.mLastX - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.mLastY) && !this.fTS && this.nLK != null) {
+                    this.nLK.bJZ();
                     break;
                 }
                 break;
@@ -101,6 +101,6 @@ public class DealEventView extends FrameLayout {
     }
 
     public void setOnViewClickListener(a aVar) {
-        this.nLI = aVar;
+        this.nLK = aVar;
     }
 }

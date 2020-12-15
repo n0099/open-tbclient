@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.f;
 /* loaded from: classes12.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d pnh;
+    private com.facebook.imagepipeline.animated.base.d pnj;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.pnh = dVar;
+        this.pnj = dVar;
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.pnh.esM().getWidth();
+        return isClosed() ? 0 : this.pnj.esN().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.pnh.esM().getHeight();
+        return isClosed() ? 0 : this.pnj.esN().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.f.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.pnh != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.pnh;
-                this.pnh = null;
+            if (this.pnj != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.pnj;
+                this.pnj = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized boolean isClosed() {
-        return this.pnh == null;
+        return this.pnj == null;
     }
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.pnh.esM().getSizeInBytes();
+        return isClosed() ? 0 : this.pnj.esN().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.f.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d evs() {
-        return this.pnh;
+    public synchronized com.facebook.imagepipeline.animated.base.d evt() {
+        return this.pnj;
     }
 }

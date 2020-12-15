@@ -166,19 +166,19 @@ public final class FloatViewService extends Service {
             p.n(applicationContext, "applicationContext");
             Config config3 = Companion.getConfig();
             if (config3 == null) {
-                p.eDZ();
+                p.eEa();
             }
             ViewManager viewManager2 = new ViewManager(applicationContext, config3);
             viewManager2.createView();
             this.viewManager = viewManager2;
             Config config4 = Companion.getConfig();
             if (config4 == null) {
-                p.eDZ();
+                p.eEa();
             }
             if (config4.isForeground()) {
                 Config config5 = Companion.getConfig();
                 if (config5 == null) {
-                    p.eDZ();
+                    p.eEa();
                 }
                 startForeground(1, config5.getNotification());
             }

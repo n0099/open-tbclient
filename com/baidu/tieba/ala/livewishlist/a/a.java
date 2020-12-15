@@ -57,13 +57,13 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_my_assis_wish_list_item_view, (ViewGroup) null);
             C0702a c0702a2 = new C0702a();
-            c0702a2.hGZ = (TbImageView) view.findViewById(a.f.gift_thumbnail);
-            c0702a2.hGZ.setDefaultBgResource(a.e.icon_live_gift_default);
-            c0702a2.hGZ.setDefaultErrorResource(a.e.icon_live_gift_default);
-            c0702a2.hGZ.setAutoChangeStyle(false);
-            c0702a2.hHb = (TextView) view.findViewById(a.f.wish_name);
-            c0702a2.hHa = (TextView) view.findViewById(a.f.wish_count);
-            c0702a2.hHc = (ImageView) view.findViewById(a.f.wish_icon_cheng);
+            c0702a2.hHb = (TbImageView) view.findViewById(a.f.gift_thumbnail);
+            c0702a2.hHb.setDefaultBgResource(a.e.icon_live_gift_default);
+            c0702a2.hHb.setDefaultErrorResource(a.e.icon_live_gift_default);
+            c0702a2.hHb.setAutoChangeStyle(false);
+            c0702a2.hHd = (TextView) view.findViewById(a.f.wish_name);
+            c0702a2.hHc = (TextView) view.findViewById(a.f.wish_count);
+            c0702a2.hHe = (ImageView) view.findViewById(a.f.wish_icon_cheng);
             view.setTag(c0702a2);
             c0702a = c0702a2;
         } else {
@@ -71,18 +71,18 @@ public class a extends BaseAdapter {
         }
         f item = getItem(i);
         if (item != null) {
-            c0702a.hGZ.startLoad(item.gIz, 10, false);
-            c0702a.hHb.setText(item.mGiftName);
-            if (!TextUtils.isEmpty(item.gIJ) && JavaTypesHelper.toInt(item.gIJ, 0) <= 0) {
-                c0702a.hHc.setVisibility(8);
-                c0702a.hHa.setText(this.mContext.getString(a.h.ala_my_not_assist));
-                c0702a.hHa.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize40));
-                c0702a.hHa.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha60));
+            c0702a.hHb.startLoad(item.gIB, 10, false);
+            c0702a.hHd.setText(item.mGiftName);
+            if (!TextUtils.isEmpty(item.gIL) && JavaTypesHelper.toInt(item.gIL, 0) <= 0) {
+                c0702a.hHe.setVisibility(8);
+                c0702a.hHc.setText(this.mContext.getString(a.h.ala_my_not_assist));
+                c0702a.hHc.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize40));
+                c0702a.hHc.setTextColor(this.mContext.getResources().getColor(a.c.sdk_white_alpha60));
             } else {
-                c0702a.hHc.setVisibility(0);
-                c0702a.hHa.setText(String.format("%s", item.gIJ));
-                c0702a.hHa.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize48));
-                c0702a.hHa.setTextColor(Color.parseColor("#C4586A"));
+                c0702a.hHe.setVisibility(0);
+                c0702a.hHc.setText(String.format("%s", item.gIL));
+                c0702a.hHc.setTextSize(0, this.mContext.getResources().getDimension(a.d.sdk_fontsize48));
+                c0702a.hHc.setTextColor(Color.parseColor("#C4586A"));
             }
         }
         return view;
@@ -91,10 +91,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.ala.livewishlist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private static class C0702a {
-        public TbImageView hGZ;
-        public TextView hHa;
-        public TextView hHb;
-        public ImageView hHc;
+        public TbImageView hHb;
+        public TextView hHc;
+        public TextView hHd;
+        public ImageView hHe;
 
         private C0702a() {
         }

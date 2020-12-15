@@ -25,14 +25,14 @@ public class b {
 
     /* loaded from: classes22.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String lze;
-        private String lzf;
-        private InterfaceC0827b lzg;
+        private String lzg;
+        private String lzh;
+        private InterfaceC0827b lzi;
 
         public a(String str, String str2, InterfaceC0827b interfaceC0827b) {
-            this.lze = str;
-            this.lzf = str2;
-            this.lzg = interfaceC0827b;
+            this.lzg = str;
+            this.lzh = str2;
+            this.lzi = interfaceC0827b;
             setPriority(3);
         }
 
@@ -42,8 +42,8 @@ public class b {
         /* renamed from: R */
         public ForbidTplData doInBackground(String... strArr) {
             aa aaVar = new aa(b.BAWU_LIST_REASON);
-            aaVar.addPostData("forum_id", this.lze);
-            aaVar.addPostData("user_id", this.lzf);
+            aaVar.addPostData("forum_id", this.lzg);
+            aaVar.addPostData("user_id", this.lzh);
             String postNetData = aaVar.postNetData();
             if (aaVar.btv().buf().isRequestSuccess()) {
                 try {
@@ -67,11 +67,11 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            if (this.lzg != null) {
+            if (this.lzi != null) {
                 if (forbidTplData.error.errno == 0 && au.isEmpty(forbidTplData.error.errMsg)) {
-                    this.lzg.a(forbidTplData);
+                    this.lzi.a(forbidTplData);
                 } else {
-                    this.lzg.b(forbidTplData);
+                    this.lzi.b(forbidTplData);
                 }
             }
         }

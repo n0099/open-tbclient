@@ -15,7 +15,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes4.dex */
 public class b {
-    private static volatile b oLY;
+    private static volatile b oMa;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -25,10 +25,10 @@ public class b {
     public static synchronized b he(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (oLY == null) {
-                oLY = new b();
+            if (oMa == null) {
+                oMa = new b();
             }
-            bVar = oLY;
+            bVar = oMa;
         }
         return bVar;
     }
@@ -73,7 +73,7 @@ public class b {
         }
         if (r != null) {
             r.b(context, a(context, chatMsg));
-            r.oMf = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
+            r.oMh = (ImageView) r.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return r;
     }
@@ -136,7 +136,7 @@ public class b {
         }
         if (l != null) {
             l.b(context, a(context, chatMsg));
-            l.oMf = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
+            l.oMh = (ImageView) l.getConvertView().findViewById(a.f.bd_im_headview_vip);
         }
         return l;
     }
@@ -175,7 +175,7 @@ public class b {
 
     private d c(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.enZ()) {
+        switch (r1.eoa()) {
             case VIDEOSHARE:
                 return r.m(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:
@@ -187,7 +187,7 @@ public class b {
 
     private e d(Context context, LayoutInflater layoutInflater, ChatMsg chatMsg, View view) {
         new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
-        switch (r1.enZ()) {
+        switch (r1.eoa()) {
             case VIDEOSHARE:
                 return x.s(context, layoutInflater, chatMsg, view);
             case PRIVATEINVITE:

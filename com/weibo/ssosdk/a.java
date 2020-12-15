@@ -32,30 +32,30 @@ public class a {
     /* renamed from: com.weibo.ssosdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
     public static final class C1034a {
-        private Intent pDd;
+        private Intent pDf;
 
         private C1034a(Context context) {
-            this.pDd = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.pDf = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int getLevel() {
-            return this.pDd.getIntExtra("level", 0);
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public int eCi() {
-            return this.pDd.getIntExtra("scale", 0);
+            return this.pDf.getIntExtra("level", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int eCj() {
-            return this.pDd.getIntExtra("voltage", 0);
+            return this.pDf.getIntExtra("scale", 0);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int eCk() {
-            return this.pDd.getIntExtra("temperature", 0);
+            return this.pDf.getIntExtra("voltage", 0);
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public int eCl() {
+            return this.pDf.getIntExtra("temperature", 0);
         }
     }
 
@@ -118,25 +118,25 @@ public class a {
             if (!TextUtils.isEmpty(iccid)) {
                 jSONObject.put("iccid", iccid);
             }
-            String eCe = eCe();
-            if (!TextUtils.isEmpty(eCe)) {
-                jSONObject.put("serial", eCe);
+            String eCf = eCf();
+            if (!TextUtils.isEmpty(eCf)) {
+                jSONObject.put("serial", eCf);
             }
             String androidId = getAndroidId(context);
             if (!TextUtils.isEmpty(androidId)) {
                 jSONObject.put("androidid", androidId);
             }
-            String eCg = eCg();
-            if (!TextUtils.isEmpty(eCg)) {
-                jSONObject.put("cpu", eCg);
+            String eCh = eCh();
+            if (!TextUtils.isEmpty(eCh)) {
+                jSONObject.put("cpu", eCh);
             }
             String model = getModel();
             if (!TextUtils.isEmpty(model)) {
                 jSONObject.put("model", model);
             }
-            String eCh = eCh();
-            if (!TextUtils.isEmpty(eCh)) {
-                jSONObject.put("sdcard", eCh);
+            String eCi = eCi();
+            if (!TextUtils.isEmpty(eCi)) {
+                jSONObject.put("sdcard", eCi);
             }
             String hW = hW(context);
             if (!TextUtils.isEmpty(hW)) {
@@ -170,9 +170,9 @@ public class a {
             jSONObject.put("batterymaxcapacity", String.valueOf(hV));
             jSONObject.put("batterycurrentcapacity", String.valueOf(hV));
             C1034a c1034a = new C1034a(context);
-            jSONObject.put("batterycurrentvoltage", c1034a.eCj());
-            jSONObject.put("batterycurrenttemperature", c1034a.eCk());
-            jSONObject.put("batterycurrentcapacity", (hV * c1034a.getLevel()) / c1034a.eCi());
+            jSONObject.put("batterycurrentvoltage", c1034a.eCk());
+            jSONObject.put("batterycurrenttemperature", c1034a.eCl());
+            jSONObject.put("batterycurrentcapacity", (hV * c1034a.getLevel()) / c1034a.eCj());
             return jSONObject.toString();
         } catch (JSONException e2) {
             return "";
@@ -211,7 +211,7 @@ public class a {
         }
     }
 
-    private static String eCd() {
+    private static String eCe() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -238,7 +238,7 @@ public class a {
     private static String hU(Context context) {
         WifiInfo connectionInfo;
         if (Build.VERSION.SDK_INT >= 23) {
-            return eCd();
+            return eCe();
         }
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -256,9 +256,9 @@ public class a {
         }
     }
 
-    private static String eCe() {
+    private static String eCf() {
         if (Build.VERSION.SDK_INT >= 26) {
-            return eCf();
+            return eCg();
         }
         try {
             Class<?> cls = Class.forName("android.os.SystemProperties");
@@ -282,7 +282,7 @@ public class a {
     }
 
     @TargetApi(26)
-    private static String eCf() {
+    private static String eCg() {
         try {
             return Build.getSerial();
         } catch (Exception e) {
@@ -299,7 +299,7 @@ public class a {
         }
     }
 
-    private static String eCg() {
+    private static String eCh() {
         try {
             return Build.CPU_ABI;
         } catch (Exception e) {
@@ -315,7 +315,7 @@ public class a {
         }
     }
 
-    private static String eCh() {
+    private static String eCi() {
         try {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
             return Long.toString(statFs.getBlockCount() * statFs.getBlockSize());

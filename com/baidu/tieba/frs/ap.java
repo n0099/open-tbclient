@@ -3,9 +3,9 @@ package com.baidu.tieba.frs;
 public interface ap {
     void VC();
 
-    void bSg();
-
     void bSh();
+
+    void bSi();
 
     void bvt();
 

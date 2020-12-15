@@ -6,50 +6,50 @@ import com.baidu.tieba.ad.download.DownloadCacheKey;
 import com.baidu.tieba.ad.download.state.StopStatus;
 /* loaded from: classes21.dex */
 public class b implements d {
-    private final com.baidu.tieba.ad.download.mvp.a gaz;
+    private final com.baidu.tieba.ad.download.mvp.a gaB;
 
     public b(@NonNull com.baidu.tieba.ad.download.mvp.a aVar) {
-        this.gaz = aVar;
+        this.gaB = aVar;
     }
 
     @Override // com.baidu.tieba.ad.download.a.d
     public void e(@NonNull DownloadCacheKey downloadCacheKey) {
-        this.gaz.c(com.baidu.tieba.ad.download.d.bMx().d(downloadCacheKey).extra().getStatus());
+        this.gaB.c(com.baidu.tieba.ad.download.d.bMy().d(downloadCacheKey).extra().getStatus());
     }
 
     @Override // com.baidu.tieba.ad.download.a.d
     public void a(@NonNull DownloadCacheKey downloadCacheKey, int i) {
-        this.gaz.fu(com.baidu.tieba.ad.download.d.bMx().d(downloadCacheKey).extra().getPercent());
+        this.gaB.fu(com.baidu.tieba.ad.download.d.bMy().d(downloadCacheKey).extra().getPercent());
     }
 
     @Override // com.baidu.tieba.ad.download.a.d
     public void a(@NonNull DownloadCacheKey downloadCacheKey, StopStatus stopStatus) {
-        this.gaz.c(com.baidu.tieba.ad.download.d.bMx().d(downloadCacheKey).extra().getStatus());
+        this.gaB.c(com.baidu.tieba.ad.download.d.bMy().d(downloadCacheKey).extra().getStatus());
     }
 
     @Override // com.baidu.tieba.ad.download.a.d
     public void b(@NonNull DownloadCacheKey downloadCacheKey, int i) {
-        this.gaz.c(com.baidu.tieba.ad.download.d.bMx().d(downloadCacheKey).extra().getStatus());
+        this.gaB.c(com.baidu.tieba.ad.download.d.bMy().d(downloadCacheKey).extra().getStatus());
     }
 
     @Override // com.baidu.tieba.ad.download.a.d
     public void a(@NonNull DownloadCacheKey downloadCacheKey, String str, boolean z) {
-        AdDownloadData d = com.baidu.tieba.ad.download.d.bMx().d(downloadCacheKey);
-        this.gaz.fu(100);
-        this.gaz.c(d.extra().getStatus());
+        AdDownloadData d = com.baidu.tieba.ad.download.d.bMy().d(downloadCacheKey);
+        this.gaB.fu(100);
+        this.gaB.c(d.extra().getStatus());
     }
 
     @Override // com.baidu.tieba.ad.download.a.d
     public void f(@NonNull DownloadCacheKey downloadCacheKey) {
-        AdDownloadData d = com.baidu.tieba.ad.download.d.bMx().d(downloadCacheKey);
-        this.gaz.fu(100);
-        this.gaz.c(d.extra().getStatus());
+        AdDownloadData d = com.baidu.tieba.ad.download.d.bMy().d(downloadCacheKey);
+        this.gaB.fu(100);
+        this.gaB.c(d.extra().getStatus());
     }
 
     @Override // com.baidu.tieba.ad.download.a.d
     public void g(@NonNull DownloadCacheKey downloadCacheKey) {
-        AdDownloadData d = com.baidu.tieba.ad.download.d.bMx().d(downloadCacheKey);
-        this.gaz.fu(100);
-        this.gaz.c(d.extra().getStatus());
+        AdDownloadData d = com.baidu.tieba.ad.download.d.bMy().d(downloadCacheKey);
+        this.gaB.fu(100);
+        this.gaB.c(d.extra().getStatus());
     }
 }

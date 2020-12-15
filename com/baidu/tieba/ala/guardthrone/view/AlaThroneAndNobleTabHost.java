@@ -31,8 +31,8 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
     private int aHw;
     private int aHx;
     private int aHy;
-    private a gTf;
-    private b gTg;
+    private a gTh;
+    private b gTi;
     private int mCurrentTabIndex;
     private boolean mIsClicked;
 
@@ -178,8 +178,8 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.gTf != null) {
-                this.gTf.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
+            if (this.gTh != null) {
+                this.gTh.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
             }
         }
     }
@@ -190,12 +190,12 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.gTf != null) {
-                this.gTf.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
+            if (this.gTh != null) {
+                this.gTh.a(this.mCurrentTabIndex, (com.baidu.live.j.c) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
             }
         }
-        if (this.gTg != null) {
-            this.gTg.onPageSelected(i);
+        if (this.gTi != null) {
+            this.gTi.onPageSelected(i);
         }
     }
 
@@ -207,11 +207,11 @@ public class AlaThroneAndNobleTabHost extends LinearLayout implements ViewPager.
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.gTf = aVar;
+        this.gTh = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.gTg = bVar;
+        this.gTi = bVar;
     }
 
     public void setAdapter(AlaThroneAndNobleControllerAdapter alaThroneAndNobleControllerAdapter) {

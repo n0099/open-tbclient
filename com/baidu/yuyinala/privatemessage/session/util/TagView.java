@@ -21,24 +21,24 @@ public class TagView extends View {
     private int mTextColor;
     private Paint mTextPaint;
     private float mTextSize;
-    private int oXK;
-    private int oXL;
     private int oXM;
     private int oXN;
     private int oXO;
-    private float oXP;
-    private float oXQ;
+    private int oXP;
+    private int oXQ;
     private float oXR;
     private float oXS;
     private float oXT;
     private float oXU;
     private float oXV;
     private float oXW;
-    private String oXX;
-    private int oXY;
-    private boolean oXZ;
-    private Paint oYa;
-    private LinearGradient oYb;
+    private float oXX;
+    private float oXY;
+    private String oXZ;
+    private int oYa;
+    private boolean oYb;
+    private Paint oYc;
+    private LinearGradient oYd;
 
     public TagView(Context context) {
         this(context, null);
@@ -50,36 +50,36 @@ public class TagView extends View {
 
     public TagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oXK = -1;
-        this.oXP = -1.0f;
-        this.oXQ = -1.0f;
+        this.oXM = -1;
+        this.oXR = -1.0f;
+        this.oXS = -1.0f;
         this.mContext = context;
         init(attributeSet);
     }
 
     public void setText(String str) {
-        this.oXX = str;
-        if (!TextUtils.isEmpty(this.oXX)) {
-            this.oXY = this.oXX.length();
+        this.oXZ = str;
+        if (!TextUtils.isEmpty(this.oXZ)) {
+            this.oYa = this.oXZ.length();
         }
         requestLayout();
         invalidate();
     }
 
     public String getText() {
-        return this.oXX;
+        return this.oXZ;
     }
 
     public void setBgColor(int i) {
         this.mBgColor = i;
-        this.oXL = -1;
-        this.oXM = -1;
+        this.oXN = -1;
+        this.oXO = -1;
         invalidate();
     }
 
     public void setGradientColor(int i, int i2) {
-        this.oXL = i;
-        this.oXM = i2;
+        this.oXN = i;
+        this.oXO = i2;
         this.mBgColor = -1;
         invalidate();
     }
@@ -92,26 +92,26 @@ public class TagView extends View {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode != 1073741824) {
-            if (this.oXK == 1) {
-                size = (int) this.oXQ;
-            } else if (this.oXK == 2) {
-                size = (int) ((this.oXW * 2.0f) + (this.oXR * 2.0f));
-                if (!TextUtils.isEmpty(this.oXX)) {
-                    if (this.oXY == 1) {
-                        size = (int) this.oXP;
+            if (this.oXM == 1) {
+                size = (int) this.oXS;
+            } else if (this.oXM == 2) {
+                size = (int) ((this.oXY * 2.0f) + (this.oXT * 2.0f));
+                if (!TextUtils.isEmpty(this.oXZ)) {
+                    if (this.oYa == 1) {
+                        size = (int) this.oXR;
                     } else {
-                        size = (int) (size + this.mTextPaint.measureText(this.oXX));
+                        size = (int) (size + this.mTextPaint.measureText(this.oXZ));
                     }
                 }
             } else {
-                size = (int) ((this.oXW * 2.0f) + (this.oXR * 2.0f));
-                if (!TextUtils.isEmpty(this.oXX)) {
-                    size = (int) (size + this.mTextPaint.measureText(this.oXX));
+                size = (int) ((this.oXY * 2.0f) + (this.oXT * 2.0f));
+                if (!TextUtils.isEmpty(this.oXZ)) {
+                    size = (int) (size + this.mTextPaint.measureText(this.oXZ));
                 }
             }
         }
         if (mode2 != 1073741824) {
-            size2 = (int) this.oXP;
+            size2 = (int) this.oXR;
         }
         setMeasuredDimension(size, size2);
     }
@@ -119,8 +119,8 @@ public class TagView extends View {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.oXQ = i;
-        this.oXP = i2;
+        this.oXS = i;
+        this.oXR = i2;
     }
 
     @Override // android.view.View
@@ -134,112 +134,112 @@ public class TagView extends View {
     private void init(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, a.j.TagView);
         this.mBgColor = obtainStyledAttributes.getColor(a.j.TagView_bgColor, 0);
-        this.oXL = obtainStyledAttributes.getColor(a.j.TagView_bgGradientStartColor, 0);
-        this.oXM = obtainStyledAttributes.getColor(a.j.TagView_bgGradientEndColor, 0);
+        this.oXN = obtainStyledAttributes.getColor(a.j.TagView_bgGradientStartColor, 0);
+        this.oXO = obtainStyledAttributes.getColor(a.j.TagView_bgGradientEndColor, 0);
         this.mTextColor = obtainStyledAttributes.getColor(a.j.TagView_textColor, 0);
-        this.oXO = obtainStyledAttributes.getColor(a.j.TagView_bgTraceColor, 0);
-        this.oXN = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_bgGradientAngle, -1);
+        this.oXQ = obtainStyledAttributes.getColor(a.j.TagView_bgTraceColor, 0);
+        this.oXP = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_bgGradientAngle, -1);
         this.mTextSize = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_textSize, -1);
-        this.oXZ = obtainStyledAttributes.getBoolean(a.j.TagView_textIsBold, false);
-        this.oXW = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_horizontalMargin, -1);
-        this.oXR = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_traceWidth, 0);
-        this.oXS = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftBottomConnerRadius, -1);
-        this.oXT = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftTopConnerRadius, -1);
-        this.oXU = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightTopConnerRadius, -1);
-        this.oXV = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightBottomConnerRadius, -1);
-        this.oXK = obtainStyledAttributes.getInt(a.j.TagView_viewStyle, -1);
-        this.oXX = obtainStyledAttributes.getString(a.j.TagView_text);
+        this.oYb = obtainStyledAttributes.getBoolean(a.j.TagView_textIsBold, false);
+        this.oXY = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_horizontalMargin, -1);
+        this.oXT = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_traceWidth, 0);
+        this.oXU = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftBottomConnerRadius, -1);
+        this.oXV = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_leftTopConnerRadius, -1);
+        this.oXW = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightTopConnerRadius, -1);
+        this.oXX = obtainStyledAttributes.getDimensionPixelSize(a.j.TagView_rightBottomConnerRadius, -1);
+        this.oXM = obtainStyledAttributes.getInt(a.j.TagView_viewStyle, -1);
+        this.oXZ = obtainStyledAttributes.getString(a.j.TagView_text);
         obtainStyledAttributes.recycle();
         this.bhF = new Paint(1);
         this.bhF.setStyle(Paint.Style.FILL);
         this.bhF.setDither(true);
         this.mTextPaint = new Paint(1);
         this.mTextPaint.setTextAlign(Paint.Align.CENTER);
-        this.mTextPaint.setFakeBoldText(this.oXZ);
-        eoo();
+        this.mTextPaint.setFakeBoldText(this.oYb);
+        eop();
         this.mTextPaint.setTextSize(this.mTextSize);
-        if (this.oXR != 0.0f) {
-            this.oYa = new Paint(1);
-            this.oYa.setStyle(Paint.Style.FILL);
-            this.oYa.setDither(true);
+        if (this.oXT != 0.0f) {
+            this.oYc = new Paint(1);
+            this.oYc.setStyle(Paint.Style.FILL);
+            this.oYc.setDither(true);
         }
     }
 
-    private void eoo() {
-        if (this.oXK != -1) {
-            if (this.oXK == 0) {
-                this.oXP = this.oXP != -1.0f ? this.oXP : f.dip2px(this.mContext, 15.0f);
+    private void eop() {
+        if (this.oXM != -1) {
+            if (this.oXM == 0) {
+                this.oXR = this.oXR != -1.0f ? this.oXR : f.dip2px(this.mContext, 15.0f);
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oXS = this.oXS != -1.0f ? this.oXS : f.dip2px(this.mContext, 2.0f);
-                this.oXT = this.oXT != -1.0f ? this.oXT : f.dip2px(this.mContext, 2.0f);
-                this.oXV = this.oXV != -1.0f ? this.oXV : f.dip2px(this.mContext, 2.0f);
                 this.oXU = this.oXU != -1.0f ? this.oXU : f.dip2px(this.mContext, 2.0f);
+                this.oXV = this.oXV != -1.0f ? this.oXV : f.dip2px(this.mContext, 2.0f);
+                this.oXX = this.oXX != -1.0f ? this.oXX : f.dip2px(this.mContext, 2.0f);
+                this.oXW = this.oXW != -1.0f ? this.oXW : f.dip2px(this.mContext, 2.0f);
                 this.mTextSize = this.mTextSize != -1.0f ? this.mTextSize : f.dip2px(this.mContext, 9.0f);
                 this.mTextColor = this.mTextColor != 0 ? this.mTextColor : -1;
-                this.oXW = f.dip2px(this.mContext, 4.0f);
-            } else if (this.oXK == 1) {
+                this.oXY = f.dip2px(this.mContext, 4.0f);
+            } else if (this.oXM == 1) {
                 this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oXP = f.dip2px(this.mContext, 8.0f);
-                this.oXQ = f.dip2px(this.mContext, 8.0f);
-                this.oXS = f.dip2px(this.mContext, 4.0f);
-                this.oXT = this.oXS;
-                this.oXV = this.oXS;
-                this.oXU = this.oXS;
-            } else if (this.oXK == 2) {
-                this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
-                this.oXP = this.oXP != -1.0f ? this.oXP : f.dip2px(this.mContext, 16.0f);
+                this.oXR = f.dip2px(this.mContext, 8.0f);
                 this.oXS = f.dip2px(this.mContext, 8.0f);
-                this.oXT = this.oXS;
-                this.oXV = this.oXS;
-                this.oXU = this.oXS;
+                this.oXU = f.dip2px(this.mContext, 4.0f);
+                this.oXV = this.oXU;
+                this.oXX = this.oXU;
+                this.oXW = this.oXU;
+            } else if (this.oXM == 2) {
+                this.mBgColor = this.mBgColor != 0 ? this.mBgColor : -45690;
+                this.oXR = this.oXR != -1.0f ? this.oXR : f.dip2px(this.mContext, 16.0f);
+                this.oXU = f.dip2px(this.mContext, 8.0f);
+                this.oXV = this.oXU;
+                this.oXX = this.oXU;
+                this.oXW = this.oXU;
                 this.mTextSize = this.mTextSize != -1.0f ? this.mTextSize : f.dip2px(this.mContext, 12.0f);
                 this.mTextColor = this.mTextColor != 0 ? this.mTextColor : -1;
-                this.oXW = this.oXW != -1.0f ? this.oXW : f.dip2px(this.mContext, 4.0f);
+                this.oXY = this.oXY != -1.0f ? this.oXY : f.dip2px(this.mContext, 4.0f);
             }
         }
     }
 
     private void ar(Canvas canvas) {
-        if (this.oXR != 0.0f) {
-            this.oYa.setColor(this.oXO);
-            if (this.oXK == 1) {
-                canvas.drawCircle(this.oXQ / 2.0f, this.oXP / 2.0f, this.oXP / 2.0f, this.oYa);
+        if (this.oXT != 0.0f) {
+            this.oYc.setColor(this.oXQ);
+            if (this.oXM == 1) {
+                canvas.drawCircle(this.oXS / 2.0f, this.oXR / 2.0f, this.oXR / 2.0f, this.oYc);
                 return;
             }
-            if (this.oXK == 2 && this.oXY == 1) {
-                canvas.drawCircle(this.oXP / 2.0f, this.oXP / 2.0f, this.oXP / 2.0f, this.oYa);
+            if (this.oXM == 2 && this.oYa == 1) {
+                canvas.drawCircle(this.oXR / 2.0f, this.oXR / 2.0f, this.oXR / 2.0f, this.oYc);
             }
             Path path = new Path();
-            if (this.oXT != -1.0f) {
-                path.moveTo(0.0f, this.oXT + this.oXR);
-                path.quadTo(0.0f, 0.0f, this.oXT + this.oXR, 0.0f);
+            if (this.oXV != -1.0f) {
+                path.moveTo(0.0f, this.oXV + this.oXT);
+                path.quadTo(0.0f, 0.0f, this.oXV + this.oXT, 0.0f);
+            }
+            if (this.oXW != -1.0f) {
+                path.lineTo(this.oXS - (this.oXW + this.oXT), 0.0f);
+            } else {
+                path.lineTo(this.oXS, 0.0f);
+            }
+            if (this.oXW != -1.0f) {
+                path.quadTo(this.oXS, 0.0f, this.oXS, this.oXW + this.oXT);
+            }
+            if (this.oXX != -1.0f) {
+                path.lineTo(this.oXS, this.oXR - (this.oXX + this.oXT));
+            } else {
+                path.lineTo(this.oXS, this.oXR);
+            }
+            if (this.oXX != -1.0f) {
+                path.quadTo(this.oXS, this.oXR, this.oXS - (this.oXX + this.oXT), this.oXR);
             }
             if (this.oXU != -1.0f) {
-                path.lineTo(this.oXQ - (this.oXU + this.oXR), 0.0f);
+                path.lineTo(this.oXU + this.oXT, this.oXR);
             } else {
-                path.lineTo(this.oXQ, 0.0f);
+                path.lineTo(0.0f, this.oXR);
             }
             if (this.oXU != -1.0f) {
-                path.quadTo(this.oXQ, 0.0f, this.oXQ, this.oXU + this.oXR);
-            }
-            if (this.oXV != -1.0f) {
-                path.lineTo(this.oXQ, this.oXP - (this.oXV + this.oXR));
-            } else {
-                path.lineTo(this.oXQ, this.oXP);
-            }
-            if (this.oXV != -1.0f) {
-                path.quadTo(this.oXQ, this.oXP, this.oXQ - (this.oXV + this.oXR), this.oXP);
-            }
-            if (this.oXS != -1.0f) {
-                path.lineTo(this.oXS + this.oXR, this.oXP);
-            } else {
-                path.lineTo(0.0f, this.oXP);
-            }
-            if (this.oXS != -1.0f) {
-                path.quadTo(0.0f, this.oXP, 0.0f, this.oXP - (this.oXS + this.oXR));
+                path.quadTo(0.0f, this.oXR, 0.0f, this.oXR - (this.oXU + this.oXT));
             }
             path.close();
-            canvas.drawPath(path, this.oYa);
+            canvas.drawPath(path, this.oYc);
         }
     }
 
@@ -248,43 +248,43 @@ public class TagView extends View {
             this.bhF.setColor(this.mBgColor);
             this.bhF.setShader(null);
         }
-        if (this.oXL != 0 || this.oXM != 0) {
-            this.oYb = new LinearGradient(0.0f, 0.0f, this.oXQ, this.oXP, this.oXL, this.oXM, Shader.TileMode.CLAMP);
-            this.bhF.setShader(this.oYb);
+        if (this.oXN != 0 || this.oXO != 0) {
+            this.oYd = new LinearGradient(0.0f, 0.0f, this.oXS, this.oXR, this.oXN, this.oXO, Shader.TileMode.CLAMP);
+            this.bhF.setShader(this.oYd);
         }
-        if (this.oXK == 1) {
-            canvas.drawCircle(this.oXQ / 2.0f, this.oXP / 2.0f, this.oXS, this.bhF);
-        } else if (this.oXK == 2 && this.oXY == 1) {
-            canvas.drawCircle(this.oXP / 2.0f, this.oXP / 2.0f, this.oXP / 2.0f, this.bhF);
+        if (this.oXM == 1) {
+            canvas.drawCircle(this.oXS / 2.0f, this.oXR / 2.0f, this.oXU, this.bhF);
+        } else if (this.oXM == 2 && this.oYa == 1) {
+            canvas.drawCircle(this.oXR / 2.0f, this.oXR / 2.0f, this.oXR / 2.0f, this.bhF);
         } else {
             Path path = new Path();
-            if (this.oXT != -1.0f) {
-                path.moveTo(this.oXR, this.oXR + this.oXT);
-                path.quadTo(this.oXR, this.oXR, this.oXR + this.oXT, this.oXR);
+            if (this.oXV != -1.0f) {
+                path.moveTo(this.oXT, this.oXT + this.oXV);
+                path.quadTo(this.oXT, this.oXT, this.oXT + this.oXV, this.oXT);
+            }
+            if (this.oXW != -1.0f) {
+                path.lineTo((this.oXS - this.oXT) - this.oXW, this.oXT);
+            } else {
+                path.lineTo(this.oXS - this.oXT, this.oXT);
+            }
+            if (this.oXW != -1.0f) {
+                path.quadTo(this.oXS - this.oXT, this.oXT, this.oXS - this.oXT, this.oXW + this.oXT);
+            }
+            if (this.oXX != -1.0f) {
+                path.lineTo(this.oXS - this.oXT, (this.oXR - this.oXT) - this.oXX);
+            } else {
+                path.lineTo(this.oXS - this.oXT, this.oXR - this.oXT);
+            }
+            if (this.oXX != -1.0f) {
+                path.quadTo(this.oXS - this.oXT, this.oXR - this.oXT, (this.oXS - this.oXT) - this.oXX, this.oXR - this.oXT);
             }
             if (this.oXU != -1.0f) {
-                path.lineTo((this.oXQ - this.oXR) - this.oXU, this.oXR);
+                path.lineTo(this.oXU + this.oXT, this.oXR - this.oXT);
             } else {
-                path.lineTo(this.oXQ - this.oXR, this.oXR);
+                path.lineTo(this.oXT, this.oXR - this.oXT);
             }
             if (this.oXU != -1.0f) {
-                path.quadTo(this.oXQ - this.oXR, this.oXR, this.oXQ - this.oXR, this.oXU + this.oXR);
-            }
-            if (this.oXV != -1.0f) {
-                path.lineTo(this.oXQ - this.oXR, (this.oXP - this.oXR) - this.oXV);
-            } else {
-                path.lineTo(this.oXQ - this.oXR, this.oXP - this.oXR);
-            }
-            if (this.oXV != -1.0f) {
-                path.quadTo(this.oXQ - this.oXR, this.oXP - this.oXR, (this.oXQ - this.oXR) - this.oXV, this.oXP - this.oXR);
-            }
-            if (this.oXS != -1.0f) {
-                path.lineTo(this.oXS + this.oXR, this.oXP - this.oXR);
-            } else {
-                path.lineTo(this.oXR, this.oXP - this.oXR);
-            }
-            if (this.oXS != -1.0f) {
-                path.quadTo(this.oXR, this.oXP - this.oXR, this.oXR, (this.oXP - this.oXR) - this.oXS);
+                path.quadTo(this.oXT, this.oXR - this.oXT, this.oXT, (this.oXR - this.oXT) - this.oXU);
             }
             path.close();
             canvas.drawPath(path, this.bhF);
@@ -292,19 +292,19 @@ public class TagView extends View {
     }
 
     private void C(Canvas canvas) {
-        if (!TextUtils.isEmpty(this.oXX)) {
+        if (!TextUtils.isEmpty(this.oXZ)) {
             this.mTextPaint.setColor(this.mTextColor);
             Paint.FontMetricsInt fontMetricsInt = this.mTextPaint.getFontMetricsInt();
-            canvas.drawText(this.oXX, this.oXQ / 2.0f, (((((int) this.oXP) + 0) - fontMetricsInt.bottom) - fontMetricsInt.top) / 2, this.mTextPaint);
+            canvas.drawText(this.oXZ, this.oXS / 2.0f, (((((int) this.oXR) + 0) - fontMetricsInt.bottom) - fontMetricsInt.top) / 2, this.mTextPaint);
         }
     }
 
     public void setStroke(int i) {
-        this.oXO = i;
+        this.oXQ = i;
         invalidate();
     }
 
     public int getStyle() {
-        return this.oXK;
+        return this.oXM;
     }
 }

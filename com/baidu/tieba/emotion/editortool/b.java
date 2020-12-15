@@ -7,28 +7,28 @@ public class b {
     private int bJW;
     private int column;
     private int index;
-    private EmotionGroupType ite;
-    private int itf;
-    private int itg;
-    private com.baidu.tbadk.editortools.emotiontool.c ith;
+    private EmotionGroupType itg;
+    private int ith;
     private int iti;
-    private int itj;
+    private com.baidu.tbadk.editortools.emotiontool.c itj;
+    private int itk;
+    private int itl;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.ith = cVar;
+        this.itj = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c cuq() {
-        return this.ith;
+    public com.baidu.tbadk.editortools.emotiontool.c cur() {
+        return this.itj;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.ite = emotionGroupType;
+        this.itg = emotionGroupType;
     }
 
-    public EmotionGroupType cur() {
-        return this.ite;
+    public EmotionGroupType cus() {
+        return this.itg;
     }
 
     public void sw(int i) {
@@ -43,39 +43,39 @@ public class b {
         this.column = i;
     }
 
-    public int cus() {
+    public int cut() {
         return this.column;
     }
 
     public void yA(int i) {
-        this.itj = i;
-    }
-
-    public int cut() {
-        return this.itj;
-    }
-
-    public void yB(int i) {
-        this.iti = i;
+        this.itl = i;
     }
 
     public int cuu() {
-        return this.iti;
+        return this.itl;
     }
 
-    public void yC(int i) {
-        this.itf = i;
+    public void yB(int i) {
+        this.itk = i;
     }
 
     public int cuv() {
-        return this.itf;
+        return this.itk;
+    }
+
+    public void yC(int i) {
+        this.ith = i;
+    }
+
+    public int cuw() {
+        return this.ith;
     }
 
     public void yD(int i) {
         this.bJV = i;
     }
 
-    public int cuw() {
+    public int cux() {
         return this.bJV;
     }
 
@@ -92,10 +92,10 @@ public class b {
     }
 
     public void yF(int i) {
-        this.itg = i;
+        this.iti = i;
     }
 
-    public int cux() {
-        return this.itg;
+    public int cuy() {
+        return this.iti;
     }
 }

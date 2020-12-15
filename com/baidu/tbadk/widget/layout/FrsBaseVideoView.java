@@ -180,7 +180,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                 this.fMK.clearAnimation();
                 this.fMK.setVisibility(0);
                 this.fMP.setVisibility(0);
-                this.fMO.dBV();
+                this.fMO.dBW();
                 this.fMN.setVisibility(8);
                 this.fMM.setVisibility(8);
             }

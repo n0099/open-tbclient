@@ -8,7 +8,7 @@ import org.a.d;
 public final class FlowableTakeLastOne<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pFg.a((j) new TakeLastOneSubscriber(cVar));
+        this.pFi.a((j) new TakeLastOneSubscriber(cVar));
     }
 
     /* loaded from: classes9.dex */

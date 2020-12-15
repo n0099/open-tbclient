@@ -42,7 +42,7 @@ public final class az {
             by bmn = aVar.bmn();
             String boB = com.baidu.tieba.card.n.boB();
             if (i == 3) {
-                boB = com.baidu.tieba.card.n.crY();
+                boB = com.baidu.tieba.card.n.crZ();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(bmn.getFid())));
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bmn, null, boB, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
@@ -83,7 +83,7 @@ public final class az {
             by bmn = aVar.bmn();
             String boB = com.baidu.tieba.card.n.boB();
             if (i == 3) {
-                boB = com.baidu.tieba.card.n.crY();
+                boB = com.baidu.tieba.card.n.crZ();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(bmn.getFid())));
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bmn, null, boB, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);

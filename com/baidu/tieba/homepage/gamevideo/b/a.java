@@ -18,21 +18,21 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class a {
     private TbPageContext eNx;
-    private GameVideoGridView jOG;
-    private com.baidu.tieba.homepage.gamevideo.a.b jOH;
-    private InterfaceC0759a jOI;
+    private GameVideoGridView jOI;
+    private com.baidu.tieba.homepage.gamevideo.a.b jOJ;
+    private InterfaceC0759a jOK;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (a.this.jOH != null && i < a.this.jOH.getCount() && a.this.jOH.getItem(i) != null && (a.this.jOH.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.jOH.getItem(i);
+            if (a.this.jOJ != null && i < a.this.jOJ.getCount() && a.this.jOJ.getItem(i) != null && (a.this.jOJ.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.jOJ.getItem(i);
                 if (aVar.enable == 1) {
-                    a.this.jOH.CR(aVar.sub_class_id);
-                    if (a.this.jOI != null) {
-                        a.this.jOI.a(aVar);
+                    a.this.jOJ.CR(aVar.sub_class_id);
+                    if (a.this.jOK != null) {
+                        a.this.jOK.a(aVar);
                     }
-                    a.this.cOQ();
+                    a.this.cOR();
                     com.baidu.tbadk.core.sharedPref.b.bsO().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new ar("c13485").al("obj_type", aVar.sub_class_id));
@@ -57,19 +57,19 @@ public class a {
 
     private void init() {
         this.mRootView = LayoutInflater.from(this.eNx.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
-        this.jOG = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
-        this.jOH = new com.baidu.tieba.homepage.gamevideo.a.b(this.eNx, 101, this.mBdUniqueId);
-        this.jOG.setNumColumns(4);
-        this.jOG.setAdapter((ListAdapter) this.jOH);
-        this.jOG.setOnItemClickListener(this.mOnItemClickListener);
+        this.jOI = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
+        this.jOJ = new com.baidu.tieba.homepage.gamevideo.a.b(this.eNx, 101, this.mBdUniqueId);
+        this.jOI.setNumColumns(4);
+        this.jOI.setAdapter((ListAdapter) this.jOJ);
+        this.jOI.setOnItemClickListener(this.mOnItemClickListener);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_full_title);
         onChangeSkinType();
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
         if (!y.isEmpty(list)) {
-            this.jOH.setData(list);
-            this.jOH.notifyDataSetChanged();
+            this.jOJ.setData(list);
+            this.jOJ.notifyDataSetChanged();
         }
     }
 
@@ -92,19 +92,19 @@ public class a {
         }
     }
 
-    public void cOQ() {
+    public void cOR() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
     public void a(InterfaceC0759a interfaceC0759a) {
-        this.jOI = interfaceC0759a;
+        this.jOK = interfaceC0759a;
     }
 
     public void onDestroy() {
-        if (this.jOG != null) {
-            this.jOG.onDestroy();
+        if (this.jOI != null) {
+            this.jOI.onDestroy();
         }
     }
 }

@@ -4,21 +4,21 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.d;
 /* loaded from: classes23.dex */
 public class a extends d {
-    private static final String neY = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+    private static final String nfa = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
 
-    public String dNt() {
-        setUrl(neY);
+    public String dNu() {
+        setUrl(nfa);
         return getResult();
     }
 
-    public long dNu() {
+    public long dNv() {
         if (this.cfI != null) {
             return this.cfI.btv().bug().eUJ.MF;
         }
         return 0L;
     }
 
-    public long dNv() {
+    public long dNw() {
         if (this.cfI != null) {
             return this.cfI.btv().bug().eUJ.connectTime;
         }

@@ -19,9 +19,9 @@ import java.util.Locale;
 /* loaded from: classes22.dex */
 public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.OnClickListener {
     private TextView elj;
-    private TextView jBE;
-    private View jBF;
-    private FrsMoveAreaChooseView jBG;
+    private TextView jBG;
+    private View jBH;
+    private FrsMoveAreaChooseView jBI;
     private TbPageContext mPageContext;
 
     public FrsMoveAreaBottomMenuView(Context context) {
@@ -40,10 +40,10 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.frs_move_area_bottom_menu_layout, this);
         this.elj = (TextView) findViewById(R.id.frs_move_area_cancel);
-        this.jBE = (TextView) findViewById(R.id.frs_move_area_move);
-        this.jBF = findViewById(R.id.frs_move_area_top_line);
+        this.jBG = (TextView) findViewById(R.id.frs_move_area_move);
+        this.jBH = findViewById(R.id.frs_move_area_top_line);
         this.elj.setOnClickListener(this);
-        this.jBE.setOnClickListener(this);
+        this.jBG.setOnClickListener(this);
         onChangeSkinType();
         setClickable(true);
     }
@@ -52,14 +52,14 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         this.mPageContext = tbPageContext;
     }
 
-    public boolean cMa() {
-        return this.jBG != null && this.jBG.getVisibility() == 0;
+    public boolean cMb() {
+        return this.jBI != null && this.jBI.getVisibility() == 0;
     }
 
-    public void cMb() {
-        if (this.jBG.getParent() != null) {
-            ((ViewGroup) this.jBG.getParent()).removeView(this.jBG);
-            this.jBG = null;
+    public void cMc() {
+        if (this.jBI.getParent() != null) {
+            ((ViewGroup) this.jBI.getParent()).removeView(this.jBI);
+            this.jBI = null;
         }
     }
 
@@ -68,29 +68,29 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         if (i > 0) {
             string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
         }
-        this.jBE.setText(string);
+        this.jBG.setText(string);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof String) {
-            cMb();
+            cMc();
         } else if (view == this.elj) {
-            this.jBG = null;
-            com.baidu.tieba.frs.a.cAW().reset();
-        } else if (view == this.jBE) {
-            if (this.mPageContext == null || this.jBG != null || y.isEmpty(com.baidu.tieba.frs.a.cAW().cBa())) {
-                if (this.jBG == null && getContext() != null) {
+            this.jBI = null;
+            com.baidu.tieba.frs.a.cAX().reset();
+        } else if (view == this.jBG) {
+            if (this.mPageContext == null || this.jBI != null || y.isEmpty(com.baidu.tieba.frs.a.cAX().cBb())) {
+                if (this.jBI == null && getContext() != null) {
                     new BdTopToast(getContext()).yW(false).Vt(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_choose_empty)).aF((ViewGroup) getParent());
                     return;
                 }
                 return;
             }
-            this.jBG = new FrsMoveAreaChooseView(this.mPageContext);
-            this.jBG.setOnClickListener(this);
-            ((ViewGroup) getParent()).addView(this.jBG, -1, -1);
-        } else if (this.jBG != null && view == this.jBG) {
-            cMb();
+            this.jBI = new FrsMoveAreaChooseView(this.mPageContext);
+            this.jBI.setOnClickListener(this);
+            ((ViewGroup) getParent()).addView(this.jBI, -1, -1);
+        } else if (this.jBI != null && view == this.jBI) {
+            cMc();
         }
     }
 
@@ -104,8 +104,8 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         ap.setBackgroundColor(this, R.color.CAM_X0201);
         ap.setViewTextColor(this.elj, R.color.CAM_X0105);
         ap.setBackgroundResource(this.elj, R.drawable.bg_bottom_up_list_dialog_item);
-        ap.setViewTextColor(this.jBE, R.color.CAM_X0302);
-        ap.setBackgroundResource(this.jBE, R.drawable.bg_bottom_up_list_dialog_item);
-        ap.setBackgroundColor(this.jBF, R.color.CAM_X0204);
+        ap.setViewTextColor(this.jBG, R.color.CAM_X0302);
+        ap.setBackgroundResource(this.jBG, R.drawable.bg_bottom_up_list_dialog_item);
+        ap.setBackgroundColor(this.jBH, R.color.CAM_X0204);
     }
 }

@@ -28,23 +28,23 @@ import java.util.Iterator;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes23.dex */
 public class c extends b {
-    boolean gZr;
-    private View.OnClickListener har;
-    private PersonListActivity lmG;
-    private View.OnClickListener lmH;
+    boolean gZt;
+    private View.OnClickListener hat;
+    private PersonListActivity lmI;
+    private View.OnClickListener lmJ;
     private int mSex;
 
     public c(PersonListActivity personListActivity, boolean z, int i, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.lmG = null;
-        this.gZr = true;
+        this.lmI = null;
+        this.gZt = true;
         this.mSex = 0;
-        this.lmH = null;
-        this.har = null;
-        this.lmG = personListActivity;
-        this.gZr = z;
+        this.lmJ = null;
+        this.hat = null;
+        this.lmI = personListActivity;
+        this.gZt = z;
         this.mSex = i;
-        this.lmH = onClickListener2;
-        this.har = onClickListener;
+        this.lmJ = onClickListener2;
+        this.hat = onClickListener;
         this.eOt = new ArrayList<>();
     }
 
@@ -101,7 +101,7 @@ public class c extends b {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gZp) {
+        if (this.gZr) {
             return 1;
         }
         int i = 0;
@@ -139,15 +139,15 @@ public class c extends b {
             if (view == null || !(view.getTag() instanceof a)) {
                 aVar = new a();
                 if (itemViewType == 0) {
-                    View inflate = LayoutInflater.from(this.lmG.getPageContext().getPageActivity()).inflate(R.layout.person_list_item, (ViewGroup) null);
-                    aVar.gFv = (ViewGroup) inflate.findViewById(R.id.item_view);
-                    aVar.gFv.setOnClickListener(this.har);
-                    aVar.lmK = (ClickableHeaderImageView) inflate.findViewById(R.id.photo);
-                    aVar.lmK.setRadius(l.getDimens(this.lmG.getPageContext().getPageActivity(), R.dimen.ds90));
-                    aVar.lmK.setAutoChangeStyle(true);
-                    aVar.lmK.setClickable(false);
-                    ((LinearLayout.LayoutParams) aVar.lmK.getLayoutParams()).setMargins(l.getDimens(this.lmG, R.dimen.ds34), 0, 0, 0);
-                    aVar.hau = (LinearLayout) inflate.findViewById(R.id.info);
+                    View inflate = LayoutInflater.from(this.lmI.getPageContext().getPageActivity()).inflate(R.layout.person_list_item, (ViewGroup) null);
+                    aVar.gFx = (ViewGroup) inflate.findViewById(R.id.item_view);
+                    aVar.gFx.setOnClickListener(this.hat);
+                    aVar.lmM = (ClickableHeaderImageView) inflate.findViewById(R.id.photo);
+                    aVar.lmM.setRadius(l.getDimens(this.lmI.getPageContext().getPageActivity(), R.dimen.ds90));
+                    aVar.lmM.setAutoChangeStyle(true);
+                    aVar.lmM.setClickable(false);
+                    ((LinearLayout.LayoutParams) aVar.lmM.getLayoutParams()).setMargins(l.getDimens(this.lmI, R.dimen.ds34), 0, 0, 0);
+                    aVar.haw = (LinearLayout) inflate.findViewById(R.id.info);
                     aVar.mContainer = (LinearLayout) inflate.findViewById(R.id.tail_container);
                     aVar.mName = (TextView) inflate.findViewById(R.id.name);
                     aVar.mName.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.myAttentionAndFans.c.1
@@ -156,47 +156,47 @@ public class c extends b {
                             Layout layout = aVar.mName.getLayout();
                             if (layout != null) {
                                 if (layout.getEllipsisCount(layout.getLineCount() - 1) <= 0) {
-                                    aVar.mName.setCompoundDrawablePadding(l.getDimens(c.this.lmG, R.dimen.tbds10));
+                                    aVar.mName.setCompoundDrawablePadding(l.getDimens(c.this.lmI, R.dimen.tbds10));
                                 } else {
                                     aVar.mName.setCompoundDrawablePadding(0);
                                 }
                             }
                         }
                     });
-                    aVar.lmL = com.baidu.tbadk.ala.b.bkP().z(this.lmG.getPageContext().getPageActivity(), 5);
-                    if (aVar.lmL != null) {
-                        aVar.lmL.setVisibility(8);
-                        aVar.mContainer.addView(aVar.lmL, 1);
+                    aVar.lmN = com.baidu.tbadk.ala.b.bkP().z(this.lmI.getPageContext().getPageActivity(), 5);
+                    if (aVar.lmN != null) {
+                        aVar.lmN.setVisibility(8);
+                        aVar.mContainer.addView(aVar.lmN, 1);
                     }
-                    aVar.gZt = (TextView) inflate.findViewById(R.id.at_list_nodata);
-                    aVar.gFz = (TextView) inflate.findViewById(R.id.intro);
-                    aVar.lmM = (MyFansUserLikeButton) inflate.findViewById(R.id.attention_btn);
-                    aVar.lmM.setContext(this.lmG.getPageContext());
-                    ((LinearLayout.LayoutParams) aVar.lmM.getLayoutParams()).setMargins(0, 0, l.getDimens(this.lmG, R.dimen.ds34), 0);
-                    aVar.akZ = new com.baidu.tbadk.core.view.userLike.c(this.lmG.getPageContext(), aVar.lmM);
+                    aVar.gZv = (TextView) inflate.findViewById(R.id.at_list_nodata);
+                    aVar.gFB = (TextView) inflate.findViewById(R.id.intro);
+                    aVar.lmO = (MyFansUserLikeButton) inflate.findViewById(R.id.attention_btn);
+                    aVar.lmO.setContext(this.lmI.getPageContext());
+                    ((LinearLayout.LayoutParams) aVar.lmO.getLayoutParams()).setMargins(0, 0, l.getDimens(this.lmI, R.dimen.ds34), 0);
+                    aVar.akZ = new com.baidu.tbadk.core.view.userLike.c(this.lmI.getPageContext(), aVar.lmO);
                     aVar.akZ.a((com.baidu.tbadk.core.view.userLike.a) y.getItem(this.eOt, i));
                     aVar.akZ.a(new c.a() { // from class: com.baidu.tieba.myAttentionAndFans.c.2
                         @Override // com.baidu.tbadk.core.view.userLike.c.a
                         public void jM(boolean z) {
                             if (z) {
-                                l.showToast(c.this.lmG, R.string.attention_success);
+                                l.showToast(c.this.lmI, R.string.attention_success);
                             } else {
-                                l.showToast(c.this.lmG, R.string.unfollow_success);
+                                l.showToast(c.this.lmI, R.string.unfollow_success);
                             }
                         }
                     });
                     aVar.mProgress = null;
                     aVar.mTitle = null;
-                    aVar.lmN = (ImageView) inflate.findViewById(R.id.diver_buttom_px);
+                    aVar.lmP = (ImageView) inflate.findViewById(R.id.diver_buttom_px);
                     view2 = inflate;
                 } else if (itemViewType == 2) {
-                    View inflate2 = LayoutInflater.from(this.lmG.getPageContext().getPageActivity()).inflate(R.layout.my_fan_list_title, (ViewGroup) null);
+                    View inflate2 = LayoutInflater.from(this.lmI.getPageContext().getPageActivity()).inflate(R.layout.my_fan_list_title, (ViewGroup) null);
                     aVar.mTitle = (TextView) inflate2.findViewById(R.id.my_new_fan_title);
                     view2 = inflate2;
                 } else {
-                    View inflate3 = LayoutInflater.from(this.lmG.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                    View inflate3 = LayoutInflater.from(this.lmI.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
                     aVar.mName = (TextView) inflate3.findViewById(R.id.pb_more_text);
-                    inflate3.setOnClickListener(this.lmH);
+                    inflate3.setOnClickListener(this.lmJ);
                     aVar.mProgress = (ProgressBar) inflate3.findViewById(R.id.progress);
                     aVar.mTitle = null;
                     view2 = inflate3;
@@ -206,77 +206,77 @@ public class c extends b {
             } else {
                 aVar = (a) view.getTag();
             }
-            if (aVar.lmM != null) {
-                aVar.lmM.setTag(Integer.valueOf(i));
+            if (aVar.lmO != null) {
+                aVar.lmO.setTag(Integer.valueOf(i));
             }
             if (itemViewType == 0) {
-                if (this.gZp) {
-                    aVar.hau.setVisibility(8);
-                    aVar.gZt.setVisibility(0);
-                    if (this.gZr) {
-                        aVar.gZt.setText(R.string.not_have_fans);
+                if (this.gZr) {
+                    aVar.haw.setVisibility(8);
+                    aVar.gZv.setVisibility(0);
+                    if (this.gZt) {
+                        aVar.gZv.setText(R.string.not_have_fans);
                     } else if (this.mSex == 2) {
-                        aVar.gZt.setText(R.string.her_no_fan_other);
+                        aVar.gZv.setText(R.string.her_no_fan_other);
                     } else if (this.mSex == 1) {
-                        aVar.gZt.setText(R.string.him_no_fan_other);
+                        aVar.gZv.setText(R.string.him_no_fan_other);
                     } else {
-                        aVar.gZt.setText(R.string.no_fan_other);
+                        aVar.gZv.setText(R.string.no_fan_other);
                     }
                 } else {
-                    aVar.gFv.setTag(Integer.valueOf(i));
+                    aVar.gFx.setTag(Integer.valueOf(i));
                     UserData userData = (UserData) y.getItem(this.eOt, i);
                     if (userData != null) {
-                        aVar.gZt.setVisibility(8);
-                        UtilHelper.showHeadImageViewBigV(aVar.lmK, userData, 0);
+                        aVar.gZv.setVisibility(8);
+                        UtilHelper.showHeadImageViewBigV(aVar.lmM, userData, 0);
                         aVar.mName.setText(UtilHelper.getUserName(userData));
-                        aVar.lmK.setPlaceHolder(1);
-                        aVar.lmK.startLoad(userData.getAvater(), 12, false);
-                        if (aVar.lmL != null && userData.getAlaUserData() != null) {
+                        aVar.lmM.setPlaceHolder(1);
+                        aVar.lmM.startLoad(userData.getAvater(), 12, false);
+                        if (aVar.lmN != null && userData.getAlaUserData() != null) {
                             if (userData.getAlaUserData().anchor_live == 0 && userData.getAlaUserData().enter_live == 0) {
-                                aVar.lmL.setVisibility(8);
+                                aVar.lmN.setVisibility(8);
                             } else {
-                                aVar.lmL.setVisibility(0);
+                                aVar.lmN.setVisibility(0);
                                 com.baidu.tbadk.ala.a aVar2 = new com.baidu.tbadk.ala.a();
                                 aVar2.ezB = userData.getAlaUserData();
                                 aVar2.type = 5;
-                                aVar.lmL.setTag(aVar2);
+                                aVar.lmN.setTag(aVar2);
                             }
                         }
                         if (au.isEmpty(userData.getIntro())) {
-                            aVar.gFz.setVisibility(8);
+                            aVar.gFB.setVisibility(8);
                         } else {
-                            aVar.gFz.setVisibility(0);
-                            aVar.gFz.setText(userData.getIntro());
+                            aVar.gFB.setVisibility(0);
+                            aVar.gFB.setText(userData.getIntro());
                         }
                         String userId = userData.getUserId();
                         userData.setIsLike(userData.getHave_attention() > 0);
                         aVar.akZ.a(userData);
                         if (!TextUtils.isEmpty(userId) && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                            aVar.lmM.setVisibility(8);
+                            aVar.lmO.setVisibility(8);
                         } else {
-                            aVar.lmM.setStatsParams(2, userId);
+                            aVar.lmO.setStatsParams(2, userId);
                             aVar.akZ.Bc(PublishType.TYPE_VIDEO_SHARE);
-                            aVar.lmM.setVisibility(0);
+                            aVar.lmO.setVisibility(0);
                         }
                     }
                 }
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.lmN.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.lmP.getLayoutParams();
                 if (y.getItem(this.eOt, i) != null && ((UserData) y.getItem(this.eOt, i)).isLastNewFan) {
-                    layoutParams.height = l.getDimens(this.lmG, R.dimen.ds12);
+                    layoutParams.height = l.getDimens(this.lmI, R.dimen.ds12);
                     layoutParams.setMargins(0, 0, 0, 0);
-                    aVar.lmN.setVisibility(0);
+                    aVar.lmP.setVisibility(0);
                 } else {
-                    aVar.lmN.setVisibility(8);
-                    layoutParams.height = l.getDimens(this.lmG, R.dimen.ds1);
-                    layoutParams.setMargins(l.getDimens(this.lmG, R.dimen.ds34), 0, l.getDimens(this.lmG, R.dimen.ds34), 0);
+                    aVar.lmP.setVisibility(8);
+                    layoutParams.height = l.getDimens(this.lmI, R.dimen.ds1);
+                    layoutParams.setMargins(l.getDimens(this.lmI, R.dimen.ds34), 0, l.getDimens(this.lmI, R.dimen.ds34), 0);
                 }
-                aVar.lmN.setLayoutParams(layoutParams);
+                aVar.lmP.setLayoutParams(layoutParams);
                 aVar.mProgress = null;
             } else if (itemViewType == 2) {
                 aVar.mTitle.setText(R.string.new_fans);
                 aVar.mTitle.setVisibility(0);
             } else {
-                aVar.mName.setText(this.lmG.getPageContext().getString(R.string.loading));
+                aVar.mName.setText(this.lmI.getPageContext().getString(R.string.loading));
                 aVar.mProgress.setVisibility(0);
             }
             a(view, aVar);
@@ -286,25 +286,25 @@ public class c extends b {
 
     private void a(View view, a aVar) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.lmG.getLayoutMode().setNightMode(skinType == 1);
-        this.lmG.getLayoutMode().onModeChanged(view);
+        this.lmI.getLayoutMode().setNightMode(skinType == 1);
+        this.lmI.getLayoutMode().onModeChanged(view);
         if (aVar != null) {
             if (aVar.mTitle != null) {
                 ap.setViewTextColor(aVar.mTitle, R.color.CAM_X0109);
                 ap.setBackgroundColor(aVar.mTitle, R.color.CAM_X0205);
             }
-            if (aVar.lmN != null) {
-                ap.setImageResource(aVar.lmN, R.color.CAM_X0204);
+            if (aVar.lmP != null) {
+                ap.setImageResource(aVar.lmP, R.color.CAM_X0204);
             }
-            if (aVar.lmM != null) {
-                aVar.lmM.onChangeSkinType(skinType);
+            if (aVar.lmO != null) {
+                aVar.lmO.onChangeSkinType(skinType);
             }
         }
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.gZp) {
+        if (this.gZr) {
             return 0;
         }
         if (this.eOt == null || i >= this.eOt.size()) {
@@ -320,7 +320,7 @@ public class c extends b {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.gZp) {
+        if (this.gZr) {
             return false;
         }
         return super.isEnabled(i);
@@ -330,14 +330,14 @@ public class c extends b {
     /* loaded from: classes23.dex */
     public class a {
         com.baidu.tbadk.core.view.userLike.c akZ;
-        ViewGroup gFv;
-        TextView gFz;
-        TextView gZt;
-        LinearLayout hau;
-        ClickableHeaderImageView lmK;
-        View lmL;
-        MyFansUserLikeButton lmM;
-        ImageView lmN;
+        TextView gFB;
+        ViewGroup gFx;
+        TextView gZv;
+        LinearLayout haw;
+        ClickableHeaderImageView lmM;
+        View lmN;
+        MyFansUserLikeButton lmO;
+        ImageView lmP;
         LinearLayout mContainer;
         TextView mName;
         ProgressBar mProgress;

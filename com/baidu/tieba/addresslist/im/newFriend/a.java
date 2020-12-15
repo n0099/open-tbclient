@@ -18,12 +18,12 @@ import java.util.List;
 @SuppressLint({"UseSparseArrays"})
 /* loaded from: classes21.dex */
 public class a extends BaseAdapter implements View.OnClickListener {
-    private static SparseArray<Integer> gcb = new SparseArray<>();
-    private static HashMap<C0624a, Integer> gcc = new HashMap<>();
-    private static HashMap<C0624a, Integer> gcd = new HashMap<>();
+    private static SparseArray<Integer> gcd = new SparseArray<>();
+    private static HashMap<C0624a, Integer> gce = new HashMap<>();
+    private static HashMap<C0624a, Integer> gcf = new HashMap<>();
     private List<com.baidu.tieba.im.data.a> data;
-    private NewFriendsActivity gca;
-    private b gce;
+    private NewFriendsActivity gcc;
+    private b gcg;
 
     /* loaded from: classes21.dex */
     public interface b {
@@ -31,40 +31,40 @@ public class a extends BaseAdapter implements View.OnClickListener {
     }
 
     static {
-        gcb.put(0, Integer.valueOf(R.string.add));
-        gcb.put(4, Integer.valueOf(R.string.added));
-        gcb.put(1, Integer.valueOf(R.string.pass));
-        gcb.put(2, Integer.valueOf(R.string.passed));
-        gcb.put(3, Integer.valueOf(R.string.waiting));
-        gcc.put(new C0624a(false), Integer.valueOf(R.drawable.btn_pass));
-        gcc.put(new C0624a(true), Integer.valueOf(R.drawable.btn_all_blue));
-        gcd.put(new C0624a(false), Integer.valueOf(R.color.btn_pass_text_color));
-        gcd.put(new C0624a(true), Integer.valueOf(R.color.btn_agree_text_color));
+        gcd.put(0, Integer.valueOf(R.string.add));
+        gcd.put(4, Integer.valueOf(R.string.added));
+        gcd.put(1, Integer.valueOf(R.string.pass));
+        gcd.put(2, Integer.valueOf(R.string.passed));
+        gcd.put(3, Integer.valueOf(R.string.waiting));
+        gce.put(new C0624a(false), Integer.valueOf(R.drawable.btn_pass));
+        gce.put(new C0624a(true), Integer.valueOf(R.drawable.btn_all_blue));
+        gcf.put(new C0624a(false), Integer.valueOf(R.color.btn_pass_text_color));
+        gcf.put(new C0624a(true), Integer.valueOf(R.color.btn_agree_text_color));
     }
 
     /* renamed from: com.baidu.tieba.addresslist.im.newFriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
     private static class C0624a {
-        private boolean gcf;
+        private boolean gch;
 
         public C0624a(boolean z) {
-            this.gcf = z;
+            this.gch = z;
         }
 
         public int hashCode() {
-            return (this.gcf ? 1231 : 1237) + 31;
+            return (this.gch ? 1231 : 1237) + 31;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && getClass() == obj.getClass() && this.gcf == ((C0624a) obj).gcf;
+            return obj != null && getClass() == obj.getClass() && this.gch == ((C0624a) obj).gch;
         }
     }
 
     public a(NewFriendsActivity newFriendsActivity) {
-        this.gca = newFriendsActivity;
+        this.gcc = newFriendsActivity;
     }
 
     @Override // android.widget.Adapter
@@ -95,25 +95,25 @@ public class a extends BaseAdapter implements View.OnClickListener {
         } else {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
             cVar = new c();
-            cVar.gcg = (HeadImageView) view.findViewById(R.id.friend_icon);
-            cVar.gch = (TextView) view.findViewById(R.id.friend_name);
-            cVar.gci = (TextView) view.findViewById(R.id.friend_info);
-            cVar.gcj = (TextView) view.findViewById(R.id.friend_add_btn);
+            cVar.gci = (HeadImageView) view.findViewById(R.id.friend_icon);
+            cVar.gcj = (TextView) view.findViewById(R.id.friend_name);
+            cVar.gck = (TextView) view.findViewById(R.id.friend_info);
+            cVar.gcl = (TextView) view.findViewById(R.id.friend_add_btn);
             view.setTag(cVar);
         }
         com.baidu.tieba.im.data.a item = getItem(i);
         cVar.c(item);
-        cVar.gcj.setTag(Integer.valueOf(i));
-        cVar.gcj.setOnClickListener(this);
-        this.gca.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.gca.getLayoutMode().onModeChanged(view);
-        Integer num = gcc.get(new C0624a(item.getStatus() == 1));
+        cVar.gcl.setTag(Integer.valueOf(i));
+        cVar.gcl.setOnClickListener(this);
+        this.gcc.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.gcc.getLayoutMode().onModeChanged(view);
+        Integer num = gce.get(new C0624a(item.getStatus() == 1));
         if (num != null) {
-            ap.setBackgroundResource(cVar.gcj, num.intValue());
+            ap.setBackgroundResource(cVar.gcl, num.intValue());
         }
-        Integer num2 = gcd.get(new C0624a(item.getStatus() == 1));
+        Integer num2 = gcf.get(new C0624a(item.getStatus() == 1));
         if (num2 != null) {
-            ap.setViewTextColor(cVar.gcj, num2.intValue(), 1);
+            ap.setViewTextColor(cVar.gcl, num2.intValue(), 1);
         }
         return view;
     }
@@ -168,38 +168,38 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes21.dex */
     private static class c {
-        HeadImageView gcg;
-        TextView gch;
-        TextView gci;
+        HeadImageView gci;
         TextView gcj;
+        TextView gck;
+        TextView gcl;
 
         private c() {
         }
 
         public void c(com.baidu.tieba.im.data.a aVar) {
-            this.gcg.startLoad(aVar.getPortrait(), 12, false);
-            this.gch.setText(aVar.getName());
+            this.gci.startLoad(aVar.getPortrait(), 12, false);
+            this.gcj.setText(aVar.getName());
             if (!TextUtils.isEmpty(aVar.getContent())) {
-                this.gci.setText(aVar.getContent());
+                this.gck.setText(aVar.getContent());
             } else {
-                this.gci.setText("");
+                this.gck.setText("");
             }
             int status = aVar.getStatus();
-            this.gcj.setText(((Integer) a.gcb.get(status)).intValue());
-            this.gcj.setEnabled(status == 0 || status == 1);
+            this.gcl.setText(((Integer) a.gcd.get(status)).intValue());
+            this.gcl.setEnabled(status == 0 || status == 1);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gce != null) {
+        if (this.gcg != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.gce.a(id, intValue, view, getItem(intValue));
+            this.gcg.a(id, intValue, view, getItem(intValue));
         }
     }
 
     public void a(b bVar) {
-        this.gce = bVar;
+        this.gcg = bVar;
     }
 }

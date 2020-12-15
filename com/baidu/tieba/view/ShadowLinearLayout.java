@@ -21,12 +21,12 @@ public class ShadowLinearLayout extends LinearLayout {
     private Path mPath;
     private float mRadius;
     private int mWidth;
-    private float nNM;
-    private float nRr;
-    private RectF nRs;
-    private RectF nRt;
+    private float nNO;
+    private float nRt;
     private RectF nRu;
     private RectF nRv;
+    private RectF nRw;
+    private RectF nRx;
 
     public ShadowLinearLayout(Context context) {
         this(context, null);
@@ -48,9 +48,9 @@ public class ShadowLinearLayout extends LinearLayout {
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setDither(true);
         this.mRadius = l.getDimens(context, R.dimen.ds20);
-        this.nNM = l.getDimens(context, R.dimen.ds25);
-        this.dtt = this.nNM;
-        this.bIF = this.nNM;
+        this.nNO = l.getDimens(context, R.dimen.ds25);
+        this.dtt = this.nNO;
+        this.bIF = this.nNO;
         this.mPath = new Path();
         setLayerType(1, this.mPaint);
         onChangeSkinType();
@@ -62,8 +62,8 @@ public class ShadowLinearLayout extends LinearLayout {
         this.mWidth = getMeasuredWidth();
         this.mHeight = getMeasuredHeight();
         if (this.mWidth > 0 && this.mHeight > 0) {
-            this.dub = this.mWidth - this.nNM;
-            this.nRr = this.mHeight - this.nNM;
+            this.dub = this.mWidth - this.nNO;
+            this.nRt = this.mHeight - this.nNO;
         }
     }
 
@@ -71,25 +71,25 @@ public class ShadowLinearLayout extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         if (this.mWidth > 0 && this.mHeight > 0) {
             this.mPath.moveTo(this.dtt, this.bIF + this.mRadius);
-            if (this.nRs == null) {
-                this.nRs = new RectF(this.dtt, this.bIF, this.dtt + (this.mRadius * 2.0f), this.bIF + (this.mRadius * 2.0f));
-            }
-            this.mPath.arcTo(this.nRs, 180.0f, 90.0f, false);
-            this.mPath.lineTo(this.dub - this.mRadius, this.bIF);
-            if (this.nRt == null) {
-                this.nRt = new RectF(this.dub - (this.mRadius * 2.0f), this.bIF, this.dub, this.bIF + (this.mRadius * 2.0f));
-            }
-            this.mPath.arcTo(this.nRt, 270.0f, 90.0f, false);
-            this.mPath.lineTo(this.dub, this.nRr - this.mRadius);
             if (this.nRu == null) {
-                this.nRu = new RectF(this.dub - (this.mRadius * 2.0f), this.nRr - (this.mRadius * 2.0f), this.dub, this.nRr);
+                this.nRu = new RectF(this.dtt, this.bIF, this.dtt + (this.mRadius * 2.0f), this.bIF + (this.mRadius * 2.0f));
             }
-            this.mPath.arcTo(this.nRu, 0.0f, 90.0f, false);
-            this.mPath.lineTo(this.dtt + this.mRadius, this.nRr);
+            this.mPath.arcTo(this.nRu, 180.0f, 90.0f, false);
+            this.mPath.lineTo(this.dub - this.mRadius, this.bIF);
             if (this.nRv == null) {
-                this.nRv = new RectF(this.dtt, this.nRr - (this.mRadius * 2.0f), this.dtt + (this.mRadius * 2.0f), this.nRr);
+                this.nRv = new RectF(this.dub - (this.mRadius * 2.0f), this.bIF, this.dub, this.bIF + (this.mRadius * 2.0f));
             }
-            this.mPath.arcTo(this.nRv, 90.0f, 90.0f, false);
+            this.mPath.arcTo(this.nRv, 270.0f, 90.0f, false);
+            this.mPath.lineTo(this.dub, this.nRt - this.mRadius);
+            if (this.nRw == null) {
+                this.nRw = new RectF(this.dub - (this.mRadius * 2.0f), this.nRt - (this.mRadius * 2.0f), this.dub, this.nRt);
+            }
+            this.mPath.arcTo(this.nRw, 0.0f, 90.0f, false);
+            this.mPath.lineTo(this.dtt + this.mRadius, this.nRt);
+            if (this.nRx == null) {
+                this.nRx = new RectF(this.dtt, this.nRt - (this.mRadius * 2.0f), this.dtt + (this.mRadius * 2.0f), this.nRt);
+            }
+            this.mPath.arcTo(this.nRx, 90.0f, 90.0f, false);
             this.mPath.lineTo(this.dtt, this.bIF + this.mRadius);
             canvas.drawPath(this.mPath, this.mPaint);
             super.dispatchDraw(canvas);

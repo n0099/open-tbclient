@@ -16,19 +16,19 @@ public final class d {
     private String i;
     private boolean j;
     private Map<String, g> k;
-    private JSONArray oHO;
+    private JSONArray oHQ;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes17.dex */
     public static class a {
-        public static final d oHP = new d((byte) 0);
+        public static final d oHR = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> ejm() {
+    public final Map<String, g> ejn() {
         return this.k;
     }
 
@@ -40,8 +40,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d ejn() {
-        return a.oHP;
+    public static d ejo() {
+        return a.oHR;
     }
 
     public final void a(Context context) {
@@ -88,7 +88,7 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final SampleResult XZ(String str) {
-        if (this.oHO == null) {
+        if (this.oHQ == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
@@ -97,8 +97,8 @@ public final class d {
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.oHO.length(); i++) {
-            JSONObject optJSONObject = this.oHO.optJSONObject(i);
+        for (int i = 0; i < this.oHQ.length(); i++) {
+            JSONObject optJSONObject = this.oHQ.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                 return i.Yj(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }

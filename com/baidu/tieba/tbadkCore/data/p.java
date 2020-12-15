@@ -1,22 +1,22 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class p {
-    private String lCe;
-    private int nmT;
+    private String lCg;
+    private int nmV;
 
-    public int dPt() {
-        return this.nmT;
+    public int dPu() {
+        return this.nmV;
     }
 
     public void KW(int i) {
-        this.nmT = i;
+        this.nmV = i;
     }
 
-    public String dPu() {
-        return this.lCe;
+    public String dPv() {
+        return this.lCg;
     }
 
     public void TH(String str) {
-        this.lCe = str;
+        this.lCg = str;
     }
 }

@@ -11,7 +11,7 @@ public class e extends g {
     private String c;
     private String d;
     private boolean e = false;
-    private a oZL;
+    private a oZN;
 
     public void a(boolean z) {
         this.e = z;
@@ -30,16 +30,16 @@ public class e extends g {
     }
 
     public void a(a aVar) {
-        this.oZL = aVar;
+        this.oZN = aVar;
     }
 
-    public a eoB() {
-        return this.oZL;
+    public a eoC() {
+        return this.oZN;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.oZL.a();
+        return this.oZN.a();
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -48,7 +48,7 @@ public class e extends g {
         if (this.e) {
             try {
                 jSONObject.put("encrypted", this.c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.oZL.toString()));
+                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.b, this.oZN.toString()));
                 jSONObject.put("securityreinforce", this.d);
             } catch (JSONException e) {
                 e.printStackTrace();

@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private a gyO;
+    private a gyQ;
 
     public c(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gyO = new a(getView());
+        this.gyQ = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gyO.textView, (int) R.color.CAM_X0109);
-        ap.setBackgroundColor(this.gyO.eOv, R.color.CAM_X0204);
+        ap.setViewTextColor(this.gyQ.textView, (int) R.color.CAM_X0109);
+        ap.setBackgroundColor(this.gyQ.eOv, R.color.CAM_X0204);
     }
 
     @Override // com.baidu.tieba.card.b

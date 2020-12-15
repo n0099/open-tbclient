@@ -19,7 +19,7 @@ public class ImageProblemItemView extends FrameLayout {
     protected LinearLayout fqI;
     protected TextView fqJ;
     protected ImageView fqN;
-    protected TextView kNZ;
+    protected TextView kOb;
     protected Context mContext;
     protected TextView textView;
 
@@ -71,16 +71,16 @@ public class ImageProblemItemView extends FrameLayout {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bXF.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
             this.bXF.setLayoutParams(layoutParams);
-            this.kNZ.setText("");
-            this.kNZ.setVisibility(8);
+            this.kOb.setText("");
+            this.kOb.setVisibility(8);
             return;
         }
         this.bXF.setVisibility(0);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.bXF.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
         this.bXF.setLayoutParams(layoutParams2);
-        this.kNZ.setText(str);
-        this.kNZ.setVisibility(0);
+        this.kOb.setText(str);
+        this.kOb.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -121,7 +121,7 @@ public class ImageProblemItemView extends FrameLayout {
         this.fqJ = (TextView) findViewById(R.id.tip);
         this.fqN = (ImageView) findViewById(R.id.arrow2);
         this.bXF = (LinearLayout) findViewById(R.id.ll_container);
-        this.kNZ = (TextView) findViewById(R.id.tv_help);
+        this.kOb = (TextView) findViewById(R.id.tv_help);
     }
 
     protected void e(AttributeSet attributeSet) {

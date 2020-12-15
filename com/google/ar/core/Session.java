@@ -27,8 +27,8 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 /* loaded from: classes17.dex */
 public class Session {
-    long psX;
-    final q ptm;
+    long psZ;
+    final q pto;
 
     /* loaded from: classes17.dex */
     enum a {
@@ -182,9 +182,9 @@ public class Session {
     }
 
     protected void finalize() throws Throwable {
-        if (this.psX != 0) {
-            nativeDestroySession(this.psX);
-            this.psX = 0L;
+        if (this.psZ != 0) {
+            nativeDestroySession(this.psZ);
+            this.psZ = 0L;
         }
         super.finalize();
     }

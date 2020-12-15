@@ -8,27 +8,27 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes22.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.j, com.baidu.tieba.card.a.a<com.baidu.tieba.card.l>> {
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     public BdUniqueId fzO;
-    ab<com.baidu.tieba.card.data.j> iyx;
-    private com.baidu.tieba.card.l jSK;
+    ab<com.baidu.tieba.card.data.j> iyz;
+    private com.baidu.tieba.card.l jSM;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.fWA = null;
-        this.iyx = new ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.tabfeed.a.c.1
+        this.fWC = null;
+        this.iyz = new ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.tabfeed.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
                 int i = 0;
-                if (c.this.jSK.gfN != view) {
-                    if (view != c.this.jSK.hbL.getCommentContainer()) {
-                        if (view != c.this.jSK.igV.getCommentContainer()) {
-                            if (c.this.jSK.crL() != null && view.getId() == c.this.jSK.crL().getId()) {
+                if (c.this.jSM.gfP != view) {
+                    if (view != c.this.jSM.hbN.getCommentContainer()) {
+                        if (view != c.this.jSM.igX.getCommentContainer()) {
+                            if (c.this.jSM.crM() != null && view.getId() == c.this.jSM.crM().getId()) {
                                 i = 2;
-                            } else if (c.this.jSK.crM() != null && view.getId() == c.this.jSK.crM().getId()) {
+                            } else if (c.this.jSM.crN() != null && view.getId() == c.this.jSM.crN().getId()) {
                                 i = 2;
                             }
                         }
@@ -39,7 +39,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     i = 1;
                 }
                 if (i != 0) {
-                    com.baidu.tieba.homepage.personalize.c.a.a(jVar.eCR, c.this.fzO, jVar.css(), i);
+                    com.baidu.tieba.homepage.personalize.c.a.a(jVar.eCR, c.this.fzO, jVar.cst(), i);
                 }
                 com.baidu.tieba.homepage.tabfeed.b.a(view, jVar, c.this.mTabName);
             }
@@ -53,12 +53,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.l> c(ViewGroup viewGroup) {
-        this.jSK = new com.baidu.tieba.card.l(this.mPageContext, this.fzO);
-        this.jSK.ye(2);
+        this.jSM = new com.baidu.tieba.card.l(this.mPageContext, this.fzO);
+        this.jSM.ye(2);
         if (this.fzO != null) {
-            this.jSK.o(this.fzO);
+            this.jSM.o(this.fzO);
         }
-        return new com.baidu.tieba.card.a.a<>(this.jSK);
+        return new com.baidu.tieba.card.a.a<>(this.jSM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,12 +66,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.l> aVar) {
         jVar.ym(jVar.position + 1);
-        com.baidu.tieba.card.l csM = aVar.csM();
-        csM.yj(i + 1);
-        csM.a(jVar);
-        csM.c(this.iyx);
-        csM.b(this.fWA);
-        com.baidu.tieba.homepage.personalize.c.a.a(jVar.eCR, this.fzO, jVar.css());
+        com.baidu.tieba.card.l csN = aVar.csN();
+        csN.yj(i + 1);
+        csN.a(jVar);
+        csN.c(this.iyz);
+        csN.b(this.fWC);
+        com.baidu.tieba.homepage.personalize.c.a.a(jVar.eCR, this.fzO, jVar.cst());
         com.baidu.tieba.homepage.tabfeed.b.a(jVar, this.mTabName);
         return aVar.getView();
     }

@@ -9,18 +9,18 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes15.dex */
 public class JobScheduler {
     private final Executor mExecutor;
-    private final a ppl;
-    private final int ppo;
-    private final Runnable ppm = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    private final a ppn;
+    private final int ppq;
+    private final Runnable ppo = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+        @Override // java.lang.Runnable
+        public void run() {
+            JobScheduler.this.ewR();
+        }
+    };
+    private final Runnable ppp = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
             JobScheduler.this.ewQ();
-        }
-    };
-    private final Runnable ppn = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
-        @Override // java.lang.Runnable
-        public void run() {
-            JobScheduler.this.ewP();
         }
     };
     @GuardedBy("this")
@@ -28,11 +28,11 @@ public class JobScheduler {
     @GuardedBy("this")
     int mStatus = 0;
     @GuardedBy("this")
-    JobState ppp = JobState.IDLE;
+    JobState ppr = JobState.IDLE;
     @GuardedBy("this")
-    long ppq = 0;
+    long pps = 0;
     @GuardedBy("this")
-    long ppr = 0;
+    long ppt = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
@@ -51,23 +51,23 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
     public static class b {
-        private static ScheduledExecutorService ppu;
+        private static ScheduledExecutorService ppw;
 
-        static ScheduledExecutorService ewT() {
-            if (ppu == null) {
-                ppu = Executors.newSingleThreadScheduledExecutor();
+        static ScheduledExecutorService ewU() {
+            if (ppw == null) {
+                ppw = Executors.newSingleThreadScheduledExecutor();
             }
-            return ppu;
+            return ppw;
         }
     }
 
     public JobScheduler(Executor executor, a aVar, int i) {
         this.mExecutor = executor;
-        this.ppl = aVar;
-        this.ppo = i;
+        this.ppn = aVar;
+        this.ppq = i;
     }
 
-    public void ewN() {
+    public void ewO() {
         com.facebook.imagepipeline.f.e eVar;
         synchronized (this) {
             eVar = this.mEncodedImage;
@@ -91,21 +91,21 @@ public class JobScheduler {
         return true;
     }
 
-    public boolean ewO() {
+    public boolean ewP() {
         boolean z = false;
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         synchronized (this) {
             if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.ppp) {
+                switch (this.ppr) {
                     case IDLE:
-                        j = Math.max(this.ppr + this.ppo, uptimeMillis);
-                        this.ppq = uptimeMillis;
-                        this.ppp = JobState.QUEUED;
+                        j = Math.max(this.ppt + this.ppq, uptimeMillis);
+                        this.pps = uptimeMillis;
+                        this.ppr = JobState.QUEUED;
                         z = true;
                         break;
                     case RUNNING:
-                        this.ppp = JobState.RUNNING_AND_PENDING;
+                        this.ppr = JobState.RUNNING_AND_PENDING;
                         break;
                 }
                 if (z) {
@@ -119,19 +119,19 @@ public class JobScheduler {
 
     private void iy(long j) {
         if (j > 0) {
-            b.ewT().schedule(this.ppn, j, TimeUnit.MILLISECONDS);
+            b.ewU().schedule(this.ppp, j, TimeUnit.MILLISECONDS);
         } else {
-            this.ppn.run();
+            this.ppp.run();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ewP() {
-        this.mExecutor.execute(this.ppm);
+    public void ewQ() {
+        this.mExecutor.execute(this.ppo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ewQ() {
+    public void ewR() {
         com.facebook.imagepipeline.f.e eVar;
         int i;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -140,31 +140,31 @@ public class JobScheduler {
             i = this.mStatus;
             this.mEncodedImage = null;
             this.mStatus = 0;
-            this.ppp = JobState.RUNNING;
-            this.ppr = uptimeMillis;
+            this.ppr = JobState.RUNNING;
+            this.ppt = uptimeMillis;
         }
         try {
             if (f(eVar, i)) {
-                this.ppl.d(eVar, i);
+                this.ppn.d(eVar, i);
             }
         } finally {
             com.facebook.imagepipeline.f.e.e(eVar);
-            ewR();
+            ewS();
         }
     }
 
-    private void ewR() {
+    private void ewS() {
         long uptimeMillis = SystemClock.uptimeMillis();
         long j = 0;
         boolean z = false;
         synchronized (this) {
-            if (this.ppp == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.ppr + this.ppo, uptimeMillis);
+            if (this.ppr == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.ppt + this.ppq, uptimeMillis);
                 z = true;
-                this.ppq = uptimeMillis;
-                this.ppp = JobState.QUEUED;
+                this.pps = uptimeMillis;
+                this.ppr = JobState.QUEUED;
             } else {
-                this.ppp = JobState.IDLE;
+                this.ppr = JobState.IDLE;
             }
         }
         if (z) {
@@ -176,7 +176,7 @@ public class JobScheduler {
         return com.facebook.imagepipeline.producers.b.Rh(i) || com.facebook.imagepipeline.producers.b.ef(i, 4) || com.facebook.imagepipeline.f.e.f(eVar);
     }
 
-    public synchronized long ewS() {
-        return this.ppr - this.ppq;
+    public synchronized long ewT() {
+        return this.ppt - this.pps;
     }
 }

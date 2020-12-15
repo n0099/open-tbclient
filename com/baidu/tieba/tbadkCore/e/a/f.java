@@ -14,10 +14,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<a> nom = new ArrayList<>();
+    private ArrayList<a> noo = new ArrayList<>();
 
     public void a(a aVar) {
-        this.nom.add(aVar);
+        this.noo.add(aVar);
     }
 
     public c a(e eVar, c cVar) {
@@ -25,14 +25,14 @@ public class f {
             cVar = new c();
         }
         if (ActionJsonData.TAG_NOTIFICATION.equals(eVar.getModule()) && "addObserver".equals(eVar.getAction())) {
-            Iterator<a> it = this.nom.iterator();
+            Iterator<a> it = this.noo.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    cVar = it.next().addObserver(eVar.dPR(), cVar, true);
-                    if (cVar.dPM()) {
+                    cVar = it.next().addObserver(eVar.dPS(), cVar, true);
+                    if (cVar.dPN()) {
                         break;
                     }
-                } else if (!cVar.dPM()) {
+                } else if (!cVar.dPN()) {
                     cVar.Ld(202);
                     cVar.TK(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
                 }
@@ -42,14 +42,14 @@ public class f {
             if (!au.isEmpty(module) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(module)) {
                 cVar.Ld(201);
             } else {
-                Iterator<a> it2 = this.nom.iterator();
+                Iterator<a> it2 = this.noo.iterator();
                 while (true) {
                     if (it2.hasNext()) {
                         cVar = it2.next().dispatch(eVar, cVar);
-                        if (cVar.dPL()) {
+                        if (cVar.dPM()) {
                             break;
                         }
-                    } else if (!cVar.dPL()) {
+                    } else if (!cVar.dPM()) {
                         cVar.Ld(202);
                     }
                 }
@@ -59,16 +59,16 @@ public class f {
     }
 
     public void a(WebView webView, c cVar) {
-        if (webView != null && cVar != null && cVar.dPO()) {
-            callJsMethod(webView, cVar.getMethodName(), cVar.dPP());
+        if (webView != null && cVar != null && cVar.dPP()) {
+            callJsMethod(webView, cVar.getMethodName(), cVar.dPQ());
         }
     }
 
     public void a(WebView webView, List<c> list) {
         if (webView != null && !y.isEmpty(list)) {
             for (c cVar : list) {
-                if (cVar != null && cVar.dPO()) {
-                    callJsMethod(webView, cVar.getMethodName(), cVar.dPP());
+                if (cVar != null && cVar.dPP()) {
+                    callJsMethod(webView, cVar.getMethodName(), cVar.dPQ());
                 }
             }
         }
@@ -87,7 +87,7 @@ public class f {
     public List<c> f(String str, HashMap hashMap) {
         List<c> list = null;
         if (!au.isEmpty(str)) {
-            Iterator<a> it = this.nom.iterator();
+            Iterator<a> it = this.noo.iterator();
             while (it.hasNext()) {
                 list = it.next().processNotification(str, hashMap);
                 if (!y.isEmpty(list)) {

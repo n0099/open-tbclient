@@ -50,7 +50,7 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean ehs();
+    public abstract boolean eht();
 
     abstract boolean isEnabled();
 
@@ -60,18 +60,18 @@ public abstract class TurbonetEngine {
         private String mAppPackageName;
         private final Context mContext;
         private String mUserAgent;
-        private boolean oDC;
-        private boolean oDa;
-        private String oET;
+        private boolean oDE;
+        private boolean oDc;
         private String oEV;
-        private LibraryLoader oEW;
         private String oEX;
-        private boolean oEY;
-        private boolean oEZ;
-        private int oFa;
-        private long oFb;
-        private JSONObject oFc;
-        private String oFd;
+        private LibraryLoader oEY;
+        private String oEZ;
+        private boolean oFa;
+        private boolean oFb;
+        private int oFc;
+        private long oFd;
+        private JSONObject oFe;
+        private String oFf;
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes14.dex */
@@ -86,37 +86,37 @@ public abstract class TurbonetEngine {
         public Builder(Context context) {
             this.mContext = context;
             Xr("turbonet");
-            this.oFc = new JSONObject();
+            this.oFe = new JSONObject();
             Aj(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void ehQ() {
-            if (this.oEW == null) {
-                if (this.oEX.equals("turbonet")) {
-                    System.loadLibrary(this.oEX);
+        public void ehR() {
+            if (this.oEY == null) {
+                if (this.oEZ.equals("turbonet")) {
+                    System.loadLibrary(this.oEZ);
                     return;
                 } else {
-                    System.load(this.oEX);
+                    System.load(this.oEZ);
                     return;
                 }
             }
-            this.oEW.loadLibrary(this.oEX);
+            this.oEY.loadLibrary(this.oEZ);
         }
 
         public Builder Xr(String str) {
-            this.oEX = str;
+            this.oEZ = str;
             return this;
         }
 
         private void e(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.oFc.optJSONObject(str);
+                JSONObject optJSONObject = this.oFe.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.oFc.put(str, optJSONObject);
+                this.oFe.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
@@ -135,46 +135,46 @@ public abstract class TurbonetEngine {
 
         public Builder Aj(boolean z) {
             e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-            this.oEY = z;
+            this.oFa = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean ehR() {
-            return this.oEY;
+        public boolean ehS() {
+            return this.oFa;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean ehS() {
-            return this.oEZ;
+        public boolean ehT() {
+            return this.oFb;
         }
 
         public Builder Xt(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
-            this.oET = str;
+            this.oEV = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String ehM() {
-            return this.oET;
+        public String ehN() {
+            return this.oEV;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean cacheDisabled() {
-            return this.oDa;
+            return this.oDc;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long ehT() {
-            return this.oFb;
+        public long ehU() {
+            return this.oFd;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public int ehU() {
-            return this.oFa;
+        public int ehV() {
+            return this.oFc;
         }
 
         public String getAppPackageName() {
@@ -184,18 +184,18 @@ public abstract class TurbonetEngine {
         public Builder J(boolean z, String str) {
             e("nq", "network_quality_enabled", Boolean.valueOf(z));
             e("nq", "watched_groups", str);
-            this.oDC = z;
+            this.oDE = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean ehV() {
-            return this.oDC;
+        public boolean ehW() {
+            return this.oDE;
         }
 
         public Builder Xu(String str) {
             e("app", "cuid", str);
-            this.oEV = str;
+            this.oEX = str;
             return this;
         }
 
@@ -206,18 +206,18 @@ public abstract class TurbonetEngine {
         }
 
         public Builder Xw(String str) {
-            this.oFd = str;
+            this.oFf = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String ehW() {
-            return this.oFd;
+        public String ehX() {
+            return this.oFf;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String ehX() {
-            return this.oFc.toString();
+        public String ehY() {
+            return this.oFe.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine ehY() {
+        public TurbonetEngine ehZ() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -258,23 +258,23 @@ public abstract class TurbonetEngine {
     /* loaded from: classes14.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long oDu;
+        private final Long oDw;
         @Nullable
-        private final Long oDv;
+        private final Long oDx;
         @Nullable
-        private final Long oFe;
+        private final Long oFg;
         @Nullable
-        private final Long oFf;
+        private final Long oFh;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.oDu = l;
-            this.oDv = l2;
-            this.oFe = l3;
-            this.oFf = l4;
+            this.oDw = l;
+            this.oDx = l2;
+            this.oFg = l3;
+            this.oFh = l4;
         }
     }
 
-    public long egZ() {
+    public long eha() {
         return 0L;
     }
 }

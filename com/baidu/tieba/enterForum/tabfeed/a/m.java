@@ -44,7 +44,7 @@ public class m extends com.baidu.adp.widget.ListView.a<bs, com.baidu.tieba.card.
         a(new ab() { // from class: com.baidu.tieba.enterForum.tabfeed.a.m.1
             @Override // com.baidu.adp.widget.ListView.ab
             public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                aVar.cwL();
+                aVar.cwM();
                 ar arVar = new ar("c13647");
                 arVar.w("uid", TbadkApplication.getCurrentAccountId());
                 arVar.al("obj_id", m.this.getPositionByType(i) + 1);
@@ -59,35 +59,35 @@ public class m extends com.baidu.adp.widget.ListView.a<bs, com.baidu.tieba.card.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bs bsVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (bsVar == null || aVar == null || aVar.csM() == null) {
+        if (bsVar == null || aVar == null || aVar.csN() == null) {
             return null;
         }
-        aVar.csM().a(bsVar);
+        aVar.csN().a(bsVar);
         ar arVar = new ar("c13646");
         arVar.w("uid", TbadkApplication.getCurrentAccountId());
         arVar.al("obj_id", getPositionByType(i) + 1);
         arVar.dY("resource_id", this.mTabName);
         TiebaStatic.log(arVar);
-        return aVar.csM().getView();
+        return aVar.csN().getView();
     }
 
     /* loaded from: classes22.dex */
     public static class a extends com.baidu.tieba.card.b<bs> {
-        private TbImageView iBp;
-        private String iBq;
+        private TbImageView iBr;
+        private String iBs;
         private TbPageContext<?> mPageContext;
 
         public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
             this.mPageContext = tbPageContext;
-            this.iBp = (TbImageView) getView().findViewById(R.id.image);
-            this.iBp.setOnClickListener(this);
-            this.iBp.setConrers(15);
-            this.iBp.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.iBp.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.iBp.setDrawCorner(true);
-            this.iBp.setAutoChangeStyle(true);
-            this.iBp.setPlaceHolder(2);
+            this.iBr = (TbImageView) getView().findViewById(R.id.image);
+            this.iBr.setOnClickListener(this);
+            this.iBr.setConrers(15);
+            this.iBr.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.iBr.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.iBr.setDrawCorner(true);
+            this.iBr.setAutoChangeStyle(true);
+            this.iBr.setPlaceHolder(2);
         }
 
         @Override // com.baidu.tieba.card.b
@@ -103,24 +103,24 @@ public class m extends com.baidu.adp.widget.ListView.a<bs, com.baidu.tieba.card.
         @Override // com.baidu.tieba.card.b
         public void a(bs bsVar) {
             if (bsVar != null) {
-                this.iBq = bsVar.res_link;
-                this.iBp.setScaleType(ImageView.ScaleType.FIT_XY);
-                this.iBp.setPlaceHolder(2);
-                this.iBp.startLoad(bsVar.res_image, 10, false);
+                this.iBs = bsVar.res_link;
+                this.iBr.setScaleType(ImageView.ScaleType.FIT_XY);
+                this.iBr.setPlaceHolder(2);
+                this.iBr.startLoad(bsVar.res_image, 10, false);
             }
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void cwL() {
-            if (!TextUtils.isEmpty(this.iBq)) {
-                bf.bua().b(this.mPageContext, new String[]{this.iBq});
+        public void cwM() {
+            if (!TextUtils.isEmpty(this.iBs)) {
+                bf.bua().b(this.mPageContext, new String[]{this.iBs});
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == this.iBp) {
-                cwL();
+            if (view == this.iBr) {
+                cwM();
             }
         }
     }

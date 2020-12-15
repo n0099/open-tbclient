@@ -12,17 +12,17 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class Excluder implements TypeAdapterFactory, Cloneable {
-    public static final Excluder ptL = new Excluder();
-    private boolean ptP;
-    private double ptM = -1.0d;
-    private int ptN = 136;
-    private boolean ptO = true;
-    private List<ExclusionStrategy> ptQ = Collections.emptyList();
-    private List<ExclusionStrategy> ptR = Collections.emptyList();
+    public static final Excluder ptN = new Excluder();
+    private boolean ptR;
+    private double ptO = -1.0d;
+    private int ptP = 136;
+    private boolean ptQ = true;
+    private List<ExclusionStrategy> ptS = Collections.emptyList();
+    private List<ExclusionStrategy> ptT = Collections.emptyList();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: eyg */
+    /* renamed from: eyh */
     public Excluder clone() {
         try {
             return (Excluder) super.clone();
@@ -33,40 +33,40 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     public Excluder Q(double d) {
         Excluder clone = clone();
-        clone.ptM = d;
+        clone.ptO = d;
         return clone;
     }
 
     public Excluder v(int... iArr) {
         Excluder clone = clone();
-        clone.ptN = 0;
+        clone.ptP = 0;
         for (int i : iArr) {
-            clone.ptN = i | clone.ptN;
+            clone.ptP = i | clone.ptP;
         }
-        return clone;
-    }
-
-    public Excluder eyh() {
-        Excluder clone = clone();
-        clone.ptO = false;
         return clone;
     }
 
     public Excluder eyi() {
         Excluder clone = clone();
-        clone.ptP = true;
+        clone.ptQ = false;
+        return clone;
+    }
+
+    public Excluder eyj() {
+        Excluder clone = clone();
+        clone.ptR = true;
         return clone;
     }
 
     public Excluder a(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
         Excluder clone = clone();
         if (z) {
-            clone.ptQ = new ArrayList(this.ptQ);
-            clone.ptQ.add(exclusionStrategy);
+            clone.ptS = new ArrayList(this.ptS);
+            clone.ptS.add(exclusionStrategy);
         }
         if (z2) {
-            clone.ptR = new ArrayList(this.ptR);
-            clone.ptR.add(exclusionStrategy);
+            clone.ptT = new ArrayList(this.ptT);
+            clone.ptT.add(exclusionStrategy);
         }
         return clone;
     }
@@ -74,10 +74,10 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(final Gson gson, final com.google.gson.b.a<T> aVar) {
         final boolean z = false;
-        Class<? super T> eyV = aVar.eyV();
-        boolean C = C(eyV);
-        final boolean z2 = C || c(eyV, true);
-        if (C || c(eyV, false)) {
+        Class<? super T> eyW = aVar.eyW();
+        boolean C = C(eyW);
+        final boolean z2 = C || c(eyW, true);
+        if (C || c(eyW, false)) {
             z = true;
         }
         if (!z2 && !z) {
@@ -90,22 +90,22 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
             @Override // com.google.gson.TypeAdapter
             public T read(com.google.gson.stream.a aVar2) throws IOException {
                 if (z) {
-                    aVar2.eyI();
+                    aVar2.eyJ();
                     return null;
                 }
-                return eyj().read(aVar2);
+                return eyk().read(aVar2);
             }
 
             @Override // com.google.gson.TypeAdapter
             public void write(com.google.gson.stream.b bVar, T t) throws IOException {
                 if (z2) {
-                    bVar.eyR();
+                    bVar.eyS();
                 } else {
-                    eyj().write(bVar, t);
+                    eyk().write(bVar, t);
                 }
             }
 
-            private TypeAdapter<T> eyj() {
+            private TypeAdapter<T> eyk() {
                 TypeAdapter<T> typeAdapter = this.delegate;
                 if (typeAdapter != 0) {
                     return typeAdapter;
@@ -119,13 +119,13 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     public boolean a(Field field, boolean z) {
         com.google.gson.a.a aVar;
-        if ((this.ptN & field.getModifiers()) != 0) {
+        if ((this.ptP & field.getModifiers()) != 0) {
             return true;
         }
-        if ((this.ptM == -1.0d || a((com.google.gson.a.d) field.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) field.getAnnotation(com.google.gson.a.e.class))) && !field.isSynthetic()) {
-            if (!this.ptP || ((aVar = (com.google.gson.a.a) field.getAnnotation(com.google.gson.a.a.class)) != null && (!z ? !aVar.deserialize() : !aVar.serialize()))) {
-                if ((this.ptO || !E(field.getType())) && !D(field.getType())) {
-                    List<ExclusionStrategy> list = z ? this.ptQ : this.ptR;
+        if ((this.ptO == -1.0d || a((com.google.gson.a.d) field.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) field.getAnnotation(com.google.gson.a.e.class))) && !field.isSynthetic()) {
+            if (!this.ptR || ((aVar = (com.google.gson.a.a) field.getAnnotation(com.google.gson.a.a.class)) != null && (!z ? !aVar.deserialize() : !aVar.serialize()))) {
+                if ((this.ptQ || !E(field.getType())) && !D(field.getType())) {
+                    List<ExclusionStrategy> list = z ? this.ptS : this.ptT;
                     if (!list.isEmpty()) {
                         FieldAttributes fieldAttributes = new FieldAttributes(field);
                         for (ExclusionStrategy exclusionStrategy : list) {
@@ -144,8 +144,8 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     private boolean C(Class<?> cls) {
-        if (this.ptM == -1.0d || a((com.google.gson.a.d) cls.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) cls.getAnnotation(com.google.gson.a.e.class))) {
-            return (!this.ptO && E(cls)) || D(cls);
+        if (this.ptO == -1.0d || a((com.google.gson.a.d) cls.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) cls.getAnnotation(com.google.gson.a.e.class))) {
+            return (!this.ptQ && E(cls)) || D(cls);
         }
         return true;
     }
@@ -155,7 +155,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     private boolean c(Class<?> cls, boolean z) {
-        for (ExclusionStrategy exclusionStrategy : z ? this.ptQ : this.ptR) {
+        for (ExclusionStrategy exclusionStrategy : z ? this.ptS : this.ptT) {
             if (exclusionStrategy.shouldSkipClass(cls)) {
                 return true;
             }
@@ -180,10 +180,10 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     private boolean a(com.google.gson.a.d dVar) {
-        return dVar == null || dVar.eyf() <= this.ptM;
+        return dVar == null || dVar.eyg() <= this.ptO;
     }
 
     private boolean a(com.google.gson.a.e eVar) {
-        return eVar == null || eVar.eyf() > this.ptM;
+        return eVar == null || eVar.eyg() > this.ptO;
     }
 }

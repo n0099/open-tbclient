@@ -29,69 +29,69 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes24.dex */
 public class b extends c {
-    private ImageView jQF;
-    private m naj;
-    private View nak;
-    private View nal;
+    private ImageView jQH;
+    private LinearLayout naA;
+    private PlayVoiceBntNew naB;
+    private m nal;
     private View nam;
-    private TbImageView nan;
-    private LinearLayout nao;
+    private View nan;
+    private View nao;
     private TbImageView nap;
-    private TextView naq;
-    private View nar;
+    private LinearLayout naq;
+    private TbImageView nar;
     private TextView nas;
-    private TextView nat;
-    private TbImageView nau;
-    private View nav;
-    private TextView naw;
-    private TextView nax;
-    private LinearLayout nay;
-    private PlayVoiceBntNew naz;
+    private View nat;
+    private TextView nau;
+    private TextView nav;
+    private TbImageView naw;
+    private View nax;
+    private TextView nay;
+    private TextView naz;
     private View rootView;
 
     public b(Context context, boolean z, int i, m mVar) {
         super(context, z, i);
-        this.naj = mVar;
+        this.nal = mVar;
         this.rootView = this.mRootView.findViewById(R.id.pb_post_share_root_view);
-        this.nak = this.mRootView.findViewById(R.id.pb_post_share_card_container);
-        this.nal = this.mRootView.findViewById(R.id.pb_post_share_card);
-        this.nam = this.mRootView.findViewById(R.id.pb_post_share_card_content);
-        this.nan = (TbImageView) this.mRootView.findViewById(R.id.pb_post_share_title);
-        this.nao = (LinearLayout) this.mRootView.findViewById(R.id.pb_share_thread_container);
-        this.nap = (TbImageView) this.mRootView.findViewById(R.id.pb_share_origin_thread_img);
-        this.nap.setPlaceHolder(2);
-        this.nap.setConrers(15);
-        this.nap.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-        this.nap.setGifIconSupport(false);
-        this.nap.setLongIconSupport(false);
-        this.naq = (TextView) this.mRootView.findViewById(R.id.origin_thread_abstract);
-        this.nar = this.mRootView.findViewById(R.id.pb_share_origin_thread_gradient_mask);
-        this.jQF = (ImageView) this.mRootView.findViewById(R.id.pb_post_share_video_play_iv);
-        this.nas = (TextView) this.mRootView.findViewById(R.id.post_share_screen_shot_title);
-        this.nat = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
-        this.nau = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
-        this.nav = this.mRootView.findViewById(R.id.post_share_reply_user_id_guide_line);
-        this.naw = (TextView) this.mRootView.findViewById(R.id.post_share_reply_user_id);
-        this.nax = (TextView) this.mRootView.findViewById(R.id.post_share_comment_text);
-        this.nay = (LinearLayout) this.mRootView.findViewById(R.id.post_share_comment_image_container);
-        this.naz = (PlayVoiceBntNew) this.mRootView.findViewById(R.id.post_share_comment_voice);
-        a(context, mVar.dnM().dPi());
-        dLk();
+        this.nam = this.mRootView.findViewById(R.id.pb_post_share_card_container);
+        this.nan = this.mRootView.findViewById(R.id.pb_post_share_card);
+        this.nao = this.mRootView.findViewById(R.id.pb_post_share_card_content);
+        this.nap = (TbImageView) this.mRootView.findViewById(R.id.pb_post_share_title);
+        this.naq = (LinearLayout) this.mRootView.findViewById(R.id.pb_share_thread_container);
+        this.nar = (TbImageView) this.mRootView.findViewById(R.id.pb_share_origin_thread_img);
+        this.nar.setPlaceHolder(2);
+        this.nar.setConrers(15);
+        this.nar.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+        this.nar.setGifIconSupport(false);
+        this.nar.setLongIconSupport(false);
+        this.nas = (TextView) this.mRootView.findViewById(R.id.origin_thread_abstract);
+        this.nat = this.mRootView.findViewById(R.id.pb_share_origin_thread_gradient_mask);
+        this.jQH = (ImageView) this.mRootView.findViewById(R.id.pb_post_share_video_play_iv);
+        this.nau = (TextView) this.mRootView.findViewById(R.id.post_share_screen_shot_title);
+        this.nav = (TextView) this.mRootView.findViewById(R.id.post_share_qcode_comment);
+        this.naw = (TbImageView) this.mRootView.findViewById(R.id.post_share_qcode);
+        this.nax = this.mRootView.findViewById(R.id.post_share_reply_user_id_guide_line);
+        this.nay = (TextView) this.mRootView.findViewById(R.id.post_share_reply_user_id);
+        this.naz = (TextView) this.mRootView.findViewById(R.id.post_share_comment_text);
+        this.naA = (LinearLayout) this.mRootView.findViewById(R.id.post_share_comment_image_container);
+        this.naB = (PlayVoiceBntNew) this.mRootView.findViewById(R.id.post_share_comment_voice);
+        a(context, mVar.dnN().dPj());
+        dLl();
         Kt(2);
     }
 
-    private void dLk() {
+    private void dLl() {
     }
 
     @Override // com.baidu.tieba.sharesdk.view.c
-    protected View cFA() {
+    protected View cFB() {
         return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.pb_post_share_dialog_layout, (ViewGroup) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.sharesdk.view.c
     public ShareItem Kl(int i) {
-        ShareItem shareItem = this.nad.get(1);
+        ShareItem shareItem = this.naf.get(1);
         if (shareItem == null) {
             shareItem = new ShareItem();
         }
@@ -99,9 +99,9 @@ public class b extends c {
         shareItem.fnQ = false;
         shareItem.content = "";
         shareItem.shareType = 1;
-        shareItem.w(dY(this.nak));
+        shareItem.w(dY(this.nam));
         shareItem.bAm();
-        this.nad.put(1, shareItem);
+        this.naf.put(1, shareItem);
         return super.Kl(i);
     }
 
@@ -117,27 +117,27 @@ public class b extends c {
 
     @Override // com.baidu.tieba.sharesdk.view.c
     public void show() {
-        if (this.naj != null) {
+        if (this.nal != null) {
             this.rootView.setBackgroundColor(ap.getColor(R.color.CAM_X0209));
-            ap.d(this.nam, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds31), R.color.CAM_X0211, R.color.CAM_X0211);
+            ap.d(this.nao, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds31), R.color.CAM_X0211, R.color.CAM_X0211);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             gradientDrawable.setColor(ap.getColor(R.color.CAM_X0206));
-            this.nao.setBackgroundDrawable(gradientDrawable);
-            ap.setViewTextColor(this.naq, (int) R.color.CAM_X0107);
-            this.naq.setText(this.naj.getContent());
-            dLl();
-            ap.setBackgroundColor(this.nav, R.color.CAM_X0109);
-            String name_show = this.naj.dnM().boP().getName_show();
+            this.naq.setBackgroundDrawable(gradientDrawable);
+            ap.setViewTextColor(this.nas, (int) R.color.CAM_X0107);
+            this.nas.setText(this.nal.getContent());
+            dLm();
+            ap.setBackgroundColor(this.nax, R.color.CAM_X0109);
+            String name_show = this.nal.dnN().boP().getName_show();
             if (name_show.length() > 10) {
                 name_show = name_show.substring(0, 10) + StringHelper.STRING_MORE;
             }
-            this.naw.setText(name_show);
-            ap.setViewTextColor(this.naw, (int) R.color.CAM_X0109);
-            ap.setViewTextColor(this.nas, (int) R.color.CAM_X0304);
-            ap.setViewTextColor(this.nat, (int) R.color.CAM_X0105);
-            this.nau.setImageBitmap(this.naj.dnL());
-            ap.setImageResource(this.nan, R.drawable.pic_pb_post_share_logo);
+            this.nay.setText(name_show);
+            ap.setViewTextColor(this.nay, (int) R.color.CAM_X0109);
+            ap.setViewTextColor(this.nau, (int) R.color.CAM_X0304);
+            ap.setViewTextColor(this.nav, (int) R.color.CAM_X0105);
+            this.naw.setImageBitmap(this.nal.dnM());
+            ap.setImageResource(this.nap, R.drawable.pic_pb_post_share_logo);
             xH(false);
             super.show();
         }
@@ -148,26 +148,26 @@ public class b extends c {
         window.setLayout(-1, -1);
     }
 
-    private void dLl() {
-        switch (this.naj.getThreadType()) {
+    private void dLm() {
+        switch (this.nal.getThreadType()) {
             case 0:
-                if (!StringUtils.isNull(this.naj.getThreadImgUrl())) {
-                    this.nap.startLoad(this.naj.getThreadImgUrl(), 10, false);
+                if (!StringUtils.isNull(this.nal.getThreadImgUrl())) {
+                    this.nar.startLoad(this.nal.getThreadImgUrl(), 10, false);
                     return;
                 }
-                this.nap.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_article_thread));
-                this.nap.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                this.nar.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_article_thread));
+                this.nar.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 return;
             case 11:
-                this.nap.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voice_thread));
-                this.nap.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                this.nar.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voice_thread));
+                this.nar.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 return;
             case 40:
-                this.nar.setVisibility(0);
-                this.jQF.setVisibility(0);
-                this.jQF.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voide_thread_play));
-                com.baidu.tbadk.core.util.e.a.buz().qf(0).l(R.color.CAM_X0601, R.color.CAM_X0604).qm(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).bq(this.nar);
-                this.nap.startLoad(this.naj.getThreadImgUrl(), 10, false);
+                this.nat.setVisibility(0);
+                this.jQH.setVisibility(0);
+                this.jQH.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.icon_pb_post_share_voide_thread_play));
+                com.baidu.tbadk.core.util.e.a.buz().qf(0).l(R.color.CAM_X0601, R.color.CAM_X0604).qm(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10)).bq(this.nat);
+                this.nar.startLoad(this.nal.getThreadImgUrl(), 10, false);
                 return;
             default:
                 return;
@@ -182,39 +182,39 @@ public class b extends c {
                 if (next != null) {
                     switch (next.getType()) {
                         case 1:
-                            if (this.nax.getVisibility() == 8) {
-                                ap.setViewTextColor(this.nax, (int) R.color.CAM_X0105);
-                                this.nax.setText(next.bIJ());
-                                this.nax.setVisibility(0);
+                            if (this.naz.getVisibility() == 8) {
+                                ap.setViewTextColor(this.naz, (int) R.color.CAM_X0105);
+                                this.naz.setText(next.bIJ());
+                                this.naz.setVisibility(0);
                                 break;
                             } else {
                                 continue;
                             }
                         case 512:
-                            this.naz.setVoiceModel((VoiceData.VoiceModel) next.bIK().bJD());
-                            if (this.nax.getVisibility() == 0 || this.nay.getVisibility() == 0) {
-                                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.naz.getLayoutParams();
-                                if (this.nax.getVisibility() == 0 && this.nay.getVisibility() == 8) {
+                            this.naB.setVoiceModel((VoiceData.VoiceModel) next.bIK().bJD());
+                            if (this.naz.getVisibility() == 0 || this.naA.getVisibility() == 0) {
+                                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.naB.getLayoutParams();
+                                if (this.naz.getVisibility() == 0 && this.naA.getVisibility() == 8) {
                                     layoutParams.topMargin = l.getDimens(context, R.dimen.tbds39);
                                 } else {
                                     layoutParams.topMargin = l.getDimens(context, R.dimen.tbds42);
                                 }
-                                this.naz.setLayoutParams(layoutParams);
+                                this.naB.setLayoutParams(layoutParams);
                             }
-                            this.naz.setVisibility(0);
+                            this.naB.setVisibility(0);
                             continue;
                     }
                 }
             }
             if (!tbRichText.bID().isEmpty()) {
-                if (this.nax.getVisibility() == 0) {
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.nay.getLayoutParams();
+                if (this.naz.getVisibility() == 0) {
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.naA.getLayoutParams();
                     layoutParams2.topMargin = l.getDimens(context, R.dimen.tbds37);
-                    this.nay.setLayoutParams(layoutParams2);
+                    this.naA.setLayoutParams(layoutParams2);
                 }
-                this.nay.setVisibility(0);
+                this.naA.setVisibility(0);
                 if (fS(tbRichText.bID())) {
-                    this.nay.addView(a(context, a(tbRichText.bID().get(0), this.naj.dnN()), tbRichText.bID().get(0), true, this.naj.dnN().mIsFromCDN));
+                    this.naA.addView(a(context, a(tbRichText.bID().get(0), this.nal.dnO()), tbRichText.bID().get(0), true, this.nal.dnO().mIsFromCDN));
                 } else {
                     c(context, tbRichText.bID());
                 }
@@ -226,7 +226,7 @@ public class b extends c {
         int i = 0;
         while (i < list.size() && i != 3) {
             if (!list.get(i).bJc()) {
-                this.nay.addView(a(context, a(list.get(i), this.naj.dnN()), list.get(i), i == 0, this.naj.dnN().mIsFromCDN));
+                this.naA.addView(a(context, a(list.get(i), this.nal.dnO()), list.get(i), i == 0, this.nal.dnO().mIsFromCDN));
             }
             i++;
         }

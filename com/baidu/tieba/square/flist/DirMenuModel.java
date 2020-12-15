@@ -15,12 +15,12 @@ import com.baidu.tieba.square.square.e;
 /* loaded from: classes23.dex */
 public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     private boolean isOk;
-    private a nff;
-    private b nfg;
-    private String nfh;
-    private String nfi;
+    private a nfh;
+    private b nfi;
     private String nfj;
-    private boolean nfk;
+    private String nfk;
+    private String nfl;
+    private boolean nfm;
 
     /* loaded from: classes23.dex */
     public interface b {
@@ -30,41 +30,41 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public DirMenuModel(TbPageContext<ForumListActivity> tbPageContext, String str, String str2, String str3) {
         super(tbPageContext);
         this.isOk = false;
-        this.nfk = false;
-        this.nfh = str;
-        this.nfi = str2;
-        this.nfj = str3;
+        this.nfm = false;
+        this.nfj = str;
+        this.nfk = str2;
+        this.nfl = str3;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        this.nff = new a();
-        this.nff.execute(new Object[0]);
+        this.nfh = new a();
+        this.nfh.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.nff != null) {
-            this.nff.cancel();
+        if (this.nfh != null) {
+            this.nfh.cancel();
             return false;
         }
         return false;
     }
 
     public void a(b bVar) {
-        this.nfg = bVar;
+        this.nfi = bVar;
     }
 
     /* loaded from: classes23.dex */
     private class a extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.square.d> {
         private aa mNetwork;
-        com.baidu.tieba.square.square.d nfl;
+        com.baidu.tieba.square.square.d nfn;
 
         private a() {
             this.mNetwork = null;
-            this.nfl = new com.baidu.tieba.square.square.d();
+            this.nfn = new com.baidu.tieba.square.square.d();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,8 +72,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate((Object[]) numArr);
-            if (this.nfl != null) {
-                DirMenuModel.this.nfg.a(true, this.nfl.getErrorCode(), this.nfl.dNO(), this.nfl.getErrorMsg(), DirMenuModel.this.nfk);
+            if (this.nfn != null) {
+                DirMenuModel.this.nfi.a(true, this.nfn.getErrorCode(), this.nfn.dNP(), this.nfn.getErrorMsg(), DirMenuModel.this.nfm);
             }
         }
 
@@ -86,37 +86,37 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             String str = null;
             l<String> Bo = com.baidu.tbadk.core.c.a.brq().Bo("tb.my_posts");
             if (Bo != null) {
-                str = Bo.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.nfh + "_dir");
+                str = Bo.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.nfj + "_dir");
             }
             if (str != null) {
-                this.nfl.parserJson(str);
-                DirMenuModel.this.nfk = true;
+                this.nfn.parserJson(str);
+                DirMenuModel.this.nfm = true;
                 publishProgress(new Integer[0]);
             }
             try {
                 this.mNetwork = new aa(TbConfig.SERVER_ADDRESS + Config.FORUM_SECOND_DIR);
-                this.mNetwork.addPostData("menu_name", DirMenuModel.this.nfh);
-                this.mNetwork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, DirMenuModel.this.nfi);
-                this.mNetwork.addPostData("menu_id", DirMenuModel.this.nfj);
+                this.mNetwork.addPostData("menu_name", DirMenuModel.this.nfj);
+                this.mNetwork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, DirMenuModel.this.nfk);
+                this.mNetwork.addPostData("menu_id", DirMenuModel.this.nfl);
                 postNetData = this.mNetwork.postNetData();
             } catch (Exception e) {
-                this.nfl.setErrorMsg(e.getMessage());
+                this.nfn.setErrorMsg(e.getMessage());
                 BdLog.detailException(e);
             }
             if (postNetData == null) {
-                return this.nfl;
+                return this.nfn;
             }
             if (this.mNetwork.btv().buf().isRequestSuccess()) {
-                this.nfl.parserJson(postNetData);
+                this.nfn.parserJson(postNetData);
                 DirMenuModel.this.isOk = true;
                 if (Bo != null) {
-                    Bo.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.nfh + "_dir", postNetData, 86400000L);
+                    Bo.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.nfj + "_dir", postNetData, 86400000L);
                 }
             } else {
-                this.nfl.setErrorMsg(this.mNetwork.getErrorString());
+                this.nfn.setErrorMsg(this.mNetwork.getErrorString());
                 DirMenuModel.this.isOk = false;
             }
-            return this.nfl;
+            return this.nfn;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,9 +125,9 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* renamed from: a */
         public void onPostExecute(com.baidu.tieba.square.square.d dVar) {
             if (!DirMenuModel.this.isOk) {
-                DirMenuModel.this.nfg.a(false, -1, null, dVar.getErrorMsg(), DirMenuModel.this.nfk);
-            } else if (dVar.dNO() != null) {
-                DirMenuModel.this.nfg.a(true, dVar.getErrorCode(), dVar.dNO(), dVar.getErrorMsg(), DirMenuModel.this.nfk);
+                DirMenuModel.this.nfi.a(false, -1, null, dVar.getErrorMsg(), DirMenuModel.this.nfm);
+            } else if (dVar.dNP() != null) {
+                DirMenuModel.this.nfi.a(true, dVar.getErrorCode(), dVar.dNP(), dVar.getErrorMsg(), DirMenuModel.this.nfm);
             }
         }
 

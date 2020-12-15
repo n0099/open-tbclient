@@ -5,11 +5,11 @@ import android.content.Context;
 public abstract class d implements c {
     protected Context mCtx;
     protected int mStatusCode = -200;
-    protected boolean oIS;
-    protected String oIU;
-    protected String oIV;
+    protected boolean oIU;
     protected String oIW;
-    protected boolean oJu;
+    protected String oIX;
+    protected String oIY;
+    protected boolean oJw;
 
     public d(Context context) {
         if (context != null) {
@@ -18,28 +18,28 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.r.a.a.c
-    public boolean ejY() {
-        return this.oIS;
-    }
-
-    @Override // com.baidu.r.a.a.c
-    public boolean isSupport() {
-        return this.oJu;
-    }
-
-    @Override // com.baidu.r.a.a.c
-    public String getOAID() {
+    public boolean ejZ() {
         return this.oIU;
     }
 
     @Override // com.baidu.r.a.a.c
+    public boolean isSupport() {
+        return this.oJw;
+    }
+
+    @Override // com.baidu.r.a.a.c
+    public String getOAID() {
+        return this.oIW;
+    }
+
+    @Override // com.baidu.r.a.a.c
     public String getAAID() {
-        return this.oIV;
+        return this.oIX;
     }
 
     @Override // com.baidu.r.a.a.c
     public String getVAID() {
-        return this.oIW;
+        return this.oIY;
     }
 
     @Override // com.baidu.r.a.a.c
@@ -49,27 +49,27 @@ public abstract class d implements c {
 
     @Override // com.baidu.r.a.a.c
     public void Ao(boolean z) {
-        this.oIS = z;
+        this.oIU = z;
     }
 
     @Override // com.baidu.r.a.a.c
     public void Ap(boolean z) {
-        this.oJu = z;
+        this.oJw = z;
     }
 
     @Override // com.baidu.r.a.a.c
     public void Yn(String str) {
-        this.oIU = str;
+        this.oIW = str;
     }
 
     @Override // com.baidu.r.a.a.c
     public void Yo(String str) {
-        this.oIV = str;
+        this.oIX = str;
     }
 
     @Override // com.baidu.r.a.a.c
     public void Yp(String str) {
-        this.oIW = str;
+        this.oIY = str;
     }
 
     @Override // com.baidu.r.a.a.c

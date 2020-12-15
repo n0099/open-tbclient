@@ -347,7 +347,7 @@ public class a {
         }
         c a2 = g.a(downloadStaticsData, 101, 0);
         a2.gj(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "start");
-        d.dGf().a(a2);
+        d.dGg().a(a2);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
@@ -378,7 +378,7 @@ public class a {
                 return;
             }
             a2.gj(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
-            d.dGf().a(a2);
+            d.dGg().a(a2);
         }
     }
 
@@ -388,7 +388,7 @@ public class a {
             c a2 = g.a(downloadStaticsData, 101, 0);
             a2.setDownloadStaticsData(null);
             a2.gj(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "delete");
-            d.dGf().a(a2);
+            d.dGg().a(a2);
         }
     }
 

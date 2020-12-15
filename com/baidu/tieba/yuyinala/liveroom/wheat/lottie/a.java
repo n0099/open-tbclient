@@ -7,18 +7,18 @@ import com.baidu.live.data.cc;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class a {
-    private static a owv;
-    private int oww = 0;
+    private static a owx;
+    private int owy = 0;
 
-    public static a efA() {
-        if (owv == null) {
+    public static a efB() {
+        if (owx == null) {
             synchronized (a.class) {
-                if (owv == null) {
-                    owv = new a();
+                if (owx == null) {
+                    owx = new a();
                 }
             }
         }
-        return owv;
+        return owx;
     }
 
     private a() {
@@ -31,14 +31,14 @@ public class a {
     public void a(ViewGroup viewGroup, c cVar) {
         at FU = FU();
         if (!a(FU) && a(FU, true)) {
-            b.efC().a(viewGroup, FU.FN(), cVar);
+            b.efD().a(viewGroup, FU.FN(), cVar);
         }
     }
 
     public void a(ViewGroup viewGroup, String str, String str2, c cVar) {
         at FV = FV();
         if (!a(FV) && a(FV, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.efC().a(viewGroup, FV.FN(), str, str2, cVar);
+            b.efD().a(viewGroup, FV.FN(), str, str2, cVar);
         }
     }
 
@@ -49,7 +49,7 @@ public class a {
     public void b(ViewGroup viewGroup, String str, String str2, c cVar) {
         at FW = FW();
         if (!a(FW) && a(FW, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.efC().b(viewGroup, FW.FN(), str, str2, cVar);
+            b.efD().b(viewGroup, FW.FN(), str, str2, cVar);
         }
     }
 
@@ -60,7 +60,7 @@ public class a {
     public void c(ViewGroup viewGroup, String str, String str2, c cVar) {
         at FX = FX();
         if (!a(FX) && a(FX, true) && !StringUtils.isNull(str, true) && !StringUtils.isNull(str2, true)) {
-            b.efC().c(viewGroup, FX.FN(), str, str2, cVar);
+            b.efD().c(viewGroup, FX.FN(), str, str2, cVar);
         }
     }
 
@@ -77,42 +77,42 @@ public class a {
     }
 
     private at FU() {
-        cc efB = efB();
-        if (efB == null) {
+        cc efC = efC();
+        if (efC == null) {
             return null;
         }
-        return efB.FU();
+        return efC.FU();
     }
 
     private at FV() {
-        cc efB = efB();
-        if (efB == null) {
+        cc efC = efC();
+        if (efC == null) {
             return null;
         }
-        return efB.FV();
+        return efC.FV();
     }
 
     private at FW() {
-        cc efB = efB();
-        if (efB == null) {
+        cc efC = efC();
+        if (efC == null) {
             return null;
         }
-        return efB.FW();
+        return efC.FW();
     }
 
     private at FX() {
-        cc efB = efB();
-        if (efB == null) {
+        cc efC = efC();
+        if (efC == null) {
             return null;
         }
-        return efB.FX();
+        return efC.FX();
     }
 
     private static boolean a(at atVar) {
         return atVar == null || StringUtils.isNull(atVar.getDownloadUrl(), true) || StringUtils.isNull(atVar.FN(), true);
     }
 
-    private cc efB() {
+    private cc efC() {
         if (com.baidu.live.ae.a.RB().brA == null || com.baidu.live.ae.a.RB().brA.aOJ == null) {
             return null;
         }

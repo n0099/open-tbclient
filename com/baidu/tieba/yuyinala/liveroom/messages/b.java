@@ -9,7 +9,7 @@ public class b extends HttpMessage {
         this.brr = j;
     }
 
-    public long edM() {
+    public long edN() {
         return this.brr;
     }
 

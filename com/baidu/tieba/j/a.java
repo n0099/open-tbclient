@@ -12,14 +12,14 @@ public class a {
     private String bvx;
     private String eFA;
     private boolean isSelected;
-    private String jHA;
-    private b jHB;
     private String jHC;
-    private String jHD;
+    private b jHD;
     private String jHE;
     private String jHF;
     private String jHG;
-    private List<C0794a> jHH;
+    private String jHH;
+    private String jHI;
+    private List<C0794a> jHJ;
     private String nid;
     private String originalPrice;
     private String price;
@@ -27,10 +27,10 @@ public class a {
     private String userName;
 
     public void LS(String str) {
-        this.jHA = str;
+        this.jHC = str;
     }
 
-    public String cMR() {
+    public String cMS() {
         return this.bvx;
     }
 
@@ -54,24 +54,24 @@ public class a {
         this.price = str;
     }
 
-    public b cMS() {
-        return this.jHB;
-    }
-
-    public void a(b bVar) {
-        this.jHB = bVar;
-    }
-
-    public void LV(String str) {
-        this.jHC = str;
-    }
-
-    public String cMT() {
+    public b cMT() {
         return this.jHD;
     }
 
+    public void a(b bVar) {
+        this.jHD = bVar;
+    }
+
+    public void LV(String str) {
+        this.jHE = str;
+    }
+
+    public String cMU() {
+        return this.jHF;
+    }
+
     public void LW(String str) {
-        this.jHD = str;
+        this.jHF = str;
     }
 
     public void setUserName(String str) {
@@ -79,11 +79,11 @@ public class a {
     }
 
     public void LX(String str) {
-        this.jHE = str;
+        this.jHG = str;
     }
 
     public void LY(String str) {
-        this.jHF = str;
+        this.jHH = str;
     }
 
     public void LZ(String str) {
@@ -95,14 +95,14 @@ public class a {
     }
 
     public void Mb(String str) {
-        this.jHG = str;
+        this.jHI = str;
     }
 
     public void setNid(String str) {
         this.nid = str;
     }
 
-    public String cMU() {
+    public String cMV() {
         return this.eFA;
     }
 
@@ -115,37 +115,37 @@ public class a {
     }
 
     public List<C0794a> getImageList() {
-        return this.jHH;
+        return this.jHJ;
     }
 
     public void dJ(List<C0794a> list) {
-        this.jHH = list;
+        this.jHJ = list;
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        private String jHI;
-        private String jHJ;
         private String jHK;
+        private String jHL;
+        private String jHM;
 
         public void Md(String str) {
-            this.jHI = str;
-        }
-
-        public String cMV() {
-            return this.jHJ;
-        }
-
-        public void Me(String str) {
-            this.jHJ = str;
+            this.jHK = str;
         }
 
         public String cMW() {
-            return this.jHK;
+            return this.jHL;
+        }
+
+        public void Me(String str) {
+            this.jHL = str;
+        }
+
+        public String cMX() {
+            return this.jHM;
         }
 
         public void Mf(String str) {
-            this.jHK = str;
+            this.jHM = str;
         }
     }
 

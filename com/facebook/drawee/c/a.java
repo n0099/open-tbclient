@@ -5,22 +5,22 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes8.dex */
 public class a {
-    InterfaceC0991a phg;
-    final float phh;
-    boolean phi;
-    boolean phj;
-    long phk;
-    float phl;
-    float phm;
+    InterfaceC0991a phi;
+    final float phj;
+    boolean phk;
+    boolean phl;
+    long phm;
+    float phn;
+    float pho;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public interface InterfaceC0991a {
-        boolean erk();
+        boolean erl();
     }
 
     public a(Context context) {
-        this.phh = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.phj = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.phg = null;
+        this.phi = null;
         reset();
     }
 
     public void reset() {
-        this.phi = false;
-        this.phj = false;
+        this.phk = false;
+        this.phl = false;
     }
 
     public void a(InterfaceC0991a interfaceC0991a) {
-        this.phg = interfaceC0991a;
+        this.phi = interfaceC0991a;
     }
 
-    public boolean esm() {
-        return this.phi;
+    public boolean esn() {
+        return this.phk;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.phi = true;
-                this.phj = true;
-                this.phk = motionEvent.getEventTime();
-                this.phl = motionEvent.getX();
-                this.phm = motionEvent.getY();
+                this.phk = true;
+                this.phl = true;
+                this.phm = motionEvent.getEventTime();
+                this.phn = motionEvent.getX();
+                this.pho = motionEvent.getY();
                 break;
             case 1:
-                this.phi = false;
-                if (Math.abs(motionEvent.getX() - this.phl) > this.phh || Math.abs(motionEvent.getY() - this.phm) > this.phh) {
-                    this.phj = false;
+                this.phk = false;
+                if (Math.abs(motionEvent.getX() - this.phn) > this.phj || Math.abs(motionEvent.getY() - this.pho) > this.phj) {
+                    this.phl = false;
                 }
-                if (this.phj && motionEvent.getEventTime() - this.phk <= ViewConfiguration.getLongPressTimeout() && this.phg != null) {
-                    this.phg.erk();
+                if (this.phl && motionEvent.getEventTime() - this.phm <= ViewConfiguration.getLongPressTimeout() && this.phi != null) {
+                    this.phi.erl();
                 }
-                this.phj = false;
+                this.phl = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.phl) > this.phh || Math.abs(motionEvent.getY() - this.phm) > this.phh) {
-                    this.phj = false;
+                if (Math.abs(motionEvent.getX() - this.phn) > this.phj || Math.abs(motionEvent.getY() - this.pho) > this.phj) {
+                    this.phl = false;
                     break;
                 }
                 break;
             case 3:
-                this.phi = false;
-                this.phj = false;
+                this.phk = false;
+                this.phl = false;
                 break;
         }
         return true;

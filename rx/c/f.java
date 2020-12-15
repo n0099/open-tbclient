@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes12.dex */
 public class f {
-    private static final f pVp = new f();
-    static final b pVu = new b() { // from class: rx.c.f.1
+    private static final f pVr = new f();
+    static final b pVw = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> pVq = new AtomicReference<>();
-    private final AtomicReference<d> pVr = new AtomicReference<>();
-    private final AtomicReference<h> pVs = new AtomicReference<>();
-    private final AtomicReference<a> pVt = new AtomicReference<>();
-    private final AtomicReference<g> pPo = new AtomicReference<>();
+    private final AtomicReference<b> pVs = new AtomicReference<>();
+    private final AtomicReference<d> pVt = new AtomicReference<>();
+    private final AtomicReference<h> pVu = new AtomicReference<>();
+    private final AtomicReference<a> pVv = new AtomicReference<>();
+    private final AtomicReference<g> pPq = new AtomicReference<>();
 
     @Deprecated
-    public static f eGw() {
-        return pVp;
+    public static f eGx() {
+        return pVr;
     }
 
     f() {
     }
 
-    public b eGx() {
-        if (this.pVq.get() == null) {
+    public b eGy() {
+        if (this.pVs.get() == null) {
             Object a2 = a(b.class, System.getProperties());
             if (a2 == null) {
-                this.pVq.compareAndSet(null, pVu);
+                this.pVs.compareAndSet(null, pVw);
             } else {
-                this.pVq.compareAndSet(null, (b) a2);
-            }
-        }
-        return this.pVq.get();
-    }
-
-    public d eGy() {
-        if (this.pVr.get() == null) {
-            Object a2 = a(d.class, System.getProperties());
-            if (a2 == null) {
-                this.pVr.compareAndSet(null, e.eGv());
-            } else {
-                this.pVr.compareAndSet(null, (d) a2);
-            }
-        }
-        return this.pVr.get();
-    }
-
-    public h eGz() {
-        if (this.pVs.get() == null) {
-            Object a2 = a(h.class, System.getProperties());
-            if (a2 == null) {
-                this.pVs.compareAndSet(null, i.eGJ());
-            } else {
-                this.pVs.compareAndSet(null, (h) a2);
+                this.pVs.compareAndSet(null, (b) a2);
             }
         }
         return this.pVs.get();
     }
 
-    public a eGA() {
+    public d eGz() {
         if (this.pVt.get() == null) {
-            Object a2 = a(a.class, System.getProperties());
+            Object a2 = a(d.class, System.getProperties());
             if (a2 == null) {
-                this.pVt.compareAndSet(null, new a() { // from class: rx.c.f.2
-                });
+                this.pVt.compareAndSet(null, e.eGw());
             } else {
-                this.pVt.compareAndSet(null, (a) a2);
+                this.pVt.compareAndSet(null, (d) a2);
             }
         }
         return this.pVt.get();
+    }
+
+    public h eGA() {
+        if (this.pVu.get() == null) {
+            Object a2 = a(h.class, System.getProperties());
+            if (a2 == null) {
+                this.pVu.compareAndSet(null, i.eGK());
+            } else {
+                this.pVu.compareAndSet(null, (h) a2);
+            }
+        }
+        return this.pVu.get();
+    }
+
+    public a eGB() {
+        if (this.pVv.get() == null) {
+            Object a2 = a(a.class, System.getProperties());
+            if (a2 == null) {
+                this.pVv.compareAndSet(null, new a() { // from class: rx.c.f.2
+                });
+            } else {
+                this.pVv.compareAndSet(null, (a) a2);
+            }
+        }
+        return this.pVv.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g eGB() {
-        if (this.pPo.get() == null) {
+    public g eGC() {
+        if (this.pPq.get() == null) {
             Object a2 = a(g.class, System.getProperties());
             if (a2 == null) {
-                this.pPo.compareAndSet(null, g.eGI());
+                this.pPq.compareAndSet(null, g.eGJ());
             } else {
-                this.pPo.compareAndSet(null, (g) a2);
+                this.pPq.compareAndSet(null, (g) a2);
             }
         }
-        return this.pPo.get();
+        return this.pPq.get();
     }
 }

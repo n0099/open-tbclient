@@ -36,17 +36,17 @@ import org.json.JSONObject;
 public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.recommend.data.a, C0933a> {
     private w bur;
     private int cardWidth;
-    private int opq;
-    private TbPageContext opr;
+    private int ops;
+    private TbPageContext opu;
 
     public a(Context context, BdUniqueId bdUniqueId, int i, TbPageContext tbPageContext) {
         super(context, bdUniqueId);
         this.cardWidth = i;
-        this.opr = tbPageContext;
+        this.opu = tbPageContext;
     }
 
     public void NG(int i) {
-        this.opq = i;
+        this.ops = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: cS */
     public C0933a onCreateViewHolder(ViewGroup viewGroup) {
-        return new C0933a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth, this.opr);
+        return new C0933a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_item_layout, viewGroup, false), this.mContext, this.cardWidth, this.opu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.yuyinala.liveroom.recommend.data.a aVar, C0933a c0933a) {
-        c0933a.a(aVar, i, this.opq, this.bur);
+        c0933a.a(aVar, i, this.ops, this.bur);
         return view;
     }
 
@@ -74,72 +74,72 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
     /* loaded from: classes4.dex */
     public static class C0933a extends TypeAdapter.ViewHolder {
         private w bur;
-        private RelativeLayout[] hTF;
-        private TbImageView[] hTG;
-        private TextView[] hTH;
-        private TextView[] hTI;
-        private LinearLayout[] hTJ;
+        private RelativeLayout[] hTH;
+        private TbImageView[] hTI;
+        private TextView[] hTJ;
         private TextView[] hTK;
-        private String hTP;
+        private LinearLayout[] hTL;
+        private TextView[] hTM;
+        private String hTR;
         private Context mContext;
         private TbPageContext mPageContext;
         private int mPosition;
-        private int opq;
-        private TextView[] ops;
-        private com.baidu.tieba.yuyinala.liveroom.recommend.data.a opu;
+        private int ops;
+        private TextView[] opv;
+        private com.baidu.tieba.yuyinala.liveroom.recommend.data.a opw;
 
         private C0933a(View view, Context context, int i, TbPageContext tbPageContext) {
             super(view);
-            this.hTP = "";
+            this.hTR = "";
             this.mContext = context;
             this.mPageContext = tbPageContext;
-            this.hTF = new RelativeLayout[2];
-            this.hTG = new TbImageView[2];
-            this.hTH = new TextView[2];
-            this.hTI = new TextView[2];
-            this.hTJ = new LinearLayout[2];
+            this.hTH = new RelativeLayout[2];
+            this.hTI = new TbImageView[2];
+            this.hTJ = new TextView[2];
             this.hTK = new TextView[2];
-            this.ops = new TextView[2];
-            this.hTF[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
-            this.hTF[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
-            this.hTG[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
-            this.hTG[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
-            this.hTH[0] = (TextView) view.findViewById(a.f.left_count_textView);
-            this.hTH[1] = (TextView) view.findViewById(a.f.right_count_textView);
-            this.hTI[0] = (TextView) view.findViewById(a.f.left_name_textView);
-            this.hTI[1] = (TextView) view.findViewById(a.f.right_name_textView);
-            this.hTJ[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
-            this.hTJ[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
-            this.hTK[0] = (TextView) view.findViewById(a.f.left_location_textView);
-            this.hTK[1] = (TextView) view.findViewById(a.f.right_location_textView);
-            this.ops[0] = (TextView) view.findViewById(a.f.left_live_label);
-            this.ops[1] = (TextView) view.findViewById(a.f.right_live_label);
-            this.hTG[0].getLayoutParams().width = i;
-            this.hTG[0].getLayoutParams().height = i;
-            this.hTG[1].getLayoutParams().width = i;
-            this.hTG[1].getLayoutParams().height = i;
-            this.hTG[0].setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.hTG[1].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.hTL = new LinearLayout[2];
+            this.hTM = new TextView[2];
+            this.opv = new TextView[2];
+            this.hTH[0] = (RelativeLayout) view.findViewById(a.f.left_content_layout);
+            this.hTH[1] = (RelativeLayout) view.findViewById(a.f.right_content_layout);
+            this.hTI[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
+            this.hTI[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
+            this.hTJ[0] = (TextView) view.findViewById(a.f.left_count_textView);
+            this.hTJ[1] = (TextView) view.findViewById(a.f.right_count_textView);
+            this.hTK[0] = (TextView) view.findViewById(a.f.left_name_textView);
+            this.hTK[1] = (TextView) view.findViewById(a.f.right_name_textView);
+            this.hTL[0] = (LinearLayout) view.findViewById(a.f.left_location_layout);
+            this.hTL[1] = (LinearLayout) view.findViewById(a.f.right_location_layout);
+            this.hTM[0] = (TextView) view.findViewById(a.f.left_location_textView);
+            this.hTM[1] = (TextView) view.findViewById(a.f.right_location_textView);
+            this.opv[0] = (TextView) view.findViewById(a.f.left_live_label);
+            this.opv[1] = (TextView) view.findViewById(a.f.right_live_label);
+            this.hTI[0].getLayoutParams().width = i;
+            this.hTI[0].getLayoutParams().height = i;
+            this.hTI[1].getLayoutParams().width = i;
+            this.hTI[1].getLayoutParams().height = i;
+            this.hTI[0].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.hTI[1].setDefaultBgResource(a.e.sdk_shape_transparent);
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && i > 0) {
-                this.hTP = "@resize{w:" + i + ",h:" + i + "}";
+                this.hTR = "@resize{w:" + i + ",h:" + i + "}";
             }
-            this.hTF[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.1
+            this.hTH[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0933a.this.opu != null) {
-                        if (C0933a.this.opu.opy != null) {
-                            C0933a.this.b(C0933a.this.opu.opy, 0, C0933a.this.opu.type);
-                        } else if (C0933a.this.opu.opz != null) {
-                            C0933a.this.b(C0933a.this.opu.opz, 0, C0933a.this.opu.type);
+                    if (C0933a.this.opw != null) {
+                        if (C0933a.this.opw.opA != null) {
+                            C0933a.this.b(C0933a.this.opw.opA, 0, C0933a.this.opw.type);
+                        } else if (C0933a.this.opw.opB != null) {
+                            C0933a.this.b(C0933a.this.opw.opB, 0, C0933a.this.opw.type);
                         }
                     }
                 }
             });
-            this.hTF[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.2
+            this.hTH[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.recommend.adapter.a.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (C0933a.this.opu != null && C0933a.this.opu.opz != null) {
-                        C0933a.this.b(C0933a.this.opu.opz, 1, C0933a.this.opu.type);
+                    if (C0933a.this.opw != null && C0933a.this.opw.opB != null) {
+                        C0933a.this.b(C0933a.this.opw.opB, 1, C0933a.this.opw.type);
                     }
                 }
             });
@@ -149,49 +149,49 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
             boolean z;
             int i3;
             if (aVar != null) {
-                this.opu = aVar;
+                this.opw = aVar;
                 this.mPosition = i;
-                this.opq = i2;
+                this.ops = i2;
                 this.bur = wVar;
-                if (aVar.opy != null) {
-                    a(aVar.opy, 0, this.opu.type);
+                if (aVar.opA != null) {
+                    a(aVar.opA, 0, this.opw.type);
                 }
-                if (aVar.opz != null) {
-                    if (aVar.opy == null) {
+                if (aVar.opB != null) {
+                    if (aVar.opA == null) {
                         i3 = 0;
                         z = false;
                     } else {
                         i3 = 1;
                         z = true;
                     }
-                    a(aVar.opz, i3, this.opu.type);
+                    a(aVar.opB, i3, this.opw.type);
                 } else {
                     z = false;
                 }
                 if (z) {
-                    this.hTF[1].setVisibility(0);
+                    this.hTH[1].setVisibility(0);
                 } else {
-                    this.hTF[1].setVisibility(8);
+                    this.hTH[1].setVisibility(8);
                 }
             }
         }
 
         private void a(AlaRecommendLiveData alaRecommendLiveData, int i, int i2) {
-            this.hTG[i].startLoad(alaRecommendLiveData.cover + this.hTP, 10, false);
-            this.hTI[i].setText(alaRecommendLiveData.room_name);
-            this.hTH[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
+            this.hTI[i].startLoad(alaRecommendLiveData.cover + this.hTR, 10, false);
+            this.hTK[i].setText(alaRecommendLiveData.room_name);
+            this.hTJ[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_audience_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
             if (!TextUtils.isEmpty(alaRecommendLiveData.distance) && !TextUtils.equals(alaRecommendLiveData.distance, "0")) {
-                this.hTK[i].setText(alaRecommendLiveData.distance);
-                this.hTJ[i].setVisibility(0);
+                this.hTM[i].setText(alaRecommendLiveData.distance);
+                this.hTL[i].setVisibility(0);
             } else {
-                this.hTJ[i].setVisibility(8);
+                this.hTL[i].setVisibility(8);
             }
             if (alaRecommendLiveData.corner_tag == 2) {
-                this.ops[i].setVisibility(0);
-                this.ops[i].setText(this.ops[i].getContext().getResources().getString(a.h.yuyin_dating));
-                this.ops[i].setBackgroundResource(a.e.shape_yuyin_dating_bg);
+                this.opv[i].setVisibility(0);
+                this.opv[i].setText(this.opv[i].getContext().getResources().getString(a.h.yuyin_dating));
+                this.opv[i].setBackgroundResource(a.e.shape_yuyin_dating_bg);
             } else {
-                this.ops[i].setVisibility(8);
+                this.opv[i].setVisibility(8);
             }
             a(UbcStatisticLiveKey.KEY_ID_1392, "show", alaRecommendLiveData, i2, i);
         }
@@ -281,8 +281,8 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.yuyinala.liveroom.reco
                     try {
                         if (i == 0) {
                             i3 = ((this.mPosition - 1) * 2) + i2 + 1;
-                        } else if (this.opq > 0) {
-                            i3 = ((((this.mPosition - 1) - 1) - ((int) ((this.opq / 2) + 0.9f))) * 2) + i2 + 1;
+                        } else if (this.ops > 0) {
+                            i3 = ((((this.mPosition - 1) - 1) - ((int) ((this.ops / 2) + 0.9f))) * 2) + i2 + 1;
                         } else {
                             i3 = ((this.mPosition - 1) * 2) + i2 + 1;
                         }

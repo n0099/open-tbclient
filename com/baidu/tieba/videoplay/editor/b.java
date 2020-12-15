@@ -62,7 +62,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.bxs().showToast(R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.dXH();
+                                aVar.dXI();
                                 if (b.this.a(aVar.bxs(), RequestResponseCode.REQUEST_LOGIN_WRITE)) {
                                     aVar.bDr();
                                     return;

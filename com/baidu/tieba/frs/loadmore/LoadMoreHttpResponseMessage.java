@@ -91,7 +91,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                                 }
                             }
                         }
-                        b.dGe().q("tag_frs_tab", arrayList);
+                        b.dGf().q("tag_frs_tab", arrayList);
                     }
                 }
                 this.bannerListData = null;

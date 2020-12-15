@@ -24,11 +24,11 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            if (d.cNJ()) {
-                if (!d.cNN()) {
-                    builder.page_tag = d.cNL();
+            if (d.cNK()) {
+                if (!d.cNO()) {
+                    builder.page_tag = d.cNM();
                 } else {
-                    builder.page_tag = d.cNK();
+                    builder.page_tag = d.cNL();
                 }
             }
             builder.last_req_unix = Long.valueOf(b.bsO().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
@@ -47,9 +47,9 @@ public class ConcernPageRequestMessage extends NetMessage {
     }
 
     private String buildAdParam() {
-        int So = com.baidu.tieba.recapp.report.b.dGe().So("tag_home_concern_tab");
+        int So = com.baidu.tieba.recapp.report.b.dGf().So("tag_home_concern_tab");
         String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-        return AdExtParam.a.bFX().sS(So).EE(cuidGalaxy2).EF(com.baidu.tieba.recapp.report.b.dGe().Sm("tag_home_concern_tab")).bFY();
+        return AdExtParam.a.bFX().sS(So).EE(cuidGalaxy2).EF(com.baidu.tieba.recapp.report.b.dGf().Sm("tag_home_concern_tab")).bFY();
     }
 
     public String getPageTag() {

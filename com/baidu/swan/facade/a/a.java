@@ -6,6 +6,6 @@ public class a {
     }
 
     public static b aRq() {
-        return com.baidu.tieba.aiapps.apps.h.d.bOv();
+        return com.baidu.tieba.aiapps.apps.h.d.bOw();
     }
 }

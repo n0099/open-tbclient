@@ -36,21 +36,21 @@ public interface a {
 
         void a(d dVar, boolean z, int i);
 
-        void bSl();
+        void bSm();
 
         void destroy();
-
-        void djY();
 
         void djZ();
 
         void dka();
 
-        e dkb();
+        void dkb();
 
-        int dkc();
+        e dkc();
 
-        void dkd();
+        int dkd();
+
+        void dke();
 
         void e(long j, long j2, int i);
 

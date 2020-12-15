@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 /* loaded from: classes18.dex */
 public class b {
     public static String a(Context context) {
-        e ezx = e.ezx();
-        return ezx.a(context.getApplicationContext(), ezx.pyd);
+        e ezy = e.ezy();
+        return ezy.a(context.getApplicationContext(), ezy.pyf);
     }
 
     public static final boolean a() {
@@ -23,21 +23,21 @@ public class b {
         if (context == null) {
             return false;
         }
-        return e.ezx().a(context, false);
+        return e.ezy().a(context, false);
     }
 
     public static String b(Context context) {
-        e ezx = e.ezx();
-        return ezx.a(context.getApplicationContext(), ezx.pye);
+        e ezy = e.ezy();
+        return ezy.a(context.getApplicationContext(), ezy.pyg);
     }
 
     public static String c(Context context) {
-        e ezx = e.ezx();
-        return ezx.a(context.getApplicationContext(), ezx.pyg);
+        e ezy = e.ezy();
+        return ezy.a(context.getApplicationContext(), ezy.pyi);
     }
 
     public static String d(Context context) {
-        e ezx = e.ezx();
-        return ezx.a(context.getApplicationContext(), ezx.pyf);
+        e ezy = e.ezy();
+        return ezy.a(context.getApplicationContext(), ezy.pyh);
     }
 }

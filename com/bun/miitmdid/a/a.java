@@ -9,14 +9,14 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes18.dex */
 public class a implements b {
-    public C0979a oYC = new C0979a();
+    public C0979a oYE = new C0979a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes18.dex */
     public class C0979a {
-        public com.bun.miitmdid.a.a.a oYD;
-        public com.bun.miitmdid.a.a.b oYE;
-        public c oYF;
+        public com.bun.miitmdid.a.a.a oYF;
+        public com.bun.miitmdid.a.a.b oYG;
+        public c oYH;
 
         public C0979a() {
         }
@@ -30,9 +30,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.oYC.oYD = new com.bun.miitmdid.a.a.a();
+            aVar.oYE.oYF = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.oYC.oYD != null;
+        return aVar.oYE.oYF != null;
     }
 
     private static boolean b(a aVar, JSONObject jSONObject) {
@@ -40,9 +40,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.oYC.oYF = new c();
+            aVar.oYE.oYH = new c();
         }
-        return aVar.oYC.oYF != null;
+        return aVar.oYE.oYH != null;
     }
 
     private static boolean c(a aVar, JSONObject jSONObject) {
@@ -53,9 +53,9 @@ public class a implements b {
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
             bVar.f3978a = optJSONObject.optString("appid");
-            aVar.oYC.oYE = bVar;
+            aVar.oYE.oYG = bVar;
         }
-        return aVar.oYC.oYE != null;
+        return aVar.oYE.oYG != null;
     }
 
     public static a hw(Context context) {
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.oYC == null || this.oYC.oYE == null || this.oYC.oYE.f3978a == null) ? "" : this.oYC.oYE.f3978a;
+        return (this.oYE == null || this.oYE.oYG == null || this.oYE.oYG.f3978a == null) ? "" : this.oYE.oYG.f3978a;
     }
 }

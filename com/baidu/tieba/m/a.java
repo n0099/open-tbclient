@@ -11,19 +11,19 @@ import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 /* loaded from: classes23.dex */
 class a {
-    private static final int llP = aj(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
-    private static final int llQ = aj(new byte[]{106, 117, 110, 107});
-    private static final int llR = aj(new byte[]{109, 100, 97, 116});
-    private static final int llS = aj(new byte[]{109, 111, 111, 118});
-    private static final int llT = aj(new byte[]{112, 110, 111, 116});
-    private static final int llU = aj(new byte[]{115, 107, 105, 112});
-    private static final int llV = aj(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
-    private static final int llW = aj(new byte[]{80, 73, 67, 84});
-    private static final int llX = aj(new byte[]{102, 116, 121, 112});
-    private static final int llY = aj(new byte[]{117, 117, 105, 100});
-    private static final int llZ = aj(new byte[]{99, 109, 111, 118});
-    private static final int lma = aj(new byte[]{115, 116, 99, 111});
-    private static final int lmb = aj(new byte[]{99, 111, 54, 52});
+    private static final int llR = aj(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
+    private static final int llS = aj(new byte[]{106, 117, 110, 107});
+    private static final int llT = aj(new byte[]{109, 100, 97, 116});
+    private static final int llU = aj(new byte[]{109, 111, 111, 118});
+    private static final int llV = aj(new byte[]{112, 110, 111, 116});
+    private static final int llW = aj(new byte[]{115, 107, 105, 112});
+    private static final int llX = aj(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
+    private static final int llY = aj(new byte[]{80, 73, 67, 84});
+    private static final int llZ = aj(new byte[]{102, 116, 121, 112});
+    private static final int lma = aj(new byte[]{117, 117, 105, 100});
+    private static final int lmb = aj(new byte[]{99, 109, 111, 118});
+    private static final int lmc = aj(new byte[]{115, 116, 99, 111});
+    private static final int lmd = aj(new byte[]{99, 111, 54, 52});
 
     static long Gh(int i) {
         return i & 4294967295L;
@@ -97,14 +97,14 @@ class a {
             }
             long Gh = Gh(order.getInt());
             i = order.getInt();
-            if (i == llX) {
+            if (i == llZ) {
                 int hk = hk(Gh);
                 ByteBuffer order2 = ByteBuffer.allocate(hk).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= hk - 8) {
                     order2.flip();
-                    if ((i == llP && i != llQ && i != llR && i != llS && i != llT && i != llU && i != llV && i != llW && i != llY && i != llX) || Gh < 8) {
+                    if ((i == llR && i != llS && i != llT && i != llU && i != llV && i != llW && i != llX && i != llY && i != lma && i != llZ) || Gh < 8) {
                         break;
                     }
                     i2 = i;
@@ -122,12 +122,12 @@ class a {
                 } else {
                     fileChannel.position((fileChannel.position() + Gh) - 8);
                 }
-                if (i == llP) {
+                if (i == llR) {
                 }
                 i2 = i;
             }
         }
-        return i != llS ? 0 : 1;
+        return i != llU ? 0 : 1;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [238=4] */
@@ -194,7 +194,7 @@ class a {
             }
             j2 = Gh(order.getInt());
             i2 = order.getInt();
-            if (i2 == llX) {
+            if (i2 == llZ) {
                 int hk = hk(j2);
                 byteBuffer2 = ByteBuffer.allocate(hk).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -208,7 +208,7 @@ class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == llP && i2 != llQ && i2 != llR && i2 != llS && i2 != llT && i2 != llU && i2 != llV && i2 != llW && i2 != llY && i2 != llX) {
+                if (i2 == llR && i2 != llS && i2 != llT && i2 != llU && i2 != llV && i2 != llW && i2 != llX && i2 != llY && i2 != lma && i2 != llZ) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -236,13 +236,13 @@ class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == llP) {
+                if (i2 == llR) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != llS) {
+        if (i != llU) {
             return false;
         }
         int hk2 = hk(j2);
@@ -251,13 +251,13 @@ class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == llZ) {
+        if (order2.getInt(12) == lmb) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != lma && i3 != lmb) {
+            if (i3 != lmc && i3 != lmd) {
                 order2.position(order2.position() + 1);
             } else if (Gh(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
@@ -267,7 +267,7 @@ class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int hk3 = hk(order2.getInt());
-                if (i3 == lma) {
+                if (i3 == lmc) {
                     if (order2.remaining() < hk3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -280,7 +280,7 @@ class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != lmb) {
+                } else if (i3 != lmd) {
                     continue;
                 } else if (order2.remaining() < hk3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

@@ -13,13 +13,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* loaded from: classes21.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.i, com.baidu.tieba.hottopic.a.d> {
-    private HotTopicActivity kbL;
+    private HotTopicActivity kbN;
     public int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.kbL = hotTopicActivity;
+        this.kbN = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,23 +44,23 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.a.d dVar, View view) {
         if (dVar != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.kbL != null && dVar.aku != this.mSkinType) {
+            if (this.kbN != null && dVar.aku != this.mSkinType) {
                 dVar.aku = this.mSkinType;
                 ap.setBackgroundColor(dVar.getView(), R.color.CAM_X0201);
-                this.kbL.getLayoutMode().setNightMode(this.mSkinType == 1);
-                this.kbL.getLayoutMode().onModeChanged(view);
+                this.kbN.getLayoutMode().setNightMode(this.mSkinType == 1);
+                this.kbN.getLayoutMode().onModeChanged(view);
             }
         }
     }
 
     private void a(com.baidu.tieba.hottopic.a.d dVar, com.baidu.tieba.hottopic.data.i iVar) {
         if (dVar != null && iVar != null) {
-            dVar.keW.setText(StringUtils.isNull(iVar.kdc) ? this.kbL.getResources().getString(R.string.pk_topic_default) : iVar.kdc.trim());
-            dVar.keX.setText(au.cutStringWithSuffix(iVar.kdd.trim(), 32, StringHelper.STRING_MORE));
-            dVar.keX.setText(iVar.kdd.trim());
-            dVar.keY.setData(iVar, this.kbL);
-            dVar.keZ.setText(iVar.kdT.trim());
-            dVar.kfa.setText(iVar.kdW.trim());
+            dVar.keY.setText(StringUtils.isNull(iVar.kde) ? this.kbN.getResources().getString(R.string.pk_topic_default) : iVar.kde.trim());
+            dVar.keZ.setText(au.cutStringWithSuffix(iVar.kdf.trim(), 32, StringHelper.STRING_MORE));
+            dVar.keZ.setText(iVar.kdf.trim());
+            dVar.kfa.setData(iVar, this.kbN);
+            dVar.kfb.setText(iVar.kdV.trim());
+            dVar.kfc.setText(iVar.kdY.trim());
         }
     }
 }

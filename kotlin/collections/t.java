@@ -15,15 +15,15 @@ public class t extends s {
     @kotlin.e
     /* loaded from: classes17.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable pKh;
+        final /* synthetic */ Iterable pKj;
 
         public a(Iterable iterable) {
-            this.pKh = iterable;
+            this.pKj = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.pKh.iterator();
+            return this.pKj.iterator();
         }
     }
 
@@ -105,7 +105,7 @@ public class t extends s {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return n.eDJ();
+                    return n.eDK();
                 case 1:
                     return n.bP(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:

@@ -19,8 +19,7 @@ import com.baidu.tieba.R;
 import java.util.Map;
 /* loaded from: classes24.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a lnx;
-    private CustomMessageListener lny = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private CustomMessageListener lnA = new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -28,25 +27,26 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.lnx.djo()) {
-                    CollectTabActivity.this.lnx.tT(z);
+                if (i != -1 && i == CollectTabActivity.this.lnz.djp()) {
+                    CollectTabActivity.this.lnz.tT(z);
                 }
             }
         }
     };
+    private a lnz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.lnx = new a(this);
-        registerListener(this.lny);
-        djn();
+        this.lnz = new a(this);
+        registerListener(this.lnA);
+        djo();
         ab(getIntent());
     }
 
-    protected void djn() {
+    protected void djo() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
@@ -58,19 +58,19 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.lnx.aX(aVar.getList());
+        this.lnz.aX(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.lnx.onChangeSkinType(i);
+        this.lnz.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.lnx.djq()) {
-            this.lnx.tS(!this.lnx.djr());
+        if (view == this.lnz.djr()) {
+            this.lnz.tS(!this.lnz.djs());
         }
     }
 
@@ -78,8 +78,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.djs().tU(true);
-        b.djs().tV(false);
+        b.djt().tU(true);
+        b.djt().tV(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -87,16 +87,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.djs().tU(false);
+        b.djt().tU(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment djp = this.lnx.djp();
-        if (djp != null) {
-            djp.onActivityResult(i, i2, intent);
+        Fragment djq = this.lnz.djq();
+        if (djq != null) {
+            djq.onActivityResult(i, i2, intent);
         }
     }
 

@@ -13,52 +13,52 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes23.dex */
 public class e {
-    private String nAB;
-    private List<String> nAC;
-    private List<String> nAD;
+    private String nAD;
+    private List<String> nAE;
+    private List<String> nAF;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes23.dex */
     public static class a {
-        private static final e nAF = new e();
+        private static final e nAH = new e();
     }
 
     private e() {
-        this.nAC = new ArrayList();
-        this.nAD = new ArrayList();
+        this.nAE = new ArrayList();
+        this.nAF = new ArrayList();
         if (f.checkSD()) {
-            dTm();
+            dTn();
         }
     }
 
-    private void dTm() {
+    private void dTn() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.v.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.l.d.Ph(c.a.llc);
-                com.baidu.tieba.l.d.Ph(c.a.lld);
                 com.baidu.tieba.l.d.Ph(c.a.lle);
+                com.baidu.tieba.l.d.Ph(c.a.llf);
                 com.baidu.tieba.l.d.Ph(c.a.llg);
-                com.baidu.tieba.l.d.Ph(c.a.llh);
+                com.baidu.tieba.l.d.Ph(c.a.lli);
+                com.baidu.tieba.l.d.Ph(c.a.llj);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e dTn() {
-        return a.nAF;
+    public static e dTo() {
+        return a.nAH;
     }
 
-    public void dTj() {
+    public void dTk() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.v.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List UA = e.UA(c.a.llf);
+                    List UA = e.UA(c.a.llh);
                     if (UA != null) {
                         int size = UA.size();
                         for (int i = 0; i < size; i++) {
@@ -105,28 +105,28 @@ public class e {
 
     public synchronized void g(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.nAC.add(jSONObject.toString());
-            String dTo = dTo();
+            this.nAE.add(jSONObject.toString());
+            String dTp = dTp();
             if (f.checkSD()) {
-                A(jSONObject, dTo);
+                A(jSONObject, dTp);
             }
-            if (this.nAC.size() >= g.bAd() || z) {
-                a(new d(this.nAC, dTo));
-                this.nAC.clear();
-                this.nAB = null;
+            if (this.nAE.size() >= g.bAd() || z) {
+                a(new d(this.nAE, dTp));
+                this.nAE.clear();
+                this.nAD = null;
             }
         }
     }
 
-    private String dTo() {
-        if (StringUtils.isNull(this.nAB)) {
+    private String dTp() {
+        if (StringUtils.isNull(this.nAD)) {
             if (f.checkSD()) {
-                this.nAB = String.valueOf(System.currentTimeMillis());
+                this.nAD = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.llf + this.nAB;
+        return c.a.llh + this.nAD;
     }
 
     private void A(JSONObject jSONObject, String str) {
@@ -148,7 +148,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean gz(String str, String str2) {
         boolean i;
-        if (this.nAD.contains(str)) {
+        if (this.nAF.contains(str)) {
             i = false;
         } else {
             File file = new File(str);
@@ -178,9 +178,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.e(c.gd(dVar.nAz), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.nAA)) {
-                n.deleteFile(new File(dVar.nAA));
-                this.nAD.add(dVar.nAA);
+            if (c.e(c.gd(dVar.nAB), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.nAC)) {
+                n.deleteFile(new File(dVar.nAC));
+                this.nAF.add(dVar.nAC);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -21,8 +21,8 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.dFf().dFa() != null) {
-                r.dFf().dFa().dET();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.dFg().dFb() != null) {
+                r.dFg().dFb().dEU();
             }
         }
     };
@@ -94,8 +94,8 @@ public class c {
         MessageManager.getInstance().registerListener(this.fUO);
         MessageManager.getInstance().registerListener(this.fUM);
         MessageManager.getInstance().registerListener(this.fUP);
-        if (r.dFf().dFa() != null) {
-            r.dFf().dFa().dES();
+        if (r.dFg().dFb() != null) {
+            r.dFg().dFb().dET();
         }
     }
 
@@ -116,8 +116,8 @@ public class c {
         } else if (currentTimeMillis - this.fUI <= 2 || currentTimeMillis - this.fUI <= this.aLG) {
             return false;
         } else {
-            n dFa = r.dFf().dFa();
-            return (dFa != null ? dFa.dEU() : 3) < 3;
+            n dFb = r.dFg().dFb();
+            return (dFb != null ? dFb.dEV() : 3) < 3;
         }
     }
 

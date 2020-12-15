@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes19.dex */
 public class b implements c {
-    public static final b pbW = new b();
-    private String pbX = "unknown";
-    private int pbY = 5;
+    public static final b pbY = new b();
+    private String pbZ = "unknown";
+    private int pca = 5;
 
-    public static b epT() {
-        return pbW;
+    public static b epU() {
+        return pbY;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.pbY <= i;
+        return this.pca <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -70,8 +70,8 @@ public class b implements c {
     }
 
     private String Ze(String str) {
-        if (this.pbX != null) {
-            return this.pbX + ":" + str;
+        if (this.pbZ != null) {
+            return this.pbZ + ":" + str;
         }
         return str;
     }

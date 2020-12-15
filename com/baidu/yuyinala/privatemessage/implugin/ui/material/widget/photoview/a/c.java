@@ -7,18 +7,18 @@ import android.view.ScaleGestureDetector;
 @TargetApi(8)
 /* loaded from: classes4.dex */
 public class c extends b {
-    protected final ScaleGestureDetector oTZ;
+    protected final ScaleGestureDetector oUb;
 
     public c(Context context) {
         super(context);
-        this.oTZ = new ScaleGestureDetector(context, new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.c.1
+        this.oUb = new ScaleGestureDetector(context, new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.c.1
             @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
                 if (Float.isNaN(scaleFactor) || Float.isInfinite(scaleFactor)) {
                     return false;
                 }
-                c.this.oTV.onScale(scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+                c.this.oTX.onScale(scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
                 return true;
             }
 
@@ -34,13 +34,13 @@ public class c extends b {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
-    public boolean ene() {
-        return this.oTZ.isInProgress();
+    public boolean enf() {
+        return this.oUb.isInProgress();
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.b, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.oTZ.onTouchEvent(motionEvent);
+        this.oUb.onTouchEvent(motionEvent);
         return super.onTouchEvent(motionEvent);
     }
 }

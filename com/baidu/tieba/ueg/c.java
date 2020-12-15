@@ -8,23 +8,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String nAr;
-    private a nAs;
+    private String nAt;
+    private a nAu;
 
     /* loaded from: classes.dex */
     public interface a {
-        void dcA();
-
         void dcB();
 
         void dcC();
+
+        void dcD();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.nAr = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.nAs = aVar;
+        this.nAt = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.nAu = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            aa aaVar = new aa(this.nAr);
+            aa aaVar = new aa(this.nAt);
             aaVar.btv().bue().mIsNeedAddCommenParam = false;
             aaVar.btv().bue().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(aaVar.getNetData())).optJSONArray("result");
@@ -58,15 +58,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.nAs != null && num != null) {
+        if (this.nAu != null && num != null) {
             if (num.intValue() == -1) {
-                this.nAs.onError(null);
+                this.nAu.onError(null);
             } else if (num.intValue() == 1) {
-                this.nAs.dcA();
+                this.nAu.dcB();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.nAs.dcB();
+                this.nAu.dcC();
             } else {
-                this.nAs.dcC();
+                this.nAu.dcD();
             }
         }
     }

@@ -70,7 +70,7 @@ public class aq extends b<com.baidu.tbadk.core.data.a> {
     }
 
     public void bF(int i) {
-        this.ajl.ilG = i;
+        this.ajl.ilI = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

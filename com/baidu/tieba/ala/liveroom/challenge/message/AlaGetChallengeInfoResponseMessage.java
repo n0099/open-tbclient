@@ -12,9 +12,9 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
     private ba aPG;
     private be aPH;
     private be aPI;
-    private aw hjG;
-    private bc hjH;
-    private bd hjI;
+    private aw hjI;
+    private bc hjJ;
+    private bd hjK;
 
     public AlaGetChallengeInfoResponseMessage() {
         super(1021112);
@@ -42,18 +42,18 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("challenge_conf");
             if (optJSONObject5 != null) {
-                this.hjG = new aw();
-                this.hjG.parseJson(optJSONObject5);
+                this.hjI = new aw();
+                this.hjI.parseJson(optJSONObject5);
             }
             JSONObject optJSONObject6 = optJSONObject.optJSONObject("punish_info");
             if (optJSONObject6 != null) {
-                this.hjH = new bc();
-                this.hjH.parseJson(optJSONObject6);
+                this.hjJ = new bc();
+                this.hjJ.parseJson(optJSONObject6);
             }
             JSONObject optJSONObject7 = optJSONObject.optJSONObject("punishStickerInfo");
             if (optJSONObject7 != null) {
-                this.hjI = new bd();
-                this.hjI.parseJson(optJSONObject7);
+                this.hjK = new bd();
+                this.hjK.parseJson(optJSONObject7);
             }
         }
     }
@@ -70,27 +70,27 @@ public class AlaGetChallengeInfoResponseMessage extends JsonHttpResponsedMessage
         this.aPI = beVar;
     }
 
-    public ba ccW() {
+    public ba ccX() {
         return this.aPG;
     }
 
-    public be ccX() {
+    public be ccY() {
         return this.aPH;
     }
 
-    public be ccY() {
+    public be ccZ() {
         return this.aPI;
     }
 
-    public aw ccZ() {
-        return this.hjG;
-    }
-
-    public bc cda() {
-        return this.hjH;
-    }
-
-    public bd cdb() {
+    public aw cda() {
         return this.hjI;
+    }
+
+    public bc cdb() {
+        return this.hjJ;
+    }
+
+    public bd cdc() {
+        return this.hjK;
     }
 }

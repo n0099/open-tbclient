@@ -6,22 +6,22 @@ import com.baidu.live.data.w;
 /* loaded from: classes4.dex */
 public class b {
     private w aFN;
-    CustomMessageListener gDE;
-    protected a hpx;
-    CustomMessageListener hpy;
+    CustomMessageListener gDG;
+    CustomMessageListener hpA;
+    protected a hpz;
 
     public void I(w wVar) {
         if (wVar != null) {
             this.aFN = wVar;
-            if (this.hpx != null && this.aFN.aJV != null) {
-                this.hpx.fB(this.aFN.aJV.charmCount);
+            if (this.hpz != null && this.aFN.aJV != null) {
+                this.hpz.fB(this.aFN.aJV.charmCount);
             }
         }
     }
 
-    public void cer() {
-        if (this.hpx != null) {
-            this.hpx.cer();
+    public void ces() {
+        if (this.hpz != null) {
+            this.hpz.ces();
         }
     }
 
@@ -29,13 +29,13 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.hpx != null) {
-            this.hpx.getView().setVisibility(i);
+        if (this.hpz != null) {
+            this.hpz.getView().setVisibility(i);
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hpy);
-        MessageManager.getInstance().unRegisterListener(this.gDE);
+        MessageManager.getInstance().unRegisterListener(this.hpA);
+        MessageManager.getInstance().unRegisterListener(this.gDG);
     }
 }

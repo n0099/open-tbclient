@@ -18,15 +18,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private JSONArray hqB;
-    private Handler hqC;
-    private String hqy = "http://10.101.44.50:8899/live-profile/audiolive";
-    private StringBuffer hqz = new StringBuffer();
+    private JSONArray hqD;
+    private Handler hqE;
+    private String hqA = "http://10.101.44.50:8899/live-profile/audiolive";
+    private StringBuffer hqB = new StringBuffer();
     private HandlerThread mHandlerThread = new HandlerThread("handlerThread");
 
     public c() {
         this.mHandlerThread.start();
-        this.hqC = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.c.1
+        this.hqE = new Handler(this.mHandlerThread.getLooper()) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.e.c.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 super.handleMessage(message);
@@ -48,8 +48,8 @@ public class c {
 
     public void kt(String str) {
         JSONObject jSONObject = new JSONObject();
-        if (this.hqB == null) {
-            this.hqB = new JSONArray();
+        if (this.hqD == null) {
+            this.hqD = new JSONArray();
         }
         try {
             jSONObject.put("action", str);
@@ -57,53 +57,53 @@ public class c {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.hqB.put(jSONObject);
+        this.hqD.put(jSONObject);
         try {
-            this.hqz.setLength(0);
-            this.hqz.append(this.hqy).append("?extra=").append(this.hqB.toString()).append("&type=profile").append("&profile_id=" + GUIDTool.guid());
+            this.hqB.setLength(0);
+            this.hqB.append(this.hqA).append("?extra=").append(this.hqD.toString()).append("&type=profile").append("&profile_id=" + GUIDTool.guid());
             addCommonParams();
-            String stringBuffer = this.hqz.toString();
+            String stringBuffer = this.hqB.toString();
             Message obtain = Message.obtain();
             obtain.obj = stringBuffer;
-            this.hqC.sendMessage(obtain);
-            this.hqB = null;
+            this.hqE.sendMessage(obtain);
+            this.hqD = null;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     private void addCommonParams() {
-        this.hqz.append("&_client_type=2");
-        this.hqz.append("&_client_version=" + TbConfig.getVersion());
+        this.hqB.append("&_client_type=2");
+        this.hqB.append("&_client_version=" + TbConfig.getVersion());
         if (TbadkCoreApplication.getInst().getImei() != null) {
-            this.hqz.append("&_phone_imei=" + TbadkCoreApplication.getInst().getImei());
+            this.hqB.append("&_phone_imei=" + TbadkCoreApplication.getInst().getImei());
         }
         if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-            this.hqz.append("&subapp_type=" + TbConfig.getSubappType());
+            this.hqB.append("&subapp_type=" + TbConfig.getSubappType());
         }
-        this.hqz.append("&subapp_version=" + TbConfig.getSubappVersionCode());
-        this.hqz.append("&subapp_version_name=" + TbConfig.getSubappVersionName());
-        this.hqz.append("&_sdk_version=4.1.0");
+        this.hqB.append("&subapp_version=" + TbConfig.getSubappVersionCode());
+        this.hqB.append("&subapp_version_name=" + TbConfig.getSubappVersionName());
+        this.hqB.append("&_sdk_version=4.1.0");
         if (AlaLiveSwitchData.isHotLive == 1) {
-            this.hqz.append("&ishot=1");
+            this.hqB.append("&ishot=1");
         }
         if (!TextUtils.isEmpty(AlaLiveSwitchData.liveActivityType)) {
-            this.hqz.append("&live_activity_type=" + AlaLiveSwitchData.liveActivityType);
+            this.hqB.append("&live_activity_type=" + AlaLiveSwitchData.liveActivityType);
         }
         if (!TextUtils.isEmpty(TbConfig.getLiveEnterFrom())) {
-            this.hqz.append("&live_enter_type=" + TbConfig.getLiveEnterFrom());
+            this.hqB.append("&live_enter_type=" + TbConfig.getLiveEnterFrom());
         }
         String from = TbadkCoreApplication.getFrom();
         if (from != null && from.length() > 0) {
-            this.hqz.append("&from=" + from);
+            this.hqB.append("&from=" + from);
         }
-        this.hqz.append("&net_type=" + String.valueOf(BdNetTypeUtil.netType()));
-        this.hqz.append("&tbs=" + TbadkCoreApplication.getInst().getTbs());
-        this.hqz.append("&cuid=" + TbadkCoreApplication.getInst().getCuid());
-        this.hqz.append("&timestamp=" + Long.toString(System.currentTimeMillis()));
-        this.hqz.append("&model=" + Build.MODEL);
-        this.hqz.append("&brand=" + Build.BRAND);
-        this.hqz.append("&_os_version=" + Build.VERSION.RELEASE);
-        this.hqz.append("&os=android");
+        this.hqB.append("&net_type=" + String.valueOf(BdNetTypeUtil.netType()));
+        this.hqB.append("&tbs=" + TbadkCoreApplication.getInst().getTbs());
+        this.hqB.append("&cuid=" + TbadkCoreApplication.getInst().getCuid());
+        this.hqB.append("&timestamp=" + Long.toString(System.currentTimeMillis()));
+        this.hqB.append("&model=" + Build.MODEL);
+        this.hqB.append("&brand=" + Build.BRAND);
+        this.hqB.append("&_os_version=" + Build.VERSION.RELEASE);
+        this.hqB.append("&os=android");
     }
 }

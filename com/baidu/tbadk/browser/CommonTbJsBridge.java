@@ -539,7 +539,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
         this.mPermissionJudgement.clearRequestPermissionList();
         if (!(this.mContext instanceof Activity)) {
-            cVar.dPK();
+            cVar.dPL();
             return cVar;
         }
         this.mPermissionJudgement.appendRequestPermission((Activity) this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE");
@@ -868,7 +868,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                 shareItem.fny = true;
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                f.ctk().b(shareDialogConfig);
+                f.ctl().b(shareDialogConfig);
                 cVar.setData("");
                 return cVar;
             }

@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes22.dex */
 public class e extends w {
-    private PbModel lDQ;
-    private d mbp = new d();
-    private int mbq = 0;
+    private PbModel lDS;
+    private d mbr = new d();
+    private int mbs = 0;
 
     public void init(Intent intent) {
-        this.mbp.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.mbp.wc(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.mbr.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.mbr.wc(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void i(PbModel pbModel) {
-        this.lDQ = pbModel;
+        this.lDS = pbModel;
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, int i) {
         boolean z = true;
-        if (i >= this.mbq) {
-            this.mbq = i;
-            this.mbp.O(fVar);
+        if (i >= this.mbs) {
+            this.mbs = i;
+            this.mbr.O(fVar);
             if (fVar != null) {
-                d dVar = this.mbp;
-                if (fVar.getIsNewUrl() != 1 && !fVar.dnx()) {
+                d dVar = this.mbr;
+                if (fVar.getIsNewUrl() != 1 && !fVar.dny()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,111 +38,111 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.f dwg() {
-        return this.mbp.dwg();
+    public com.baidu.tieba.pb.data.f dwh() {
+        return this.mbr.dwh();
     }
 
     public boolean isFromCDN() {
-        return this.mbp.isFromCDN();
+        return this.mbr.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.f dwh() {
-        return this.mbp.dwh();
+    public com.baidu.tieba.pb.data.f dwi() {
+        return this.mbr.dwi();
     }
 
     public void c(com.baidu.tieba.pb.data.f fVar, int i) {
         if (i == 3) {
-            this.mbp.setData(fVar);
+            this.mbr.setData(fVar);
         }
     }
 
-    public p<by> dwi() {
-        return this.mbp.dwi();
+    public p<by> dwj() {
+        return this.mbr.dwj();
     }
 
-    public Rect dwj() {
-        if (this.mbp.dwj() == null || this.mbp.dwj().isEmpty()) {
+    public Rect dwk() {
+        if (this.mbr.dwk() == null || this.mbr.dwk().isEmpty()) {
             return null;
         }
-        return this.mbp.dwj();
+        return this.mbr.dwk();
     }
 
     public void wf(boolean z) {
-        if (this.mbp.dwn().getValue() != null) {
-            com.baidu.tieba.pb.data.f aK = this.lDQ.aK(this.mbp.dwn().getValue());
+        if (this.mbr.dwo().getValue() != null) {
+            com.baidu.tieba.pb.data.f aK = this.lDS.aK(this.mbr.dwo().getValue());
             if (aK != null) {
-                this.mbp.dwl().addLast(this.mbp.dwh());
-                this.mbp.setData(aK);
-                this.mbp.aS(!y.isEmpty(aK.dnw()) ? aK.dnw().get(0) : null);
-                this.mbp.aR(this.mbp.dwl().getLast() != null ? this.mbp.dwl().getLast().dmT() : null);
-                this.lDQ.Hq(z ? 21 : 22);
-                this.lDQ.j(aK);
-                this.mbp.setIsLoading(true);
+                this.mbr.dwm().addLast(this.mbr.dwi());
+                this.mbr.setData(aK);
+                this.mbr.aS(!y.isEmpty(aK.dnx()) ? aK.dnx().get(0) : null);
+                this.mbr.aR(this.mbr.dwm().getLast() != null ? this.mbr.dwm().getLast().dmU() : null);
+                this.lDS.Hq(z ? 21 : 22);
+                this.lDS.j(aK);
+                this.mbr.setIsLoading(true);
             }
         }
     }
 
     public void aT(by byVar) {
         com.baidu.tieba.pb.data.f aK;
-        if (byVar != null && (aK = this.lDQ.aK(byVar)) != null) {
-            this.mbp.dwl().addLast(this.mbp.dwh());
-            this.mbp.setData(aK);
-            this.mbp.aS(!y.isEmpty(aK.dnw()) ? aK.dnw().get(0) : null);
-            this.mbp.aR(this.mbp.dwl().getLast() != null ? this.mbp.dwl().getLast().dmT() : null);
-            this.lDQ.Hq(20);
-            this.lDQ.j(aK);
-            this.mbp.setIsLoading(true);
+        if (byVar != null && (aK = this.lDS.aK(byVar)) != null) {
+            this.mbr.dwm().addLast(this.mbr.dwi());
+            this.mbr.setData(aK);
+            this.mbr.aS(!y.isEmpty(aK.dnx()) ? aK.dnx().get(0) : null);
+            this.mbr.aR(this.mbr.dwm().getLast() != null ? this.mbr.dwm().getLast().dmU() : null);
+            this.lDS.Hq(20);
+            this.lDS.j(aK);
+            this.mbr.setIsLoading(true);
         }
     }
 
-    public void dws() {
-        com.baidu.tieba.pb.data.f pollLast = this.mbp.dwl().pollLast();
+    public void dwt() {
+        com.baidu.tieba.pb.data.f pollLast = this.mbr.dwm().pollLast();
         if (pollLast != null) {
-            this.mbp.setData(pollLast);
-            this.mbp.aS(!y.isEmpty(pollLast.dnw()) ? pollLast.dnw().get(0) : null);
-            this.mbp.aR(this.mbp.dwl().peekLast() != null ? this.mbp.dwl().peekLast().dmT() : null);
-            this.lDQ.j(pollLast);
-            this.mbp.setIsLoading(true);
+            this.mbr.setData(pollLast);
+            this.mbr.aS(!y.isEmpty(pollLast.dnx()) ? pollLast.dnx().get(0) : null);
+            this.mbr.aR(this.mbr.dwm().peekLast() != null ? this.mbr.dwm().peekLast().dmU() : null);
+            this.lDS.j(pollLast);
+            this.mbr.setIsLoading(true);
         }
-    }
-
-    public p<by> dwm() {
-        return this.mbp.dwm();
     }
 
     public p<by> dwn() {
-        return this.mbp.dwn();
+        return this.mbr.dwn();
     }
 
-    public p<Boolean> dwo() {
-        return this.mbp.dwo();
-    }
-
-    public void wd(boolean z) {
-        this.mbp.wd(z);
+    public p<by> dwo() {
+        return this.mbr.dwo();
     }
 
     public p<Boolean> dwp() {
-        return this.mbp.dwp();
+        return this.mbr.dwp();
     }
 
-    public void we(boolean z) {
-        this.mbp.we(z);
-    }
-
-    public void setIsLoading(boolean z) {
-        this.mbp.setIsLoading(z);
+    public void wd(boolean z) {
+        this.mbr.wd(z);
     }
 
     public p<Boolean> dwq() {
-        return this.mbp.dwq();
+        return this.mbr.dwq();
     }
 
-    public boolean dwk() {
-        return this.mbp.dwk();
+    public void we(boolean z) {
+        this.mbr.we(z);
     }
 
-    public p<Integer> dwr() {
-        return this.mbp.dwr();
+    public void setIsLoading(boolean z) {
+        this.mbr.setIsLoading(z);
+    }
+
+    public p<Boolean> dwr() {
+        return this.mbr.dwr();
+    }
+
+    public boolean dwl() {
+        return this.mbr.dwl();
+    }
+
+    public p<Integer> dws() {
+        return this.mbr.dws();
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.aggregation;
 /* loaded from: classes22.dex */
 public interface c {
-    void cEX();
+    void cEY();
 
     void qs(boolean z);
 

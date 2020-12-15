@@ -8,43 +8,43 @@ import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes19.dex */
 public class c {
-    public static final boolean pcG;
-    public static final boolean pcH;
     public static final boolean pcI;
+    public static final boolean pcJ;
+    public static final boolean pcK;
     @Nullable
-    public static b pcJ;
-    private static boolean pcK;
-    private static final byte[] pcL;
-    private static final byte[] pcM;
+    public static b pcL;
+    private static boolean pcM;
     private static final byte[] pcN;
     private static final byte[] pcO;
     private static final byte[] pcP;
+    private static final byte[] pcQ;
+    private static final byte[] pcR;
 
     static {
-        pcG = Build.VERSION.SDK_INT <= 17;
-        pcH = Build.VERSION.SDK_INT >= 14;
-        pcI = eqn();
-        pcJ = null;
-        pcK = false;
-        pcL = Zj("RIFF");
-        pcM = Zj("WEBP");
-        pcN = Zj("VP8 ");
-        pcO = Zj("VP8L");
-        pcP = Zj("VP8X");
+        pcI = Build.VERSION.SDK_INT <= 17;
+        pcJ = Build.VERSION.SDK_INT >= 14;
+        pcK = eqo();
+        pcL = null;
+        pcM = false;
+        pcN = Zj("RIFF");
+        pcO = Zj("WEBP");
+        pcP = Zj("VP8 ");
+        pcQ = Zj("VP8L");
+        pcR = Zj("VP8X");
     }
 
     @Nullable
-    public static b eqm() {
+    public static b eqn() {
         b bVar;
-        if (pcK) {
-            return pcJ;
+        if (pcM) {
+            return pcL;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        pcK = true;
+        pcM = true;
         return bVar;
     }
 
@@ -56,7 +56,7 @@ public class c {
         }
     }
 
-    private static boolean eqn() {
+    private static boolean eqo() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }
@@ -73,27 +73,27 @@ public class c {
     }
 
     public static boolean m(byte[] bArr, int i) {
-        return b(bArr, i + 12, pcP) && ((bArr[i + 20] & 2) == 2);
+        return b(bArr, i + 12, pcR) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean n(byte[] bArr, int i) {
-        return b(bArr, i + 12, pcN);
+        return b(bArr, i + 12, pcP);
     }
 
     public static boolean o(byte[] bArr, int i) {
-        return b(bArr, i + 12, pcO);
+        return b(bArr, i + 12, pcQ);
     }
 
     public static boolean w(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && b(bArr, i + 12, pcP);
+        return i2 >= 21 && b(bArr, i + 12, pcR);
     }
 
     public static boolean p(byte[] bArr, int i) {
-        return b(bArr, i + 12, pcP) && ((bArr[i + 20] & 16) == 16);
+        return b(bArr, i + 12, pcR) && ((bArr[i + 20] & 16) == 16);
     }
 
     public static boolean x(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && b(bArr, i, pcL) && b(bArr, i + 8, pcM);
+        return i2 >= 20 && b(bArr, i, pcN) && b(bArr, i + 8, pcO);
     }
 
     private static boolean b(byte[] bArr, int i, byte[] bArr2) {

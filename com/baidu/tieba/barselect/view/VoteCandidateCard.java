@@ -20,28 +20,28 @@ import com.baidu.tieba.barselect.segment.VoteAreaLayout;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
 /* loaded from: classes21.dex */
 public class VoteCandidateCard extends CardBasicLayout {
-    public static int igd = -1;
-    private View fYd;
-    private d icd;
-    private VotedAreaLayout ifV;
-    private TextView ige;
-    private View igf;
+    public static int igf = -1;
+    private View fYf;
+    private d icf;
+    private VotedAreaLayout ifX;
     private TextView igg;
-    private TextView igh;
-    private CandidateInfoLayout igi;
-    private NewAnounceLayout igj;
-    private VoteAreaLayout igk;
-    private View igl;
-    private TextView igm;
-    private TextView ign;
-    private View igo;
-    private View igp;
+    private View igh;
+    private TextView igi;
+    private TextView igj;
+    private CandidateInfoLayout igk;
+    private NewAnounceLayout igl;
+    private VoteAreaLayout igm;
+    private View ign;
+    private TextView igo;
+    private TextView igp;
     private View igq;
     private View igr;
     private View igs;
-    private TextView igt;
+    private View igt;
     private View igu;
-    private LinearLayout igv;
+    private TextView igv;
+    private View igw;
+    private LinearLayout igx;
     private Context mContext;
     private int position;
 
@@ -66,180 +66,180 @@ public class VoteCandidateCard extends CardBasicLayout {
     }
 
     private void uo() {
-        this.igf = findViewById(R.id.mine_vote_content);
-        this.igg = (TextView) findViewById(R.id.mine_vote_title);
-        this.igh = (TextView) findViewById(R.id.mine_vote_num);
-        this.ige = (TextView) findViewById(R.id.tv_voted_rank);
-        this.igi = (CandidateInfoLayout) findViewById(R.id.candidate_info_layout);
-        this.igj = (NewAnounceLayout) findViewById(R.id.announce_layout);
-        this.igk = (VoteAreaLayout) findViewById(R.id.vote_area_layout);
-        this.ifV = (VotedAreaLayout) findViewById(R.id.voted_area_layout);
-        this.fYd = findViewById(R.id.divider_line);
-        this.igo = findViewById(R.id.divider_empty_view);
-        this.igp = findViewById(R.id.divider_line_container);
-        this.igq = findViewById(R.id.empty_view);
-        this.igr = findViewById(R.id.main_container);
-        this.igs = findViewById(R.id.info_container);
-        this.igl = findViewById(R.id.vote_ueg_warn_container);
-        this.igm = (TextView) findViewById(R.id.vote_ueg_warn_img);
-        this.ign = (TextView) findViewById(R.id.vote_ueg_warn_tv);
-        this.igu = findViewById(R.id.divider_top_line);
-        this.igt = (TextView) findViewById(R.id.title_notpass_tv);
-        this.igv = (LinearLayout) findViewById(R.id.not_allow_view);
+        this.igh = findViewById(R.id.mine_vote_content);
+        this.igi = (TextView) findViewById(R.id.mine_vote_title);
+        this.igj = (TextView) findViewById(R.id.mine_vote_num);
+        this.igg = (TextView) findViewById(R.id.tv_voted_rank);
+        this.igk = (CandidateInfoLayout) findViewById(R.id.candidate_info_layout);
+        this.igl = (NewAnounceLayout) findViewById(R.id.announce_layout);
+        this.igm = (VoteAreaLayout) findViewById(R.id.vote_area_layout);
+        this.ifX = (VotedAreaLayout) findViewById(R.id.voted_area_layout);
+        this.fYf = findViewById(R.id.divider_line);
+        this.igq = findViewById(R.id.divider_empty_view);
+        this.igr = findViewById(R.id.divider_line_container);
+        this.igs = findViewById(R.id.empty_view);
+        this.igt = findViewById(R.id.main_container);
+        this.igu = findViewById(R.id.info_container);
+        this.ign = findViewById(R.id.vote_ueg_warn_container);
+        this.igo = (TextView) findViewById(R.id.vote_ueg_warn_img);
+        this.igp = (TextView) findViewById(R.id.vote_ueg_warn_tv);
+        this.igw = findViewById(R.id.divider_top_line);
+        this.igv = (TextView) findViewById(R.id.title_notpass_tv);
+        this.igx = (LinearLayout) findViewById(R.id.not_allow_view);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
         this.position = i;
-        if (this.ibG == null || this.ify == null || this.status < 0) {
+        if (this.ibI == null || this.ifA == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        if (this.status == com.baidu.tieba.barselect.a.a.ifO) {
-            this.igr.setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
-            this.igf.setVisibility(0);
-            this.igh.setText("当前排名" + this.ify.getRank());
+        if (this.status == com.baidu.tieba.barselect.a.a.ifQ) {
+            this.igt.setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
+            this.igh.setVisibility(0);
+            this.igj.setText("当前排名" + this.ifA.getRank());
             setRankVisible(8);
-            this.igp.setVisibility(8);
-            this.igk.setVisibility(0);
-            this.ifV.setVisibility(8);
-            this.igk.setData(i, fVar);
-            this.igv.setVisibility(8);
-        } else if (this.status == com.baidu.tieba.barselect.a.a.ifL) {
-            if (i == 0) {
-                this.igp.setVisibility(8);
-            } else {
-                this.igp.setVisibility(8);
-                this.igo.setVisibility(8);
-            }
-            this.igr.setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
-            this.igf.setVisibility(8);
-            setRankVisible(8);
-            if (this.ify.cqS() == 2 && this.icd.cqL() == -1) {
-                this.icd.xS(i);
-            }
-            if (this.ify.cqS() == 2) {
-                if (this.icd != null && this.icd.cqL() == i) {
-                    this.igv.setVisibility(0);
-                } else {
-                    this.igv.setVisibility(8);
-                }
-                this.igk.setVisibility(8);
-            } else {
-                this.igv.setVisibility(8);
-                this.igk.setVisibility(0);
-                this.igk.setData(i, fVar);
-            }
-            this.ifV.setVisibility(8);
+            this.igr.setVisibility(8);
+            this.igm.setVisibility(0);
+            this.ifX.setVisibility(8);
+            this.igm.setData(i, fVar);
+            this.igx.setVisibility(8);
         } else if (this.status == com.baidu.tieba.barselect.a.a.ifN) {
+            if (i == 0) {
+                this.igr.setVisibility(8);
+            } else {
+                this.igr.setVisibility(8);
+                this.igq.setVisibility(8);
+            }
+            this.igt.setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
+            this.igh.setVisibility(8);
+            setRankVisible(8);
+            if (this.ifA.cqT() == 2 && this.icf.cqM() == -1) {
+                this.icf.xS(i);
+            }
+            if (this.ifA.cqT() == 2) {
+                if (this.icf != null && this.icf.cqM() == i) {
+                    this.igx.setVisibility(0);
+                } else {
+                    this.igx.setVisibility(8);
+                }
+                this.igm.setVisibility(8);
+            } else {
+                this.igx.setVisibility(8);
+                this.igm.setVisibility(0);
+                this.igm.setData(i, fVar);
+            }
+            this.ifX.setVisibility(8);
+        } else if (this.status == com.baidu.tieba.barselect.a.a.ifP) {
             int dimens = l.getDimens(getContext(), R.dimen.tbds22);
             int dimens2 = l.getDimens(getContext(), R.dimen.tbds10);
             int dimens3 = l.getDimens(getContext(), R.dimen.tbds20);
             int dimens4 = l.getDimens(getContext(), R.dimen.tbds30);
-            this.igr.setBackgroundResource(R.drawable.bg_bazhu_shadow_and_radius);
+            this.igt.setBackgroundResource(R.drawable.bg_bazhu_shadow_and_radius);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(dimens4, 0, dimens4, dimens3);
-            this.igr.setLayoutParams(layoutParams);
-            this.igr.setPadding(dimens2, 0, dimens2, dimens4);
-            this.igf.setVisibility(8);
-            this.igp.setVisibility(8);
+            this.igt.setLayoutParams(layoutParams);
+            this.igt.setPadding(dimens2, 0, dimens2, dimens4);
+            this.igh.setVisibility(8);
+            this.igr.setVisibility(8);
             setRankVisible(8);
-            this.igk.setVisibility(8);
-            this.ifV.setVisibility(0);
-            this.ifV.setData(i, fVar);
-            this.igs.setPadding(0, dimens, 0, 0);
-            this.igv.setVisibility(8);
-        } else if (this.status == com.baidu.tieba.barselect.a.a.ifM) {
+            this.igm.setVisibility(8);
+            this.ifX.setVisibility(0);
+            this.ifX.setData(i, fVar);
+            this.igu.setPadding(0, dimens, 0, 0);
+            this.igx.setVisibility(8);
+        } else if (this.status == com.baidu.tieba.barselect.a.a.ifO) {
             if (i == 1) {
-                this.igr.setBackgroundResource(R.drawable.bar_select_bg_top_round);
-                this.igp.setVisibility(8);
+                this.igt.setBackgroundResource(R.drawable.bar_select_bg_top_round);
+                this.igr.setVisibility(8);
             } else {
-                this.igr.setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
-                this.igp.setVisibility(0);
-                this.igo.setVisibility(0);
+                this.igt.setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
+                this.igr.setVisibility(0);
+                this.igq.setVisibility(0);
             }
             setRankVisible(0);
-            this.igf.setVisibility(8);
-            int rank = this.ify.getRank();
+            this.igh.setVisibility(8);
+            int rank = this.ifA.getRank();
             if (rank < 10) {
-                this.ige.setText("0" + rank);
+                this.igg.setText("0" + rank);
             } else {
-                this.ige.setText("" + rank);
+                this.igg.setText("" + rank);
             }
             if (rank == 2) {
-                this.ige.setTextColor(getResources().getColor(R.color.common_color_10263));
+                this.igg.setTextColor(getResources().getColor(R.color.common_color_10263));
             } else if (rank == 3) {
-                this.ige.setTextColor(getResources().getColor(R.color.common_color_10266));
+                this.igg.setTextColor(getResources().getColor(R.color.common_color_10266));
             } else {
-                this.ige.setTextColor(getResources().getColor(R.color.CAM_X0105));
+                this.igg.setTextColor(getResources().getColor(R.color.CAM_X0105));
             }
-            this.igk.setVisibility(8);
-            this.ifV.setVisibility(0);
-            this.ifV.setData(i, fVar);
-            this.igv.setVisibility(8);
+            this.igm.setVisibility(8);
+            this.ifX.setVisibility(0);
+            this.ifX.setData(i, fVar);
+            this.igx.setVisibility(8);
         } else {
             setVisibility(8);
             return;
         }
-        this.igi.setData(i, fVar);
-        this.igj.setData(i, fVar);
-        if (this.ify.cqR()) {
-            this.igl.setVisibility(0);
+        this.igk.setData(i, fVar);
+        this.igl.setData(i, fVar);
+        if (this.ifA.cqS()) {
+            this.ign.setVisibility(0);
         } else {
-            this.igl.setVisibility(8);
+            this.ign.setVisibility(8);
         }
         vJ(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void vJ(int i) {
-        this.igj.vJ(i);
-        this.igi.vJ(i);
-        if (this.ifV.getVisibility() == 0) {
-            this.ifV.vJ(i);
-        }
+        this.igl.vJ(i);
         this.igk.vJ(i);
-        ap.setBackgroundColor(this.fYd, R.color.CAM_X0204, i);
-        if (this.status == com.baidu.tieba.barselect.a.a.ifO) {
-            ap.setBackgroundResource(this.igr, R.drawable.bar_select_bg_shadow_and_radius, i);
-            ap.setViewTextColor(this.igh, R.color.CAM_X0105, 1, i);
-            ap.setViewTextColor(this.igg, R.color.CAM_X0105, 1, i);
-        } else if (this.status == com.baidu.tieba.barselect.a.a.ifN) {
-            ap.setBackgroundResource(this.igr, R.drawable.bg_bazhu_shadow_and_radius, i);
-        } else if (this.status == com.baidu.tieba.barselect.a.a.ifM) {
-            if (this.position == 1) {
-                ap.setBackgroundResource(this.igr, R.drawable.bar_select_bg_top_round, i);
-            } else {
-                ap.setBackgroundColor(this.igr, R.color.CAM_X0201, i);
-            }
-        } else if (this.status == com.baidu.tieba.barselect.a.a.ifL) {
-            ap.setBackgroundColor(this.igr, R.color.CAM_X0201, i);
-            ap.setViewTextColor(this.igt, R.color.CAM_X0105, 1, i);
-            ap.setBackgroundColor(this.igv, R.color.CAM_X0201, i);
-            ap.setBackgroundColor(this.igu, R.color.CAM_X0203, i);
+        if (this.ifX.getVisibility() == 0) {
+            this.ifX.vJ(i);
         }
-        if (this.ify != null) {
-            if (this.ify.cqR()) {
-                ap.setViewTextColor(this.ign, R.color.CAM_X0301, 1, i);
-                ap.setBackgroundResource(this.igm, R.drawable.icon_use_tip_red, i);
-            }
-            int rank = this.ify.getRank();
-            if (rank == 2) {
-                ap.setViewTextColor(this.ige, R.color.CAM_X0305, 1, i);
-            } else if (rank == 3) {
-                ap.setViewTextColor(this.ige, R.color.CAM_X0312, 1, i);
+        this.igm.vJ(i);
+        ap.setBackgroundColor(this.fYf, R.color.CAM_X0204, i);
+        if (this.status == com.baidu.tieba.barselect.a.a.ifQ) {
+            ap.setBackgroundResource(this.igt, R.drawable.bar_select_bg_shadow_and_radius, i);
+            ap.setViewTextColor(this.igj, R.color.CAM_X0105, 1, i);
+            ap.setViewTextColor(this.igi, R.color.CAM_X0105, 1, i);
+        } else if (this.status == com.baidu.tieba.barselect.a.a.ifP) {
+            ap.setBackgroundResource(this.igt, R.drawable.bg_bazhu_shadow_and_radius, i);
+        } else if (this.status == com.baidu.tieba.barselect.a.a.ifO) {
+            if (this.position == 1) {
+                ap.setBackgroundResource(this.igt, R.drawable.bar_select_bg_top_round, i);
             } else {
-                ap.setViewTextColor(this.ige, R.color.CAM_X0105, 1, i);
+                ap.setBackgroundColor(this.igt, R.color.CAM_X0201, i);
+            }
+        } else if (this.status == com.baidu.tieba.barselect.a.a.ifN) {
+            ap.setBackgroundColor(this.igt, R.color.CAM_X0201, i);
+            ap.setViewTextColor(this.igv, R.color.CAM_X0105, 1, i);
+            ap.setBackgroundColor(this.igx, R.color.CAM_X0201, i);
+            ap.setBackgroundColor(this.igw, R.color.CAM_X0203, i);
+        }
+        if (this.ifA != null) {
+            if (this.ifA.cqS()) {
+                ap.setViewTextColor(this.igp, R.color.CAM_X0301, 1, i);
+                ap.setBackgroundResource(this.igo, R.drawable.icon_use_tip_red, i);
+            }
+            int rank = this.ifA.getRank();
+            if (rank == 2) {
+                ap.setViewTextColor(this.igg, R.color.CAM_X0305, 1, i);
+            } else if (rank == 3) {
+                ap.setViewTextColor(this.igg, R.color.CAM_X0312, 1, i);
+            } else {
+                ap.setViewTextColor(this.igg, R.color.CAM_X0105, 1, i);
             }
         }
     }
 
     private void setRankVisible(int i) {
-        this.ige.setVisibility(i);
-        this.igq.setVisibility(i);
+        this.igg.setVisibility(i);
+        this.igs.setVisibility(i);
     }
 
     public void setVoteAdaPter(d dVar) {
-        this.icd = dVar;
+        this.icf = dVar;
     }
 }

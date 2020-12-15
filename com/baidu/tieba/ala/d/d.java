@@ -8,25 +8,25 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.live.t.b {
     private w bur;
-    private com.baidu.tieba.ala.view.c gGT;
-    private boolean gGU;
+    private com.baidu.tieba.ala.view.c gGV;
+    private boolean gGW;
     private boolean isShowing = false;
     private Context mContext;
     private ViewGroup mParentView;
 
     public d(Context context) {
         this.mContext = context;
-        bUB();
+        bUC();
         al alVar = com.baidu.live.ae.a.RB().brA;
         if (alVar != null && alVar.aOG != null) {
-            this.gGU = alVar.aOG.aRH;
+            this.gGW = alVar.aOG.aRH;
         }
     }
 
-    private void bUB() {
-        if (this.gGT == null) {
-            this.gGT = new com.baidu.tieba.ala.view.c(this.mContext);
-            this.gGT.setId(a.f.ala_rank_level_entry);
+    private void bUC() {
+        if (this.gGV == null) {
+            this.gGV = new com.baidu.tieba.ala.view.c(this.mContext);
+            this.gGV.setId(a.f.ala_rank_level_entry);
         }
     }
 
@@ -35,13 +35,13 @@ public class d implements com.baidu.live.t.b {
         this.mParentView = viewGroup;
         this.bur = wVar;
         if (this.mParentView != null) {
-            if (this.mParentView.indexOfChild(this.gGT.getView()) == -1) {
-                this.mParentView.addView(this.gGT.getView(), layoutParams);
-                this.gGT.getView().setVisibility(8);
+            if (this.mParentView.indexOfChild(this.gGV.getView()) == -1) {
+                this.mParentView.addView(this.gGV.getView(), layoutParams);
+                this.gGV.getView().setVisibility(8);
             }
-            if (this.gGU && wVar != null && wVar.aKx != null && wVar.aKx.aLr != null) {
+            if (this.gGW && wVar != null && wVar.aKx != null && wVar.aKx.aLr != null) {
                 setVisible(0);
-                this.gGT.T(wVar);
+                this.gGV.T(wVar);
             }
         }
     }
@@ -49,36 +49,36 @@ public class d implements com.baidu.live.t.b {
     @Override // com.baidu.live.t.b
     public void a(w wVar) {
         this.bur = wVar;
-        if (this.gGU && wVar != null && wVar.aKx != null && wVar.aKx.aLr != null) {
+        if (this.gGW && wVar != null && wVar.aKx != null && wVar.aKx.aLr != null) {
             setVisible(0);
-            this.gGT.T(wVar);
+            this.gGV.T(wVar);
         }
     }
 
     @Override // com.baidu.live.t.b
     public void setVisible(int i) {
-        if (this.gGU && this.bur != null && this.bur.aKx != null && this.bur.aKx.aLr != null && this.gGT != null && this.gGT.getView() != null && i != this.gGT.getView().getVisibility()) {
+        if (this.gGW && this.bur != null && this.bur.aKx != null && this.bur.aKx.aLr != null && this.gGV != null && this.gGV.getView() != null && i != this.gGV.getView().getVisibility()) {
             if (i == 0) {
                 this.isShowing = true;
             } else {
                 this.isShowing = false;
             }
-            this.gGT.getView().setVisibility(i);
+            this.gGV.getView().setVisibility(i);
         }
     }
 
     @Override // com.baidu.live.t.b
     public void Do() {
         this.isShowing = false;
-        if (this.gGT != null) {
-            this.gGT.Do();
+        if (this.gGV != null) {
+            this.gGV.Do();
         }
     }
 
     @Override // com.baidu.live.t.b
     public void onDestroy() {
-        if (this.gGT != null) {
-            this.gGT.onDestroy();
+        if (this.gGV != null) {
+            this.gGV.onDestroy();
         }
         this.isShowing = false;
     }

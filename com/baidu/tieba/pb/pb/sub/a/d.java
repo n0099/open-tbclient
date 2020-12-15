@@ -27,29 +27,29 @@ public class d extends com.baidu.tieba.pb.pb.sub.a.a<com.baidu.tieba.pb.pb.sub.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.sub.a.a, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.b.b bVar, a aVar) {
-        ((a) this.Wx).lYw.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
+        ((a) this.Wx).lYy.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
         ((a) this.Wx).onChangeSkinType();
         return aVar.getView();
     }
 
     /* loaded from: classes22.dex */
     public static class a extends af.a {
-        private View ijX;
-        private TextView lYw;
+        private View ijZ;
+        private TextView lYy;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.lYw = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.ijX = view.findViewById(R.id.floor_reply_top_line);
+            this.lYy = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.ijZ = view.findViewById(R.id.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                ap.setViewTextColor(this.lYw, R.color.CAM_X0105);
-                ap.setBackgroundColor(this.ijX, R.color.CAM_X0204);
-                ap.setBackgroundColor(this.lYw, R.color.CAM_X0201);
+                ap.setViewTextColor(this.lYy, R.color.CAM_X0105);
+                ap.setBackgroundColor(this.ijZ, R.color.CAM_X0204);
+                ap.setBackgroundColor(this.lYy, R.color.CAM_X0201);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

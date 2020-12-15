@@ -34,20 +34,20 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class b {
-    private static int owx = 320;
-    private static b owy;
+    private static b owA;
+    private static int owz = 320;
     private HandlerThread bdP = new HandlerThread("read_image_thread");
     private Handler mHandler;
 
-    public static b efC() {
-        if (owy == null) {
+    public static b efD() {
+        if (owA == null) {
             synchronized (b.class) {
-                if (owy == null) {
-                    owy = new b();
+                if (owA == null) {
+                    owA = new b();
                 }
             }
         }
-        return owy;
+        return owA;
     }
 
     private b() {
@@ -101,8 +101,8 @@ public class b {
     }
 
     private void a(ViewGroup viewGroup, String str, String str2, String str3, HashMap<String, String> hashMap, c cVar) {
-        a.efA().cX(viewGroup);
-        a.efA().cW(viewGroup);
+        a.efB().cX(viewGroup);
+        a.efB().cW(viewGroup);
         if (viewGroup != null && viewGroup.getContext() != null) {
             AlaAudioDatingVideoLayout a2 = a(viewGroup.getContext(), str2, cVar);
             if (a2 != null) {
@@ -136,24 +136,24 @@ public class b {
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
                 public void FC(String str2) {
                     if (cVar != null) {
-                        cVar.efD();
+                        cVar.efE();
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
                 public void WT(String str2) {
                     if (alaAudioDatingVideoLayout != null && (alaAudioDatingVideoLayout.getParent() instanceof ViewGroup)) {
-                        a.efA().cX((ViewGroup) alaAudioDatingVideoLayout.getParent());
+                        a.efB().cX((ViewGroup) alaAudioDatingVideoLayout.getParent());
                     }
                     if (cVar != null) {
-                        cVar.efF();
+                        cVar.efG();
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.lottie.d
                 public void onFail(String str2) {
                     if (cVar != null) {
-                        cVar.efE();
+                        cVar.efF();
                     }
                 }
             });
@@ -190,7 +190,7 @@ public class b {
                     public void onAnimationCancel(Animator animator) {
                         super.onAnimationCancel(animator);
                         if (cVar != null) {
-                            cVar.efH();
+                            cVar.efI();
                         }
                     }
 
@@ -198,9 +198,9 @@ public class b {
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
                         if (tBLottieAnimationView != null && (tBLottieAnimationView.getParent() instanceof ViewGroup)) {
-                            a.efA().cW((ViewGroup) tBLottieAnimationView.getParent());
+                            a.efB().cW((ViewGroup) tBLottieAnimationView.getParent());
                             if (cVar != null) {
-                                cVar.efG();
+                                cVar.efH();
                             }
                         }
                     }
@@ -226,7 +226,7 @@ public class b {
         } else {
             final HashMap hashMap2 = new HashMap();
             for (final Map.Entry<String, String> entry : hashMap.entrySet()) {
-                final String urlWithResizeTag = TbImageView.getUrlWithResizeTag(entry.getValue(), owx, owx);
+                final String urlWithResizeTag = TbImageView.getUrlWithResizeTag(entry.getValue(), owz, owz);
                 BdResourceLoader.getInstance().loadResource(urlWithResizeTag, 25, new BdResourceCallback<BdImage>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.b.5
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */

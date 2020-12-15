@@ -25,7 +25,7 @@ public class d extends com.baidu.live.view.e implements f {
     private CommonWebLayout bug;
     private View buh;
     private float bui;
-    private a hCR;
+    private a hCT;
     private Context mContext;
 
     /* loaded from: classes4.dex */
@@ -44,7 +44,7 @@ public class d extends com.baidu.live.view.e implements f {
     }
 
     public void a(a aVar) {
-        this.hCR = aVar;
+        this.hCT = aVar;
     }
 
     public void GD(String str) {
@@ -134,8 +134,8 @@ public class d extends com.baidu.live.view.e implements f {
                 if (d.this.bug != null) {
                     d.this.bug.release();
                 }
-                if (d.this.hCR != null) {
-                    d.this.hCR.onDismiss();
+                if (d.this.hCT != null) {
+                    d.this.hCT.onDismiss();
                 }
             }
         });

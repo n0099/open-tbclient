@@ -19,15 +19,15 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes21.dex */
 public class c extends k<by, com.baidu.tieba.card.a.a<w>> implements y {
-    private ab<by> gth;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iZp;
-    private com.baidu.adp.lib.d.b<TbImageView> iZq;
+    private ab<by> gtj;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iZr;
+    private com.baidu.adp.lib.d.b<TbImageView> iZs;
     private String mFrom;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gth = new ab<by>() { // from class: com.baidu.tieba.hottopic.frs.c.1
+        this.gtj = new ab<by>() { // from class: com.baidu.tieba.hottopic.frs.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, by byVar, Object obj) {
@@ -41,10 +41,10 @@ public class c extends k<by, com.baidu.tieba.card.a.a<w>> implements y {
                 }
             }
         };
-        this.iZp = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.hottopic.frs.c.2
+        this.iZr = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.hottopic.frs.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cEO */
+            /* renamed from: cEP */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(c.this.mPageContext.getPageActivity());
             }
@@ -70,7 +70,7 @@ public class c extends k<by, com.baidu.tieba.card.a.a<w>> implements y {
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.iZq = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.hottopic.frs.c.3
+        this.iZs = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.hottopic.frs.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: bvP */
@@ -129,8 +129,8 @@ public class c extends k<by, com.baidu.tieba.card.a.a<w>> implements y {
     /* renamed from: aL */
     public com.baidu.tieba.card.a.a<w> c(ViewGroup viewGroup) {
         w wVar = new w(this.mPageContext, viewGroup);
-        wVar.setConstrainImagePool(this.iZq);
-        wVar.setConstrainLayoutPool(this.iZp);
+        wVar.setConstrainImagePool(this.iZs);
+        wVar.setConstrainLayoutPool(this.iZr);
         return new com.baidu.tieba.card.a.a<>(wVar);
     }
 
@@ -138,15 +138,15 @@ public class c extends k<by, com.baidu.tieba.card.a.a<w>> implements y {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, by byVar, com.baidu.tieba.card.a.a<w> aVar) {
-        if (aVar == null || aVar.csM() == null) {
+        if (aVar == null || aVar.csN() == null) {
             return null;
         }
-        aVar.csM().c(this.gth);
-        aVar.csM().a(byVar);
+        aVar.csN().c(this.gtj);
+        aVar.csN().a(byVar);
         if (byVar != null && byVar.boP() != null) {
             ar arVar = new ar("c13019");
             arVar.dY("tid", byVar.getTid()).w("fid", byVar.getFid()).dY("obj_name", byVar.boP().getName_show());
-            t.csg().e(arVar);
+            t.csh().e(arVar);
         }
         return aVar.getView();
     }

@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 /* loaded from: classes4.dex */
 public class g extends b implements View.OnClickListener {
-    private TextView gXh;
-    private LinearLayout gXi;
+    private TextView gXj;
+    private LinearLayout gXk;
 
     public g(Context context) {
         super(context);
@@ -20,20 +20,20 @@ public class g extends b implements View.OnClickListener {
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void HH() {
-        this.gXh.setOnClickListener(this);
-        this.gXi.setOnClickListener(this);
+        this.gXj.setOnClickListener(this);
+        this.gXk.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
-    void bYa() {
+    void bYb() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_not_choice, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.a.b
     public void initView() {
         this.mDialog.setContentView(this.mRootView);
-        this.gXh = (TextView) this.mRootView.findViewById(a.f.tv_guess_ok);
-        this.gXi = (LinearLayout) this.mRootView.findViewById(a.f.frame_exit);
+        this.gXj = (TextView) this.mRootView.findViewById(a.f.tv_guess_ok);
+        this.gXk = (LinearLayout) this.mRootView.findViewById(a.f.frame_exit);
         this.mDialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.a.g.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -44,9 +44,9 @@ public class g extends b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gXh) {
+        if (view == this.gXj) {
             dismiss();
-        } else if (view == this.gXi) {
+        } else if (view == this.gXk) {
             dismiss();
         }
     }

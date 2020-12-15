@@ -8,8 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes21.dex */
 public class a {
-    private static a gbK;
-    private List<com.baidu.tbadk.coreExtra.relationship.a> gbL;
+    private static a gbM;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> gbN;
     private List<InterfaceC0622a> mObservers = new ArrayList();
 
     /* renamed from: com.baidu.tieba.addresslist.b.a$a  reason: collision with other inner class name */
@@ -21,13 +21,13 @@ public class a {
     private a() {
     }
 
-    public static synchronized a bMP() {
+    public static synchronized a bMQ() {
         a aVar;
         synchronized (a.class) {
-            if (gbK == null) {
-                gbK = new a();
+            if (gbM == null) {
+                gbM = new a();
             }
-            aVar = gbK;
+            aVar = gbM;
         }
         return aVar;
     }
@@ -45,16 +45,16 @@ public class a {
     }
 
     public void bT(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.gbL = list;
-        if (this.gbL != null) {
-            Collections.sort(this.gbL, new ContactComparator());
+        this.gbN = list;
+        if (this.gbN != null) {
+            Collections.sort(this.gbN, new ContactComparator());
         }
-        bMR();
+        bMS();
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         boolean z = false;
-        if (this.gbL != null && aVar != null) {
+        if (this.gbN != null && aVar != null) {
             String bAg = aVar.bAg();
             if (TextUtils.isEmpty(bAg)) {
                 bAg = "#";
@@ -64,7 +64,7 @@ public class a {
             String userName = aVar.getUserName();
             String str2 = userName == null ? "" : userName;
             boolean z2 = false;
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : this.gbL) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : this.gbN) {
                 if (str2.equals(aVar2.getUserName())) {
                     z = true;
                 }
@@ -74,19 +74,19 @@ public class a {
                 if (!z2) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar3 = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar3.Df(str);
-                    this.gbL.add(aVar3);
+                    this.gbN.add(aVar3);
                 }
-                this.gbL.add(aVar);
-                Collections.sort(this.gbL, new ContactComparator());
-                bMR();
+                this.gbN.add(aVar);
+                Collections.sort(this.gbN, new ContactComparator());
+                bMS();
             }
         }
     }
 
     public void eM(long j) {
-        if (this.gbL != null) {
+        if (this.gbN != null) {
             String str = null;
-            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.gbL.iterator();
+            Iterator<com.baidu.tbadk.coreExtra.relationship.a> it = this.gbN.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -94,32 +94,32 @@ public class a {
                 com.baidu.tbadk.coreExtra.relationship.a next = it.next();
                 if (next.getUserId() == j) {
                     str = next.bAg();
-                    this.gbL.remove(next);
+                    this.gbN.remove(next);
                     break;
                 }
             }
             if (str != null) {
                 ArrayList arrayList = new ArrayList();
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.gbL) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.gbN) {
                     if (str.equals(aVar.bAg())) {
                         arrayList.add(aVar);
                     }
                 }
                 if (arrayList.size() <= 1) {
-                    this.gbL.removeAll(arrayList);
+                    this.gbN.removeAll(arrayList);
                 }
             }
-            bMR();
+            bMS();
         }
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bMQ() {
-        return this.gbL;
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bMR() {
+        return this.gbN;
     }
 
-    private void bMR() {
+    private void bMS() {
         for (InterfaceC0622a interfaceC0622a : this.mObservers) {
-            interfaceC0622a.bS(this.gbL);
+            interfaceC0622a.bS(this.gbN);
         }
     }
 }

@@ -14,11 +14,11 @@ public interface b {
 
     void e(Framedata framedata) throws InvalidDataException;
 
-    String eER();
-
     String eES();
 
-    b eET();
+    String eET();
+
+    b eEU();
 
     void reset();
 

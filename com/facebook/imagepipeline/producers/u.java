@@ -15,7 +15,7 @@ import okhttp3.internal.http.StatusLine;
 /* loaded from: classes15.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int plW;
+    private int plY;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -23,7 +23,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.plW = i;
+        this.plY = i;
     }
 
     u(ExecutorService executorService) {
@@ -43,11 +43,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.ewJ().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.ewK().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void ewC() {
+            public void ewD() {
                 if (submit.cancel(false)) {
-                    aVar.epM();
+                    aVar.epN();
                 }
             }
         });
@@ -134,7 +134,7 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection aa = aa(uri);
-        aa.setConnectTimeout(this.plW);
+        aa.setConnectTimeout(this.plY);
         int responseCode = aa.getResponseCode();
         if (!Rj(responseCode)) {
             if (Rk(responseCode)) {

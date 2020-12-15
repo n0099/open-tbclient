@@ -7,39 +7,39 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes19.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> pcn = new IdentityHashMap();
+    private static final Map<Object, Integer> pcp = new IdentityHashMap();
     @GuardedBy("this")
     private int mRefCount = 1;
-    private final c<T> pcb;
+    private final c<T> pcd;
     @GuardedBy("this")
     private T zJ;
 
     public SharedReference(T t, c<T> cVar) {
         this.zJ = (T) g.checkNotNull(t);
-        this.pcb = (c) g.checkNotNull(cVar);
+        this.pcd = (c) g.checkNotNull(cVar);
         bd(t);
     }
 
     private static void bd(Object obj) {
-        synchronized (pcn) {
-            Integer num = pcn.get(obj);
+        synchronized (pcp) {
+            Integer num = pcp.get(obj);
             if (num == null) {
-                pcn.put(obj, 1);
+                pcp.put(obj, 1);
             } else {
-                pcn.put(obj, Integer.valueOf(num.intValue() + 1));
+                pcp.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void be(Object obj) {
-        synchronized (pcn) {
-            Integer num = pcn.get(obj);
+        synchronized (pcp) {
+            Integer num = pcp.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.k("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                pcn.remove(obj);
+                pcp.remove(obj);
             } else {
-                pcn.put(obj, Integer.valueOf(num.intValue() - 1));
+                pcp.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -56,31 +56,31 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void eqd() {
-        eqg();
+    public synchronized void eqe() {
+        eqh();
         this.mRefCount++;
     }
 
-    public void eqe() {
+    public void eqf() {
         T t;
-        if (eqf() == 0) {
+        if (eqg() == 0) {
             synchronized (this) {
                 t = this.zJ;
                 this.zJ = null;
             }
-            this.pcb.release(t);
+            this.pcd.release(t);
             be(t);
         }
     }
 
-    private synchronized int eqf() {
-        eqg();
+    private synchronized int eqg() {
+        eqh();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void eqg() {
+    private void eqh() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

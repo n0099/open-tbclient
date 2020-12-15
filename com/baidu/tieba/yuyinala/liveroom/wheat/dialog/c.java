@@ -27,19 +27,19 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
     public CustomMessageListener bgy;
     private Runnable mRunnable;
     private Timer mTimer;
-    private g ouL;
-    private i ouT;
-    private String ovA;
-    private CustomMessageListener ovB;
-    private TextView ovv;
-    private LinearLayout ovw;
-    private LinearLayout ovx;
-    private long ovy;
-    private boolean ovz;
+    private g ouN;
+    private i ouV;
+    private long ovA;
+    private boolean ovB;
+    private String ovC;
+    private CustomMessageListener ovD;
+    private TextView ovx;
+    private LinearLayout ovy;
+    private LinearLayout ovz;
 
     static /* synthetic */ long c(c cVar) {
-        long j = cVar.ovy;
-        cVar.ovy = 1 + j;
+        long j = cVar.ovA;
+        cVar.ovA = 1 + j;
         return j;
     }
 
@@ -48,11 +48,11 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.4
             @Override // java.lang.Runnable
             public void run() {
-                AlaWheatInfoData jw = o.efd().jw(o.efd().Zc());
+                AlaWheatInfoData jw = o.efe().jw(o.efe().Zc());
                 if (jw != null) {
-                    c.this.ovx.setSelected(jw.isOpenMike());
+                    c.this.ovz.setSelected(jw.isOpenMike());
                 }
-                c.this.WR(c.this.ovA);
+                c.this.WR(c.this.ovC);
             }
         };
         this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.5
@@ -65,7 +65,7 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
                 }
             }
         };
-        this.ovB = new CustomMessageListener(2501071) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.6
+        this.ovD = new CustomMessageListener(2501071) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -81,15 +81,15 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
     }
 
     protected void initView() {
-        this.ovv = (TextView) findViewById(a.f.tv_connecting_wheat_time);
-        this.ovw = (LinearLayout) findViewById(a.f.ll_hang_up);
-        this.ovx = (LinearLayout) findViewById(a.f.ll_mute);
-        this.ovv.setOnClickListener(this);
+        this.ovx = (TextView) findViewById(a.f.tv_connecting_wheat_time);
+        this.ovy = (LinearLayout) findViewById(a.f.ll_hang_up);
+        this.ovz = (LinearLayout) findViewById(a.f.ll_mute);
         this.ovx.setOnClickListener(this);
-        this.ovx.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        this.ovw.setOnClickListener(this);
-        this.ovw.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
-        this.ovx.setSelected(true);
+        this.ovz.setOnClickListener(this);
+        this.ovz.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        this.ovy.setOnClickListener(this);
+        this.ovy.setOnTouchListener(new com.baidu.tieba.yuyinala.liveroom.wheat.view.a());
+        this.ovz.setSelected(true);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -119,11 +119,11 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        if (this.ovv != null) {
-            this.ovv.post(this.mRunnable);
+        if (this.ovx != null) {
+            this.ovx.post(this.mRunnable);
         }
         MessageManager.getInstance().registerListener(this.bgy);
-        MessageManager.getInstance().registerListener(this.ovB);
+        MessageManager.getInstance().registerListener(this.ovD);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -133,24 +133,24 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ovw) {
-            if (this.ouL == null) {
-                this.ouL = new g(this.oty);
-                this.ouL.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.1
+        if (view == this.ovy) {
+            if (this.ouN == null) {
+                this.ouN = new g(this.otA);
+                this.ouN.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                     public void onCancel() {
                     }
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                     public void onConfirm() {
-                        h.eeS().zM(true);
+                        h.eeT().zM(true);
                         c.this.cancelTimer();
                         c.this.dismiss();
-                        if (c.this.ouT == null) {
-                            c.this.ouT = new i();
+                        if (c.this.ouV == null) {
+                            c.this.ouV = new i();
                         }
-                        c.this.ouT.WL(o.efd().Zc());
-                        c.this.ouT.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.1.1
+                        c.this.ouV.WL(o.efe().Zc());
+                        c.this.ouV.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.1.1
                             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.i.a
                             public void WM(String str) {
                                 c.this.dismiss();
@@ -159,18 +159,18 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
                     }
                 });
             }
-            this.ouL.show();
-            this.ouL.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hang_up_remind_text));
-        } else if (view == this.ovx) {
-            String str = !this.ovx.isSelected() ? "0" : "1";
+            this.ouN.show();
+            this.ouN.setText(TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hang_up_remind_text));
+        } else if (view == this.ovz) {
+            String str = !this.ovz.isSelected() ? "0" : "1";
             m mVar = new m();
             m.b bVar = new m.b() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.2
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.m.a
                 public void zN(boolean z) {
-                    AlaWheatInfoData bj = o.efd().bj(o.efd().Zc(), false);
+                    AlaWheatInfoData bj = o.efe().bj(o.efe().Zc(), false);
                     if (bj != null) {
-                        bj.mikeStatus = efc();
-                        c.this.ovx.setSelected(bj.isOpenMike());
+                        bj.mikeStatus = efd();
+                        c.this.ovz.setSelected(bj.isOpenMike());
                         if (bj.isOpenMike()) {
                             BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_sdk_connect_wheat_mic_open_txt)).show();
                         } else {
@@ -180,28 +180,28 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.m.a
-                public void efb() {
+                public void efc() {
                 }
             };
             bVar.WP(str);
             mVar.a(bVar);
-            mVar.gQ(o.efd().Zc(), str);
+            mVar.gQ(o.efe().Zc(), str);
         }
     }
 
     public void startTimer() {
-        if (!this.ovz) {
-            this.ovz = true;
+        if (!this.ovB) {
+            this.ovB = true;
             this.mTimer = new Timer();
-            this.ovy = 0L;
+            this.ovA = 0L;
             this.mTimer.schedule(new TimerTask() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c.3
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     String l;
                     String l2;
                     c.c(c.this);
-                    long j = c.this.ovy / 60;
-                    long j2 = c.this.ovy % 60;
+                    long j = c.this.ovA / 60;
+                    long j2 = c.this.ovA % 60;
                     if (j < 10) {
                         l = "0" + j;
                     } else {
@@ -212,9 +212,9 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
                     } else {
                         l2 = Long.toString(j2);
                     }
-                    c.this.ovA = l + ":" + l2;
+                    c.this.ovC = l + ":" + l2;
                     if (c.this.isShowing()) {
-                        c.this.efs();
+                        c.this.eft();
                     }
                 }
             }, 0L, 1000L);
@@ -222,19 +222,19 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void efs() {
-        this.ovv.post(this.mRunnable);
+    public void eft() {
+        this.ovx.post(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void WR(String str) {
-        if (this.ovv != null && str != null) {
-            this.ovv.setText(str);
+        if (this.ovx != null && str != null) {
+            this.ovx.setText(str);
         }
     }
 
     public void cancelTimer() {
-        this.ovz = false;
+        this.ovB = false;
         if (this.mTimer != null) {
             this.mTimer.cancel();
             this.mTimer = null;
@@ -244,10 +244,10 @@ public class c extends a implements DialogInterface.OnDismissListener, View.OnCl
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         MessageManager.getInstance().unRegisterListener(this.bgy);
-        MessageManager.getInstance().unRegisterListener(this.ovB);
+        MessageManager.getInstance().unRegisterListener(this.ovD);
     }
 
-    public boolean eft() {
-        return this.ovz;
+    public boolean efu() {
+        return this.ovB;
     }
 }

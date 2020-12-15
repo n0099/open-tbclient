@@ -81,7 +81,7 @@ public class a {
         if (bVar != null && (aJ = bVar.aJ("c13488", true)) != null) {
             if (bVar.bmn() != null) {
                 by bmn = bVar.bmn();
-                aJ.al("obj_name", bmn.bqu() != null && (bmn.bqu().dPi() != null || bmn.bqu().bIK() != null) ? 1 : 0);
+                aJ.al("obj_name", bmn.bqu() != null && (bmn.bqu().dPj() != null || bmn.bqu().bIK() != null) ? 1 : 0);
                 if (bmn.boP() != null) {
                     aJ.al(TiebaInitialize.Params.AB_TYPE, bmn.boP().hadConcerned() ? 1 : 0);
                 }

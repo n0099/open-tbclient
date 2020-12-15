@@ -47,18 +47,18 @@ public class VotedAreaLayout extends CardBasicLayout {
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.ibG == null || this.ify == null || this.status < 0) {
+        if (this.ibI == null || this.ifA == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.ffm.setText(au.numFormatOverWan(this.ify.cqP()) + "票");
+        this.ffm.setText(au.numFormatOverWan(this.ifA.cqQ()) + "票");
         vJ(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.ify = dVar;
-            this.ffm.setText(au.numFormatOverWan(this.ify.cqP()) + "票");
+            this.ifA = dVar;
+            this.ffm.setText(au.numFormatOverWan(this.ifA.cqQ()) + "票");
         }
     }
 

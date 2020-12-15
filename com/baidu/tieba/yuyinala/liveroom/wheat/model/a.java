@@ -12,17 +12,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaAcceptConnectionWheatH
 /* loaded from: classes4.dex */
 public class a extends BdBaseModel {
     private TbPageContext mPageContext;
-    private InterfaceC0944a oxB;
+    private InterfaceC0944a oxD;
     private HttpMessageListener messageListener = new HttpMessageListener(1031009) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.brR && a.this.oxB != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.brR && a.this.oxD != null) {
                 AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage = (AlaAcceptConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaAcceptConnectionWheatHttpResponseMessage.getError() != 0 || !alaAcceptConnectionWheatHttpResponseMessage.isSuccess()) {
-                    a.this.oxB.b(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oxD.b(alaAcceptConnectionWheatHttpResponseMessage);
                 } else {
-                    a.this.oxB.a(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oxD.a(alaAcceptConnectionWheatHttpResponseMessage);
                 }
             }
         }
@@ -40,7 +40,7 @@ public class a extends BdBaseModel {
     public a(TbPageContext tbPageContext, InterfaceC0944a interfaceC0944a) {
         setUniqueId(this.brR);
         this.mPageContext = tbPageContext;
-        this.oxB = interfaceC0944a;
+        this.oxD = interfaceC0944a;
         bjQ();
         registerListener(this.messageListener);
     }

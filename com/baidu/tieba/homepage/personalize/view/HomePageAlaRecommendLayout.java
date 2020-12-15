@@ -24,8 +24,8 @@ import tbclient.AlaLiveInfo;
 /* loaded from: classes22.dex */
 public class HomePageAlaRecommendLayout extends LinearLayout {
     private CustomMessageListener eTG;
-    private BdRecyclerView ibT;
-    private com.baidu.tieba.homepage.personalize.a.a jVs;
+    private BdRecyclerView ibV;
+    private com.baidu.tieba.homepage.personalize.a.a jVu;
     private Context mContext;
     private List<AlaLiveInfo> mData;
     private int mSkinType;
@@ -46,7 +46,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                     for (AlaLiveInfo alaLiveInfo : HomePageAlaRecommendLayout.this.mData) {
                         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.user_info.user_id != null && data.toUid.equals(alaLiveInfo.user_info.user_id.toString())) {
                             HomePageAlaRecommendLayout.this.mData.remove(alaLiveInfo);
-                            HomePageAlaRecommendLayout.this.cQz();
+                            HomePageAlaRecommendLayout.this.cQA();
                             return;
                         }
                     }
@@ -61,34 +61,34 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.home_page_ala_recommend_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.ibT = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
-        this.jVs = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
-        this.ibT.setAdapter(this.jVs);
-        this.ibT.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
-        this.ibT.setItemAnimator(new DefaultItemAnimator());
+        this.ibV = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
+        this.jVu = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
+        this.ibV.setAdapter(this.jVu);
+        this.ibV.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
+        this.ibV.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(this.mContext, R.dimen.tbds20);
-        this.ibT.addItemDecoration(new a(dimens, 0, dimens));
-        this.ibT.setPadding(this.ibT.getPaddingLeft(), this.ibT.getPaddingTop(), this.ibT.getPaddingRight(), l.getDimens(this.ibT.getContext(), com.baidu.tbadk.a.b.a.aN(R.dimen.tbds0, R.dimen.tbds51)));
+        this.ibV.addItemDecoration(new a(dimens, 0, dimens));
+        this.ibV.setPadding(this.ibV.getPaddingLeft(), this.ibV.getPaddingTop(), this.ibV.getPaddingRight(), l.getDimens(this.ibV.getContext(), com.baidu.tbadk.a.b.a.aN(R.dimen.tbds0, R.dimen.tbds51)));
     }
 
     public void setData(f fVar) {
-        if (fVar == null || y.isEmpty(fVar.cQn())) {
+        if (fVar == null || y.isEmpty(fVar.cQo())) {
             setVisibility(8);
             return;
         }
-        this.mData = fVar.cQn();
+        this.mData = fVar.cQo();
         setVisibility(0);
-        cQz();
+        cQA();
     }
 
-    public void cQz() {
+    public void cQA() {
         if (y.isEmpty(this.mData)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.jVs.setData(this.mData);
-        this.jVs.notifyDataSetChanged();
+        this.jVu.setData(this.mData);
+        this.jVu.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {

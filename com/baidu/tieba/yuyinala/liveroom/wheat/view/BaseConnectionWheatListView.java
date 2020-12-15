@@ -17,15 +17,15 @@ import com.baidu.live.view.SafeFrameLayout;
 /* loaded from: classes4.dex */
 public abstract class BaseConnectionWheatListView extends SafeFrameLayout implements View.OnClickListener {
     public CommonEmptyView btg;
-    public TbPageContext oty;
-    public AlaConnectionWheatListView ovE;
-    public TextView ovI;
-    public LinearLayout ovJ;
-    public int ovL;
-    public TextView oxZ;
-    public RelativeLayout oya;
+    public TbPageContext otA;
+    public AlaConnectionWheatListView ovG;
+    public TextView ovK;
+    public LinearLayout ovL;
+    public int ovN;
+    public TextView oyb;
+    public RelativeLayout oyc;
 
-    protected abstract void dCP();
+    protected abstract void dCQ();
 
     public abstract int getCount();
 
@@ -45,17 +45,17 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
         super(context, attributeSet, i);
         initView();
         initListener();
-        dCP();
+        dCQ();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_layout_dialog_connnection_wheat_item, this);
-        this.ovE = (AlaConnectionWheatListView) findViewById(a.f.listView);
+        this.ovG = (AlaConnectionWheatListView) findViewById(a.f.listView);
         this.btg = (CommonEmptyView) findViewById(a.f.empty_view);
-        this.oxZ = (TextView) findViewById(a.f.tv_online_user_num);
-        this.oya = (RelativeLayout) findViewById(a.f.loading_view_container);
-        this.ovJ = (LinearLayout) findViewById(a.f.ll_apply_btn);
-        this.ovI = (TextView) findViewById(a.f.tv_apply_btn);
+        this.oyb = (TextView) findViewById(a.f.tv_online_user_num);
+        this.oyc = (RelativeLayout) findViewById(a.f.loading_view_container);
+        this.ovL = (LinearLayout) findViewById(a.f.ll_apply_btn);
+        this.ovK = (TextView) findViewById(a.f.tv_apply_btn);
     }
 
     public String getNoDataStr() {
@@ -66,13 +66,13 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
     public void onClick(View view) {
     }
 
-    public void efu() {
+    public void efv() {
         if (getCount() != 0) {
-            this.ovE.setVisibility(0);
+            this.ovG.setVisibility(0);
             this.btg.setVisibility(8);
             return;
         }
-        this.ovE.setVisibility(8);
+        this.ovG.setVisibility(8);
         this.btg.setVisibility(0);
         this.btg.reset();
         this.btg.setTitle(getNoDataStr());
@@ -80,12 +80,12 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
         this.btg.setTextColor(getContext().getResources().getColor(a.c.sdk_color_525252));
     }
 
-    public void efv() {
-        this.oxZ.setVisibility(8);
-        this.ovE.setVisibility(8);
+    public void efw() {
+        this.oyb.setVisibility(8);
+        this.ovG.setVisibility(8);
         this.btg.setVisibility(0);
         if (this instanceof ConnectionWheatApplyListView) {
-            this.ovJ.setVisibility(8);
+            this.ovL.setVisibility(8);
         }
         this.btg.reset();
         this.btg.setRefreshButton(a.h.yuyin_ala_connection_wheat_refresh_load_text, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView.1
@@ -105,22 +105,22 @@ public abstract class BaseConnectionWheatListView extends SafeFrameLayout implem
     }
 
     public void setTbPageContext(TbPageContext tbPageContext) {
-        this.oty = tbPageContext;
+        this.otA = tbPageContext;
     }
 
     public void setApplyPosition(int i) {
-        this.ovL = i;
+        this.ovN = i;
     }
 
     public void showLoading() {
-        if (this.oya != null) {
-            this.oya.setVisibility(0);
+        if (this.oyc != null) {
+            this.oyc.setVisibility(0);
         }
     }
 
     public void hideLoading() {
-        if (this.oya != null) {
-            this.oya.setVisibility(8);
+        if (this.oyc != null) {
+            this.oyc.setVisibility(8);
         }
     }
 }

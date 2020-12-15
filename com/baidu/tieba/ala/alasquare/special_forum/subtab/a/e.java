@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.special_forum.data.g> {
-    private a gyY;
+    private a gza;
 
     public e(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gyY = new a(getView());
+        this.gza = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gyY.textView, (int) R.color.CAM_X0109);
+        ap.setViewTextColor(this.gza.textView, (int) R.color.CAM_X0109);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -31,11 +31,11 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.spec
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.g gVar) {
-        if (this.gyY != null) {
-            if (gVar.gxC) {
-                this.gyY.devider.setVisibility(0);
+        if (this.gza != null) {
+            if (gVar.gxE) {
+                this.gza.devider.setVisibility(0);
             } else {
-                this.gyY.devider.setVisibility(8);
+                this.gza.devider.setVisibility(8);
             }
         }
     }

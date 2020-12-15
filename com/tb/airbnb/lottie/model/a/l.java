@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes20.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e pBU;
-    private final m<PointF, PointF> pBV;
-    private final g pBW;
-    private final b pBX;
-    private final d pBY;
-    @Nullable
+    private final e pBW;
+    private final m<PointF, PointF> pBX;
+    private final g pBY;
     private final b pBZ;
+    private final d pCa;
     @Nullable
-    private final b pCa;
+    private final b pCb;
+    @Nullable
+    private final b pCc;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.pBU = eVar;
-        this.pBV = mVar;
-        this.pBW = gVar;
-        this.pBX = bVar;
-        this.pBY = dVar;
-        this.pBZ = bVar2;
-        this.pCa = bVar3;
+        this.pBW = eVar;
+        this.pBX = mVar;
+        this.pBY = gVar;
+        this.pBZ = bVar;
+        this.pCa = dVar;
+        this.pCb = bVar2;
+        this.pCc = bVar3;
     }
 
-    public e eBk() {
-        return this.pBU;
-    }
-
-    public m<PointF, PointF> eBl() {
-        return this.pBV;
-    }
-
-    public g eBm() {
+    public e eBl() {
         return this.pBW;
     }
 
-    public b eBn() {
+    public m<PointF, PointF> eBm() {
         return this.pBX;
     }
 
-    public d eBo() {
+    public g eBn() {
         return this.pBY;
     }
 
-    @Nullable
-    public b eBp() {
+    public b eBo() {
         return this.pBZ;
+    }
+
+    public d eBp() {
+        return this.pCa;
     }
 
     @Nullable
     public b eBq() {
-        return this.pCa;
+        return this.pCb;
     }
 
-    public o eBr() {
+    @Nullable
+    public b eBr() {
+        return this.pCc;
+    }
+
+    public o eBs() {
         return new o(this);
     }
 

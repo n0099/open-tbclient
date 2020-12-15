@@ -9,18 +9,18 @@ import com.baidu.tieba.R;
 public class aj extends af.a {
     public View bNe;
     public View bNf;
-    public TextView gfP;
-    public ImageView jeu;
-    public TextView jev;
+    public TextView gfR;
     public ImageView jew;
+    public TextView jex;
+    public ImageView jey;
 
     public aj(View view) {
         super(view);
         if (view != null) {
-            this.gfP = (TextView) view.findViewById(R.id.video_activity_item_title);
-            this.jeu = (ImageView) view.findViewById(R.id.video_activity_item_tip);
-            this.jev = (TextView) view.findViewById(R.id.video_activity_item_type);
-            this.jew = (ImageView) view.findViewById(R.id.video_activity_item_more);
+            this.gfR = (TextView) view.findViewById(R.id.video_activity_item_title);
+            this.jew = (ImageView) view.findViewById(R.id.video_activity_item_tip);
+            this.jex = (TextView) view.findViewById(R.id.video_activity_item_type);
+            this.jey = (ImageView) view.findViewById(R.id.video_activity_item_more);
             this.bNe = view.findViewById(R.id.top_divider_line);
             this.bNf = view.findViewById(R.id.bottom_divider_line);
         }

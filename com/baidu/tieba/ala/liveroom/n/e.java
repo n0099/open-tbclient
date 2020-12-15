@@ -19,7 +19,7 @@ public class e extends a {
     private HeadImageView aGa;
     private TextView aYs;
     private View czb;
-    private TextView hte;
+    private TextView htg;
 
     public e(@NonNull Context context) {
         super(context);
@@ -42,7 +42,7 @@ public class e extends a {
             }
         });
         this.aYs = (TextView) findViewById(a.f.tv_guide_folllow_tip);
-        this.hte = (TextView) findViewById(a.f.ala_live_name);
+        this.htg = (TextView) findViewById(a.f.ala_live_name);
         this.aGa = (HeadImageView) findViewById(a.f.iv_avatar);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             this.aGa.setDefaultResource(a.e.sdk_pic_mycenter_avatar_def_hk);
@@ -67,25 +67,25 @@ public class e extends a {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.n.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (e.this.hsO != null) {
-                    e.this.hsO.onConfirm();
+                if (e.this.hsQ != null) {
+                    e.this.hsQ.onConfirm();
                 }
             }
         });
-        this.hsP = textView.getText().toString();
-        cgd();
+        this.hsR = textView.getText().toString();
+        cge();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void eA(String str, String str2) {
-        cgc();
+        cgd();
         this.aGa.startLoad(str, 25, false, false);
-        this.hte.setText(str2);
+        this.htg.setText(str2);
         OD();
         show();
     }
 
-    private void cgd() {
+    private void cge() {
         bh bhVar;
         if (com.baidu.live.ae.a.RB().brA != null && (bhVar = com.baidu.live.ae.a.RB().brA.aOf) != null && !TextUtils.isEmpty(bhVar.aQu)) {
             this.aYs.setText(bhVar.aQu);
@@ -96,7 +96,7 @@ public class e extends a {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.n.e.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                e.this.cgc();
+                e.this.cgd();
             }
         });
     }
@@ -109,7 +109,7 @@ public class e extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgc() {
+    public void cgd() {
         if (this.aGa != null) {
             this.aGa.stopLoad();
         }

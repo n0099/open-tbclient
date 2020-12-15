@@ -72,11 +72,11 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null && this.needCache && this.responseData.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            String f = e.dOf().f("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+            String f = e.dOg().f("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                e.dOf().p(f, bArr);
+                e.dOg().p(f, bArr);
             } else {
-                e.dOf().c(f, bArr, true);
+                e.dOg().c(f, bArr, true);
             }
         }
     }

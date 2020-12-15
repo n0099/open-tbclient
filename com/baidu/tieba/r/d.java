@@ -1,15 +1,15 @@
 package com.baidu.tieba.r;
 /* loaded from: classes20.dex */
 public class d {
-    private static volatile c nbN;
+    private static volatile c nbP;
 
-    public static synchronized c dLP() {
+    public static synchronized c dLQ() {
         c cVar;
         synchronized (d.class) {
-            if (nbN == null) {
-                nbN = new c();
+            if (nbP == null) {
+                nbP = new c();
             }
-            cVar = nbN;
+            cVar = nbP;
         }
         return cVar;
     }

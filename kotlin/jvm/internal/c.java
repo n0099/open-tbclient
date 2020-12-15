@@ -5,22 +5,22 @@ import java.util.NoSuchElementException;
 /* loaded from: classes17.dex */
 final class c extends kotlin.collections.m {
     private int index;
-    private final char[] pKv;
+    private final char[] pKx;
 
     public c(char[] cArr) {
         p.o(cArr, com.baidu.fsg.base.statistics.b.j);
-        this.pKv = cArr;
+        this.pKx = cArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.pKv.length;
+        return this.index < this.pKx.length;
     }
 
     @Override // kotlin.collections.m
-    public char eDI() {
+    public char eDJ() {
         try {
-            char[] cArr = this.pKv;
+            char[] cArr = this.pKx;
             int i = this.index;
             this.index = i + 1;
             return cArr[i];

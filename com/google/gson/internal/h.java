@@ -15,9 +15,9 @@ public final class h {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.eyy();
+            aVar.eyz();
             z = false;
-            return TypeAdapters.pwn.read(aVar);
+            return TypeAdapters.pwp.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,7 +33,7 @@ public final class h {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        TypeAdapters.pwn.write(bVar, jsonElement);
+        TypeAdapters.pwp.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
@@ -42,22 +42,22 @@ public final class h {
 
     /* loaded from: classes5.dex */
     private static final class a extends Writer {
-        private final Appendable pux;
-        private final C1003a puy = new C1003a();
+        private final C1003a puA = new C1003a();
+        private final Appendable puz;
 
         a(Appendable appendable) {
-            this.pux = appendable;
+            this.puz = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.puy.chars = cArr;
-            this.pux.append(this.puy, i, i + i2);
+            this.puA.chars = cArr;
+            this.puz.append(this.puA, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.pux.append((char) i);
+            this.puz.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable

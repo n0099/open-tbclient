@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 /* loaded from: classes4.dex */
 public abstract class f {
-    public TextView oMa;
+    public TextView oMc;
 
     public abstract void b(Context context, ChatMsg chatMsg);
 

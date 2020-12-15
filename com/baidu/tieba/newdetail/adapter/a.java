@@ -9,11 +9,11 @@ import com.baidu.tbadk.h.f;
 import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
 /* loaded from: classes21.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail.a.b, C0815a> {
-    private f<com.baidu.tieba.newdetail.a.b> jPN;
+    private f<com.baidu.tieba.newdetail.a.b> jPP;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqe);
-        this.jPN = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqg);
+        this.jPP = new f<com.baidu.tieba.newdetail.a.b>() { // from class: com.baidu.tieba.newdetail.adapter.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, com.baidu.tieba.newdetail.a.b bVar, int i, long j) {
@@ -35,7 +35,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail
     /* renamed from: cb */
     public C0815a c(ViewGroup viewGroup) {
         C0815a c0815a = new C0815a(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-        c0815a.setOnItemCoverListener(this.jPN);
+        c0815a.setOnItemCoverListener(this.jPP);
         c0815a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return c0815a;
     }
@@ -56,25 +56,25 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.newdetail
     /* renamed from: com.baidu.tieba.newdetail.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes21.dex */
     public static class C0815a extends af.a {
-        private HotTopicDetailSpecialItem lpG;
+        private HotTopicDetailSpecialItem lpI;
 
         C0815a(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
             super(hotTopicDetailSpecialItem);
-            this.lpG = hotTopicDetailSpecialItem;
+            this.lpI = hotTopicDetailSpecialItem;
         }
 
         void a(com.baidu.tieba.newdetail.a.b bVar) {
             if (bVar != null) {
-                this.lpG.a(bVar);
+                this.lpI.a(bVar);
             }
         }
 
         public void setOnItemCoverListener(f<com.baidu.tieba.newdetail.a.b> fVar) {
-            this.lpG.setOnItemCoverListener(fVar);
+            this.lpI.setOnItemCoverListener(fVar);
         }
 
         void onChangeSkinType(int i) {
-            this.lpG.onChangeSkinType(i);
+            this.lpI.onChangeSkinType(i);
         }
     }
 }

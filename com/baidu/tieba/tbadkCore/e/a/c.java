@@ -12,10 +12,10 @@ public class c {
     private String mData;
     private String mMessage;
     private String mMethodName;
-    private boolean nof;
-    private boolean nog;
+    private boolean noh;
+    private boolean noi;
     private int mStatus = -1;
-    private boolean noh = true;
+    private boolean noj = true;
 
     public String getMethodName() {
         return this.mMethodName;
@@ -61,7 +61,7 @@ public class c {
         Ld(401);
     }
 
-    public void dPK() {
+    public void dPL() {
         TK(TbadkCoreApplication.getInst().getString(R.string.na_business_error));
         Ld(401);
     }
@@ -90,39 +90,39 @@ public class c {
         this.mData = str;
     }
 
-    public boolean dPL() {
-        return this.nof;
-    }
-
-    public void ye(boolean z) {
-        this.nof = z;
-    }
-
     public boolean dPM() {
-        return this.nog;
-    }
-
-    public void yf(boolean z) {
-        this.nog = z;
-    }
-
-    public boolean dPN() {
         return this.noh;
     }
 
-    public void yg(boolean z) {
+    public void ye(boolean z) {
         this.noh = z;
+    }
+
+    public boolean dPN() {
+        return this.noi;
+    }
+
+    public void yf(boolean z) {
+        this.noi = z;
+    }
+
+    public boolean dPO() {
+        return this.noj;
+    }
+
+    public void yg(boolean z) {
+        this.noj = z;
     }
 
     public boolean isError() {
         return this.mStatus > 0;
     }
 
-    public boolean dPO() {
+    public boolean dPP() {
         return this.mStatus != -1;
     }
 
-    public String dPP() {
+    public String dPQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("status", this.mStatus);

@@ -33,7 +33,7 @@ public class d extends BroadcastReceiver {
             }
         }
         if (z) {
-            a ZM = e.ezx().ZM(intent.getStringExtra("openIdType"));
+            a ZM = e.ezy().ZM(intent.getStringExtra("openIdType"));
             if (ZM != null) {
                 ZM.b();
             }

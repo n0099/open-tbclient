@@ -21,27 +21,27 @@ import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class t extends e {
-    public ImageView jAD;
+    public ImageView jAF;
     public View mContentView;
     public View mConvertView;
-    private ImageView oNu;
-    public View oNv;
-    private TextView oNw;
+    private ImageView oNw;
+    public View oNx;
+    private TextView oNy;
 
     @SuppressLint({"InflateParams"})
     public t(Context context, LayoutInflater layoutInflater) {
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_img_item, (ViewGroup) null);
-        this.oMa = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oMd = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oMf = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oMc = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oMf = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oMh = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
-        this.oNv = this.mConvertView.findViewById(a.f.bd_im_chating_msg_uploadingLayout);
-        this.oNw = (TextView) this.mConvertView.findViewById(a.f.progressTV);
-        this.jAD = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
-        this.oNu = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
-        this.oMg = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oMh = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oMi = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.oNx = this.mConvertView.findViewById(a.f.bd_im_chating_msg_uploadingLayout);
+        this.oNy = (TextView) this.mConvertView.findViewById(a.f.progressTV);
+        this.jAF = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_img);
+        this.oNw = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_cover);
+        this.oMi = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oMj = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oMk = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
         this.mConvertView.setTag(this);
     }
 
@@ -65,27 +65,27 @@ public class t extends e {
         ImageMsg imageMsg = (ImageMsg) chatMsg;
         Pair<Integer, Integer> a2 = a(context, imageMsg);
         if (chatMsg.isReSend()) {
-            this.oNv.setVisibility(8);
-            this.oNu.setVisibility(8);
+            this.oNx.setVisibility(8);
+            this.oNw.setVisibility(8);
         } else {
             if (imageMsg.getProgress() > 0 && imageMsg.getProgress() < 100) {
-                this.oNw.setText(String.valueOf(imageMsg.getProgress()) + "%");
+                this.oNy.setText(String.valueOf(imageMsg.getProgress()) + "%");
             }
             if (chatMsg.isMsgSendSuccess()) {
-                this.oNv.setVisibility(8);
-                this.oNu.setVisibility(8);
+                this.oNx.setVisibility(8);
+                this.oNw.setVisibility(8);
             } else if (chatMsg.getStatus() == 1) {
                 if (a2 != null) {
                     layoutParams = new RelativeLayout.LayoutParams(((Integer) a2.first).intValue(), ((Integer) a2.second).intValue());
                 } else {
                     layoutParams = new RelativeLayout.LayoutParams(0, 0);
                 }
-                this.oNu.setLayoutParams(layoutParams);
-                this.oNu.setVisibility(0);
-                this.oNv.setVisibility(0);
+                this.oNw.setLayoutParams(layoutParams);
+                this.oNw.setVisibility(0);
+                this.oNx.setVisibility(0);
             } else if (chatMsg.getStatus() == 2) {
-                this.oNv.setVisibility(8);
-                this.oNu.setVisibility(8);
+                this.oNx.setVisibility(8);
+                this.oNw.setVisibility(8);
             }
         }
         super.b(context, chatMsg);
@@ -150,7 +150,7 @@ public class t extends e {
                 if (bitmap2 != bitmap) {
                     bitmap.recycle();
                     if (bitmap2 != null) {
-                        this.jAD.setImageBitmap(bitmap2);
+                        this.jAF.setImageBitmap(bitmap2);
                         return new Pair<>(Integer.valueOf(bitmap2.getWidth()), Integer.valueOf(bitmap2.getHeight()));
                     }
                     return null;
@@ -160,7 +160,7 @@ public class t extends e {
             if (bitmap2 != null) {
             }
         } else if (!TextUtils.isEmpty(imageMsg.getRemoteUrl())) {
-            a(context, imageMsg, this.jAD);
+            a(context, imageMsg, this.jAF);
             return null;
         } else {
             try {
@@ -170,7 +170,7 @@ public class t extends e {
                 }
                 if (a2 != null) {
                     Bitmap b = b(context, a2);
-                    this.jAD.setImageBitmap(b);
+                    this.jAF.setImageBitmap(b);
                     return new Pair<>(Integer.valueOf(b.getWidth()), Integer.valueOf(b.getHeight()));
                 }
                 return null;
@@ -203,6 +203,6 @@ public class t extends e {
             thumbUrl = remoteUrl;
         }
         com.baidu.yuyinala.privatemessage.implugin.util.b.hr(context);
-        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.enQ());
+        ImageLoader.getInstance().displayImage(thumbUrl, imageView, com.baidu.yuyinala.privatemessage.implugin.util.b.enR());
     }
 }

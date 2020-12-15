@@ -35,22 +35,22 @@ import org.json.JSONObject;
 /* loaded from: classes22.dex */
 public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a {
     private long eGV;
-    private TopicDetailModel jXu;
-    private TopicDetailView jXv;
-    private long jcj;
-    private long jXw = 1;
+    private TopicDetailModel jXw;
+    private TopicDetailView jXx;
+    private long jcl;
+    private long jXy = 1;
     private boolean mIsFromSchema = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jXu = new TopicDetailModel(getPageContext());
-        this.jXv = new TopicDetailView(getPageContext(), this, bundle);
-        setContentView(this.jXv);
+        this.jXw = new TopicDetailModel(getPageContext());
+        this.jXx = new TopicDetailView(getPageContext(), this, bundle);
+        setContentView(this.jXx);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.jXu.a(this);
+        this.jXw.a(this);
         loadData();
         if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.a.lg().bt("MainTabActivity")) {
             this.mIsFromSchema = true;
@@ -58,7 +58,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.mIsFromSchema) {
             setIsAddSwipeBackLayout(false);
         }
-        this.jXv.getEditor().cGr();
+        this.jXx.getEditor().cGs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -72,8 +72,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.jXv != null && this.jXv.getEditor() != null) {
-            this.jXv.getEditor().bDs();
+        if (this.jXx != null && this.jXx.getEditor() != null) {
+            this.jXx.getEditor().bDs();
         }
     }
 
@@ -147,53 +147,53 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.eGV < 0) {
             finish();
         } else if (!j.isNetworkAvailableForImmediately()) {
-            this.jXv.hideLoadingView();
-            this.jXv.px(true);
+            this.jXx.hideLoadingView();
+            this.jXx.px(true);
         } else {
-            this.jXv.Yb();
-            this.jXv.ib(false);
-            if (this.jXv != null && this.jXv.getEditor() != null) {
-                this.jXv.getEditor().setTopicId(this.eGV);
+            this.jXx.Yb();
+            this.jXx.ib(false);
+            if (this.jXx != null && this.jXx.getEditor() != null) {
+                this.jXx.getEditor().setTopicId(this.eGV);
             }
-            this.jXu.gD(this.eGV);
+            this.jXw.gD(this.eGV);
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, com.baidu.tieba.homepage.topic.topicdetail.b.a aVar) {
-        this.jXv.hideLoadingView();
+        this.jXx.hideLoadingView();
         if (i != 0 || aVar == null || y.isEmpty(aVar.mDataList)) {
-            this.jXv.px(true);
+            this.jXx.px(true);
             return;
         }
-        this.jXv.Yb();
-        this.jXv.setData(aVar);
+        this.jXx.Yb();
+        this.jXx.setData(aVar);
     }
 
     public void gC(long j) {
-        this.jXw++;
-        this.jcj = j;
-        this.jXu.f(this.eGV, this.jXw, this.jcj);
+        this.jXy++;
+        this.jcl = j;
+        this.jXw.f(this.eGV, this.jXy, this.jcl);
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, boolean z, List<q> list) {
-        this.jXv.setNextData(i, z, list);
+        this.jXx.setNextData(i, z, list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jXv.onChangeSkinType();
+        this.jXx.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.jXv != null && this.jXv.getEditor() != null) {
-            this.jXv.getEditor().onActivityResult(i, i2, intent);
+        if (this.jXx != null && this.jXx.getEditor() != null) {
+            this.jXx.getEditor().onActivityResult(i, i2, intent);
         }
     }
 

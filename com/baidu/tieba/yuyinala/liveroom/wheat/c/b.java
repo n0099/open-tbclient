@@ -19,25 +19,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private static b oub;
-    private TbPageContext oty;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.a ouc;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.h oud;
-    private String oue = "";
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f ouf;
+    private static b oud;
+    private TbPageContext otA;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.a oue;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.h ouf;
+    private String oug = "";
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f ouh;
 
-    public static b eeI() {
-        if (oub == null) {
-            oub = new b();
+    public static b eeJ() {
+        if (oud == null) {
+            oud = new b();
         }
-        return oub;
+        return oud;
     }
 
     private b() {
     }
 
     public b g(TbPageContext tbPageContext) {
-        this.oty = tbPageContext;
+        this.otA = tbPageContext;
         return this;
     }
 
@@ -49,7 +49,7 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject(bIMInviteSyncRtcInfo.getRtcExt());
             str = jSONObject.optString("invite_name");
-            this.oue = jSONObject.optString("invite_uk");
+            this.oug = jSONObject.optString("invite_uk");
             String optString = jSONObject.optString("type");
             str2 = jSONObject.optString("pushUrl");
             str3 = jSONObject.optString("pushSingleUrl");
@@ -59,27 +59,27 @@ public class b {
             z = false;
         }
         if (z) {
-            o.efd().zQ(true);
+            o.efe().zQ(true);
             new com.baidu.tieba.yuyinala.liveroom.wheat.model.h(null, new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.h.a
                 public void a(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
                     if (alaLinkCallBackHttpResponseMessage.isError()) {
-                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b eeq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq();
-                        if (eeq != null) {
-                            eeq.Wx("上麦CallBack回调失败onSucc");
+                        com.baidu.tieba.yuyinala.liveroom.wheat.a.b eer = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer();
+                        if (eer != null) {
+                            eer.Wx("上麦CallBack回调失败onSucc");
                             return;
                         }
                         return;
                     }
-                    l.eeZ().i(b.this.oty).NQ(4);
+                    l.efa().i(b.this.otA).NQ(4);
                     b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), str2, str3, true, false);
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.h.a
                 public void b(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
-                    com.baidu.tieba.yuyinala.liveroom.wheat.a.b eeq = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq();
-                    if (eeq != null) {
-                        eeq.Wx("上麦CallBack回调失败onFail");
+                    com.baidu.tieba.yuyinala.liveroom.wheat.a.b eer = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer();
+                    if (eer != null) {
+                        eer.Wx("上麦CallBack回调失败onFail");
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501036, false));
                 }
@@ -91,26 +91,26 @@ public class b {
 
     private void a(final Activity activity, String str, final BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo) {
         int i = 6;
-        if (this.ouf != null && this.ouf.isShowing()) {
-            this.ouf.dismiss();
+        if (this.ouh != null && this.ouh.isShowing()) {
+            this.ouh.dismiss();
         }
-        this.ouf = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f(activity);
-        this.ouf.show();
-        w Zd = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().Zd();
+        this.ouh = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f(activity);
+        this.ouh.show();
+        w Zd = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Zd();
         if (Zd != null && Zd.aKW >= 0) {
             i = Zd.aKW;
         }
-        this.ouf.NS(i * 1000);
-        this.ouf.WS(str);
-        this.ouf.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2
+        this.ouh.NS(i * 1000);
+        this.ouh.WS(str);
+        this.ouh.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
-            public void eeJ() {
-                d.eeM().a(activity, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2.1
+            public void eeK() {
+                d.eeN().a(activity, activity, new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.2.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.d.a
                     public void zK(boolean z) {
                         AccountData currentAccountInfo;
                         if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-                            o.efd().zQ(true);
+                            o.efe().zQ(true);
                             com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bk("click_accept_invite_anchor_9", false);
                             b.this.a(bIMInviteSyncRtcInfo, ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID()));
                         }
@@ -119,26 +119,26 @@ public class b {
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
-            public void eeK() {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.oue);
+            public void eeL() {
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.oug);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.f.a
             public void amS() {
-                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.oue);
+                com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(bIMInviteSyncRtcInfo, 2, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), null, null, false, b.this.oug);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, String str) {
-        if (this.ouc == null) {
-            this.ouc = new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0944a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.3
+        if (this.oue == null) {
+            this.oue = new com.baidu.tieba.yuyinala.liveroom.wheat.model.a(null, new a.InterfaceC0944a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.b.3
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.a.InterfaceC0944a
                 public void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage) {
                     if (!alaAcceptConnectionWheatHttpResponseMessage.isError()) {
-                        l.eeZ().i(b.this.oty).NQ(3);
-                        b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.efK(), false, true);
+                        l.efa().i(b.this.otA).NQ(3);
+                        b.this.a(bIMInviteSyncRtcInfo, 1, TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow(), alaAcceptConnectionWheatHttpResponseMessage.getPushUrl(), alaAcceptConnectionWheatHttpResponseMessage.efL(), false, true);
                     }
                 }
 
@@ -148,22 +148,22 @@ public class b {
                 }
             });
         }
-        this.ouc.aQ(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().CZ(), str, "2");
+        this.oue.aQ(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().CZ(), str, "2");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, int i, String str, String str2, String str3, boolean z, boolean z2) {
         if (z2) {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.oue);
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.oug);
         } else {
-            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().eeq().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.oue);
+            com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().eer().a(bIMInviteSyncRtcInfo, i, str, str2, str3, z, this.oug);
         }
     }
 
     public void onDestroy() {
-        if (this.oud != null) {
-            this.oud.onDestroy();
-            this.oud = null;
+        if (this.ouf != null) {
+            this.ouf.onDestroy();
+            this.ouf = null;
         }
     }
 }

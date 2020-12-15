@@ -18,17 +18,17 @@ import java.util.List;
 /* loaded from: classes24.dex */
 public class b extends BaseAdapter {
     private String ejE;
-    private List<String> laL;
+    private List<String> laN;
     private Context mContext;
 
     public b(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.laL = arrayList;
+        this.laN = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.laL = list;
-        if (this.laL != null) {
+        this.laN = list;
+        if (this.laN != null) {
             notifyDataSetChanged();
         }
     }
@@ -41,10 +41,10 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.laL == null) {
+        if (this.laN == null) {
             return 0;
         }
-        return this.laL.size();
+        return this.laN.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.laL.get(i);
+        return this.laN.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,7 +69,7 @@ public class b extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.search_suggest_item, (ViewGroup) null);
             a aVar2 = new a();
             aVar2.mRootView = view.findViewById(R.id.rootview);
-            aVar2.laM = (TextView) view.findViewById(R.id.searchSuggestTitle);
+            aVar2.laO = (TextView) view.findViewById(R.id.searchSuggestTitle);
             aVar2.elk = view.findViewById(R.id.searchItemSep);
             view.setTag(aVar2);
             aVar = aVar2;
@@ -78,12 +78,12 @@ public class b extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            d(aVar.laM, item);
+            d(aVar.laO, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != aVar.mSkinType) {
                 aVar.mSkinType = skinType;
                 ap.setBackgroundResource(aVar.mRootView, R.drawable.addresslist_item_bg);
-                ap.setViewTextColor(aVar.laM, R.color.CAM_X0105);
+                ap.setViewTextColor(aVar.laO, R.color.CAM_X0105);
                 ap.setBackgroundColor(aVar.elk, R.color.CAM_X0204);
             }
         }
@@ -93,7 +93,7 @@ public class b extends BaseAdapter {
     /* loaded from: classes24.dex */
     private class a {
         View elk;
-        TextView laM;
+        TextView laO;
         View mRootView;
         int mSkinType;
 

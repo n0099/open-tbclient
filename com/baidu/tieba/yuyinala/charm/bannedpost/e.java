@@ -10,12 +10,12 @@ public class e implements com.baidu.live.liveroom.d.d {
     private String mLiveId;
     private String mRoomId;
     private int mType;
-    private d oiP;
-    private YuyinBannedPostListActivity oiQ;
-    private c oiR;
+    private d oiR;
+    private YuyinBannedPostListActivity oiS;
+    private c oiT;
 
     public e(YuyinBannedPostListActivity yuyinBannedPostListActivity, String str, String str2, String str3, int i) {
-        this.oiQ = yuyinBannedPostListActivity;
+        this.oiS = yuyinBannedPostListActivity;
         this.mType = i;
         this.mRoomId = str3;
         this.mLiveId = str;
@@ -23,37 +23,37 @@ public class e implements com.baidu.live.liveroom.d.d {
     }
 
     public void createView() {
-        this.oiP = new d(this.oiQ, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
+        this.oiR = new d(this.oiS, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
         loadData();
     }
 
     public void loadData() {
-        if (this.oiR == null) {
-            this.oiR = new c(this.oiQ.getPageContext().getContext());
-            this.oiR.a(new c.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1
+        if (this.oiT == null) {
+            this.oiT = new c(this.oiS.getPageContext().getContext());
+            this.oiT.a(new c.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.c.a
                 public void a(a aVar) {
-                    if (e.this.oiP != null) {
+                    if (e.this.oiR != null) {
                         if (aVar == null || aVar.aIZ == null || aVar.aIZ.size() == 0) {
-                            e.this.oiP.dG(true);
+                            e.this.oiR.dG(true);
                             return;
                         }
-                        e.this.oiP.Yb();
-                        e.this.oiP.gx(aVar.aIZ);
+                        e.this.oiR.Yb();
+                        e.this.oiR.gx(aVar.aIZ);
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.c.a
                 public void t(int i, String str) {
-                    if (e.this.oiP != null) {
-                        e.this.oiP.dG(false);
-                        e.this.oiP.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1.1
+                    if (e.this.oiR != null) {
+                        e.this.oiR.dG(false);
+                        e.this.oiR.m(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (BdNetTypeUtil.isNetWorkAvailable()) {
                                     e.this.loadData();
                                 } else {
-                                    e.this.oiQ.getPageContext().showToast(e.this.oiQ.getResources().getString(a.h.sdk_no_network_guide));
+                                    e.this.oiS.getPageContext().showToast(e.this.oiS.getResources().getString(a.h.sdk_no_network_guide));
                                 }
                             }
                         });
@@ -61,15 +61,15 @@ public class e implements com.baidu.live.liveroom.d.d {
                 }
             });
         }
-        this.oiR.K(this.mLiveId, this.mGroupId, this.mRoomId, this.mType + "");
+        this.oiT.K(this.mLiveId, this.mGroupId, this.mRoomId, this.mType + "");
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.oiP == null) {
+        if (this.oiR == null) {
             return null;
         }
-        return this.oiP.getRootView();
+        return this.oiR.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -97,8 +97,8 @@ public class e implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.oiR != null) {
-            this.oiR.onDestroy();
+        if (this.oiT != null) {
+            this.oiT.onDestroy();
         }
     }
 

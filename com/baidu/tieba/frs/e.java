@@ -10,15 +10,15 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes22.dex */
 public class e implements ao {
-    public static final AtomicReference<ao> iRO = new AtomicReference<>(null);
-    private static final ao iRP = new e();
+    public static final AtomicReference<ao> iRQ = new AtomicReference<>(null);
+    private static final ao iRR = new e();
 
     private e() {
     }
 
-    public static ao cBm() {
-        ao aoVar = iRO.get();
-        return aoVar == null ? iRP : aoVar;
+    public static ao cBn() {
+        ao aoVar = iRQ.get();
+        return aoVar == null ? iRR : aoVar;
     }
 
     @Override // com.baidu.tieba.frs.ao

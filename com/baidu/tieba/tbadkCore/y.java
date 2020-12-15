@@ -204,11 +204,11 @@ public class y {
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<String, String, WriteData> {
         private final String cacheKey;
-        private final a nkK;
+        private final a nkM;
 
         public b(String str, a aVar) {
             setPriority(3);
-            this.nkK = aVar;
+            this.nkM = aVar;
             this.cacheKey = str;
         }
 
@@ -232,8 +232,8 @@ public class y {
         /* renamed from: d */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.nkK != null) {
-                this.nkK.a(writeData);
+            if (this.nkM != null) {
+                this.nkM.a(writeData);
             }
         }
     }

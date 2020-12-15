@@ -12,9 +12,9 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class ImagePagerAdapter extends PagerAdapter {
     private List<String> mDatas;
-    private ImageLoader oNK;
-    private String oNL;
-    private DisplayImageOptions oNM;
+    private ImageLoader oNM;
+    private String oNN;
+    private DisplayImageOptions oNO;
 
     public Object getItem(int i) {
         if (i < this.mDatas.size()) {
@@ -34,8 +34,8 @@ public class ImagePagerAdapter extends PagerAdapter {
     public View instantiateItem(ViewGroup viewGroup, int i) {
         ImageView imageView = new ImageView(viewGroup.getContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.oNL = (String) getItem(i);
-        this.oNK.displayImage(Yz(this.oNL), imageView, this.oNM, (ImageLoadingListener) null);
+        this.oNN = (String) getItem(i);
+        this.oNM.displayImage(Yz(this.oNN), imageView, this.oNO, (ImageLoadingListener) null);
         viewGroup.addView(imageView, -1, -1);
         return imageView;
     }

@@ -11,7 +11,7 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 public class i extends BdBaseModel {
     private Context bJK;
     private final HttpMessageListener bxC;
-    private a onD;
+    private a onF;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class i extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.onD = aVar;
+        this.onF = aVar;
     }
 
     public i(Context context) {
@@ -35,12 +35,12 @@ public class i extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomPlayIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.getUniqueId() && i.this.onD != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomPlayIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.getUniqueId() && i.this.onF != null) {
                     AlaGetRoomPlayIntroduceHttpResponseMessage alaGetRoomPlayIntroduceHttpResponseMessage = (AlaGetRoomPlayIntroduceHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomPlayIntroduceHttpResponseMessage.getError() != 0 || !alaGetRoomPlayIntroduceHttpResponseMessage.isSuccess()) {
-                        i.this.onD.onFail(alaGetRoomPlayIntroduceHttpResponseMessage.getError(), alaGetRoomPlayIntroduceHttpResponseMessage.getErrorString());
+                        i.this.onF.onFail(alaGetRoomPlayIntroduceHttpResponseMessage.getError(), alaGetRoomPlayIntroduceHttpResponseMessage.getErrorString());
                     } else {
-                        i.this.onD.a(alaGetRoomPlayIntroduceHttpResponseMessage);
+                        i.this.onF.a(alaGetRoomPlayIntroduceHttpResponseMessage);
                     }
                 }
             }

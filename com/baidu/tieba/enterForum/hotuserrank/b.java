@@ -15,22 +15,22 @@ import com.baidu.tieba.enterForum.hotuserrank.c;
 /* loaded from: classes22.dex */
 public class b {
     private TbPageContext eNx;
-    private c.a ixq;
-    private TextView ixr;
-    private TextView ixs;
-    private String ixt;
-    private int ixu;
+    private c.a ixs;
+    private TextView ixt;
+    private TextView ixu;
+    private String ixv;
+    private int ixw;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.ixt)) {
+            if (TextUtils.isEmpty(b.this.ixv)) {
                 b.this.eNx.showToast(R.string.load_error_retry);
                 return;
             }
-            bf.bua().b(b.this.eNx, new String[]{b.this.ixt});
-            if (b.this.ixu != 0) {
-                if (b.this.ixu != 2) {
-                    if (b.this.ixu == 1) {
+            bf.bua().b(b.this.eNx, new String[]{b.this.ixv});
+            if (b.this.ixw != 0) {
+                if (b.this.ixw != 2) {
+                    if (b.this.ixw == 1) {
                         ar arVar = new ar("c13669");
                         arVar.al("obj_locate", 2);
                         TiebaStatic.log(arVar);
@@ -50,32 +50,32 @@ public class b {
     public b(TbPageContext tbPageContext, View view) {
         this.eNx = tbPageContext;
         this.mRootView = view;
-        this.ixq = new c.a(view.findViewById(R.id.user_view));
-        this.ixq.yS(1);
-        this.ixr = (TextView) view.findViewById(R.id.get_influence);
-        this.ixs = (TextView) view.findViewById(R.id.rank_num);
-        this.ixs.setTextSize(0, l.getDimens(this.eNx.getPageActivity(), R.dimen.tbfontsize46));
-        this.ixr.setOnClickListener(this.mOnClickListener);
+        this.ixs = new c.a(view.findViewById(R.id.user_view));
+        this.ixs.yS(1);
+        this.ixt = (TextView) view.findViewById(R.id.get_influence);
+        this.ixu = (TextView) view.findViewById(R.id.rank_num);
+        this.ixu.setTextSize(0, l.getDimens(this.eNx.getPageActivity(), R.dimen.tbfontsize46));
+        this.ixt.setOnClickListener(this.mOnClickListener);
     }
 
     public void b(com.baidu.tieba.enterForum.hotuserrank.a.c cVar) {
-        if (cVar != null && cVar.ixU != null && cVar.ixU.ixQ != null && !cVar.ixU.ixQ.isMask && TbadkCoreApplication.isLogin()) {
+        if (cVar != null && cVar.ixW != null && cVar.ixW.ixS != null && !cVar.ixW.ixS.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
-            this.ixq.a(cVar.ixU);
-            this.ixq.cwh();
-            this.ixt = cVar.ixV;
+            this.ixs.a(cVar.ixW);
+            this.ixs.cwi();
+            this.ixv = cVar.ixX;
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.ixq.onChangeSkinType(i);
-        ap.setBackgroundColor(this.ixq.itemView, R.color.CAM_X0207);
-        ap.setViewTextColor(this.ixr, R.color.CAM_X0302);
+        this.ixs.onChangeSkinType(i);
+        ap.setBackgroundColor(this.ixs.itemView, R.color.CAM_X0207);
+        ap.setViewTextColor(this.ixt, R.color.CAM_X0302);
     }
 
     public void yR(int i) {
-        this.ixu = i;
+        this.ixw = i;
     }
 }

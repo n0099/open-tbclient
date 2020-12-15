@@ -9,9 +9,9 @@ import java.util.List;
 public class a {
     private BdTypeRecyclerView Yf;
     private final List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private f jhd;
-    private d jhe;
-    private b jhf;
+    private f jhf;
+    private d jhg;
+    private b jhh;
     private String mFrom;
 
     public a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -20,22 +20,22 @@ public class a {
 
     private void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
         this.Yf = bdTypeRecyclerView;
-        this.jhd = new f(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.b.TYPE);
-        this.jhe = new d(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.c.jhL);
-        this.jhf = new b(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.a.jhG);
-        this.bnf.add(this.jhd);
-        this.bnf.add(this.jhe);
+        this.jhf = new f(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.b.TYPE);
+        this.jhg = new d(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.c.jhN);
+        this.jhh = new b(forumRulesShowActivity, com.baidu.tieba.frs.forumRule.c.a.jhI);
         this.bnf.add(this.jhf);
+        this.bnf.add(this.jhg);
+        this.bnf.add(this.jhh);
         bdTypeRecyclerView.addAdapters(this.bnf);
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.jhd != null) {
-            this.jhd.setFrom(str);
-        }
         if (this.jhf != null) {
             this.jhf.setFrom(str);
+        }
+        if (this.jhh != null) {
+            this.jhh.setFrom(str);
         }
     }
 
@@ -43,8 +43,8 @@ public class a {
         if (this.Yf != null) {
             this.Yf.setData(list);
         }
-        if (this.jhe != null) {
-            this.jhe.setData(list);
+        if (this.jhg != null) {
+            this.jhg.setData(list);
         }
     }
 

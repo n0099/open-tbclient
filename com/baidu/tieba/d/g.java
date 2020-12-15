@@ -25,13 +25,13 @@ import com.baidu.tieba.R;
 public class g {
     private by alu;
     private com.baidu.tbadk.coreExtra.model.a eTC;
-    private PopupWindow fWB;
-    private TextView fWC;
-    private TBSpecificationBtn fWD;
-    private com.baidu.tbadk.core.view.commonBtn.b fWE;
-    private int fWw;
-    private int fWx;
+    private int fWA;
+    private PopupWindow fWD;
+    private TextView fWE;
+    private TBSpecificationBtn fWF;
+    private com.baidu.tbadk.core.view.commonBtn.b fWG;
     private int fWy;
+    private int fWz;
     private View mAnchor;
     private ViewGroup mContentView;
     private TbPageContext mPageContext;
@@ -44,13 +44,13 @@ public class g {
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.d.g.1
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (g.this.fWB != null) {
-                g.this.fWB.dismiss();
-                g.this.fWB = null;
+            if (g.this.fWD != null) {
+                g.this.fWD.dismiss();
+                g.this.fWD = null;
             }
         }
     };
-    private View.OnClickListener iqa = new View.OnClickListener() { // from class: com.baidu.tieba.d.g.2
+    private View.OnClickListener iqc = new View.OnClickListener() { // from class: com.baidu.tieba.d.g.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.isNetworkAvailableForImmediately()) {
@@ -64,11 +64,11 @@ public class g {
                     return;
                 }
             }
-            if (g.this.fWB != null && g.this.mPopupWindow != null) {
-                g.this.fWB.dismiss();
+            if (g.this.fWD != null && g.this.mPopupWindow != null) {
+                g.this.fWD.dismiss();
                 g.this.mPopupWindow.dismiss();
                 g.this.mPopupWindow = null;
-                g.this.fWB = null;
+                g.this.fWD = null;
             }
         }
     };
@@ -77,18 +77,18 @@ public class g {
         this.mPageContext = tbPageContext;
         this.eTC = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
         this.mAnchor = view;
-        ctr();
+        cts();
     }
 
     public void r(by byVar) {
         this.alu = byVar;
     }
 
-    private void ctr() {
-        this.fWy = l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X005);
+    private void cts() {
+        this.fWA = l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X005);
         this.mXOffset = com.baidu.tbadk.a.d.bkA() ? l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X007) : l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X004);
         this.mYOffset = l.getDimens(this.mPageContext.getContext(), R.dimen.tbds14);
-        this.fWx = l.getDimens(this.mPageContext.getContext(), R.dimen.tbds160);
+        this.fWz = l.getDimens(this.mPageContext.getContext(), R.dimen.tbds160);
     }
 
     private View getContentView() {
@@ -97,29 +97,29 @@ public class g {
         }
         if (this.mContentView == null) {
             this.mContentView = (ViewGroup) LayoutInflater.from(this.mPageContext.getContext()).inflate(R.layout.neg_feedback_popupwindow, (ViewGroup) null);
-            this.fWC = (TextView) this.mContentView.findViewById(R.id.head_text);
-            this.fWC.setText(this.mPageContext.getString(R.string.confirm_unlike));
-            ap.setViewTextColor(this.fWC, R.color.CAM_X0105, 1);
-            this.fWD = (TBSpecificationBtn) this.mContentView.findViewById(R.id.uninterested_btn);
-            this.fWD.setText(this.mPageContext.getString(R.string.confirm_unlike_confirm));
-            this.fWD.setTextSize(R.dimen.T_X08);
-            this.fWD.setOnClickListener(this.iqa);
-            this.fWE = new com.baidu.tbadk.core.view.commonBtn.b();
-            this.fWE.rh(R.color.CAM_X0304);
-            this.fWD.setConfig(this.fWE);
-            this.mContentView.setPadding(this.fWy, 0, this.fWy, 0);
+            this.fWE = (TextView) this.mContentView.findViewById(R.id.head_text);
+            this.fWE.setText(this.mPageContext.getString(R.string.confirm_unlike));
+            ap.setViewTextColor(this.fWE, R.color.CAM_X0105, 1);
+            this.fWF = (TBSpecificationBtn) this.mContentView.findViewById(R.id.uninterested_btn);
+            this.fWF.setText(this.mPageContext.getString(R.string.confirm_unlike_confirm));
+            this.fWF.setTextSize(R.dimen.T_X08);
+            this.fWF.setOnClickListener(this.iqc);
+            this.fWG = new com.baidu.tbadk.core.view.commonBtn.b();
+            this.fWG.rh(R.color.CAM_X0304);
+            this.fWF.setConfig(this.fWG);
+            this.mContentView.setPadding(this.fWA, 0, this.fWA, 0);
         }
         bvt();
         return this.mContentView;
     }
 
-    public void cts() {
+    public void ctt() {
         if (this.mPageContext.getContext() != null) {
             View contentView = getContentView();
             this.mWindowWidth = l.getEquipmentWidth(this.mPageContext.getContext()) - (this.mXOffset * 2);
             this.mWindowHeight = getWindowMeasuredHeight();
             int[] iArr = new int[2];
-            boolean a2 = a(this.mPageContext.getContext(), this.mAnchor, this.mWindowHeight, this.mWindowWidth, this.fWx, this.mYOffset, iArr);
+            boolean a2 = a(this.mPageContext.getContext(), this.mAnchor, this.mWindowHeight, this.mWindowWidth, this.fWz, this.mYOffset, iArr);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             gradientDrawable.setColor(ap.getColor(R.color.CAM_X0204));
@@ -129,11 +129,11 @@ public class g {
             this.mPopupWindow.setFocusable(true);
             this.mPopupWindow.setTouchable(true);
             this.mPopupWindow.setOnDismissListener(this.mOnDismissListener);
-            this.fWB = new PopupWindow(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+            this.fWD = new PopupWindow(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
             if (Build.VERSION.SDK_INT >= 22) {
-                this.fWB.setAttachedInDecor(false);
+                this.fWD.setAttachedInDecor(false);
             }
-            this.fWB.showAtLocation(this.mAnchor, 0, 0, 0);
+            this.fWD.showAtLocation(this.mAnchor, 0, 0, 0);
             if (iArr[0] != 0 || iArr[1] != 0) {
                 this.mPopupWindow.setBackgroundDrawable(new ColorDrawable(0));
                 if (a2) {
@@ -151,8 +151,8 @@ public class g {
             return 0;
         }
         this.mContentView.measure(0, 0);
-        this.fWw = this.mContentView.getMeasuredHeight();
-        return this.fWw;
+        this.fWy = this.mContentView.getMeasuredHeight();
+        return this.fWy;
     }
 
     private boolean a(Context context, View view, int i, int i2, int i3, int i4, int[] iArr) {
@@ -178,7 +178,7 @@ public class g {
     private void bvt() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            ap.setViewTextColor(this.fWC, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.fWE, R.color.CAM_X0105, 1);
             this.mSkinType = skinType;
         }
     }

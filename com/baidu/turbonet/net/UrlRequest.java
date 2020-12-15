@@ -38,11 +38,11 @@ public interface UrlRequest {
 
     void cancel();
 
-    void ehg();
-
     void ehh();
 
     void ehi();
+
+    void ehj();
 
     Object getTag();
 
@@ -60,24 +60,24 @@ public interface UrlRequest {
         final Executor mExecutor;
         Object mTag;
         final String mUrl;
-        final Callback oCK;
-        boolean oDa;
-        boolean oDb;
+        final Callback oCM;
         boolean oDc;
+        boolean oDd;
         boolean oDe;
-        int oDf;
-        int oDg;
+        boolean oDg;
         int oDh;
         int oDi;
-        String oDj;
-        String oDk;
-        final TurbonetEngine oEw;
-        UploadDataProvider oFi;
-        Executor oFj;
-        boolean oFk;
-        final ArrayList<Pair<String, String>> oFh = new ArrayList<>();
+        int oDj;
+        int oDk;
+        String oDl;
+        String oDm;
+        final TurbonetEngine oEy;
+        UploadDataProvider oFk;
+        Executor oFl;
+        boolean oFm;
+        final ArrayList<Pair<String, String>> oFj = new ArrayList<>();
         int mPriority = 3;
-        Collection<Object> oCZ = Collections.emptyList();
+        Collection<Object> oDb = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes14.dex */
@@ -98,18 +98,18 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.oCK = callback;
+            this.oCM = callback;
             this.mExecutor = executor;
-            this.oEw = turbonetEngine;
-            this.oFk = false;
-            this.oDe = false;
-            this.oDf = 0;
-            this.oDg = 0;
+            this.oEy = turbonetEngine;
+            this.oFm = false;
+            this.oDg = false;
             this.oDh = 0;
             this.oDi = 0;
+            this.oDj = 0;
+            this.oDk = 0;
             this.mTag = null;
-            this.oDj = null;
-            this.oDk = null;
+            this.oDl = null;
+            this.oDm = null;
         }
 
         public Builder Xx(String str) {
@@ -130,48 +130,48 @@ public interface UrlRequest {
             if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
                 Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
             } else {
-                this.oFh.add(Pair.create(str, str2));
+                this.oFj.add(Pair.create(str, str2));
             }
             return this;
         }
 
-        public Builder ehZ() {
-            this.oDa = true;
-            return this;
-        }
-
         public Builder eia() {
-            this.oFk = true;
-            return this;
-        }
-
-        public Builder eib() {
             this.oDc = true;
             return this;
         }
 
+        public Builder eib() {
+            this.oFm = true;
+            return this;
+        }
+
+        public Builder eic() {
+            this.oDe = true;
+            return this;
+        }
+
         public Builder Ot(int i) {
-            this.oDf = i;
-            return this;
-        }
-
-        public Builder Ou(int i) {
-            this.oDg = i;
-            return this;
-        }
-
-        public Builder Ov(int i) {
             this.oDh = i;
             return this;
         }
 
+        public Builder Ou(int i) {
+            this.oDi = i;
+            return this;
+        }
+
+        public Builder Ov(int i) {
+            this.oDj = i;
+            return this;
+        }
+
         public Builder Xy(String str) {
-            this.oDj = str;
+            this.oDl = str;
             return this;
         }
 
         public Builder Xz(String str) {
-            this.oDk = str;
+            this.oDm = str;
             return this;
         }
 
@@ -185,50 +185,50 @@ public interface UrlRequest {
             if (this.dXK == null) {
                 this.dXK = "POST";
             }
-            this.oFi = uploadDataProvider;
-            this.oFj = executor;
+            this.oFk = uploadDataProvider;
+            this.oFl = executor;
             return this;
         }
 
-        public UrlRequest eic() {
-            UrlRequest a2 = this.oEw.a(this.mUrl, this.oCK, this.mExecutor, this.mPriority, this.oCZ, this.oDa, this.oDb, this.oDc);
+        public UrlRequest eid() {
+            UrlRequest a2 = this.oEy.a(this.mUrl, this.oCM, this.mExecutor, this.mPriority, this.oDb, this.oDc, this.oDd, this.oDe);
             if (this.dXK != null) {
                 a2.Xl(this.dXK);
             }
-            Iterator<Pair<String, String>> it = this.oFh.iterator();
+            Iterator<Pair<String, String>> it = this.oFj.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 a2.addHeader((String) next.first, (String) next.second);
             }
-            if (this.oFi != null) {
-                a2.a(this.oFi, this.oFj);
+            if (this.oFk != null) {
+                a2.a(this.oFk, this.oFl);
             }
-            if (this.oFk) {
-                a2.ehh();
-            }
-            if (this.oDe) {
+            if (this.oFm) {
                 a2.ehi();
             }
-            if (this.oDf > 0) {
-                a2.setTimeout(this.oDf);
-            }
-            if (this.oDg > 0) {
-                a2.Oe(this.oDg);
+            if (this.oDg) {
+                a2.ehj();
             }
             if (this.oDh > 0) {
-                a2.Of(this.oDh);
+                a2.setTimeout(this.oDh);
             }
             if (this.oDi > 0) {
-                a2.Og(this.oDi);
+                a2.Oe(this.oDi);
+            }
+            if (this.oDj > 0) {
+                a2.Of(this.oDj);
+            }
+            if (this.oDk > 0) {
+                a2.Og(this.oDk);
             }
             if (this.mTag != null) {
                 a2.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.oDj)) {
-                a2.Xm(this.oDj);
+            if (!TextUtils.isEmpty(this.oDl)) {
+                a2.Xm(this.oDl);
             }
-            if (!TextUtils.isEmpty(this.oDk)) {
-                a2.Xn(this.oDk);
+            if (!TextUtils.isEmpty(this.oDm)) {
+                a2.Xn(this.oDm);
             }
             return a2;
         }

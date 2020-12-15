@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class g extends BaseAdapter {
-    private String gFX;
+    private String gFZ;
     private boolean isHost;
     private BdListView mListView;
     private TbPageContext mPageContext;
@@ -75,8 +75,8 @@ public class g extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.gFZ = (CharmPokeItemView) view.findViewById(a.f.pokeItem);
-            aVar2.gFS = (CharmItemView) view.findViewById(a.f.item);
+            aVar2.gGb = (CharmPokeItemView) view.findViewById(a.f.pokeItem);
+            aVar2.gFU = (CharmItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -86,13 +86,13 @@ public class g extends BaseAdapter {
         AlaLiveUserInfoData alaLiveUserInfoData = getItem(i).aJV;
         if (item != null && alaLiveUserInfoData != null) {
             if (!this.isHost || item.hadPoked == 0) {
-                aVar.gFZ.setVisibility(8);
-                aVar.gFS.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-                aVar.gFS.gFI.setData(alaLiveUserInfoData);
+                aVar.gGb.setVisibility(8);
+                aVar.gFU.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+                aVar.gFU.gFK.setData(alaLiveUserInfoData);
             } else {
-                aVar.gFS.setVisibility(8);
-                aVar.gFZ.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L, item.hadPoked, alaLiveUserInfoData.userId, this.gFX);
-                aVar.gFZ.gFI.setData(alaLiveUserInfoData);
+                aVar.gFU.setVisibility(8);
+                aVar.gGb.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L, item.hadPoked, alaLiveUserInfoData.userId, this.gFZ);
+                aVar.gGb.gFK.setData(alaLiveUserInfoData);
             }
             this.mPageContext.getLayoutMode().onModeChanged(view);
         }
@@ -124,24 +124,24 @@ public class g extends BaseAdapter {
                     if (i2 != 0) {
                         return;
                     }
-                    aVar.gFZ.gFK.setVisibility(8);
+                    aVar.gGb.gFM.setVisibility(8);
                     return;
                 }
-                aVar.gFZ.gFK.setEnabled(false);
-                aVar.gFZ.gFK.setText(this.mPageContext.getString(a.h.sdk_poke_had_poked));
+                aVar.gGb.gFM.setEnabled(false);
+                aVar.gGb.gFM.setText(this.mPageContext.getString(a.h.sdk_poke_had_poked));
             }
         }
     }
 
     public void setLiveId(String str) {
-        this.gFX = str;
+        this.gFZ = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a {
-        private CharmItemView gFS;
-        private CharmPokeItemView gFZ;
+        private CharmItemView gFU;
+        private CharmPokeItemView gGb;
 
         private a() {
         }

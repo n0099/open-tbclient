@@ -40,36 +40,36 @@ public class a extends com.baidu.adp.widget.ListView.a<AlaEnterEffectData, C0716
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, C0716a c0716a) {
-        c0716a.hQn.startLoad(alaEnterEffectData.thumbnail_url, 10, false);
-        c0716a.hQo.setText(alaEnterEffectData.name);
+        c0716a.hQp.startLoad(alaEnterEffectData.thumbnail_url, 10, false);
+        c0716a.hQq.setText(alaEnterEffectData.name);
         if (alaEnterEffectData.isUsing()) {
-            ap.setViewTextColor(c0716a.hQp, R.color.live_cp_other_b, 1, this.mSkinType);
-            ap.setBackgroundResource(c0716a.hQp, R.drawable.ala_enter_effect_use_bg, this.mSkinType);
-            c0716a.hQp.setText(this.mContext.getString(R.string.ala_enter_effect_use));
-            c0716a.hQn.setAlpha(1.0f);
+            ap.setViewTextColor(c0716a.hQr, R.color.live_cp_other_b, 1, this.mSkinType);
+            ap.setBackgroundResource(c0716a.hQr, R.drawable.ala_enter_effect_use_bg, this.mSkinType);
+            c0716a.hQr.setText(this.mContext.getString(R.string.ala_enter_effect_use));
+            c0716a.hQp.setAlpha(1.0f);
         } else if (alaEnterEffectData.isOwn) {
-            ap.setViewTextColor(c0716a.hQp, R.color.CAM_X0302, 1, this.mSkinType);
-            ap.setBackgroundResource(c0716a.hQp, R.drawable.ala_enter_effect_own_bg, this.mSkinType);
-            c0716a.hQp.setText(this.mContext.getString(R.string.ala_enter_effect_own));
-            c0716a.hQn.setAlpha(1.0f);
+            ap.setViewTextColor(c0716a.hQr, R.color.CAM_X0302, 1, this.mSkinType);
+            ap.setBackgroundResource(c0716a.hQr, R.drawable.ala_enter_effect_own_bg, this.mSkinType);
+            c0716a.hQr.setText(this.mContext.getString(R.string.ala_enter_effect_own));
+            c0716a.hQp.setAlpha(1.0f);
         } else {
-            ap.setViewTextColor(c0716a.hQp, R.color.CAM_X0109, 1, this.mSkinType);
-            ap.setBackgroundResource(c0716a.hQp, R.drawable.ala_enter_effect_not_own_bg, this.mSkinType);
-            c0716a.hQp.setText(this.mContext.getString(R.string.ala_enter_effect_not_own));
-            c0716a.hQn.setAlpha(0.7f);
+            ap.setViewTextColor(c0716a.hQr, R.color.CAM_X0109, 1, this.mSkinType);
+            ap.setBackgroundResource(c0716a.hQr, R.drawable.ala_enter_effect_not_own_bg, this.mSkinType);
+            c0716a.hQr.setText(this.mContext.getString(R.string.ala_enter_effect_not_own));
+            c0716a.hQp.setAlpha(0.7f);
         }
-        c0716a.hQq.setText(this.mContext.getResources().getString(R.string.ala_left_time, au.dR((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
+        c0716a.hQs.setText(this.mContext.getResources().getString(R.string.ala_left_time, au.dR((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
         if (alaEnterEffectData.downLoadStatus == 100) {
-            c0716a.hQr.setVisibility(0);
-            c0716a.gKs.setVisibility(8);
+            c0716a.hQt.setVisibility(0);
+            c0716a.gKu.setVisibility(8);
         } else if (alaEnterEffectData.downLoadStatus == 102) {
-            c0716a.hQr.setVisibility(8);
-            c0716a.gKs.setVisibility(0);
+            c0716a.hQt.setVisibility(8);
+            c0716a.gKu.setVisibility(0);
         } else {
-            c0716a.hQr.setVisibility(8);
-            c0716a.gKs.setVisibility(8);
+            c0716a.hQt.setVisibility(8);
+            c0716a.gKu.setVisibility(8);
         }
-        c0716a.hQs.setBackgroundColor(Color.parseColor(alaEnterEffectData.color));
+        c0716a.hQu.setBackgroundColor(Color.parseColor(alaEnterEffectData.color));
         ap.setViewTextColor(c0716a.eZq, R.color.CAM_X0109, 1, this.mSkinType);
         if (2 == alaEnterEffectData.categoryType) {
             ap.setViewTextColor(c0716a.eZq, R.color.CAM_X0305, 1, this.mSkinType);
@@ -90,12 +90,12 @@ public class a extends com.baidu.adp.widget.ListView.a<AlaEnterEffectData, C0716
     private void a(C0716a c0716a) {
         if (c0716a != null) {
             ap.setBackgroundResource(c0716a.getView(), R.color.CAM_X0201);
-            ap.setViewTextColor(c0716a.hQq, R.color.CAM_X0109, 1, this.mSkinType);
-            ap.setViewTextColor(c0716a.hQo, R.color.CAM_X0105, 1, this.mSkinType);
+            ap.setViewTextColor(c0716a.hQs, R.color.CAM_X0109, 1, this.mSkinType);
+            ap.setViewTextColor(c0716a.hQq, R.color.CAM_X0105, 1, this.mSkinType);
             if (this.mSkinType == 1) {
-                c0716a.hkz.setVisibility(0);
+                c0716a.hkB.setVisibility(0);
             } else {
-                c0716a.hkz.setVisibility(8);
+                c0716a.hkB.setVisibility(8);
             }
         }
     }
@@ -104,14 +104,14 @@ public class a extends com.baidu.adp.widget.ListView.a<AlaEnterEffectData, C0716
     /* loaded from: classes6.dex */
     public static class C0716a extends af.a {
         public TextView eZq;
-        public ProgressBar gKs;
-        public TbImageView hQn;
-        public TextView hQo;
-        public TextView hQp;
+        public ProgressBar gKu;
+        public TbImageView hQp;
         public TextView hQq;
-        public ImageView hQr;
-        public View hQs;
-        public View hkz;
+        public TextView hQr;
+        public TextView hQs;
+        public ImageView hQt;
+        public View hQu;
+        public View hkB;
 
         public C0716a(View view) {
             super(view);
@@ -119,15 +119,15 @@ public class a extends com.baidu.adp.widget.ListView.a<AlaEnterEffectData, C0716
         }
 
         private void initView() {
-            this.hQn = (TbImageView) getView().findViewById(R.id.ala_enter_effect_img);
-            this.hQn.setAutoChangeStyle(false);
-            this.hQo = (TextView) getView().findViewById(R.id.ala_enter_effect_name);
-            this.hQp = (TextView) getView().findViewById(R.id.ala_enter_effect_status);
-            this.hQq = (TextView) getView().findViewById(R.id.ala_enter_effect_time_limit);
-            this.hQr = (ImageView) getView().findViewById(R.id.ala_enter_effect_download_img);
-            this.gKs = (ProgressBar) getView().findViewById(R.id.ala_enter_effect_loading);
-            this.hkz = getView().findViewById(R.id.ala_header_cover);
-            this.hQs = getView().findViewById(R.id.ala_enter_effect_img_layout);
+            this.hQp = (TbImageView) getView().findViewById(R.id.ala_enter_effect_img);
+            this.hQp.setAutoChangeStyle(false);
+            this.hQq = (TextView) getView().findViewById(R.id.ala_enter_effect_name);
+            this.hQr = (TextView) getView().findViewById(R.id.ala_enter_effect_status);
+            this.hQs = (TextView) getView().findViewById(R.id.ala_enter_effect_time_limit);
+            this.hQt = (ImageView) getView().findViewById(R.id.ala_enter_effect_download_img);
+            this.gKu = (ProgressBar) getView().findViewById(R.id.ala_enter_effect_loading);
+            this.hkB = getView().findViewById(R.id.ala_header_cover);
+            this.hQu = getView().findViewById(R.id.ala_enter_effect_img_layout);
             this.eZq = (TextView) getView().findViewById(R.id.ala_enter_effect_description);
         }
     }

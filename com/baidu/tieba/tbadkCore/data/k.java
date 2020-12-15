@@ -6,27 +6,27 @@ import tbclient.Timgs;
 public class k implements com.baidu.tbadk.core.flow.a.a {
     private String aKq;
     private int height;
-    private String nlv;
-    private String nlw;
     private String nlx;
+    private String nly;
+    private String nlz;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.nlv = null;
-        this.urlFlag = 0;
-        this.nlw = null;
         this.nlx = null;
+        this.urlFlag = 0;
+        this.nly = null;
+        this.nlz = null;
         this.aKq = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.nlv = timgs.img_url;
+            this.nlx = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.nlw = timgs.url;
-            this.nlx = timgs.big_cdn_url;
+            this.nly = timgs.url;
+            this.nlz = timgs.big_cdn_url;
             this.aKq = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
@@ -50,15 +50,15 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.nlv;
+        return this.nlx;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String bmN() {
-        return this.nlw;
+        return this.nly;
     }
 
-    public String dOP() {
-        return this.nlv;
+    public String dOQ() {
+        return this.nlx;
     }
 }

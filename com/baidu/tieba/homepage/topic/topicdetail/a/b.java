@@ -8,36 +8,36 @@ import java.util.List;
 /* loaded from: classes22.dex */
 public class b {
     private List<com.baidu.adp.widget.ListView.a> bnf;
-    private v iyt;
-    private a jXA;
-    private com.baidu.tieba.homepage.topic.topictab.a.b jXB;
-    private c jXz;
+    private v iyv;
+    private c jXB;
+    private a jXC;
+    private com.baidu.tieba.homepage.topic.topictab.a.b jXD;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, v vVar) {
         this.mPageContext = tbPageContext;
-        this.iyt = vVar;
+        this.iyv = vVar;
         Nt();
-        this.iyt.addAdapters(this.bnf);
+        this.iyv.addAdapters(this.bnf);
     }
 
     private void Nt() {
         this.bnf = new ArrayList();
-        this.jXz = new c(this.mPageContext);
-        this.jXA = new a(this.mPageContext);
-        this.jXB = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
-        this.bnf.add(this.jXz);
-        this.bnf.add(this.jXA);
+        this.jXB = new c(this.mPageContext);
+        this.jXC = new a(this.mPageContext);
+        this.jXD = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
         this.bnf.add(this.jXB);
+        this.bnf.add(this.jXC);
+        this.bnf.add(this.jXD);
     }
 
     public void notifyDataSetChanged() {
-        if (this.iyt != null) {
-            this.iyt.getListAdapter().notifyDataSetChanged();
+        if (this.iyv != null) {
+            this.iyv.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<q> list) {
-        this.iyt.setData(list);
+        this.iyv.setData(list);
     }
 }

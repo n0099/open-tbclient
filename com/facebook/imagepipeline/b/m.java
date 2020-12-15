@@ -14,13 +14,13 @@ public class m {
             }
 
             @Override // com.facebook.imagepipeline.b.r
-            public void esU() {
-                n.this.eti();
+            public void esV() {
+                n.this.etj();
             }
 
             @Override // com.facebook.imagepipeline.b.r
-            public void esV() {
-                n.this.eth();
+            public void esW() {
+                n.this.eti();
             }
         });
     }

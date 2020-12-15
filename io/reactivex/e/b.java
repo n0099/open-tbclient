@@ -13,7 +13,7 @@ public final class b<T> {
         this.unit = (TimeUnit) io.reactivex.internal.functions.a.m(timeUnit, "unit is null");
     }
 
-    public T eDz() {
+    public T eDA() {
         return this.value;
     }
 

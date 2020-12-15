@@ -30,7 +30,7 @@ public class AlaAudioModeDialogData implements IBaseDialogData {
             return null;
         }
         for (com.baidu.yuyinala.mode.b.a aVar : this.mModeList) {
-            if (aVar != null && aVar.ekl()) {
+            if (aVar != null && aVar.ekm()) {
                 return aVar;
             }
         }

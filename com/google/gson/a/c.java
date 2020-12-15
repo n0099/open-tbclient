@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes5.dex */
 public @interface c {
-    String[] eye() default {};
+    String[] eyf() default {};
 
     String value();
 }

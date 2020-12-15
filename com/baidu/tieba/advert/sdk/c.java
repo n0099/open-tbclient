@@ -22,7 +22,7 @@ import com.baidu.tieba.R;
 import tbclient.AppPosInfo;
 /* loaded from: classes23.dex */
 public class c {
-    private CustomMessageTask gdm = new CustomMessageTask(2156676, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.advert.sdk.c.1
+    private CustomMessageTask gdo = new CustomMessageTask(2156676, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.advert.sdk.c.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<d> customMessage) {
             if (customMessage != null) {
@@ -33,12 +33,12 @@ public class c {
     });
 
     public c() {
-        bNs();
+        bNt();
     }
 
     public void registerTask() {
-        this.gdm.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.gdm);
+        this.gdo.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.gdo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -122,7 +122,7 @@ public class c {
         }
     }
 
-    private void bNs() {
+    private void bNt() {
         com.baidu.prologue.a.b.a.clZ.set(new a(TbadkCoreApplication.getInst()));
     }
 
@@ -262,21 +262,21 @@ public class c {
 
         @Override // com.baidu.prologue.a.b.a
         public String aew() {
-            AppPosInfo dGb = com.baidu.tieba.recapp.d.a.dFX().dGb();
-            if (dGb != null) {
-                return dGb.coordinate_type;
+            AppPosInfo dGc = com.baidu.tieba.recapp.d.a.dFY().dGc();
+            if (dGc != null) {
+                return dGc.coordinate_type;
             }
             return null;
         }
 
         @Override // com.baidu.prologue.a.b.a
         public String[] aex() {
-            AppPosInfo dGb;
-            if (com.baidu.tieba.recapp.d.a.dFX() != null && (dGb = com.baidu.tieba.recapp.d.a.dFX().dGb()) != null) {
+            AppPosInfo dGc;
+            if (com.baidu.tieba.recapp.d.a.dFY() != null && (dGc = com.baidu.tieba.recapp.d.a.dFY().dGc()) != null) {
                 if (BdLog.isDebugMode()) {
-                    BdLog.e("" + dGb.longitude + "|" + dGb.latitude);
+                    BdLog.e("" + dGc.longitude + "|" + dGc.latitude);
                 }
-                return new String[]{dGb.longitude, dGb.latitude};
+                return new String[]{dGc.longitude, dGc.latitude};
             }
             if (BdLog.isDebugMode()) {
                 BdLog.e("0, 0");

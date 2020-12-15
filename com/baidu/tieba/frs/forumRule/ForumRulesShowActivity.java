@@ -26,68 +26,68 @@ import com.baidu.tieba.view.BdTopToast;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements h {
-    private ForumRulesShowModel jgY;
-    private c jgZ;
-    a.InterfaceC0742a jha = new a.InterfaceC0742a() { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.1
+    private ForumRulesShowModel jha;
+    private c jhb;
+    a.InterfaceC0742a jhc = new a.InterfaceC0742a() { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.1
         @Override // com.baidu.tieba.frs.forumRule.b.a.InterfaceC0742a
         public void t(boolean z, String str) {
-            if (ForumRulesShowActivity.this.jgZ != null) {
+            if (ForumRulesShowActivity.this.jhb != null) {
                 if (z) {
-                    ForumRulesShowActivity.this.jgZ.Lg(str);
+                    ForumRulesShowActivity.this.jhb.Lg(str);
                 } else {
-                    ForumRulesShowActivity.this.jgZ.cHo();
+                    ForumRulesShowActivity.this.jhb.cHp();
                 }
             }
         }
 
         @Override // com.baidu.tieba.frs.forumRule.b.a.InterfaceC0742a
         public void KT(String str) {
-            if (ForumRulesShowActivity.this.jgZ != null) {
-                ForumRulesShowActivity.this.jgZ.addTitle(str);
+            if (ForumRulesShowActivity.this.jhb != null) {
+                ForumRulesShowActivity.this.jhb.addTitle(str);
             }
         }
 
         @Override // com.baidu.tieba.frs.forumRule.b.a.InterfaceC0742a
         public void a(b bVar) {
-            if (ForumRulesShowActivity.this.jgZ != null) {
-                ForumRulesShowActivity.this.jgZ.c(bVar);
+            if (ForumRulesShowActivity.this.jhb != null) {
+                ForumRulesShowActivity.this.jhb.c(bVar);
             }
         }
 
         @Override // com.baidu.tieba.frs.forumRule.b.a.InterfaceC0742a
         public void dm(List<com.baidu.tieba.frs.forumRule.c.c> list) {
-            if (ForumRulesShowActivity.this.jgZ != null) {
-                ForumRulesShowActivity.this.jgZ.dq(list);
+            if (ForumRulesShowActivity.this.jhb != null) {
+                ForumRulesShowActivity.this.jhb.dq(list);
             }
         }
 
         @Override // com.baidu.tieba.frs.forumRule.b.a.InterfaceC0742a
         public void a(com.baidu.tieba.frs.forumRule.c.a aVar) {
-            if (ForumRulesShowActivity.this.jgZ != null) {
-                ForumRulesShowActivity.this.jgZ.b(aVar);
+            if (ForumRulesShowActivity.this.jhb != null) {
+                ForumRulesShowActivity.this.jhb.b(aVar);
             }
         }
 
         @Override // com.baidu.tieba.frs.forumRule.b.a.InterfaceC0742a
         public void bDm() {
-            if (ForumRulesShowActivity.this.jgZ != null) {
-                ForumRulesShowActivity.this.jgZ.cHm();
-                ForumRulesShowActivity.this.jgZ.cHj();
-                ForumRulesShowActivity.this.showNetRefreshView(ForumRulesShowActivity.this.jgZ.cHi(), "");
+            if (ForumRulesShowActivity.this.jhb != null) {
+                ForumRulesShowActivity.this.jhb.cHn();
+                ForumRulesShowActivity.this.jhb.cHk();
+                ForumRulesShowActivity.this.showNetRefreshView(ForumRulesShowActivity.this.jhb.cHj(), "");
             }
         }
 
         @Override // com.baidu.tieba.frs.forumRule.b.a.InterfaceC0742a
         public void finish() {
-            if (ForumRulesShowActivity.this.jgZ != null) {
-                ForumRulesShowActivity.this.hideNetRefreshView(ForumRulesShowActivity.this.jgZ.cHi());
-                ForumRulesShowActivity.this.jgZ.cHk();
-                ForumRulesShowActivity.this.jgZ.cHl();
-                ForumRulesShowActivity.this.jgZ.setData();
+            if (ForumRulesShowActivity.this.jhb != null) {
+                ForumRulesShowActivity.this.hideNetRefreshView(ForumRulesShowActivity.this.jhb.cHj());
+                ForumRulesShowActivity.this.jhb.cHl();
+                ForumRulesShowActivity.this.jhb.cHm();
+                ForumRulesShowActivity.this.jhb.setData();
             }
         }
     };
-    private CustomMessageListener jhb = new CustomMessageListener(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK) { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.2
+    private CustomMessageListener jhd = new CustomMessageListener(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK) { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -105,14 +105,14 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         super.onCreate(bundle);
         initData(bundle);
         initView();
-        this.jgY.ao(bundle);
+        this.jha.ao(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jgZ != null) {
-            this.jgZ.onChangeSkinType(i);
+        if (this.jhb != null) {
+            this.jhb.onChangeSkinType(i);
         }
     }
 
@@ -120,30 +120,30 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        registerListener(this.jhb);
+        registerListener(this.jhd);
     }
 
     private void initData(Bundle bundle) {
-        this.jgY = new ForumRulesShowModel(this);
-        cGx();
+        this.jha = new ForumRulesShowModel(this);
+        cGy();
     }
 
     private void initView() {
         if (getIntent() != null) {
             this.mFrom = getIntent().getStringExtra("from");
         }
-        this.jgZ = new c(this, this.mFrom);
-        this.jgZ.a(getRefreshView());
+        this.jhb = new c(this, this.mFrom);
+        this.jhb.a(getRefreshView());
     }
 
-    private void cGx() {
-        this.jgY.a(this.jha);
+    private void cGy() {
+        this.jha.a(this.jhc);
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.jgZ != null) {
-            this.jgZ.setFrom(str);
+        if (this.jhb != null) {
+            this.jhb.setFrom(str);
         }
     }
 
@@ -151,29 +151,29 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.jhb);
+        MessageManager.getInstance().unRegisterListener(this.jhd);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jgY != null) {
-            this.jgY.destory();
+        if (this.jha != null) {
+            this.jha.destory();
         }
-        if (this.jgZ != null) {
-            this.jgZ.destory();
-        }
-    }
-
-    public void cGy() {
-        if (this.jgY != null) {
-            this.jgY.sendMessage();
+        if (this.jhb != null) {
+            this.jhb.destory();
         }
     }
 
-    public c cGz() {
-        return this.jgZ;
+    public void cGz() {
+        if (this.jha != null) {
+            this.jha.sendMessage();
+        }
+    }
+
+    public c cGA() {
+        return this.jhb;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -183,11 +183,11 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         if (i2 == -1 && i == 25053) {
             String stringExtra = intent.getStringExtra("group_name");
             if (!intent.getBooleanExtra("from", true)) {
-                this.jgZ.remove();
-                this.jgZ.mData.clear();
-                this.jgY.sendMessage();
+                this.jhb.remove();
+                this.jhb.mData.clear();
+                this.jha.sendMessage();
             }
-            new BdTopToast(this, 3000).yW(true).Vt(stringExtra).aF(this.jgZ.getRootView());
+            new BdTopToast(this, 3000).yW(true).Vt(stringExtra).aF(this.jhb.getRootView());
         }
     }
 

@@ -7,66 +7,66 @@ import android.util.AttributeSet;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
     private int cnU;
-    private int nRL;
-    private int nRM;
-    private boolean nRN;
-    private com.baidu.tbadk.core.util.d.a nRO;
-    private com.baidu.tbadk.core.util.d.a nRP;
+    private int nRN;
+    private int nRO;
+    private boolean nRP;
+    private com.baidu.tbadk.core.util.d.a nRQ;
+    private com.baidu.tbadk.core.util.d.a nRR;
 
     public SwitchImageView(Context context) {
         super(context);
-        this.nRN = false;
+        this.nRP = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nRN = false;
+        this.nRP = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nRN = false;
+        this.nRP = false;
         init();
     }
 
     private void init() {
         this.cnU = 0;
-        this.nRL = 0;
-        this.nRM = 0;
+        this.nRN = 0;
+        this.nRO = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.nRL = i;
-        this.nRM = i2;
+        this.nRN = i;
+        this.nRO = i2;
     }
 
     public void setSvgStateImage(com.baidu.tbadk.core.util.d.a aVar, com.baidu.tbadk.core.util.d.a aVar2) {
-        this.nRO = aVar;
-        this.nRP = aVar2;
-        this.nRN = true;
+        this.nRQ = aVar;
+        this.nRR = aVar2;
+        this.nRP = true;
     }
 
     public void setState(int i) {
         if (i == 0) {
             this.cnU = 0;
-            if (this.nRN) {
-                setImageDrawable(this.nRO.getDrawable());
+            if (this.nRP) {
+                setImageDrawable(this.nRQ.getDrawable());
             } else {
-                setImageResource(this.nRL);
+                setImageResource(this.nRN);
             }
         } else if (i == 1) {
             this.cnU = 1;
-            if (this.nRN) {
-                setImageDrawable(this.nRP.getDrawable());
+            if (this.nRP) {
+                setImageDrawable(this.nRR.getDrawable());
             } else {
-                setImageResource(this.nRM);
+                setImageResource(this.nRO);
             }
         }
     }
 
-    public void dYg() {
+    public void dYh() {
         if (this.cnU == 0) {
             this.cnU = 1;
             setState(1);

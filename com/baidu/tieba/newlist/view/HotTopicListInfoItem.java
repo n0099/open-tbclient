@@ -27,47 +27,47 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     private TextView akp;
     private TextView akq;
     private TextView eAz;
-    private TbImageView jQC;
-    private View jQH;
-    private int jQu;
-    private TextView kfe;
-    private TextView lwX;
-    private TextView lwY;
+    private TbImageView jQE;
+    private View jQJ;
+    private int jQw;
+    private TextView kfg;
     private TextView lwZ;
-    private b lxa;
+    private TextView lxa;
+    private TextView lxb;
+    private b lxc;
 
     public HotTopicListInfoItem(Context context) {
         super(context);
-        this.jQu = 3;
+        this.jQw = 3;
         initView();
     }
 
     public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jQu = 3;
+        this.jQw = 3;
         initView();
     }
 
     public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jQu = 3;
+        this.jQw = 3;
         initView();
     }
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_list_info_item, (ViewGroup) this, true);
-        this.jQH = findViewById(R.id.rootLayout);
-        this.jQC = (TbImageView) findViewById(R.id.coverView);
+        this.jQJ = findViewById(R.id.rootLayout);
+        this.jQE = (TbImageView) findViewById(R.id.coverView);
         this.akp = (TextView) findViewById(R.id.indexView);
         this.eAz = (TextView) findViewById(R.id.titleView);
         this.akq = (TextView) findViewById(R.id.tagView);
-        this.lwX = (TextView) findViewById(R.id.numView);
-        this.kfe = (TextView) findViewById(R.id.descView);
-        this.lwY = (TextView) findViewById(R.id.titlePre);
-        this.lwZ = (TextView) findViewById(R.id.titleNext);
-        this.jQC.setPlaceHolder(1);
-        this.jQC.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.jQC.setConrers(15);
+        this.lwZ = (TextView) findViewById(R.id.numView);
+        this.kfg = (TextView) findViewById(R.id.descView);
+        this.lxa = (TextView) findViewById(R.id.titlePre);
+        this.lxb = (TextView) findViewById(R.id.titleNext);
+        this.jQE.setPlaceHolder(1);
+        this.jQE.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.jQE.setConrers(15);
         findViewById(R.id.rootLayout).setOnClickListener(this);
     }
 
@@ -77,45 +77,45 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.lxa = bVar;
-            this.jQC.startLoad(bVar.cover, 10, false);
+            this.lxc = bVar;
+            this.jQE.startLoad(bVar.cover, 10, false);
             this.eAz.setText(bVar.title);
-            this.kfe.setText(bVar.desc);
+            this.kfg.setText(bVar.desc);
             String C = TagTextHelper.C(this.akq.getContext(), bVar.tag);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eAz.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lwZ.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lxb.getLayoutParams();
             if (TextUtils.isEmpty(C)) {
                 this.akq.setVisibility(8);
                 layoutParams.rightMargin = l.getDimens(this.akq.getContext(), R.dimen.tbds42);
                 this.eAz.setLayoutParams(layoutParams);
                 layoutParams2.leftMargin = -layoutParams.rightMargin;
-                this.lwZ.setLayoutParams(layoutParams2);
+                this.lxb.setLayoutParams(layoutParams2);
             } else {
                 layoutParams.rightMargin = l.getDimens(this.akq.getContext(), R.dimen.tbds100);
                 this.eAz.setLayoutParams(layoutParams);
                 layoutParams2.leftMargin = -layoutParams.rightMargin;
-                this.lwZ.setLayoutParams(layoutParams2);
+                this.lxb.setLayoutParams(layoutParams2);
                 this.akq.setVisibility(0);
                 this.akq.setText(C);
             }
-            cPz();
+            cPA();
             if (bVar.replyNum > 0) {
-                this.lwX.setVisibility(0);
-                this.lwX.setText(this.lwX.getContext().getResources().getString(R.string.hot_topic_rank_item_tag, au.dX(bVar.replyNum)));
+                this.lwZ.setVisibility(0);
+                this.lwZ.setText(this.lwZ.getContext().getResources().getString(R.string.hot_topic_rank_item_tag, au.dX(bVar.replyNum)));
             } else {
-                this.lwX.setVisibility(4);
+                this.lwZ.setVisibility(4);
             }
             this.akp.setText("" + bVar.index);
         }
     }
 
-    private void cPz() {
-        if (this.lxa != null) {
-            int pZ = TagTextHelper.pZ(this.lxa.tag);
+    private void cPA() {
+        if (this.lxc != null) {
+            int pZ = TagTextHelper.pZ(this.lxc.tag);
             Drawable background = this.akq.getBackground();
             DrawableCompat.setTint(background, ap.getColor(pZ));
             this.akq.setBackgroundDrawable(background);
-            int qa = TagTextHelper.qa(this.lxa.index);
+            int qa = TagTextHelper.qa(this.lxc.index);
             Drawable background2 = this.akp.getBackground();
             DrawableCompat.setTint(background2, ap.getColor(qa));
             this.akp.setBackgroundDrawable(background2);
@@ -123,27 +123,27 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jQu != i) {
-            a.g(this.jQH, R.color.CAM_X0205, R.color.CAM_X0204);
+        if (this.jQw != i) {
+            a.g(this.jQJ, R.color.CAM_X0205, R.color.CAM_X0204);
             ap.setViewTextColor(this.akq, R.color.CAM_X0101);
             ap.setViewTextColor(this.akp, R.color.CAM_X0101);
-            ap.setViewTextColor(this.kfe, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lwX, R.color.CAM_X0109);
+            ap.setViewTextColor(this.kfg, R.color.CAM_X0109);
+            ap.setViewTextColor(this.lwZ, R.color.CAM_X0109);
             ap.setViewTextColor(this.eAz, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lwY, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lwZ, R.color.CAM_X0105);
-            cPz();
-            this.jQu = i;
+            ap.setViewTextColor(this.lxa, R.color.CAM_X0105);
+            ap.setViewTextColor(this.lxb, R.color.CAM_X0105);
+            cPA();
+            this.jQw = i;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.lxa != null && this.lxa.topicId > 0) {
+        if (this.lxc != null && this.lxc.topicId > 0) {
             if (this.ajQ != null) {
-                this.ajQ.a(view, this.lxa, this.lxa.index, this.lxa.topicId);
+                this.ajQ.a(view, this.lxc, this.lxc.index, this.lxc.topicId);
             }
-            new HotTopicActivityConfig(getContext()).createNormalConfig("" + this.lxa.topicId, null, "5").start();
+            new HotTopicActivityConfig(getContext()).createNormalConfig("" + this.lxc.topicId, null, "5").start();
         }
     }
 }

@@ -21,7 +21,7 @@ public abstract class a {
     private DialogInterface.OnCancelListener mCancelListenr;
     private AlertDialog mDialog;
     private View mView;
-    protected TbPageContext oty;
+    protected TbPageContext otA;
     private boolean bFK = false;
     private boolean bFL = false;
     private int mDialogGravity = -1;
@@ -37,7 +37,7 @@ public abstract class a {
     protected abstract void initData();
 
     public a(TbPageContext tbPageContext) {
-        this.oty = tbPageContext;
+        this.otA = tbPageContext;
         this.beD = tbPageContext.getPageActivity();
     }
 

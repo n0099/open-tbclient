@@ -15,10 +15,10 @@ public class b implements q {
     private String cur_time;
     private ForumInfo forum;
     private Long forum_rule_id;
-    private int jhH;
-    private boolean jhI;
-    private d jhJ;
-    private a jhK;
+    private int jhJ;
+    private boolean jhK;
+    private d jhL;
+    private a jhM;
     private String preface;
     private String publish_time;
     private List<ForumRule> rules;
@@ -30,21 +30,21 @@ public class b implements q {
             this.title = dataRes.title;
             this.preface = dataRes.preface;
             this.rules = dataRes.rules;
-            this.jhH = dataRes.audit_status.intValue();
+            this.jhJ = dataRes.audit_status.intValue();
             this.audit_opinion = dataRes.audit_opinion;
-            this.jhI = dataRes.is_manager.intValue() == 1;
+            this.jhK = dataRes.is_manager.intValue() == 1;
             this.forum_rule_id = dataRes.forum_rule_id;
             this.publish_time = dataRes.publish_time;
             this.bazhu = dataRes.bazhu;
             this.cur_time = dataRes.cur_time;
-            this.jhJ = new d();
-            this.jhJ.a(dataRes);
-            this.jhK = new a();
-            this.jhK.a(dataRes);
+            this.jhL = new d();
+            this.jhL.a(dataRes);
+            this.jhM = new a();
+            this.jhM.a(dataRes);
         }
     }
 
-    public ForumInfo cGC() {
+    public ForumInfo cGD() {
         return this.forum;
     }
 
@@ -56,27 +56,27 @@ public class b implements q {
         return this.preface;
     }
 
-    public List<ForumRule> cGD() {
+    public List<ForumRule> cGE() {
         return this.rules;
     }
 
-    public int cGE() {
-        return this.jhH;
+    public int cGF() {
+        return this.jhJ;
     }
 
-    public String cGF() {
+    public String cGG() {
         return this.audit_opinion;
     }
 
-    public boolean cGG() {
-        return this.jhI;
+    public boolean cGH() {
+        return this.jhK;
     }
 
-    public String cGB() {
+    public String cGC() {
         return this.publish_time;
     }
 
-    public BawuRoleInfoPub cGH() {
+    public BawuRoleInfoPub cGI() {
         return this.bazhu;
     }
 
@@ -89,19 +89,19 @@ public class b implements q {
     }
 
     public void qE(boolean z) {
-        this.jhI = z;
+        this.jhK = z;
     }
 
     public void b(BawuRoleInfoPub bawuRoleInfoPub) {
         this.bazhu = bawuRoleInfoPub;
     }
 
-    public String cGI() {
+    public String cGJ() {
         return this.cur_time;
     }
 
-    public a cGJ() {
-        return this.jhK;
+    public a cGK() {
+        return this.jhM;
     }
 
     @Override // com.baidu.adp.widget.ListView.q

@@ -5,56 +5,56 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
 /* loaded from: classes22.dex */
 public class o {
-    private View iVj;
-    private int iVk = -1;
-    private int iVl = -1;
+    private View iVl;
+    private int iVm = -1;
+    private int iVn = -1;
 
     public o(View view) {
-        this.iVj = view;
+        this.iVl = view;
     }
 
     public int getOriginHeight() {
-        return this.iVk;
+        return this.iVm;
     }
 
     public void setOriginHeight(int i) {
-        this.iVk = i;
+        this.iVm = i;
     }
 
     public void zL(int i) {
-        this.iVl = i;
+        this.iVn = i;
     }
 
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.iVj != null && (layoutParams = this.iVj.getLayoutParams()) != null) {
+        if (this.iVl != null && (layoutParams = this.iVl.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.iVl = i;
-            this.iVj.setLayoutParams(layoutParams);
+            this.iVn = i;
+            this.iVl.setLayoutParams(layoutParams);
         }
     }
 
     public void C(double d) {
-        if (this.iVj != null) {
-            int i = (int) (this.iVk + (PullRefreshFrameLayout.fbv * d));
-            ViewGroup.LayoutParams layoutParams = this.iVj.getLayoutParams();
+        if (this.iVl != null) {
+            int i = (int) (this.iVm + (PullRefreshFrameLayout.fbv * d));
+            ViewGroup.LayoutParams layoutParams = this.iVl.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.iVl = layoutParams.height;
-                this.iVj.setLayoutParams(layoutParams);
+                this.iVn = layoutParams.height;
+                this.iVl.setLayoutParams(layoutParams);
             }
         }
     }
 
     public int getHeight() {
         ViewGroup.LayoutParams layoutParams;
-        if (this.iVj == null || (layoutParams = this.iVj.getLayoutParams()) == null) {
+        if (this.iVl == null || (layoutParams = this.iVl.getLayoutParams()) == null) {
             return 0;
         }
         return layoutParams.height;
     }
 
-    public int cCW() {
-        return this.iVl;
+    public int cCX() {
+        return this.iVn;
     }
 }

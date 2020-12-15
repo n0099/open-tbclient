@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes23.dex */
 public class c extends af.a {
     public RelativeLayout bIq;
-    public ImageView hQY;
+    public ImageView hRa;
     public View mLineView;
     public int mSkinType;
     public TextView mTitleView;
@@ -20,6 +20,6 @@ public class c extends af.a {
         this.bIq = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
         this.mLineView = view.findViewById(R.id.info_complaint_diver_top);
         this.mTitleView = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.hQY = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.hRa = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
     }
 }

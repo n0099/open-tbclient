@@ -17,12 +17,12 @@ public class w {
     private List<k> erW = new ArrayList();
     private String mSign;
     private int mThreshold;
-    private JSONObject oHs;
-    private JSONObject oHt;
-    private String oHu;
-    private String oHv;
-    private int oHw;
-    private int oHx;
+    private JSONObject oHu;
+    private JSONObject oHv;
+    private String oHw;
+    private String oHx;
+    private int oHy;
+    private int oHz;
 
     public w(String str, JSONObject jSONObject) {
         this.mSign = str;
@@ -45,20 +45,20 @@ public class w {
         this.erW = list;
     }
 
-    public String eiV() {
+    public String eiW() {
+        return this.oHx;
+    }
+
+    public JSONObject eiX() {
         return this.oHv;
     }
 
-    public JSONObject eiW() {
-        return this.oHt;
-    }
-
-    public int eiX() {
-        return this.oHw;
-    }
-
     public int eiY() {
-        return this.oHx;
+        return this.oHy;
+    }
+
+    public int eiZ() {
+        return this.oHz;
     }
 
     public boolean bgt() {
@@ -67,19 +67,19 @@ public class w {
                 return false;
             }
             JSONObject jSONObject = this.erV;
-            this.oHs = jSONObject.optJSONObject("set");
+            this.oHu = jSONObject.optJSONObject("set");
             this.mThreshold = jSONObject.optInt("threshold", 10000);
             this.erU = jSONObject.optInt("timeup", PersonListModel.CACHETIME);
-            this.oHv = jSONObject.optString("step");
-            this.oHu = jSONObject.optString("replace");
-            this.oHt = jSONObject.optJSONObject("del");
-            this.oHw = jSONObject.optInt("all_size", 614400);
-            this.oHx = jSONObject.optInt("single_size", 153600);
-            if (this.oHs != null) {
-                Iterator<String> keys = this.oHs.keys();
+            this.oHx = jSONObject.optString("step");
+            this.oHw = jSONObject.optString("replace");
+            this.oHv = jSONObject.optJSONObject("del");
+            this.oHy = jSONObject.optInt("all_size", 614400);
+            this.oHz = jSONObject.optInt("single_size", 153600);
+            if (this.oHu != null) {
+                Iterator<String> keys = this.oHu.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    JSONObject jSONObject2 = this.oHs.getJSONObject(next);
+                    JSONObject jSONObject2 = this.oHu.getJSONObject(next);
                     if (jSONObject2 != null) {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("data");
                         String string = jSONObject2.getString("version");

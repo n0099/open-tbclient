@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class e {
     private boolean ajP;
-    private ImageView iEd;
+    private ImageView iEf;
     private TbPageContext<?> mPageContext;
     private TextView mTitleView;
     private View mView;
@@ -25,8 +25,8 @@ public class e {
         this.mPageContext = tbPageContext;
         this.mView = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.recommend_forum_title_item_view, (ViewGroup) null);
         this.mTitleView = (TextView) this.mView.findViewById(R.id.text_title);
-        this.iEd = (ImageView) this.mView.findViewById(R.id.icon_into);
-        this.iEd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.e.1
+        this.iEf = (ImageView) this.mView.findViewById(R.id.icon_into);
+        this.iEf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.d.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tieba.enterForum.b.d(e.this.mPageContext, null);
@@ -50,7 +50,7 @@ public class e {
             this.mTitleView.setText(title);
         }
         ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        SvgManager.btW().a(this.iEd, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.btW().a(this.iEf, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setHasLikeForum(boolean z) {

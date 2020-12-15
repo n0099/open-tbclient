@@ -24,15 +24,15 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e extends BaseAdapter {
     private ArrayList<i.b> eOt = new ArrayList<>();
-    private int gDD;
+    private int gDF;
     private String mLiveId;
     private TbPageContext mPageContext;
-    private String ohD;
+    private String ohF;
 
     public e(TbPageContext tbPageContext, int i, String str, String str2) {
         this.mPageContext = tbPageContext;
-        this.gDD = i;
-        this.ohD = str;
+        this.gDF = i;
+        this.ohF = str;
         this.mLiveId = str2;
     }
 
@@ -74,18 +74,18 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_rank__list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.ojC = (CharmRankItemView) view.findViewById(a.f.item);
+            aVar2.ojE = (CharmRankItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (item = getItem(i)) != null) {
-            aVar.ojC.setData(i + 1, item);
-            aVar.ojC.oiu.setData(item);
-            aVar.ojC.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
+            aVar.ojE.setData(i + 1, item);
+            aVar.ojE.oiw.setData(item);
+            aVar.ojE.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.a
-                public void ecQ() {
+                public void ecR() {
                     if (!TbadkCoreApplication.isLogin()) {
                         ViewHelper.skipToLoginActivity(e.this.mPageContext.getContext());
                         return;
@@ -106,7 +106,7 @@ public class e extends BaseAdapter {
                             }
                         });
                     } else if (!item.Fj()) {
-                        aVar3.s(item.user_uk, e.this.ohD, e.this.mLiveId);
+                        aVar3.s(item.user_uk, e.this.ohF, e.this.mLiveId);
                         aVar3.a(new a.InterfaceC0203a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.2
                             @Override // com.baidu.live.personmanager.a.InterfaceC0203a
                             public void Qu() {
@@ -133,11 +133,11 @@ public class e extends BaseAdapter {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ohD);
-            if (this.gDD == 0) {
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ohF);
+            if (this.gDF == 0) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "contribtab");
                 jSONObject.put("contrib_num", i);
-            } else if (this.gDD == 1) {
+            } else if (this.gDF == 1) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "charmtab");
                 jSONObject.put("charm_num", i);
             }
@@ -149,7 +149,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class a {
-        private CharmRankItemView ojC;
+        private CharmRankItemView ojE;
 
         private a() {
         }

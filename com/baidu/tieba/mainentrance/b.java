@@ -6,8 +6,8 @@ public class b {
     private String forumAvatar;
     private long forumId;
     private String forumName;
-    private long kZx;
-    private long kZy;
+    private long kZA;
+    private long kZB;
     private long kZz;
 
     public void a(ForumInfo forumInfo) {
@@ -15,9 +15,9 @@ public class b {
             this.forumAvatar = forumInfo.avatar;
             this.forumId = forumInfo.forum_id.longValue();
             this.forumName = forumInfo.forum_name;
-            this.kZx = forumInfo.time_out.longValue();
-            this.kZy = forumInfo.member_count.longValue();
-            this.kZz = forumInfo.thread_count.longValue();
+            this.kZz = forumInfo.time_out.longValue();
+            this.kZA = forumInfo.member_count.longValue();
+            this.kZB = forumInfo.thread_count.longValue();
         }
     }
 }

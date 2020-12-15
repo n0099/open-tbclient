@@ -20,25 +20,23 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class e extends com.baidu.adp.base.c<PraiseListActivity> {
-    private c mhX;
-    private PraiseListActivity mhY;
-    private View mhZ;
-    private NavigationBar mia;
+    private c mhZ;
+    private PraiseListActivity mia;
     private View mib;
-    private NoDataView mic;
+    private NavigationBar mic;
     private View mie;
-    private TextView mif;
-    private BdListView mig;
-    private View mih;
-    private TextView mii;
-    private TextView mij;
-    private ProgressBar mik;
-    private ProgressBar mil;
+    private NoDataView mif;
+    private View mig;
+    private TextView mih;
+    private BdListView mii;
+    private View mij;
+    private TextView mik;
+    private TextView mil;
+    private ProgressBar mim;
+    private ProgressBar mio;
 
     public e(PraiseListActivity praiseListActivity, String str) {
         super(praiseListActivity.getPageContext());
-        this.mhX = null;
-        this.mhY = null;
         this.mhZ = null;
         this.mia = null;
         this.mib = null;
@@ -51,151 +49,153 @@ public class e extends com.baidu.adp.base.c<PraiseListActivity> {
         this.mij = null;
         this.mik = null;
         this.mil = null;
-        this.mhY = praiseListActivity;
+        this.mim = null;
+        this.mio = null;
+        this.mia = praiseListActivity;
         praiseListActivity.setContentView(R.layout.zan_list_activity);
-        this.mhZ = praiseListActivity.findViewById(R.id.zan_list_page_parent);
-        this.mia = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
-        this.mib = praiseListActivity.findViewById(R.id.zan_list_page_frame);
-        this.mic = NoDataViewFactory.a(this.mhY.getPageContext().getContext(), this.mhZ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mhY.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.qP(R.string.praise_list_no_data), null);
-        this.mig = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
-        TextView textView = new TextView(this.mhY.getActivity());
+        this.mib = praiseListActivity.findViewById(R.id.zan_list_page_parent);
+        this.mic = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
+        this.mie = praiseListActivity.findViewById(R.id.zan_list_page_frame);
+        this.mif = NoDataViewFactory.a(this.mia.getPageContext().getContext(), this.mib, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.mia.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.qP(R.string.praise_list_no_data), null);
+        this.mii = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
+        TextView textView = new TextView(this.mia.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.mig.addHeaderView(textView, 0);
-        this.mik = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
-        this.mhX = new c(praiseListActivity);
-        this.mig.setAdapter((ListAdapter) this.mhX);
-        this.mig.setOnScrollListener(this.mhX);
-        this.mia.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mia.setTitleText("");
-        this.mie = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
-        this.mie.setOnClickListener(praiseListActivity);
-        this.mif = (TextView) this.mie.findViewById(R.id.zan_list_head_text);
-        this.mif.setText(str);
-        this.mie.setVisibility(8);
-        this.mig.addHeaderView(this.mie);
-        this.mih = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
-        this.mii = (TextView) this.mih.findViewById(R.id.zan_list_foot_text_continue);
-        this.mij = (TextView) this.mih.findViewById(R.id.zan_list_foot_text_more);
-        this.mil = (ProgressBar) this.mih.findViewById(R.id.zan_list_foot_progress);
-        this.mih.setVisibility(8);
-        this.mii.setOnClickListener(praiseListActivity);
-        this.mig.addFooterView(this.mih);
-        this.mig.setOnItemClickListener(praiseListActivity);
+        this.mii.addHeaderView(textView, 0);
+        this.mim = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
+        this.mhZ = new c(praiseListActivity);
+        this.mii.setAdapter((ListAdapter) this.mhZ);
+        this.mii.setOnScrollListener(this.mhZ);
+        this.mic.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mic.setTitleText("");
+        this.mig = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
+        this.mig.setOnClickListener(praiseListActivity);
+        this.mih = (TextView) this.mig.findViewById(R.id.zan_list_head_text);
+        this.mih.setText(str);
+        this.mig.setVisibility(8);
+        this.mii.addHeaderView(this.mig);
+        this.mij = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
+        this.mik = (TextView) this.mij.findViewById(R.id.zan_list_foot_text_continue);
+        this.mil = (TextView) this.mij.findViewById(R.id.zan_list_foot_text_more);
+        this.mio = (ProgressBar) this.mij.findViewById(R.id.zan_list_foot_progress);
+        this.mij.setVisibility(8);
+        this.mik.setOnClickListener(praiseListActivity);
+        this.mii.addFooterView(this.mij);
+        this.mii.setOnItemClickListener(praiseListActivity);
     }
 
-    public void cXm() {
-        if (this.mhX != null) {
-            this.mhX.notifyDataSetChanged();
+    public void cXn() {
+        if (this.mhZ != null) {
+            this.mhZ.notifyDataSetChanged();
         }
     }
 
     public void wo(boolean z) {
         if (z) {
-            this.mil.setVisibility(0);
+            this.mio.setVisibility(0);
         } else {
-            this.mik.setVisibility(0);
+            this.mim.setVisibility(0);
         }
     }
 
-    public void dxZ() {
-        this.mik.setVisibility(8);
-        this.mil.setVisibility(8);
+    public void dya() {
+        this.mim.setVisibility(8);
+        this.mio.setVisibility(8);
     }
 
     public boolean isLoading() {
-        return this.mik.getVisibility() == 0 || this.mil.getVisibility() == 0;
+        return this.mim.getVisibility() == 0 || this.mio.getVisibility() == 0;
     }
 
     public void b(int i, List<a> list, int i2, int i3) {
         String format;
         String format2;
-        this.mik.setVisibility(8);
-        this.mil.setVisibility(8);
-        this.mie.setVisibility(0);
+        this.mim.setVisibility(8);
+        this.mio.setVisibility(8);
+        this.mig.setVisibility(0);
         if (i > 0) {
-            switch (this.mhY.pageType) {
+            switch (this.mia.pageType) {
                 case 1:
-                    format2 = String.format(this.mhY.getResources().getString(R.string.graffiti_list_title_count), au.numFormatOverWan(i));
+                    format2 = String.format(this.mia.getResources().getString(R.string.graffiti_list_title_count), au.numFormatOverWan(i));
                     break;
                 default:
-                    format2 = String.format(this.mhY.getResources().getString(R.string.praise_list_title_count), au.numFormatOverWan(i));
+                    format2 = String.format(this.mia.getResources().getString(R.string.praise_list_title_count), au.numFormatOverWan(i));
                     break;
             }
-            this.mia.setTitleText(format2);
+            this.mic.setTitleText(format2);
         } else {
-            this.mia.setTitleText("");
+            this.mic.setTitleText("");
         }
         if (list == null || list.size() < 1) {
-            bC(null, this.mhY.pageType);
+            bC(null, this.mia.pageType);
             return;
         }
-        this.mib.setVisibility(0);
-        this.mic.setVisibility(8);
-        this.mhX.ft(list);
-        this.mhX.notifyDataSetChanged();
+        this.mie.setVisibility(0);
+        this.mif.setVisibility(8);
+        this.mhZ.ft(list);
+        this.mhZ.notifyDataSetChanged();
         switch (i2) {
             case 1001:
-                this.mih.setVisibility(0);
-                this.mii.setVisibility(0);
-                this.mij.setVisibility(8);
+                this.mij.setVisibility(0);
+                this.mik.setVisibility(0);
+                this.mil.setVisibility(8);
                 return;
             case 1002:
-                this.mih.setVisibility(8);
+                this.mij.setVisibility(8);
                 return;
             case 1003:
-                this.mih.setVisibility(0);
-                ap.setBackgroundResource(this.mih, R.drawable.bg_pack);
-                this.mii.setVisibility(8);
                 this.mij.setVisibility(0);
-                switch (this.mhY.pageType) {
+                ap.setBackgroundResource(this.mij, R.drawable.bg_pack);
+                this.mik.setVisibility(8);
+                this.mil.setVisibility(0);
+                switch (this.mia.pageType) {
                     case 1:
-                        format = String.format(this.mhY.getResources().getString(R.string.graffiti_list_title_count), au.numFormatOverWan(i));
+                        format = String.format(this.mia.getResources().getString(R.string.graffiti_list_title_count), au.numFormatOverWan(i));
                         break;
                     default:
-                        format = String.format(this.mhY.getResources().getString(R.string.praise_item_more), au.numFormatOverWan(i));
+                        format = String.format(this.mia.getResources().getString(R.string.praise_item_more), au.numFormatOverWan(i));
                         break;
                 }
-                this.mij.setText(format);
+                this.mil.setText(format);
                 return;
             default:
-                this.mih.setVisibility(8);
+                this.mij.setVisibility(8);
                 return;
         }
     }
 
     public void bC(String str, int i) {
-        this.mik.setVisibility(8);
-        this.mil.setVisibility(8);
-        this.mib.setVisibility(8);
-        this.mic.setVisibility(0);
+        this.mim.setVisibility(8);
+        this.mio.setVisibility(8);
+        this.mie.setVisibility(8);
+        this.mif.setVisibility(0);
         if (!StringUtils.isNull(str)) {
-            this.mic.setTextOption(NoDataViewFactory.d.Cy(str));
+            this.mif.setTextOption(NoDataViewFactory.d.Cy(str));
         } else if (1 == i) {
-            this.mic.setTextOption(NoDataViewFactory.d.qP(R.string.graffiti_list_no_data));
+            this.mif.setTextOption(NoDataViewFactory.d.qP(R.string.graffiti_list_no_data));
         } else {
-            this.mic.setTextOption(NoDataViewFactory.d.qP(R.string.praise_list_no_data));
+            this.mif.setTextOption(NoDataViewFactory.d.qP(R.string.praise_list_no_data));
         }
     }
 
     public void a(com.baidu.tbadk.core.c cVar, int i) {
         if (cVar != null) {
             cVar.setNightMode(i == 1);
-            cVar.onModeChanged(this.mhZ);
-            cVar.onModeChanged(this.mie);
-            cVar.onModeChanged(this.mih);
-            this.mia.onChangeSkinType(this.mhY.getPageContext(), i);
-            ap.setBackgroundResource(this.mih, R.drawable.bg_pack);
-            if (this.mic != null) {
-                this.mic.onChangeSkinType(this.mhY.getPageContext(), i);
+            cVar.onModeChanged(this.mib);
+            cVar.onModeChanged(this.mig);
+            cVar.onModeChanged(this.mij);
+            this.mic.onChangeSkinType(this.mia.getPageContext(), i);
+            ap.setBackgroundResource(this.mij, R.drawable.bg_pack);
+            if (this.mif != null) {
+                this.mif.onChangeSkinType(this.mia.getPageContext(), i);
             }
         }
     }
 
-    public View dya() {
-        return this.mie;
+    public View dyb() {
+        return this.mig;
     }
 
-    public View dyb() {
-        return this.mii;
+    public View dyc() {
+        return this.mik;
     }
 }

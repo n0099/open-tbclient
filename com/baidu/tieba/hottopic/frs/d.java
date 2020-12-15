@@ -21,9 +21,9 @@ import java.util.List;
 /* loaded from: classes21.dex */
 public class d {
     private BdTypeRecyclerView Yf;
-    private PbListView gre;
-    private final a keC;
-    private final b keD;
+    private PbListView grg;
+    private final a keE;
+    private final b keF;
     private final TbPageContext mPageContext;
     private View mRootView;
 
@@ -34,35 +34,35 @@ public class d {
     public d(a aVar, View view, TbPageContext tbPageContext) {
         this.mRootView = view;
         this.mPageContext = tbPageContext;
-        this.keC = aVar;
+        this.keE = aVar;
         this.Yf = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
         this.Yf.setLayoutManager(new LinearLayoutManager(this.Yf.getContext()));
         this.Yf.setFadingEdgeLength(0);
         this.Yf.setOverScrollMode(2);
-        this.gre = new PbListView(tbPageContext.getPageActivity());
-        this.gre.createView();
-        this.gre.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.gre.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.gre.setLineGone();
-        this.gre.setTextSize(R.dimen.tbfontsize33);
-        this.gre.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.Yf.setNextPage(this.gre);
-        this.gre.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.gre.endLoadData();
-        this.gre.setText(tbPageContext.getResources().getString(R.string.list_no_more));
+        this.grg = new PbListView(tbPageContext.getPageActivity());
+        this.grg.createView();
+        this.grg.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.grg.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.grg.setLineGone();
+        this.grg.setTextSize(R.dimen.tbfontsize33);
+        this.grg.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.Yf.setNextPage(this.grg);
+        this.grg.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.grg.endLoadData();
+        this.grg.setText(tbPageContext.getResources().getString(R.string.list_no_more));
         onChangeSkinType();
-        this.keD = new b(tbPageContext, this.Yf);
+        this.keF = new b(tbPageContext, this.Yf);
     }
 
     public void b(TbPageTag tbPageTag) {
-        this.keD.b(tbPageTag);
+        this.keF.b(tbPageTag);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.gre != null) {
-            this.gre.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.gre.changeSkin(skinType);
+        if (this.grg != null) {
+            this.grg.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.grg.changeSkin(skinType);
         }
         if (this.Yf != null && this.Yf.getAdapter() != null) {
             this.Yf.getAdapter().notifyDataSetChanged();
@@ -100,7 +100,7 @@ public class d {
         this.Yf.setData(arrayList);
     }
 
-    public void cBL() {
+    public void cBM() {
         this.Yf.scrollToPosition(0);
     }
 

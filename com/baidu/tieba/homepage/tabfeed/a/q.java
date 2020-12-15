@@ -23,7 +23,7 @@ public class q extends com.baidu.adp.widget.ListView.a<bx, com.baidu.card.a<by>>
     private ab<by> agG;
     private v amH;
     private BdUniqueId fzO;
-    private at iBk;
+    private at iBm;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -34,7 +34,7 @@ public class q extends com.baidu.adp.widget.ListView.a<bx, com.baidu.card.a<by>>
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, by byVar) {
-                t.csg().mj(true);
+                t.csh().mj(true);
                 com.baidu.tieba.homepage.tabfeed.b.a(view, byVar, q.this.mTabName);
             }
         };
@@ -68,11 +68,11 @@ public class q extends com.baidu.adp.widget.ListView.a<bx, com.baidu.card.a<by>>
                 }
             }
         });
-        this.iBk = hVar;
-        this.iBk.setPageUniqueId(this.fzO);
-        this.iBk.setFrom("14");
-        this.iBk.setStageType("2001");
-        aVar.c(this.iBk);
+        this.iBm = hVar;
+        this.iBm.setPageUniqueId(this.fzO);
+        this.iBm.setFrom("14");
+        this.iBm.setStageType("2001");
+        aVar.c(this.iBm);
         ak a2 = aVar.a(BaseCardInfo.SupportType.CONTENT, viewGroup, this.amH);
         com.baidu.card.a<by> aVar2 = new com.baidu.card.a<>(a2);
         aVar2.setPageId(this.fzO);
@@ -123,9 +123,9 @@ public class q extends com.baidu.adp.widget.ListView.a<bx, com.baidu.card.a<by>>
             oVar.mLocate = "20";
             oVar.amY = byVar.tid;
             oVar.mSource = byVar.mRecomSource;
-            oVar.myo = byVar.mRecomAbTag;
-            oVar.myp = byVar.mRecomWeight;
-            oVar.myq = "14";
+            oVar.myq = byVar.mRecomAbTag;
+            oVar.myr = byVar.mRecomWeight;
+            oVar.mys = "14";
             oVar.mGroupId = this.mTabName;
             oVar.mFloor = String.valueOf(byVar.eHa);
             if (byVar.bqh() != null) {
@@ -133,10 +133,10 @@ public class q extends com.baidu.adp.widget.ListView.a<bx, com.baidu.card.a<by>>
             }
             if (byVar.bmn() != null) {
                 oVar.fFV = String.valueOf(byVar.bmn().getFid());
-                oVar.myx = byVar.bmn().getNid();
+                oVar.myz = byVar.bmn().getNid();
                 if (byVar.bmn().bph() != null) {
-                    oVar.myt = byVar.bmn().bph().video_md5;
-                    oVar.myv = String.valueOf(byVar.bmn().bph().is_vertical);
+                    oVar.myv = byVar.bmn().bph().video_md5;
+                    oVar.myx = String.valueOf(byVar.bmn().bph().is_vertical);
                 }
             }
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();

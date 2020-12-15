@@ -14,45 +14,45 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d {
-    private RelativeLayout ipH;
-    private ImageView ipI;
-    private MessageRedDotView ipJ;
+    private RelativeLayout ipJ;
+    private ImageView ipK;
+    private MessageRedDotView ipL;
     private Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.ipH = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
-        this.ipI = (ImageView) this.mRootView.findViewById(R.id.img_message);
-        this.ipJ = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
-        this.ipJ.setShadowEnabled(false);
+        this.ipJ = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
+        this.ipK = (ImageView) this.mRootView.findViewById(R.id.img_message);
+        this.ipL = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
+        this.ipL.setShadowEnabled(false);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public ImageView cti() {
-        return this.ipI;
+    public ImageView ctj() {
+        return this.ipK;
     }
 
-    public MessageRedDotView ctj() {
-        return this.ipJ;
+    public MessageRedDotView ctk() {
+        return this.ipL;
     }
 
     public void A(boolean z, int i) {
         if (z) {
-            this.ipJ.refresh(i);
-            this.ipJ.setVisibility(0);
+            this.ipL.refresh(i);
+            this.ipL.setVisibility(0);
             return;
         }
-        this.ipJ.setVisibility(8);
+        this.ipL.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.ipJ.onChangeSkinType();
-        this.ipI.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_information40, ap.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.ipL.onChangeSkinType();
+        this.ipK.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_information40, ap.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public void setVisibility(int i) {
@@ -63,9 +63,9 @@ public class d {
 
     public void a(NavigationBar.ControlAlign controlAlign, boolean z) {
         if (!z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
-            ((RelativeLayout.LayoutParams) this.ipI.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
-            ((RelativeLayout.LayoutParams) this.ipJ.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
-            this.ipH.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
+            ((RelativeLayout.LayoutParams) this.ipK.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.ipL.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            this.ipJ.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
         }
     }
 }

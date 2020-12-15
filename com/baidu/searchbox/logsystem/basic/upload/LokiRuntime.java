@@ -52,6 +52,6 @@ public class LokiRuntime {
     }
 
     public static ILokiIdentityNeedContext getIdentityNeedContext() {
-        return j.dLS();
+        return j.dLT();
     }
 }

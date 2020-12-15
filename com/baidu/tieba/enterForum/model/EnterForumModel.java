@@ -45,17 +45,17 @@ public class EnterForumModel extends BdBaseModel {
     public static final int TYPE_DB = 0;
     public static final int TYPE_DEFAULT = -1;
     public static final int TYPE_NET = 1;
-    CustomMessageListener iuZ;
-    private d iye;
-    RecentlyVisitedForumData iyf;
-    private b iyg;
-    private com.baidu.tieba.tbadkCore.d.b iyh;
-    private boolean iyi;
-    private boolean iyj;
-    private long iyk;
-    private long iyl;
+    CustomMessageListener ivb;
+    private d iyg;
+    RecentlyVisitedForumData iyh;
+    private b iyi;
+    private com.baidu.tieba.tbadkCore.d.b iyj;
+    private boolean iyk;
+    private boolean iyl;
     private long iym;
     private long iyn;
+    private long iyo;
+    private long iyp;
 
     /* loaded from: classes22.dex */
     public interface b {
@@ -63,7 +63,7 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public void pp(boolean z) {
-        this.iyi = z;
+        this.iyk = z;
     }
 
     /* loaded from: classes22.dex */
@@ -71,7 +71,7 @@ public class EnterForumModel extends BdBaseModel {
         public String error = "";
         public boolean isOk = false;
         public int type = -1;
-        public d iyp = null;
+        public d iyr = null;
 
         public a() {
         }
@@ -79,16 +79,16 @@ public class EnterForumModel extends BdBaseModel {
 
     public EnterForumModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.iye = null;
         this.iyg = null;
-        this.iyh = null;
-        this.iyi = false;
-        this.iyj = false;
-        this.iyk = 0L;
-        this.iyl = 0L;
+        this.iyi = null;
+        this.iyj = null;
+        this.iyk = false;
+        this.iyl = false;
         this.iym = 0L;
         this.iyn = 0L;
-        this.iuZ = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_FORUM) { // from class: com.baidu.tieba.enterForum.model.EnterForumModel.1
+        this.iyo = 0L;
+        this.iyp = 0L;
+        this.ivb = new CustomMessageListener(CmdConfigCustom.CMD_ENTER_FORUM) { // from class: com.baidu.tieba.enterForum.model.EnterForumModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -98,8 +98,8 @@ public class EnterForumModel extends BdBaseModel {
             }
         };
         setUniqueId(BdUniqueId.gen());
-        this.iyf = new RecentlyVisitedForumData();
-        MessageManager.getInstance().registerListener(this.iuZ);
+        this.iyh = new RecentlyVisitedForumData();
+        MessageManager.getInstance().registerListener(this.ivb);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,49 +107,49 @@ public class EnterForumModel extends BdBaseModel {
         return this.unique_id;
     }
 
-    public long cwl() {
-        return this.iyn;
-    }
-
     public long cwm() {
-        return this.iyl;
+        return this.iyp;
     }
 
     public long cwn() {
-        return this.iym;
+        return this.iyn;
     }
 
     public long cwo() {
-        return this.iyk;
+        return this.iyo;
     }
 
-    public d cwp() {
-        return this.iye;
+    public long cwp() {
+        return this.iym;
     }
 
-    public boolean cwq() {
-        if (!TbadkApplication.isLogin()) {
-            return false;
-        }
-        if (this.iye == null || this.iye.cuJ() == null) {
-            return true;
-        }
-        return this.iye.cuJ().cuO();
+    public d cwq() {
+        return this.iyg;
     }
 
     public boolean cwr() {
-        if (TbadkApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean("enter_forum_create_forum", true) && this.iye != null && this.iye.cuJ() != null) {
-            return this.iye.cuJ().cuN();
+        if (!TbadkApplication.isLogin()) {
+            return false;
+        }
+        if (this.iyg == null || this.iyg.cuK() == null) {
+            return true;
+        }
+        return this.iyg.cuK().cuP();
+    }
+
+    public boolean cws() {
+        if (TbadkApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean("enter_forum_create_forum", true) && this.iyg != null && this.iyg.cuK() != null) {
+            return this.iyg.cuK().cuO();
         }
         return false;
     }
 
     public void c(d dVar) {
-        this.iye = dVar;
+        this.iyg = dVar;
     }
 
     public void a(b bVar) {
-        this.iyg = bVar;
+        this.iyi = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -160,23 +160,23 @@ public class EnterForumModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         cancelMessage();
-        cws();
+        cwt();
         return true;
     }
 
-    private void cws() {
-        if (this.iyh != null) {
-            this.iyh.destory();
-            this.iyh = null;
+    private void cwt() {
+        if (this.iyj != null) {
+            this.iyj.destory();
+            this.iyj = null;
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.iuZ);
+        MessageManager.getInstance().unRegisterListener(this.ivb);
     }
 
     public void onPause() {
-        cvq();
+        cvr();
     }
 
     public boolean pq(boolean z) {
@@ -190,10 +190,10 @@ public class EnterForumModel extends BdBaseModel {
         forumrecommendrequestmessage.set_topic(0);
         forumrecommendrequestmessage.set_recommend(1);
         forumrecommendrequestmessage.set_sortType(Integer.valueOf(i));
-        forumrecommendrequestmessage.setForumData(this.iyf.getForumData());
-        this.iyk = System.currentTimeMillis();
-        if (this.iyh == null) {
-            this.iyh = new com.baidu.tieba.tbadkCore.d.b("forumrecommendStat");
+        forumrecommendrequestmessage.setForumData(this.iyh.getForumData());
+        this.iym = System.currentTimeMillis();
+        if (this.iyj == null) {
+            this.iyj = new com.baidu.tieba.tbadkCore.d.b("forumrecommendStat");
         }
         sendMessage(forumrecommendrequestmessage);
         return true;
@@ -207,25 +207,25 @@ public class EnterForumModel extends BdBaseModel {
     public void a(boolean z, int i, String str, boolean z2, int i2, long j, long j2) {
         a aVar = new a();
         boolean z3 = !z;
-        if (this.iyh != null) {
-            this.iyh.a(z2, z3, i, str, i2, j, j2);
-            this.iyh = null;
+        if (this.iyj != null) {
+            this.iyj.a(z2, z3, i, str, i2, j, j2);
+            this.iyj = null;
         }
-        if (z || !this.iye.isSuccess()) {
+        if (z || !this.iyg.isSuccess()) {
             if (str != null && str.length() > 0) {
                 setErrorString(str);
                 aVar.error = str;
             }
             aVar.type = 1;
             aVar.isOk = false;
-            aVar.iyp = this.iye;
-            this.iyg.a(aVar);
+            aVar.iyr = this.iyg;
+            this.iyi.a(aVar);
             return;
         }
         aVar.type = 1;
         aVar.isOk = true;
-        aVar.iyp = this.iye;
-        this.iyg.a(aVar);
+        aVar.iyr = this.iyg;
+        this.iyi.a(aVar);
     }
 
     public void a(forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage) {
@@ -254,7 +254,7 @@ public class EnterForumModel extends BdBaseModel {
 
     public void a(ResponsedMessage<?> responsedMessage, boolean z, int i, String str, boolean z2, int i2, long j, long j2) {
         if (z) {
-            this.iye = null;
+            this.iyg = null;
         }
         if (responsedMessage != null) {
             if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
@@ -263,38 +263,38 @@ public class EnterForumModel extends BdBaseModel {
                 b((forumRecommendHttpResponseMessage) responsedMessage);
             }
         }
-        this.iyi = false;
+        this.iyk = false;
         a(z, i, str, z2, i2, j, j2);
     }
 
     public void b(forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage) {
         if (forumrecommendhttpresponsemessage != null) {
             try {
-                this.iye = new d();
+                this.iyg = new d();
                 com.baidu.tieba.enterForum.b.a.a aVar = new com.baidu.tieba.enterForum.b.a.a();
                 aVar.a(forumrecommendhttpresponsemessage.getForumPopUpInfo());
-                this.iye.a(aVar);
-                this.iye.setTime(forumrecommendhttpresponsemessage.GetTime().intValue());
+                this.iyg.a(aVar);
+                this.iyg.setTime(forumrecommendhttpresponsemessage.GetTime().intValue());
                 g gVar = new g();
                 gVar.bn(forumrecommendhttpresponsemessage.GetLikeForum());
-                this.iye.a(gVar);
+                this.iyg.a(gVar);
                 bl blVar = new bl();
                 blVar.bm(forumrecommendhttpresponsemessage.GetRecommendForumInfoList());
-                this.iye.c(blVar);
-                this.iye.setIsSuccess(true);
-                this.iye.a(forumrecommendhttpresponsemessage.getHotSearchInfoData());
-                this.iye.setSortType(forumrecommendhttpresponsemessage.getSortType().intValue());
+                this.iyg.c(blVar);
+                this.iyg.setIsSuccess(true);
+                this.iyg.a(forumrecommendhttpresponsemessage.getHotSearchInfoData());
+                this.iyg.setSortType(forumrecommendhttpresponsemessage.getSortType().intValue());
                 ForumCreateInfoData forumCreateInfoData = new ForumCreateInfoData();
                 forumCreateInfoData.a(forumrecommendhttpresponsemessage.getForumCreateInfo());
-                this.iye.a(forumCreateInfoData);
+                this.iyg.a(forumCreateInfoData);
                 PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
                 privateForumPopInfoData.a(forumrecommendhttpresponsemessage.getPrivatePopInfo());
-                this.iye.a(privateForumPopInfoData);
+                this.iyg.a(privateForumPopInfoData);
                 j jVar = new j();
                 jVar.cM(forumrecommendhttpresponsemessage.getTabFeedList());
-                this.iye.a(jVar);
+                this.iyg.a(jVar);
             } catch (Exception e) {
-                this.iye.setIsSuccess(false);
+                this.iyg.setIsSuccess(false);
                 BdLog.e(e.getMessage());
             }
         }
@@ -303,31 +303,31 @@ public class EnterForumModel extends BdBaseModel {
     public void b(forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage) {
         if (forumrecommendsocketresponsemessage != null) {
             try {
-                this.iye = new d();
+                this.iyg = new d();
                 com.baidu.tieba.enterForum.b.a.a aVar = new com.baidu.tieba.enterForum.b.a.a();
                 aVar.a(forumrecommendsocketresponsemessage.getForumPopupInfo());
-                this.iye.a(aVar);
-                this.iye.setTime(forumrecommendsocketresponsemessage.GetTime().intValue());
+                this.iyg.a(aVar);
+                this.iyg.setTime(forumrecommendsocketresponsemessage.GetTime().intValue());
                 g gVar = new g();
                 gVar.bn(forumrecommendsocketresponsemessage.GetLikeForum());
-                this.iye.a(gVar);
+                this.iyg.a(gVar);
                 bl blVar = new bl();
                 blVar.bm(forumrecommendsocketresponsemessage.GetRecommendForumInfoList());
-                this.iye.c(blVar);
-                this.iye.setIsSuccess(true);
-                this.iye.a(forumrecommendsocketresponsemessage.getHotSearchInfoData());
-                this.iye.setSortType(forumrecommendsocketresponsemessage.getSortType().intValue());
+                this.iyg.c(blVar);
+                this.iyg.setIsSuccess(true);
+                this.iyg.a(forumrecommendsocketresponsemessage.getHotSearchInfoData());
+                this.iyg.setSortType(forumrecommendsocketresponsemessage.getSortType().intValue());
                 ForumCreateInfoData forumCreateInfoData = new ForumCreateInfoData();
                 forumCreateInfoData.a(forumrecommendsocketresponsemessage.getForumCreateInfo());
-                this.iye.a(forumCreateInfoData);
+                this.iyg.a(forumCreateInfoData);
                 PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
                 privateForumPopInfoData.a(forumrecommendsocketresponsemessage.getPrivatePopInfo());
-                this.iye.a(privateForumPopInfoData);
+                this.iyg.a(privateForumPopInfoData);
                 j jVar = new j();
                 jVar.cM(forumrecommendsocketresponsemessage.getTabFeedList());
-                this.iye.a(jVar);
+                this.iyg.a(jVar);
             } catch (Exception e) {
-                this.iye.setIsSuccess(false);
+                this.iyg.setIsSuccess(false);
                 BdLog.e(e.getMessage());
             }
         }
@@ -353,8 +353,8 @@ public class EnterForumModel extends BdBaseModel {
                     } catch (Exception e) {
                         dVar.setIsSuccess(false);
                     }
-                    if (dVar.isSuccess() && !dVar.cuL()) {
-                        dVar.cuH().cve();
+                    if (dVar.isSuccess() && !dVar.cuM()) {
+                        dVar.cuI().cvf();
                     }
                 }
                 return dVar;
@@ -370,12 +370,12 @@ public class EnterForumModel extends BdBaseModel {
                 aVar.type = 0;
                 if (dVar != null && dVar.isSuccess()) {
                     aVar.isOk = true;
-                    aVar.iyp = dVar;
+                    aVar.iyr = dVar;
                 } else {
                     aVar.isOk = false;
-                    aVar.iyp = dVar;
+                    aVar.iyr = dVar;
                 }
-                EnterForumModel.this.iyg.a(aVar);
+                EnterForumModel.this.iyi.a(aVar);
             }
         }.execute(new Void[0]);
         BdAsyncTask<Void, Void, RecentlyVisitedForumData> bdAsyncTask = new BdAsyncTask<Void, Void, RecentlyVisitedForumData>() { // from class: com.baidu.tieba.enterForum.model.EnterForumModel.3
@@ -410,8 +410,8 @@ public class EnterForumModel extends BdBaseModel {
             /* renamed from: b */
             public void onPostExecute(RecentlyVisitedForumData recentlyVisitedForumData) {
                 if (recentlyVisitedForumData != null) {
-                    EnterForumModel.this.iyf.setForumData(recentlyVisitedForumData.getForumData());
-                    EnterForumModel.this.iyf.yJ(200);
+                    EnterForumModel.this.iyh.setForumData(recentlyVisitedForumData.getForumData());
+                    EnterForumModel.this.iyh.yJ(200);
                 }
                 EnterForumModel.this.pq(z);
             }
@@ -420,14 +420,14 @@ public class EnterForumModel extends BdBaseModel {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private void cvq() {
+    private void cvr() {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             ad.a(new ac<Object>() { // from class: com.baidu.tieba.enterForum.model.EnterForumModel.4
                 @Override // com.baidu.tbadk.util.ac
                 public Object doInBackground() {
                     l<String> dN = com.baidu.tbadk.core.c.a.brq().dN("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
-                    if (dN != null && EnterForumModel.this.iyf != null) {
-                        dN.setForever(EnterForumModel.CACHE_KEY, OrmObject.jsonStrWithObject(EnterForumModel.this.iyf));
+                    if (dN != null && EnterForumModel.this.iyh != null) {
+                        dN.setForever(EnterForumModel.CACHE_KEY, OrmObject.jsonStrWithObject(EnterForumModel.this.iyh));
                     }
                     return null;
                 }
@@ -437,12 +437,12 @@ public class EnterForumModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(VisitedForumData visitedForumData) {
-        if (visitedForumData != null && this.iye != null) {
-            int size = this.iye.cuH().cvd().size();
+        if (visitedForumData != null && this.iyg != null) {
+            int size = this.iyg.cuI().cve().size();
             for (int i = 0; i < size; i++) {
-                if (this.iye.cuH().cvd().get(i).getId().equals(visitedForumData.getForumId())) {
-                    this.iyf.a(visitedForumData);
-                    this.iyf.yJ(200);
+                if (this.iyg.cuI().cve().get(i).getId().equals(visitedForumData.getForumId())) {
+                    this.iyh.a(visitedForumData);
+                    this.iyh.yJ(200);
                 }
             }
         }
@@ -451,14 +451,14 @@ public class EnterForumModel extends BdBaseModel {
     public void b(f fVar) {
         int i;
         if (fVar != null) {
-            int size = this.iyf.getForumData().size();
+            int size = this.iyh.getForumData().size();
             int i2 = 0;
             while (true) {
                 if (i2 >= size) {
                     i = -1;
                     break;
                 }
-                VisitedForumData visitedForumData = this.iyf.getForumData().get(i2);
+                VisitedForumData visitedForumData = this.iyh.getForumData().get(i2);
                 if (!au.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(fVar.getId())) {
                     i = i2;
                     break;
@@ -466,7 +466,7 @@ public class EnterForumModel extends BdBaseModel {
                 i2++;
             }
             if (i >= 0) {
-                this.iyf.getForumData().remove(i);
+                this.iyh.getForumData().remove(i);
             }
         }
     }

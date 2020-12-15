@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes21.dex */
 public class j extends k {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId imT = BdUniqueId.gen();
+    public static final BdUniqueId imV = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return (this.eCR == null || this.eCR.getThreadType() != 67) ? TYPE : imT;
+        return (this.eCR == null || this.eCR.getThreadType() != 67) ? TYPE : imV;
     }
 
     public j(by byVar) {

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class o extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
     private ab<bx> agG;
     private v amH;
-    private NEGFeedBackView.a fWA;
+    private NEGFeedBackView.a fWC;
     public BdUniqueId fzO;
     private TbPageContext<?> mPageContext;
     private String mTabName;
@@ -46,11 +46,11 @@ public class o extends com.baidu.adp.widget.ListView.a<bx, am<by>> {
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bx bxVar) {
                 if (bxVar != null) {
-                    t.csg().mj(true);
+                    t.csh().mj(true);
                 }
             }
         };
-        this.fWA = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.o.2
+        this.fWC = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.o.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(at atVar) {
             }

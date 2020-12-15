@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes22.dex */
 public class b {
-    private View jhU;
-    private EMTextView jhp;
+    private View jhW;
+    private EMTextView jhr;
     private Context mContext;
 
     public b(Context context) {
@@ -21,32 +21,32 @@ public class b {
     }
 
     private void ev(Context context) {
-        if (this.jhU == null) {
-            this.jhU = LayoutInflater.from(context).inflate(R.layout.forum_rules_title_area, (ViewGroup) null);
-            this.jhp = (EMTextView) this.jhU.findViewById(R.id.forum_rules_title);
+        if (this.jhW == null) {
+            this.jhW = LayoutInflater.from(context).inflate(R.layout.forum_rules_title_area, (ViewGroup) null);
+            this.jhr = (EMTextView) this.jhW.findViewById(R.id.forum_rules_title);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.jhU != null) {
-            this.jhU.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.jhU);
+        if (bdTypeRecyclerView != null && this.jhW != null) {
+            this.jhW.setVisibility(0);
+            bdTypeRecyclerView.addHeaderView(this.jhW);
         }
     }
 
     public void e(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.jhU != null) {
-            this.jhU.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.jhU);
+        if (bdTypeRecyclerView != null && this.jhW != null) {
+            this.jhW.setVisibility(8);
+            bdTypeRecyclerView.removeHeaderView(this.jhW);
         }
     }
 
     public void setTitle(String str) {
-        this.jhp.setText(str);
+        this.jhr.setText(str);
     }
 
     public void onChangeSkinType(int i) {
-        c.bm(this.jhp).pu(R.string.F_X02).ps(R.color.CAM_X0105);
+        c.bm(this.jhr).pu(R.string.F_X02).ps(R.color.CAM_X0105);
     }
 }

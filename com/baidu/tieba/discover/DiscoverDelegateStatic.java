@@ -17,7 +17,7 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 /* loaded from: classes24.dex */
 public class DiscoverDelegateStatic extends b {
-    private static boolean iqJ = false;
+    private static boolean iqL = false;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_DISCOVER_FRAGMENT, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
@@ -59,7 +59,7 @@ public class DiscoverDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        iqJ = true;
+        iqL = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

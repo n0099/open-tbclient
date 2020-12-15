@@ -40,7 +40,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
         p.o(fVar, "$receiver");
         p.o(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.pJY, null);
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.pKa, null);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1615=4] */
@@ -49,7 +49,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
         kotlin.coroutines.experimental.f fVar;
         Iterator it;
         Object obj2;
-        Object eDV = kotlin.coroutines.experimental.a.a.eDV();
+        Object eDW = kotlin.coroutines.experimental.a.a.eDW();
         switch (this.label) {
             case 0:
                 if (th == null) {
@@ -59,7 +59,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
                         obj2 = it.next();
                         break;
                     } else {
-                        return h.pJY;
+                        return h.pKa;
                     }
                 } else {
                     throw th;
@@ -88,11 +88,11 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             this.L$2 = obj2;
             this.L$3 = next;
             this.label = 1;
-            if (fVar.a(invoke, this) == eDV) {
-                return eDV;
+            if (fVar.a(invoke, this) == eDW) {
+                return eDW;
             }
             obj2 = next;
         }
-        return h.pJY;
+        return h.pKa;
     }
 }

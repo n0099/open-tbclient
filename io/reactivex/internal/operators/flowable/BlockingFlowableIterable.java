@@ -16,12 +16,12 @@ import org.a.d;
 /* loaded from: classes9.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final g<T> pFg;
+    final g<T> pFi;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.pFg.a((j) blockingFlowableIterator);
+        this.pFi.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
@@ -58,7 +58,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.eDq();
+                    io.reactivex.internal.util.c.eDr();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {

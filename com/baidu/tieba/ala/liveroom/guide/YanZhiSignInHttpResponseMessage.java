@@ -5,8 +5,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
-    private String hsM;
-    private String hsN;
+    private String hsO;
+    private String hsP;
 
     public YanZhiSignInHttpResponseMessage() {
         super(1021153);
@@ -17,16 +17,16 @@ public class YanZhiSignInHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hsM = optJSONObject.optString("sign_status");
-            this.hsN = optJSONObject.optString("visit_yanzhi_tab");
+            this.hsO = optJSONObject.optString("sign_status");
+            this.hsP = optJSONObject.optString("visit_yanzhi_tab");
         }
     }
 
-    public boolean cfP() {
-        return !StringUtils.isNull(this.hsM) && this.hsM.equals("1");
+    public boolean cfQ() {
+        return !StringUtils.isNull(this.hsO) && this.hsO.equals("1");
     }
 
-    public boolean cfQ() {
-        return !StringUtils.isNull(this.hsN) && this.hsN.equals("1");
+    public boolean cfR() {
+        return !StringUtils.isNull(this.hsP) && this.hsP.equals("1");
     }
 }

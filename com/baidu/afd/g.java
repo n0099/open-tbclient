@@ -15,7 +15,7 @@ public class g implements j {
                 e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
                 g.this.ZV.a(eVar);
                 if (eVar.ZS && eVar.ZU != null) {
-                    com.baidu.tieba.recapp.report.d.dGf().a(com.baidu.tieba.recapp.report.g.a(g.this.ZV, eVar.ZU));
+                    com.baidu.tieba.recapp.report.d.dGg().a(com.baidu.tieba.recapp.report.g.a(g.this.ZV, eVar.ZU));
                 }
             }
         }

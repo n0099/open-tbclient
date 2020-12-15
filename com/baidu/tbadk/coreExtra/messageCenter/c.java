@@ -220,7 +220,7 @@ public class c {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
                         if (d.bzl().bzB()) {
-                            GroupSettingItemData fx = com.baidu.tieba.im.settingcache.b.cZW().fx(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            GroupSettingItemData fx = com.baidu.tieba.im.settingcache.b.cZX().fx(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (fx != null) {
                                 if (fx.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
@@ -233,7 +233,7 @@ public class c {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
                         if (d.bzl().bzt()) {
-                            PersonalSettingItemData fx2 = com.baidu.tieba.im.settingcache.e.cZZ().fx(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            PersonalSettingItemData fx2 = com.baidu.tieba.im.settingcache.e.daa().fx(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (fx2 != null) {
                                 if (fx2.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();

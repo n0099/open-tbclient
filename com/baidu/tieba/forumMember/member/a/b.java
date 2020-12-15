@@ -15,10 +15,10 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes23.dex */
 public class b {
-    private BdTypeListView gpX;
-    private NoNetworkView gpu;
-    private View iPY;
-    private a iPZ;
+    private BdTypeListView gpZ;
+    private NoNetworkView gpw;
+    private View iQa;
+    private a iQb;
     private BaseActivity mActivity;
     private NavigationBar mNavigationBar;
     private g mPullView;
@@ -37,78 +37,78 @@ public class b {
         });
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mActivity.setNetRefreshViewTopMargin(BdListViewHelper.fFw);
-        this.gpu = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
-        this.gpX = (BdTypeListView) this.mActivity.findViewById(R.id.forum_member_listview);
+        this.gpw = (NoNetworkView) this.mActivity.findViewById(R.id.view_no_network);
+        this.gpZ = (BdTypeListView) this.mActivity.findViewById(R.id.forum_member_listview);
         this.mPullView = new g(this.mActivity.getPageContext());
         this.mPullView.setTag(this.mActivity.getUniqueId());
         if (this.mActivity instanceof f.c) {
             this.mPullView.setListPullRefreshListener((f.c) this.mActivity);
         }
         if (this.mActivity instanceof BdListView.e) {
-            this.gpX.setOnSrollToBottomListener((BdListView.e) this.mActivity);
+            this.gpZ.setOnSrollToBottomListener((BdListView.e) this.mActivity);
         }
-        this.gpX.setPullRefresh(this.mPullView);
-        this.iPY = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.gpX, BdListViewHelper.HeadType.DEFAULT);
-        this.iPZ = new a(this.mActivity, this.gpX);
-        this.gpX.addAdapters(this.iPZ.bSn());
+        this.gpZ.setPullRefresh(this.mPullView);
+        this.iQa = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.gpZ, BdListViewHelper.HeadType.DEFAULT);
+        this.iQb = new a(this.mActivity, this.gpZ);
+        this.gpZ.addAdapters(this.iQb.bSo());
     }
 
     public void showLoadingView() {
-        this.gpX.setVisibility(8);
+        this.gpZ.setVisibility(8);
         this.mActivity.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
-        this.gpX.setVisibility(0);
+        this.gpZ.setVisibility(0);
         this.mActivity.hideLoadingView(this.mRootView);
     }
 
     public void KC(String str) {
-        this.gpX.setVisibility(8);
+        this.gpZ.setVisibility(8);
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
     public void Yb() {
-        this.gpX.setVisibility(0);
+        this.gpZ.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }
 
     public void dd(List<q> list) {
         if (list != null) {
-            this.gpX.setData(list);
+            this.gpZ.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        this.iPZ.notifyDataSetChanged();
+        this.iQb.notifyDataSetChanged();
     }
 
     public void completePullRefresh() {
-        this.gpX.completePullRefreshPostDelayed(0L);
+        this.gpZ.completePullRefreshPostDelayed(0L);
     }
 
     public void startPullRefresh() {
-        this.gpX.startPullRefresh();
+        this.gpZ.startPullRefresh();
     }
 
     public void f(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.gpu.a(aVar);
+            this.gpw.a(aVar);
         }
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), i);
-        this.gpu.onChangeSkinType(this.mActivity.getPageContext(), i);
+        this.gpw.onChangeSkinType(this.mActivity.getPageContext(), i);
         notifyDataSetChanged();
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
     }
 
     public void pL(boolean z) {
-        BdListViewHelper.a(this.iPY, BdListViewHelper.HeadType.DEFAULT, z);
+        BdListViewHelper.a(this.iQa, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void onDestroy() {
-        this.iPZ.onDestroy();
+        this.iQb.onDestroy();
     }
 }

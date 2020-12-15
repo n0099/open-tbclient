@@ -9,20 +9,20 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     public List<by> fVe;
-    public String gxt;
-    public String gxu;
     public String gxv;
-    public int gxw;
-    public int gxx;
+    public String gxw;
+    public String gxx;
+    public int gxy;
+    public int gxz;
 
     public void parse(JSONObject jSONObject) {
         int i = 0;
         if (jSONObject != null) {
-            this.gxt = jSONObject.optString("head_pic");
-            this.gxu = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
-            this.gxv = jSONObject.optString("url");
-            this.gxw = jSONObject.optInt("head_type", 0);
-            this.gxx = jSONObject.optInt("is_set", -1);
+            this.gxv = jSONObject.optString("head_pic");
+            this.gxw = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
+            this.gxx = jSONObject.optString("url");
+            this.gxy = jSONObject.optInt("head_type", 0);
+            this.gxz = jSONObject.optInt("is_set", -1);
             JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 this.fVe = new ArrayList(optJSONArray.length());

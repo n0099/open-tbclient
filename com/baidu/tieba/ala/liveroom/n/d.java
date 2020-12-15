@@ -20,7 +20,7 @@ public class d extends Dialog implements View.OnClickListener {
     private TextView bPe;
     private TextView bPf;
     private View czb;
-    private a htd;
+    private a htf;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -35,16 +35,16 @@ public class d extends Dialog implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.htd = aVar;
+        this.htf = aVar;
     }
 
     public void GD(String str) {
-        cgc();
+        cgd();
         this.aGa.startLoad(str, 25, false, false);
         show();
     }
 
-    public String cfS() {
+    public String cfT() {
         return this.bPe.getText().toString();
     }
 
@@ -52,11 +52,11 @@ public class d extends Dialog implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.czb) {
             dismiss();
-        } else if (this.htd != null) {
+        } else if (this.htf != null) {
             if (view == this.bPe) {
-                this.htd.onConfirm();
+                this.htf.onConfirm();
             } else if (view == this.bPf) {
-                this.htd.onCancel();
+                this.htf.onCancel();
             }
         }
     }
@@ -74,11 +74,11 @@ public class d extends Dialog implements View.OnClickListener {
             window.setGravity(17);
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            cfR();
+            cfS();
         }
     }
 
-    public void cfR() {
+    public void cfS() {
         WindowManager windowManager = (WindowManager) getContext().getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -123,7 +123,7 @@ public class d extends Dialog implements View.OnClickListener {
         this.bPf.setOnClickListener(this);
     }
 
-    private void cgc() {
+    private void cgd() {
         if (this.aGa != null) {
             this.aGa.stopLoad();
         }

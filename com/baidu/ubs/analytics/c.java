@@ -6,11 +6,11 @@ import com.baidu.ubs.analytics.d.j;
 public final class c {
     private long e;
     private Context mContext;
-    private boolean oHI;
-    private long oHJ;
-    private long oHK;
-    private boolean oHL;
-    private int oHM;
+    private boolean oHK;
+    private long oHL;
+    private long oHM;
+    private boolean oHN;
+    private int oHO;
 
     /* synthetic */ c(a aVar, byte b) {
         this(aVar);
@@ -18,12 +18,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.oHI = aVar.oHI;
-        this.e = aVar.oHN;
-        this.oHJ = aVar.oHJ;
-        this.oHL = aVar.oHL;
         this.oHK = aVar.oHK;
+        this.e = aVar.oHP;
+        this.oHL = aVar.oHL;
+        this.oHN = aVar.oHN;
         this.oHM = aVar.oHM;
+        this.oHO = aVar.oHO;
     }
 
     public final Context b() {
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.oHI;
+        return this.oHK;
     }
 
     public final long d() {
@@ -39,30 +39,30 @@ public final class c {
     }
 
     public final long e() {
-        return this.oHJ;
-    }
-
-    public final long f() {
-        return this.oHK;
-    }
-
-    public final boolean g() {
         return this.oHL;
     }
 
-    public final int h() {
+    public final long f() {
         return this.oHM;
+    }
+
+    public final boolean g() {
+        return this.oHN;
+    }
+
+    public final int h() {
+        return this.oHO;
     }
 
     /* loaded from: classes17.dex */
     public static class a {
         private Context mContext;
-        private boolean oHI = true;
-        private long oHN = 30000;
-        private long oHJ = 60000;
-        private long oHK = 10000;
-        private boolean oHL = false;
-        private int oHM = 1000;
+        private boolean oHK = true;
+        private long oHP = 30000;
+        private long oHL = 60000;
+        private long oHM = 10000;
+        private boolean oHN = false;
+        private int oHO = 1000;
 
         public a gY(Context context) {
             this.mContext = context;
@@ -70,37 +70,37 @@ public final class c {
         }
 
         public a Al(boolean z) {
-            this.oHI = z;
+            this.oHK = z;
             return this;
         }
 
         public a hX(long j) {
-            this.oHN = 1000 * j;
+            this.oHP = 1000 * j;
             return this;
         }
 
         public a OK(int i) {
-            this.oHJ = i * 60 * 1000;
+            this.oHL = i * 60 * 1000;
             return this;
         }
 
         public a hY(long j) {
-            this.oHK = 1000 * j;
+            this.oHM = 1000 * j;
             return this;
         }
 
         public a Am(boolean z) {
-            this.oHL = z;
+            this.oHN = z;
             return this;
         }
 
         public a OL(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.oHM = i2 < 1000 ? i2 : 1000;
+            this.oHO = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c ejl() {
+        public c ejm() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

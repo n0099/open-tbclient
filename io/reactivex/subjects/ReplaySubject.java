@@ -11,12 +11,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class ReplaySubject<T> extends b<T> {
-    static final ReplayDisposable[] pJQ = new ReplayDisposable[0];
-    static final ReplayDisposable[] pJR = new ReplayDisposable[0];
-    private static final Object[] pJm = new Object[0];
+    static final ReplayDisposable[] pJS = new ReplayDisposable[0];
+    static final ReplayDisposable[] pJT = new ReplayDisposable[0];
+    private static final Object[] pJo = new Object[0];
     boolean done;
     final AtomicReference<ReplayDisposable<T>[]> observers;
-    final a<T> pJP;
+    final a<T> pJR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes9.dex */
@@ -38,7 +38,7 @@ public final class ReplaySubject<T> extends b<T> {
             if (a(replayDisposable) && replayDisposable.cancelled) {
                 b(replayDisposable);
             } else {
-                this.pJP.replay(replayDisposable);
+                this.pJR.replay(replayDisposable);
             }
         }
     }
@@ -54,7 +54,7 @@ public final class ReplaySubject<T> extends b<T> {
     public void onNext(T t) {
         io.reactivex.internal.functions.a.m(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.done) {
-            a<T> aVar = this.pJP;
+            a<T> aVar = this.pJR;
             aVar.add(t);
             for (ReplayDisposable<T> replayDisposable : this.observers.get()) {
                 aVar.replay(replayDisposable);
@@ -71,7 +71,7 @@ public final class ReplaySubject<T> extends b<T> {
         }
         this.done = true;
         Object error = NotificationLite.error(th);
-        a<T> aVar = this.pJP;
+        a<T> aVar = this.pJR;
         aVar.addFinal(error);
         ReplayDisposable<T>[] bN = bN(error);
         for (ReplayDisposable<T> replayDisposable : bN) {
@@ -84,7 +84,7 @@ public final class ReplaySubject<T> extends b<T> {
         if (!this.done) {
             this.done = true;
             Object complete = NotificationLite.complete();
-            a<T> aVar = this.pJP;
+            a<T> aVar = this.pJR;
             aVar.addFinal(complete);
             ReplayDisposable<T>[] bN = bN(complete);
             for (ReplayDisposable<T> replayDisposable : bN) {
@@ -98,7 +98,7 @@ public final class ReplaySubject<T> extends b<T> {
         ReplayDisposable<T>[] replayDisposableArr2;
         do {
             replayDisposableArr = this.observers.get();
-            if (replayDisposableArr == pJR) {
+            if (replayDisposableArr == pJT) {
                 return false;
             }
             int length = replayDisposableArr.length;
@@ -114,7 +114,7 @@ public final class ReplaySubject<T> extends b<T> {
         ReplayDisposable<T>[] replayDisposableArr2;
         do {
             replayDisposableArr = this.observers.get();
-            if (replayDisposableArr != pJR && replayDisposableArr != pJQ) {
+            if (replayDisposableArr != pJT && replayDisposableArr != pJS) {
                 int length = replayDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -130,7 +130,7 @@ public final class ReplaySubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        replayDisposableArr2 = pJQ;
+                        replayDisposableArr2 = pJS;
                     } else {
                         replayDisposableArr2 = new ReplayDisposable[length - 1];
                         System.arraycopy(replayDisposableArr, 0, replayDisposableArr2, 0, i);
@@ -146,7 +146,7 @@ public final class ReplaySubject<T> extends b<T> {
     }
 
     ReplayDisposable<T>[] bN(Object obj) {
-        return this.pJP.compareAndSet(null, obj) ? this.observers.getAndSet(pJR) : pJR;
+        return this.pJR.compareAndSet(null, obj) ? this.observers.getAndSet(pJT) : pJT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

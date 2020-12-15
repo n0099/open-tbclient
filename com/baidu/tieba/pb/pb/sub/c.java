@@ -12,48 +12,48 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes22.dex */
 public class c {
-    private BdTypeListView gpX;
-    private NewSubPbActivity lWM;
-    private com.baidu.tieba.pb.pb.sub.a.b lXC;
-    private com.baidu.tieba.pb.pb.sub.a.d lXD;
-    private ab lXE;
+    private BdTypeListView gpZ;
+    private NewSubPbActivity lWO;
+    private com.baidu.tieba.pb.pb.sub.a.b lXE;
+    private com.baidu.tieba.pb.pb.sub.a.d lXF;
+    private ab lXG;
     private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
     private View.OnClickListener bbH = null;
-    private boolean ipC = false;
-    private boolean lXF = true;
+    private boolean ipE = false;
+    private boolean lXH = true;
 
     public c(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.lWM = newSubPbActivity;
-        this.gpX = bdTypeListView;
+        this.lWO = newSubPbActivity;
+        this.gpZ = bdTypeListView;
     }
 
     public void Nt() {
-        this.lXC = new com.baidu.tieba.pb.pb.sub.a.b(this.lWM, PostData.nlH);
-        this.lXC.B(this.bbH);
-        this.lXC.a(this.lXE);
-        this.lXC.setFromCDN(this.lXF);
-        this.bnf.add(this.lXC);
-        this.lXD = new com.baidu.tieba.pb.pb.sub.a.d(this.lWM, com.baidu.tieba.pb.pb.sub.b.b.lYy);
-        this.bnf.add(this.lXD);
-        this.bnf.add(new com.baidu.tieba.pb.pb.sub.a.c(this.lWM, com.baidu.tieba.pb.pb.sub.b.a.lYx));
-        this.gpX.addAdapters(this.bnf);
+        this.lXE = new com.baidu.tieba.pb.pb.sub.a.b(this.lWO, PostData.nlJ);
+        this.lXE.B(this.bbH);
+        this.lXE.a(this.lXG);
+        this.lXE.setFromCDN(this.lXH);
+        this.bnf.add(this.lXE);
+        this.lXF = new com.baidu.tieba.pb.pb.sub.a.d(this.lWO, com.baidu.tieba.pb.pb.sub.b.b.lYA);
+        this.bnf.add(this.lXF);
+        this.bnf.add(new com.baidu.tieba.pb.pb.sub.a.c(this.lWO, com.baidu.tieba.pb.pb.sub.b.a.lYz));
+        this.gpZ.addAdapters(this.bnf);
     }
 
     public void a(by byVar, List<q> list) {
-        this.lXC.setThreadData(byVar);
-        if (!au.isEmpty(this.lWM.dun().dqi())) {
-            this.lXC.QL(this.lWM.dun().dqi());
+        this.lXE.setThreadData(byVar);
+        if (!au.isEmpty(this.lWO.duo().dqj())) {
+            this.lXE.QL(this.lWO.duo().dqj());
         }
-        this.gpX.setData(list);
-        this.gpX.getAdapter().notifyDataSetChanged();
+        this.gpZ.setData(list);
+        this.gpZ.getAdapter().notifyDataSetChanged();
     }
 
     public boolean aJj() {
-        return this.ipC;
+        return this.ipE;
     }
 
     public void setHasMoreData(boolean z) {
-        this.ipC = z;
+        this.ipE = z;
     }
 
     public void B(View.OnClickListener onClickListener) {
@@ -61,20 +61,20 @@ public class c {
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.lXC.setOnLongClickListener(onLongClickListener);
+        this.lXE.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.i iVar) {
-        this.lXC.setOnImageClickListener(iVar);
+        this.lXE.setOnImageClickListener(iVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.lXF = z;
+        this.lXH = z;
     }
 
     public void notifyDataSetChanged() {
-        if (this.gpX.getAdapter() != null) {
-            this.gpX.getAdapter().notifyDataSetChanged();
+        if (this.gpZ.getAdapter() != null) {
+            this.gpZ.getAdapter().notifyDataSetChanged();
         }
     }
 }

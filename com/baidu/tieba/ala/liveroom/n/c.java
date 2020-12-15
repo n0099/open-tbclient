@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 class c {
-    boolean htc = false;
+    boolean hte = false;
     String date = "";
     int dMd = 0;
 
@@ -12,7 +12,7 @@ class c {
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("hasShowMax", this.htc);
+            jSONObject.put("hasShowMax", this.hte);
             jSONObject.put("date", this.date);
             jSONObject.put("times", this.dMd);
             return jSONObject.toString();

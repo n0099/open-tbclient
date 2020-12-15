@@ -17,7 +17,7 @@ import tbclient.ThreadInfo;
 /* loaded from: classes21.dex */
 public class d extends by {
     public List<com.baidu.tieba.card.data.b> fVe;
-    public String kdp;
+    public String kdr;
     public long lastId;
     public List<q> list = new ArrayList();
     public ax pageData;
@@ -35,7 +35,7 @@ public class d extends by {
 
     public void a(HotThread hotThread) {
         if (hotThread != null) {
-            this.kdp = hotThread.hot_title;
+            this.kdr = hotThread.hot_title;
             if (hotThread.thread_list != null) {
                 this.fVe = new ArrayList();
                 for (ThreadInfo threadInfo : hotThread.thread_list) {

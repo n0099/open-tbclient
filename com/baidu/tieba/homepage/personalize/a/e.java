@@ -44,8 +44,8 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         amVar.b((am<com.baidu.tieba.homepage.personalize.data.f>) fVar);
         amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.t.csg().e(fVar.cQo());
-        com.baidu.tieba.a.d.bLT().e(fVar.cQo());
+        com.baidu.tieba.card.t.csh().e(fVar.cQp());
+        com.baidu.tieba.a.d.bLU().e(fVar.cQp());
         return amVar.getView();
     }
 

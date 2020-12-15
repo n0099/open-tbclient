@@ -15,15 +15,15 @@ import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
 /* loaded from: classes22.dex */
 public class c extends com.baidu.tbadk.core.data.a {
-    private boolean jLr = false;
-    private List<q> jLs;
+    private boolean jLt = false;
+    private List<q> jLu;
 
-    public List<q> cNQ() {
-        return this.jLs;
+    public List<q> cNR() {
+        return this.jLu;
     }
 
     public void dM(List<q> list) {
-        this.jLs = list;
+        this.jLu = list;
     }
 
     public static boolean a(DiscoverHotForum discoverHotForum, int i) {
@@ -42,11 +42,11 @@ public class c extends com.baidu.tbadk.core.data.a {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return k.inm;
+        return k.ino;
     }
 
-    public boolean cNR() {
-        return this.jLr;
+    public boolean cNS() {
+        return this.jLt;
     }
 
     public boolean dN(List<DiscoverTabCard> list) {
@@ -59,13 +59,13 @@ public class c extends com.baidu.tbadk.core.data.a {
             DiscoverTabCard discoverTabCard = list.get(i);
             if (discoverTabCard.forum_list != null && discoverTabCard.forum_list.size() >= 3) {
                 d dVar = new d();
-                this.jLr = StringUtils.isNull(discoverTabCard.name) || this.jLr;
-                dVar.jLt = discoverTabCard.name;
-                dVar.jLu = discoverTabCard.is_show_order_number == null ? false : discoverTabCard.is_show_order_number.booleanValue();
+                this.jLt = StringUtils.isNull(discoverTabCard.name) || this.jLt;
+                dVar.jLv = discoverTabCard.name;
+                dVar.jLw = discoverTabCard.is_show_order_number == null ? false : discoverTabCard.is_show_order_number.booleanValue();
                 dVar.aJj = discoverTabCard.jump_name;
                 for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
-                    dVar.jLv[i2] = new d.a();
-                    dVar.jLv[i2].Mn(discoverTabCard.forum_list.get(i2).forum_name).Mm(discoverTabCard.forum_list.get(i2).avatar).Mp(discoverTabCard.forum_list.get(i2).hot_text).Mo(discoverTabCard.forum_list.get(i2).slogan).Cz(discoverTabCard.forum_list.get(i2).member_count.intValue()).CA(discoverTabCard.forum_list.get(i2).thread_count.intValue()).rt(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).g(discoverTabCard.forum_list.get(i2).forum_id).gy(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
+                    dVar.jLx[i2] = new d.a();
+                    dVar.jLx[i2].Mn(discoverTabCard.forum_list.get(i2).forum_name).Mm(discoverTabCard.forum_list.get(i2).avatar).Mp(discoverTabCard.forum_list.get(i2).hot_text).Mo(discoverTabCard.forum_list.get(i2).slogan).Cz(discoverTabCard.forum_list.get(i2).member_count.intValue()).CA(discoverTabCard.forum_list.get(i2).thread_count.intValue()).rt(discoverTabCard.forum_list.get(i2).is_like.intValue() == 1).g(discoverTabCard.forum_list.get(i2).forum_id).gy(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
                 }
                 arrayList.add(dVar);
                 if (arrayList.size() >= 6) {

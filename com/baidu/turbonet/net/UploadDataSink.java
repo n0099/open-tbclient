@@ -3,7 +3,7 @@ package com.baidu.turbonet.net;
 public interface UploadDataSink {
     void Ac(boolean z);
 
-    void ehb();
+    void ehc();
 
     void z(Exception exc);
 }

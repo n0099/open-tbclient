@@ -15,17 +15,17 @@ import com.baidu.tieba.R;
 public class NavigationBarCoverTip extends LinearLayout {
     private Animation bNp;
     private Animation bNq;
-    private View iXZ;
+    private View iYb;
     private Activity mActivity;
     private Runnable mHideRunnable;
     private int mSkinType;
-    private a nOi;
+    private a nOk;
 
     /* loaded from: classes.dex */
     public interface a {
         void QM();
 
-        void dXS();
+        void dXT();
     }
 
     public NavigationBarCoverTip(Context context) {
@@ -65,8 +65,8 @@ public class NavigationBarCoverTip extends LinearLayout {
         this.bNp.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (NavigationBarCoverTip.this.nOi != null) {
-                    NavigationBarCoverTip.this.nOi.QM();
+                if (NavigationBarCoverTip.this.nOk != null) {
+                    NavigationBarCoverTip.this.nOk.QM();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -89,8 +89,8 @@ public class NavigationBarCoverTip extends LinearLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (NavigationBarCoverTip.this.nOi != null) {
-                    NavigationBarCoverTip.this.nOi.dXS();
+                if (NavigationBarCoverTip.this.nOk != null) {
+                    NavigationBarCoverTip.this.nOk.dXT();
                 }
                 NavigationBarCoverTip.this.release();
             }
@@ -113,10 +113,10 @@ public class NavigationBarCoverTip extends LinearLayout {
 
     public void a(Activity activity, View view, int i) {
         this.mActivity = activity;
-        if (view != this.iXZ) {
+        if (view != this.iYb) {
             removeAllViews();
             addView(view);
-            this.iXZ = view;
+            this.iYb = view;
         }
         if (i < 0) {
             i = 5000;
@@ -168,6 +168,6 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public void setCoverTipListener(a aVar) {
-        this.nOi = aVar;
+        this.nOk = aVar;
     }
 }

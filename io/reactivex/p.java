@@ -3,18 +3,18 @@ package io.reactivex;
 import io.reactivex.internal.util.NotificationLite;
 /* loaded from: classes9.dex */
 public final class p<T> {
-    static final p<Object> pEx = new p<>(null);
+    static final p<Object> pEz = new p<>(null);
     final Object value;
 
     private p(Object obj) {
         this.value = obj;
     }
 
-    public boolean eCS() {
+    public boolean eCT() {
         return NotificationLite.isError(this.value);
     }
 
-    public Throwable eCT() {
+    public Throwable eCU() {
         Object obj = this.value;
         if (NotificationLite.isError(obj)) {
             return NotificationLite.getError(obj);
@@ -58,7 +58,7 @@ public final class p<T> {
         return new p<>(NotificationLite.error(th));
     }
 
-    public static <T> p<T> eCU() {
-        return (p<T>) pEx;
+    public static <T> p<T> eCV() {
+        return (p<T>) pEz;
     }
 }

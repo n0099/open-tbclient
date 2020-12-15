@@ -97,7 +97,7 @@ public class TbWebChromeClient extends WebChromeClient {
             com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
             cVar.TI(com.baidu.tieba.tbadkCore.e.a.g.TP(str2));
             cVar.setStatus(301);
-            callJsMethod(webView, cVar.getMethodName(), cVar.dPP());
+            callJsMethod(webView, cVar.getMethodName(), cVar.dPQ());
         }
         if (!y.CS(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
             jsPromptResult.cancel();

@@ -7,8 +7,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
 public class a {
-    private InterfaceC0710a hNW;
-    private HttpMessageListener hNX = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0710a hNY;
+    private HttpMessageListener hNZ = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.hNW != null) {
-                    a.this.hNW.r(z, errorString);
+                if (a.this.hNY != null) {
+                    a.this.hNY.r(z, errorString);
                 }
             }
         }
@@ -32,8 +32,8 @@ public class a {
 
     public a(TbPageContext tbPageContext, InterfaceC0710a interfaceC0710a) {
         this.mPageContext = tbPageContext;
-        this.hNW = interfaceC0710a;
-        this.mPageContext.registerListener(this.hNX);
+        this.hNY = interfaceC0710a;
+        this.mPageContext.registerListener(this.hNZ);
     }
 
     public void aK(String str, int i) {

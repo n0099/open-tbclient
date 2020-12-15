@@ -86,16 +86,16 @@ public class u extends d implements p<by>, q {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (u.this.ahy != null && u.this.ahA != null && u.this.ahz != null && !u.this.ahA.bqE()) {
-                    if (u.this.ahA.bqC() || !com.baidu.tieba.frs.b.cBd().cAX()) {
-                        if (u.this.ahA.bqD() || !com.baidu.tieba.frs.a.cAW().cAX()) {
-                            com.baidu.tieba.frs.b.cBd().am(u.this.ahA);
+                    if (u.this.ahA.bqC() || !com.baidu.tieba.frs.b.cBe().cAY()) {
+                        if (u.this.ahA.bqD() || !com.baidu.tieba.frs.a.cAX().cAY()) {
+                            com.baidu.tieba.frs.b.cBe().am(u.this.ahA);
                             u.this.ahA.jg(false);
-                            com.baidu.tieba.frs.a.cAW().am(u.this.ahA);
+                            com.baidu.tieba.frs.a.cAX().am(u.this.ahA);
                             u.this.ahA.jh(false);
-                        } else if (com.baidu.tieba.frs.a.cAW().al(u.this.ahA)) {
+                        } else if (com.baidu.tieba.frs.a.cAX().al(u.this.ahA)) {
                             u.this.ahA.jh(true);
                         }
-                    } else if (com.baidu.tieba.frs.b.cBd().al(u.this.ahA)) {
+                    } else if (com.baidu.tieba.frs.b.cBe().al(u.this.ahA)) {
                         u.this.ahA.jg(true);
                     }
                     u.this.tP();
@@ -139,7 +139,7 @@ public class u extends d implements p<by>, q {
     /* renamed from: a */
     public void H(by byVar) {
         this.ahA = byVar;
-        if (com.baidu.tieba.frs.b.cBd().cAX() || com.baidu.tieba.frs.a.cAW().cAX()) {
+        if (com.baidu.tieba.frs.b.cBe().cAY() || com.baidu.tieba.frs.a.cAX().cAY()) {
             this.mRootView.setVisibility(0);
             this.agO.b(new a.C0097a(4, false));
             tP();

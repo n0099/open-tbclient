@@ -5,8 +5,6 @@ public interface n {
 
     void b(h<?, ?> hVar);
 
-    void etf();
-
     void etg();
 
     void eth();
@@ -20,6 +18,8 @@ public interface n {
     void etl();
 
     void etm();
+
+    void etn();
 
     void p(com.facebook.cache.common.b bVar);
 

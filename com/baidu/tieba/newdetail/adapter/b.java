@@ -17,7 +17,7 @@ import com.baidu.tieba.newdetail.a.c;
 /* loaded from: classes21.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqf);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,11 +62,11 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public static class a extends af.a {
         private TextView eAz;
         private View eOv;
-        private int jQu;
+        private int jQw;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.jQu = 3;
+            this.jQw = 3;
             this.eAz = textView;
             this.eOv = view2;
         }
@@ -74,15 +74,15 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
         void a(c cVar) {
             if (cVar != null) {
                 this.eAz.setText(cVar.title);
-                this.eOv.setVisibility(cVar.ldg ? 0 : 8);
+                this.eOv.setVisibility(cVar.ldi ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.jQu != i) {
+            if (this.jQw != i) {
                 ap.setViewTextColor(this.eAz, R.color.CAM_X0105);
                 ap.setBackgroundColor(this.eOv, R.color.CAM_X0204);
-                this.jQu = i;
+                this.jQw = i;
             }
         }
     }

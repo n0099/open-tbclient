@@ -4,10 +4,10 @@ import com.tb.airbnb.lottie.a.a.r;
 /* loaded from: classes20.dex */
 public class ShapeTrimPath implements b {
     private final String name;
-    private final Type pBq;
-    private final com.tb.airbnb.lottie.model.a.b pCA;
-    private final com.tb.airbnb.lottie.model.a.b pCw;
-    private final com.tb.airbnb.lottie.model.a.b pCz;
+    private final Type pBs;
+    private final com.tb.airbnb.lottie.model.a.b pCB;
+    private final com.tb.airbnb.lottie.model.a.b pCC;
+    private final com.tb.airbnb.lottie.model.a.b pCy;
 
     /* loaded from: classes20.dex */
     public enum Type {
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.pBq = type;
-        this.pCz = bVar;
-        this.pCA = bVar2;
-        this.pCw = bVar3;
+        this.pBs = type;
+        this.pCB = bVar;
+        this.pCC = bVar2;
+        this.pCy = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type eAY() {
-        return this.pBq;
-    }
-
-    public com.tb.airbnb.lottie.model.a.b eBQ() {
-        return this.pCA;
+    public Type eAZ() {
+        return this.pBs;
     }
 
     public com.tb.airbnb.lottie.model.a.b eBR() {
-        return this.pCz;
+        return this.pCC;
     }
 
-    public com.tb.airbnb.lottie.model.a.b eBM() {
-        return this.pCw;
+    public com.tb.airbnb.lottie.model.a.b eBS() {
+        return this.pCB;
+    }
+
+    public com.tb.airbnb.lottie.model.a.b eBN() {
+        return this.pCy;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.pCz + ", end: " + this.pCA + ", offset: " + this.pCw + "}";
+        return "Trim Path: {start: " + this.pCB + ", end: " + this.pCC + ", offset: " + this.pCy + "}";
     }
 }

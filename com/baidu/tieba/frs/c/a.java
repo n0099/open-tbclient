@@ -9,7 +9,7 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes22.dex */
 public class a extends k<ICardInfo, b> {
-    private ICardInfo jqA;
+    private ICardInfo jqC;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -20,7 +20,7 @@ public class a extends k<ICardInfo, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bz */
     public b c(ViewGroup viewGroup) {
-        e a2 = com.baidu.tieba.lego.card.b.ddz().a(this.mPageContext, this.jqA, 1);
+        e a2 = com.baidu.tieba.lego.card.b.ddA().a(this.mPageContext, this.jqC, 1);
         if (a2 == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public class a extends k<ICardInfo, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.jqA = iCardInfo;
+        this.jqC = iCardInfo;
         return super.getView(i, view, viewGroup, iCardInfo);
     }
 }

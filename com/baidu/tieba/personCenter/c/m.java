@@ -9,26 +9,26 @@ public class m implements c {
     private String mLink;
     private String mName;
     private int mType;
-    private Long mkE;
-    private String mkF;
-    private String mkG;
-    private Integer mkH;
+    private Long mkG;
+    private String mkH;
+    private String mkI;
+    private Integer mkJ;
 
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.mkE = smartApp.swan_app_id;
+            this.mkG = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
             this.eHR = smartApp.avatar;
             this.mName = smartApp.name;
             this.OW = smartApp._abstract;
-            this.mkF = smartApp.pic;
-            this.mkG = smartApp.h5_url;
+            this.mkH = smartApp.pic;
+            this.mkI = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.mkH = smartApp.is_game;
+            this.mkJ = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long dyz() {
-        return this.mkE;
+    public Long dyA() {
+        return this.mkG;
     }
 
     public String getAppKey() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.mkG;
+        return this.mkI;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer dyA() {
-        return this.mkH;
+    public Integer dyB() {
+        return this.mkJ;
     }
 }

@@ -32,15 +32,15 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a I(int i, int i2, int i3, int i4) {
-        a cRl = cRl();
-        cRl.type = i;
-        cRl.bEF = i2;
-        cRl.bEG = i3;
-        cRl.bEH = i4;
-        return cRl;
+        a cRm = cRm();
+        cRm.type = i;
+        cRm.bEF = i2;
+        cRm.bEG = i3;
+        cRm.bEH = i4;
+        return cRm;
     }
 
-    private static a cRl() {
+    private static a cRm() {
         a aVar;
         synchronized (bEB) {
             if (bEB.size() > 0) {

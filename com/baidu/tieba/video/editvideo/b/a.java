@@ -11,49 +11,49 @@ import java.util.List;
 /* loaded from: classes23.dex */
 public class a {
     private Context mContext;
-    private com.baidu.tieba.video.editvideo.data.a nCY;
-    private b nCZ;
-    b.a nDa;
+    private com.baidu.tieba.video.editvideo.data.a nDa;
+    private b nDb;
+    b.a nDc;
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void b(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.nCY = aVar;
+        this.nDa = aVar;
     }
 
-    public String dUm() {
-        return (this.nCY == null || "normal".equalsIgnoreCase(this.nCY.value)) ? "" : this.nCY.value;
+    public String dUn() {
+        return (this.nDa == null || "normal".equalsIgnoreCase(this.nDa.value)) ? "" : this.nDa.value;
     }
 
     public void gC(String str, String str2) {
-        if ((this.nCZ == null || !this.nCZ.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            this.nCZ = new b(this.mContext, str, dUp(), str2);
-            if (this.nDa != null) {
-                this.nCZ.a(this.nDa);
+        if ((this.nDb == null || !this.nDb.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            this.nDb = new b(this.mContext, str, dUq(), str2);
+            if (this.nDc != null) {
+                this.nDb.a(this.nDc);
             }
-            this.nCZ.dUq();
+            this.nDb.dUr();
         }
     }
 
-    public boolean dUn() {
-        if (this.nCZ != null) {
-            return this.nCZ.isRunning();
+    public boolean dUo() {
+        if (this.nDb != null) {
+            return this.nDb.isRunning();
         }
         return false;
     }
 
-    public void dUo() {
-        if (this.nCZ != null) {
-            this.nCZ.dUr();
+    public void dUp() {
+        if (this.nDb != null) {
+            this.nDb.dUs();
         }
     }
 
     public void a(b.a aVar) {
-        this.nDa = aVar;
-        if (this.nCZ != null) {
-            this.nCZ.a(this.nDa);
+        this.nDc = aVar;
+        if (this.nDb != null) {
+            this.nDb.a(this.nDc);
         }
     }
 
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    private static String dUp() {
-        return com.baidu.tieba.video.c.nAX + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String dUq() {
+        return com.baidu.tieba.video.c.nAZ + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

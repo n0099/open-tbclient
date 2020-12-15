@@ -8,22 +8,22 @@ public class h {
     private JSONObject mData;
     private long mPaId;
     private String mType;
-    private String oOs;
-    private int oOt;
-    public int oOu;
-    public int oOv = -1;
+    private String oOu;
+    private int oOv;
+    public int oOw;
+    public int oOx = -1;
 
     public void YB(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.oOv = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (this.oOv == 0) {
+            this.oOx = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (this.oOx == 0) {
                 this.mData = jSONObject.optJSONObject("data");
                 if (this.mData != null) {
                     this.mType = this.mData.optString("type");
-                    this.oOs = this.mData.optString("third_id");
-                    this.oOt = this.mData.optInt("has_sub");
-                    this.oOu = this.mData.optInt("notify");
+                    this.oOu = this.mData.optString("third_id");
+                    this.oOv = this.mData.optInt("has_sub");
+                    this.oOw = this.mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -40,27 +40,27 @@ public class h {
     }
 
     public String getThirdId() {
-        return this.oOs;
-    }
-
-    public int elj() {
         return this.oOu;
     }
 
+    public int elk() {
+        return this.oOw;
+    }
+
     public void OZ(int i) {
-        this.oOu = i;
+        this.oOw = i;
     }
 
     public String getType() {
         return YC("type") ? this.mType : "";
     }
 
-    public String elk() {
-        return YC("third_id") ? this.oOs : "";
+    public String ell() {
+        return YC("third_id") ? this.oOu : "";
     }
 
     public boolean isDataValid() {
-        return this.oOv == 0;
+        return this.oOx == 0;
     }
 
     private boolean YC(String str) {

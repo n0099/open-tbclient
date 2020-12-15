@@ -10,21 +10,21 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes24.dex */
 public class g extends BaseCardInfo {
-    public static final BdUniqueId mrR = BdUniqueId.gen();
+    public static final BdUniqueId mrT = BdUniqueId.gen();
     public String Ov;
     public int giftNum = 0;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
-    public boolean mrS;
-    public String mrT;
-    public List<com.baidu.adp.widget.ListView.q> mrU;
+    public boolean mrU;
+    public String mrV;
+    public List<com.baidu.adp.widget.ListView.q> mrW;
 
     public void parserProtoBuf(User user) {
         if (user != null && !y.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.Ov = user.name;
-            this.mrT = user.name_show;
+            this.mrV = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -32,28 +32,28 @@ public class g extends BaseCardInfo {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.mrS = false;
+                this.mrU = false;
             } else {
-                this.mrS = true;
+                this.mrU = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.mrU = new ArrayList();
+            this.mrW = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.mrU.add(oVar);
+                    this.mrW.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !y.isEmpty(this.mrU);
+        return !y.isEmpty(this.mrW);
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return mrR;
+        return mrT;
     }
 }

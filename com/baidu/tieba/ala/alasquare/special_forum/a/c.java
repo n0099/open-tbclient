@@ -10,7 +10,7 @@ public class c extends com.baidu.adp.widget.ListView.a<g, e.a> {
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), g.gtl);
+        super(tbPageContext.getPageActivity(), g.gtn);
         this.mPageContext = tbPageContext;
     }
 

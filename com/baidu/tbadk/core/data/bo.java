@@ -19,7 +19,7 @@ public class bo {
     public com.baidu.tieba.card.data.n bnY() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.inH = bnX();
+        nVar.inJ = bnX();
         if (this.eHZ != null) {
             ArrayList arrayList2 = new ArrayList();
             for (a aVar : this.eHZ) {
@@ -29,7 +29,7 @@ public class bo {
             }
             arrayList = arrayList2;
         }
-        nVar.inI = arrayList;
+        nVar.inK = arrayList;
         return nVar;
     }
 

@@ -27,38 +27,38 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class j {
-    public LinearLayout iGd;
+    public LinearLayout iGf;
     private NavigationBar mNavigationBar;
     private TbPageContext<WriteMultiImgsActivity> mTbPageContext;
     private List<String> mUrlList;
-    private FragmentTabWidget nEN;
-    private com.baidu.tbadk.core.dialog.a obK;
-    public com.baidu.tieba.write.view.a.c oeL;
-    public com.baidu.tieba.write.view.a.b oeM;
-    public StickerLayout oeO;
-    private WriteImagesInfo oeQ;
-    private com.baidu.tieba.write.write.sticker.a.c oeR;
+    private FragmentTabWidget nEP;
+    private com.baidu.tbadk.core.dialog.a obM;
+    public com.baidu.tieba.write.view.a.c oeN;
+    public com.baidu.tieba.write.view.a.b oeO;
+    public StickerLayout oeQ;
+    private WriteImagesInfo oeS;
+    private com.baidu.tieba.write.write.sticker.a.c oeT;
     private int mSkinType = 3;
-    public BdBaseViewPager oeN = null;
-    public TextView oeP = null;
+    public BdBaseViewPager oeP = null;
+    public TextView oeR = null;
     public int mCurrentTabIndex = 0;
     private ArrayList<FragmentTabIndicator> mTabs = new ArrayList<>();
 
     public j(TbPageContext<WriteMultiImgsActivity> tbPageContext, com.baidu.tieba.write.write.sticker.a.c cVar) {
         this.mTbPageContext = tbPageContext;
-        this.oeR = cVar;
-        this.iGd = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.write_multi_imgs_activity, (ViewGroup) null);
+        this.oeT = cVar;
+        this.iGf = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.write_multi_imgs_activity, (ViewGroup) null);
         initUI();
     }
 
     private void initUI() {
-        this.oeN = (BdBaseViewPager) this.iGd.findViewById(R.id.write_multi_imgs_viewpager);
-        this.oeO = (StickerLayout) this.iGd.findViewById(R.id.stickers_container);
+        this.oeP = (BdBaseViewPager) this.iGf.findViewById(R.id.write_multi_imgs_viewpager);
+        this.oeQ = (StickerLayout) this.iGf.findViewById(R.id.stickers_container);
         Resources resources = this.mTbPageContext.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.mTbPageContext.getResources();
-        this.mNavigationBar = (NavigationBar) this.iGd.findViewById(R.id.write_multi_imgs_navibar);
+        this.mNavigationBar = (NavigationBar) this.iGf.findViewById(R.id.write_multi_imgs_navibar);
         this.mNavigationBar.setCenterTextTitle(resources.getString(R.string.pic_navigation_title));
         this.mNavigationBar.showBottomLine();
-        this.oeP = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.done));
+        this.oeR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.done));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.write.write.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -68,28 +68,28 @@ public class j {
                 }
             }
         });
-        FrameLayout frameLayout = (FrameLayout) this.iGd.findViewById(R.id.edit_container);
-        this.oeL = new com.baidu.tieba.write.view.a.c(this.mTbPageContext);
-        this.oeL.a(new e() { // from class: com.baidu.tieba.write.write.j.2
+        FrameLayout frameLayout = (FrameLayout) this.iGf.findViewById(R.id.edit_container);
+        this.oeN = new com.baidu.tieba.write.view.a.c(this.mTbPageContext);
+        this.oeN.a(new e() { // from class: com.baidu.tieba.write.write.j.2
             @Override // com.baidu.tieba.write.write.e
             public void d(Bitmap bitmap, boolean z) {
-                if (j.this.oeR == null || !j.this.oeR.U(bitmap)) {
+                if (j.this.oeT == null || !j.this.oeT.U(bitmap)) {
                     j.this.V(bitmap);
                 }
             }
         });
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
         layoutParams.setMargins(0, com.baidu.adp.lib.util.l.getDimens(this.mTbPageContext.getContext(), R.dimen.ds36), 0, 0);
-        this.oeL.getRootView().setLayoutParams(layoutParams);
-        frameLayout.addView(this.oeL.getRootView());
-        this.oeM = new com.baidu.tieba.write.view.a.b(this.mTbPageContext);
-        frameLayout.addView(this.oeM.getRootView());
-        this.oeM.getRootView().setVisibility(8);
-        dUP();
+        this.oeN.getRootView().setLayoutParams(layoutParams);
+        frameLayout.addView(this.oeN.getRootView());
+        this.oeO = new com.baidu.tieba.write.view.a.b(this.mTbPageContext);
+        frameLayout.addView(this.oeO.getRootView());
+        this.oeO.getRootView().setVisibility(8);
+        dUQ();
     }
 
     public void V(Bitmap bitmap) {
-        this.oeO.setVisibility(0);
+        this.oeQ.setVisibility(0);
         try {
             Matrix matrix = new Matrix();
             matrix.postScale(0.6f, 0.6f);
@@ -98,11 +98,11 @@ public class j {
             TbadkCoreApplication.getInst().onAppMemoryLow();
             th.printStackTrace();
         }
-        this.oeO.a(bitmap, this.oeR);
+        this.oeQ.a(bitmap, this.oeT);
     }
 
-    private void dUP() {
-        this.nEN = (FragmentTabWidget) this.iGd.findViewById(R.id.tab_widget);
+    private void dUQ() {
+        this.nEP = (FragmentTabWidget) this.iGf.findViewById(R.id.tab_widget);
         Resources resources = this.mTbPageContext.getResources();
         String[] stringArray = resources.getStringArray(R.array.edit_pic_no_fliter_tab);
         this.mTabs.clear();
@@ -112,47 +112,47 @@ public class j {
             fragmentTabIndicator.setTextColorResId(R.color.edit_pic_tab_title_color);
             fragmentTabIndicator.setTextSize(0, resources.getDimension(R.dimen.fontsize34));
             fragmentTabIndicator.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-            this.nEN.addView(fragmentTabIndicator, i);
+            this.nEP.addView(fragmentTabIndicator, i);
             this.mTabs.add(fragmentTabIndicator);
         }
-        this.nEN.setDiverColor(ap.getColor(R.color.CAM_X0107));
-        this.nEN.setCurrentTab(this.mCurrentTabIndex, true, false);
-        this.nEN.setDviderRectWidth(com.baidu.adp.lib.util.l.getDimens(this.mTbPageContext.getContext(), R.dimen.ds64));
-        this.nEN.setTabSelectionListener(new FragmentTabWidget.a() { // from class: com.baidu.tieba.write.write.j.3
+        this.nEP.setDiverColor(ap.getColor(R.color.CAM_X0107));
+        this.nEP.setCurrentTab(this.mCurrentTabIndex, true, false);
+        this.nEP.setDviderRectWidth(com.baidu.adp.lib.util.l.getDimens(this.mTbPageContext.getContext(), R.dimen.ds64));
+        this.nEP.setTabSelectionListener(new FragmentTabWidget.a() { // from class: com.baidu.tieba.write.write.j.3
             @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
             public void onTabSelectionChanged(int i2, boolean z) {
                 if (i2 != j.this.mCurrentTabIndex) {
                     switch (i2) {
                         case 0:
-                            j.this.oeL.getRootView().setVisibility(0);
-                            j.this.oeM.getRootView().setVisibility(8);
+                            j.this.oeN.getRootView().setVisibility(0);
+                            j.this.oeO.getRootView().setVisibility(8);
                             if (y.isEmpty(j.this.mUrlList)) {
-                                if (j.this.oeR != null) {
-                                    j.this.oeR.eaq();
+                                if (j.this.oeT != null) {
+                                    j.this.oeT.ear();
                                     break;
                                 }
                             } else {
-                                j.this.oeL.gr(j.this.mUrlList);
+                                j.this.oeN.gr(j.this.mUrlList);
                                 break;
                             }
                             break;
                         case 1:
-                            if (j.this.oeO != null) {
-                                j.this.oeO.dkY();
+                            if (j.this.oeQ != null) {
+                                j.this.oeQ.dkZ();
                             }
-                            j.this.oeL.getRootView().setVisibility(8);
-                            j.this.oeM.getRootView().setVisibility(0);
+                            j.this.oeN.getRootView().setVisibility(8);
+                            j.this.oeO.getRootView().setVisibility(0);
                             break;
                         case 2:
-                            if (j.this.oeO != null) {
-                                j.this.oeO.dkY();
+                            if (j.this.oeQ != null) {
+                                j.this.oeQ.dkZ();
                             }
-                            j.this.oeL.getRootView().setVisibility(8);
-                            j.this.oeM.getRootView().setVisibility(0);
+                            j.this.oeN.getRootView().setVisibility(8);
+                            j.this.oeO.getRootView().setVisibility(0);
                             break;
                     }
                     j.this.mCurrentTabIndex = i2;
-                    j.this.nEN.setCurrentTab(j.this.mCurrentTabIndex, true, true);
+                    j.this.nEP.setCurrentTab(j.this.mCurrentTabIndex, true, true);
                 }
             }
         });
@@ -161,13 +161,13 @@ public class j {
     public void Ne(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setBackgroundResource(this.iGd, R.color.CAM_X0205);
+            ap.setBackgroundResource(this.iGf, R.color.CAM_X0205);
             SvgManager.btW().a(this.mNavigationBar.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.mNavigationBar.onChangeSkinType(this.mTbPageContext, i);
-            ap.setNavbarTitleColor(this.oeP, R.color.CAM_X0302, R.color.s_navbar_title_color);
-            this.oeO.setRemoveRes(R.drawable.icon_sticker_delete);
-            this.oeL.onChangeSkinType();
-            this.oeM.onChangeSkinType();
+            ap.setNavbarTitleColor(this.oeR, R.color.CAM_X0302, R.color.s_navbar_title_color);
+            this.oeQ.setRemoveRes(R.drawable.icon_sticker_delete);
+            this.oeN.onChangeSkinType();
+            this.oeO.onChangeSkinType();
             Iterator<FragmentTabIndicator> it = this.mTabs.iterator();
             while (it.hasNext()) {
                 FragmentTabIndicator next = it.next();
@@ -175,41 +175,41 @@ public class j {
                     next.onChangeSkin(i);
                 }
             }
-            this.nEN.setDiverColor(ap.getColor(R.color.CAM_X0107));
+            this.nEP.setDiverColor(ap.getColor(R.color.CAM_X0107));
         }
     }
 
-    public void ebO() {
-        if (this.obK == null) {
-            this.obK = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            this.obK.oQ(R.string.orginal_conflict_tip);
-            this.obK.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.j.4
+    public void ebP() {
+        if (this.obM == null) {
+            this.obM = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
+            this.obM.oQ(R.string.orginal_conflict_tip);
+            this.obM.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.j.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    if (j.this.obK != null) {
-                        j.this.obK.dismiss();
+                    if (j.this.obM != null) {
+                        j.this.obM.dismiss();
                     }
                     j.this.finishActivity(true);
                 }
             });
-            this.obK.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.write.write.j.5
+            this.obM.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.write.write.j.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    if (j.this.obK != null) {
-                        j.this.obK.dismiss();
+                    if (j.this.obM != null) {
+                        j.this.obM.dismiss();
                     }
                     j.this.finishActivity(false);
                 }
             });
-            this.obK.b(this.mTbPageContext);
+            this.obM.b(this.mTbPageContext);
         }
-        this.obK.brv();
+        this.obM.brv();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finishActivity(boolean z) {
         if (this.mTbPageContext != null && this.mTbPageContext.getOrignalPage() != null) {
-            this.mTbPageContext.getOrignalPage().a(z, this.oeQ);
+            this.mTbPageContext.getOrignalPage().a(z, this.oeS);
         }
     }
 
@@ -221,20 +221,20 @@ public class j {
 
     public void gu(List<String> list) {
         this.mUrlList = list;
-        this.oeL.gr(list);
+        this.oeN.gr(list);
     }
 
-    public void bWH() {
-        this.oeL.bWH();
+    public void bWI() {
+        this.oeN.bWI();
     }
 
     public void c(WriteImagesInfo writeImagesInfo) {
-        this.oeQ = writeImagesInfo;
+        this.oeS = writeImagesInfo;
     }
 
     public void onDestroy() {
-        if (this.oeO != null) {
-            this.oeO.a((com.baidu.tieba.write.write.sticker.a.c) null);
+        if (this.oeQ != null) {
+            this.oeQ.a((com.baidu.tieba.write.write.sticker.a.c) null);
         }
     }
 }

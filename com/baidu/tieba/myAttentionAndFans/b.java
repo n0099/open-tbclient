@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /* loaded from: classes23.dex */
 public abstract class b extends BaseAdapter {
     protected ArrayList<UserData> eOt = null;
-    boolean gZp = false;
+    boolean gZr = false;
     private boolean mHasMore = false;
 
     public abstract void a(be beVar);
@@ -18,10 +18,10 @@ public abstract class b extends BaseAdapter {
         this.eOt.clear();
     }
 
-    public void bYC() {
-        this.gZp = false;
+    public void bYD() {
+        this.gZr = false;
         if (this.eOt != null && this.eOt.size() == 0) {
-            this.gZp = true;
+            this.gZr = true;
         }
     }
 

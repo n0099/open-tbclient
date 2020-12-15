@@ -35,14 +35,14 @@ public class a extends e {
     private TbPageContext<?> eNx;
     private final NewWriteModel.d fwI;
     private NewWriteModel fwu;
-    private com.baidu.tieba.write.c jYv;
+    private com.baidu.tieba.write.c jYx;
     private String mForumId;
     private String mForumName;
     private String mPostContent;
     private TextWatcher mTextWatcher;
     private String mThreadId;
-    public VideoItemData nMn;
-    private InterfaceC0887a nNf;
+    public VideoItemData nMp;
+    private InterfaceC0887a nNh;
 
     /* renamed from: com.baidu.tieba.videoplay.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes24.dex */
@@ -63,17 +63,17 @@ public class a extends e {
                     if (a.this.bCn() != null) {
                         a.this.bCn().hide();
                     }
-                    if (a.this.nNf != null) {
-                        a.this.nNf.yU(false);
+                    if (a.this.nNh != null) {
+                        a.this.nNh.yU(false);
                     }
-                    WriteData dcD = writeData == null ? a.this.fwu.dcD() : writeData;
+                    WriteData dcE = writeData == null ? a.this.fwu.dcE() : writeData;
                     if (z) {
-                        a.this.jYv.VA(null);
-                        a.this.jYv.bn(null);
-                        a.this.jYv.zb(false);
-                        a.this.dXG();
+                        a.this.jYx.VA(null);
+                        a.this.jYx.bn(null);
+                        a.this.jYx.zb(false);
+                        a.this.dXH();
                         a.this.resetData();
-                        if (dcD != null) {
+                        if (dcE != null) {
                             String string = a.this.bxs().getResources().getString(R.string.replay_success);
                             if (postWriteCallBackData != null) {
                                 str = postWriteCallBackData.getPreMsg();
@@ -82,26 +82,26 @@ public class a extends e {
                             } else {
                                 str = null;
                             }
-                            if (dcD.getType() != 7) {
+                            if (dcE.getType() != 7) {
                                 com.baidu.tieba.tbadkCore.writeModel.c.h(a.this.bxs().getPageActivity(), string, str, str2);
                             }
                         }
-                    } else if (dcD != null && ahVar != null && !TextUtils.isEmpty(ahVar.bxL())) {
-                        dcD.setVcodeMD5(ahVar.getVcode_md5());
-                        dcD.setVcodeUrl(ahVar.getVcode_pic_url());
-                        dcD.setVcodeExtra(ahVar.bxM());
+                    } else if (dcE != null && ahVar != null && !TextUtils.isEmpty(ahVar.bxL())) {
+                        dcE.setVcodeMD5(ahVar.getVcode_md5());
+                        dcE.setVcodeUrl(ahVar.getVcode_pic_url());
+                        dcE.setVcodeExtra(ahVar.bxM());
                         if (com.baidu.tbadk.t.a.ES(ahVar.bxL())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.eNx.getPageActivity(), RequestResponseCode.REQUEST_VCODE, dcD, false, ahVar.bxL())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.eNx.getPageActivity(), RequestResponseCode.REQUEST_VCODE, dcE, false, ahVar.bxL())));
                         } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.eNx.getPageActivity(), dcD, RequestResponseCode.REQUEST_VCODE)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.eNx.getPageActivity(), dcE, RequestResponseCode.REQUEST_VCODE)));
                         }
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.eNx.getPageActivity(), RequestResponseCode.REQUEST_VCODE, dcD, postWriteCallBackData.getAccessState())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.eNx.getPageActivity(), RequestResponseCode.REQUEST_VCODE, dcE, postWriteCallBackData.getAccessState())));
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
                         a.this.Vq(postWriteCallBackData.getErrorString());
-                        a.this.jYv.bn(postWriteCallBackData.getSensitiveWords());
-                        a.this.jYv.VA(postWriteCallBackData.getErrorString());
-                        if (!y.isEmpty(a.this.jYv.dYm())) {
+                        a.this.jYx.bn(postWriteCallBackData.getSensitiveWords());
+                        a.this.jYx.VA(postWriteCallBackData.getErrorString());
+                        if (!y.isEmpty(a.this.jYx.dYn())) {
                             a.this.rM(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.Le(postWriteCallBackData.getErrorCode()))) {
@@ -123,18 +123,18 @@ public class a extends e {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (a.this.jYv != null) {
-                    if (!a.this.jYv.dYp()) {
+                if (a.this.jYx != null) {
+                    if (!a.this.jYx.dYq()) {
                         a.this.rM(false);
                     }
-                    a.this.jYv.zc(false);
+                    a.this.jYx.zc(false);
                 }
             }
         };
         editorTools.ks(true);
-        this.jYv = new com.baidu.tieba.write.c();
-        this.jYv.MC(R.color.cp_cont_h_alpha85);
-        this.jYv.MB(R.color.CAM_X0101);
+        this.jYx = new com.baidu.tieba.write.c();
+        this.jYx.MC(R.color.cp_cont_h_alpha85);
+        this.jYx.MB(R.color.CAM_X0101);
     }
 
     public void a(TbPageContext<?> tbPageContext) {
@@ -161,7 +161,7 @@ public class a extends e {
     }
 
     public void c(VideoItemData videoItemData) {
-        this.nMn = videoItemData;
+        this.nMp = videoItemData;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -188,14 +188,14 @@ public class a extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXG() {
+    public void dXH() {
         if (bCn() != null) {
             bCn().b(new com.baidu.tbadk.editortools.a(9, -1, true));
             bCn().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
             bCn().hide();
         }
-        if (this.nNf != null) {
-            this.nNf.yU(true);
+        if (this.nNh != null) {
+            this.nNh.yU(true);
         }
     }
 
@@ -224,22 +224,22 @@ public class a extends e {
         writeData.setForumId(this.mForumId);
         writeData.setForumName(this.mForumName);
         writeData.setContent(this.mPostContent);
-        if (this.nMn != null && this.nMn.baijiahaoData != null) {
+        if (this.nMp != null && this.nMp.baijiahaoData != null) {
             writeData.setIsBJHPost(true);
-            writeData.setBaijiahaoData(this.nMn.baijiahaoData);
+            writeData.setBaijiahaoData(this.nMp.baijiahaoData);
         }
         this.fwu.e(writeData);
-        this.fwu.dQD();
+        this.fwu.dQE();
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
         switch (i) {
             case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                 if (i2 == 0) {
-                    this.fwI.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.fwu.dcD(), null);
+                    this.fwI.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.fwu.dcE(), null);
                     return;
                 } else if (i2 == -1) {
-                    dXG();
+                    dXH();
                     return;
                 } else {
                     return;
@@ -249,7 +249,7 @@ public class a extends e {
         }
     }
 
-    public void cGs() {
+    public void cGt() {
         if (bCn() != null && (bCn().sj(28) instanceof c) && ((c) bCn().sj(28)).getInputView() != null && ((c) bCn().sj(28)).getInputView().getText() != null) {
             ((c) bCn().sj(28)).getInputView().setText("");
         }
@@ -260,17 +260,17 @@ public class a extends e {
         if (bCn() != null && (bCn().sj(28) instanceof c) && ((c) bCn().sj(28)).getInputView() != null && ((c) bCn().sj(28)).getInputView().getText() != null) {
             EditText inputView = ((c) bCn().sj(28)).getInputView();
             int selectionEnd = inputView.getSelectionEnd();
-            SpannableStringBuilder c = this.jYv.c(inputView.getText());
+            SpannableStringBuilder c = this.jYx.c(inputView.getText());
             if (c != null) {
-                this.jYv.zc(true);
+                this.jYx.zc(true);
                 inputView.setText(c);
-                if (z && this.jYv.dYn() >= 0) {
+                if (z && this.jYx.dYo() >= 0) {
                     inputView.requestFocus();
-                    inputView.setSelection(this.jYv.dYn());
+                    inputView.setSelection(this.jYx.dYo());
                 } else {
                     inputView.setSelection(selectionEnd);
                 }
-                this.jYv.zb(this.jYv.dYn() >= 0);
+                this.jYx.zb(this.jYx.dYo() >= 0);
             }
         }
     }
@@ -283,10 +283,10 @@ public class a extends e {
     }
 
     public void a(InterfaceC0887a interfaceC0887a) {
-        this.nNf = interfaceC0887a;
+        this.nNh = interfaceC0887a;
     }
 
-    public void dXH() {
+    public void dXI() {
         ar arVar = new ar("c13026");
         arVar.dY("tid", this.mThreadId);
         arVar.w("uid", TbadkCoreApplication.getCurrentAccountId());

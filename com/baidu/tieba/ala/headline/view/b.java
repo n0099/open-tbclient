@@ -13,21 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
-    private int gVq;
+    private int gVs;
     private Context mContext;
     private ArrayList<g> eOt = new ArrayList<>();
-    private double gVr = -1.0d;
+    private double gVt = -1.0d;
 
     public b(Context context) {
         this.mContext = context;
     }
 
     public void a(List<g> list, double d) {
-        if (list != null && this.gVr != d) {
+        if (list != null && this.gVt != d) {
             this.eOt.clear();
             this.eOt.addAll(list);
             notifyDataSetChanged();
-            this.gVr = d;
+            this.gVt = d;
         }
     }
 
@@ -59,13 +59,13 @@ public class b extends BaseAdapter {
         }
         g gVar = (g) getItem(i);
         if (gVar != null) {
-            aVar.gVs.setText(gVar.GY() + " x" + gVar.Ha());
-            aVar.gVt.setText(com.baidu.tieba.ala.headline.a.fm(Long.parseLong(gVar.Ha()) * Long.parseLong(gVar.getPrice())));
-            if (!gVar.getThumbnail_url().equals(aVar.giz.getUrl())) {
-                aVar.giz.startLoad(gVar.getThumbnail_url(), 10, false);
-                aVar.giz.setTag(gVar.getThumbnail_url());
+            aVar.gVu.setText(gVar.GY() + " x" + gVar.Ha());
+            aVar.gVv.setText(com.baidu.tieba.ala.headline.a.fm(Long.parseLong(gVar.Ha()) * Long.parseLong(gVar.getPrice())));
+            if (!gVar.getThumbnail_url().equals(aVar.giB.getUrl())) {
+                aVar.giB.startLoad(gVar.getThumbnail_url(), 10, false);
+                aVar.giB.setTag(gVar.getThumbnail_url());
             }
-            if (this.gVq == i) {
+            if (this.gVs == i) {
                 aVar.rootView.setBackgroundResource(a.e.sdk_get_headline_item_bg_stroke);
             } else {
                 aVar.rootView.setBackgroundResource(0);
@@ -74,31 +74,31 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    public int bXx() {
-        return this.gVq;
+    public int bXy() {
+        return this.gVs;
     }
 
     public void vT(int i) {
-        this.gVq = i;
+        this.gVs = i;
     }
 
-    public void bXy() {
-        this.gVr = -1.0d;
+    public void bXz() {
+        this.gVt = -1.0d;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        public TextView gVs;
-        public TextView gVt;
-        public TbImageView giz;
+        public TextView gVu;
+        public TextView gVv;
+        public TbImageView giB;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.gVs = (TextView) view.findViewById(a.f.get_view_gift_item_info);
-            this.gVt = (TextView) view.findViewById(a.f.get_view_gift_item_cost);
-            this.giz = (TbImageView) view.findViewById(a.f.get_view_gift_item_image);
-            this.giz.setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.gVu = (TextView) view.findViewById(a.f.get_view_gift_item_info);
+            this.gVv = (TextView) view.findViewById(a.f.get_view_gift_item_cost);
+            this.giB = (TbImageView) view.findViewById(a.f.get_view_gift_item_image);
+            this.giB.setDefaultBgResource(a.e.sdk_shape_transparent);
         }
     }
 }

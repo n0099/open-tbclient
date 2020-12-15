@@ -20,26 +20,26 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class a {
-    private com.baidu.tieba.ala.alasquare.a.a gvN;
-    private TextView gvV;
-    private RelativeLayout gyA;
-    private RelativeLayout gyB;
-    private TbImageView gyC;
-    private TextView gyD;
-    private String gyE;
-    private com.baidu.tieba.ala.alasquare.subtablist.c.h gyF;
-    private TbImageView gyz;
+    private com.baidu.tieba.ala.alasquare.a.a gvP;
+    private TextView gvX;
+    private TbImageView gyB;
+    private RelativeLayout gyC;
+    private RelativeLayout gyD;
+    private TbImageView gyE;
+    private TextView gyF;
+    private String gyG;
+    private com.baidu.tieba.ala.alasquare.subtablist.c.h gyH;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
     private TextView mTitle;
     private int mSkinType = 3;
-    private int[] gyH = {TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha40)};
+    private int[] gyJ = {TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha40)};
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.a.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                if (a.this.gvN != null && a.this.gyF != null) {
-                    a.this.gyF.c(a.this.gvN);
+                if (a.this.gvP != null && a.this.gyH != null) {
+                    a.this.gyH.c(a.this.gvP);
                     return;
                 }
                 return;
@@ -47,26 +47,26 @@ public class a {
             l.showToast(a.this.mTbPageContext.getPageActivity(), a.this.mTbPageContext.getPageActivity().getString(R.string.neterror));
         }
     };
-    private String gyG = TbadkCoreApplication.getInst().getResources().getString(R.string.special_game_tab_title);
+    private String gyI = TbadkCoreApplication.getInst().getResources().getString(R.string.special_game_tab_title);
 
     public a(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(R.layout.ala_special_game_live_item_view, (ViewGroup) null, false);
-        this.gyB = (RelativeLayout) this.mRootView.findViewById(R.id.gameUserNameWrapper);
-        this.gyz = (TbImageView) this.mRootView.findViewById(R.id.gameTopImg);
-        this.gyz.setPlaceHolder(2);
-        this.gyA = (RelativeLayout) this.mRootView.findViewById(R.id.gameTopImgLayout);
+        this.gyD = (RelativeLayout) this.mRootView.findViewById(R.id.gameUserNameWrapper);
+        this.gyB = (TbImageView) this.mRootView.findViewById(R.id.gameTopImg);
+        this.gyB.setPlaceHolder(2);
+        this.gyC = (RelativeLayout) this.mRootView.findViewById(R.id.gameTopImgLayout);
         this.mRootView.setOnClickListener(this.mOnClickListener);
-        this.gyC = (TbImageView) this.mRootView.findViewById(R.id.gameTopLabel);
-        this.gyD = (TextView) this.mRootView.findViewById(R.id.gameTopAuthorName);
-        this.gvV = (TextView) this.mRootView.findViewById(R.id.gameTopAudienceCount);
+        this.gyE = (TbImageView) this.mRootView.findViewById(R.id.gameTopLabel);
+        this.gyF = (TextView) this.mRootView.findViewById(R.id.gameTopAuthorName);
+        this.gvX = (TextView) this.mRootView.findViewById(R.id.gameTopAudienceCount);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.gameLiveItemTitle);
-        this.gyB.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.gyH));
+        this.gyD.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.gyJ));
         int equipmentWidth = l.getEquipmentWidth(this.mRootView.getContext());
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gyA.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gyC.getLayoutParams();
         layoutParams.width = (equipmentWidth - (this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.tbds6) * 3)) / 2;
         layoutParams.height = (int) (layoutParams.width * 0.558f);
-        this.gyA.setLayoutParams(layoutParams);
+        this.gyC.setLayoutParams(layoutParams);
     }
 
     public View getView() {
@@ -74,30 +74,30 @@ public class a {
     }
 
     public void b(com.baidu.tieba.ala.alasquare.subtablist.c.h hVar) {
-        this.gyF = hVar;
+        this.gyH = hVar;
     }
 
     public void a(com.baidu.tieba.ala.alasquare.a.a aVar) {
-        a(aVar, this.gyG);
+        a(aVar, this.gyI);
     }
 
     public void a(com.baidu.tieba.ala.alasquare.a.a aVar, String str) {
-        if (aVar == null || aVar.gpC == null) {
+        if (aVar == null || aVar.gpE == null) {
             getView().setVisibility(4);
             return;
         }
-        this.gvN = aVar;
+        this.gvP = aVar;
         getView().setVisibility(0);
-        this.gyz.startLoad(aVar.gpC.liveInfo.cover, 10, false);
-        this.gvV.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, au.numberUniformFormatExtra(aVar.gpC.liveInfo.audienceCount)));
-        this.gyD.setText(aVar.gpC.liveAuthor.name);
-        this.mTitle.setText(aVar.gpC.title);
+        this.gyB.startLoad(aVar.gpE.liveInfo.cover, 10, false);
+        this.gvX.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, au.numberUniformFormatExtra(aVar.gpE.liveInfo.audienceCount)));
+        this.gyF.setText(aVar.gpE.liveAuthor.name);
+        this.mTitle.setText(aVar.gpE.title);
         if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-            this.gyE = aVar.gpC.recom_extra_img_dark;
+            this.gyG = aVar.gpE.recom_extra_img_dark;
         } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.gyE = aVar.gpC.recom_extra_img_night;
+            this.gyG = aVar.gpE.recom_extra_img_night;
         } else {
-            this.gyE = aVar.gpC.recom_extra_img;
+            this.gyG = aVar.gpE.recom_extra_img;
         }
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         TiebaStatic.log(new ar("c12903").dY("entryname", str));
@@ -105,19 +105,19 @@ public class a {
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.gvV, (int) R.color.CAM_X0101);
-            ap.setViewTextColor(this.gyD, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.gvX, (int) R.color.CAM_X0101);
+            ap.setViewTextColor(this.gyF, (int) R.color.CAM_X0101);
             ap.setViewTextColor(this.mTitle, (int) R.color.CAM_X0105);
-            if (!StringUtils.isNull(this.gyE)) {
-                this.gyC.setVisibility(0);
-                this.gyC.startLoad(this.gyE, 10, false);
+            if (!StringUtils.isNull(this.gyG)) {
+                this.gyE.setVisibility(0);
+                this.gyE.startLoad(this.gyG, 10, false);
             } else {
-                this.gyC.setVisibility(8);
+                this.gyE.setVisibility(8);
             }
             Drawable drawable = ap.getDrawable(this.mTbPageContext.getResources(), (int) R.drawable.tab_icon_living_seeding);
             drawable.setBounds(0, 0, this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds15), this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds15));
-            this.gvV.setCompoundDrawablePadding(this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.tbds14));
-            this.gvV.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.gvX.setCompoundDrawablePadding(this.mTbPageContext.getResources().getDimensionPixelSize(R.dimen.tbds14));
+            this.gvX.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
             this.mSkinType = i;
         }
     }

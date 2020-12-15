@@ -13,19 +13,19 @@ public class b implements q {
     public String cover;
     public String desc;
     public by eCR;
-    public boolean iOc;
-    public int inN;
+    public boolean iOe;
+    public int inP;
     public int likeNum;
     public int time;
 
     public b(ThreadInfo threadInfo, boolean z) {
         c(threadInfo);
-        this.iOc = z;
+        this.iOe = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.q
     public BdUniqueId getType() {
-        return a.lqe;
+        return a.lqg;
     }
 
     private void c(ThreadInfo threadInfo) {
@@ -33,7 +33,7 @@ public class b implements q {
             this.eCR = new by();
             this.eCR.a(threadInfo);
             this.desc = threadInfo.title;
-            this.inN = threadInfo.reply_num.intValue();
+            this.inP = threadInfo.reply_num.intValue();
             this.likeNum = threadInfo.agree_num.intValue();
             if (!y.isEmpty(this.eCR.boY())) {
                 Iterator<MediaData> it = this.eCR.boY().iterator();

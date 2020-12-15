@@ -11,13 +11,13 @@ import com.baidu.tieba.ala.view.AlaSeriesGiftPendant;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h implements com.baidu.live.ad.a {
-    private PendantParentView gEi;
-    private PendantChildView gEj;
-    protected AlaSeriesGiftPendant gHY;
+    private PendantParentView gEk;
+    private PendantChildView gEl;
+    protected AlaSeriesGiftPendant gIa;
     private Context mContext;
-    private final int gHV = 1;
-    private final int gHW = 0;
-    private final int gHX = -1;
+    private final int gHX = 1;
+    private final int gHY = 0;
+    private final int gHZ = -1;
     private boolean isHost = false;
 
     public h(Context context) {
@@ -28,12 +28,12 @@ public class h implements com.baidu.live.ad.a {
     public void a(ViewGroup viewGroup, String str) {
         if (viewGroup != null && str != null && !TextUtils.isEmpty(str)) {
             if (viewGroup instanceof PendantParentView) {
-                this.gEi = (PendantParentView) viewGroup;
-                bUj();
+                this.gEk = (PendantParentView) viewGroup;
+                bUk();
             }
-            if (this.gHY == null || (this.gEj != null && this.gEj.indexOfChild(this.gHY) < 0)) {
-                this.gHY = new AlaSeriesGiftPendant(this.gEj.getContext(), this.isHost, str);
-                this.gEj.addView(this.gHY);
+            if (this.gIa == null || (this.gEl != null && this.gEl.indexOfChild(this.gIa) < 0)) {
+                this.gIa = new AlaSeriesGiftPendant(this.gEl.getContext(), this.isHost, str);
+                this.gEl.addView(this.gIa);
             }
         }
     }
@@ -47,25 +47,25 @@ public class h implements com.baidu.live.ad.a {
         if (dz(jSONObject) == -1) {
             return false;
         }
-        if (this.gHY != null && (this.gHY.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gHY.getParent()).removeView(this.gHY);
+        if (this.gIa != null && (this.gIa.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gIa.getParent()).removeView(this.gIa);
         }
-        this.gHY = new AlaSeriesGiftPendant(this.gEj.getContext(), this.isHost, jSONObject.toString());
-        this.gEj.addView(this.gHY);
+        this.gIa = new AlaSeriesGiftPendant(this.gEl.getContext(), this.isHost, jSONObject.toString());
+        this.gEl.addView(this.gIa);
         return true;
     }
 
     @Override // com.baidu.live.ad.a
     public void setCanVisible(boolean z) {
-        if (this.gHY != null) {
-            this.gHY.setCanVisible(z);
+        if (this.gIa != null) {
+            this.gIa.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.ad.a
     public void cL(boolean z) {
-        if (this.gHY != null && z && !AlaSeriesGiftPendant.hWV) {
-            this.gHY.setCanVisible(true);
+        if (this.gIa != null && z && !AlaSeriesGiftPendant.hWX) {
+            this.gIa.setCanVisible(true);
         }
     }
 
@@ -84,8 +84,8 @@ public class h implements com.baidu.live.ad.a {
         this.isHost = z;
     }
 
-    private void bUj() {
-        this.gEj = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
+    private void bUk() {
+        this.gEl = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
                 return PendantParentView.Position.RIGHT;
@@ -111,9 +111,9 @@ public class h implements com.baidu.live.ad.a {
                 return 9;
             }
         };
-        this.gEj.setBackgroundColor(0);
-        if (this.gEi != null) {
-            this.gEi.a(this.gEj, new LinearLayout.LayoutParams(-2, -2));
+        this.gEl.setBackgroundColor(0);
+        if (this.gEk != null) {
+            this.gEk.a(this.gEl, new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
@@ -123,12 +123,12 @@ public class h implements com.baidu.live.ad.a {
     }
 
     private void lY(boolean z) {
-        if (this.gHY != null && (this.gHY.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gHY.getParent()).removeView(this.gHY);
+        if (this.gIa != null && (this.gIa.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gIa.getParent()).removeView(this.gIa);
         }
-        if (z && this.gEj != null && (this.gEj.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gEj.getParent()).removeView(this.gEj);
+        if (z && this.gEl != null && (this.gEl.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gEl.getParent()).removeView(this.gEl);
         }
-        AlaSeriesGiftPendant.hWV = true;
+        AlaSeriesGiftPendant.hWX = true;
     }
 }

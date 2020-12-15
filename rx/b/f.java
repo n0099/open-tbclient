@@ -3,8 +3,8 @@ package rx.b;
 import rx.j;
 /* loaded from: classes12.dex */
 public final class f {
-    public static <T> j<T> eGs() {
-        return b(a.eGr());
+    public static <T> j<T> eGt() {
+        return b(a.eGs());
     }
 
     public static <T> j<T> b(final rx.e<? super T> eVar) {

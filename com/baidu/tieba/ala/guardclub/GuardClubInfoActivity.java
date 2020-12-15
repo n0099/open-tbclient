@@ -27,8 +27,8 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
     private String aPS;
     private String aWR;
     private long anchorId;
-    private e gNO;
-    private boolean gNP;
+    private e gNQ;
+    private boolean gNR;
     private boolean isFullScreen;
     private long liveId;
     private View mRootView;
@@ -80,17 +80,17 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
             this.aLj = getIntent().getBooleanExtra("is_live_owner", false);
             this.otherParams = getIntent().getStringExtra(IntentConfig.OTHER_PARAMS);
             this.isFullScreen = getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_FULLSCREEN, true);
-            this.gNP = getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_CLUB_MEMBER, true);
+            this.gNR = getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_CLUB_MEMBER, true);
             String stringExtra = getIntent().getStringExtra(GuardClubInfoActivityConfig.FROM_LOC_INFO);
             boolean booleanExtra2 = getIntent().getBooleanExtra(GuardClubInfoActivityConfig.IS_HIDE_RANK, false);
             this.aPR = getIntent().getStringExtra(GuardClubInfoActivityConfig.ANCHOR_NAME);
             this.aPS = getIntent().getStringExtra(GuardClubInfoActivityConfig.ANCHOR_PORTRAIT);
-            this.gNO = new e(this, this.anchorId, this.liveId, this.roomId, this.aWR, this.aLj, this.otherParams, this.isFullScreen, this.gNP, booleanExtra2, stringExtra, booleanExtra, this.aPR, this.aPS);
-            if (this.gNO.getView() != null) {
+            this.gNQ = new e(this, this.anchorId, this.liveId, this.roomId, this.aWR, this.aLj, this.otherParams, this.isFullScreen, this.gNR, booleanExtra2, stringExtra, booleanExtra, this.aPR, this.aPS);
+            if (this.gNQ.getView() != null) {
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                    this.mRootView = i(this.gNO.getView(), this.isFullScreen);
+                    this.mRootView = i(this.gNQ.getView(), this.isFullScreen);
                 } else {
-                    this.mRootView = this.gNO.getView();
+                    this.mRootView = this.gNQ.getView();
                 }
                 setContentView(this.mRootView);
             }
@@ -100,7 +100,7 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
             }
             registerListener(this.notifyDialogDismissListener);
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                com.baidu.live.utils.i.ae(this.gNO.getView());
+                com.baidu.live.utils.i.ae(this.gNQ.getView());
             }
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             this.baH = false;
@@ -206,8 +206,8 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.gNO.getView() != null) {
-            this.gNO.IR();
+        if (this.gNQ.getView() != null) {
+            this.gNQ.IR();
         }
     }
 
@@ -225,8 +225,8 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
     public void onDestroy() {
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        if (this.gNO != null) {
-            this.gNO.onDestroy();
+        if (this.gNQ != null) {
+            this.gNQ.onDestroy();
         }
     }
 
@@ -235,8 +235,8 @@ public class GuardClubInfoActivity extends BaseActivity<GuardClubInfoActivity> {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
-            if ((i == 25045 || i == 25046) && this.gNO != null) {
-                this.gNO.bVZ();
+            if ((i == 25045 || i == 25046) && this.gNQ != null) {
+                this.gNQ.bWa();
             }
             if (i == 25046 && intent != null) {
                 if (intent.getBooleanExtra("guard_club_rank_hit", false)) {

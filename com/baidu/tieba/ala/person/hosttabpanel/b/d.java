@@ -5,12 +5,12 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.data.AlaLiveInfoData;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.live.tieba.b.a.a implements IAdapterData {
-    public static BdUniqueId hJK = BdUniqueId.gen();
-    public AlaLiveInfoData hJu;
-    public AlaLiveInfoData hJv;
+    public static BdUniqueId hJM = BdUniqueId.gen();
+    public AlaLiveInfoData hJw;
+    public AlaLiveInfoData hJx;
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return hJK;
+        return hJM;
     }
 }

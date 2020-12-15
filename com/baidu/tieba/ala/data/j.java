@@ -12,9 +12,9 @@ public class j extends BaseData {
     private String aXH;
     private long anchorId;
     private int countDown;
-    private long gIT;
-    private boolean gIU;
-    private k[] gIV;
+    private long gIV;
+    private boolean gIW;
+    private k[] gIX;
     private int giftId;
     private long liveId;
 
@@ -22,7 +22,7 @@ public class j extends BaseData {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.giftId = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-            this.gIT = jSONObject.optLong("tying_gift_id");
+            this.gIV = jSONObject.optLong("tying_gift_id");
             this.aXE = jSONObject.optString("tying_gift_name");
             this.liveId = jSONObject.optLong("live_id");
             this.anchorId = jSONObject.optLong("anchor_id");
@@ -30,16 +30,16 @@ public class j extends BaseData {
             this.aXH = jSONObject.optString("pay_username");
             this.countDown = jSONObject.optInt("count_down");
             if (jSONObject.optInt("tying_status") == 1) {
-                this.gIU = true;
+                this.gIW = true;
             } else {
-                this.gIU = false;
+                this.gIW = false;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("gift_member");
             if (optJSONArray != null) {
-                this.gIV = new k[optJSONArray.length()];
+                this.gIX = new k[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     try {
-                        this.gIV[i] = new k(optJSONArray.getJSONObject(i));
+                        this.gIX[i] = new k(optJSONArray.getJSONObject(i));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -52,15 +52,15 @@ public class j extends BaseData {
         return this.aXE;
     }
 
-    public int bUR() {
+    public int bUS() {
         return this.countDown;
     }
 
-    public boolean bUS() {
-        return this.gIU;
+    public boolean bUT() {
+        return this.gIW;
     }
 
-    public k[] bUT() {
-        return this.gIV;
+    public k[] bUU() {
+        return this.gIX;
     }
 }

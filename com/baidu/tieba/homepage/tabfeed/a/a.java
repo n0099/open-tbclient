@@ -32,7 +32,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bl, am<bl>> implements co
     private String mTabName;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQE() {
+    public void cQF() {
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(this.mPageContext.getPageActivity(), this.mClassName)));
         ar arVar = new ar("c13757");
         arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
@@ -44,13 +44,13 @@ public class a extends com.baidu.adp.widget.ListView.a<bl, am<bl>> implements co
         this.amw = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.cQE();
+                a.this.cQF();
             }
         };
         this.amx = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
             public void bHZ() {
-                a.this.cQE();
+                a.this.cQF();
             }
         };
         this.ajQ = new com.baidu.tbadk.h.f<bk>() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.3
@@ -58,7 +58,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bl, am<bl>> implements co
             @Override // com.baidu.tbadk.h.f
             public void a(View view, bk bkVar, int i, long j) {
                 if (bkVar == null) {
-                    a.this.cQE();
+                    a.this.cQF();
                     return;
                 }
                 String forumName = bkVar.getForumName();

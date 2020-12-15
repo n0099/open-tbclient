@@ -17,9 +17,9 @@ public interface i {
 
     void am(boolean z, boolean z2);
 
-    void diO();
-
     void diP();
+
+    void diQ();
 
     void h(long j, long j2, long j3);
 

@@ -24,59 +24,59 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes22.dex */
 public class TopicFragment extends BaseFragment implements f.c, ap, a {
-    private boolean jJE = false;
-    private TopicModel jYY;
-    private TopicListView jYZ;
+    private boolean jJG = false;
+    private TopicModel jZa;
+    private TopicListView jZb;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jYY.setPresenter(this);
-        this.jYY.setUniqueId(getUniqueId());
-        this.jYZ.setPresenter(this);
-        this.jYZ.setListPullRefreshListener(this);
-        this.jYZ.setPageUniqueId(getUniqueId());
+        this.jZa.setPresenter(this);
+        this.jZa.setUniqueId(getUniqueId());
+        this.jZb.setPresenter(this);
+        this.jZb.setListPullRefreshListener(this);
+        this.jZb.setPageUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.jYZ.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.jYZ.getParent()).removeView(this.jYZ);
+        if (this.jZb.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.jZb.getParent()).removeView(this.jZb);
         }
-        if (this.jJE) {
-            this.jYZ.bZp();
-            this.jJE = false;
+        if (this.jJG) {
+            this.jZb.bZq();
+            this.jJG = false;
         }
-        return this.jYZ;
+        return this.jZb;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.jYZ.setViewForeground();
+            this.jZb.setViewForeground();
             TiebaStatic.log(new ar("c13349"));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.jYZ.ib(false);
-        this.jYY.cRc();
+        this.jZb.ib(false);
+        this.jZa.cRd();
     }
 
     @Override // com.baidu.tieba.frs.ap
     public void VC() {
-        this.jYZ.reload();
-    }
-
-    @Override // com.baidu.tieba.frs.ap
-    public void bSg() {
+        this.jZb.reload();
     }
 
     @Override // com.baidu.tieba.frs.ap
     public void bSh() {
+    }
+
+    @Override // com.baidu.tieba.frs.ap
+    public void bSi() {
     }
 
     @Override // com.baidu.tieba.frs.ap
@@ -94,35 +94,35 @@ public class TopicFragment extends BaseFragment implements f.c, ap, a {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.jYZ.onChangeSkinType();
+        this.jZb.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.jYY.cRc();
+        this.jZa.cRd();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.jYZ.Yb();
-            this.jYZ.ib(false);
-            this.jYY.cRc();
+            this.jZb.Yb();
+            this.jZb.ib(false);
+            this.jZa.cRd();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void o(int i, List<q> list) {
-        this.jYZ.hideLoadingView();
-        this.jYZ.bSl();
+        this.jZb.hideLoadingView();
+        this.jZb.bSm();
         if (i != 0 || y.isEmpty(list)) {
-            this.jYZ.px(false);
+            this.jZb.px(false);
             return;
         }
-        this.jYZ.Yb();
-        this.jYZ.bYs();
-        this.jYZ.setData(list);
-        this.jYZ.Ya();
+        this.jZb.Yb();
+        this.jZb.bYt();
+        this.jZb.setData(list);
+        this.jZb.Ya();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -147,8 +147,8 @@ public class TopicFragment extends BaseFragment implements f.c, ap, a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.jYZ.destroy();
-        this.jYY.onDestroy();
-        this.jJE = true;
+        this.jZb.destroy();
+        this.jZa.onDestroy();
+        this.jJG = true;
     }
 }

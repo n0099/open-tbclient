@@ -17,9 +17,9 @@ import com.baidu.tieba.R;
 public class UserRecommendItemView extends LinearLayout {
     private TextView aky;
     private boolean isGod;
-    private ClickableHeaderImageView jDC;
-    private CardUserLikeButton jDD;
-    private TextView jDE;
+    private ClickableHeaderImageView jDE;
+    private CardUserLikeButton jDF;
+    private TextView jDG;
     private int mSkinType;
 
     public UserRecommendItemView(Context context) {
@@ -38,16 +38,16 @@ public class UserRecommendItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_user_recommend_item, (ViewGroup) this, true);
-        this.jDC = (ClickableHeaderImageView) findViewById(R.id.user_recommend_head);
-        this.jDC.setAutoChangeStyle(true);
-        this.jDC.setDefaultResource(17170445);
-        this.jDC.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.jDC.setIsRound(true);
-        this.jDC.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.jDD = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
-        this.jDD.setGravity(17);
+        this.jDE = (ClickableHeaderImageView) findViewById(R.id.user_recommend_head);
+        this.jDE.setAutoChangeStyle(true);
+        this.jDE.setDefaultResource(17170445);
+        this.jDE.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.jDE.setIsRound(true);
+        this.jDE.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.jDF = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
+        this.jDF.setGravity(17);
         this.aky = (TextView) findViewById(R.id.user_recommend_username);
-        this.jDE = (TextView) findViewById(R.id.user_recommend_fans_num);
+        this.jDG = (TextView) findViewById(R.id.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -55,7 +55,7 @@ public class UserRecommendItemView extends LinearLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.UserRecommendItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                UserRecommendItemView.this.jDC.onClick(UserRecommendItemView.this.jDC);
+                UserRecommendItemView.this.jDE.onClick(UserRecommendItemView.this.jDE);
             }
         });
     }
@@ -74,24 +74,24 @@ public class UserRecommendItemView extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.jDE.setTextColor(ap.getColor(i, R.color.CAM_X0109));
+            this.jDG.setTextColor(ap.getColor(i, R.color.CAM_X0109));
             if (this.isGod) {
                 this.aky.setTextColor(ap.getColor(i, R.color.cp_cont_r));
             } else {
                 this.aky.setTextColor(ap.getColor(i, R.color.CAM_X0105));
             }
             setBackgroundColor(ap.getColor(i, R.color.CAM_X0201));
-            this.jDD.onChangeSkinType(i);
-            this.jDC.setPlaceHolder(1);
+            this.jDF.onChangeSkinType(i);
+            this.jDE.setPlaceHolder(1);
         }
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.jDC;
+        return this.jDE;
     }
 
     public CommonUserLikeButton getLikeBtn() {
-        return this.jDD;
+        return this.jDF;
     }
 
     public TextView getUsername() {
@@ -99,6 +99,6 @@ public class UserRecommendItemView extends LinearLayout {
     }
 
     public TextView getFansNum() {
-        return this.jDE;
+        return this.jDG;
     }
 }

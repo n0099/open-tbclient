@@ -21,7 +21,7 @@ public final class k {
                 }
                 if (g.Yh(a.aR)) {
                     for (File file2 : k.Yk(a.aR)) {
-                        if (!file2.getName().equals(b.ejJ()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
+                        if (!file2.getName().equals(b.ejK()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
                             g.Yi(file2.getPath());
                         }
                     }

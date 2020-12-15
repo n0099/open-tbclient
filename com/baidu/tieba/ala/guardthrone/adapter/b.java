@@ -56,21 +56,21 @@ public class b extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_guard_throne_rank_item_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.gSD = (TextView) view.findViewById(a.f.tv_rank_label);
-            aVar.gSE = (HeadImageView) view.findViewById(a.f.avatar_rank);
-            aVar.gSF = (TextView) view.findViewById(a.f.tv_rank_name);
-            aVar.gSG = (TextView) view.findViewById(a.f.tv_rank_score);
-            a(aVar.gSE);
+            aVar.gSF = (TextView) view.findViewById(a.f.tv_rank_label);
+            aVar.gSG = (HeadImageView) view.findViewById(a.f.avatar_rank);
+            aVar.gSH = (TextView) view.findViewById(a.f.tv_rank_name);
+            aVar.gSI = (TextView) view.findViewById(a.f.tv_rank_score);
+            a(aVar.gSG);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         a.b.C0667b c0667b = (this.mList == null || this.mList.size() <= i) ? null : this.mList.get(i);
         if (c0667b != null) {
-            aVar.gSD.setText(c0667b.rank);
-            aVar.gSE.startLoad(c0667b.portrait, 12, false);
-            aVar.gSF.setText(c0667b.nickname);
-            aVar.gSG.setText(this.mContext.getResources().getString(a.h.score_value, com.baidu.tieba.ala.guardthrone.e.a.HK(c0667b.score)));
+            aVar.gSF.setText(c0667b.rank);
+            aVar.gSG.startLoad(c0667b.portrait, 12, false);
+            aVar.gSH.setText(c0667b.nickname);
+            aVar.gSI.setText(this.mContext.getResources().getString(a.h.score_value, com.baidu.tieba.ala.guardthrone.e.a.HK(c0667b.score)));
         }
         return view;
     }
@@ -85,10 +85,10 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class a {
-        public TextView gSD;
-        public HeadImageView gSE;
         public TextView gSF;
-        public TextView gSG;
+        public HeadImageView gSG;
+        public TextView gSH;
+        public TextView gSI;
 
         private a() {
         }

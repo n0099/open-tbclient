@@ -21,46 +21,46 @@ import com.baidu.tieba.setting.model.MsgRemindModel;
 import java.util.Date;
 /* loaded from: classes26.dex */
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements View.OnClickListener, BdSwitchView.a {
-    private MsgRemindModel mWA;
-    private g mWL;
-    private MsgRemindModel.a mWC = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.1
+    private MsgRemindModel mWC;
+    private g mWO;
+    private MsgRemindModel.a mWE = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.1
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.a
         public void i(int i, boolean z, boolean z2) {
             if (i == 8) {
                 if (!z) {
                     if (z2) {
-                        MsgRemindActivity.this.mWL.dJo().turnOffNoCallback();
-                        MsgRemindActivity.this.mWL.xA(false);
-                        MsgRemindActivity.this.mWL.xz(false);
+                        MsgRemindActivity.this.mWO.dJp().turnOffNoCallback();
+                        MsgRemindActivity.this.mWO.xA(false);
+                        MsgRemindActivity.this.mWO.xz(false);
                         return;
                     }
-                    MsgRemindActivity.this.mWL.dJo().turnOnNoCallback();
-                    MsgRemindActivity.this.mWL.xA(true);
-                    MsgRemindActivity.this.mWL.xz(true);
+                    MsgRemindActivity.this.mWO.dJp().turnOnNoCallback();
+                    MsgRemindActivity.this.mWO.xA(true);
+                    MsgRemindActivity.this.mWO.xz(true);
                 }
             } else if (i == 9) {
                 if (!z) {
                     if (z2) {
-                        MsgRemindActivity.this.mWL.dJp().turnOffNoCallback();
+                        MsgRemindActivity.this.mWO.dJq().turnOffNoCallback();
                     } else {
-                        MsgRemindActivity.this.mWL.dJp().turnOnNoCallback();
+                        MsgRemindActivity.this.mWO.dJq().turnOnNoCallback();
                     }
                 }
             } else if (i == 7) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.bzl().kb(z2);
                 } else if (z2) {
-                    MsgRemindActivity.this.mWL.dJq().turnOffNoCallback();
+                    MsgRemindActivity.this.mWO.dJr().turnOffNoCallback();
                 } else {
-                    MsgRemindActivity.this.mWL.dJq().turnOnNoCallback();
+                    MsgRemindActivity.this.mWO.dJr().turnOnNoCallback();
                 }
             } else if (i == 6) {
                 if (!z) {
                     if (z2) {
-                        MsgRemindActivity.this.mWL.dKe().turnOffNoCallback();
+                        MsgRemindActivity.this.mWO.dKf().turnOffNoCallback();
                         return;
                     } else {
-                        MsgRemindActivity.this.mWL.dKe().turnOnNoCallback();
+                        MsgRemindActivity.this.mWO.dKf().turnOnNoCallback();
                         return;
                     }
                 }
@@ -68,49 +68,49 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             }
         }
     };
-    private final com.baidu.tbadk.widget.timepicker.a.d.e mWN = new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.5
+    private final com.baidu.tbadk.widget.timepicker.a.d.e mWP = new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.5
         @Override // com.baidu.tbadk.widget.timepicker.a.d.e
         public void a(Date date, View view) {
-            if (MsgRemindActivity.this.mWL != null) {
+            if (MsgRemindActivity.this.mWO != null) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().setSignAlertTime(date.getHours(), date.getMinutes());
-                MsgRemindActivity.this.mWL.dJD();
-                MsgRemindActivity.this.mWL.dKf();
+                MsgRemindActivity.this.mWO.dJE();
+                MsgRemindActivity.this.mWO.dKg();
             }
         }
     };
-    private MsgRemindModel.a mUm = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.7
+    private MsgRemindModel.a mUo = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.7
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.a
         public void i(int i, boolean z, final boolean z2) {
             if (i == 14) {
-                final BdSwitchView dJG = MsgRemindActivity.this.mWL.dJG();
+                final BdSwitchView dJH = MsgRemindActivity.this.mWO.dJH();
                 if (z) {
                     if (z2) {
                         com.baidu.tbadk.coreExtra.messageCenter.d.bzl().rJ(300);
-                        MsgRemindActivity.this.mWL.xD(true);
+                        MsgRemindActivity.this.mWO.xD(true);
                     } else {
                         com.baidu.tbadk.coreExtra.messageCenter.d.bzl().rJ(0);
-                        MsgRemindActivity.this.mWL.xD(false);
+                        MsgRemindActivity.this.mWO.xD(false);
                     }
-                    if (dJG != null) {
+                    if (dJH != null) {
                         com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.7.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (z2) {
-                                    dJG.turnOnNoCallback();
+                                    dJH.turnOnNoCallback();
                                 } else {
-                                    dJG.turnOffNoCallback();
+                                    dJH.turnOffNoCallback();
                                 }
                             }
                         }, 500L);
                     }
-                } else if (dJG != null) {
+                } else if (dJH != null) {
                     com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.7.2
                         @Override // java.lang.Runnable
                         public void run() {
                             if (z2) {
-                                dJG.turnOffNoCallback();
+                                dJH.turnOffNoCallback();
                             } else {
-                                dJG.turnOnNoCallback();
+                                dJH.turnOnNoCallback();
                             }
                         }
                     }, 500L);
@@ -119,12 +119,12 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jZ(z2);
                 }
-                MsgRemindActivity.this.mWL.dKa();
+                MsgRemindActivity.this.mWO.dKb();
             } else if (i == 3) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.bzl().ka(z2);
                 }
-                MsgRemindActivity.this.mWL.dKb();
+                MsgRemindActivity.this.mWO.dKc();
             } else if (i == 4) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jQ(z2);
@@ -132,22 +132,22 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                         TiebaStatic.eventStat(MsgRemindActivity.this.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
                     }
                 }
-                MsgRemindActivity.this.mWL.dKd();
+                MsgRemindActivity.this.mWO.dKe();
             } else if (i == 5) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jP(z2);
                 }
-                MsgRemindActivity.this.mWL.dKc();
+                MsgRemindActivity.this.mWO.dKd();
             } else if (i == 1) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jY(z2);
                 }
-                MsgRemindActivity.this.mWL.dJY();
+                MsgRemindActivity.this.mWO.dJZ();
             } else if (i == 20) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jR(z2);
                 }
-                MsgRemindActivity.this.mWL.dJZ();
+                MsgRemindActivity.this.mWO.dKa();
             }
         }
     };
@@ -156,131 +156,131 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mWL = new g(this);
-        this.mWL.b(this);
-        this.mWA = new MsgRemindModel(this);
+        this.mWO = new g(this);
+        this.mWO.b(this);
+        this.mWC = new MsgRemindModel(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mWL.onChangeSkinType(i);
+        this.mWO.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.mWL.dJF()) {
+        if (view == this.mWO.dJG()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().setSignAlertOn(true);
                 TiebaStatic.log(new ar("c12939").al("obj_type", 2));
                 TiebaStatic.log(new ar("c13254").al("obj_type", 1));
-                this.mWL.dJD();
-                this.mWL.xC(true);
+                this.mWO.dJE();
+                this.mWO.xC(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().setSignAlertOn(false);
                 TiebaStatic.log(new ar("c12939").al("obj_type", 1));
                 TiebaStatic.log(new ar("c13254").al("obj_type", 0));
-                this.mWL.xC(false);
+                this.mWO.xC(false);
             }
             a(switchState, 7);
-        } else if (view == this.mWL.dJG()) {
-            this.mWA.a(14, switchState == BdSwitchView.SwitchState.ON, this.mUm);
-        } else if (view == this.mWL.dJI()) {
+        } else if (view == this.mWO.dJH()) {
+            this.mWC.a(14, switchState == BdSwitchView.SwitchState.ON, this.mUo);
+        } else if (view == this.mWO.dJJ()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jT(true);
-                this.mWL.xB(true);
+                this.mWO.xB(true);
                 return;
             }
             com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jT(false);
-            this.mWL.xB(false);
-        } else if (view == this.mWL.dJM()) {
+            this.mWO.xB(false);
+        } else if (view == this.mWO.dJN()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jW(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jW(false);
             }
-        } else if (view == this.mWL.dJN()) {
+        } else if (view == this.mWO.dJO()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jU(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jU(false);
             }
-        } else if (view == this.mWL.dJO()) {
+        } else if (view == this.mWO.dJP()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jV(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jV(false);
             }
-        } else if (view == this.mWL.dJP()) {
+        } else if (view == this.mWO.dJQ()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jX(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.bzl().jX(false);
             }
-        } else if (view == this.mWL.dJQ()) {
+        } else if (view == this.mWO.dJR()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mWA.a(1, true, this.mUm);
+                this.mWC.a(1, true, this.mUo);
             } else {
-                this.mWA.a(1, false, this.mUm);
+                this.mWC.a(1, false, this.mUo);
             }
             a(switchState, 1);
-        } else if (view == this.mWL.dJR()) {
+        } else if (view == this.mWO.dJS()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mWA.a(20, true, this.mUm);
+                this.mWC.a(20, true, this.mUo);
             } else {
-                this.mWA.a(20, false, this.mUm);
+                this.mWC.a(20, false, this.mUo);
             }
             a(switchState, 2);
-        } else if (view == this.mWL.dJS()) {
+        } else if (view == this.mWO.dJT()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mWA.a(2, true, this.mUm);
+                this.mWC.a(2, true, this.mUo);
             } else {
-                this.mWA.a(2, false, this.mUm);
+                this.mWC.a(2, false, this.mUo);
             }
             a(switchState, 3);
-        } else if (view == this.mWL.dJT()) {
+        } else if (view == this.mWO.dJU()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mWA.a(5, true, this.mUm);
+                this.mWC.a(5, true, this.mUo);
             } else {
-                this.mWA.a(5, false, this.mUm);
+                this.mWC.a(5, false, this.mUo);
             }
-        } else if (view == this.mWL.dJU()) {
+        } else if (view == this.mWO.dJV()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mWA.a(4, true, this.mUm);
+                this.mWC.a(4, true, this.mUo);
             } else {
-                this.mWA.a(4, false, this.mUm);
+                this.mWC.a(4, false, this.mUo);
             }
-        } else if (view == this.mWL.dJV()) {
+        } else if (view == this.mWO.dJW()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mWA.a(3, true, this.mUm);
+                this.mWC.a(3, true, this.mUo);
             } else {
-                this.mWA.a(3, false, this.mUm);
+                this.mWC.a(3, false, this.mUo);
             }
             a(switchState, 4);
-        } else if (view == this.mWL.dJo()) {
+        } else if (view == this.mWO.dJp()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mWA.a(8, true, this.mWC);
-                this.mWL.xA(true);
-                this.mWL.xz(true);
+                this.mWC.a(8, true, this.mWE);
+                this.mWO.xA(true);
+                this.mWO.xz(true);
             } else {
-                this.mWA.a(8, false, this.mWC);
-                this.mWL.xA(false);
-                this.mWL.xz(false);
+                this.mWC.a(8, false, this.mWE);
+                this.mWO.xA(false);
+                this.mWO.xz(false);
             }
             a(switchState, 5);
-        } else if (view == this.mWL.dJp()) {
+        } else if (view == this.mWO.dJq()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.mWA.a(9, true, this.mWC);
+                this.mWC.a(9, true, this.mWE);
             } else {
-                this.mWA.a(9, false, this.mWC);
+                this.mWC.a(9, false, this.mWE);
             }
             a(switchState, 6);
-        } else if (view == this.mWL.dJq()) {
-            this.mWA.a(7, switchState == BdSwitchView.SwitchState.OFF, this.mWC);
+        } else if (view == this.mWO.dJr()) {
+            this.mWC.a(7, switchState == BdSwitchView.SwitchState.OFF, this.mWE);
             a(switchState, 9);
-        } else if (view == this.mWL.dKe()) {
-            this.mWA.a(6, switchState == BdSwitchView.SwitchState.OFF, this.mWC);
+        } else if (view == this.mWO.dKf()) {
+            this.mWC.a(6, switchState == BdSwitchView.SwitchState.OFF, this.mWE);
         }
     }
 
@@ -290,37 +290,37 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.mWL.VV().performClick();
+        this.mWO.VV().performClick();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.mWL.VV()) {
-            if (this.mWL.mXp) {
+        if (view == this.mWO.VV()) {
+            if (this.mWO.mXr) {
                 finish();
             } else {
-                this.mWL.xE(true);
+                this.mWO.xE(true);
             }
-        } else if (view == this.mWL.dJH()) {
-            com.baidu.tbadk.coreExtra.messageCenter.f.bzH().a(getPageContext(), this.mWN);
-        } else if (view == this.mWL.dJJ()) {
-            this.mWL.xE(false);
-        } else if (view == this.mWL.dJK()) {
+        } else if (view == this.mWO.dJI()) {
+            com.baidu.tbadk.coreExtra.messageCenter.f.bzH().a(getPageContext(), this.mWP);
+        } else if (view == this.mWO.dJK()) {
+            this.mWO.xE(false);
+        } else if (view == this.mWO.dJL()) {
             showDialog(R.id.no_disturb_start_time);
-        } else if (view == this.mWL.dJL()) {
+        } else if (view == this.mWO.dJM()) {
             showDialog(R.id.no_disturb_end_time);
-        } else if (view == this.mWL.dJW()) {
+        } else if (view == this.mWO.dJX()) {
             TiebaStatic.log(new ar("c13286").dY("uid", TbadkCoreApplication.getCurrentAccount()));
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MsgReceiveActivityConfig(getPageContext().getPageActivity())));
-        } else if (view == this.mWL.dJX()) {
+        } else if (view == this.mWO.dJY()) {
             com.baidu.tbadk.core.b.a.bmk().bmm();
         } else if (view.getId() == R.id.system_msg_permission_switch_cover) {
-            dJr();
+            dJs();
         }
     }
 
-    private void dJr() {
+    private void dJs() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
         aVar.oP(R.string.push_permission_guide_title);
         aVar.setTitleShowCenter(true);
@@ -356,11 +356,11 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                if (this.mWL.mXp) {
+                if (this.mWO.mXr) {
                     finish();
                     return true;
                 }
-                this.mWL.xE(true);
+                this.mWO.xE(true);
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -397,7 +397,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     } else {
                         com.baidu.tbadk.coreExtra.messageCenter.d.bzl().Da(str);
                     }
-                    MsgRemindActivity.this.mWL.dJE();
+                    MsgRemindActivity.this.mWO.dJF();
                 }
             }
         }, 0, 0, true);
@@ -430,8 +430,8 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.mWL != null) {
-            this.mWL.onDestroy();
+        if (this.mWO != null) {
+            this.mWO.onDestroy();
         }
     }
 
@@ -439,8 +439,8 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.mWL != null) {
-            this.mWL.onResume();
+        if (this.mWO != null) {
+            this.mWO.onResume();
         }
     }
 }

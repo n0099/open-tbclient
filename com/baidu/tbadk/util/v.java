@@ -61,7 +61,7 @@ public class v {
             if (isNetWorkAvailable) {
                 if (com.baidu.adp.lib.util.j.isWifiNet()) {
                     av.btX().setNetworkIsWifi(true);
-                    com.baidu.tieba.recapp.d.a.dFX().dFZ();
+                    com.baidu.tieba.recapp.d.a.dFY().dGa();
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
                     av.btX().setNetworkIsWifi(false);
                 }

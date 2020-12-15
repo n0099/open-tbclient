@@ -13,21 +13,21 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class d extends BdBaseModel {
-    private a gZl;
-    private HttpMessageListener gZm = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.live.personcenter.exp.d.1
+    private a gZn;
+    private HttpMessageListener gZo = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.live.personcenter.exp.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage) && d.this.gZl != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage) && d.this.gZn != null) {
                 if (httpResponsedMessage.getError() != 0 || !httpResponsedMessage.isSuccess()) {
-                    d.this.gZl.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    d.this.gZn.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     return;
                 }
                 AlaLivePersonData PN = ((AlaGetUserInfoHttpResponseMessage) httpResponsedMessage).PN();
                 if (PN == null || PN.mUserData == null) {
-                    d.this.gZl.onFail(901, "");
+                    d.this.gZn.onFail(901, "");
                 } else {
-                    d.this.gZl.b(PN);
+                    d.this.gZn.b(PN);
                 }
             }
         }
@@ -43,12 +43,12 @@ public class d extends BdBaseModel {
 
     public d(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.gZl = aVar;
-        bYA();
-        registerListener(this.gZm);
+        this.gZn = aVar;
+        bYB();
+        registerListener(this.gZo);
     }
 
-    private void bYA() {
+    private void bYB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021039, TbConfig.SERVER_ADDRESS + "ala/user/getUserInfoSDK");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -76,6 +76,6 @@ public class d extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021039);
-        MessageManager.getInstance().unRegisterListener(this.gZm);
+        MessageManager.getInstance().unRegisterListener(this.gZo);
     }
 }

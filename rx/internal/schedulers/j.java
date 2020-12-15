@@ -7,7 +7,7 @@ import rx.g;
 import rx.k;
 /* loaded from: classes12.dex */
 public final class j extends rx.g {
-    public static final j pUd = new j();
+    public static final j pUf = new j();
 
     @Override // rx.g
     public g.a createWorker() {
@@ -19,9 +19,9 @@ public final class j extends rx.g {
 
     /* loaded from: classes12.dex */
     static final class a extends g.a implements k {
-        final AtomicInteger pII = new AtomicInteger();
-        final PriorityBlockingQueue<b> pIH = new PriorityBlockingQueue<>();
-        private final rx.subscriptions.a pTG = new rx.subscriptions.a();
+        final AtomicInteger pIK = new AtomicInteger();
+        final PriorityBlockingQueue<b> pIJ = new PriorityBlockingQueue<>();
+        private final rx.subscriptions.a pTI = new rx.subscriptions.a();
         private final AtomicInteger wip = new AtomicInteger();
 
         a() {
@@ -39,36 +39,36 @@ public final class j extends rx.g {
         }
 
         private k a(rx.functions.a aVar, long j) {
-            if (this.pTG.isUnsubscribed()) {
-                return rx.subscriptions.e.eHa();
+            if (this.pTI.isUnsubscribed()) {
+                return rx.subscriptions.e.eHb();
             }
-            final b bVar = new b(aVar, Long.valueOf(j), this.pII.incrementAndGet());
-            this.pIH.add(bVar);
+            final b bVar = new b(aVar, Long.valueOf(j), this.pIK.incrementAndGet());
+            this.pIJ.add(bVar);
             if (this.wip.getAndIncrement() == 0) {
                 do {
-                    b poll = this.pIH.poll();
+                    b poll = this.pIJ.poll();
                     if (poll != null) {
                         poll.action.call();
                     }
                 } while (this.wip.decrementAndGet() > 0);
-                return rx.subscriptions.e.eHa();
+                return rx.subscriptions.e.eHb();
             }
             return rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.schedulers.j.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.pIH.remove(bVar);
+                    a.this.pIJ.remove(bVar);
                 }
             });
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.pTG.unsubscribe();
+            this.pTI.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.pTG.isUnsubscribed();
+            return this.pTI.isUnsubscribed();
         }
     }
 
@@ -77,11 +77,11 @@ public final class j extends rx.g {
     public static final class b implements Comparable<b> {
         final rx.functions.a action;
         final int count;
-        final Long pUg;
+        final Long pUi;
 
         b(rx.functions.a aVar, Long l, int i) {
             this.action = aVar;
-            this.pUg = l;
+            this.pUi = l;
             this.count = i;
         }
 
@@ -89,7 +89,7 @@ public final class j extends rx.g {
         @Override // java.lang.Comparable
         /* renamed from: a */
         public int compareTo(b bVar) {
-            int compareTo = this.pUg.compareTo(bVar.pUg);
+            int compareTo = this.pUi.compareTo(bVar.pUi);
             if (compareTo == 0) {
                 return j.compare(this.count, bVar.count);
             }

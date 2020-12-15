@@ -9,11 +9,11 @@ public class a {
     private int mImageType;
     private String mTitle;
     private int mWidth;
-    private String nla;
-    private String nlb;
+    private String nlc;
+    private String nld;
 
-    public String dOK() {
-        return this.nla;
+    public String dOL() {
+        return this.nlc;
     }
 
     public int getImageWidth() {
@@ -24,7 +24,7 @@ public class a {
         return this.mHeight;
     }
 
-    public String dOL() {
+    public String dOM() {
         return this.eFx;
     }
 
@@ -33,7 +33,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.nlb;
+        return this.nld;
     }
 
     public void a(ActHot actHot) {
@@ -54,10 +54,10 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.nla = actHot.img_src;
+            this.nlc = actHot.img_src;
             this.eFx = actHot.link;
             this.mTitle = actHot.author_name;
-            this.nlb = actHot.img_des;
+            this.nld = actHot.img_des;
             this.mImageType = actHot.img_type.intValue();
         }
     }

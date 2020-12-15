@@ -114,7 +114,7 @@ public class a {
     }
 
     private static void b(AdvertAppInfo advertAppInfo, int i) {
-        com.baidu.tieba.recapp.report.d.dGf().a(com.baidu.tieba.recapp.report.g.b(advertAppInfo, 5, 1, i));
+        com.baidu.tieba.recapp.report.d.dGg().a(com.baidu.tieba.recapp.report.g.b(advertAppInfo, 5, 1, i));
         if (advertAppInfo != null && advertAppInfo.eEt != null) {
             advertAppInfo.eEt.mDiscardReason = i;
         }

@@ -11,60 +11,60 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class g {
-    private static g nBx;
-    private VideoHolyCardModel.a lkZ = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
+    private static g nBz;
+    private VideoHolyCardModel.a llb = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void onResult(boolean z) {
-            g.this.nBz = z;
+            g.this.nBB = z;
         }
     };
-    private boolean nBA;
-    private VideoHolyCardModel nBy;
-    private boolean nBz;
+    private VideoHolyCardModel nBA;
+    private boolean nBB;
+    private boolean nBC;
 
-    public static g dTL() {
-        if (nBx == null) {
+    public static g dTM() {
+        if (nBz == null) {
             synchronized (g.class) {
-                if (nBx == null) {
-                    nBx = new g();
+                if (nBz == null) {
+                    nBz = new g();
                 }
             }
         }
-        return nBx;
+        return nBz;
     }
 
-    public boolean dTM() {
-        return this.nBz;
+    public boolean dTN() {
+        return this.nBB;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dTN() {
-        if (this.nBy == null) {
-            this.nBy = new VideoHolyCardModel();
-            this.nBy.a(this.lkZ);
+    public void dTO() {
+        if (this.nBA == null) {
+            this.nBA = new VideoHolyCardModel();
+            this.nBA.a(this.llb);
         }
-        this.nBy.diI();
+        this.nBA.diJ();
     }
 
     public void gG(Context context) {
-        if (this.nBz && !this.nBA) {
+        if (this.nBB && !this.nBC) {
             l.showToast(context, R.string.free_data_tips);
-            this.nBA = true;
+            this.nBC = true;
         }
     }
 
     private g() {
+        dTP();
         dTO();
-        dTN();
     }
 
-    private void dTO() {
+    private void dTP() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (j.isMobileNet()) {
-                    g.this.dTN();
+                    g.this.dTO();
                 }
             }
         });

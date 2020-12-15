@@ -9,19 +9,19 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes23.dex */
 public class e implements ah, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> lYD;
-    public String lYE;
+    private ArrayList<PreLoadImageInfo> lYF;
+    public String lYG;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.lYD = new ArrayList<>(1);
+            this.lYF = new ArrayList<>(1);
             this.src = excContent.src;
-            this.lYE = excContent.bsize;
-            if (this.lYE != null) {
+            this.lYG = excContent.bsize;
+            if (this.lYG != null) {
                 try {
-                    String[] split = this.lYE.split(",");
+                    String[] split = this.lYG.split(",");
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -44,7 +44,7 @@ public class e implements ah, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.lYD.add(preLoadImageInfo);
+            this.lYF.add(preLoadImageInfo);
         }
     }
 
@@ -66,6 +66,6 @@ public class e implements ah, d {
 
     @Override // com.baidu.tbadk.core.util.ah
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.lYD;
+        return this.lYF;
     }
 }

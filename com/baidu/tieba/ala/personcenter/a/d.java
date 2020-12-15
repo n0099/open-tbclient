@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    private BdTypeListView gpX;
-    private com.baidu.tieba.ala.personcenter.d.a hMK;
-    private j hML;
+    private BdTypeListView gpZ;
+    private com.baidu.tieba.ala.personcenter.d.a hMM;
+    private j hMN;
     private TbPageContext mPageContext;
     private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
     private List<q> mDataList = new ArrayList();
 
     public d(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, com.baidu.tieba.ala.personcenter.d.a aVar) {
         this.mPageContext = tbPageContext;
-        this.gpX = bdTypeListView;
-        this.hMK = aVar;
+        this.gpZ = bdTypeListView;
+        this.hMM = aVar;
         Nt();
     }
 
@@ -31,11 +31,11 @@ public class d {
         i iVar = new i(this.mPageContext);
         e eVar = new e(this.mPageContext);
         b bVar = new b(this.mPageContext);
-        this.hML = new j(this.mPageContext);
-        l lVar = new l(this.mPageContext, this.hMK);
+        this.hMN = new j(this.mPageContext);
+        l lVar = new l(this.mPageContext, this.hMM);
         k kVar = new k(this.mPageContext);
         this.bnf.add(cVar);
-        this.bnf.add(this.hML);
+        this.bnf.add(this.hMN);
         this.bnf.add(gVar);
         this.bnf.add(hVar);
         this.bnf.add(aVar);
@@ -45,38 +45,38 @@ public class d {
         this.bnf.add(bVar);
         this.bnf.add(lVar);
         this.bnf.add(kVar);
-        this.gpX.addAdapters(this.bnf);
+        this.gpZ.addAdapters(this.bnf);
     }
 
     public void setData(List<q> list) {
-        if (this.gpX != null && !y.isEmpty(list)) {
+        if (this.gpZ != null && !y.isEmpty(list)) {
             this.mDataList.clear();
             this.mDataList.addAll(list);
-            this.gpX.setData(this.mDataList);
+            this.gpZ.setData(this.mDataList);
         }
     }
 
     public void setForumId(String str) {
-        if (this.hML != null) {
-            this.hML.setForumId(str);
+        if (this.hMN != null) {
+            this.hMN.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.hML != null) {
-            this.hML.setForumName(str);
+        if (this.hMN != null) {
+            this.hMN.setForumName(str);
         }
     }
 
     public void lZ(boolean z) {
-        if (this.hML != null) {
-            this.hML.lZ(z);
+        if (this.hMN != null) {
+            this.hMN.lZ(z);
         }
     }
 
     public void IW(String str) {
-        if (this.hML != null) {
-            this.hML.IW(str);
+        if (this.hMN != null) {
+            this.hMN.IW(str);
         }
     }
 }

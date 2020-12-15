@@ -15,8 +15,8 @@ public class a implements TextWatcher, View.OnClickListener {
     private EditText bJP;
     private TextView bJQ;
     private long brr;
-    private InterfaceC0720a gGN;
-    private long ggj;
+    private InterfaceC0720a gGP;
+    private long ggl;
     private boolean mIsHost;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -32,7 +32,7 @@ public class a implements TextWatcher, View.OnClickListener {
     public a(TbPageContext tbPageContext, View.OnClickListener onClickListener, InterfaceC0720a interfaceC0720a) {
         this.mPageContext = tbPageContext;
         this.mOnClickListener = onClickListener;
-        this.gGN = interfaceC0720a;
+        this.gGP = interfaceC0720a;
         initView();
     }
 
@@ -49,7 +49,7 @@ public class a implements TextWatcher, View.OnClickListener {
 
     public void b(long j, long j2, long j3, boolean z) {
         this.brr = j;
-        this.ggj = j2;
+        this.ggl = j2;
         this.mUserId = j3;
         this.mIsHost = z;
     }
@@ -93,8 +93,8 @@ public class a implements TextWatcher, View.OnClickListener {
                 }
             }
         }
-        if (this.gGN != null) {
-            this.gGN.afterTextChanged(editable);
+        if (this.gGP != null) {
+            this.gGP.afterTextChanged(editable);
         }
     }
 

@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class c {
-    private boolean pkX;
-    private boolean pkY;
     private boolean pkZ;
     private boolean pla;
+    private boolean plb;
+    private boolean plc;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b plb;
-    private int pkW = 100;
+    private com.facebook.imagepipeline.decoder.b pld;
+    private int pkY = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int ets() {
-        return this.pkW;
-    }
-
-    public boolean ett() {
-        return this.pkX;
-    }
-
-    public boolean etu() {
+    public int ett() {
         return this.pkY;
     }
 
-    public boolean etv() {
+    public boolean etu() {
         return this.pkZ;
     }
 
+    public boolean etv() {
+        return this.pla;
+    }
+
+    public boolean etw() {
+        return this.plb;
+    }
+
     public c AV(boolean z) {
-        this.pla = z;
+        this.plc = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b etw() {
-        return this.plb;
+    public com.facebook.imagepipeline.decoder.b etx() {
+        return this.pld;
     }
 
-    public boolean etx() {
-        return this.pla;
+    public boolean ety() {
+        return this.plc;
     }
 
-    public Bitmap.Config ety() {
+    public Bitmap.Config etz() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b etz() {
+    public b etA() {
         return new b(this);
     }
 }

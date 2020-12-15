@@ -5,7 +5,7 @@ import com.baidu.adp.widget.ListView.af;
 /* loaded from: classes.dex */
 public abstract class e extends af.a {
     public View.OnClickListener foP;
-    public int kbp;
+    public int kbr;
 
     public abstract void a(c cVar);
 

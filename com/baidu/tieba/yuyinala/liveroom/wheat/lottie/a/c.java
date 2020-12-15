@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public class c {
-    public static String owT = "dating_anim_md5_";
+    public static String owV = "dating_anim_md5_";
 
     public static void b(final String str, final String str2, final b.a aVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !WU(str)) {
@@ -65,7 +65,7 @@ public class c {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String str2 = owT + str;
+        String str2 = owV + str;
         String WW = WW(com.baidu.live.ag.b.iH(str));
         return com.baidu.live.h.a.existFile(WW) && com.baidu.live.h.a.isDirectory(WW) && !com.baidu.live.h.b.b(WW, com.baidu.live.h.b.gJ(str2));
     }
@@ -82,7 +82,7 @@ public class c {
                         jSONArray.put(fileMd5);
                     }
                 }
-                d.BM().putString(owT + str, jSONArray.toString());
+                d.BM().putString(owV + str, jSONArray.toString());
             }
         }
     }
